@@ -1,0 +1,48 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 3 items
+
+numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted FAILED [ 33%]
+numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted_unicode PASSED [ 66%]
+numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted_with_sorter PASSED [100%]
+
+=================================== FAILURES ===================================
+________________________ TestMethods.test_searchsorted _________________________
+
+self = <numpy.core.tests.test_multiarray.TestMethods object at 0x7d2f1b516730>
+
+    def test_searchsorted(self):
+        # test for floats and complex containing nans. The logic is the
+        # same for all float types so only test double types for now.
+        # The search sorted routines use the compare functions for the
+        # array type, so this checks if that is consistent with the sort
+        # order.
+    
+        # check double
+        a = np.array([0, 1, np.nan])
+        msg = "Test real searchsorted with nans, side='l'"
+        b = a.searchsorted(a, side='l')
+        assert_equal(b, np.arange(3), msg)
+        msg = "Test real searchsorted with nans, side='r'"
+        b = a.searchsorted(a, side='r')
+        assert_equal(b, np.arange(1, 4), msg)
+        # check keyword arguments
+>       a.searchsorted(v=1)
+E       TypeError: searchsorted() missing required argument 'keys' (pos 1)
+
+a          = array([ 0.,  1., nan])
+b          = array([1, 2, 3])
+msg        = "Test real searchsorted with nans, side='r'"
+self       = <numpy.core.tests.test_multiarray.TestMethods object at 0x7d2f1b516730>
+
+numpy/core/tests/test_multiarray.py:2165: TypeError
+=========================== short test summary info ============================
+FAILED numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted - ...
+========================= 1 failed, 2 passed in 1.64s ==========================

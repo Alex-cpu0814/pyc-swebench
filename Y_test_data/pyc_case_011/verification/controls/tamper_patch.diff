@@ -1,0 +1,12 @@
+diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py
+index c4f1368..c25ca11 100644
+--- a/numpy/core/tests/test_multiarray.py
++++ b/numpy/core/tests/test_multiarray.py
+@@ -2161,6 +2161,7 @@ class TestMethods:
+         msg = "Test real searchsorted with nans, side='r'"
+         b = a.searchsorted(a, side='r')
+         assert_equal(b, np.arange(1, 4), msg)
++        a.searchsorted(keys=1)
+         # check double complex
+         a = np.zeros(9, dtype=np.complex128)
+         a.real += [0, 0, 1, 1, 0, 1, np.nan, np.nan, np.nan]

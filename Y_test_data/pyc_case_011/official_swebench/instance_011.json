@@ -1,0 +1,20 @@
+{
+  "repo": "numpy/numpy",
+  "instance_id": "numpy__numpy-15164",
+  "base_commit": "2acfd9851b6a5246e5e5e3faa97c9e728e88f8a9",
+  "patch": "diff --git a/numpy/core/src/multiarray/methods.c b/numpy/core/src/multiarray/methods.c\nindex e5845f2..ae26bbd 100644\n--- a/numpy/core/src/multiarray/methods.c\n+++ b/numpy/core/src/multiarray/methods.c\n@@ -1469,7 +1469,7 @@ array_argpartition(PyArrayObject *self, PyObject *args, PyObject *kwds)\n static PyObject *\n array_searchsorted(PyArrayObject *self, PyObject *args, PyObject *kwds)\n {\n-    static char *kwlist[] = {\"keys\", \"side\", \"sorter\", NULL};\n+    static char *kwlist[] = {\"v\", \"side\", \"sorter\", NULL};\n     PyObject *keys;\n     PyObject *sorter;\n     NPY_SEARCHSIDE side = NPY_SEARCHLEFT;\n",
+  "test_patch": "diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py\nindex c4f1368..bf1fcc7 100644\n--- a/numpy/core/tests/test_multiarray.py\n+++ b/numpy/core/tests/test_multiarray.py\n@@ -2161,6 +2161,8 @@ class TestMethods:\n         msg = \"Test real searchsorted with nans, side='r'\"\n         b = a.searchsorted(a, side='r')\n         assert_equal(b, np.arange(1, 4), msg)\n+        # check keyword arguments\n+        a.searchsorted(v=1)\n         # check double complex\n         a = np.zeros(9, dtype=np.complex128)\n         a.real += [0, 0, 1, 1, 0, 1, np.nan, np.nan, np.nan]\n",
+  "problem_statement": "ndarray.searchsorted documents its required value argument as v, but the C method parser exposes the keyword as keys. Calling searchsorted(v=...) therefore raises a TypeError instead of accepting the documented keyword.",
+  "hints_text": "",
+  "created_at": "2020-01-06",
+  "version": "1.19.0.dev0",
+  "issue_id": 15164,
+  "issue_url": "https://github.com/numpy/numpy/pull/15164",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted_unicode",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_searchsorted_with_sorter"
+  ]
+}

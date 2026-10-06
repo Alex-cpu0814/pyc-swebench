@@ -1,0 +1,12 @@
+diff --git a/README.md b/README.md
+index 276261a..f934bc8 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,7 @@
+ # <img alt="NumPy" src="https://cdn.rawgit.com/numpy/numpy/master/branding/icons/numpylogo.svg" height="60">
+ 
++This evaluator control does not correct the searchsorted keyword.
++
+ [![Travis](https://img.shields.io/travis/numpy/numpy/master.svg?label=Travis%20CI)](
+     https://travis-ci.org/numpy/numpy)
+ [![Azure](https://dev.azure.com/numpy/numpy/_apis/build/status/azure-pipeline%20numpy.numpy)](

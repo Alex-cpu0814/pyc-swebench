@@ -1,0 +1,44 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.06kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#4 resolve docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#4 resolve docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214 0.0s done
+#4 DONE 0.0s
+
+#5 [4/6] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/numpy/numpy.git"     && git fetch --depth=1 origin "2acfd9851b6a5246e5e5e3faa97c9e728e88f8a9"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "2acfd9851b6a5246e5e5e3faa97c9e728e88f8a9"     && mkdir -p /benchmark /inputs /results
+#5 CACHED
+
+#6 [5/6] WORKDIR /testbed
+#6 CACHED
+
+#7 [2/6] RUN apt-get update     && apt-get install -y --no-install-recommends        build-essential ca-certificates gfortran git libopenblas-dev        pkg-config python3.8-dbg python3.8-dev python3-pip python3-setuptools     && if [[ -n "" ]]; then apt-get install -y --no-install-recommends ; fi     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [3/6] RUN python3.8-dbg -m pip install --no-cache-dir       "pip<24.1" "setuptools<70" "wheel<0.42"       Cython==0.29.36 hypothesis==5.14.0 pytz==2020.1       pytest==5.4.2 pytest-env==0.6.2 pytest-leaks==0.3.1
+#8 CACHED
+
+#9 [6/6] RUN python3.8-dbg setup.py build_ext -i     && python3.8-dbg -c "import numpy; print(numpy.__version__)"     && test -z "$(git status --porcelain)"
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:6c2bf76cbb156f111b43a6b1df350952487f9ce7cb66359abb12ee1ef53dc94c 0.0s done
+#10 exporting config sha256:32515af45933f9ad26287c58f0816330972e91a6219411b23897e1849eb1bf73 0.0s done
+#10 exporting attestation manifest sha256:19d492f0f0a5ba19a55e7416c510e91d11a69f5e4c9877bf5abab50df7f2fa6c 0.0s done
+#10 exporting manifest list sha256:08f623a56a982260b08f7c3f5bfedf171de71ab39d2022e893e403887fd93873 0.0s done
+#10 naming to docker.io/yutu0814/pyc-case-011-numpy:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-011-numpy:benchmark-v1 done
+#10 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/i2gkfoayb0x2vcn64pydnfwjc
