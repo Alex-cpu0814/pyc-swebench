@@ -1,0 +1,171 @@
+Running from numpy source directory.
+Cythonizing sources
+numpy/random/bounded_integers.pxd.in has not changed
+numpy/random/mtrand.pyx has not changed
+numpy/random/generator.pyx has not changed
+numpy/random/mt19937.pyx has not changed
+numpy/random/philox.pyx has not changed
+numpy/random/bounded_integers.pyx.in has not changed
+numpy/random/sfc64.pyx has not changed
+numpy/random/bit_generator.pyx has not changed
+numpy/random/common.pyx has not changed
+numpy/random/pcg64.pyx has not changed
+Processing numpy/random/bounded_integers.pyx
+blas_opt_info:
+blas_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+blis_info:
+customize UnixCCompiler
+  libraries blis not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+/bin/sh: 1: svnversion: not found
+non-existing path in 'numpy/distutils': 'site.cfg'
+lapack_opt_info:
+lapack_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_lapack_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+creating /tmp/tmp8lxw9jei/tmp
+creating /tmp/tmp8lxw9jei/tmp/tmp8lxw9jei
+compile options: '-c'
+x86_64-linux-gnu-gcc: /tmp/tmp8lxw9jei/source.c
+x86_64-linux-gnu-gcc -pthread /tmp/tmp8lxw9jei/tmp/tmp8lxw9jei/source.o -lopenblas -o /tmp/tmp8lxw9jei/a.out
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+/usr/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'define_macros'
+  warnings.warn(msg)
+running build_ext
+running build_src
+build_src
+building py_modules sources
+building library "npymath" sources
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using config
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+success!
+removing: _configtest.c _configtest.o _configtest.o.d _configtest
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+_configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+    1 | int exp (void);
+      |     ^~~
+_configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+  +++ |+#include <math.h>
+    1 | int exp (void);
+x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+/usr/bin/ld: _configtest.o: in function `main':
+/testbed/_configtest.c:6: undefined reference to `exp'
+collect2: error: ld returned 1 exit status
+failure.
+removing: _configtest.c _configtest.o _configtest.o.d
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+_configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+    1 | int exp (void);
+      |     ^~~
+_configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+  +++ |+#include <math.h>
+    1 | int exp (void);
+x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+success!
+removing: _configtest.c _configtest.o _configtest.o.d _configtest
+  adding 'numpy/core/src/npymath' to include_dirs.
+None - nothing done with h_files = ['numpy/core/src/npymath/npy_math_internal.h']
+building library "npysort" sources
+  adding 'numpy/core/src/common' to include_dirs.
+None - nothing done with h_files = ['numpy/core/src/common/npy_sort.h', 'numpy/core/src/common/npy_partition.h', 'numpy/core/src/common/npy_binsearch.h']
+building extension "numpy.core._multiarray_tests" sources
+building extension "numpy.core._multiarray_umath" sources
+  adding 'numpy/core/include/numpy/config.h' to sources.
+  adding 'numpy/core/include/numpy/_numpyconfig.h' to sources.
+executing numpy/core/code_generators/generate_numpy_api.py
+  adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+executing numpy/core/code_generators/generate_ufunc_api.py
+  adding 'numpy/core/include/numpy/__ufunc_api.h' to sources.
+  adding 'numpy/core/src/umath' to include_dirs.
+  adding 'numpy/core/src/npymath' to include_dirs.
+  adding 'numpy/core/src/common' to include_dirs.
+numpy.core - nothing done with h_files = ['numpy/core/src/umath/funcs.inc', 'numpy/core/src/umath/simd.inc', 'numpy/core/src/umath/loops.h', 'numpy/core/src/umath/matmul.h', 'numpy/core/src/umath/clip.h', 'numpy/core/src/npymath/npy_math_internal.h', 'numpy/core/src/common/templ_common.h', 'numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/_numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h', 'numpy/core/include/numpy/__ufunc_api.h']
+building extension "numpy.core._umath_tests" sources
+building extension "numpy.core._rational_tests" sources
+building extension "numpy.core._struct_ufunc_tests" sources
+building extension "numpy.core._operand_flag_tests" sources
+building extension "numpy.fft._pocketfft_internal" sources
+building extension "numpy.linalg.lapack_lite" sources
+  adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+building extension "numpy.linalg._umath_linalg" sources
+  adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+building extension "numpy.random.mt19937" sources
+building extension "numpy.random.philox" sources
+building extension "numpy.random.pcg64" sources
+building extension "numpy.random.sfc64" sources
+building extension "numpy.random.common" sources
+building extension "numpy.random.bit_generator" sources
+building extension "numpy.random.generator" sources
+building extension "numpy.random.bounded_integers" sources
+building extension "numpy.random.mtrand" sources
+building data_files sources
+build_src: building npy-pkg config files
+customize UnixCCompiler
+customize UnixCCompiler using build_clib
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+building 'numpy.random.bounded_integers' extension
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -DNPY_NO_DEPRECATED_API=0 -Inumpy/random -Inumpy/random/src -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+extra options: '-U__GNUC_GNU_INLINE__ -std=c99 -msse2'
+x86_64-linux-gnu-gcc: numpy/random/src/distributions/logfactorial.cx86_64-linux-gnu-gcc: numpy/random/src/distributions/distributions.c
+
+x86_64-linux-gnu-gcc: numpy/random/bounded_integers.c
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/random/bounded_integers.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/logfactorial.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/distributions.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/random_hypergeometric.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lm -o numpy/random/bounded_integers.cpython-38d-x86_64-linux-gnu.so

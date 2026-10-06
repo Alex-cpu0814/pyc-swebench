@@ -1,0 +1,29 @@
+{
+  "instance_id": "pyc__numpy_numpy__3d31770c__line963__ravel_multi_index_loop__case13",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": ["python3.8-dbg -m pytest -vv <selected official nodes>"],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/lib/tests/test_index_tricks.py.",
+    "On Base, clip fails because ValueError is not raised and wrap terminates with SIGFPE.",
+    "Two unmodified neighboring ravel/unravel tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "663b161074580a340201da1765e3618c086ff8dc",
+  "fix_commit": "3d31770c61ea2412267c233d38ccc33d5d3a0610",
+  "test_source": "official_project_tests",
+  "test_files": ["numpy/lib/tests/test_index_tricks.py"],
+  "FAIL_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_array_ravel[clip]",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_array_ravel[wrap]"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes"
+  ]
+}

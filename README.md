@@ -12,9 +12,10 @@ SWE-bench-compatible layout.
 | `pyc_case_007` | `numpy/numpy` | PR #16351 / commit `a9652077` | Base: official test LEAKED; Gold: target and regression passed |
 | `pyc_case_010` | `numpy/numpy` | PR #16276 / merge `8cb86fd7` | Base: 6 target failures; Gold: 6 targets and 3 regressions passed |
 | `pyc_case_011` | `numpy/numpy` | PR #15164 / merge `21e796e1` | Base: target failed; Gold: target and 2 regressions passed |
+| `pyc_case_013` | `numpy/numpy` | PR #14585 / merge `3d31770c` | Base: ValueError missing / SIGFPE; Gold: 2 targets and 2 regressions passed |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
-Cases 7, 10, and 11 are unique by their full fix commits.
+Cases 7, 10, 11, and 13 are unique by their full fix commits.
 
 Each case keeps the upstream product patch and test patch separate, provides a
 clean Docker evaluator, and stores private/public task records under

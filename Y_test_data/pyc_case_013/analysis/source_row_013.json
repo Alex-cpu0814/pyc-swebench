@@ -1,0 +1,46 @@
+{
+  "instance_id": "pyc__numpy_numpy__3d31770c__line963__ravel_multi_index_loop__case13",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "13",
+  "duplicate_source_cases": [],
+  "deduplication_key": "3d31770c61ea2412267c233d38ccc33d5d3a0610",
+  "language_pair": "Python-C",
+  "repo": "numpy/numpy",
+  "issue_id": 14585,
+  "issue_url": "https://github.com/numpy/numpy/pull/14585",
+  "commit": "3d31770c61ea2412267c233d38ccc33d5d3a0610",
+  "base_commit": "663b161074580a340201da1765e3618c086ff8dc",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "3d31770c61ea2412267c233d38ccc33d5d3a0610",
+  "commit_url": "https://github.com/numpy/numpy/commit/3d31770c61ea2412267c233d38ccc33d5d3a0610",
+  "problem_statement": "numpy.ravel_multi_index does not reject non-empty indices when one dimension is zero. Depending on mode, Base returns without the required ValueError or performs division by zero and terminates with SIGFPE. Empty index arrays must remain valid.",
+  "symptom": "crash or invalid results",
+  "bug_location": "line 963",
+  "bug_location_type": "assignment",
+  "bug_path": "977(c_compiled_base_13-cfg.dot) (ravel_multi_index_loop) -> 934(c_compiled_base_13-cfg.dot) (ravel_multi_index_loop) -> 1118(c_compiled_base_14-cfg.dot) (arr_ravel_multi_index) -> 1004(c_compiled_base_14-cfg.dot) (arr_ravel_multi_index) -> 106(py_test_index_tricks_4-cfg.dot) (test_big_indices)",
+  "cross_language_type": "PyErr_SetString, Foreign, Exception Handling",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Division by Zero",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement + loop statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/numpy/numpy/pull/14585",
+    "upstream_description": "The upstream patch checks zero-sized dimensions before entering the ravel loop when the index count is nonzero.",
+    "verified_error": "On Base, clip fails with AssertionError: ValueError not raised; wrap terminates in ravel_multi_index with Floating point exception (SIGFPE).",
+    "verified_test": "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_array_ravel"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_array_ravel[clip]",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_array_ravel[wrap]"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}
