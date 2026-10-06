@@ -1,0 +1,11 @@
+diff --git a/numpy/core/tests/test_dtype.py b/numpy/core/tests/test_dtype.py
+--- a/numpy/core/tests/test_dtype.py
++++ b/numpy/core/tests/test_dtype.py
+@@ -419,6 +419,7 @@ class TestRecord(object):
+         assert_raises(ValueError, np.dtype,
+                 {'formats': ['i4', 'i4'], 'f0': ('i4', 0), 'f1':('i4', 4)})
+ 
++    # Candidate patch must not alter protected official-test context.
+ 
+ class TestSubarray(object):
+     def test_single_subarray(self):

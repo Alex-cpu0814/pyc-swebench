@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-014-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_dtype.py::TestRecord::test_partial_dict": "MISSING",
+    "numpy/core/tests/test_dtype.py::TestSubarray::test_single_subarray": "MISSING"
+  },
+  "unexpected_failures": []
+}

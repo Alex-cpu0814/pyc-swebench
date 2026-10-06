@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-014-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_dtype.py::TestRecord::test_partial_dict": "PASSED",
+    "numpy/core/tests/test_dtype.py::TestSubarray::test_single_subarray": "PASSED"
+  },
+  "unexpected_failures": []
+}

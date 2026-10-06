@@ -1,0 +1,45 @@
+{
+  "instance_id": "pyc__numpy_numpy__f786041d__line3847__PyArray_FromBuffer__case14",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "14",
+  "duplicate_source_cases": [],
+  "deduplication_key": "f786041db9697f58b087e18198561db8b28235c4",
+  "language_pair": "Python-C",
+  "repo": "numpy/numpy",
+  "issue_id": 14393,
+  "issue_url": "https://github.com/numpy/numpy/pull/14393",
+  "commit": "f786041db9697f58b087e18198561db8b28235c4",
+  "base_commit": "495d352bf325f44d78001f059d625123e49f027e",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "f786041db9697f58b087e18198561db8b28235c4",
+  "commit_url": "https://github.com/numpy/numpy/commit/f786041db9697f58b087e18198561db8b28235c4",
+  "problem_statement": "NumPy treats a fieldless structured dtype with itemsize 0 as an unsized flexible dtype. As a result, ndarray.view can incorrectly accept a fieldless dtype whose itemsize does not match the source array instead of raising ValueError; related zero-itemsize constructors also need consistent handling.",
+  "symptom": "incorrect output",
+  "bug_location": "line 3847",
+  "bug_location_type": "Conditional expression",
+  "bug_path": "3847(c_ctors_55-cfg.dot) (PyArray_FromBuffer) ... -> 3775(c_ctors_55-cfg.dot) (PyArray_FromBuffer) -> 2156(c_multiarraymodule_45-cfg.dot) (array_frombuffer) ... -> 2139(c_multiarraymodule_45-cfg.dot) (array_frombuffer) -> 49(py_testFlat_4-cfg.dot) (testProcess3D)",
+  "cross_language_type": "PyIter_Next,Foreign,Iterator Protocol,PyErr_SetString,Foreign,Exception Handling,PyObject_LengthHint,Foreign,Object Protocol,Py_DECREF,Foreign,Reference Counting,PyArray_NewFromDescr,NAX,Array API,PyDataType_REFCHK,NAX,Python types and C-structures,PyDataType_ISUNSIZED,NAX,Python types and C-structures",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Division by Zero",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement + Foreign function",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/numpy/numpy/pull/14393",
+    "upstream_description": "The upstream patch distinguishes fieldless structured dtypes from genuinely unsized flexible dtypes and fixes view, frombuffer, fromiter, comparison, and pickle paths, with an official fieldless-dtype regression test.",
+    "verified_error": "On Base, the official test fails at assert_raises(ValueError, a.view, np.dtype([])) with AssertionError: ValueError not raised by view.",
+    "verified_test": "numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_dtype.py::TestRecord::test_partial_dict",
+    "numpy/core/tests/test_dtype.py::TestSubarray::test_single_subarray"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

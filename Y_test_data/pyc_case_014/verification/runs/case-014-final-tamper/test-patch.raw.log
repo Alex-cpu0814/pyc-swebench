@@ -1,0 +1,2 @@
+error: patch failed: numpy/core/tests/test_dtype.py:419
+error: numpy/core/tests/test_dtype.py: patch does not apply

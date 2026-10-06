@@ -1,0 +1,367 @@
+Running from numpy source directory.
+Cythonizing sources
+numpy/random/bounded_integers.pxd.in has not changed
+numpy/random/mtrand.pyx has not changed
+numpy/random/generator.pyx has not changed
+numpy/random/mt19937.pyx has not changed
+numpy/random/philox.pyx has not changed
+numpy/random/bounded_integers.pyx.in has not changed
+numpy/random/sfc64.pyx has not changed
+numpy/random/bit_generator.pyx has not changed
+numpy/random/common.pyx has not changed
+numpy/random/pcg64.pyx has not changed
+numpy/random/entropy.pyx has not changed
+Processing numpy/random/bounded_integers.pyx
+blas_opt_info:
+blas_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+blis_info:
+customize UnixCCompiler
+  libraries blis not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+/bin/sh: 1: svnversion: not found
+non-existing path in 'numpy/distutils': 'site.cfg'
+lapack_opt_info:
+lapack_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_lapack_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+creating /tmp/tmpc4i8jluw/tmp
+creating /tmp/tmpc4i8jluw/tmp/tmpc4i8jluw
+compile options: '-c'
+x86_64-linux-gnu-gcc: /tmp/tmpc4i8jluw/source.c
+x86_64-linux-gnu-gcc -pthread /tmp/tmpc4i8jluw/tmp/tmpc4i8jluw/source.o -lopenblas -o /tmp/tmpc4i8jluw/a.out
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+non-existing path in 'numpy/random': 'src/splitmix64/splitmix.h'
+/usr/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'define_macros'
+  warnings.warn(msg)
+running build_ext
+running build_src
+build_src
+building py_modules sources
+building library "npymath" sources
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using config
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+success!
+removing: _configtest.c _configtest.o _configtest.o.d _configtest
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+_configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+    1 | int exp (void);
+      |     ^~~
+_configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+  +++ |+#include <math.h>
+    1 | int exp (void);
+x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+/usr/bin/ld: _configtest.o: in function `main':
+/testbed/_configtest.c:6: undefined reference to `exp'
+collect2: error: ld returned 1 exit status
+failure.
+removing: _configtest.c _configtest.o _configtest.o.d
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+x86_64-linux-gnu-gcc: _configtest.c
+_configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+    1 | int exp (void);
+      |     ^~~
+_configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+  +++ |+#include <math.h>
+    1 | int exp (void);
+x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+success!
+removing: _configtest.c _configtest.o _configtest.o.d _configtest
+  adding 'numpy/core/src/npymath' to include_dirs.
+None - nothing done with h_files = ['numpy/core/src/npymath/npy_math_internal.h']
+building library "npysort" sources
+  adding 'numpy/core/src/common' to include_dirs.
+None - nothing done with h_files = ['numpy/core/src/common/npy_sort.h', 'numpy/core/src/common/npy_partition.h', 'numpy/core/src/common/npy_binsearch.h']
+building extension "numpy.core._dummy" sources
+  adding 'numpy/core/include/numpy/config.h' to sources.
+  adding 'numpy/core/include/numpy/_numpyconfig.h' to sources.
+executing numpy/core/code_generators/generate_numpy_api.py
+  adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+numpy.core - nothing done with h_files = ['numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/_numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h']
+building extension "numpy.core._multiarray_tests" sources
+building extension "numpy.core._multiarray_umath" sources
+  adding 'numpy/core/include/numpy/config.h' to sources.
+  adding 'numpy/core/include/numpy/_numpyconfig.h' to sources.
+executing numpy/core/code_generators/generate_numpy_api.py
+  adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+executing numpy/core/code_generators/generate_ufunc_api.py
+  adding 'numpy/core/include/numpy/__ufunc_api.h' to sources.
+conv_template:> numpy/core/src/multiarray/arraytypes.c
+conv_template:> numpy/core/src/multiarray/einsum.c
+conv_template:> numpy/core/src/multiarray/lowlevel_strided_loops.c
+conv_template:> numpy/core/src/multiarray/nditer_templ.c
+conv_template:> numpy/core/src/multiarray/scalartypes.c
+conv_template:> numpy/core/src/umath/funcs.inc
+  adding 'numpy/core/src/umath' to include_dirs.
+conv_template:> numpy/core/src/umath/simd.inc
+conv_template:> numpy/core/src/umath/loops.h
+conv_template:> numpy/core/src/umath/loops.c
+conv_template:> numpy/core/src/umath/matmul.h
+conv_template:> numpy/core/src/umath/matmul.c
+conv_template:> numpy/core/src/umath/clip.h
+conv_template:> numpy/core/src/umath/clip.c
+conv_template:> numpy/core/src/umath/scalarmath.c
+conv_template:> numpy/core/src/npymath/npy_math_internal.h
+  adding 'numpy/core/src/npymath' to include_dirs.
+conv_template:> numpy/core/src/npymath/ieee754.c
+conv_template:> numpy/core/src/npymath/npy_math_complex.c
+conv_template:> numpy/core/src/common/templ_common.h
+  adding 'numpy/core/src/common' to include_dirs.
+numpy.core - nothing done with h_files = ['numpy/core/src/umath/funcs.inc', 'numpy/core/src/umath/simd.inc', 'numpy/core/src/umath/loops.h', 'numpy/core/src/umath/matmul.h', 'numpy/core/src/umath/clip.h', 'numpy/core/src/npymath/npy_math_internal.h', 'numpy/core/src/common/templ_common.h', 'numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/_numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h', 'numpy/core/include/numpy/__ufunc_api.h']
+building extension "numpy.core._umath_tests" sources
+building extension "numpy.core._rational_tests" sources
+building extension "numpy.core._struct_ufunc_tests" sources
+building extension "numpy.core._operand_flag_tests" sources
+building extension "numpy.fft._pocketfft_internal" sources
+building extension "numpy.linalg.lapack_lite" sources
+  adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+building extension "numpy.linalg._umath_linalg" sources
+  adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+building extension "numpy.random.entropy" sources
+building extension "numpy.random.mt19937" sources
+building extension "numpy.random.philox" sources
+building extension "numpy.random.pcg64" sources
+building extension "numpy.random.sfc64" sources
+building extension "numpy.random.common" sources
+building extension "numpy.random.bit_generator" sources
+building extension "numpy.random.generator" sources
+building extension "numpy.random.bounded_integers" sources
+building extension "numpy.random.mtrand" sources
+building data_files sources
+build_src: building npy-pkg config files
+customize UnixCCompiler
+customize UnixCCompiler using build_clib
+building 'npymath' library
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-Inumpy/core/src/npymath -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/ieee754.c
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/halffloat.cx86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math.cx86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math_complex.c
+
+
+x86_64-linux-gnu-gcc-ar: adding 4 object files to build/temp.linux-x86_64-3.8-pydebug/libnpymath.a
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+building 'numpy.core._multiarray_umath' extension
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -DHAVE_CBLAS -Inumpy/core/src/umath -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/alloc.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/convert.cx86_64-linux-gnu-gcc: numpy/core/src/multiarray/arrayfunction_override.cx86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_strings.c
+
+
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/arrayobject.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/buffer.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/convert_datatype.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_busday.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/calculation.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_busdaycal.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/conversion_utils.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/arraytypes.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/descriptor.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/compiled_base.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/ctors.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/common.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/dragon4.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/dtype_transfer.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/item_selection.c
+numpy/core/src/multiarray/datetime.c: In function ‘convert_datetime_divisor_to_multiple’:
+numpy/core/src/multiarray/datetime.c:983:15: warning: ‘q’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  983 |     meta->num *= q;
+      |               ^~
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/einsum.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/multiarraymodule.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/iterators.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/lowlevel_strided_loops.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_templ.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/flagsobject.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/getset.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_api.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/hashdescr.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/number.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_constr.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/array_assign_scalar.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/refcount.c
+numpy/core/src/multiarray/nditer_constr.c: In function ‘npyiter_allocate_arrays’:
+numpy/core/src/multiarray/nditer_constr.c:3059:40: warning: ‘innershape’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 3059 |                             innershape *= shape;
+      |                             ~~~~~~~~~~~^~~~~~~~
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/array_assign_array.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/sequence.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/scalartypes.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/shape.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_pywrap.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/scalarapi.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/vdot.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/clip.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/umathmodule.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/reduction.c
+In file included from numpy/core/src/umath/simd.inc.src:30,
+                 from numpy/core/src/umath/fast_loop_macros.h:13,
+                 from numpy/core/src/umath/clip.c.src:15:
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1020:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1020 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1020:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1020 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+x86_64-linux-gnu-gcc: numpy/core/src/umath/loops.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/ufunc_object.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/strfuncs.c
+In file included from numpy/core/src/umath/simd.inc.src:30,
+                 from numpy/core/src/umath/loops.c.src:47:
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1020:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1020 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_FLOAT’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1020:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1020 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_DOUBLE’:
+numpy/core/src/umath/simd.inc.src:1072:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+ 1072 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+      |              ^
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/temp_elide.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/typeinfo.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/usertypes.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/ufunc_type_resolution.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/extobj.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/override.c
+numpy/core/src/umath/override.c: In function ‘normalize___call___args’:
+numpy/core/src/umath/override.c:180:12: warning: ‘not_all_none’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  180 |         if (not_all_none) {
+      |            ^
+x86_64-linux-gnu-gcc: numpy/core/src/umath/cpuid.c
+In file included from /usr/include/python3.8d/pytime.h:6,
+                 from /usr/include/python3.8d/Python.h:85,
+                 from numpy/core/include/numpy/npy_3kcompat.h:13,
+                 from numpy/core/src/common/npy_pycompat.h:4,
+                 from numpy/core/src/umath/override.c:4:
+numpy/core/src/umath/override.c: In function ‘PyUFunc_CheckOverride’:
+/usr/include/python3.8d/object.h:478:9: warning: ‘override_array_ufunc’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  478 |         _Py_Dealloc(op);
+      |         ^~~~~~~~~~~~~~~
+numpy/core/src/umath/override.c:595:19: note: ‘override_array_ufunc’ was declared here
+  595 |         PyObject *override_array_ufunc;
+      |                   ^~~~~~~~~~~~~~~~~~~~
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/scalarmath.c
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/ieee754.c
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math_complex.c
+x86_64-linux-gnu-gcc: numpy/core/src/npymath/halffloat.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/array_assign.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/mem_overlap.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/npy_longdouble.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/ucsnarrow.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/ufunc_override.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/numpyos.c
+x86_64-linux-gnu-gcc: numpy/core/src/common/cblasfuncs.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/mapping.c
+x86_64-linux-gnu-gcc: numpy/core/src/multiarray/methods.c
+x86_64-linux-gnu-gcc: numpy/core/src/umath/matmul.c
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/alloc.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arrayobject.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arraytypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/array_assign_scalar.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/array_assign_array.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arrayfunction_override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/buffer.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/calculation.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/compiled_base.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/common.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/convert.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/convert_datatype.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/conversion_utils.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/ctors.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_strings.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_busday.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_busdaycal.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/descriptor.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/dragon4.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/dtype_transfer.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/einsum.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/flagsobject.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/getset.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/hashdescr.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/item_selection.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/iterators.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/lowlevel_strided_loops.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/mapping.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/methods.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/multiarraymodule.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_templ.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_api.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_constr.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_pywrap.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/number.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/refcount.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/sequence.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/shape.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/scalarapi.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/scalartypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/strfuncs.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/temp_elide.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/typeinfo.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/usertypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/vdot.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/umathmodule.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/reduction.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/loops.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/matmul.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/clip.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/ufunc_object.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/extobj.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/cpuid.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/scalarmath.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/ufunc_type_resolution.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/npy_math.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/ieee754.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/npy_math_complex.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/halffloat.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/array_assign.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/mem_overlap.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/npy_longdouble.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/ucsnarrow.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/ufunc_override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/numpyos.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/cblasfuncs.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/python_xerbla.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lnpymath -lnpysort -lopenblas -lopenblas -lm -o numpy/core/_multiarray_umath.cpython-38d-x86_64-linux-gnu.so
+building 'numpy.random.entropy' extension
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -DNPY_NO_DEPRECATED_API=0 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+extra options: '-U__GNUC_GNU_INLINE__ -std=c99 -msse2'
+x86_64-linux-gnu-gcc: numpy/random/entropy.c
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/random/entropy.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/entropy/entropy.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lm -o numpy/random/entropy.cpython-38d-x86_64-linux-gnu.so
+building 'numpy.random.bounded_integers' extension
+compiling C sources
+C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+compile options: '-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -DNPY_NO_DEPRECATED_API=0 -Inumpy/random -Inumpy/random/src -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+extra options: '-U__GNUC_GNU_INLINE__ -std=c99 -msse2'
+x86_64-linux-gnu-gcc: numpy/random/src/distributions/distributions.cx86_64-linux-gnu-gcc: numpy/random/src/distributions/logfactorial.c
+x86_64-linux-gnu-gcc: numpy/random/bounded_integers.c
+
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/random/bounded_integers.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/logfactorial.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/distributions.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/src/distributions/random_hypergeometric.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lm -o numpy/random/bounded_integers.cpython-38d-x86_64-linux-gnu.so

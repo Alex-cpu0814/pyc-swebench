@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc__numpy_numpy__f786041d__line3847__PyArray_FromBuffer__case14",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": [
+    "python3.8-dbg -m pytest -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/core/tests/test_dtype.py.",
+    "On Base, the official test fails at assert_raises(ValueError, a.view, np.dtype([])) with AssertionError: ValueError not raised by view.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "495d352bf325f44d78001f059d625123e49f027e",
+  "fix_commit": "f786041db9697f58b087e18198561db8b28235c4",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/core/tests/test_dtype.py"
+  ],
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_dtype.py::TestRecord::test_partial_dict",
+    "numpy/core/tests/test_dtype.py::TestSubarray::test_single_subarray"
+  ]
+}

@@ -1,0 +1,70 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 3 items
+
+numpy/core/tests/test_dtype.py::TestRecord::test_partial_dict PASSED     [ 33%]
+numpy/core/tests/test_dtype.py::TestSubarray::test_single_subarray PASSED [ 66%]
+numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views FAILED  [100%]
+
+=================================== FAILURES ===================================
+_______________________ TestRecord.test_fieldless_views ________________________
+
+self = <numpy.core.tests.test_dtype.TestRecord object at 0x72e0cad90c80>
+
+    def test_fieldless_views(self):
+        a = np.zeros(2, dtype={'names':[], 'formats':[], 'offsets':[],
+                               'itemsize':8})
+>       assert_raises(ValueError, a.view, np.dtype([]))
+
+a          = array([(), ()],
+      dtype={'names':[], 'formats':[], 'offsets':[], 'itemsize':8})
+self       = <numpy.core.tests.test_dtype.TestRecord object at 0x72e0cad90c80>
+
+numpy/core/tests/test_dtype.py:425: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.8/unittest/case.py:816: in assertRaises
+    return context.handle('assertRaises', args, kwargs)
+        args       = (<built-in method view of numpy.ndarray object at 0x72e0cb101c80>, dtype([]))
+        context    = None
+        expected_exception = <class 'ValueError'>
+        kwargs     = {}
+        self       = <numpy.testing._private.utils._Dummy testMethod=nop>
+/usr/lib/python3.8/unittest/case.py:202: in handle
+    callable_obj(*args, **kwargs)
+        args       = [dtype([])]
+        callable_obj = <built-in method view of numpy.ndarray object at 0x72e0cb101c80>
+        kwargs     = {}
+        name       = 'assertRaises'
+        self       = None
+/usr/lib/python3.8/unittest/case.py:224: in __exit__
+    self._raiseFailure("{} not raised by {}".format(exc_name,
+        exc_name   = 'ValueError'
+        exc_type   = None
+        exc_value  = None
+        self       = <unittest.case._AssertRaisesContext object at 0x72e0cadec870>
+        tb         = None
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <unittest.case._AssertRaisesContext object at 0x72e0cadec870>
+standardMsg = 'ValueError not raised by view'
+
+    def _raiseFailure(self, standardMsg):
+        msg = self.test_case._formatMessage(self.msg, standardMsg)
+>       raise self.test_case.failureException(msg)
+E       AssertionError: ValueError not raised by view
+
+msg        = 'ValueError not raised by view'
+self       = <unittest.case._AssertRaisesContext object at 0x72e0cadec870>
+standardMsg = 'ValueError not raised by view'
+
+/usr/lib/python3.8/unittest/case.py:164: AssertionError
+=========================== short test summary info ============================
+FAILED numpy/core/tests/test_dtype.py::TestRecord::test_fieldless_views - Ass...
+========================= 1 failed, 2 passed in 0.30s ==========================

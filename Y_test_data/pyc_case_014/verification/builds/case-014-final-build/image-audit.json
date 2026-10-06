@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "numpy__numpy-14393",
+  "base_commit": "495d352bf325f44d78001f059d625123e49f027e",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}
