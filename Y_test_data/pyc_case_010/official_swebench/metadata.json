@@ -1,0 +1,46 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "010",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-05-18",
+  "created_at_precision": "date",
+  "instance_id": "numpy__numpy-16276",
+  "source_instance_id": "pyc__numpy_numpy__8cb86fd7__line120__array_take__case10",
+  "repo": "numpy/numpy",
+  "issue_id": 16276,
+  "issue_url": "https://github.com/numpy/numpy/pull/16276",
+  "project_version": "1.20.0.dev0",
+  "base_commit": "5e8ad11b75245caf2d158eacf369b011ef262795",
+  "fix_commit": "8cb86fd7b454b40c7b822146d5e26c55fdc183ec",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_choose",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_round",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_trace",
+    "numpy/core/tests/test_multiarray.py::TestArgmax::test_ret_is_out[0]",
+    "numpy/core/tests/test_multiarray.py::TestArgmin::test_ret_is_out[0]",
+    "numpy/core/tests/test_multiarray.py::TestTake::test_ret_is_out[shape2]"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestTake::test_clip",
+    "numpy/core/tests/test_multiarray.py::TestArgmax::test_output_shape",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_trace_subclass"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "ubuntu:20.04",
+    "python_version": "3.8.10 debug build",
+    "pytest_version": "5.4.2",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "target_command": "python3.8-dbg -m pytest -vv <six official FAIL_TO_PASS nodes plus four added passing parameters>",
+    "regression_command": "python3.8-dbg -m pytest -vv <three unmodified PASS_TO_PASS nodes>",
+    "base_official_added_status": "6 failed, 4 passed",
+    "base_regression_status": "3 passed",
+    "gold_official_added_status": "10 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

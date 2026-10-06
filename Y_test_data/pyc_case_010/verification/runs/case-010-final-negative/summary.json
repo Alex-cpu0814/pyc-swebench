@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-010-final-negative",
+  "label": "negative",
+  "instance_id": "numpy__numpy-16276",
+  "status": "unresolved",
+  "reason": "expected_test_failed_skipped_or_missing",
+  "started_at": "2026-10-06T13:55:08.311Z",
+  "finished_at": "2026-10-06T13:55:21.724Z",
+  "duration_ms": 13421,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "9e3a41e44fb5eb943c0763baabf8ca2793cafc61ccd70f26076d54c7fcaca93e",
+  "test_patch_sha256": "76e58d7c5d062e8c7ae668a36bcfea8fe47f29e2066e22d1c3f3fdefbd929ebd",
+  "image": {
+    "name": "yutu0814/pyc-case-010-numpy:benchmark-v1",
+    "id": "sha256:9c6264f39867c2376935e2c989a26c328eadb1b0f813d66291a224c84971e790",
+    "repo_digests": [
+      "yutu0814/pyc-case-010-numpy@sha256:9c6264f39867c2376935e2c989a26c328eadb1b0f813d66291a224c84971e790"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 1,
+    "instance_id": "numpy__numpy-16276"
+  },
+  "grading": {
+    "tests_observed": 13,
+    "FAIL_TO_PASS": {
+      "expected": 6,
+      "passed": 0,
+      "failed": 6,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 6
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

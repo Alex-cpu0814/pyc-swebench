@@ -1,0 +1,13 @@
+diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py
+index f36c27c..81e9441 100644
+--- a/numpy/core/tests/test_multiarray.py
++++ b/numpy/core/tests/test_multiarray.py
+@@ -1658,7 +1658,7 @@ class TestMethods:
+             out = np.zeros_like(arr)
+             res = arr.round(*round_args, out=out)
+             assert_equal(out, expected)
+-            assert_equal(out, res)
++            assert_array_equal(out, res)
+ 
+         check_round(np.array([1.2, 1.5]), [1, 2])
+         check_round(np.array(1.5), 2)

@@ -1,0 +1,26 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'numpy-profile' -> deadline=None, print_blob=True, database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 13 items
+
+numpy/core/tests/test_multiarray.py::TestMethods::test_choose PASSED     [  7%]
+numpy/core/tests/test_multiarray.py::TestMethods::test_round PASSED      [ 15%]
+numpy/core/tests/test_multiarray.py::TestMethods::test_trace PASSED      [ 23%]
+numpy/core/tests/test_multiarray.py::TestArgmax::test_ret_is_out[0] PASSED [ 30%]
+numpy/core/tests/test_multiarray.py::TestArgmax::test_ret_is_out[1] PASSED [ 38%]
+numpy/core/tests/test_multiarray.py::TestArgmin::test_ret_is_out[0] PASSED [ 46%]
+numpy/core/tests/test_multiarray.py::TestArgmin::test_ret_is_out[1] PASSED [ 53%]
+numpy/core/tests/test_multiarray.py::TestTake::test_ret_is_out[shape0] PASSED [ 61%]
+numpy/core/tests/test_multiarray.py::TestTake::test_ret_is_out[shape1] PASSED [ 69%]
+numpy/core/tests/test_multiarray.py::TestTake::test_ret_is_out[shape2] PASSED [ 76%]
+numpy/core/tests/test_multiarray.py::TestTake::test_clip PASSED          [ 84%]
+numpy/core/tests/test_multiarray.py::TestArgmax::test_output_shape PASSED [ 92%]
+numpy/core/tests/test_multiarray.py::TestMethods::test_trace_subclass PASSED [100%]
+
+============================== 13 passed in 1.23s ==============================

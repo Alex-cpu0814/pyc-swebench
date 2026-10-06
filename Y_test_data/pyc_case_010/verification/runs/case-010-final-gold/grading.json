@@ -1,0 +1,19 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-010-final-gold",
+  "tests_observed": 13,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_choose": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_round": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_trace": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestArgmax::test_ret_is_out[0]": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestArgmin::test_ret_is_out[0]": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestTake::test_ret_is_out[shape2]": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestTake::test_clip": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestArgmax::test_output_shape": "PASSED",
+    "numpy/core/tests/test_multiarray.py::TestMethods::test_trace_subclass": "PASSED"
+  },
+  "unexpected_failures": []
+}
