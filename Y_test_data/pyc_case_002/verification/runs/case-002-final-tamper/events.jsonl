@@ -1,0 +1,6 @@
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:01.782Z","level":"INFO","operation_id":"case-002-final-tamper","phase":"preflight","event":"preflight.started","message":"Checking protected evaluation assets"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:02.245Z","level":"INFO","operation_id":"case-002-final-tamper","phase":"preflight","event":"preflight.completed","message":"Protected assets are valid"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:02.255Z","level":"INFO","operation_id":"case-002-final-tamper","phase":"model_patch","event":"model_patch.started","message":"Applying candidate patch"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:02.282Z","level":"INFO","operation_id":"case-002-final-tamper","phase":"model_patch","event":"model_patch.completed","message":"Candidate patch applied","duration_ms":29}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:02.292Z","level":"INFO","operation_id":"case-002-final-tamper","phase":"test_patch","event":"test_patch.started","message":"Applying protected test patch"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:02.312Z","level":"WARN","operation_id":"case-002-final-tamper","phase":"test_patch","event":"candidate_conflicts_with_test_patch","message":"Candidate could not complete this phase"}

@@ -1,0 +1,2218 @@
+============================= test session starts ==============================
+platform linux -- Python 3.9.25, pytest-6.2.5, py-1.11.0, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, configfile: pytest.ini
+plugins: xdist-2.5.0, forked-1.6.0
+collecting ... collected 963 items
+
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[nearest-expected_value0] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[wrap-expected_value1] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[grid-wrap-expected_value2] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[mirror-expected_value3] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[reflect-expected_value4] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[constant-expected_value5] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries[grid-constant-expected_value6] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[nearest-expected_value0] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[wrap-expected_value1] PASSED [  0%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[grid-wrap-expected_value2] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[mirror-expected_value3] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[reflect-expected_value4] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[constant-expected_value5] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundaries2[grid-constant-expected_value6] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-mirror] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-reflect] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-grid-mirror] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-grid-wrap] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-grid-constant] PASSED [  1%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[0-nearest] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-mirror] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-reflect] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-grid-mirror] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-grid-wrap] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-grid-constant] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[1-nearest] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-mirror] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-reflect] PASSED [  2%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-grid-mirror] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-grid-wrap] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-grid-constant] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[2-nearest] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-mirror] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-reflect] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-grid-mirror] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-grid-wrap] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-grid-constant] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[3-nearest] PASSED [  3%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-mirror] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-reflect] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-grid-mirror] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-grid-wrap] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-grid-constant] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[4-nearest] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-mirror] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-reflect] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-grid-mirror] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-grid-wrap] PASSED [  4%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-grid-constant] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_boundary_spline_accuracy[5-nearest] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int8-2] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int8-3] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int8-4] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int8-5] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint8-2] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint8-3] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint8-4] PASSED [  5%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint8-5] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int16-2] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int16-3] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int16-4] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int16-5] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint16-2] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint16-3] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint16-4] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint16-5] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int32-2] PASSED [  6%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int32-3] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int32-4] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int32-5] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint32-2] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint32-3] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint32-4] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint32-5] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int64-2] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int64-3] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int64-4] PASSED [  7%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[int64-5] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint64-2] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint64-3] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint64-4] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[uint64-5] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float32-2] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float32-3] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float32-4] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float32-5] PASSED [  8%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float64-2] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float64-3] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float64-4] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline01[float64-5] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int8-2] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int8-3] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int8-4] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int8-5] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint8-2] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint8-3] PASSED [  9%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint8-4] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint8-5] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int16-2] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int16-3] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int16-4] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int16-5] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint16-2] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint16-3] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint16-4] PASSED [ 10%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint16-5] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int32-2] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int32-3] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int32-4] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int32-5] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint32-2] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint32-3] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint32-4] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint32-5] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int64-2] PASSED [ 11%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int64-3] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int64-4] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[int64-5] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint64-2] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint64-3] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint64-4] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[uint64-5] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float32-2] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float32-3] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float32-4] PASSED [ 12%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float32-5] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float64-2] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float64-3] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float64-4] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline02[float64-5] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int8-2] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int8-3] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int8-4] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int8-5] PASSED [ 13%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint8-2] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint8-3] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint8-4] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint8-5] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int16-2] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int16-3] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int16-4] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int16-5] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint16-2] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint16-3] PASSED [ 14%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint16-4] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint16-5] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int32-2] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int32-3] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int32-4] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int32-5] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint32-2] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint32-3] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint32-4] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint32-5] PASSED [ 15%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int64-2] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int64-3] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int64-4] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[int64-5] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint64-2] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint64-3] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint64-4] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[uint64-5] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float32-2] PASSED [ 16%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float32-3] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float32-4] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float32-5] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float64-2] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float64-3] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float64-4] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline03[float64-5] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int8-2] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int8-3] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int8-4] PASSED [ 17%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int8-5] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint8-2] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint8-3] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint8-4] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint8-5] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int16-2] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int16-3] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int16-4] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int16-5] PASSED [ 18%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint16-2] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint16-3] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint16-4] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint16-5] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int32-2] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int32-3] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int32-4] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int32-5] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint32-2] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint32-3] PASSED [ 19%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint32-4] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint32-5] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int64-2] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int64-3] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int64-4] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[int64-5] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint64-2] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint64-3] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint64-4] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[uint64-5] PASSED [ 20%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float32-2] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float32-3] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float32-4] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float32-5] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float64-2] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float64-3] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float64-4] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline04[float64-5] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int8-2] PASSED [ 21%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int8-3] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int8-4] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int8-5] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint8-2] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint8-3] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint8-4] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint8-5] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int16-2] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int16-3] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int16-4] PASSED [ 22%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int16-5] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint16-2] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint16-3] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint16-4] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint16-5] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int32-2] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int32-3] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int32-4] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int32-5] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint32-2] PASSED [ 23%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint32-3] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint32-4] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint32-5] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int64-2] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int64-3] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int64-4] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[int64-5] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint64-2] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint64-3] PASSED [ 24%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint64-4] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[uint64-5] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float32-2] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float32-3] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float32-4] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float32-5] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float64-2] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float64-3] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float64-4] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_spline05[float64-5] PASSED [ 25%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[0] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[1] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[2] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[3] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[4] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform01[5] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[0] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[1] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[2] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[3] PASSED [ 26%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[4] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform02[5] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[0] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[1] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[2] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[3] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[4] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform03[5] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[0] PASSED [ 27%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[1] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[2] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[3] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[4] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform04[5] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-0] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-1] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-2] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-3] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-4] PASSED [ 28%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[float64-5] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-0] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-1] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-2] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-3] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-4] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform05[complex128-5] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[0] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[1] PASSED [ 29%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[2] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[3] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[4] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform06[5] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[0] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[1] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[2] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[3] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[4] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform07[5] PASSED [ 30%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[0] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[1] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[2] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[3] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[4] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform08[5] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[0] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[1] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[2] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[3] PASSED [ 31%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[4] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform10[5] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[0] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[1] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[2] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[3] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[4] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform13[5] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[0] PASSED [ 32%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[1] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[2] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[3] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[4] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform14[5] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[0] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[1] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[2] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[3] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[4] PASSED [ 33%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform15[5] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[0] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[1] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[2] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[3] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[4] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform16[5] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[0] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[1] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[2] PASSED [ 34%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[3] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[4] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform17[5] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[0] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[1] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[2] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[3] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[4] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform18[5] PASSED [ 35%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[0] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[1] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[2] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[3] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[4] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform19[5] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[0] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[1] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[2] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[3] PASSED [ 36%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[4] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform20[5] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[0] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[1] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[2] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[3] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[4] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform21[5] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[0] PASSED [ 37%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[1] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[2] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[3] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[4] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform22[5] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[0] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[1] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[2] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[3] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[4] PASSED [ 38%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform23[5] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[0] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[1] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[2] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[3] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[4] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform24[5] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_grid_constant_order1 PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[0-grid-constant] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[0-grid-wrap] PASSED [ 39%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[0-nearest] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[0-mirror] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[0-reflect] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[1-grid-constant] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[1-grid-wrap] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[1-nearest] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[1-mirror] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[1-reflect] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[2-grid-constant] PASSED [ 40%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[2-grid-wrap] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[2-nearest] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[2-mirror] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[2-reflect] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[3-grid-constant] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[3-grid-wrap] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[3-nearest] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[3-mirror] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[3-reflect] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[4-grid-constant] PASSED [ 41%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[4-grid-wrap] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[4-nearest] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[4-mirror] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[4-reflect] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[5-grid-constant] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[5-grid-wrap] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[5-nearest] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[5-mirror] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_vs_padded[5-reflect] PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_endianness_with_output_parameter PASSED [ 42%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_geometric_transform_with_string_output PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-0] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-1] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-2] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-3] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-4] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[float64-5] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-0] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-1] PASSED [ 43%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-2] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-3] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-4] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates01[complex128-5] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[0] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[1] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[2] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[3] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[4] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates02[5] PASSED [ 44%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates03 PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates_endianness_with_output_parameter PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates_with_string_output PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_map_coordinates_large_data PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[0] PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[1] PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[2] PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[3] PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[4] PASSED [ 45%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform01[5] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[0] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[1] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[2] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[3] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[4] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform02[5] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[0] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[1] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[2] PASSED [ 46%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[3] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[4] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform03[5] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[0] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[1] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[2] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[3] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[4] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform04[5] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-0] PASSED [ 47%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-1] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-2] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-3] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-4] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[float64-5] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-0] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-1] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-2] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-3] PASSED [ 48%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-4] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform05[complex128-5] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[0] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[1] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[2] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[3] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[4] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform06[5] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[0] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[1] PASSED [ 49%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[2] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[3] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[4] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform07[5] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[0] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[1] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[2] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[3] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[4] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform08[5] PASSED [ 50%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[0] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[1] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[2] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[3] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[4] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform09[5] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[0] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[1] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[2] PASSED [ 51%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[3] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[4] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform10[5] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[0] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[1] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[2] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[3] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[4] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform11[5] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[0] PASSED [ 52%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[1] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[2] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[3] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[4] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform12[5] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[0] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[1] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[2] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[3] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[4] PASSED [ 53%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform13[5] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[0] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[1] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[2] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[3] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[4] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform14[5] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[0] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[1] PASSED [ 54%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[2] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[3] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[4] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform15[5] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[0] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[1] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[2] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[3] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[4] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform16[5] PASSED [ 55%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[0] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[1] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[2] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[3] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[4] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform17[5] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[0] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[1] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[2] PASSED [ 56%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[3] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[4] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform18[5] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[0] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[1] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[2] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[3] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[4] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform19[5] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[0] PASSED [ 57%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[1] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[2] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[3] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[4] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform20[5] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[0] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[1] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[2] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[3] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[4] PASSED [ 58%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform21[5] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[0] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[1] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[2] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[3] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[4] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform22[5] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[0] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[1] PASSED [ 59%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[2] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[3] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[4] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform23[5] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[0] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[1] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[2] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[3] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[4] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform24[5] PASSED [ 60%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[0] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[1] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[2] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[3] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[4] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform25[5] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[0] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[1] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[2] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[3] PASSED [ 61%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[4] PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform26[5] PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform27 PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_1d_endianness_with_output_parameter PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_multi_d_endianness_with_output_parameter PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_with_string_output PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[0-shift0] PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[0-shift1] PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[0-shift2] PASSED [ 62%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[0-shift3] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[0-shift4] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[1-shift0] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[1-shift1] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[1-shift2] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[1-shift3] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[1-shift4] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[2-shift0] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[2-shift1] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[2-shift2] PASSED [ 63%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[2-shift3] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[2-shift4] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[3-shift0] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[3-shift1] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[3-shift2] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[3-shift3] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[3-shift4] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[4-shift0] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[4-shift1] PASSED [ 64%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[4-shift2] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[4-shift3] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[4-shift4] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[5-shift0] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[5-shift1] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[5-shift2] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[5-shift3] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_via_grid_wrap[5-shift4] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[0] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[1] PASSED [ 65%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[2] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[3] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[4] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_affine_transform_shift_reflect[5] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[0] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[1] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[2] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[3] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[4] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift01[5] PASSED [ 66%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[0] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[1] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[2] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[3] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[4] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift02[5] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[0] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[1] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[2] PASSED [ 67%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[3] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[4] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift03[5] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[0] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[1] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[2] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[3] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[4] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift04[5] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-0] PASSED [ 68%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-1] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-2] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-3] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-4] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[float64-5] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-0] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-1] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-2] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-3] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-4] PASSED [ 69%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift05[complex128-5] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[0] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[1] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[2] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[3] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[4] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift06[5] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[0] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[1] PASSED [ 70%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[2] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[3] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[4] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift07[5] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[0] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[1] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[2] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[3] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[4] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift08[5] PASSED [ 71%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[0] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[1] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[2] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[3] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[4] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift09[5] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[0-shift0] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[0-shift1] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[0-shift2] PASSED [ 72%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[0-shift3] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[0-shift4] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[1-shift0] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[1-shift1] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[1-shift2] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[1-shift3] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[1-shift4] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[2-shift0] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[2-shift1] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[2-shift2] PASSED [ 73%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[2-shift3] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[2-shift4] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[3-shift0] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[3-shift1] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[3-shift2] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[3-shift3] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[3-shift4] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[4-shift0] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[4-shift1] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[4-shift2] PASSED [ 74%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[4-shift3] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[4-shift4] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[5-shift0] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[5-shift1] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[5-shift2] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[5-shift3] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_wrap[5-shift4] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[0-shift0] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[0-shift1] PASSED [ 75%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[0-shift2] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[0-shift3] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[0-shift4] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[1-shift0] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[1-shift1] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[1-shift2] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[1-shift3] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[1-shift4] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[2-shift0] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[2-shift1] PASSED [ 76%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[2-shift2] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[2-shift3] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[2-shift4] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[3-shift0] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[3-shift1] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[3-shift2] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[3-shift3] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[3-shift4] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[4-shift0] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[4-shift1] PASSED [ 77%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[4-shift2] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[4-shift3] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[4-shift4] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[5-shift0] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[5-shift1] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[5-shift2] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[5-shift3] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant1[5-shift4] PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_grid_constant_order1 PASSED [ 78%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[0] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[1] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[2] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[3] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[4] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_reflect[5] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-0] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-1] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-2] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-3] PASSED [ 79%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-4] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[False-5] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-0] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-1] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-2] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-3] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-4] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_nearest_boundary[True-5] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[0-grid-constant] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[0-grid-wrap] PASSED [ 80%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[0-nearest] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[0-mirror] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[0-reflect] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[1-grid-constant] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[1-grid-wrap] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[1-nearest] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[1-mirror] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[1-reflect] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[2-grid-constant] PASSED [ 81%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[2-grid-wrap] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[2-nearest] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[2-mirror] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[2-reflect] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[3-grid-constant] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[3-grid-wrap] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[3-nearest] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[3-mirror] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[3-reflect] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[4-grid-constant] PASSED [ 82%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[4-grid-wrap] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[4-nearest] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[4-mirror] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[4-reflect] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[5-grid-constant] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[5-grid-wrap] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[5-nearest] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[5-mirror] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_shift_vs_padded[5-reflect] PASSED [ 83%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[0] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[1] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[2] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[3] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[4] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom1[5] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom2 PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom3 PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-0] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-1] PASSED [ 84%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-2] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-3] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-4] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[float64-5] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-0] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-1] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-2] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-3] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-4] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_affine01[complex128-5] PASSED [ 85%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_infinity PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_zoomfactor_one PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_output_shape_roundoff PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[nearest-zoom0] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[nearest-zoom1] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[nearest-zoom2] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[nearest-zoom3] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[constant-zoom0] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[constant-zoom1] PASSED [ 86%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[constant-zoom2] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[constant-zoom3] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[wrap-zoom0] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[wrap-zoom1] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[wrap-zoom2] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[wrap-zoom3] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[reflect-zoom0] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[reflect-zoom1] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[reflect-zoom2] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[reflect-zoom3] PASSED [ 87%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[mirror-zoom0] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[mirror-zoom1] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[mirror-zoom2] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[mirror-zoom3] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-wrap-zoom0] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-wrap-zoom1] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-wrap-zoom2] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-wrap-zoom3] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-mirror-zoom0] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-mirror-zoom1] PASSED [ 88%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-mirror-zoom2] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-mirror-zoom3] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-constant-zoom0] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-constant-zoom1] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-constant-zoom2] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_by_int_order0[grid-constant-zoom3] PASSED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom0-shape0] FAILED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom0-shape1] FAILED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom1-shape0] FAILED [ 89%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom1-shape1] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom2-shape0] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom2-shape1] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom3-shape0] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom3-shape1] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom0-shape0] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom0-shape1] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom1-shape0] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom1-shape1] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom2-shape0] FAILED [ 90%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom2-shape1] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom3-shape0] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom3-shape1] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom0-shape0] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom0-shape1] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom1-shape0] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom1-shape1] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom2-shape0] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom2-shape1] FAILED [ 91%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom3-shape0] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom3-shape1] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape0] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape1] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape0] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape1] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape0] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape1] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape0] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape1] FAILED [ 92%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom0-shape0] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom0-shape1] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom1-shape0] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom1-shape1] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom2-shape0] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom2-shape1] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom3-shape0] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom3-shape1] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_mode_warnings[constant] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_mode_warnings[wrap] FAILED [ 93%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[0] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[1] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[2] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[3] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[4] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate01[5] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[0] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[1] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[2] PASSED [ 94%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[3] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[4] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate02[5] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-0] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-1] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-2] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-3] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-4] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[float64-5] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-0] PASSED [ 95%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-1] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-2] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-3] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-4] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate03[complex128-5] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[0] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[1] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[2] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[3] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[4] PASSED [ 96%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate04[5] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[0] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[1] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[2] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[3] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[4] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate05[5] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[0] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[1] PASSED [ 97%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[2] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[3] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[4] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate06[5] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[0] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[1] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[2] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[3] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[4] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate07[5] PASSED [ 98%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[0] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[1] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[2] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[3] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[4] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate08[5] PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate09 PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate10 PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_rotate_exact_180 PASSED [ 99%]
+scipy/ndimage/tests/test_interpolation.py::test_zoom_output_shape PASSED [100%]
+
+=================================== FAILURES ===================================
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom0-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3af0>
+shape = (2, 3), zoom = (1, 1), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3af0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom0-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cbb310>
+shape = (4, 4), zoom = (1, 1), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cbb310>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom1-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976790>
+shape = (2, 3), zoom = (3, 5), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976790>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom1-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7670>
+shape = (4, 4), zoom = (3, 5), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7670>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom2-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029763d0>
+shape = (2, 3), zoom = (8, 2), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029763d0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom2-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7280>
+shape = (4, 4), zoom = (8, 2), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7280>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom3-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976c40>
+shape = (2, 3), zoom = (8, 8), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976c40>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[nearest-zoom3-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c71f0>
+shape = (4, 4), zoom = (8, 8), mode = 'nearest'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'nearest'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c71f0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom0-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f9b20>
+shape = (2, 3), zoom = (1, 1), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f9b20>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom0-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7550>
+shape = (4, 4), zoom = (1, 1), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7550>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom1-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4af0>
+shape = (2, 3), zoom = (3, 5), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4af0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom1-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cbb1f0>
+shape = (4, 4), zoom = (3, 5), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cbb1f0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom2-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4cd0>
+shape = (2, 3), zoom = (8, 2), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4cd0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom2-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f65e0>
+shape = (4, 4), zoom = (8, 2), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f65e0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom3-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4c40>
+shape = (2, 3), zoom = (8, 8), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f4c40>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[reflect-zoom3-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f6a90>
+shape = (4, 4), zoom = (8, 8), mode = 'reflect'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'reflect'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f6a90>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom0-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976c10>
+shape = (2, 3), zoom = (1, 1), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976c10>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom0-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c1400>
+shape = (4, 4), zoom = (1, 1), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c1400>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom1-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7070>
+shape = (2, 3), zoom = (3, 5), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7070>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom1-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029dcc40>
+shape = (4, 4), zoom = (3, 5), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029dcc40>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom2-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7d00>
+shape = (2, 3), zoom = (8, 2), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7d00>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom2-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f9f70>
+shape = (4, 4), zoom = (8, 2), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f9f70>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom3-shape0] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3d60>
+shape = (2, 3), zoom = (8, 8), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3d60>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+__ TestNdimageInterpolation.test_zoom_grid_by_int_order0[mirror-zoom3-shape1] __
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029708e0>
+shape = (4, 4), zoom = (8, 8), mode = 'mirror'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'mirror'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029708e0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702971f70>
+shape = (2, 3), zoom = (1, 1), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702971f70>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f6e50>
+shape = (4, 4), zoom = (1, 1), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f6e50>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f46d0>
+shape = (2, 3), zoom = (3, 5), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f46d0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c78e0>
+shape = (4, 4), zoom = (3, 5), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c78e0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029cbd60>
+shape = (2, 3), zoom = (8, 2), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029cbd60>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c2c40>
+shape = (4, 4), zoom = (8, 2), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c2c40>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029dac70>
+shape = (2, 3), zoom = (8, 8), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029dac70>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029e82e0>
+shape = (4, 4), zoom = (8, 8), mode = 'grid-wrap'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029e82e0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom0-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029eccd0>
+shape = (2, 3), zoom = (1, 1), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029eccd0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom0-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702970490>
+shape = (4, 4), zoom = (1, 1), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702970490>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (1, 1)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom1-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c1910>
+shape = (2, 3), zoom = (3, 5), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c1910>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom1-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c86a0>
+shape = (4, 4), zoom = (3, 5), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c86a0>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (3, 5)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom2-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3eb0>
+shape = (2, 3), zoom = (8, 2), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702cd3eb0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom2-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c0430>
+shape = (4, 4), zoom = (8, 2), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c0430>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 2)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom3-shape0] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f2be0>
+shape = (2, 3), zoom = (8, 8), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029f2be0>
+shape      = (2, 3)
+x          = array([[0., 1., 2.],
+       [3., 4., 5.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_ TestNdimageInterpolation.test_zoom_grid_by_int_order0[grid-constant-zoom3-shape1] _
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029fc940>
+shape = (4, 4), zoom = (8, 8), mode = 'grid-constant'
+
+    @pytest.mark.parametrize('shape', [(2, 3), (4, 4)])
+    @pytest.mark.parametrize('zoom', [(1, 1), (3, 5), (8, 2), (8, 8)])
+    @pytest.mark.parametrize('mode', ['nearest', 'reflect', 'mirror',
+                                      'grid-wrap', 'grid-constant'])
+    def test_zoom_grid_by_int_order0(self, shape, zoom, mode):
+        # When grid_mode is True,  order 0 zoom should be the same as
+        # replication via numpy.kron. The only exceptions to this are the
+        # non-grid modes 'constant' and 'wrap'.
+        x = numpy.arange(numpy.prod(shape), dtype=float).reshape(shape)
+        assert_array_almost_equal(
+>           ndimage.zoom(x, zoom, order=0, mode=mode, grid_mode=True),
+            numpy.kron(x, numpy.ones(zoom))
+        )
+E       TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'grid-constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029fc940>
+shape      = (4, 4)
+x          = array([[ 0.,  1.,  2.,  3.],
+       [ 4.,  5.,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., 14., 15.]])
+zoom       = (8, 8)
+
+scipy/ndimage/tests/test_interpolation.py:1137: TypeError
+_______ TestNdimageInterpolation.test_zoom_grid_mode_warnings[constant] ________
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976b80>
+mode = 'constant'
+
+    @pytest.mark.parametrize('mode', ['constant', 'wrap'])
+    def test_zoom_grid_mode_warnings(self, mode):
+        # Warn on use of non-grid modes when grid_mode is True
+        x = numpy.arange(9, dtype=float).reshape((3, 3))
+        with pytest.warns(UserWarning,
+                          match="It is recommended to use mode"):
+>           ndimage.zoom(x, 2, mode=mode, grid_mode=True),
+E           TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'constant'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b702976b80>
+x          = array([[0., 1., 2.],
+       [3., 4., 5.],
+       [6., 7., 8.]])
+
+scipy/ndimage/tests/test_interpolation.py:1147: TypeError
+_________ TestNdimageInterpolation.test_zoom_grid_mode_warnings[wrap] __________
+
+self = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7d60>
+mode = 'wrap'
+
+    @pytest.mark.parametrize('mode', ['constant', 'wrap'])
+    def test_zoom_grid_mode_warnings(self, mode):
+        # Warn on use of non-grid modes when grid_mode is True
+        x = numpy.arange(9, dtype=float).reshape((3, 3))
+        with pytest.warns(UserWarning,
+                          match="It is recommended to use mode"):
+>           ndimage.zoom(x, 2, mode=mode, grid_mode=True),
+E           TypeError: zoom() got an unexpected keyword argument 'grid_mode'
+
+mode       = 'wrap'
+self       = <scipy.ndimage.tests.test_interpolation.TestNdimageInterpolation object at 0x71b7029c7d60>
+x          = array([[0., 1., 2.],
+       [3., 4., 5.],
+       [6., 7., 8.]])
+
+scipy/ndimage/tests/test_interpolation.py:1147: TypeError
+=========================== short test summary info ============================
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom0-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom0-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom1-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom1-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom2-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom2-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom3-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[nearest-zoom3-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom0-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom0-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom1-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom1-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom2-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom2-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom3-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[reflect-zoom3-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom0-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom0-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom1-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom1-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom2-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom2-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom3-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[mirror-zoom3-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom0-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom1-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom2-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-wrap-zoom3-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom0-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom0-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom1-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom1-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom2-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom2-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom3-shape0]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_by_int_order0[grid-constant-zoom3-shape1]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_mode_warnings[constant]
+FAILED scipy/ndimage/tests/test_interpolation.py::TestNdimageInterpolation::test_zoom_grid_mode_warnings[wrap]
+======================= 42 failed, 921 passed in 14.70s ========================

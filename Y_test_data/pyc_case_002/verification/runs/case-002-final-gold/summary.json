@@ -1,0 +1,56 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-002-final-gold",
+  "label": "official gold positive control",
+  "instance_id": "scipy__scipy-13095",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "1844375850314f7c141f570af6d4364917bc759ad3155a73ceafb2587cbf3f92",
+  "test_patch_sha256": "120faf536dfb89ee06f65d89078b4db0529e072bbb13d4be7b82b0d8354ca5aa",
+  "image": {
+    "name": "yutu0814/pyc-case-002-scipy:benchmark-v3",
+    "id": "sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617",
+    "repo_digests": [
+      "yutu0814/pyc-case-002-scipy@sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0
+  },
+  "grading": {
+    "tests_observed": 963,
+    "FAIL_TO_PASS": {
+      "expected": 42,
+      "passed": 42,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 100,
+      "passed": 100,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

@@ -1,0 +1,12 @@
+diff --git a/README.rst b/README.rst
+index 8eecf82..a2bb0c0 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,5 +1,7 @@
+ SciPy
+ =====
+ 
++This line is an evaluator negative control and does not fix ndimage.zoom.
++
+ .. image:: https://img.shields.io/travis/scipy/scipy/master.svg?label=Travis%20CI
+    :target: https://travis-ci.org/scipy/scipy/

@@ -1,0 +1,27 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-002-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "source": {
+    "repo": "https://github.com/scipy/scipy.git",
+    "base_commit": "ff177d92b79167eb5de593c9de41d3ceb97ab189"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-002-scipy:benchmark-v3",
+    "id": "sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617",
+    "repo_digests": [
+      "yutu0814/pyc-case-002-scipy@sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": null,
+    "docker_build_stderr": null,
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  },
+  "note": "Docker build output was observed interactively; immutable audit and control-run logs are retained."
+}

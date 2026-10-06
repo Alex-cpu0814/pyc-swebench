@@ -1,0 +1,2 @@
+error: patch failed: scipy/ndimage/tests/test_interpolation.py:1107
+error: scipy/ndimage/tests/test_interpolation.py: patch does not apply

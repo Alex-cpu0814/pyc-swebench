@@ -1,0 +1,2 @@
+{"schema_version":"3.0","timestamp":"2026-10-06T10:46:00.000Z","level":"INFO","operation_id":"case-002-final-build","phase":"build","event":"build.completed","message":"Formal evaluator image built successfully","image":"yutu0814/pyc-case-002-scipy:benchmark-v3"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:58:30.000Z","level":"INFO","operation_id":"case-002-final-build","phase":"image_audit","event":"audit.completed","message":"Evaluator image is clean","image_id":"sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617"}

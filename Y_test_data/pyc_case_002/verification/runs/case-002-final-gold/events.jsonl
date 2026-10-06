@@ -1,0 +1,10 @@
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:49.744Z","level":"INFO","operation_id":"case-002-final-gold","phase":"preflight","event":"preflight.started","message":"Checking protected evaluation assets"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.272Z","level":"INFO","operation_id":"case-002-final-gold","phase":"preflight","event":"preflight.completed","message":"Protected assets are valid"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.281Z","level":"INFO","operation_id":"case-002-final-gold","phase":"model_patch","event":"model_patch.started","message":"Applying candidate patch"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.311Z","level":"INFO","operation_id":"case-002-final-gold","phase":"model_patch","event":"model_patch.completed","message":"Candidate patch applied","duration_ms":31}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.319Z","level":"INFO","operation_id":"case-002-final-gold","phase":"test_patch","event":"test_patch.started","message":"Applying protected test patch"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.342Z","level":"INFO","operation_id":"case-002-final-gold","phase":"test_patch","event":"test_patch.completed","message":"Protected test patch applied","duration_ms":22}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:50.349Z","level":"INFO","operation_id":"case-002-final-gold","phase":"project_build","event":"project_build.started","message":"Building patched project"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:54.476Z","level":"INFO","operation_id":"case-002-final-gold","phase":"project_build","event":"project_build.completed","message":"Patched project built","duration_ms":4128}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:56:54.484Z","level":"INFO","operation_id":"case-002-final-gold","phase":"tests","event":"tests.started","message":"Running project test suite"}
+{"schema_version":"3.0","timestamp":"2026-10-06T10:57:03.897Z","level":"INFO","operation_id":"case-002-final-gold","phase":"tests","event":"tests.completed","message":"Project test suite completed","duration_ms":9408,"test_exit_code":0}

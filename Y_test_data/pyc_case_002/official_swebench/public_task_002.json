@@ -1,0 +1,12 @@
+{
+  "instance_id": "scipy__scipy-13095",
+  "repo": "scipy/scipy",
+  "base_commit": "ff177d92b79167eb5de593c9de41d3ceb97ab189",
+  "problem_statement": "scipy.ndimage.zoom lacks a grid-based resize mode that treats the full pixel extent as the signal length, producing results inconsistent with grid-based resize semantics. Add grid_mode while preserving the default behavior and warn when constant or wrap modes are used with grid semantics.",
+  "hints_text": "",
+  "created_at": "2020-11-29",
+  "version": "1.6.0.dev0",
+  "issue_id": 13095,
+  "issue_url": "https://github.com/scipy/scipy/pull/13095",
+  "project_version": "1.6.0.dev0"
+}

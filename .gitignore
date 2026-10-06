@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+analysis/source_material/*_preview*.png

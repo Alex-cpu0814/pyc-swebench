@@ -1,0 +1,15 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "scipy__scipy-13095",
+  "base_commit": "ff177d92b79167eb5de593c9de41d3ceb97ab189",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true,
+  "python_version": "3.9.25",
+  "numpy_version": "1.19.5",
+  "scipy_version": "1.6.0.dev0+ff177d9"
+}

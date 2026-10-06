@@ -1,0 +1,13 @@
+diff --git a/scipy/ndimage/tests/test_interpolation.py b/scipy/ndimage/tests/test_interpolation.py
+index 6563210..aa55d65 100644
+--- a/scipy/ndimage/tests/test_interpolation.py
++++ b/scipy/ndimage/tests/test_interpolation.py
+@@ -1107,7 +1107,7 @@ class TestNdimageInterpolation:
+         out = ndimage.zoom(arr, zoom)
+         assert_array_equal(out.shape, (4, 15, 29))
+ 
+-    @pytest.mark.parametrize('zoom', [(1, 1), (8, 2), (8, 8)])
++    @pytest.mark.parametrize('zoom', [(1, 1), (2, 2), (8, 2), (8, 8)])
+     @pytest.mark.parametrize('mode', ['nearest', 'constant', 'wrap', 'reflect',
+                                       'mirror', 'grid-wrap', 'grid-mirror',
+                                       'grid-constant'])

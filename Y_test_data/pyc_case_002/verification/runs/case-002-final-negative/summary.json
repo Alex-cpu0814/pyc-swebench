@@ -1,0 +1,56 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-002-final-negative",
+  "label": "irrelevant patch negative control",
+  "instance_id": "scipy__scipy-13095",
+  "status": "unresolved",
+  "reason": "expected_test_failed",
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "0a98ca5f8b738cce64db44c64a01329556332b5d2c69198f03ba38d048d2439c",
+  "test_patch_sha256": "120faf536dfb89ee06f65d89078b4db0529e072bbb13d4be7b82b0d8354ca5aa",
+  "image": {
+    "name": "yutu0814/pyc-case-002-scipy:benchmark-v3",
+    "id": "sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617",
+    "repo_digests": [
+      "yutu0814/pyc-case-002-scipy@sha256:a06dba0866df6cc6a1b517fb2516808a1afb412e1ced4adb6fec3518c33cc617"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 1
+  },
+  "grading": {
+    "tests_observed": 963,
+    "FAIL_TO_PASS": {
+      "expected": 42,
+      "passed": 0,
+      "failed": 42,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 100,
+      "passed": 100,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 42
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

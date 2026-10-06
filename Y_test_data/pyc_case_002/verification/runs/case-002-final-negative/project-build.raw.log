@@ -1,0 +1,521 @@
+Cythonizing sources
+Running scipy/special/_generate_pyx.py
+Running scipy/linalg/_generate_pyx.py
+/testbed/scipy/linalg/_generate_pyx.py:674: DeprecationWarning: dep_util is Deprecated. Use functions from setuptools instead.
+  from distutils.dep_util import newer
+scipy/linalg/_generate_pyx.py: all files up-to-date
+/testbed/scipy/special/_generate_pyx.py:1440: DeprecationWarning: dep_util is Deprecated. Use functions from setuptools instead.
+  from distutils.dep_util import newer
+scipy/special/_generate_pyx.py: all files up-to-date
+scipy/_lib/_ccallback_c.pyx has not changed
+scipy/_lib/_test_deprecation_def.pyx has not changed
+scipy/_lib/messagestream.pyx has not changed
+scipy/_lib/_test_deprecation_call.pyx has not changed
+scipy/linalg/_decomp_update.pyx.in has not changed
+scipy/special/_comb.pyx has not changed
+scipy/special/_ellip_harm_2.pyx has not changed
+scipy/special/_ufuncs.pyx has not changed
+scipy/special/cython_special.pyx has not changed
+scipy/special/_ufuncs_cxx.pyx has not changed
+scipy/sparse/csgraph/_flow.pyx has not changed
+scipy/signal/_upfirdn_apply.pyx has not changed
+scipy/sparse/csgraph/_shortest_path.pyx has not changed
+scipy/signal/_spectral.pyx has not changed
+scipy/sparse/csgraph/_reordering.pyx has not changed
+scipy/sparse/csgraph/_traversal.pyx has not changed
+scipy/fftpack/convolve.pyx has not changed
+scipy/io/matlab/mio_utils.pyx has not changed
+scipy/io/matlab/streams.pyx has not changed
+scipy/cluster/_hierarchy.pyx has not changed
+scipy/interpolate/_bspl.pyx has not changed
+scipy/cluster/_optimal_leaf_ordering.pyx has not changed
+scipy/optimize/_bglu_dense.pyx has not changed
+scipy/special/_test_round.pyx has not changed
+scipy/linalg/_matfuncs_sqrtm_triu.pyx has not changed
+scipy/linalg/_solve_toeplitz.pyx has not changed
+scipy/optimize/_highs/cython/src/mpswriter.pyx has not changed
+scipy/linalg/cython_lapack.pyx has not changed
+scipy/sparse/_csparsetools.pyx.in has not changed
+scipy/optimize/_trlib/_trlib.pyx has not changed
+scipy/sparse/csgraph/_tools.pyx has not changed
+scipy/signal/_max_len_seq_inner.pyx has not changed
+scipy/sparse/csgraph/_min_spanning_tree.pyx has not changed
+scipy/signal/_peak_finding_utils.pyx has not changed
+scipy/signal/_sosfilt.pyx has not changed
+scipy/sparse/csgraph/_matching.pyx has not changed
+scipy/ndimage/src/_ni_label.pyx has not changed
+scipy/ndimage/src/_cytest.pyx has not changed
+scipy/io/matlab/mio5_utils.pyx has not changed
+scipy/cluster/_vq.pyx has not changed
+scipy/interpolate/_ppoly.pyx has not changed
+scipy/interpolate/interpnd.pyx has not changed
+scipy/optimize/_group_columns.pyx has not changed
+scipy/optimize/_highs/cython/src/highs_wrapper.pyx has not changed
+scipy/optimize/_highs/cython/src/constants.pyx has not changed
+scipy/linalg/cython_blas.pyx has not changed
+scipy/optimize/cython_optimize/_zeros.pyx.in has not changed
+scipy/optimize/_lsq/givens_elimination.pyx has not changed
+scipy/stats/_stats.pyx has not changed
+scipy/spatial/_voronoi.pyx has not changed
+scipy/spatial/_hausdorff.pyx has not changed
+scipy/spatial/qhull.pyx has not changed
+scipy/spatial/ckdtree.pyx has not changed
+scipy/spatial/transform/rotation.pyx has not changed
+Running from SciPy source directory.
+lapack_opt_info:
+lapack_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_lapack_info:
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp2kbrn0ky/tmp
+creating /tmp/tmp2kbrn0ky/tmp/tmp2kbrn0ky
+compile options: '-c'
+gcc: /tmp/tmp2kbrn0ky/source.c
+gcc /tmp/tmp2kbrn0ky/tmp/tmp2kbrn0ky/source.o -L/usr/lib/x86_64-linux-gnu -lopenblas -o /tmp/tmp2kbrn0ky/a.out
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+/usr/local/lib/python3.9/site-packages/numpy/distutils/system_info.py:838: UserWarning: Specified path /usr/include/python3.9 is invalid.
+  return self.get_paths(self.section, key)
+blas_opt_info:
+blas_mkl_info:
+  libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+blis_info:
+  libraries blis not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_info:
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmps0o9i7w3/tmp
+creating /tmp/tmps0o9i7w3/tmp/tmps0o9i7w3
+compile options: '-c'
+gcc: /tmp/tmps0o9i7w3/source.c
+gcc /tmp/tmps0o9i7w3/tmp/tmps0o9i7w3/source.o -L/usr/lib/x86_64-linux-gnu -lopenblas -o /tmp/tmps0o9i7w3/a.out
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+non-existing path in 'scipy/signal/windows': 'tests'
+[makenpz] scipy/special/tests/data/boost.npz is already up to date
+[makenpz] scipy/special/tests/data/gsl.npz is already up to date
+[makenpz] scipy/special/tests/data/local.npz is already up to date
+running build_ext
+running build_src
+build_src
+building py_modules sources
+building library "mach" sources
+building library "quadpack" sources
+building library "lsoda" sources
+building library "vode" sources
+building library "dop" sources
+building library "fitpack" sources
+building library "fwrappers" sources
+building library "odrpack" sources
+building library "minpack" sources
+building library "rectangular_lsap" sources
+building library "rootfind" sources
+building library "basiclu" sources
+building library "superlu_src" sources
+building library "arpack_scipy" sources
+building library "sc_cephes" sources
+building library "sc_mach" sources
+building library "sc_amos" sources
+building library "sc_cdf" sources
+building library "sc_specfun" sources
+building library "statlib" sources
+building extension "scipy.cluster._vq" sources
+building extension "scipy.cluster._hierarchy" sources
+building extension "scipy.cluster._optimal_leaf_ordering" sources
+building extension "scipy.fft._pocketfft.pypocketfft" sources
+building extension "scipy.fftpack.convolve" sources
+building extension "scipy.integrate._quadpack" sources
+building extension "scipy.integrate._odepack" sources
+building extension "scipy.integrate.vode" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate' to include_dirs.
+  adding 'scipy/integrate/vode-f2pywrappers.f' to sources.
+building extension "scipy.integrate.lsoda" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate' to include_dirs.
+  adding 'scipy/integrate/lsoda-f2pywrappers.f' to sources.
+building extension "scipy.integrate._dop" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate' to include_dirs.
+  adding 'scipy/integrate/_dop-f2pywrappers.f' to sources.
+building extension "scipy.integrate._test_multivariate" sources
+building extension "scipy.integrate._test_odeint_banded" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/build/src.linux-x86_64-3.9/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/build/src.linux-x86_64-3.9/scipy/integrate' to include_dirs.
+  adding 'build/src.linux-x86_64-3.9/scipy/integrate/_test_odeint_banded-f2pywrappers.f' to sources.
+building extension "scipy.interpolate.interpnd" sources
+building extension "scipy.interpolate._ppoly" sources
+building extension "scipy.interpolate._bspl" sources
+building extension "scipy.interpolate._fitpack" sources
+building extension "scipy.interpolate.dfitpack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/interpolate/src/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/interpolate/src' to include_dirs.
+  adding 'scipy/interpolate/src/dfitpack-f2pywrappers.f' to sources.
+building extension "scipy.io._test_fortran" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/io/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/io' to include_dirs.
+building extension "scipy.io.matlab.streams" sources
+building extension "scipy.io.matlab.mio_utils" sources
+building extension "scipy.io.matlab.mio5_utils" sources
+building extension "scipy.linalg._fblas" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg' to include_dirs.
+  adding 'scipy/linalg/_fblas-f2pywrappers.f' to sources.
+building extension "scipy.linalg._flapack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg' to include_dirs.
+  adding 'scipy/linalg/_flapack-f2pywrappers.f' to sources.
+building extension "scipy.linalg._flinalg" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/build/src.linux-x86_64-3.9/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/build/src.linux-x86_64-3.9/scipy/linalg' to include_dirs.
+building extension "scipy.linalg._interpolative" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/linalg' to include_dirs.
+building extension "scipy.linalg._solve_toeplitz" sources
+building extension "scipy.linalg._matfuncs_sqrtm_triu" sources
+building extension "scipy.linalg.cython_blas" sources
+building extension "scipy.linalg.cython_lapack" sources
+building extension "scipy.linalg._decomp_update" sources
+building extension "scipy.odr.__odrpack" sources
+building extension "scipy.optimize._minpack" sources
+building extension "scipy.optimize._lsap_module" sources
+building extension "scipy.optimize._zeros" sources
+building extension "scipy.optimize._lbfgsb" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/lbfgsb_src/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/lbfgsb_src' to include_dirs.
+  adding 'scipy/optimize/lbfgsb_src/_lbfgsb-f2pywrappers.f' to sources.
+building extension "scipy.optimize.moduleTNC" sources
+building extension "scipy.optimize._cobyla" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/cobyla/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/cobyla' to include_dirs.
+building extension "scipy.optimize.minpack2" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/minpack2/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/minpack2' to include_dirs.
+building extension "scipy.optimize._slsqp" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/slsqp/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/slsqp' to include_dirs.
+building extension "scipy.optimize.__nnls" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/__nnls/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/optimize/__nnls' to include_dirs.
+building extension "scipy.optimize._group_columns" sources
+building extension "scipy.optimize._bglu_dense" sources
+building extension "scipy.optimize._lsq.givens_elimination" sources
+building extension "scipy.optimize._trlib._trlib" sources
+building extension "scipy.optimize.cython_optimize._zeros" sources
+building extension "scipy.optimize._highs.highs_wrapper" sources
+building extension "scipy.optimize._highs.mpswriter" sources
+building extension "scipy.optimize._highs.constants" sources
+building extension "scipy.signal.sigtools" sources
+building extension "scipy.signal._spectral" sources
+building extension "scipy.signal._max_len_seq_inner" sources
+building extension "scipy.signal._peak_finding_utils" sources
+building extension "scipy.signal._sosfilt" sources
+building extension "scipy.signal._upfirdn_apply" sources
+building extension "scipy.signal.spline" sources
+building extension "scipy.sparse.linalg.isolve._iterative" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/sparse/linalg/isolve/iterative/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/sparse/linalg/isolve/iterative' to include_dirs.
+building extension "scipy.sparse.linalg.dsolve._superlu" sources
+building extension "scipy.sparse.linalg.eigen.arpack._arpack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/sparse/linalg/eigen/arpack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/sparse/linalg/eigen/arpack' to include_dirs.
+  adding 'scipy/sparse/linalg/eigen/arpack/_arpack-f2pywrappers.f' to sources.
+building extension "scipy.sparse.csgraph._shortest_path" sources
+building extension "scipy.sparse.csgraph._traversal" sources
+building extension "scipy.sparse.csgraph._min_spanning_tree" sources
+building extension "scipy.sparse.csgraph._matching" sources
+building extension "scipy.sparse.csgraph._flow" sources
+building extension "scipy.sparse.csgraph._reordering" sources
+building extension "scipy.sparse.csgraph._tools" sources
+building extension "scipy.sparse._csparsetools" sources
+building extension "scipy.sparse._sparsetools" sources
+/testbed/scipy/sparse/generate_sparsetools.py:23: DeprecationWarning: dep_util is Deprecated. Use functions from setuptools instead.
+  from distutils.dep_util import newer
+[generate_sparsetools] '/testbed/scipy/sparse/sparsetools/bsr_impl.h' already up-to-date
+[generate_sparsetools] '/testbed/scipy/sparse/sparsetools/csr_impl.h' already up-to-date
+[generate_sparsetools] '/testbed/scipy/sparse/sparsetools/csc_impl.h' already up-to-date
+[generate_sparsetools] '/testbed/scipy/sparse/sparsetools/other_impl.h' already up-to-date
+[generate_sparsetools] '/testbed/scipy/sparse/sparsetools/sparsetools_impl.h' already up-to-date
+building extension "scipy.spatial.transform.rotation" sources
+building extension "scipy.spatial.qhull" sources
+building extension "scipy.spatial.ckdtree" sources
+building extension "scipy.spatial._distance_wrap" sources
+building extension "scipy.spatial._voronoi" sources
+building extension "scipy.spatial._hausdorff" sources
+building extension "scipy.special.specfun" sources
+f2py options: ['--no-wrap-functions']
+  adding 'build/src.linux-x86_64-3.9/scipy/special/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/special' to include_dirs.
+building extension "scipy.special._ufuncs" sources
+building extension "scipy.special._ufuncs_cxx" sources
+building extension "scipy.special._ellip_harm_2" sources
+building extension "scipy.special.cython_special" sources
+building extension "scipy.special._comb" sources
+building extension "scipy.special._test_round" sources
+building extension "scipy.stats.statlib" sources
+f2py options: ['--no-wrap-functions']
+  adding 'build/src.linux-x86_64-3.9/scipy/stats/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/stats' to include_dirs.
+building extension "scipy.stats._stats" sources
+building extension "scipy.stats.mvn" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.9/scipy/stats/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.9/scipy/stats' to include_dirs.
+  adding 'scipy/stats/mvn-f2pywrappers.f' to sources.
+building extension "scipy.ndimage._nd_image" sources
+building extension "scipy.ndimage._ni_label" sources
+building extension "scipy.ndimage._ctest" sources
+building extension "scipy.ndimage._cytest" sources
+building extension "scipy._lib._ccallback_c" sources
+building extension "scipy._lib._test_ccallback" sources
+building extension "scipy._lib._fpumode" sources
+building extension "scipy._lib.messagestream" sources
+building extension "scipy._lib._test_deprecation_call" sources
+building extension "scipy._lib._test_deprecation_def" sources
+building extension "scipy._lib._uarray._uarray" sources
+building data_files sources
+build_src: building npy-pkg config files
+/usr/local/lib/python3.9/site-packages/setuptools/_distutils/cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+customize UnixCCompiler
+customize UnixCCompiler using build_clib
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_clib
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp6r7s9nzh/tmp
+creating /tmp/tmp6r7s9nzh/tmp/tmp6r7s9nzh
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+gcc: /tmp/tmp6r7s9nzh/main.cpp
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpzfmgl9ba/tmp
+creating /tmp/tmpzfmgl9ba/tmp/tmpzfmgl9ba
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c99'
+gcc: /tmp/tmpzfmgl9ba/main.c
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmpyxu0cjx2/tmp
+creating /tmp/tmpyxu0cjx2/tmp/tmpyxu0cjx2
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmpyxu0cjx2/main.for
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmpp9bhhel6/tmp
+creating /tmp/tmpp9bhhel6/tmp/tmpp9bhhel6
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmpp9bhhel6/main.for
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+resetting extension 'scipy.integrate._quadpack' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate._odepack' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate.vode' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate.lsoda' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate._test_odeint_banded' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._fblas' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._flapack' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._flinalg' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._interpolative' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg.cython_blas' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg.cython_lapack' language from 'c' to 'f77'.
+resetting extension 'scipy.odr.__odrpack' language from 'c' to 'f77'.
+resetting extension 'scipy.optimize._lbfgsb' language from 'c' to 'f77'.
+extending extension 'scipy.optimize._highs.highs_wrapper' defined_macros with [('CMAKE_BUILD_TYPE', '"Release"'), ('HiGHSRELEASE', None), ('IPX_ON', 'ON'), ('HIGHS_GITHASH', '"n/a"'), ('HIGHS_COMPILATION_DATE', '"2026-10-06"'), ('HIGHS_VERSION_MAJOR', '1'), ('HIGHS_VERSION_MINOR', '0'), ('HIGHS_VERSION_PATCH', '0'), ('HIGHS_DIR', '"/testbed/scipy/optimize/_highs"')]
+extending extension 'scipy.optimize._highs.mpswriter' defined_macros with [('CMAKE_BUILD_TYPE', '"Release"'), ('HiGHSRELEASE', None), ('IPX_ON', 'ON'), ('HIGHS_GITHASH', '"n/a"'), ('HIGHS_COMPILATION_DATE', '"2026-10-06"'), ('HIGHS_VERSION_MAJOR', '1'), ('HIGHS_VERSION_MINOR', '0'), ('HIGHS_VERSION_PATCH', '0'), ('HIGHS_DIR', '"/testbed/scipy/optimize/_highs"')]
+resetting extension 'scipy.sparse.linalg.isolve._iterative' language from 'c' to 'f77'.
+extending extension 'scipy.sparse.linalg.dsolve._superlu' defined_macros with [('USE_VENDOR_BLAS', 1)]
+resetting extension 'scipy.sparse.linalg.eigen.arpack._arpack' language from 'c' to 'f77'.
+resetting extension 'scipy.special._ufuncs' language from 'c' to 'f77'.
+resetting extension 'scipy.special.cython_special' language from 'c' to 'f77'.
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'nv', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_ext
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpkgtg6qkn/tmp
+creating /tmp/tmpkgtg6qkn/tmp/tmpkgtg6qkn
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmpkgtg6qkn/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp5ethbc79/tmp
+creating /tmp/tmp5ethbc79/tmp/tmp5ethbc79
+compile options: '-I/usr/local/include/python3.9 -c'
+g++: /tmp/tmp5ethbc79/main.c
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp0vtqgeu3/tmp
+creating /tmp/tmp0vtqgeu3/tmp/tmp0vtqgeu3
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-pthread'
+g++: /tmp/tmp0vtqgeu3/main.c
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmphvo9ns9k/tmp
+creating /tmp/tmphvo9ns9k/tmp/tmphvo9ns9k
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14 -pthread -fvisibility=hidden'
+g++: /tmp/tmphvo9ns9k/main.c
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmp0gck5nud/tmp
+creating /tmp/tmp0gck5nud/tmp/tmp0gck5nud
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmp0gck5nud/main.for
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp0s8f97gp/tmp
+creating /tmp/tmp0s8f97gp/tmp/tmp0s8f97gp
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c99'
+gcc: /tmp/tmp0s8f97gp/main.c
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmphcqvuump/tmp
+creating /tmp/tmphcqvuump/tmp/tmphcqvuump
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmphcqvuump/main.for
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmphdr5sant/tmp
+creating /tmp/tmphdr5sant/tmp/tmphdr5sant
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmphdr5sant/main.for
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp_8_ami8i/tmp
+creating /tmp/tmp_8_ami8i/tmp/tmp_8_ami8i
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmp_8_ami8i/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpf0_ht62f/tmp
+creating /tmp/tmpf0_ht62f/tmp/tmpf0_ht62f
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmpf0_ht62f/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpnc498gr4/tmp
+creating /tmp/tmpnc498gr4/tmp/tmpnc498gr4
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmpnc498gr4/main.cpp
+C compiler: gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpsz8m4s0e/tmp
+creating /tmp/tmpsz8m4s0e/tmp/tmpsz8m4s0e
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c99'
+gcc: /tmp/tmpsz8m4s0e/main.c
+Fortran f77 compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran -Wall -g -ffixed-form -fno-second-underscore -Wall -g -fno-second-underscore -fPIC -O3 -funroll-loops
+creating /tmp/tmp12np5qyj/tmp
+creating /tmp/tmp12np5qyj/tmp/tmp12np5qyj
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-fallow-argument-mismatch'
+gfortran:f77: /tmp/tmp12np5qyj/main.for
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp6z9en82o/tmp
+creating /tmp/tmp6z9en82o/tmp/tmp6z9en82o
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmp6z9en82o/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpmripxi0d/tmp
+creating /tmp/tmpmripxi0d/tmp/tmpmripxi0d
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmpmripxi0d/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpx0jqk4es/tmp
+creating /tmp/tmpx0jqk4es/tmp/tmpx0jqk4es
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14'
+g++: /tmp/tmpx0jqk4es/main.cpp
+C compiler: g++ -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmpygu1zawt/tmp
+creating /tmp/tmpygu1zawt/tmp/tmpygu1zawt
+compile options: '-I/usr/local/include/python3.9 -c'
+extra options: '-std=c++14 -fvisibility=hidden'
+g++: /tmp/tmpygu1zawt/main.c
