@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-007-final-gold",
+  "tests_observed": 2,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_zeros": "PASSED"
+  },
+  "unexpected_failures": []
+}

@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc__numpy_numpy__a9652077__line902__raise_memory_error__case7",
+  "task_level": "integration",
+  "validation_type": "official_pytest_with_reference_leak_checker",
+  "environment": "requires_debug_python_and_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "python3.8-dbg -m pytest -vv -R 3:3 numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails",
+    "python3.8-dbg -m pytest -vv numpy/core/tests/test_multiarray.py::TestCreation::test_zeros"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "Ordinary pytest passes the new test on both Base and Fix; pytest-leaks with a debug Python is required to observe the reference leak.",
+    "The leak target and PASS_TO_PASS regression run in separate pytest sessions to prevent cross-test reference-count noise.",
+    "The protected test patch is the exact upstream change in numpy/core/tests/test_multiarray.py."
+  ],
+  "reproduction_status": "verified_base_leak_fix_pass_docker",
+  "base_commit": "fc2518ba6b11fc52b0ff477b9e83576be90562d8",
+  "fix_commit": "a9652077be95f83f56c9b77e7ad1ed7710516626",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/core/tests/test_multiarray.py"
+  ],
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_zeros"
+  ]
+}

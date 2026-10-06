@@ -1,0 +1,13 @@
+diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py
+index 2edcc68..c5473ee 100644
+--- a/numpy/core/tests/test_multiarray.py
++++ b/numpy/core/tests/test_multiarray.py
+@@ -845,7 +845,7 @@ class TestCreation:
+         assert_raises(ValueError, np.zeros, shape, dtype=np.int8)
+         assert_raises(ValueError, np.ones, shape, dtype=np.int8)
+ 
+-    def test_zeros(self):
++    def test_zeros_tampered(self):
+         types = np.typecodes['AllInteger'] + np.typecodes['AllFloat']
+         for dt in types:
+             d = np.zeros((13,), dtype=dt)

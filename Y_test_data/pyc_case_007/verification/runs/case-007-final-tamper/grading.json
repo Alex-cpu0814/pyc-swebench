@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-007-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_zeros": "MISSING"
+  },
+  "unexpected_failures": []
+}

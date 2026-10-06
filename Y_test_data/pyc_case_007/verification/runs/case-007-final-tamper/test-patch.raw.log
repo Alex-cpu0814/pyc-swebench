@@ -1,0 +1,2 @@
+error: patch failed: numpy/core/tests/test_multiarray.py:845
+error: numpy/core/tests/test_multiarray.py: patch does not apply

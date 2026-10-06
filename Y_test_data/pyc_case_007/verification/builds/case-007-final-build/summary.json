@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-007-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-06T12:57:58.762Z",
+  "finished_at": "2026-10-06T12:58:00.524Z",
+  "duration_ms": 1765,
+  "source": {
+    "repo": "https://github.com/numpy/numpy.git",
+    "base_commit": "fc2518ba6b11fc52b0ff477b9e83576be90562d8"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-007-numpy:benchmark-v1",
+    "id": "sha256:ddbe5866e7eec2a3e12f4ebf75adf5c83c154c8ac15f049f3039395c37a8c617",
+    "repo_digests": [
+      "yutu0814/pyc-case-007-numpy@sha256:ddbe5866e7eec2a3e12f4ebf75adf5c83c154c8ac15f049f3039395c37a8c617"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

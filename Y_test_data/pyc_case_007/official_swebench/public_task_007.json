@@ -1,0 +1,11 @@
+{
+  "instance_id": "numpy__numpy-16351",
+  "repo": "numpy/numpy",
+  "base_commit": "fc2518ba6b11fc52b0ff477b9e83576be90562d8",
+  "problem_statement": "NumPy's array-allocation failure path raises _ArrayMemoryError and returns immediately, bypassing the common failure cleanup and leaking dtype references on every failed allocation. Route this path through the shared cleanup while preserving the formatted allocation error.",
+  "hints_text": "",
+  "created_at": "2020-05-22",
+  "version": "1.20.0.dev0",
+  "issue_id": 16351,
+  "issue_url": "https://github.com/numpy/numpy/pull/16351"
+}

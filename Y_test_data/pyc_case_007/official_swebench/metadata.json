@@ -1,0 +1,50 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "007",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest_with_pytest_leaks",
+  "created_at": "2020-05-22",
+  "created_at_precision": "date",
+  "instance_id": "numpy__numpy-16351",
+  "source_instance_id": "pyc__numpy_numpy__a9652077__line902__raise_memory_error__case7",
+  "repo": "numpy/numpy",
+  "issue_id": 16351,
+  "issue_url": "https://github.com/numpy/numpy/pull/16351",
+  "project_version": "1.20.0.dev0",
+  "base_commit": "fc2518ba6b11fc52b0ff477b9e83576be90562d8",
+  "fix_commit": "a9652077be95f83f56c9b77e7ad1ed7710516626",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestCreation::test_zeros"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "ubuntu:20.04",
+    "python_version": "3.8.10 debug build",
+    "pytest_version": "5.4.2",
+    "pytest_leaks_version": "0.3.1",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "target_command": "python3.8-dbg -m pytest -vv -R 3:3 numpy/core/tests/test_multiarray.py::TestCreation::test_malloc_fails",
+    "regression_command": "python3.8-dbg -m pytest -vv numpy/core/tests/test_multiarray.py::TestCreation::test_zeros",
+    "base_target_status": "LEAKED",
+    "base_leaked_references": [
+      2,
+      2,
+      2
+    ],
+    "base_memory_blocks": [
+      1,
+      1,
+      1
+    ],
+    "base_regression_status": "PASSED",
+    "gold_target_status": "PASSED",
+    "gold_regression_status": "PASSED",
+    "result": "verified_base_leak_fix_pass_docker"
+  }
+}

@@ -1,0 +1,43 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.06kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#4 resolve docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] RUN apt-get update     && apt-get install -y --no-install-recommends        build-essential ca-certificates gfortran git libopenblas-dev        pkg-config python3.8-dbg python3.8-dev python3-pip python3-setuptools     && if [[ -n "" ]]; then apt-get install -y --no-install-recommends ; fi     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/6] RUN python3.8-dbg -m pip install --no-cache-dir       "pip<24.1" "setuptools<70" "wheel<0.42"       Cython==0.29.36 hypothesis==5.14.0 pytz==2020.1       pytest==5.4.2 pytest-env==0.6.2 pytest-leaks==0.3.1
+#6 CACHED
+
+#7 [4/6] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/numpy/numpy.git"     && git fetch --depth=1 origin "fc2518ba6b11fc52b0ff477b9e83576be90562d8"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "fc2518ba6b11fc52b0ff477b9e83576be90562d8"     && mkdir -p /benchmark /inputs /results
+#7 CACHED
+
+#8 [5/6] WORKDIR /testbed
+#8 CACHED
+
+#9 [6/6] RUN python3.8-dbg setup.py build_ext -i     && python3.8-dbg -c "import numpy; print(numpy.__version__)"     && test -z "$(git status --porcelain)"
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:c9fd7290d16e7c93cdffa9c6226336273ec9cddb10a886e33bbf517343088501 done
+#10 exporting config sha256:d2971a336d6931e2ca871f9c2bedd47b3db96bda2bed92ccf9576a35fe5329ad done
+#10 exporting attestation manifest sha256:249e79b11472e03f41c9b386e72bbf6887afec3f42a498e88f415d327b1406b3 done
+#10 exporting manifest list sha256:ddbe5866e7eec2a3e12f4ebf75adf5c83c154c8ac15f049f3039395c37a8c617 done
+#10 naming to docker.io/yutu0814/pyc-case-007-numpy:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-007-numpy:benchmark-v1 done
+#10 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/jfqgcfje4kuc6diyzgnas5sea
