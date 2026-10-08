@@ -1,0 +1,11 @@
+diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py
+--- a/numpy/core/tests/test_multiarray.py
++++ b/numpy/core/tests/test_multiarray.py
+@@ -7006,6 +7006,7 @@ class TestArrayAttributeDeletion(object):
+         for s in attr:
+             assert_raises(AttributeError, delattr, a, s)
+ 
+ 
++# Candidate patch must not alter protected official-test context.
+ def test_array_interface():
+     # Test scalar coercion within the array interface

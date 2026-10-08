@@ -1,0 +1,19 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-022-final-negative",
+  "tests_observed": 5,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError]": "FAILED",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError]": "FAILED",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError]": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_multiarray.py::test_interface_no_shape": "PASSED",
+    "numpy/core/tests/test_multiarray.py::test_array_interface_itemsize": "PASSED"
+  },
+  "unexpected_failures": [
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError]"
+  ]
+}

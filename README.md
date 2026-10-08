@@ -15,10 +15,11 @@ SWE-bench-compatible layout.
 | `pyc_case_013` | `numpy/numpy` | PR #14585 / merge `3d31770c` | Base: ValueError missing / SIGFPE; Gold: 2 targets and 2 regressions passed |
 | `pyc_case_014` | `numpy/numpy` | PR #14393 / merge `f786041d` | Base: ValueError not raised; Gold: target and 2 regressions passed |
 | `pyc_case_015` | `numpy/numpy` | PR #14240 / merge `4246ce2a` | Base: 2 MemoryError failures; Gold: 2 targets and 2 regressions passed |
+| `pyc_case_022` | `numpy/numpy` | PR #12805 / merge `2b05f3e3` | Base: 3 dtype reference-count failures; Gold: 3 targets and 2 regressions passed |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.
-Cases 7, 10, 11, 13, 14, and 15 are unique by their full fix commits.
+Cases 7, 10, 11, 13, 14, 15, and 22 are unique by their full fix commits.
 
 Each case keeps the upstream product patch and test patch separate, provides a
 clean Docker evaluator, and stores private/public task records under

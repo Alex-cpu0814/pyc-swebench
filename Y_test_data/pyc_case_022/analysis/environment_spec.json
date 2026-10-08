@@ -1,0 +1,34 @@
+{
+  "instance_id": "pyc__numpy_numpy__2b05f3e3__line2499__PyArray_FromInterface__case22",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": [
+    "python3.8-dbg -m pytest -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/core/tests/test_multiarray.py.",
+    "On the unpatched Base, 3 parameterizations fail because the float64 dtype reference count drops by one (for example, ACTUAL 67 versus DESIRED 66), followed by CPython debug-build 'Reference count error detected' messages.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "99953e494aa3be5ae8385d8461b9e4dfbeec43ec",
+  "fix_commit": "2b05f3e38431842ff06df9b2958d22c5a0588767",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/core/tests/test_multiarray.py"
+  ],
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError]"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::test_interface_no_shape",
+    "numpy/core/tests/test_multiarray.py::test_array_interface_itemsize"
+  ]
+}

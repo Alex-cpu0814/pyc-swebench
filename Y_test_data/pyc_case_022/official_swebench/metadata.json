@@ -1,0 +1,40 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "022",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2019-01-20",
+  "created_at_precision": "date",
+  "instance_id": "numpy__numpy-12805",
+  "source_instance_id": "pyc__numpy_numpy__2b05f3e3__line2499__PyArray_FromInterface__case22",
+  "repo": "numpy/numpy",
+  "issue_id": 12805,
+  "issue_url": "https://github.com/numpy/numpy/pull/12805",
+  "project_version": "1.17.0.dev0",
+  "base_commit": "99953e494aa3be5ae8385d8461b9e4dfbeec43ec",
+  "fix_commit": "2b05f3e38431842ff06df9b2958d22c5a0588767",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError]",
+    "numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError]"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::test_interface_no_shape",
+    "numpy/core/tests/test_multiarray.py::test_array_interface_itemsize"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "ubuntu:20.04",
+    "python_version": "3.8.10 debug build",
+    "pytest_version": "5.4.2",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "3 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

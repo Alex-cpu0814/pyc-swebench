@@ -1,0 +1,11 @@
+{
+  "instance_id": "numpy__numpy-12805",
+  "repo": "numpy/numpy",
+  "base_commit": "99953e494aa3be5ae8385d8461b9e4dfbeec43ec",
+  "problem_statement": "Creating an array from an object with an invalid __array_interface__ can corrupt the reference count of the cached dtype object on failure paths. Invalid shape or strides metadata should raise the expected exception without decreasing the global dtype reference count or triggering CPython reference-count errors.",
+  "hints_text": "",
+  "created_at": "2019-01-20",
+  "version": "1.17.0.dev0",
+  "issue_id": 12805,
+  "issue_url": "https://github.com/numpy/numpy/pull/12805"
+}

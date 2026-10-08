@@ -1,0 +1,168 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 5 items
+
+numpy/core/tests/test_multiarray.py::test_interface_no_shape PASSED      [ 20%]
+numpy/core/tests/test_multiarray.py::test_array_interface_itemsize PASSED [ 40%]
+numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError] FAILED [ 60%]
+numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError] FAILED [ 80%]
+numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError] FAILED [100%]
+
+=================================== FAILURES ===================================
+_______ TestArrayInterface.test_scalar_interface[val6-iface6-ValueError] _______
+
+self = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12cae579b0>
+val = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+iface = {'shape': (2,)}, expected = <class 'ValueError'>
+
+    @pytest.mark.parametrize('val, iface, expected', [
+        (f, {}, 0.5),
+        ([f], {}, [0.5]),
+        ([f, f], {}, [0.5, 0.5]),
+        (f, {'shape': ()}, 0.5),
+        (f, {'shape': None}, TypeError),
+        (f, {'shape': (1, 1)}, [[0.5]]),
+        (f, {'shape': (2,)}, ValueError),
+        (f, {'strides': ()}, 0.5),
+        (f, {'strides': (2,)}, ValueError),
+        (f, {'strides': 16}, TypeError),
+        ])
+    def test_scalar_interface(self, val, iface, expected):
+        # Test scalar coercion within the array interface
+        self.f.iface = {'typestr': 'f8'}
+        self.f.iface.update(iface)
+        if HAS_REFCOUNT:
+            pre_cnt = sys.getrefcount(np.dtype('f8'))
+        if isinstance(expected, type):
+            assert_raises(expected, np.array, val)
+        else:
+            result = np.array(val)
+            assert_equal(np.array(val), expected)
+            assert result.dtype == 'f8'
+            del result
+        if HAS_REFCOUNT:
+            post_cnt = sys.getrefcount(np.dtype('f8'))
+>           assert_equal(pre_cnt, post_cnt)
+E           AssertionError: 
+E           Items are not equal:
+E            ACTUAL: 67
+E            DESIRED: 66
+
+expected   = <class 'ValueError'>
+iface      = {'shape': (2,)}
+post_cnt   = 66
+pre_cnt    = 67
+self       = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12cae579b0>
+val        = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+
+numpy/core/tests/test_multiarray.py:7055: AssertionError
+_______ TestArrayInterface.test_scalar_interface[val8-iface8-ValueError] _______
+
+self = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12c83ead20>
+val = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+iface = {'strides': (2,)}, expected = <class 'ValueError'>
+
+    @pytest.mark.parametrize('val, iface, expected', [
+        (f, {}, 0.5),
+        ([f], {}, [0.5]),
+        ([f, f], {}, [0.5, 0.5]),
+        (f, {'shape': ()}, 0.5),
+        (f, {'shape': None}, TypeError),
+        (f, {'shape': (1, 1)}, [[0.5]]),
+        (f, {'shape': (2,)}, ValueError),
+        (f, {'strides': ()}, 0.5),
+        (f, {'strides': (2,)}, ValueError),
+        (f, {'strides': 16}, TypeError),
+        ])
+    def test_scalar_interface(self, val, iface, expected):
+        # Test scalar coercion within the array interface
+        self.f.iface = {'typestr': 'f8'}
+        self.f.iface.update(iface)
+        if HAS_REFCOUNT:
+            pre_cnt = sys.getrefcount(np.dtype('f8'))
+        if isinstance(expected, type):
+            assert_raises(expected, np.array, val)
+        else:
+            result = np.array(val)
+            assert_equal(np.array(val), expected)
+            assert result.dtype == 'f8'
+            del result
+        if HAS_REFCOUNT:
+            post_cnt = sys.getrefcount(np.dtype('f8'))
+>           assert_equal(pre_cnt, post_cnt)
+E           AssertionError: 
+E           Items are not equal:
+E            ACTUAL: 66
+E            DESIRED: 65
+
+expected   = <class 'ValueError'>
+iface      = {'strides': (2,)}
+post_cnt   = 65
+pre_cnt    = 66
+self       = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12c83ead20>
+val        = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+
+numpy/core/tests/test_multiarray.py:7055: AssertionError
+_______ TestArrayInterface.test_scalar_interface[val9-iface9-TypeError] ________
+
+self = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12c83ee640>
+val = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+iface = {'strides': 16}, expected = <class 'TypeError'>
+
+    @pytest.mark.parametrize('val, iface, expected', [
+        (f, {}, 0.5),
+        ([f], {}, [0.5]),
+        ([f, f], {}, [0.5, 0.5]),
+        (f, {'shape': ()}, 0.5),
+        (f, {'shape': None}, TypeError),
+        (f, {'shape': (1, 1)}, [[0.5]]),
+        (f, {'shape': (2,)}, ValueError),
+        (f, {'strides': ()}, 0.5),
+        (f, {'strides': (2,)}, ValueError),
+        (f, {'strides': 16}, TypeError),
+        ])
+    def test_scalar_interface(self, val, iface, expected):
+        # Test scalar coercion within the array interface
+        self.f.iface = {'typestr': 'f8'}
+        self.f.iface.update(iface)
+        if HAS_REFCOUNT:
+            pre_cnt = sys.getrefcount(np.dtype('f8'))
+        if isinstance(expected, type):
+            assert_raises(expected, np.array, val)
+        else:
+            result = np.array(val)
+            assert_equal(np.array(val), expected)
+            assert result.dtype == 'f8'
+            del result
+        if HAS_REFCOUNT:
+            post_cnt = sys.getrefcount(np.dtype('f8'))
+>           assert_equal(pre_cnt, post_cnt)
+E           AssertionError: 
+E           Items are not equal:
+E            ACTUAL: 65
+E            DESIRED: 64
+
+expected   = <class 'TypeError'>
+iface      = {'strides': 16}
+post_cnt   = 64
+pre_cnt    = 65
+self       = <numpy.core.tests.test_multiarray.TestArrayInterface object at 0x7d12c83ee640>
+val        = <numpy.core.tests.test_multiarray.TestArrayInterface.Foo object at 0x7d12cafa15a0>
+
+numpy/core/tests/test_multiarray.py:7055: AssertionError
+=========================== short test summary info ============================
+FAILED numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val6-iface6-ValueError]
+FAILED numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val8-iface8-ValueError]
+FAILED numpy/core/tests/test_multiarray.py::TestArrayInterface::test_scalar_interface[val9-iface9-TypeError]
+========================= 3 failed, 2 passed in 1.72s ==========================
+*** Reference count error detected: 
+an attempt was made to deallocate 12 (d) ***
+*** Reference count error detected: 
+an attempt was made to deallocate 12 (d) ***
