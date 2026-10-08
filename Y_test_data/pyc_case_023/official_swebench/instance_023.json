@@ -1,0 +1,20 @@
+{
+  "repo": "numpy/numpy",
+  "instance_id": "numpy__numpy-12814",
+  "base_commit": "70b773e4015b4fbb61bc1f7bdffc9cc789d58e94",
+  "patch": "diff --git a/numpy/core/src/multiarray/compiled_base.c b/numpy/core/src/multiarray/compiled_base.c\r\nindex 88924a8..625028b 100644\r\n--- a/numpy/core/src/multiarray/compiled_base.c\r\n+++ b/numpy/core/src/multiarray/compiled_base.c\r\n@@ -328,6 +328,7 @@ arr_insert(PyObject *NPY_UNUSED(self), PyObject *args, PyObject *kwdict)\r\n         } else {\r\n             Py_XDECREF(values);\r\n             Py_XDECREF(mask);\r\n+            PyArray_ResolveWritebackIfCopy(array);\r\n             Py_XDECREF(array);\r\n             Py_RETURN_NONE;\r\n         }\r\n@@ -358,6 +359,7 @@ arr_insert(PyObject *NPY_UNUSED(self), PyObject *args, PyObject *kwdict)\r\n \r\n  fail:\r\n     Py_XDECREF(mask);\r\n+    PyArray_ResolveWritebackIfCopy(array);\r\n     Py_XDECREF(array);\r\n     Py_XDECREF(values);\r\n     return NULL;\r\n",
+  "test_patch": "diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py\r\nindex 77534c1..241f8e4 100644\r\n--- a/numpy/core/tests/test_multiarray.py\r\n+++ b/numpy/core/tests/test_multiarray.py\r\n@@ -7729,6 +7729,8 @@ class TestWritebackIfCopy(object):\r\n         # uses arr_insert\r\n         np.place(a, a>2, [44, 55])\r\n         assert_equal(a, np.array([[0, 44], [1, 55], [2, 44]]))\r\n+        # hit one of the failing paths\r\n+        assert_raises(ValueError, np.place, a, a>20, [])\r\n \r\n     def test_put_noncontiguous(self):\r\n         a = np.arange(6).reshape(2,3).T # force non-c-contiguous\r\n",
+  "problem_statement": "np.place on a non-contiguous array can leave a WRITEBACKIFCOPY temporary unresolved when insertion fails, causing array deallocation to replace the expected ValueError with a fatal SystemError. Failure paths must resolve the temporary before releasing it so callers receive the original exception without interpreter-level errors.",
+  "hints_text": "",
+  "created_at": "2019-01-20",
+  "version": "1.17.0.dev0",
+  "issue_id": 12814,
+  "issue_url": "https://github.com/numpy/numpy/pull/12814",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_insert_noncontiguous"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_put_noncontiguous",
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_putmask_noncontiguous"
+  ]
+}

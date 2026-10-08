@@ -1,0 +1,14 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 3 items
+
+numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_put_noncontiguous PASSED [ 33%]
+numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_putmask_noncontiguous PASSED [ 66%]
+numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_insert_noncontiguous /benchmark/case_adapter.sh: line 7:    85 Aborted                 (core dumped) python3.8-dbg -m pytest -vv -o markers=slow 'numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_put_noncontiguous' 'numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_putmask_noncontiguous' 'numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_insert_noncontiguous'

@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc__numpy_numpy__74f3d07a__line332__arr_insert__case23",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": [
+    "python3.8-dbg -m pytest -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/core/tests/test_multiarray.py.",
+    "On the unpatched Base, the official empty-values assertion reaches ValueError: Cannot insert from an empty array!, then array_dealloc emits an ignored exception and CPython aborts with 'Fatal Python error: a function returned NULL without setting an error' and SystemError from _insert.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "70b773e4015b4fbb61bc1f7bdffc9cc789d58e94",
+  "fix_commit": "74f3d07ab0bcfd63f42f62b26eeb6ce68efd4f21",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/core/tests/test_multiarray.py"
+  ],
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_insert_noncontiguous"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_put_noncontiguous",
+    "numpy/core/tests/test_multiarray.py::TestWritebackIfCopy::test_putmask_noncontiguous"
+  ]
+}

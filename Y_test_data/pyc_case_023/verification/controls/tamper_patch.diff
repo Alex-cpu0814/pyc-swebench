@@ -1,0 +1,11 @@
+diff --git a/numpy/core/tests/test_multiarray.py b/numpy/core/tests/test_multiarray.py
+--- a/numpy/core/tests/test_multiarray.py
++++ b/numpy/core/tests/test_multiarray.py
+@@ -7727,6 +7727,7 @@ class TestWritebackIfCopy(object):
+     def test_insert_noncontiguous(self):
+         a = np.arange(6).reshape(2,3).T # force non-c-contiguous
+         # uses arr_insert
+         np.place(a, a>2, [44, 55])
+         assert_equal(a, np.array([[0, 44], [1, 55], [2, 44]]))
++        # Candidate patch must not alter protected official-test context.
+ 
