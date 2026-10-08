@@ -1,0 +1,38 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "027",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2019-04-18",
+  "created_at_precision": "date",
+  "instance_id": "numpy__numpy-11684",
+  "source_instance_id": "pyc__numpy_numpy__842970f1__line866__sequence_to_arrays__case27",
+  "repo": "numpy/numpy",
+  "issue_id": 11684,
+  "issue_url": "https://github.com/numpy/numpy/pull/11684",
+  "project_version": "1.17.0.dev0",
+  "base_commit": "0fd5f2506bf2f41b023392c945312e5a1a3eb819",
+  "fix_commit": "842970f1aaa710b31ebd27427035b58b265e55a8",
+  "FAIL_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_indices"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "ubuntu:20.04",
+    "python_version": "3.8.10 debug build",
+    "pytest_version": "5.4.2",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

@@ -1,0 +1,16 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 3 items
+
+numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices PASSED [ 33%]
+numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes PASSED [ 66%]
+numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_indices PASSED [100%]
+
+============================== 3 passed in 0.10s ===============================

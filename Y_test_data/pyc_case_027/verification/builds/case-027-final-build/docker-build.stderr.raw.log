@@ -1,0 +1,2200 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.10kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+#4 resolve docker.io/library/ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] RUN apt-get update     && apt-get install -y --no-install-recommends        build-essential ca-certificates gfortran git libopenblas-dev        pkg-config python3.8-dbg python3.8-dev python3-pip python3-setuptools     && if [[ -n "" ]]; then apt-get install -y --no-install-recommends ; fi     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/6] RUN python3.8-dbg -m pip install --no-cache-dir       "pip<24.1" "setuptools<70" "wheel<0.42"       Cython==0.29.36 hypothesis==5.14.0 pytz==2020.1       pytest==5.4.2 pytest-env==0.6.2 pytest-leaks==0.3.1
+#6 CACHED
+
+#7 [4/6] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/numpy/numpy.git"     && git fetch --depth=1 origin "0fd5f2506bf2f41b023392c945312e5a1a3eb819"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "0fd5f2506bf2f41b023392c945312e5a1a3eb819"     && mkdir -p /benchmark /inputs /results
+#7 0.174 Initialized empty Git repository in /testbed/.git/
+#7 9.658 From https://github.com/numpy/numpy
+#7 9.658  * branch            0fd5f2506bf2f41b023392c945312e5a1a3eb819 -> FETCH_HEAD
+#7 9.813 HEAD is now at 0fd5f25 Merge pull request #13354 from IntelPython/add-rfftn-axes-test
+#7 DONE 9.9s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python3.8-dbg setup.py build_ext -i     && python3.8-dbg -c "import numpy; print(numpy.__version__)"     && git reset --hard "0fd5f2506bf2f41b023392c945312e5a1a3eb819"     && test -z "$(git status --porcelain)"
+#9 0.347 Running from numpy source directory.
+#9 0.371 /testbed/numpy/distutils/misc_util.py:474: SyntaxWarning: "is" with a literal. Did you mean "=="?
+#9 0.371   return is_string(s) and ('*' in s or '?' is s)
+#9 0.489 Cythonizing sources
+#9 0.515 Processing numpy/random/mtrand/randint_helpers.pxi.in
+#9 0.541 Processing numpy/random/mtrand/mtrand.pyx
+#9 1.989 blas_opt_info:
+#9 1.991 blas_mkl_info:
+#9 1.991 customize UnixCCompiler
+#9 1.992   libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+#9 1.992   NOT AVAILABLE
+#9 1.992 
+#9 1.993 blis_info:
+#9 1.993 customize UnixCCompiler
+#9 1.993   libraries blis not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+#9 1.993   NOT AVAILABLE
+#9 1.993 
+#9 1.993 openblas_info:
+#9 1.993 customize UnixCCompiler
+#9 1.994 customize UnixCCompiler
+#9 1.994 customize UnixCCompiler
+#9 1.995   FOUND:
+#9 1.995     libraries = ['openblas', 'openblas']
+#9 1.995     library_dirs = ['/usr/lib/x86_64-linux-gnu']
+#9 1.995     language = c
+#9 1.995     define_macros = [('HAVE_CBLAS', None)]
+#9 1.995 
+#9 1.995   FOUND:
+#9 1.995     libraries = ['openblas', 'openblas']
+#9 1.995     library_dirs = ['/usr/lib/x86_64-linux-gnu']
+#9 1.995     language = c
+#9 1.995     define_macros = [('HAVE_CBLAS', None)]
+#9 1.995 
+#9 2.004 /bin/sh: 1: svnversion: not found
+#9 2.007 non-existing path in 'numpy/distutils': 'site.cfg'
+#9 2.019 lapack_opt_info:
+#9 2.020 lapack_mkl_info:
+#9 2.020 customize UnixCCompiler
+#9 2.020   libraries mkl_rt not found in ['/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+#9 2.020   NOT AVAILABLE
+#9 2.020 
+#9 2.021 openblas_lapack_info:
+#9 2.021 customize UnixCCompiler
+#9 2.021 customize UnixCCompiler
+#9 2.021 customize UnixCCompiler
+#9 2.035 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.035 
+#9 2.035 creating /tmp/tmp8y2_glag/tmp
+#9 2.035 creating /tmp/tmp8y2_glag/tmp/tmp8y2_glag
+#9 2.036 compile options: '-c'
+#9 2.036 x86_64-linux-gnu-gcc: /tmp/tmp8y2_glag/source.c
+#9 2.051 x86_64-linux-gnu-gcc -pthread /tmp/tmp8y2_glag/tmp/tmp8y2_glag/source.o -lopenblas -o /tmp/tmp8y2_glag/a.out
+#9 2.085 customize UnixCCompiler
+#9 2.085   FOUND:
+#9 2.085     libraries = ['openblas', 'openblas']
+#9 2.085     library_dirs = ['/usr/lib/x86_64-linux-gnu']
+#9 2.085     language = c
+#9 2.085     define_macros = [('HAVE_CBLAS', None)]
+#9 2.085 
+#9 2.086   FOUND:
+#9 2.086     libraries = ['openblas', 'openblas']
+#9 2.086     library_dirs = ['/usr/lib/x86_64-linux-gnu']
+#9 2.086     language = c
+#9 2.086     define_macros = [('HAVE_CBLAS', None)]
+#9 2.086 
+#9 2.098 /usr/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'define_macros'
+#9 2.098   warnings.warn(msg)
+#9 2.099 running build_ext
+#9 2.099 running build_src
+#9 2.099 build_src
+#9 2.100 building py_modules sources
+#9 2.101 building library "npymath" sources
+#9 2.101 creating build
+#9 2.101 creating build/src.linux-x86_64-3.8
+#9 2.132 get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+#9 2.132 customize Gnu95FCompiler
+#9 2.132 Found executable /usr/bin/gfortran
+#9 2.140 customize Gnu95FCompiler
+#9 2.146 customize Gnu95FCompiler using config
+#9 2.146 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.146 
+#9 2.146 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.147 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.159 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 2.173 success!
+#9 2.173 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 2.174 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.174 
+#9 2.174 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.174 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.180 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 2.180     1 | int exp (void);
+#9 2.180       |     ^~~
+#9 2.180 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 2.180   +++ |+#include <math.h>
+#9 2.180     1 | int exp (void);
+#9 2.188 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 2.201 /usr/bin/ld: _configtest.o: in function `main':
+#9 2.201 /testbed/_configtest.c:6: undefined reference to `exp'
+#9 2.201 collect2: error: ld returned 1 exit status
+#9 2.202 failure.
+#9 2.202 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.203 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.203 
+#9 2.203 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.203 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.208 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 2.208     1 | int exp (void);
+#9 2.208       |     ^~~
+#9 2.208 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 2.208   +++ |+#include <math.h>
+#9 2.208     1 | int exp (void);
+#9 2.216 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 2.233 success!
+#9 2.233 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 2.233 conv_template:> numpy/core/src/npymath/npy_math_internal.h
+#9 2.239   adding 'numpy/core/src/npymath' to include_dirs.
+#9 2.239 conv_template:> numpy/core/src/npymath/ieee754.c
+#9 2.240 conv_template:> numpy/core/src/npymath/npy_math_complex.c
+#9 2.252 None - nothing done with h_files = ['numpy/core/src/npymath/npy_math_internal.h']
+#9 2.252 building library "npysort" sources
+#9 2.252 conv_template:> numpy/core/src/common/npy_sort.h
+#9 2.254   adding 'numpy/core/src/common' to include_dirs.
+#9 2.254 conv_template:> numpy/core/src/npysort/quicksort.c
+#9 2.261 conv_template:> numpy/core/src/npysort/mergesort.c
+#9 2.265 conv_template:> numpy/core/src/npysort/timsort.c
+#9 2.291 conv_template:> numpy/core/src/npysort/heapsort.c
+#9 2.294 conv_template:> numpy/core/src/common/npy_partition.h
+#9 2.297 conv_template:> numpy/core/src/npysort/selection.c
+#9 2.323 conv_template:> numpy/core/src/common/npy_binsearch.h
+#9 2.327 conv_template:> numpy/core/src/npysort/binsearch.c
+#9 2.339 None - nothing done with h_files = ['numpy/core/src/common/npy_sort.h', 'numpy/core/src/common/npy_partition.h', 'numpy/core/src/common/npy_binsearch.h']
+#9 2.339 building extension "numpy.core._dummy" sources
+#9 2.339 Generating numpy/core/include/numpy/config.h
+#9 2.339 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.339 
+#9 2.339 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.339 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.400 success!
+#9 2.400 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.401 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.401 
+#9 2.401 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.401 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.412 success!
+#9 2.412 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.413 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.413 
+#9 2.413 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.413 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.418 _configtest.c:1:10: fatal error: sys/endian.h: No such file or directory
+#9 2.418     1 | #include <sys/endian.h>
+#9 2.418       |          ^~~~~~~~~~~~~~
+#9 2.418 compilation terminated.
+#9 2.419 failure.
+#9 2.419 removing: _configtest.c _configtest.o
+#9 2.420 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.420 
+#9 2.420 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.420 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.475 success!
+#9 2.475 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.475 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.475 
+#9 2.475 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.475 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.528 success!
+#9 2.528 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.528 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.528 
+#9 2.528 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.528 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.580 success!
+#9 2.580 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.580 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.580 
+#9 2.581 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.581 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.633 success!
+#9 2.633 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.633 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.633 
+#9 2.634 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.634 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.639 _configtest.c: In function ‘main’:
+#9 2.639 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.639     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.639       |                ^~~~~~~~~~
+#9 2.647 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.647 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.647 
+#9 2.647 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.648 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.653 _configtest.c: In function ‘main’:
+#9 2.653 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.653     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 4)];
+#9 2.653       |                ^~~~~~~~~~
+#9 2.662 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.663 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.663 
+#9 2.663 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.663 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.668 _configtest.c: In function ‘main’:
+#9 2.668 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.668     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.668       |                ^~~~~~~~~~
+#9 2.676 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.676 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.676 
+#9 2.676 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.676 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.682 _configtest.c: In function ‘main’:
+#9 2.682 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.682     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 2.682       |                ^~~~~~~~~~
+#9 2.691 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.691 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.691 
+#9 2.691 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.691 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.747 success!
+#9 2.747 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.747 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.747 
+#9 2.747 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.748 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.753 _configtest.c: In function ‘main’:
+#9 2.753 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.753     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.753       |                ^~~~~~~~~~
+#9 2.761 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.762 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.762 
+#9 2.762 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.762 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.767 _configtest.c: In function ‘main’:
+#9 2.767 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.767     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 2.767       |                ^~~~~~~~~~
+#9 2.775 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.775 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.775 
+#9 2.776 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.776 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.781 _configtest.c: In function ‘main’:
+#9 2.781 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.781     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.781       |                ^~~~~~~~~~
+#9 2.789 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.789 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.789 
+#9 2.790 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.790 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.795 _configtest.c: In function ‘main’:
+#9 2.795 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.795     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 16)];
+#9 2.795       |                ^~~~~~~~~~
+#9 2.803 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.803 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.803 
+#9 2.803 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.803 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.847 _configtest.c: In function ‘main’:
+#9 2.847 _configtest.c:7:12: error: ‘SIZEOF_LONGDOUBLE’ undeclared (first use in this function); did you mean ‘SIZEOF_LONG_DOUBLE’?
+#9 2.847     7 |     (void) SIZEOF_LONGDOUBLE;
+#9 2.847       |            ^~~~~~~~~~~~~~~~~
+#9 2.847       |            SIZEOF_LONG_DOUBLE
+#9 2.847 _configtest.c:7:12: note: each undeclared identifier is reported only once for each function it appears in
+#9 2.849 failure.
+#9 2.849 removing: _configtest.c _configtest.o
+#9 2.849 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.849 
+#9 2.849 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.850 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.856 _configtest.c: In function ‘main’:
+#9 2.856 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.856     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.856       |                ^~~~~~~~~~
+#9 2.864 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.864 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.864 
+#9 2.864 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.864 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.870 _configtest.c: In function ‘main’:
+#9 2.870 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.870     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 16)];
+#9 2.870       |                ^~~~~~~~~~
+#9 2.878 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.879 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.879 
+#9 2.879 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.879 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.886 _configtest.c: In function ‘main’:
+#9 2.886 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.886     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.886       |                ^~~~~~~~~~
+#9 2.893 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.894 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.894 
+#9 2.894 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.894 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.900 _configtest.c: In function ‘main’:
+#9 2.900 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.900     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 32)];
+#9 2.900       |                ^~~~~~~~~~
+#9 2.908 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.909 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.909 
+#9 2.909 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.909 x86_64-linux-gnu-gcc: _configtest.c
+#9 2.951 _configtest.c: In function ‘main’:
+#9 2.951 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 2.951     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 2.951       |                ^~~~~~~~~~
+#9 2.961 removing: _configtest.c _configtest.o _configtest.o.d
+#9 2.962 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 2.962 
+#9 2.962 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 2.962 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.002 _configtest.c: In function ‘main’:
+#9 3.002 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.002     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 3.002       |                ^~~~~~~~~~
+#9 3.014 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.014 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.014 
+#9 3.014 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.015 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.057 _configtest.c: In function ‘main’:
+#9 3.057 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.057     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 3.057       |                ^~~~~~~~~~
+#9 3.068 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.069 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.069 
+#9 3.069 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.069 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.113 _configtest.c: In function ‘main’:
+#9 3.113 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.113     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 3.113       |                ^~~~~~~~~~
+#9 3.124 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.124 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.124 
+#9 3.124 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.124 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.177 success!
+#9 3.177 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.178 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.178 
+#9 3.178 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.178 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.220 _configtest.c: In function ‘main’:
+#9 3.220 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.220     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 3.220       |                ^~~~~~~~~~
+#9 3.231 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.231 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.231 
+#9 3.231 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.231 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.272 _configtest.c: In function ‘main’:
+#9 3.272 _configtest.c:7:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.272     7 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 3.272       |                ^~~~~~~~~~
+#9 3.284 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.284 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.284 
+#9 3.284 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.284 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.290 _configtest.c: In function ‘main’:
+#9 3.290 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.290     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) >= 0)];
+#9 3.290       |                ^~~~~~~~~~
+#9 3.298 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.299 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.299 
+#9 3.299 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.299 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.305 _configtest.c: In function ‘main’:
+#9 3.305 _configtest.c:5:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+#9 3.305     5 |     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == 8)];
+#9 3.305       |                ^~~~~~~~~~
+#9 3.313 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.313 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.313 
+#9 3.313 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.313 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.364 success!
+#9 3.364 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.365 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.365 
+#9 3.365 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.365 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.370 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.370     1 | int exp (void);
+#9 3.370       |     ^~~
+#9 3.370 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 3.370   +++ |+#include <math.h>
+#9 3.370     1 | int exp (void);
+#9 3.378 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 3.392 /usr/bin/ld: _configtest.o: in function `main':
+#9 3.392 /testbed/_configtest.c:6: undefined reference to `exp'
+#9 3.392 collect2: error: ld returned 1 exit status
+#9 3.392 failure.
+#9 3.392 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.393 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.393 
+#9 3.393 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.393 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.399 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.399     1 | int exp (void);
+#9 3.399       |     ^~~
+#9 3.399 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 3.399   +++ |+#include <math.h>
+#9 3.399     1 | int exp (void);
+#9 3.407 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 3.424 success!
+#9 3.424 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 3.425 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.425 
+#9 3.425 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.425 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.431 _configtest.c:1:5: warning: conflicting types for built-in function ‘sin’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     1 | int sin (void);
+#9 3.431       |     ^~~
+#9 3.431 _configtest.c:1:1: note: ‘sin’ is declared in header ‘<math.h>’
+#9 3.431   +++ |+#include <math.h>
+#9 3.431     1 | int sin (void);
+#9 3.431 _configtest.c:2:5: warning: conflicting types for built-in function ‘cos’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     2 | int cos (void);
+#9 3.431       |     ^~~
+#9 3.431 _configtest.c:2:5: note: ‘cos’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:3:5: warning: conflicting types for built-in function ‘tan’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     3 | int tan (void);
+#9 3.431       |     ^~~
+#9 3.431 _configtest.c:3:5: note: ‘tan’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:4:5: warning: conflicting types for built-in function ‘sinh’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     4 | int sinh (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:4:5: note: ‘sinh’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:5:5: warning: conflicting types for built-in function ‘cosh’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     5 | int cosh (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:5:5: note: ‘cosh’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:6:5: warning: conflicting types for built-in function ‘tanh’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     6 | int tanh (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:6:5: note: ‘tanh’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:7:5: warning: conflicting types for built-in function ‘fabs’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     7 | int fabs (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:7:5: note: ‘fabs’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:8:5: warning: conflicting types for built-in function ‘floor’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     8 | int floor (void);
+#9 3.431       |     ^~~~~
+#9 3.431 _configtest.c:8:5: note: ‘floor’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:9:5: warning: conflicting types for built-in function ‘ceil’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431     9 | int ceil (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:9:5: note: ‘ceil’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:10:5: warning: conflicting types for built-in function ‘sqrt’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    10 | int sqrt (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:10:5: note: ‘sqrt’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:11:5: warning: conflicting types for built-in function ‘log10’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    11 | int log10 (void);
+#9 3.431       |     ^~~~~
+#9 3.431 _configtest.c:11:5: note: ‘log10’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:12:5: warning: conflicting types for built-in function ‘log’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    12 | int log (void);
+#9 3.431       |     ^~~
+#9 3.431 _configtest.c:12:5: note: ‘log’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:13:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    13 | int exp (void);
+#9 3.431       |     ^~~
+#9 3.431 _configtest.c:13:5: note: ‘exp’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:14:5: warning: conflicting types for built-in function ‘asin’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    14 | int asin (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:14:5: note: ‘asin’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:15:5: warning: conflicting types for built-in function ‘acos’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    15 | int acos (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:15:5: note: ‘acos’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:16:5: warning: conflicting types for built-in function ‘atan’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    16 | int atan (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:16:5: note: ‘atan’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:17:5: warning: conflicting types for built-in function ‘fmod’; expected ‘double(double,  double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    17 | int fmod (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:17:5: note: ‘fmod’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:18:5: warning: conflicting types for built-in function ‘modf’; expected ‘double(double,  double *)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    18 | int modf (void);
+#9 3.431       |     ^~~~
+#9 3.431 _configtest.c:18:5: note: ‘modf’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:19:5: warning: conflicting types for built-in function ‘frexp’; expected ‘double(double,  int *)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    19 | int frexp (void);
+#9 3.431       |     ^~~~~
+#9 3.431 _configtest.c:19:5: note: ‘frexp’ is declared in header ‘<math.h>’
+#9 3.431 _configtest.c:20:5: warning: conflicting types for built-in function ‘ldexp’; expected ‘double(double,  int)’ [-Wbuiltin-declaration-mismatch]
+#9 3.431    20 | int ldexp (void);
+#9 3.431       |     ^~~~~
+#9 3.431 _configtest.c:20:5: note: ‘ldexp’ is declared in header ‘<math.h>’
+#9 3.440 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 3.459 success!
+#9 3.459 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 3.459 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.459 
+#9 3.459 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.459 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.513 success!
+#9 3.513 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.514 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.514 
+#9 3.514 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.514 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.564 success!
+#9 3.564 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.565 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.565 
+#9 3.565 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.565 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.616 success!
+#9 3.616 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.616 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.616 
+#9 3.617 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.617 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.670 success!
+#9 3.670 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.670 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.670 
+#9 3.671 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.671 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.725 success!
+#9 3.725 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.725 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.725 
+#9 3.725 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.725 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.777 success!
+#9 3.777 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.778 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.778 
+#9 3.778 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.778 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.833 success!
+#9 3.833 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.833 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.833 
+#9 3.833 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.833 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.887 success!
+#9 3.887 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.887 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.887 
+#9 3.887 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.887 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.940 success!
+#9 3.940 removing: _configtest.c _configtest.o _configtest.o.d
+#9 3.941 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.941 
+#9 3.941 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.941 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.947 _configtest.c:1:5: warning: conflicting types for built-in function ‘rint’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     1 | int rint (void);
+#9 3.947       |     ^~~~
+#9 3.947 _configtest.c:1:1: note: ‘rint’ is declared in header ‘<math.h>’
+#9 3.947   +++ |+#include <math.h>
+#9 3.947     1 | int rint (void);
+#9 3.947 _configtest.c:2:5: warning: conflicting types for built-in function ‘trunc’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     2 | int trunc (void);
+#9 3.947       |     ^~~~~
+#9 3.947 _configtest.c:2:5: note: ‘trunc’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:3:5: warning: conflicting types for built-in function ‘exp2’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     3 | int exp2 (void);
+#9 3.947       |     ^~~~
+#9 3.947 _configtest.c:3:5: note: ‘exp2’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:4:5: warning: conflicting types for built-in function ‘log2’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     4 | int log2 (void);
+#9 3.947       |     ^~~~
+#9 3.947 _configtest.c:4:5: note: ‘log2’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:5:5: warning: conflicting types for built-in function ‘atan2’; expected ‘double(double,  double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     5 | int atan2 (void);
+#9 3.947       |     ^~~~~
+#9 3.947 _configtest.c:5:5: note: ‘atan2’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:6:5: warning: conflicting types for built-in function ‘pow’; expected ‘double(double,  double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     6 | int pow (void);
+#9 3.947       |     ^~~
+#9 3.947 _configtest.c:6:5: note: ‘pow’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:7:5: warning: conflicting types for built-in function ‘nextafter’; expected ‘double(double,  double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947     7 | int nextafter (void);
+#9 3.947       |     ^~~~~~~~~
+#9 3.947 _configtest.c:7:5: note: ‘nextafter’ is declared in header ‘<math.h>’
+#9 3.947 _configtest.c:10:5: warning: conflicting types for built-in function ‘cbrt’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 3.947    10 | int cbrt (void);
+#9 3.947       |     ^~~~
+#9 3.947 _configtest.c:10:5: note: ‘cbrt’ is declared in header ‘<math.h>’
+#9 3.955 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 3.972 success!
+#9 3.972 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 3.973 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 3.973 
+#9 3.973 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 3.973 x86_64-linux-gnu-gcc: _configtest.c
+#9 3.995 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.009 success!
+#9 4.009 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.009 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.009 
+#9 4.010 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.010 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.033 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.047 success!
+#9 4.047 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.047 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.047 
+#9 4.047 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.047 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.061 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.075 success!
+#9 4.075 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.075 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.075 
+#9 4.075 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.075 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.081 _configtest.c:1:10: fatal error: xlocale.h: No such file or directory
+#9 4.081     1 | #include <xlocale.h>
+#9 4.081       |          ^~~~~~~~~~~
+#9 4.081 compilation terminated.
+#9 4.082 failure.
+#9 4.082 removing: _configtest.c _configtest.o
+#9 4.083 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.083 
+#9 4.083 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.083 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.097 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.110 success!
+#9 4.110 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.110 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.110 
+#9 4.111 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.111 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.126 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.139 success!
+#9 4.139 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.139 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.139 
+#9 4.140 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.140 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.145 _configtest.c: In function ‘main’:
+#9 4.145 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.145     5 |   __builtin_isnan(5.);
+#9 4.145       |   ^~~~~~~~~~~~~~~
+#9 4.153 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.166 success!
+#9 4.166 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.167 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.167 
+#9 4.167 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.167 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.173 _configtest.c: In function ‘main’:
+#9 4.173 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.173     5 |   __builtin_isinf(5.);
+#9 4.173       |   ^~~~~~~~~~~~~~~
+#9 4.181 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.194 success!
+#9 4.194 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.194 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.194 
+#9 4.195 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.195 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.200 _configtest.c: In function ‘main’:
+#9 4.200 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.200     5 |   __builtin_isfinite(5.);
+#9 4.200       |   ^~~~~~~~~~~~~~~~~~
+#9 4.208 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.221 success!
+#9 4.221 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.221 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.221 
+#9 4.221 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.221 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.227 _configtest.c: In function ‘main’:
+#9 4.227 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.227     5 |   __builtin_bswap32(5u);
+#9 4.227       |   ^~~~~~~~~~~~~~~~~
+#9 4.235 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.247 success!
+#9 4.247 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.248 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.248 
+#9 4.248 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.248 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.253 _configtest.c: In function ‘main’:
+#9 4.253 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.253     5 |   __builtin_bswap64(5u);
+#9 4.253       |   ^~~~~~~~~~~~~~~~~
+#9 4.261 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.274 success!
+#9 4.274 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.275 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.275 
+#9 4.275 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.275 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.280 _configtest.c: In function ‘main’:
+#9 4.280 _configtest.c:5:3: warning: statement with no effect [-Wunused-value]
+#9 4.280     5 |   __builtin_expect(5, 0);
+#9 4.280       |   ^~~~~~~~~~~~~~~~
+#9 4.288 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.302 success!
+#9 4.302 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.302 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.302 
+#9 4.302 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.302 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.308 _configtest.c: In function ‘main’:
+#9 4.308 _configtest.c:5:3: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 4.308     5 |   __builtin_mul_overflow(5, 5, (int*)5);
+#9 4.308       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 4.316 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.329 success!
+#9 4.329 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.330 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.330 
+#9 4.330 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.330 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.339 _configtest.c: In function ‘main’:
+#9 4.339 _configtest.c:7:16: warning: unused variable ‘r’ [-Wunused-variable]
+#9 4.339     7 |   volatile int r = __builtin_cpu_supports("sse");
+#9 4.339       |                ^
+#9 4.348 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.361 success!
+#9 4.361 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.362 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.362 
+#9 4.362 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.362 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.384 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.397 success!
+#9 4.397 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.397 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.397 
+#9 4.398 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.398 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.419 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.433 success!
+#9 4.433 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.433 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.433 
+#9 4.434 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.434 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.457 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.471 success!
+#9 4.471 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.471 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.471 
+#9 4.471 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.471 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.493 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.506 success!
+#9 4.506 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.507 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.507 
+#9 4.507 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.507 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.521 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.534 success!
+#9 4.534 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.534 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.534 
+#9 4.534 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.534 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.551 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.564 success!
+#9 4.564 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.565 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.565 
+#9 4.565 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.565 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.582 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.595 success!
+#9 4.595 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.595 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.595 
+#9 4.595 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.595 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.612 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 4.625 success!
+#9 4.625 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.626 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.626 
+#9 4.626 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.626 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.632 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.632     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.632       | 
+#9 4.640 success!
+#9 4.640 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.641 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.641 
+#9 4.641 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.641 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.646 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.646     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.646       | 
+#9 4.654 success!
+#9 4.654 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.654 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.654 
+#9 4.654 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.654 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.660 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.660     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.660       | 
+#9 4.668 success!
+#9 4.668 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.668 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.668 
+#9 4.668 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.668 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.674 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.674     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.674       | 
+#9 4.682 success!
+#9 4.682 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.682 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.682 
+#9 4.682 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.683 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.688 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.688     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.688       | 
+#9 4.696 success!
+#9 4.696 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.697 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.697 
+#9 4.697 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.697 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.703 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.703     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.703       | 
+#9 4.711 success!
+#9 4.711 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.712 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.712 
+#9 4.712 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.712 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.718 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 4.718     3 | #pragma clang diagnostic error "-Wattributes"
+#9 4.718       | 
+#9 4.718 _configtest.c: In function ‘__declspec’:
+#9 4.718 _configtest.c:5:24: error: expected declaration specifiers before ‘foo’
+#9 4.718     5 | int __declspec(thread) foo;
+#9 4.718       |                        ^~~
+#9 4.718 _configtest.c:9:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+#9 4.718     9 | {
+#9 4.718       | ^
+#9 4.718 _configtest.c:5:5: warning: type of ‘thread’ defaults to ‘int’ [-Wimplicit-int]
+#9 4.718     5 | int __declspec(thread) foo;
+#9 4.718       |     ^~~~~~~~~~
+#9 4.718 _configtest.c:11: error: expected ‘{’ at end of input
+#9 4.718    11 | }
+#9 4.718       | 
+#9 4.718 _configtest.c:11: warning: control reaches end of non-void function [-Wreturn-type]
+#9 4.718    11 | }
+#9 4.718       | 
+#9 4.720 failure.
+#9 4.720 removing: _configtest.c _configtest.o
+#9 4.720 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.720 
+#9 4.720 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.720 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.726 _configtest.c:1:5: warning: conflicting types for built-in function ‘sinf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     1 | int sinf (void);
+#9 4.726       |     ^~~~
+#9 4.726 _configtest.c:1:1: note: ‘sinf’ is declared in header ‘<math.h>’
+#9 4.726   +++ |+#include <math.h>
+#9 4.726     1 | int sinf (void);
+#9 4.726 _configtest.c:2:5: warning: conflicting types for built-in function ‘cosf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     2 | int cosf (void);
+#9 4.726       |     ^~~~
+#9 4.726 _configtest.c:2:5: note: ‘cosf’ is declared in header ‘<math.h>’
+#9 4.726 _configtest.c:3:5: warning: conflicting types for built-in function ‘tanf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     3 | int tanf (void);
+#9 4.726       |     ^~~~
+#9 4.726 _configtest.c:3:5: note: ‘tanf’ is declared in header ‘<math.h>’
+#9 4.726 _configtest.c:4:5: warning: conflicting types for built-in function ‘sinhf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     4 | int sinhf (void);
+#9 4.726       |     ^~~~~
+#9 4.726 _configtest.c:4:5: note: ‘sinhf’ is declared in header ‘<math.h>’
+#9 4.726 _configtest.c:5:5: warning: conflicting types for built-in function ‘coshf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     5 | int coshf (void);
+#9 4.726       |     ^~~~~
+#9 4.726 _configtest.c:5:5: note: ‘coshf’ is declared in header ‘<math.h>’
+#9 4.726 _configtest.c:6:5: warning: conflicting types for built-in function ‘tanhf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     6 | int tanhf (void);
+#9 4.726       |     ^~~~~
+#9 4.726 _configtest.c:6:5: note: ‘tanhf’ is declared in header ‘<math.h>’
+#9 4.726 _configtest.c:7:5: warning: conflicting types for built-in function ‘fabsf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.726     7 | int fabsf (void);
+#9 4.726       |     ^~~~~
+#9 4.726 _configtest.c:7:5: note: ‘fabsf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:8:5: warning: conflicting types for built-in function ‘floorf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727     8 | int floorf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:8:5: note: ‘floorf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:9:5: warning: conflicting types for built-in function ‘ceilf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727     9 | int ceilf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:9:5: note: ‘ceilf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:10:5: warning: conflicting types for built-in function ‘rintf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    10 | int rintf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:10:5: note: ‘rintf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:11:5: warning: conflicting types for built-in function ‘truncf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    11 | int truncf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:11:5: note: ‘truncf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:12:5: warning: conflicting types for built-in function ‘sqrtf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    12 | int sqrtf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:12:5: note: ‘sqrtf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:13:5: warning: conflicting types for built-in function ‘log10f’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    13 | int log10f (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:13:5: note: ‘log10f’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:14:5: warning: conflicting types for built-in function ‘logf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    14 | int logf (void);
+#9 4.727       |     ^~~~
+#9 4.727 _configtest.c:14:5: note: ‘logf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:15:5: warning: conflicting types for built-in function ‘log1pf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    15 | int log1pf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:15:5: note: ‘log1pf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:16:5: warning: conflicting types for built-in function ‘expf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    16 | int expf (void);
+#9 4.727       |     ^~~~
+#9 4.727 _configtest.c:16:5: note: ‘expf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:17:5: warning: conflicting types for built-in function ‘expm1f’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    17 | int expm1f (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:17:5: note: ‘expm1f’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:18:5: warning: conflicting types for built-in function ‘asinf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    18 | int asinf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:18:5: note: ‘asinf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:19:5: warning: conflicting types for built-in function ‘acosf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    19 | int acosf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:19:5: note: ‘acosf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:20:5: warning: conflicting types for built-in function ‘atanf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    20 | int atanf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:20:5: note: ‘atanf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:21:5: warning: conflicting types for built-in function ‘asinhf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    21 | int asinhf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:21:5: note: ‘asinhf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:22:5: warning: conflicting types for built-in function ‘acoshf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    22 | int acoshf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:22:5: note: ‘acoshf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:23:5: warning: conflicting types for built-in function ‘atanhf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    23 | int atanhf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:23:5: note: ‘atanhf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:24:5: warning: conflicting types for built-in function ‘hypotf’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    24 | int hypotf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:24:5: note: ‘hypotf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:25:5: warning: conflicting types for built-in function ‘atan2f’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    25 | int atan2f (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:25:5: note: ‘atan2f’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:26:5: warning: conflicting types for built-in function ‘powf’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    26 | int powf (void);
+#9 4.727       |     ^~~~
+#9 4.727 _configtest.c:26:5: note: ‘powf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:27:5: warning: conflicting types for built-in function ‘fmodf’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    27 | int fmodf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:27:5: note: ‘fmodf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:28:5: warning: conflicting types for built-in function ‘modff’; expected ‘float(float,  float *)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    28 | int modff (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:28:5: note: ‘modff’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:29:5: warning: conflicting types for built-in function ‘frexpf’; expected ‘float(float,  int *)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    29 | int frexpf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:29:5: note: ‘frexpf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:30:5: warning: conflicting types for built-in function ‘ldexpf’; expected ‘float(float,  int)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    30 | int ldexpf (void);
+#9 4.727       |     ^~~~~~
+#9 4.727 _configtest.c:30:5: note: ‘ldexpf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:31:5: warning: conflicting types for built-in function ‘exp2f’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    31 | int exp2f (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:31:5: note: ‘exp2f’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:32:5: warning: conflicting types for built-in function ‘log2f’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    32 | int log2f (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:32:5: note: ‘log2f’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:33:5: warning: conflicting types for built-in function ‘copysignf’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    33 | int copysignf (void);
+#9 4.727       |     ^~~~~~~~~
+#9 4.727 _configtest.c:33:5: note: ‘copysignf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:34:5: warning: conflicting types for built-in function ‘nextafterf’; expected ‘float(float,  float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    34 | int nextafterf (void);
+#9 4.727       |     ^~~~~~~~~~
+#9 4.727 _configtest.c:34:5: note: ‘nextafterf’ is declared in header ‘<math.h>’
+#9 4.727 _configtest.c:35:5: warning: conflicting types for built-in function ‘cbrtf’; expected ‘float(float)’ [-Wbuiltin-declaration-mismatch]
+#9 4.727    35 | int cbrtf (void);
+#9 4.727       |     ^~~~~
+#9 4.727 _configtest.c:35:5: note: ‘cbrtf’ is declared in header ‘<math.h>’
+#9 4.737 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 4.754 success!
+#9 4.754 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.755 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.755 
+#9 4.755 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.755 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.761 _configtest.c:1:5: warning: conflicting types for built-in function ‘sinl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     1 | int sinl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:1:1: note: ‘sinl’ is declared in header ‘<math.h>’
+#9 4.761   +++ |+#include <math.h>
+#9 4.761     1 | int sinl (void);
+#9 4.761 _configtest.c:2:5: warning: conflicting types for built-in function ‘cosl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     2 | int cosl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:2:5: note: ‘cosl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:3:5: warning: conflicting types for built-in function ‘tanl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     3 | int tanl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:3:5: note: ‘tanl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:4:5: warning: conflicting types for built-in function ‘sinhl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     4 | int sinhl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:4:5: note: ‘sinhl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:5:5: warning: conflicting types for built-in function ‘coshl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     5 | int coshl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:5:5: note: ‘coshl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:6:5: warning: conflicting types for built-in function ‘tanhl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     6 | int tanhl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:6:5: note: ‘tanhl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:7:5: warning: conflicting types for built-in function ‘fabsl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     7 | int fabsl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:7:5: note: ‘fabsl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:8:5: warning: conflicting types for built-in function ‘floorl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     8 | int floorl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:8:5: note: ‘floorl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:9:5: warning: conflicting types for built-in function ‘ceill’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761     9 | int ceill (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:9:5: note: ‘ceill’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:10:5: warning: conflicting types for built-in function ‘rintl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    10 | int rintl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:10:5: note: ‘rintl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:11:5: warning: conflicting types for built-in function ‘truncl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    11 | int truncl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:11:5: note: ‘truncl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:12:5: warning: conflicting types for built-in function ‘sqrtl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    12 | int sqrtl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:12:5: note: ‘sqrtl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:13:5: warning: conflicting types for built-in function ‘log10l’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    13 | int log10l (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:13:5: note: ‘log10l’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:14:5: warning: conflicting types for built-in function ‘logl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    14 | int logl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:14:5: note: ‘logl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:15:5: warning: conflicting types for built-in function ‘log1pl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    15 | int log1pl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:15:5: note: ‘log1pl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:16:5: warning: conflicting types for built-in function ‘expl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    16 | int expl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:16:5: note: ‘expl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:17:5: warning: conflicting types for built-in function ‘expm1l’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    17 | int expm1l (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:17:5: note: ‘expm1l’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:18:5: warning: conflicting types for built-in function ‘asinl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    18 | int asinl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:18:5: note: ‘asinl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:19:5: warning: conflicting types for built-in function ‘acosl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    19 | int acosl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:19:5: note: ‘acosl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:20:5: warning: conflicting types for built-in function ‘atanl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    20 | int atanl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:20:5: note: ‘atanl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:21:5: warning: conflicting types for built-in function ‘asinhl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    21 | int asinhl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:21:5: note: ‘asinhl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:22:5: warning: conflicting types for built-in function ‘acoshl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    22 | int acoshl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:22:5: note: ‘acoshl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:23:5: warning: conflicting types for built-in function ‘atanhl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    23 | int atanhl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:23:5: note: ‘atanhl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:24:5: warning: conflicting types for built-in function ‘hypotl’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    24 | int hypotl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:24:5: note: ‘hypotl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:25:5: warning: conflicting types for built-in function ‘atan2l’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    25 | int atan2l (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:25:5: note: ‘atan2l’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:26:5: warning: conflicting types for built-in function ‘powl’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    26 | int powl (void);
+#9 4.761       |     ^~~~
+#9 4.761 _configtest.c:26:5: note: ‘powl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:27:5: warning: conflicting types for built-in function ‘fmodl’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    27 | int fmodl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:27:5: note: ‘fmodl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:28:5: warning: conflicting types for built-in function ‘modfl’; expected ‘long double(long double,  long double *)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    28 | int modfl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:28:5: note: ‘modfl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:29:5: warning: conflicting types for built-in function ‘frexpl’; expected ‘long double(long double,  int *)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    29 | int frexpl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:29:5: note: ‘frexpl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:30:5: warning: conflicting types for built-in function ‘ldexpl’; expected ‘long double(long double,  int)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    30 | int ldexpl (void);
+#9 4.761       |     ^~~~~~
+#9 4.761 _configtest.c:30:5: note: ‘ldexpl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:31:5: warning: conflicting types for built-in function ‘exp2l’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    31 | int exp2l (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:31:5: note: ‘exp2l’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:32:5: warning: conflicting types for built-in function ‘log2l’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    32 | int log2l (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:32:5: note: ‘log2l’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:33:5: warning: conflicting types for built-in function ‘copysignl’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    33 | int copysignl (void);
+#9 4.761       |     ^~~~~~~~~
+#9 4.761 _configtest.c:33:5: note: ‘copysignl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:34:5: warning: conflicting types for built-in function ‘nextafterl’; expected ‘long double(long double,  long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    34 | int nextafterl (void);
+#9 4.761       |     ^~~~~~~~~~
+#9 4.761 _configtest.c:34:5: note: ‘nextafterl’ is declared in header ‘<math.h>’
+#9 4.761 _configtest.c:35:5: warning: conflicting types for built-in function ‘cbrtl’; expected ‘long double(long double)’ [-Wbuiltin-declaration-mismatch]
+#9 4.761    35 | int cbrtl (void);
+#9 4.761       |     ^~~~~
+#9 4.761 _configtest.c:35:5: note: ‘cbrtl’ is declared in header ‘<math.h>’
+#9 4.771 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 4.789 success!
+#9 4.789 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 4.789 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.789 
+#9 4.789 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.790 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.842 success!
+#9 4.842 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.842 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.842 
+#9 4.842 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.842 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.892 success!
+#9 4.892 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.892 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.892 
+#9 4.892 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.892 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.942 success!
+#9 4.942 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.943 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.943 
+#9 4.943 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.943 x86_64-linux-gnu-gcc: _configtest.c
+#9 4.997 success!
+#9 4.997 removing: _configtest.c _configtest.o _configtest.o.d
+#9 4.998 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 4.998 
+#9 4.998 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 4.998 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.042 _configtest.c: In function ‘main’:
+#9 5.042 _configtest.c:8:12: error: ‘HAVE_DECL_SIGNBIT’ undeclared (first use in this function); did you mean ‘HAVE_DECL_ISNAN’?
+#9 5.042     8 |     (void) HAVE_DECL_SIGNBIT;
+#9 5.042       |            ^~~~~~~~~~~~~~~~~
+#9 5.042       |            HAVE_DECL_ISNAN
+#9 5.042 _configtest.c:8:12: note: each undeclared identifier is reported only once for each function it appears in
+#9 5.044 failure.
+#9 5.044 removing: _configtest.c _configtest.o
+#9 5.045 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.045 
+#9 5.045 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.045 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.098 success!
+#9 5.098 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.098 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.098 
+#9 5.098 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.098 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.153 success!
+#9 5.153 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.153 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.153 
+#9 5.153 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.153 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.207 success!
+#9 5.207 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.207 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.207 
+#9 5.207 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.207 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.220 success!
+#9 5.220 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.220 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.220 
+#9 5.220 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.220 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.236 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.236 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.236 
+#9 5.236 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.236 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.252 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.252 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.252 
+#9 5.252 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.252 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.268 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.268 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.268 
+#9 5.269 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.269 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.275 _configtest.c:1:5: warning: conflicting types for built-in function ‘cabs’; expected ‘double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     1 | int cabs (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:1:1: note: ‘cabs’ is declared in header ‘<complex.h>’
+#9 5.275   +++ |+#include <complex.h>
+#9 5.275     1 | int cabs (void);
+#9 5.275 _configtest.c:2:5: warning: conflicting types for built-in function ‘cacos’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     2 | int cacos (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:2:5: note: ‘cacos’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:3:5: warning: conflicting types for built-in function ‘cacosh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     3 | int cacosh (void);
+#9 5.275       |     ^~~~~~
+#9 5.275 _configtest.c:3:5: note: ‘cacosh’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:4:5: warning: conflicting types for built-in function ‘carg’; expected ‘double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     4 | int carg (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:4:5: note: ‘carg’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:5:5: warning: conflicting types for built-in function ‘casin’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     5 | int casin (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:5:5: note: ‘casin’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:6:5: warning: conflicting types for built-in function ‘casinh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     6 | int casinh (void);
+#9 5.275       |     ^~~~~~
+#9 5.275 _configtest.c:6:5: note: ‘casinh’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:7:5: warning: conflicting types for built-in function ‘catan’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     7 | int catan (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:7:5: note: ‘catan’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:8:5: warning: conflicting types for built-in function ‘catanh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     8 | int catanh (void);
+#9 5.275       |     ^~~~~~
+#9 5.275 _configtest.c:8:5: note: ‘catanh’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:9:5: warning: conflicting types for built-in function ‘ccos’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275     9 | int ccos (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:9:5: note: ‘ccos’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:10:5: warning: conflicting types for built-in function ‘ccosh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    10 | int ccosh (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:10:5: note: ‘ccosh’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:11:5: warning: conflicting types for built-in function ‘cexp’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    11 | int cexp (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:11:5: note: ‘cexp’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:12:5: warning: conflicting types for built-in function ‘cimag’; expected ‘double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    12 | int cimag (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:12:5: note: ‘cimag’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:13:5: warning: conflicting types for built-in function ‘clog’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    13 | int clog (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:13:5: note: ‘clog’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:14:5: warning: conflicting types for built-in function ‘conj’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    14 | int conj (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:14:5: note: ‘conj’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:15:5: warning: conflicting types for built-in function ‘cpow’; expected ‘_Complex double(_Complex double,  _Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    15 | int cpow (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:15:5: note: ‘cpow’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:16:5: warning: conflicting types for built-in function ‘cproj’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    16 | int cproj (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:16:5: note: ‘cproj’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:17:5: warning: conflicting types for built-in function ‘creal’; expected ‘double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    17 | int creal (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:17:5: note: ‘creal’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:18:5: warning: conflicting types for built-in function ‘csin’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    18 | int csin (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:18:5: note: ‘csin’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:19:5: warning: conflicting types for built-in function ‘csinh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    19 | int csinh (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:19:5: note: ‘csinh’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:20:5: warning: conflicting types for built-in function ‘csqrt’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    20 | int csqrt (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:20:5: note: ‘csqrt’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:21:5: warning: conflicting types for built-in function ‘ctan’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    21 | int ctan (void);
+#9 5.275       |     ^~~~
+#9 5.275 _configtest.c:21:5: note: ‘ctan’ is declared in header ‘<complex.h>’
+#9 5.275 _configtest.c:22:5: warning: conflicting types for built-in function ‘ctanh’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.275    22 | int ctanh (void);
+#9 5.275       |     ^~~~~
+#9 5.275 _configtest.c:22:5: note: ‘ctanh’ is declared in header ‘<complex.h>’
+#9 5.284 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 5.303 success!
+#9 5.303 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 5.303 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.303 
+#9 5.303 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.303 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.310 _configtest.c:1:5: warning: conflicting types for built-in function ‘cabsf’; expected ‘float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     1 | int cabsf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:1:1: note: ‘cabsf’ is declared in header ‘<complex.h>’
+#9 5.310   +++ |+#include <complex.h>
+#9 5.310     1 | int cabsf (void);
+#9 5.310 _configtest.c:2:5: warning: conflicting types for built-in function ‘cacosf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     2 | int cacosf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:2:5: note: ‘cacosf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:3:5: warning: conflicting types for built-in function ‘cacoshf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     3 | int cacoshf (void);
+#9 5.310       |     ^~~~~~~
+#9 5.310 _configtest.c:3:5: note: ‘cacoshf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:4:5: warning: conflicting types for built-in function ‘cargf’; expected ‘float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     4 | int cargf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:4:5: note: ‘cargf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:5:5: warning: conflicting types for built-in function ‘casinf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     5 | int casinf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:5:5: note: ‘casinf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:6:5: warning: conflicting types for built-in function ‘casinhf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     6 | int casinhf (void);
+#9 5.310       |     ^~~~~~~
+#9 5.310 _configtest.c:6:5: note: ‘casinhf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:7:5: warning: conflicting types for built-in function ‘catanf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     7 | int catanf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:7:5: note: ‘catanf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:8:5: warning: conflicting types for built-in function ‘catanhf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     8 | int catanhf (void);
+#9 5.310       |     ^~~~~~~
+#9 5.310 _configtest.c:8:5: note: ‘catanhf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:9:5: warning: conflicting types for built-in function ‘ccosf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310     9 | int ccosf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:9:5: note: ‘ccosf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:10:5: warning: conflicting types for built-in function ‘ccoshf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    10 | int ccoshf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:10:5: note: ‘ccoshf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:11:5: warning: conflicting types for built-in function ‘cexpf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    11 | int cexpf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:11:5: note: ‘cexpf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:12:5: warning: conflicting types for built-in function ‘cimagf’; expected ‘float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    12 | int cimagf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:12:5: note: ‘cimagf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:13:5: warning: conflicting types for built-in function ‘clogf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    13 | int clogf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:13:5: note: ‘clogf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:14:5: warning: conflicting types for built-in function ‘conjf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    14 | int conjf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:14:5: note: ‘conjf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:15:5: warning: conflicting types for built-in function ‘cpowf’; expected ‘_Complex float(_Complex float,  _Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    15 | int cpowf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:15:5: note: ‘cpowf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:16:5: warning: conflicting types for built-in function ‘cprojf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    16 | int cprojf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:16:5: note: ‘cprojf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:17:5: warning: conflicting types for built-in function ‘crealf’; expected ‘float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    17 | int crealf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:17:5: note: ‘crealf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:18:5: warning: conflicting types for built-in function ‘csinf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    18 | int csinf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:18:5: note: ‘csinf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:19:5: warning: conflicting types for built-in function ‘csinhf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    19 | int csinhf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:19:5: note: ‘csinhf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:20:5: warning: conflicting types for built-in function ‘csqrtf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    20 | int csqrtf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:20:5: note: ‘csqrtf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:21:5: warning: conflicting types for built-in function ‘ctanf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    21 | int ctanf (void);
+#9 5.310       |     ^~~~~
+#9 5.310 _configtest.c:21:5: note: ‘ctanf’ is declared in header ‘<complex.h>’
+#9 5.310 _configtest.c:22:5: warning: conflicting types for built-in function ‘ctanhf’; expected ‘_Complex float(_Complex float)’ [-Wbuiltin-declaration-mismatch]
+#9 5.310    22 | int ctanhf (void);
+#9 5.310       |     ^~~~~~
+#9 5.310 _configtest.c:22:5: note: ‘ctanhf’ is declared in header ‘<complex.h>’
+#9 5.320 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 5.339 success!
+#9 5.339 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 5.339 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.339 
+#9 5.339 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.339 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.345 _configtest.c:1:5: warning: conflicting types for built-in function ‘cabsl’; expected ‘long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     1 | int cabsl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:1:1: note: ‘cabsl’ is declared in header ‘<complex.h>’
+#9 5.345   +++ |+#include <complex.h>
+#9 5.345     1 | int cabsl (void);
+#9 5.345 _configtest.c:2:5: warning: conflicting types for built-in function ‘cacosl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     2 | int cacosl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:2:5: note: ‘cacosl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:3:5: warning: conflicting types for built-in function ‘cacoshl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     3 | int cacoshl (void);
+#9 5.345       |     ^~~~~~~
+#9 5.345 _configtest.c:3:5: note: ‘cacoshl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:4:5: warning: conflicting types for built-in function ‘cargl’; expected ‘long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     4 | int cargl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:4:5: note: ‘cargl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:5:5: warning: conflicting types for built-in function ‘casinl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     5 | int casinl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:5:5: note: ‘casinl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:6:5: warning: conflicting types for built-in function ‘casinhl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     6 | int casinhl (void);
+#9 5.345       |     ^~~~~~~
+#9 5.345 _configtest.c:6:5: note: ‘casinhl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:7:5: warning: conflicting types for built-in function ‘catanl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     7 | int catanl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:7:5: note: ‘catanl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:8:5: warning: conflicting types for built-in function ‘catanhl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     8 | int catanhl (void);
+#9 5.345       |     ^~~~~~~
+#9 5.345 _configtest.c:8:5: note: ‘catanhl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:9:5: warning: conflicting types for built-in function ‘ccosl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345     9 | int ccosl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:9:5: note: ‘ccosl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:10:5: warning: conflicting types for built-in function ‘ccoshl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    10 | int ccoshl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:10:5: note: ‘ccoshl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:11:5: warning: conflicting types for built-in function ‘cexpl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    11 | int cexpl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:11:5: note: ‘cexpl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:12:5: warning: conflicting types for built-in function ‘cimagl’; expected ‘long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    12 | int cimagl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:12:5: note: ‘cimagl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:13:5: warning: conflicting types for built-in function ‘clogl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    13 | int clogl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:13:5: note: ‘clogl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:14:5: warning: conflicting types for built-in function ‘conjl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    14 | int conjl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:14:5: note: ‘conjl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:15:5: warning: conflicting types for built-in function ‘cpowl’; expected ‘_Complex long double(_Complex long double,  _Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    15 | int cpowl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:15:5: note: ‘cpowl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:16:5: warning: conflicting types for built-in function ‘cprojl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    16 | int cprojl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:16:5: note: ‘cprojl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:17:5: warning: conflicting types for built-in function ‘creall’; expected ‘long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    17 | int creall (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:17:5: note: ‘creall’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:18:5: warning: conflicting types for built-in function ‘csinl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    18 | int csinl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:18:5: note: ‘csinl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:19:5: warning: conflicting types for built-in function ‘csinhl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    19 | int csinhl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:19:5: note: ‘csinhl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:20:5: warning: conflicting types for built-in function ‘csqrtl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    20 | int csqrtl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:20:5: note: ‘csqrtl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:21:5: warning: conflicting types for built-in function ‘ctanl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    21 | int ctanl (void);
+#9 5.345       |     ^~~~~
+#9 5.345 _configtest.c:21:5: note: ‘ctanl’ is declared in header ‘<complex.h>’
+#9 5.345 _configtest.c:22:5: warning: conflicting types for built-in function ‘ctanhl’; expected ‘_Complex long double(_Complex long double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.345    22 | int ctanhl (void);
+#9 5.345       |     ^~~~~~
+#9 5.345 _configtest.c:22:5: note: ‘ctanhl’ is declared in header ‘<complex.h>’
+#9 5.356 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 5.375 success!
+#9 5.375 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 5.376 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.376 
+#9 5.376 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.376 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.383 _configtest.c:2:12: warning: ‘static_func’ defined but not used [-Wunused-function]
+#9 5.383     2 | static int static_func (char * restrict a)
+#9 5.383       |            ^~~~~~~~~~~
+#9 5.388 success!
+#9 5.388 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.388 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.388 
+#9 5.388 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.388 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.400 success!
+#9 5.400 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.400 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.400 
+#9 5.401 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.401 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.417 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.418 File: numpy/core/include/numpy/config.h
+#9 5.418 #define HAVE_ENDIAN_H 1
+#9 5.418 #define SIZEOF_PY_INTPTR_T 8
+#9 5.418 #define SIZEOF_OFF_T 8
+#9 5.418 #define SIZEOF_PY_LONG_LONG 8
+#9 5.418 #define MATHLIB m
+#9 5.418 #define HAVE_SIN 1
+#9 5.418 #define HAVE_COS 1
+#9 5.418 #define HAVE_TAN 1
+#9 5.418 #define HAVE_SINH 1
+#9 5.418 #define HAVE_COSH 1
+#9 5.418 #define HAVE_TANH 1
+#9 5.418 #define HAVE_FABS 1
+#9 5.418 #define HAVE_FLOOR 1
+#9 5.418 #define HAVE_CEIL 1
+#9 5.418 #define HAVE_SQRT 1
+#9 5.418 #define HAVE_LOG10 1
+#9 5.418 #define HAVE_LOG 1
+#9 5.418 #define HAVE_EXP 1
+#9 5.418 #define HAVE_ASIN 1
+#9 5.418 #define HAVE_ACOS 1
+#9 5.418 #define HAVE_ATAN 1
+#9 5.418 #define HAVE_FMOD 1
+#9 5.418 #define HAVE_MODF 1
+#9 5.418 #define HAVE_FREXP 1
+#9 5.418 #define HAVE_LDEXP 1
+#9 5.418 #define HAVE_RINT 1
+#9 5.418 #define HAVE_TRUNC 1
+#9 5.418 #define HAVE_EXP2 1
+#9 5.418 #define HAVE_LOG2 1
+#9 5.418 #define HAVE_ATAN2 1
+#9 5.418 #define HAVE_POW 1
+#9 5.418 #define HAVE_NEXTAFTER 1
+#9 5.418 #define HAVE_STRTOLL 1
+#9 5.418 #define HAVE_STRTOULL 1
+#9 5.418 #define HAVE_CBRT 1
+#9 5.418 #define HAVE_STRTOLD_L 1
+#9 5.418 #define HAVE_FALLOCATE 1
+#9 5.418 #define HAVE_BACKTRACE 1
+#9 5.418 #define HAVE_MADVISE 1
+#9 5.418 #define HAVE_XMMINTRIN_H 1
+#9 5.418 #define HAVE_EMMINTRIN_H 1
+#9 5.418 #define HAVE_FEATURES_H 1
+#9 5.418 #define HAVE_DLFCN_H 1
+#9 5.418 #define HAVE_SYS_MMAN_H 1
+#9 5.418 #define HAVE___BUILTIN_ISNAN 1
+#9 5.418 #define HAVE___BUILTIN_ISINF 1
+#9 5.418 #define HAVE___BUILTIN_ISFINITE 1
+#9 5.418 #define HAVE___BUILTIN_BSWAP32 1
+#9 5.418 #define HAVE___BUILTIN_BSWAP64 1
+#9 5.418 #define HAVE___BUILTIN_EXPECT 1
+#9 5.418 #define HAVE___BUILTIN_MUL_OVERFLOW 1
+#9 5.418 #define HAVE___BUILTIN_CPU_SUPPORTS 1
+#9 5.418 #define HAVE__M_FROM_INT64 1
+#9 5.418 #define HAVE__MM_LOAD_PS 1
+#9 5.418 #define HAVE__MM_PREFETCH 1
+#9 5.418 #define HAVE__MM_LOAD_PD 1
+#9 5.418 #define HAVE___BUILTIN_PREFETCH 1
+#9 5.418 #define HAVE_LINK_AVX 1
+#9 5.418 #define HAVE_LINK_AVX2 1
+#9 5.418 #define HAVE_XGETBV 1
+#9 5.418 #define HAVE_ATTRIBUTE_OPTIMIZE_UNROLL_LOOPS 1
+#9 5.418 #define HAVE_ATTRIBUTE_OPTIMIZE_OPT_3 1
+#9 5.418 #define HAVE_ATTRIBUTE_NONNULL 1
+#9 5.418 #define HAVE_ATTRIBUTE_TARGET_AVX 1
+#9 5.418 #define HAVE_ATTRIBUTE_TARGET_AVX2 1
+#9 5.418 #define HAVE___THREAD 1
+#9 5.418 #define HAVE_SINF 1
+#9 5.418 #define HAVE_COSF 1
+#9 5.418 #define HAVE_TANF 1
+#9 5.418 #define HAVE_SINHF 1
+#9 5.418 #define HAVE_COSHF 1
+#9 5.418 #define HAVE_TANHF 1
+#9 5.418 #define HAVE_FABSF 1
+#9 5.418 #define HAVE_FLOORF 1
+#9 5.418 #define HAVE_CEILF 1
+#9 5.418 #define HAVE_RINTF 1
+#9 5.418 #define HAVE_TRUNCF 1
+#9 5.418 #define HAVE_SQRTF 1
+#9 5.418 #define HAVE_LOG10F 1
+#9 5.418 #define HAVE_LOGF 1
+#9 5.418 #define HAVE_LOG1PF 1
+#9 5.418 #define HAVE_EXPF 1
+#9 5.418 #define HAVE_EXPM1F 1
+#9 5.418 #define HAVE_ASINF 1
+#9 5.418 #define HAVE_ACOSF 1
+#9 5.418 #define HAVE_ATANF 1
+#9 5.418 #define HAVE_ASINHF 1
+#9 5.418 #define HAVE_ACOSHF 1
+#9 5.418 #define HAVE_ATANHF 1
+#9 5.418 #define HAVE_HYPOTF 1
+#9 5.418 #define HAVE_ATAN2F 1
+#9 5.418 #define HAVE_POWF 1
+#9 5.418 #define HAVE_FMODF 1
+#9 5.418 #define HAVE_MODFF 1
+#9 5.418 #define HAVE_FREXPF 1
+#9 5.418 #define HAVE_LDEXPF 1
+#9 5.418 #define HAVE_EXP2F 1
+#9 5.418 #define HAVE_LOG2F 1
+#9 5.418 #define HAVE_COPYSIGNF 1
+#9 5.418 #define HAVE_NEXTAFTERF 1
+#9 5.418 #define HAVE_CBRTF 1
+#9 5.418 #define HAVE_SINL 1
+#9 5.418 #define HAVE_COSL 1
+#9 5.418 #define HAVE_TANL 1
+#9 5.418 #define HAVE_SINHL 1
+#9 5.418 #define HAVE_COSHL 1
+#9 5.418 #define HAVE_TANHL 1
+#9 5.418 #define HAVE_FABSL 1
+#9 5.418 #define HAVE_FLOORL 1
+#9 5.418 #define HAVE_CEILL 1
+#9 5.418 #define HAVE_RINTL 1
+#9 5.418 #define HAVE_TRUNCL 1
+#9 5.418 #define HAVE_SQRTL 1
+#9 5.418 #define HAVE_LOG10L 1
+#9 5.418 #define HAVE_LOGL 1
+#9 5.418 #define HAVE_LOG1PL 1
+#9 5.418 #define HAVE_EXPL 1
+#9 5.418 #define HAVE_EXPM1L 1
+#9 5.418 #define HAVE_ASINL 1
+#9 5.418 #define HAVE_ACOSL 1
+#9 5.418 #define HAVE_ATANL 1
+#9 5.418 #define HAVE_ASINHL 1
+#9 5.418 #define HAVE_ACOSHL 1
+#9 5.418 #define HAVE_ATANHL 1
+#9 5.418 #define HAVE_HYPOTL 1
+#9 5.418 #define HAVE_ATAN2L 1
+#9 5.418 #define HAVE_POWL 1
+#9 5.418 #define HAVE_FMODL 1
+#9 5.418 #define HAVE_MODFL 1
+#9 5.418 #define HAVE_FREXPL 1
+#9 5.418 #define HAVE_LDEXPL 1
+#9 5.418 #define HAVE_EXP2L 1
+#9 5.418 #define HAVE_LOG2L 1
+#9 5.418 #define HAVE_COPYSIGNL 1
+#9 5.418 #define HAVE_NEXTAFTERL 1
+#9 5.418 #define HAVE_CBRTL 1
+#9 5.418 #define HAVE_DECL_SIGNBIT
+#9 5.418 #define HAVE_COMPLEX_H 1
+#9 5.418 #define HAVE_CABS 1
+#9 5.418 #define HAVE_CACOS 1
+#9 5.418 #define HAVE_CACOSH 1
+#9 5.418 #define HAVE_CARG 1
+#9 5.418 #define HAVE_CASIN 1
+#9 5.418 #define HAVE_CASINH 1
+#9 5.418 #define HAVE_CATAN 1
+#9 5.418 #define HAVE_CATANH 1
+#9 5.418 #define HAVE_CCOS 1
+#9 5.418 #define HAVE_CCOSH 1
+#9 5.418 #define HAVE_CEXP 1
+#9 5.418 #define HAVE_CIMAG 1
+#9 5.418 #define HAVE_CLOG 1
+#9 5.418 #define HAVE_CONJ 1
+#9 5.418 #define HAVE_CPOW 1
+#9 5.418 #define HAVE_CPROJ 1
+#9 5.418 #define HAVE_CREAL 1
+#9 5.418 #define HAVE_CSIN 1
+#9 5.418 #define HAVE_CSINH 1
+#9 5.418 #define HAVE_CSQRT 1
+#9 5.418 #define HAVE_CTAN 1
+#9 5.418 #define HAVE_CTANH 1
+#9 5.418 #define HAVE_CABSF 1
+#9 5.418 #define HAVE_CACOSF 1
+#9 5.418 #define HAVE_CACOSHF 1
+#9 5.418 #define HAVE_CARGF 1
+#9 5.418 #define HAVE_CASINF 1
+#9 5.418 #define HAVE_CASINHF 1
+#9 5.418 #define HAVE_CATANF 1
+#9 5.418 #define HAVE_CATANHF 1
+#9 5.418 #define HAVE_CCOSF 1
+#9 5.418 #define HAVE_CCOSHF 1
+#9 5.418 #define HAVE_CEXPF 1
+#9 5.418 #define HAVE_CIMAGF 1
+#9 5.418 #define HAVE_CLOGF 1
+#9 5.418 #define HAVE_CONJF 1
+#9 5.418 #define HAVE_CPOWF 1
+#9 5.418 #define HAVE_CPROJF 1
+#9 5.418 #define HAVE_CREALF 1
+#9 5.418 #define HAVE_CSINF 1
+#9 5.418 #define HAVE_CSINHF 1
+#9 5.418 #define HAVE_CSQRTF 1
+#9 5.418 #define HAVE_CTANF 1
+#9 5.418 #define HAVE_CTANHF 1
+#9 5.418 #define HAVE_CABSL 1
+#9 5.418 #define HAVE_CACOSL 1
+#9 5.418 #define HAVE_CACOSHL 1
+#9 5.418 #define HAVE_CARGL 1
+#9 5.418 #define HAVE_CASINL 1
+#9 5.418 #define HAVE_CASINHL 1
+#9 5.418 #define HAVE_CATANL 1
+#9 5.418 #define HAVE_CATANHL 1
+#9 5.418 #define HAVE_CCOSL 1
+#9 5.418 #define HAVE_CCOSHL 1
+#9 5.418 #define HAVE_CEXPL 1
+#9 5.418 #define HAVE_CIMAGL 1
+#9 5.418 #define HAVE_CLOGL 1
+#9 5.418 #define HAVE_CONJL 1
+#9 5.418 #define HAVE_CPOWL 1
+#9 5.418 #define HAVE_CPROJL 1
+#9 5.418 #define HAVE_CREALL 1
+#9 5.418 #define HAVE_CSINL 1
+#9 5.418 #define HAVE_CSINHL 1
+#9 5.418 #define HAVE_CSQRTL 1
+#9 5.418 #define HAVE_CTANL 1
+#9 5.418 #define HAVE_CTANHL 1
+#9 5.418 #define NPY_RESTRICT restrict
+#9 5.418 #define NPY_RELAXED_STRIDES_CHECKING 1
+#9 5.418 #define HAVE_LDOUBLE_INTEL_EXTENDED_16_BYTES_LE 1
+#9 5.418 #define NPY_PY3K 1
+#9 5.418 #ifndef __cplusplus
+#9 5.418 /* #undef inline */
+#9 5.418 #endif
+#9 5.418 
+#9 5.418 #ifndef _NPY_NPY_CONFIG_H_
+#9 5.418 #error config.h should never be included directly, include npy_config.h instead
+#9 5.418 #endif
+#9 5.418 
+#9 5.418 EOF
+#9 5.418   adding 'numpy/core/include/numpy/config.h' to sources.
+#9 5.418 Generating numpy/core/include/numpy/_numpyconfig.h
+#9 5.419 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.419 
+#9 5.419 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.419 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.426 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.426     1 | int exp (void);
+#9 5.426       |     ^~~
+#9 5.426 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 5.426   +++ |+#include <math.h>
+#9 5.426     1 | int exp (void);
+#9 5.435 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#9 5.450 /usr/bin/ld: _configtest.o: in function `main':
+#9 5.450 /testbed/_configtest.c:6: undefined reference to `exp'
+#9 5.450 collect2: error: ld returned 1 exit status
+#9 5.451 failure.
+#9 5.451 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.452 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.452 
+#9 5.452 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.452 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.458 _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’; expected ‘double(double)’ [-Wbuiltin-declaration-mismatch]
+#9 5.458     1 | int exp (void);
+#9 5.458       |     ^~~
+#9 5.458 _configtest.c:1:1: note: ‘exp’ is declared in header ‘<math.h>’
+#9 5.458   +++ |+#include <math.h>
+#9 5.458     1 | int exp (void);
+#9 5.467 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#9 5.488 success!
+#9 5.488 removing: _configtest.c _configtest.o _configtest.o.d _configtest
+#9 5.489 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.489 
+#9 5.489 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.489 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.507 success!
+#9 5.507 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.508 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 5.508 
+#9 5.508 compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -c'
+#9 5.508 x86_64-linux-gnu-gcc: _configtest.c
+#9 5.515 _configtest.c:3: warning: ignoring #pragma clang diagnostic [-Wunknown-pragmas]
+#9 5.515     3 | #pragma clang diagnostic error "-Wattributes"
+#9 5.515       | 
+#9 5.524 success!
+#9 5.524 removing: _configtest.c _configtest.o _configtest.o.d
+#9 5.524 File: numpy/core/include/numpy/_numpyconfig.h
+#9 5.524 #define NPY_HAVE_ENDIAN_H 1
+#9 5.524 #define NPY_SIZEOF_SHORT SIZEOF_SHORT
+#9 5.524 #define NPY_SIZEOF_INT SIZEOF_INT
+#9 5.524 #define NPY_SIZEOF_LONG SIZEOF_LONG
+#9 5.524 #define NPY_SIZEOF_FLOAT 4
+#9 5.524 #define NPY_SIZEOF_COMPLEX_FLOAT 8
+#9 5.524 #define NPY_SIZEOF_DOUBLE 8
+#9 5.524 #define NPY_SIZEOF_COMPLEX_DOUBLE 16
+#9 5.524 #define NPY_SIZEOF_LONGDOUBLE 16
+#9 5.524 #define NPY_SIZEOF_COMPLEX_LONGDOUBLE 32
+#9 5.524 #define NPY_SIZEOF_PY_INTPTR_T 8
+#9 5.524 #define NPY_SIZEOF_OFF_T 8
+#9 5.524 #define NPY_SIZEOF_PY_LONG_LONG 8
+#9 5.524 #define NPY_SIZEOF_LONGLONG 8
+#9 5.524 #define NPY_NO_SMP 0
+#9 5.524 #define NPY_HAVE_DECL_ISNAN
+#9 5.524 #define NPY_HAVE_DECL_ISINF
+#9 5.524 #define NPY_HAVE_DECL_ISFINITE
+#9 5.524 #define NPY_HAVE_DECL_SIGNBIT
+#9 5.524 #define NPY_USE_C99_COMPLEX 1
+#9 5.524 #define NPY_HAVE_COMPLEX_DOUBLE 1
+#9 5.524 #define NPY_HAVE_COMPLEX_FLOAT 1
+#9 5.524 #define NPY_HAVE_COMPLEX_LONG_DOUBLE 1
+#9 5.524 #define NPY_RELAXED_STRIDES_CHECKING 1
+#9 5.524 #define NPY_USE_C99_FORMATS 1
+#9 5.524 #define NPY_VISIBILITY_HIDDEN __attribute__((visibility("hidden")))
+#9 5.524 #define NPY_ABI_VERSION 0x01000009
+#9 5.524 #define NPY_API_VERSION 0x0000000D
+#9 5.524 
+#9 5.524 #ifndef __STDC_FORMAT_MACROS
+#9 5.524 #define __STDC_FORMAT_MACROS 1
+#9 5.524 #endif
+#9 5.524 
+#9 5.524 EOF
+#9 5.525   adding 'numpy/core/include/numpy/_numpyconfig.h' to sources.
+#9 5.526 executing numpy/core/code_generators/generate_numpy_api.py
+#9 5.614   adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+#9 5.614 numpy.core - nothing done with h_files = ['numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/_numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h']
+#9 5.614 building extension "numpy.core._multiarray_tests" sources
+#9 5.614 conv_template:> numpy/core/src/multiarray/_multiarray_tests.c
+#9 5.622 building extension "numpy.core._multiarray_umath" sources
+#9 5.622   adding 'numpy/core/include/numpy/config.h' to sources.
+#9 5.623   adding 'numpy/core/include/numpy/_numpyconfig.h' to sources.
+#9 5.623 executing numpy/core/code_generators/generate_numpy_api.py
+#9 5.623   adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+#9 5.651 executing numpy/core/code_generators/generate_ufunc_api.py
+#9 5.719   adding 'numpy/core/include/numpy/__ufunc_api.h' to sources.
+#9 5.719 conv_template:> numpy/core/src/multiarray/arraytypes.c
+#9 5.813 conv_template:> numpy/core/src/multiarray/einsum.c
+#9 6.489 conv_template:> numpy/core/src/multiarray/lowlevel_strided_loops.c
+#9 7.199 conv_template:> numpy/core/src/multiarray/nditer_templ.c
+#9 7.229 conv_template:> numpy/core/src/multiarray/scalartypes.c
+#9 7.334 conv_template:> numpy/core/src/umath/funcs.inc
+#9 7.336   adding 'numpy/core/src/umath' to include_dirs.
+#9 7.336 conv_template:> numpy/core/src/umath/simd.inc
+#9 7.369 conv_template:> numpy/core/src/umath/loops.h
+#9 7.393 conv_template:> numpy/core/src/umath/loops.c
+#9 7.447 conv_template:> numpy/core/src/umath/matmul.h
+#9 7.448 conv_template:> numpy/core/src/umath/matmul.c
+#9 7.458 conv_template:> numpy/core/src/umath/scalarmath.c
+#9 7.537   adding 'numpy/core/src/npymath' to include_dirs.
+#9 7.539 conv_template:> numpy/core/src/common/templ_common.h
+#9 7.541   adding 'numpy/core/src/common' to include_dirs.
+#9 7.542 numpy.core - nothing done with h_files = ['numpy/core/src/umath/funcs.inc', 'numpy/core/src/umath/simd.inc', 'numpy/core/src/umath/loops.h', 'numpy/core/src/umath/matmul.h', 'numpy/core/src/npymath/npy_math_internal.h', 'numpy/core/src/common/templ_common.h', 'numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/_numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h', 'numpy/core/include/numpy/__ufunc_api.h']
+#9 7.542 building extension "numpy.core._umath_tests" sources
+#9 7.542 conv_template:> numpy/core/src/umath/_umath_tests.c
+#9 7.545 building extension "numpy.core._rational_tests" sources
+#9 7.545 conv_template:> numpy/core/src/umath/_rational_tests.c
+#9 7.548 building extension "numpy.core._struct_ufunc_tests" sources
+#9 7.548 conv_template:> numpy/core/src/umath/_struct_ufunc_tests.c
+#9 7.549 building extension "numpy.core._operand_flag_tests" sources
+#9 7.549 conv_template:> numpy/core/src/umath/_operand_flag_tests.c
+#9 7.549 building extension "numpy.fft.pocketfft_internal" sources
+#9 7.549 building extension "numpy.linalg.lapack_lite" sources
+#9 7.549   adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+#9 7.549 building extension "numpy.linalg._umath_linalg" sources
+#9 7.549   adding 'numpy/linalg/lapack_lite/python_xerbla.c' to sources.
+#9 7.549 conv_template:> numpy/linalg/umath_linalg.c
+#9 7.567 building extension "numpy.random.mtrand" sources
+#9 7.567 building data_files sources
+#9 7.573 build_src: building npy-pkg config files
+#9 7.575 customize UnixCCompiler
+#9 7.576 customize UnixCCompiler using build_clib
+#9 7.576 building 'npymath' library
+#9 7.576 compiling C sources
+#9 7.576 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 7.576 
+#9 7.576 creating build/temp.linux-x86_64-3.8-pydebug
+#9 7.577 creating build/temp.linux-x86_64-3.8-pydebug/numpy
+#9 7.577 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core
+#9 7.577 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src
+#9 7.578 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath
+#9 7.579 compile options: '-Inumpy/core/src/npymath -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 7.590 x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math.c
+#9 7.590 x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math_complex.cx86_64-linux-gnu-gcc: numpy/core/src/npymath/ieee754.cx86_64-linux-gnu-gcc: numpy/core/src/npymath/halffloat.c
+#9 7.590 
+#9 7.593 
+#9 7.818 x86_64-linux-gnu-gcc-ar: adding 4 object files to build/temp.linux-x86_64-3.8-pydebug/libnpymath.a
+#9 7.825 building 'npysort' library
+#9 7.825 compiling C sources
+#9 7.825 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 7.825 
+#9 7.825 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npysort
+#9 7.825 compile options: '-Inumpy/core/src/common -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 7.829 x86_64-linux-gnu-gcc: numpy/core/src/npysort/quicksort.cx86_64-linux-gnu-gcc: numpy/core/src/npysort/mergesort.c
+#9 7.831 x86_64-linux-gnu-gcc: numpy/core/src/npysort/timsort.c
+#9 7.832 x86_64-linux-gnu-gcc: numpy/core/src/npysort/heapsort.c
+#9 7.834 
+#9 8.442 x86_64-linux-gnu-gcc: numpy/core/src/npysort/selection.c
+#9 8.498 x86_64-linux-gnu-gcc: numpy/core/src/npysort/binsearch.c
+#9 11.04 x86_64-linux-gnu-gcc-ar: adding 6 object files to build/temp.linux-x86_64-3.8-pydebug/libnpysort.a
+#9 11.05 customize UnixCCompiler
+#9 11.05 customize UnixCCompiler using build_ext
+#9 11.05 building 'numpy.core._dummy' extension
+#9 11.05 compiling C sources
+#9 11.05 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 11.05 
+#9 11.05 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 11.05 x86_64-linux-gnu-gcc: numpy/core/src/dummymodule.c
+#9 11.14 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/dummymodule.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lm -o numpy/core/_dummy.cpython-38d-x86_64-linux-gnu.so
+#9 11.16 building 'numpy.core._multiarray_tests' extension
+#9 11.16 compiling C sources
+#9 11.16 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 11.16 
+#9 11.16 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray
+#9 11.16 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common
+#9 11.16 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 11.16 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/_multiarray_tests.cx86_64-linux-gnu-gcc: numpy/core/src/common/mem_overlap.c
+#9 11.16 
+#9 11.79 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/_multiarray_tests.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/mem_overlap.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lnpymath -o numpy/core/_multiarray_tests.cpython-38d-x86_64-linux-gnu.so
+#9 11.82 building 'numpy.core._multiarray_umath' extension
+#9 11.82 compiling C sources
+#9 11.82 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 11.82 
+#9 11.82 creating build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath
+#9 11.82 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -DHAVE_CBLAS -Inumpy/core/src/umath -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 11.82 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/alloc.cx86_64-linux-gnu-gcc: numpy/core/src/multiarray/convert.c
+#9 11.82 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/arrayfunction_override.c
+#9 11.82 
+#9 11.82 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_strings.c
+#9 11.94 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/arrayobject.c
+#9 11.97 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/buffer.c
+#9 12.03 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/convert_datatype.c
+#9 12.06 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_busday.c
+#9 12.22 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/calculation.c
+#9 12.32 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime_busdaycal.c
+#9 12.40 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/conversion_utils.c
+#9 12.45 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/arraytypes.c
+#9 12.50 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/descriptor.c
+#9 12.62 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/compiled_base.c
+#9 12.67 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/ctors.c
+#9 13.15 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/common.c
+#9 13.25 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/dragon4.c
+#9 13.46 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/dtype_transfer.c
+#9 13.55 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/datetime.c
+#9 13.65 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/item_selection.c
+#9 13.84 numpy/core/src/multiarray/datetime.c: In function ‘convert_datetime_divisor_to_multiple’:
+#9 13.84 numpy/core/src/multiarray/datetime.c:983:15: warning: ‘q’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 13.84   983 |     meta->num *= q;
+#9 13.84       |               ^~
+#9 14.17 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/einsum.c
+#9 14.21 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/multiarraymodule.c
+#9 14.42 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/iterators.c
+#9 15.00 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/lowlevel_strided_loops.c
+#9 16.06 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_templ.c
+#9 16.28 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/flagsobject.c
+#9 16.54 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/getset.c
+#9 16.62 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_api.c
+#9 16.88 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/hashdescr.c
+#9 17.06 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/number.c
+#9 17.18 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_constr.c
+#9 17.50 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/refcount.c
+#9 17.55 numpy/core/src/multiarray/nditer_constr.c: In function ‘npyiter_allocate_arrays’:
+#9 17.55 numpy/core/src/multiarray/nditer_constr.c:3059:40: warning: ‘innershape’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 17.55  3059 |                             innershape *= shape;
+#9 17.55       |                             ~~~~~~~~~~~^~~~~~~~
+#9 17.65 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/array_assign_scalar.c
+#9 17.72 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/sequence.c
+#9 17.82 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/nditer_pywrap.c
+#9 17.85 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/array_assign_array.c
+#9 17.85 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/shape.c
+#9 18.04 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/scalartypes.c
+#9 18.17 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/scalarapi.c
+#9 18.36 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/vdot.c
+#9 18.45 x86_64-linux-gnu-gcc: numpy/core/src/umath/ufunc_object.c
+#9 18.52 x86_64-linux-gnu-gcc: numpy/core/src/umath/umathmodule.c
+#9 18.57 numpy/core/src/umath/ufunc_object.c: In function ‘_parse_signature’:
+#9 18.57 numpy/core/src/umath/ufunc_object.c:657:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+#9 18.57   657 |     for (i = 0; i < len; i++) {
+#9 18.57       |                   ^
+#9 18.70 x86_64-linux-gnu-gcc: numpy/core/src/umath/reduction.c
+#9 18.91 x86_64-linux-gnu-gcc: numpy/core/src/umath/loops.c
+#9 19.31 In file included from numpy/core/src/umath/simd.inc.src:30,
+#9 19.31                  from numpy/core/src/umath/loops.c.src:47:
+#9 19.31 numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_FLOAT’:
+#9 19.31 numpy/core/src/umath/simd.inc.src:955:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.31   955 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.31       |              ^
+#9 19.31 numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_FLOAT’:
+#9 19.31 numpy/core/src/umath/simd.inc.src:1007:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.31  1007 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.31       |              ^
+#9 19.31 numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_FLOAT’:
+#9 19.31 numpy/core/src/umath/simd.inc.src:1007:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.31  1007 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.31       |              ^
+#9 19.32 numpy/core/src/umath/simd.inc.src: In function ‘sse2_sqrt_DOUBLE’:
+#9 19.32 numpy/core/src/umath/simd.inc.src:955:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.32   955 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.32       |              ^
+#9 19.32 numpy/core/src/umath/simd.inc.src: In function ‘sse2_absolute_DOUBLE’:
+#9 19.32 numpy/core/src/umath/simd.inc.src:1007:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.32  1007 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.32       |              ^
+#9 19.33 numpy/core/src/umath/simd.inc.src: In function ‘sse2_negative_DOUBLE’:
+#9 19.33 numpy/core/src/umath/simd.inc.src:1007:14: warning: comparison of integer expressions of different signedness: ‘npy_intp’ {aka ‘const long int’} and ‘long unsigned int’ [-Wsign-compare]
+#9 19.33  1007 |     assert(n < (VECTOR_SIZE_BYTES / sizeof(@type@)) ||
+#9 19.33       |              ^
+#9 19.55 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/strfuncs.c
+#9 19.73 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/temp_elide.c
+#9 19.73 x86_64-linux-gnu-gcc: numpy/core/src/umath/extobj.c
+#9 19.89 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/typeinfo.c
+#9 19.92 x86_64-linux-gnu-gcc: numpy/core/src/umath/cpuid.c
+#9 20.03 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/usertypes.c
+#9 20.06 x86_64-linux-gnu-gcc: numpy/core/src/umath/scalarmath.c
+#9 20.22 x86_64-linux-gnu-gcc: numpy/core/src/umath/override.c
+#9 20.41 numpy/core/src/umath/override.c: In function ‘normalize___call___args’:
+#9 20.41 numpy/core/src/umath/override.c:180:12: warning: ‘not_all_none’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 20.41   180 |         if (not_all_none) {
+#9 20.41       |            ^
+#9 20.44 In file included from /usr/include/python3.8d/pytime.h:6,
+#9 20.44                  from /usr/include/python3.8d/Python.h:85,
+#9 20.44                  from numpy/core/include/numpy/npy_3kcompat.h:13,
+#9 20.44                  from numpy/core/src/common/npy_pycompat.h:4,
+#9 20.44                  from numpy/core/src/umath/override.c:4:
+#9 20.44 numpy/core/src/umath/override.c: In function ‘PyUFunc_CheckOverride’:
+#9 20.44 /usr/include/python3.8d/object.h:478:9: warning: ‘override_array_ufunc’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 20.44   478 |         _Py_Dealloc(op);
+#9 20.44       |         ^~~~~~~~~~~~~~~
+#9 20.44 numpy/core/src/umath/override.c:595:19: note: ‘override_array_ufunc’ was declared here
+#9 20.44   595 |         PyObject *override_array_ufunc;
+#9 20.44       |                   ^~~~~~~~~~~~~~~~~~~~
+#9 20.53 x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math.c
+#9 20.88 x86_64-linux-gnu-gcc: numpy/core/src/npymath/ieee754.c
+#9 21.09 x86_64-linux-gnu-gcc: numpy/core/src/npymath/npy_math_complex.c
+#9 21.50 x86_64-linux-gnu-gcc: numpy/core/src/npymath/halffloat.c
+#9 21.73 x86_64-linux-gnu-gcc: numpy/core/src/common/array_assign.c
+#9 21.95 x86_64-linux-gnu-gcc: numpy/core/src/common/mem_overlap.c
+#9 22.39 x86_64-linux-gnu-gcc: numpy/core/src/common/npy_longdouble.c
+#9 22.54 x86_64-linux-gnu-gcc: numpy/core/src/common/ucsnarrow.c
+#9 22.70 x86_64-linux-gnu-gcc: numpy/core/src/common/ufunc_override.c
+#9 22.87 x86_64-linux-gnu-gcc: numpy/core/src/common/numpyos.c
+#9 23.11 x86_64-linux-gnu-gcc: numpy/core/src/common/cblasfuncs.c
+#9 23.37 x86_64-linux-gnu-gcc: numpy/core/src/common/python_xerbla.c
+#9 23.72 x86_64-linux-gnu-gcc: numpy/core/src/umath/ufunc_type_resolution.c
+#9 30.95 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/mapping.c
+#9 31.48 x86_64-linux-gnu-gcc: numpy/core/src/multiarray/methods.c
+#9 47.62 x86_64-linux-gnu-gcc: numpy/core/src/umath/matmul.c
+#9 48.07 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/alloc.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arrayobject.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arraytypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/array_assign_scalar.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/array_assign_array.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/arrayfunction_override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/buffer.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/calculation.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/compiled_base.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/common.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/convert.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/convert_datatype.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/conversion_utils.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/ctors.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_strings.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_busday.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/datetime_busdaycal.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/descriptor.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/dragon4.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/dtype_transfer.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/einsum.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/flagsobject.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/getset.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/hashdescr.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/item_selection.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/iterators.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/lowlevel_strided_loops.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/mapping.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/methods.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/multiarraymodule.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_templ.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_api.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_constr.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/nditer_pywrap.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/number.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/refcount.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/sequence.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/shape.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/scalarapi.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/scalartypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/strfuncs.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/temp_elide.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/typeinfo.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/usertypes.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/multiarray/vdot.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/umathmodule.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/reduction.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/loops.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/matmul.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/ufunc_object.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/extobj.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/cpuid.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/scalarmath.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/ufunc_type_resolution.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/npy_math.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/ieee754.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/npy_math_complex.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/npymath/halffloat.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/array_assign.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/mem_overlap.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/npy_longdouble.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/ucsnarrow.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/ufunc_override.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/numpyos.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/cblasfuncs.o build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/common/python_xerbla.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lnpymath -lnpysort -lopenblas -lopenblas -lm -o numpy/core/_multiarray_umath.cpython-38d-x86_64-linux-gnu.so
+#9 48.31 building 'numpy.core._umath_tests' extension
+#9 48.31 compiling C sources
+#9 48.31 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 48.31 
+#9 48.31 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 48.31 x86_64-linux-gnu-gcc: numpy/core/src/umath/_umath_tests.c
+#9 48.54 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/_umath_tests.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/core/_umath_tests.cpython-38d-x86_64-linux-gnu.so
+#9 48.57 building 'numpy.core._rational_tests' extension
+#9 48.57 compiling C sources
+#9 48.57 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 48.57 
+#9 48.57 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 48.57 x86_64-linux-gnu-gcc: numpy/core/src/umath/_rational_tests.c
+#9 49.04 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/_rational_tests.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/core/_rational_tests.cpython-38d-x86_64-linux-gnu.so
+#9 49.06 building 'numpy.core._struct_ufunc_tests' extension
+#9 49.06 compiling C sources
+#9 49.06 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 49.06 
+#9 49.06 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 49.06 x86_64-linux-gnu-gcc: numpy/core/src/umath/_struct_ufunc_tests.c
+#9 49.18 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/_struct_ufunc_tests.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/core/_struct_ufunc_tests.cpython-38d-x86_64-linux-gnu.so
+#9 49.20 building 'numpy.core._operand_flag_tests' extension
+#9 49.20 compiling C sources
+#9 49.20 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 49.20 
+#9 49.20 compile options: '-DNPY_INTERNAL_BUILD=1 -DHAVE_NPY_CONFIG_H=1 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 49.20 x86_64-linux-gnu-gcc: numpy/core/src/umath/_operand_flag_tests.c
+#9 49.31 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/core/src/umath/_operand_flag_tests.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/core/_operand_flag_tests.cpython-38d-x86_64-linux-gnu.so
+#9 49.32 building 'numpy.fft.pocketfft_internal' extension
+#9 49.32 compiling C sources
+#9 49.32 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 49.32 
+#9 49.32 creating build/temp.linux-x86_64-3.8-pydebug/numpy/fft
+#9 49.32 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 49.32 x86_64-linux-gnu-gcc: numpy/fft/pocketfft.c
+#9 50.06 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/fft/pocketfft.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/fft/pocketfft_internal.cpython-38d-x86_64-linux-gnu.so
+#9 50.08 building 'numpy.linalg.lapack_lite' extension
+#9 50.08 compiling C sources
+#9 50.08 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 50.08 
+#9 50.08 creating build/temp.linux-x86_64-3.8-pydebug/numpy/linalg
+#9 50.08 creating build/temp.linux-x86_64-3.8-pydebug/numpy/linalg/lapack_lite
+#9 50.08 compile options: '-DHAVE_CBLAS -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 50.09 x86_64-linux-gnu-gcc: numpy/linalg/lapack_litemodule.c
+#9 50.09 x86_64-linux-gnu-gcc: numpy/linalg/lapack_lite/python_xerbla.c
+#9 50.22 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/linalg/lapack_litemodule.o build/temp.linux-x86_64-3.8-pydebug/numpy/linalg/lapack_lite/python_xerbla.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lopenblas -lopenblas -o numpy/linalg/lapack_lite.cpython-38d-x86_64-linux-gnu.so
+#9 50.26 building 'numpy.linalg._umath_linalg' extension
+#9 50.26 compiling C sources
+#9 50.26 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 50.26 
+#9 50.26 compile options: '-DHAVE_CBLAS -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 50.26 x86_64-linux-gnu-gcc: numpy/linalg/umath_linalg.c
+#9 51.56 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/linalg/umath_linalg.o build/temp.linux-x86_64-3.8-pydebug/numpy/linalg/lapack_lite/python_xerbla.o -Lbuild/temp.linux-x86_64-3.8-pydebug -lnpymath -lopenblas -lopenblas -o numpy/linalg/_umath_linalg.cpython-38d-x86_64-linux-gnu.so
+#9 51.60 building 'numpy.random.mtrand' extension
+#9 51.60 compiling C sources
+#9 51.60 C compiler: x86_64-linux-gnu-gcc -pthread -Wno-unused-result -Wsign-compare -g -Og -Wall -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+#9 51.60 
+#9 51.60 creating build/temp.linux-x86_64-3.8-pydebug/numpy/random
+#9 51.60 creating build/temp.linux-x86_64-3.8-pydebug/numpy/random/mtrand
+#9 51.60 compile options: '-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE=1 -D_LARGEFILE64_SOURCE=1 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.8d -Inumpy/core/src/common -Inumpy/core/src/npymath -Inumpy/core/src/common -Inumpy/core/src/npymath -c'
+#9 51.60 x86_64-linux-gnu-gcc: numpy/random/mtrand/mtrand.c
+#9 51.60 x86_64-linux-gnu-gcc: numpy/random/mtrand/randomkit.c
+#9 51.61 x86_64-linux-gnu-gcc: numpy/random/mtrand/initarray.cx86_64-linux-gnu-gcc: numpy/random/mtrand/distributions.c
+#9 51.61 
+#9 58.71 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-Bsymbolic-functions -Wl,-z,relro -g -Og -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 build/temp.linux-x86_64-3.8-pydebug/numpy/random/mtrand/mtrand.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/mtrand/randomkit.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/mtrand/initarray.o build/temp.linux-x86_64-3.8-pydebug/numpy/random/mtrand/distributions.o -Lbuild/temp.linux-x86_64-3.8-pydebug -o numpy/random/mtrand.cpython-38d-x86_64-linux-gnu.so
+#9 59.20 /testbed/numpy/ma/core.py:4451: SyntaxWarning: "is" with a literal. Did you mean "=="?
+#9 59.20   if self.shape is ():
+#9 59.29 1.17.0.dev0+0fd5f25
+#9 59.46 HEAD is now at 0fd5f25 Merge pull request #13354 from IntelPython/add-rfftn-axes-test
+#9 DONE 59.5s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 3.3s done
+#10 exporting manifest sha256:809d8aaf1e7e9bd5a83bcdcb91a2739834239fc32d2d991d2c98141cd1a7c85c 0.0s done
+#10 exporting config sha256:fbc34f52f870729eb8bb9c3e2fffeb02d72b28dc5aebb2540bcf864ca9622f87 0.0s done
+#10 exporting attestation manifest sha256:e3a6818f738f0d9c1e2d9cf8c14c0d99adbea11e1762544d5c39d85f99bb306d 0.0s done
+#10 exporting manifest list sha256:71d2efe092c6ee64b8a0a6ef40ee58ca656c90a6a43fbd8fd3aa2f35833dfc02 0.0s done
+#10 naming to docker.io/yutu0814/pyc-case-027-numpy:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-027-numpy:benchmark-v1
+#10 unpacking to docker.io/yutu0814/pyc-case-027-numpy:benchmark-v1 0.7s done
+#10 DONE 4.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ukvi8sthhl1xjuka3awvr4int

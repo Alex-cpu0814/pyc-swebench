@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc__numpy_numpy__842970f1__line866__sequence_to_arrays__case27",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "3.8 debug build",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": [
+    "python3.8-dbg -m pytest -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/lib/tests/test_index_tricks.py.",
+    "On Base, the first official assertion receives TypeError: Iterator operand 0 dtype could not be cast from dtype('float64') to dtype('int64') according to the rule 'same_kind', rather than the required empty-sequence diagnostic.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "0fd5f2506bf2f41b023392c945312e5a1a3eb819",
+  "fix_commit": "842970f1aaa710b31ebd27427035b58b265e55a8",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/lib/tests/test_index_tricks.py"
+  ],
+  "FAIL_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_indices"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes"
+  ]
+}

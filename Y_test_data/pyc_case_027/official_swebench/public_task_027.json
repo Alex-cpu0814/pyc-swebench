@@ -1,0 +1,11 @@
+{
+  "instance_id": "numpy__numpy-11684",
+  "repo": "numpy/numpy",
+  "base_commit": "0fd5f2506bf2f41b023392c945312e5a1a3eb819",
+  "problem_statement": "ravel_multi_index and unravel_index infer empty Python sequences as floating-point arrays, then fail later with implementation-specific cast errors. Empty non-array inputs must be rejected as non-integral with a clear TypeError, while explicitly integer empty arrays must retain their valid empty result.",
+  "hints_text": "",
+  "created_at": "2019-04-18",
+  "version": "1.17.0.dev0",
+  "issue_id": 11684,
+  "issue_url": "https://github.com/numpy/numpy/pull/11684"
+}

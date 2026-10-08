@@ -1,0 +1,10 @@
+diff --git a/numpy/lib/tests/test_index_tricks.py b/numpy/lib/tests/test_index_tricks.py
+--- a/numpy/lib/tests/test_index_tricks.py
++++ b/numpy/lib/tests/test_index_tricks.py
+@@ -77,5 +77,6 @@ class TestRavelUnravelIndex(object):
+         assert_equal(np.unravel_index(1621, (6, 7, 8, 9)), [3, 1, 4, 1])
+ 
++    # Candidate patch must not alter protected official-test context.
+     def test_big_indices(self):
+         # ravel_multi_index for big indices (issue #7546)
+         if np.intp == np.int64:

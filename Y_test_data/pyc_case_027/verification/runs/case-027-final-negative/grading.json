@@ -1,0 +1,15 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-027-final-negative",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_indices": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_big_indices": "PASSED",
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_dtypes": "PASSED"
+  },
+  "unexpected_failures": [
+    "numpy/lib/tests/test_index_tricks.py::TestRavelUnravelIndex::test_empty_indices"
+  ]
+}
