@@ -1,0 +1,79 @@
+/usr/local/lib/python3.8/dist-packages/_pytest/compat.py:333: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+See https://docs.pytest.org/en/latest/deprecations.html#terminalreporter-writer for more information.
+  return getattr(object, name, default)
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-5.4.2, py-1.11.0, pluggy-0.13.1 -- /usr/bin/python3.8-dbg
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed, inifile: pytest.ini
+plugins: leaks-0.3.1, hypothesis-5.14.0, env-0.6.2
+collecting ... collected 4 items
+
+numpy/core/tests/test_regression.py::TestRegression::test_lexsort PASSED [ 25%]
+numpy/core/tests/test_regression.py::TestRegression::test_lexsort_invalid_sequence PASSED [ 50%]
+numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides FAILED [ 75%]
+numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides_2d FAILED [100%]
+
+=================================== FAILURES ===================================
+______________ TestRegression.test_lexsort_zerolen_custom_strides ______________
+
+self = <numpy.core.tests.test_regression.TestRegression object at 0x7c313a0b1e10>
+
+    def test_lexsort_zerolen_custom_strides(self):
+        # Ticket #14228
+        xs = np.array([], dtype='i8')
+        assert xs.strides == (8,)
+        assert np.lexsort((xs,)).shape[0] == 0 # Works
+    
+        xs.strides = (16,)
+>       assert np.lexsort((xs,)).shape[0] == 0 # Was: MemoryError
+
+self       = <numpy.core.tests.test_regression.TestRegression object at 0x7c313a0b1e10>
+xs         = array([], dtype=int64)
+
+numpy/core/tests/test_regression.py:446: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ((array([], dtype=int64),),), kwargs = {}
+relevant_args = (array([], dtype=int64),)
+
+>   ???
+E   MemoryError
+
+args       = ((array([], dtype=int64),),)
+kwargs     = {}
+relevant_args = (array([], dtype=int64),)
+
+<__array_function__ internals>:5: MemoryError
+____________ TestRegression.test_lexsort_zerolen_custom_strides_2d _____________
+
+self = <numpy.core.tests.test_regression.TestRegression object at 0x7c313a0bff00>
+
+    def test_lexsort_zerolen_custom_strides_2d(self):
+        xs = np.array([], dtype='i8')
+    
+        xs.shape = (0, 2)
+        xs.strides = (16, 16)
+>       assert np.lexsort((xs,), axis=0).shape[0] == 0
+
+self       = <numpy.core.tests.test_regression.TestRegression object at 0x7c313a0bff00>
+xs         = array([], shape=(0, 2), dtype=int64)
+
+numpy/core/tests/test_regression.py:453: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ((array([], shape=(0, 2), dtype=int64),),), kwargs = {'axis': 0}
+relevant_args = (array([], shape=(0, 2), dtype=int64),)
+
+>   ???
+E   MemoryError
+
+args       = ((array([], shape=(0, 2), dtype=int64),),)
+kwargs     = {'axis': 0}
+relevant_args = (array([], shape=(0, 2), dtype=int64),)
+
+<__array_function__ internals>:5: MemoryError
+=========================== short test summary info ============================
+FAILED numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides
+FAILED numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides_2d
+========================= 2 failed, 2 passed in 0.73s ==========================

@@ -1,0 +1,48 @@
+{
+  "instance_id": "pyc__numpy_numpy__4246ce2a__line1459__PyArray_LexSort__case15",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "15",
+  "duplicate_source_cases": [
+    "16"
+  ],
+  "deduplication_key": "4246ce2a391314acc1da90d56ff4f995d45e18a9",
+  "language_pair": "Python-C",
+  "repo": "numpy/numpy",
+  "issue_id": 14240,
+  "issue_url": "https://github.com/numpy/numpy/pull/14240",
+  "commit": "4246ce2a391314acc1da90d56ff4f995d45e18a9",
+  "base_commit": "965ea2ff417bcb285beca5c36cd02a8790a3d8f6",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "4246ce2a391314acc1da90d56ff4f995d45e18a9",
+  "commit_url": "https://github.com/numpy/numpy/commit/4246ce2a391314acc1da90d56ff4f995d45e18a9",
+  "problem_statement": "numpy.lexsort sends empty arrays with nonstandard strides through the ordinary allocation path. Base then raises MemoryError for valid zero-length inputs, including two-dimensional shapes, instead of returning an empty index array with the correct shape.",
+  "symptom": "incorrect output",
+  "bug_location": "line 1459",
+  "bug_location_type": "Cross-Language API callsite + Conditional expression",
+  "bug_path": "1459(c_citem_selection_55-cfg.dot) (PyArray_LexSort) ... -> 1388(c_citem_selection_55-cfg.dot) (PyArray_LexSort) -> 3464(c_multiarraymodule_45-cfg.dot) (array_lexsort) ... -> 3450(c_multiarraymodule_45-cfg.dot) (array_lexsort) -> 49(py_test_regression_4-cfg.dot) (test_lexsort_zerolen_custom_strides)",
+  "cross_language_type": "PyErr_NoMemory,Foreign,Exception Handling,PyErr_Format,Foreign,Exception Handling,PyErr_NoMemory,Foreign,Exception Handling,PyErr_SetString,Foreign,Exception Handling,PySequence_GetItem,Foreign,Sequence Protocol,Py_DECREF,Foreign,Reference Counting,PyArray_NDIM,NAX,Array API,PyArray_DIMS,NAX,Array API,PyArray_FROM_O,NAX,Array API,PyDataType_FLAGCHK,NAX,Python types and C-structures,PyArray_DESCR,NAX,Array API,PyArray_CompareLists,NAX,Array API,PyArray_malloc,NAX,Array API",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Logic error",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement + following a foreign function call",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/numpy/numpy/pull/14240",
+    "upstream_description": "The upstream patch handles arrays with zero or one element before temporary-buffer allocation and guards zero-byte helper allocations. It adds official regressions for custom-stride empty arrays and zero-itemsize elements.",
+    "verified_error": "On Base, test_lexsort_zerolen_custom_strides and test_lexsort_zerolen_custom_strides_2d both fail with MemoryError inside numpy.lexsort.",
+    "verified_test": "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides",
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides_2d"
+  ],
+  "PASS_TO_PASS": [
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort",
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_invalid_sequence"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

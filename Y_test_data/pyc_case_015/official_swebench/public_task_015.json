@@ -1,0 +1,11 @@
+{
+  "instance_id": "numpy__numpy-14240",
+  "repo": "numpy/numpy",
+  "base_commit": "965ea2ff417bcb285beca5c36cd02a8790a3d8f6",
+  "problem_statement": "numpy.lexsort sends empty arrays with nonstandard strides through the ordinary allocation path. Base then raises MemoryError for valid zero-length inputs, including two-dimensional shapes, instead of returning an empty index array with the correct shape.",
+  "hints_text": "",
+  "created_at": "2019-08-22",
+  "version": "1.18.0.dev0",
+  "issue_id": 14240,
+  "issue_url": "https://github.com/numpy/numpy/pull/14240"
+}

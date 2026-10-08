@@ -1,0 +1,11 @@
+diff --git a/numpy/core/tests/test_regression.py b/numpy/core/tests/test_regression.py
+--- a/numpy/core/tests/test_regression.py
++++ b/numpy/core/tests/test_regression.py
+@@ -434,6 +434,7 @@ class TestRegression(object):
+             def __getitem__(self, key):
+                 raise KeyError
+ 
+         assert_raises(KeyError, np.lexsort, BuggySequence())
+ 
++    # Candidate patch must not alter protected official-test context.
+     def test_pickle_py2_bytes_encoding(self):

@@ -1,0 +1,17 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-015-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides": "FAILED",
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides_2d": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort": "PASSED",
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_invalid_sequence": "PASSED"
+  },
+  "unexpected_failures": [
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides",
+    "numpy/core/tests/test_regression.py::TestRegression::test_lexsort_zerolen_custom_strides_2d"
+  ]
+}

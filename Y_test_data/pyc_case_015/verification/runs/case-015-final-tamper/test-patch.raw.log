@@ -1,0 +1,2 @@
+error: patch failed: numpy/core/tests/test_regression.py:436
+error: numpy/core/tests/test_regression.py: patch does not apply
