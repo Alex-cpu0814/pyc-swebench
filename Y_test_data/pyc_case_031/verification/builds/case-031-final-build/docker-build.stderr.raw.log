@@ -1,0 +1,574 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.77kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#2 DONE 21.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b 1.9s done
+#4 DONE 1.9s
+
+#5 [2/5] RUN apt-get update     && apt-get install -y --no-install-recommends        build-essential ca-certificates gfortran git libatlas-base-dev        python2.7 python2.7-dev python-nose python-pip python-setuptools     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/numpy/numpy.git"     && git fetch --depth=1 origin "b65b21c397381351965bf3f590054d2bccdd03d2"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "b65b21c397381351965bf3f590054d2bccdd03d2"     && mkdir -p /benchmark /inputs /results
+#6 CACHED
+
+#7 [4/5] WORKDIR /testbed
+#7 CACHED
+
+#8 [5/5] RUN sed -i '5i from distutils.errors import DistutilsExecError' numpy/distutils/ccompiler.py     && python2.7 setup.py build_ext -i     && python2.7 -c "import numpy; print(numpy.__version__)"     && git reset --hard "b65b21c397381351965bf3f590054d2bccdd03d2"     && git status --porcelain | sed 's/^?? //' >> .git/info/exclude     && test -z "$(git status --porcelain)"
+#8 0.206 Running from numpy source directory.
+#8 0.452 non-existing path in 'numpy/distutils': 'site.cfg'
+#8 0.452 F2PY Version 2
+#8 0.463 blas_opt_info:
+#8 0.464 blas_mkl_info:
+#8 0.464   libraries mkl,vml,guide not found in /usr/local/lib
+#8 0.464   libraries mkl,vml,guide not found in /usr/lib
+#8 0.464   NOT AVAILABLE
+#8 0.464 
+#8 0.465 atlas_blas_threads_info:
+#8 0.465 Setting PTATLAS=ATLAS
+#8 0.465   libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+#8 0.465   libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+#8 0.465   NOT AVAILABLE
+#8 0.465 
+#8 0.466 atlas_blas_info:
+#8 0.466   libraries f77blas,cblas,atlas not found in /usr/local/lib
+#8 0.466   libraries f77blas,cblas,atlas not found in /usr/lib
+#8 0.466   NOT AVAILABLE
+#8 0.466 
+#8 0.467 /testbed/numpy/distutils/system_info.py:1340: UserWarning: 
+#8 0.467     Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+#8 0.467     Directories to search for the libraries can be specified in the
+#8 0.467     numpy/distutils/site.cfg file (section [atlas]) or by setting
+#8 0.467     the ATLAS environment variable.
+#8 0.467   warnings.warn(AtlasNotFoundError.__doc__)
+#8 0.467 blas_info:
+#8 0.467   libraries blas not found in /usr/local/lib
+#8 0.467   libraries blas not found in /usr/lib
+#8 0.467   NOT AVAILABLE
+#8 0.467 
+#8 0.467 /testbed/numpy/distutils/system_info.py:1349: UserWarning: 
+#8 0.467     Blas (http://www.netlib.org/blas/) libraries not found.
+#8 0.467     Directories to search for the libraries can be specified in the
+#8 0.467     numpy/distutils/site.cfg file (section [blas]) or by setting
+#8 0.467     the BLAS environment variable.
+#8 0.467   warnings.warn(BlasNotFoundError.__doc__)
+#8 0.468 blas_src_info:
+#8 0.468   NOT AVAILABLE
+#8 0.468 
+#8 0.468   NOT AVAILABLE
+#8 0.468 
+#8 0.468 /testbed/numpy/distutils/system_info.py:1352: UserWarning: 
+#8 0.468     Blas (http://www.netlib.org/blas/) sources not found.
+#8 0.468     Directories to search for the sources can be specified in the
+#8 0.468     numpy/distutils/site.cfg file (section [blas_src]) or by setting
+#8 0.468     the BLAS_SRC environment variable.
+#8 0.468   warnings.warn(BlasSrcNotFoundError.__doc__)
+#8 0.614 lapack_opt_info:
+#8 0.614 lapack_mkl_info:
+#8 0.614 mkl_info:
+#8 0.614   libraries mkl,vml,guide not found in /usr/local/lib
+#8 0.614   libraries mkl,vml,guide not found in /usr/lib
+#8 0.614   NOT AVAILABLE
+#8 0.614 
+#8 0.614   NOT AVAILABLE
+#8 0.614 
+#8 0.615 atlas_threads_info:
+#8 0.615 Setting PTATLAS=ATLAS
+#8 0.615   libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+#8 0.615   libraries lapack_atlas not found in /usr/local/lib
+#8 0.615   libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+#8 0.615   libraries lapack_atlas not found in /usr/lib
+#8 0.615 numpy.distutils.system_info.atlas_threads_info
+#8 0.615   NOT AVAILABLE
+#8 0.615 
+#8 0.615 atlas_info:
+#8 0.615   libraries f77blas,cblas,atlas not found in /usr/local/lib
+#8 0.615   libraries lapack_atlas not found in /usr/local/lib
+#8 0.615   libraries f77blas,cblas,atlas not found in /usr/lib
+#8 0.616   libraries lapack_atlas not found in /usr/lib
+#8 0.616 numpy.distutils.system_info.atlas_info
+#8 0.616   NOT AVAILABLE
+#8 0.616 
+#8 0.616 /testbed/numpy/distutils/system_info.py:1247: UserWarning: 
+#8 0.616     Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+#8 0.616     Directories to search for the libraries can be specified in the
+#8 0.616     numpy/distutils/site.cfg file (section [atlas]) or by setting
+#8 0.616     the ATLAS environment variable.
+#8 0.616   warnings.warn(AtlasNotFoundError.__doc__)
+#8 0.616 lapack_info:
+#8 0.616   libraries lapack not found in /usr/local/lib
+#8 0.616   libraries lapack not found in /usr/lib
+#8 0.616   NOT AVAILABLE
+#8 0.616 
+#8 0.616 /testbed/numpy/distutils/system_info.py:1258: UserWarning: 
+#8 0.616     Lapack (http://www.netlib.org/lapack/) libraries not found.
+#8 0.616     Directories to search for the libraries can be specified in the
+#8 0.616     numpy/distutils/site.cfg file (section [lapack]) or by setting
+#8 0.616     the LAPACK environment variable.
+#8 0.616   warnings.warn(LapackNotFoundError.__doc__)
+#8 0.616 lapack_src_info:
+#8 0.616   NOT AVAILABLE
+#8 0.616 
+#8 0.616   NOT AVAILABLE
+#8 0.616 
+#8 0.616 /testbed/numpy/distutils/system_info.py:1261: UserWarning: 
+#8 0.616     Lapack (http://www.netlib.org/lapack/) sources not found.
+#8 0.616     Directories to search for the sources can be specified in the
+#8 0.616     numpy/distutils/site.cfg file (section [lapack_src]) or by setting
+#8 0.616     the LAPACK_SRC environment variable.
+#8 0.616   warnings.warn(LapackSrcNotFoundError.__doc__)
+#8 0.620 running build_ext
+#8 0.621 running build_src
+#8 0.621 building py_modules sources
+#8 0.621 building extension "numpy.core.multiarray" sources
+#8 0.621 Generating numpy/core/include/numpy/config.h
+#8 0.644 customize GnuFCompiler
+#8 0.644 Could not locate executable g77
+#8 0.644 Found executable /usr/bin/f77
+#8 0.644 gnu: no Fortran 90 compiler found
+#8 0.645 gnu: no Fortran 90 compiler found
+#8 0.658 customize IntelFCompiler
+#8 0.658 Could not locate executable ifort
+#8 0.658 Could not locate executable ifc
+#8 0.659 customize LaheyFCompiler
+#8 0.659 Could not locate executable lf95
+#8 0.659 customize PGroupFCompiler
+#8 0.659 Could not locate executable pgf90
+#8 0.659 Could not locate executable pgf77
+#8 0.659 customize AbsoftFCompiler
+#8 0.659 Could not locate executable f90
+#8 0.659 absoft: no Fortran 90 compiler found
+#8 0.660 absoft: no Fortran 90 compiler found
+#8 0.660 absoft: no Fortran 90 compiler found
+#8 0.660 absoft: no Fortran 90 compiler found
+#8 0.660 absoft: no Fortran 90 compiler found
+#8 0.660 absoft: no Fortran 90 compiler found
+#8 0.660 customize NAGFCompiler
+#8 0.660 Found executable /usr/bin/f95
+#8 0.664 customize VastFCompiler
+#8 0.666 customize GnuFCompiler
+#8 0.666 gnu: no Fortran 90 compiler found
+#8 0.666 gnu: no Fortran 90 compiler found
+#8 0.679 customize CompaqFCompiler
+#8 0.679 Could not locate executable fort
+#8 0.679 customize IntelItaniumFCompiler
+#8 0.679 Could not locate executable efort
+#8 0.679 Could not locate executable efc
+#8 0.679 customize IntelEM64TFCompiler
+#8 0.679 customize Gnu95FCompiler
+#8 0.680 Found executable /usr/bin/gfortran
+#8 0.694 customize Gnu95FCompiler
+#8 0.706 customize Gnu95FCompiler using config
+#8 0.706 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 0.706 
+#8 0.706 compile options: '-I/usr/include/python2.7 -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 0.706 x86_64-linux-gnu-gcc: _configtest.c
+#8 0.812 _configtest.c: In function 'main':
+#8 0.812 _configtest.c:57:51: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long unsigned int' [-Wformat=]
+#8 0.812            fprintf(fp,"#define SIZEOF_PY_INTPTR_T %d\n", sizeof(Py_intptr_t));
+#8 0.812                                                   ~^
+#8 0.812                                                   %ld
+#8 0.812 _configtest.c:72:52: warning: format '%d' expects argument of type 'int', but argument 3 has type 'long unsigned int' [-Wformat=]
+#8 0.812            fprintf(fp,"#define SIZEOF_PY_LONG_LONG %d\n", sizeof(PY_LONG_LONG));
+#8 0.812                                                    ~^
+#8 0.812                                                    %ld
+#8 0.833 x86_64-linux-gnu-gcc -pthread _configtest.o -L/usr/local/lib -o _configtest
+#8 0.858 _configtest
+#8 0.860 success!
+#8 0.860 removing: _configtest.c _configtest.o _configtest
+#8 0.860 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 0.860 
+#8 0.860 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 0.860 x86_64-linux-gnu-gcc: _configtest.c
+#8 0.883 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#8 0.900 _configtest.o: In function `main':
+#8 0.900 /testbed/_configtest.c:5: undefined reference to `exp'
+#8 0.901 collect2: error: ld returned 1 exit status
+#8 0.903 _configtest.o: In function `main':
+#8 0.903 /testbed/_configtest.c:5: undefined reference to `exp'
+#8 0.903 collect2: error: ld returned 1 exit status
+#8 0.903 failure.
+#8 0.903 removing: _configtest.c _configtest.o
+#8 0.903 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 0.903 
+#8 0.903 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 0.903 x86_64-linux-gnu-gcc: _configtest.c
+#8 0.926 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 0.948 _configtest
+#8 0.949 success!
+#8 0.949 removing: _configtest.c _configtest.o _configtest
+#8 0.949 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 0.949 
+#8 0.949 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 0.949 x86_64-linux-gnu-gcc: _configtest.c
+#8 0.968 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 0.984 success!
+#8 0.984 removing: _configtest.c _configtest.o _configtest
+#8 0.984 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 0.984 
+#8 0.984 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 0.984 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.004 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.019 success!
+#8 1.019 removing: _configtest.c _configtest.o _configtest
+#8 1.019 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.019 
+#8 1.019 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.019 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.039 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.056 success!
+#8 1.056 removing: _configtest.c _configtest.o _configtest
+#8 1.056 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.056 
+#8 1.056 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.056 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.076 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.092 success!
+#8 1.092 removing: _configtest.c _configtest.o _configtest
+#8 1.093 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.093 
+#8 1.093 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.093 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.114 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.131 success!
+#8 1.131 removing: _configtest.c _configtest.o _configtest
+#8 1.131 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.131 
+#8 1.131 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.131 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.151 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.166 success!
+#8 1.166 removing: _configtest.c _configtest.o _configtest
+#8 1.166 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.166 
+#8 1.166 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.167 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.184 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.201 success!
+#8 1.201 removing: _configtest.c _configtest.o _configtest
+#8 1.201 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.201 
+#8 1.201 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.201 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.222 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.238 success!
+#8 1.238 removing: _configtest.c _configtest.o _configtest
+#8 1.238 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.238 
+#8 1.238 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.238 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.259 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.274 success!
+#8 1.274 removing: _configtest.c _configtest.o _configtest
+#8 1.275 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.275 
+#8 1.275 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.275 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.297 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.313 success!
+#8 1.313 removing: _configtest.c _configtest.o _configtest
+#8 1.313 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.313 
+#8 1.313 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.313 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.331 x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+#8 1.348 success!
+#8 1.348 removing: _configtest.c _configtest.o _configtest
+#8 1.348 File: numpy/core/include/numpy/config.h
+#8 1.348 /* #define SIZEOF_SHORT 2 */
+#8 1.348 /* #define SIZEOF_INT 4 */
+#8 1.348 /* #define SIZEOF_LONG 8 */
+#8 1.348 /* #define SIZEOF_FLOAT 4 */
+#8 1.348 /* #define SIZEOF_DOUBLE 8 */
+#8 1.348 /* #define SIZEOF_LONG_DOUBLE 16 */
+#8 1.348 #define SIZEOF_PY_INTPTR_T 8
+#8 1.348 /* #define SIZEOF_LONG_LONG 8 */
+#8 1.348 #define SIZEOF_PY_LONG_LONG 8
+#8 1.348 /* #define CHAR_BIT 8 */
+#8 1.348 #define MATHLIB m
+#8 1.348 #define HAVE_LONGDOUBLE_FUNCS
+#8 1.348 #define HAVE_FLOAT_FUNCS
+#8 1.348 #define HAVE_LOG1P
+#8 1.348 #define HAVE_EXPM1
+#8 1.348 #define HAVE_INVERSE_HYPERBOLIC
+#8 1.348 #define HAVE_INVERSE_HYPERBOLIC_FLOAT
+#8 1.348 #define HAVE_INVERSE_HYPERBOLIC_LONGDOUBLE
+#8 1.348 #define HAVE_ISNAN
+#8 1.348 #define HAVE_ISINF
+#8 1.348 #define HAVE_RINT
+#8 1.348 #define HAVE_TRUNC
+#8 1.348 
+#8 1.348 EOF
+#8 1.348   adding 'numpy/core/include/numpy/config.h' to sources.
+#8 1.348 Generating numpy/core/include/numpy/numpyconfig.h
+#8 1.349 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.349 
+#8 1.349 compile options: '-I/usr/include/python2.7 -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.349 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.384 In file included from _configtest.c:3:0:
+#8 1.384 numpy/core/include/numpy/config.h:14:0: warning: "HAVE_LOG1P" redefined
+#8 1.384  #define HAVE_LOG1P
+#8 1.384  
+#8 1.384 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 1.384                  from /usr/include/python2.7/Python.h:8,
+#8 1.384                  from _configtest.c:2:
+#8 1.384 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:483:0: note: this is the location of the previous definition
+#8 1.384  #define HAVE_LOG1P 1
+#8 1.384  
+#8 1.384 In file included from _configtest.c:3:0:
+#8 1.384 numpy/core/include/numpy/config.h:15:0: warning: "HAVE_EXPM1" redefined
+#8 1.384  #define HAVE_EXPM1
+#8 1.384  
+#8 1.384 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 1.384                  from /usr/include/python2.7/Python.h:8,
+#8 1.384                  from _configtest.c:2:
+#8 1.384 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:239:0: note: this is the location of the previous definition
+#8 1.384  #define HAVE_EXPM1 1
+#8 1.384  
+#8 1.397 x86_64-linux-gnu-gcc -pthread _configtest.o -L/usr/local/lib -o _configtest
+#8 1.412 _configtest
+#8 1.413 success!
+#8 1.413 removing: _configtest.c _configtest.o _configtest
+#8 1.413 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.413 
+#8 1.413 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.413 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.428 success!
+#8 1.428 removing: _configtest.c _configtest.o
+#8 1.428 File: numpy/core/include/numpy/numpyconfig.h
+#8 1.428 /*
+#8 1.428  * This file is generated by numpy/core/setup.py. DO NOT EDIT 
+#8 1.428  */
+#8 1.428 #define NPY_SIZEOF_SHORT 2 
+#8 1.428 #define NPY_SIZEOF_INT 4 
+#8 1.428 #define NPY_SIZEOF_LONG 8 
+#8 1.428 #define NPY_SIZEOF_FLOAT 4 
+#8 1.428 #define NPY_SIZEOF_DOUBLE 8 
+#8 1.428 #define NPY_SIZEOF_LONGDOUBLE 16 
+#8 1.428 #define NPY_SIZEOF_PY_INTPTR_T 8 
+#8 1.428 #define NPY_NO_SMP 0
+#8 1.428 
+#8 1.428 #define NPY_SIZEOF_LONGLONG 8 
+#8 1.428 #define NPY_SIZEOF_PY_LONG_LONG 8 
+#8 1.428 /* #define CHAR_BIT 8 */
+#8 1.428 #define NPY_USE_C99_FORMATS 1
+#8 1.428 
+#8 1.428 #ifndef __STDC_FORMAT_MACROS
+#8 1.428 #define __STDC_FORMAT_MACROS 1
+#8 1.428 #endif
+#8 1.428 
+#8 1.428 EOF
+#8 1.428   adding 'numpy/core/include/numpy/numpyconfig.h' to sources.
+#8 1.431 executing numpy/core/code_generators/generate_numpy_api.py
+#8 1.448   adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+#8 1.448 conv_template:> numpy/core/src/scalartypes.inc
+#8 1.454   adding 'numpy/core/src' to include_dirs.
+#8 1.454 conv_template:> numpy/core/src/arraytypes.inc
+#8 1.470 numpy.core - nothing done with h_files = ['numpy/core/src/scalartypes.inc', 'numpy/core/src/arraytypes.inc', 'numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h']
+#8 1.470 building extension "numpy.core.umath" sources
+#8 1.470   adding 'numpy/core/include/numpy/config.h' to sources.
+#8 1.470   adding 'numpy/core/include/numpy/numpyconfig.h' to sources.
+#8 1.476 executing numpy/core/code_generators/generate_ufunc_api.py
+#8 1.484   adding 'numpy/core/include/numpy/__ufunc_api.h' to sources.
+#8 1.484 conv_template:> numpy/core/src/umathmodule.c
+#8 1.495   adding 'numpy/core/src' to include_dirs.
+#8 1.495 numpy.core - nothing done with h_files = ['numpy/core/src/scalartypes.inc', 'numpy/core/src/arraytypes.inc', 'numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/numpyconfig.h', 'numpy/core/include/numpy/__ufunc_api.h']
+#8 1.495 building extension "numpy.core._sort" sources
+#8 1.495   adding 'numpy/core/include/numpy/config.h' to sources.
+#8 1.495   adding 'numpy/core/include/numpy/numpyconfig.h' to sources.
+#8 1.495 executing numpy/core/code_generators/generate_numpy_api.py
+#8 1.508   adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+#8 1.508 conv_template:> numpy/core/src/_sortmodule.c
+#8 1.512 numpy.core - nothing done with h_files = ['numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h']
+#8 1.512 building extension "numpy.core.scalarmath" sources
+#8 1.512   adding 'numpy/core/include/numpy/config.h' to sources.
+#8 1.512   adding 'numpy/core/include/numpy/numpyconfig.h' to sources.
+#8 1.512 executing numpy/core/code_generators/generate_numpy_api.py
+#8 1.529   adding 'numpy/core/include/numpy/__multiarray_api.h' to sources.
+#8 1.529 executing numpy/core/code_generators/generate_ufunc_api.py
+#8 1.537   adding 'numpy/core/include/numpy/__ufunc_api.h' to sources.
+#8 1.537 conv_template:> numpy/core/src/scalarmathmodule.c
+#8 1.555 numpy.core - nothing done with h_files = ['numpy/core/include/numpy/config.h', 'numpy/core/include/numpy/numpyconfig.h', 'numpy/core/include/numpy/__multiarray_api.h', 'numpy/core/include/numpy/__ufunc_api.h']
+#8 1.555 building extension "numpy.core._dotblas" sources
+#8 1.555 building extension "numpy.lib._compiled_base" sources
+#8 1.555 building extension "numpy.numarray._capi" sources
+#8 1.555 building extension "numpy.fft.fftpack_lite" sources
+#8 1.555 building extension "numpy.linalg.lapack_lite" sources
+#8 1.556 ### Warning:  Using unoptimized lapack ###
+#8 1.556   adding 'numpy/linalg/lapack_litemodule.c' to sources.
+#8 1.556   adding 'numpy/linalg/python_xerbla.c' to sources.
+#8 1.556   adding 'numpy/linalg/zlapack_lite.c' to sources.
+#8 1.556   adding 'numpy/linalg/dlapack_lite.c' to sources.
+#8 1.556   adding 'numpy/linalg/blas_lite.c' to sources.
+#8 1.556   adding 'numpy/linalg/dlamch.c' to sources.
+#8 1.556   adding 'numpy/linalg/f2c_lite.c' to sources.
+#8 1.556 building extension "numpy.random.mtrand" sources
+#8 1.556 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.556 
+#8 1.556 compile options: '-Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.556 x86_64-linux-gnu-gcc: _configtest.c
+#8 1.571 x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+#8 1.585 _configtest
+#8 1.587 failure.
+#8 1.587 removing: _configtest.c _configtest.o _configtest
+#8 1.587 building data_files sources
+#8 1.590 customize UnixCCompiler
+#8 1.590 customize UnixCCompiler using build_ext
+#8 1.590 building 'numpy.core.multiarray' extension
+#8 1.590 compiling C sources
+#8 1.590 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 1.590 
+#8 1.590 creating build
+#8 1.590 creating build/temp.linux-x86_64-2.7
+#8 1.591 creating build/temp.linux-x86_64-2.7/numpy
+#8 1.591 creating build/temp.linux-x86_64-2.7/numpy/core
+#8 1.591 creating build/temp.linux-x86_64-2.7/numpy/core/src
+#8 1.591 compile options: '-Inumpy/core/src -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 1.591 x86_64-linux-gnu-gcc: numpy/core/src/multiarraymodule.c
+#8 1.657 In file included from numpy/core/src/arraytypes.inc.src:2:0,
+#8 1.657                  from numpy/core/src/arrayobject.c:537,
+#8 1.657                  from numpy/core/src/multiarraymodule.c:97:
+#8 1.657 numpy/core/include/numpy/config.h:14:0: warning: "HAVE_LOG1P" redefined
+#8 1.657  #define HAVE_LOG1P
+#8 1.657  
+#8 1.657 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 1.657                  from /usr/include/python2.7/Python.h:8,
+#8 1.657                  from numpy/core/src/multiarraymodule.c:18:
+#8 1.657 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:483:0: note: this is the location of the previous definition
+#8 1.657  #define HAVE_LOG1P 1
+#8 1.657  
+#8 1.657 In file included from numpy/core/src/arraytypes.inc.src:2:0,
+#8 1.657                  from numpy/core/src/arrayobject.c:537,
+#8 1.657                  from numpy/core/src/multiarraymodule.c:97:
+#8 1.657 numpy/core/include/numpy/config.h:15:0: warning: "HAVE_EXPM1" redefined
+#8 1.657  #define HAVE_EXPM1
+#8 1.657  
+#8 1.657 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 1.657                  from /usr/include/python2.7/Python.h:8,
+#8 1.657                  from numpy/core/src/multiarraymodule.c:18:
+#8 1.657 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:239:0: note: this is the location of the previous definition
+#8 1.657  #define HAVE_EXPM1 1
+#8 1.657  
+#8 3.393 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/core/src/multiarraymodule.o -lm -lm -o numpy/core/multiarray.so
+#8 3.421 building 'numpy.core.umath' extension
+#8 3.421 compiling C sources
+#8 3.421 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 3.421 
+#8 3.422 compile options: '-Inumpy/core/src -Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 3.422 x86_64-linux-gnu-gcc: numpy/core/src/umathmodule.c
+#8 3.462 In file included from numpy/core/src/umathmodule.c.src:17:0:
+#8 3.462 numpy/core/include/numpy/config.h:14:0: warning: "HAVE_LOG1P" redefined
+#8 3.462  #define HAVE_LOG1P
+#8 3.462  
+#8 3.462 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 3.462                  from /usr/include/python2.7/Python.h:8,
+#8 3.462                  from numpy/core/src/umathmodule.c.src:12:
+#8 3.462 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:483:0: note: this is the location of the previous definition
+#8 3.462  #define HAVE_LOG1P 1
+#8 3.462  
+#8 3.462 In file included from numpy/core/src/umathmodule.c.src:17:0:
+#8 3.462 numpy/core/include/numpy/config.h:15:0: warning: "HAVE_EXPM1" redefined
+#8 3.462  #define HAVE_EXPM1
+#8 3.462  
+#8 3.462 In file included from /usr/include/python2.7/pyconfig.h:3:0,
+#8 3.462                  from /usr/include/python2.7/Python.h:8,
+#8 3.462                  from numpy/core/src/umathmodule.c.src:12:
+#8 3.462 /usr/include/x86_64-linux-gnu/python2.7/pyconfig.h:239:0: note: this is the location of the previous definition
+#8 3.462  #define HAVE_EXPM1 1
+#8 3.462  
+#8 4.222 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/core/src/umathmodule.o -lm -o numpy/core/umath.so
+#8 4.249 building 'numpy.core._sort' extension
+#8 4.249 compiling C sources
+#8 4.249 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 4.249 
+#8 4.249 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 4.249 x86_64-linux-gnu-gcc: numpy/core/src/_sortmodule.c
+#8 4.612 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/core/src/_sortmodule.o -lm -o numpy/core/_sort.so
+#8 4.631 building 'numpy.core.scalarmath' extension
+#8 4.631 compiling C sources
+#8 4.631 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 4.631 
+#8 4.631 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 4.631 x86_64-linux-gnu-gcc: numpy/core/src/scalarmathmodule.c
+#8 5.279 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/core/src/scalarmathmodule.o -lm -o numpy/core/scalarmath.so
+#8 5.313 building 'numpy.lib._compiled_base' extension
+#8 5.313 compiling C sources
+#8 5.313 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 5.313 
+#8 5.313 creating build/temp.linux-x86_64-2.7/numpy/lib
+#8 5.313 creating build/temp.linux-x86_64-2.7/numpy/lib/src
+#8 5.313 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 5.313 x86_64-linux-gnu-gcc: numpy/lib/src/_compiled_base.c
+#8 5.402 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/lib/src/_compiled_base.o -o numpy/lib/_compiled_base.so
+#8 5.418 building 'numpy.numarray._capi' extension
+#8 5.418 compiling C sources
+#8 5.418 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 5.418 
+#8 5.418 creating build/temp.linux-x86_64-2.7/numpy/numarray
+#8 5.418 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 5.418 x86_64-linux-gnu-gcc: numpy/numarray/_capi.c
+#8 5.686 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/numarray/_capi.o -o numpy/numarray/_capi.so
+#8 5.702 building 'numpy.fft.fftpack_lite' extension
+#8 5.702 compiling C sources
+#8 5.702 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 5.702 
+#8 5.703 creating build/temp.linux-x86_64-2.7/numpy/fft
+#8 5.703 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 5.703 x86_64-linux-gnu-gcc: numpy/fft/fftpack.c
+#8 5.827 x86_64-linux-gnu-gcc: numpy/fft/fftpack_litemodule.c
+#8 5.893 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/fft/fftpack_litemodule.o build/temp.linux-x86_64-2.7/numpy/fft/fftpack.o -o numpy/fft/fftpack_lite.so
+#8 5.912 building 'numpy.linalg.lapack_lite' extension
+#8 5.912 compiling C sources
+#8 5.912 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 5.912 
+#8 5.912 creating build/temp.linux-x86_64-2.7/numpy/linalg
+#8 5.912 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 5.912 x86_64-linux-gnu-gcc: numpy/linalg/dlapack_lite.c
+#8 6.879 x86_64-linux-gnu-gcc: numpy/linalg/blas_lite.c
+#8 7.193 x86_64-linux-gnu-gcc: numpy/linalg/zlapack_lite.c
+#8 7.965 x86_64-linux-gnu-gcc: numpy/linalg/lapack_litemodule.c
+#8 8.040 x86_64-linux-gnu-gcc: numpy/linalg/python_xerbla.c
+#8 8.082 x86_64-linux-gnu-gcc: numpy/linalg/f2c_lite.c
+#8 8.119 x86_64-linux-gnu-gcc: numpy/linalg/dlamch.c
+#8 8.156 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/linalg/lapack_litemodule.o build/temp.linux-x86_64-2.7/numpy/linalg/python_xerbla.o build/temp.linux-x86_64-2.7/numpy/linalg/zlapack_lite.o build/temp.linux-x86_64-2.7/numpy/linalg/dlapack_lite.o build/temp.linux-x86_64-2.7/numpy/linalg/blas_lite.o build/temp.linux-x86_64-2.7/numpy/linalg/dlamch.o build/temp.linux-x86_64-2.7/numpy/linalg/f2c_lite.o -o numpy/linalg/lapack_lite.so
+#8 8.184 building 'numpy.random.mtrand' extension
+#8 8.184 compiling C sources
+#8 8.184 C compiler: x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC
+#8 8.184 
+#8 8.184 creating build/temp.linux-x86_64-2.7/numpy/random
+#8 8.184 creating build/temp.linux-x86_64-2.7/numpy/random/mtrand
+#8 8.185 compile options: '-Inumpy/core/include -Inumpy/core/include/numpy -Inumpy/core/src -Inumpy/core/include -I/usr/include/python2.7 -c'
+#8 8.185 x86_64-linux-gnu-gcc: numpy/random/mtrand/distributions.c
+#8 8.243 x86_64-linux-gnu-gcc: numpy/random/mtrand/mtrand.c
+#8 8.859 x86_64-linux-gnu-gcc: numpy/random/mtrand/initarray.c
+#8 8.878 x86_64-linux-gnu-gcc: numpy/random/mtrand/randomkit.c
+#8 8.914 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/numpy/random/mtrand/mtrand.o build/temp.linux-x86_64-2.7/numpy/random/mtrand/randomkit.o build/temp.linux-x86_64-2.7/numpy/random/mtrand/initarray.o build/temp.linux-x86_64-2.7/numpy/random/mtrand/distributions.o -o numpy/random/mtrand.so
+#8 8.931 running scons
+#8 9.061 1.3.0.dev
+#8 9.197 HEAD is now at b65b21c Update doall script: take the python version to build binaries from the command line instead of global variable.
+#8 DONE 9.2s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 14.5s done
+#9 exporting manifest sha256:192afaf7fa21916b1976b88737aa54882c1a9890a9c71e12e004f9c628048720 0.0s done
+#9 exporting config sha256:a63d0993e727f001e326d87b0ad101865afdafca8d7040df54884a6dda6d67be done
+#9 exporting attestation manifest sha256:4d91e37b32965afef365c4466abcf651229f8d1c07d393fc206977720f48ea41 0.0s done
+#9 exporting manifest list sha256:d485b6f5f151ad2c42c3c32e32f97d01a66e10ed307a21112efd85cb523ef363 0.0s done
+#9 naming to docker.io/yutu0814/pyc-case-031-numpy:benchmark-v1 done
+#9 unpacking to docker.io/yutu0814/pyc-case-031-numpy:benchmark-v1
+#9 unpacking to docker.io/yutu0814/pyc-case-031-numpy:benchmark-v1 2.5s done
+#9 DONE 17.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3c2oo67750gmlfneqf8fq4gqo

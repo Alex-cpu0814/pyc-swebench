@@ -1,0 +1,8 @@
+test_basic (test_multiarray.TestChoose) ... ok
+test_broadcast1 (test_multiarray.TestChoose) ... ok
+test_broadcast2 (test_multiarray.TestChoose) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.017s
+
+OK

@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-031-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "test_multiarray.TestChoose.test_broadcast1": "PASSED",
+    "test_multiarray.TestChoose.test_broadcast2": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "test_multiarray.TestChoose.test_basic": "PASSED"
+  },
+  "unexpected_failures": []
+}

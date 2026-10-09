@@ -1,0 +1,45 @@
+{
+  "instance_id": "pyc_case_031",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "31",
+  "duplicate_source_cases": [],
+  "deduplication_key": "a0e082a087e9667e3805d3be859958a292e8f336",
+  "language_pair": "Python-C",
+  "repo": "numpy/numpy",
+  "issue_id": "ticket-925",
+  "issue_url": "https://github.com/numpy/numpy/commit/a0e082a087e9667e3805d3be859958a292e8f336",
+  "commit": "a0e082a087e9667e3805d3be859958a292e8f336",
+  "base_commit": "b65b21c397381351965bf3f590054d2bccdd03d2",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "a0e082a087e9667e3805d3be859958a292e8f336",
+  "commit_url": "https://github.com/numpy/numpy/commit/a0e082a087e9667e3805d3be859958a292e8f336",
+  "problem_statement": "np.choose rejects choice arrays that should broadcast with the index array. Calls using two-dimensional choices, or a mixture of one- and two-dimensional choices, raise ValueError: too many dimensions instead of returning the broadcast result.",
+  "symptom": "error message.",
+  "bug_location": "line 2431",
+  "bug_location_type": "function call",
+  "bug_path": "6404(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6403(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6401(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6397(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6396(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6392(c_multiarraymodule_124-cfg.dot) (PyArray_FromIter) -> 6498(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 6488(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 6486(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 6485(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 6484(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 6480(c_multiarraymodule_125-cfg.dot) (array_fromiter) -> 230(py_test_numeric_75-cfg.dot) (test_values)",
+  "cross_language_type": "PyErr_SetString,Foreign,Exception Handling,Py_INCREF,Foreign,Reference Counting,PyArray_SIZE,NAX,Array API,PyArray_FromArray,NAX,Array API,PyArray_NBYTES,NAX,Array API,PyArray_CompareLists,NAX,Array API,PyArray_ContiguousFromAny,NAX,Array API,PyArray_ConvertToCommonType,NAX,Array API",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Initialization error",
+  "fixing_strategy": "Add NAX function",
+  "fix_location": "function call",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/numpy/numpy/commit/a0e082a087e9667e3805d3be859958a292e8f336",
+    "upstream_description": "The upstream fix for legacy ticket #925 adds broadcasting support to PyArray_Choose and three official TestChoose tests.",
+    "verified_error": "On Base b65b21c3, test_broadcast1 and test_broadcast2 raise ValueError: too many dimensions; the basic one-dimensional case passes.",
+    "verified_test": "The exact upstream TestChoose tests were reproduced in Python 2.7: both broadcasting cases fail on Base and all three assertions pass on Gold."
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "test_multiarray.TestChoose.test_broadcast1",
+    "test_multiarray.TestChoose.test_broadcast2"
+  ],
+  "PASS_TO_PASS": [
+    "test_multiarray.TestChoose.test_basic"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

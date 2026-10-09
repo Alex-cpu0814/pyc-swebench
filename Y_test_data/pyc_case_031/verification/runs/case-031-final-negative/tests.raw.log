@@ -1,0 +1,32 @@
+test_basic (test_multiarray.TestChoose) ... ok
+test_broadcast1 (test_multiarray.TestChoose) ... ERROR
+test_broadcast2 (test_multiarray.TestChoose) ... ERROR
+
+======================================================================
+ERROR: test_broadcast1 (test_multiarray.TestChoose)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/numpy/core/tests/test_multiarray.py", line 962, in test_broadcast1
+    A = np.choose(self.ind, (self.x2, self.y2))
+  File "/testbed/numpy/core/fromnumeric.py", line 187, in choose
+    return _wrapit(a, 'choose', choices, out=out, mode=mode)
+  File "/testbed/numpy/core/fromnumeric.py", line 37, in _wrapit
+    result = getattr(asarray(obj),method)(*args, **kwds)
+ValueError: too many dimensions
+
+======================================================================
+ERROR: test_broadcast2 (test_multiarray.TestChoose)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/numpy/core/tests/test_multiarray.py", line 966, in test_broadcast2
+    A = np.choose(self.ind, (self.x, self.y2))
+  File "/testbed/numpy/core/fromnumeric.py", line 187, in choose
+    return _wrapit(a, 'choose', choices, out=out, mode=mode)
+  File "/testbed/numpy/core/fromnumeric.py", line 37, in _wrapit
+    result = getattr(asarray(obj),method)(*args, **kwds)
+ValueError: too many dimensions
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.030s
+
+FAILED (errors=2)

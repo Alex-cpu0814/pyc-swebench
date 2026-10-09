@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "numpy__numpy-ticket-925",
+  "base_commit": "b65b21c397381351965bf3f590054d2bccdd03d2",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

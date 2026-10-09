@@ -1,0 +1,6 @@
+diff --git a/benchmark_negative_control.txt b/benchmark_negative_control.txt
+new file mode 100644
+--- /dev/null
++++ b/benchmark_negative_control.txt
+@@ -0,0 +1 @@
++This evaluator control does not correct the target native-code defect.

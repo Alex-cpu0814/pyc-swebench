@@ -18,10 +18,11 @@ SWE-bench-compatible layout.
 | `pyc_case_022` | `numpy/numpy` | PR #12805 / merge `2b05f3e3` | Base: 3 dtype reference-count failures; Gold: 3 targets and 2 regressions passed |
 | `pyc_case_023` | `numpy/numpy` | PR #12814 / merge `74f3d07a` | Base: target aborts with exit 134; Gold: target and 2 regressions passed |
 | `pyc_case_027` | `numpy/numpy` | PR #11684 / merge `842970f1` | Base: empty-index diagnostic failed; Gold: target and 2 regressions passed |
+| `pyc_case_031` | `numpy/numpy` | ticket #925 / commit `a0e082a0` | Base: 2 choose-broadcast targets failed; Gold: 2 targets and 1 regression passed |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.
-Cases 7, 10, 11, 13, 14, 15, 22, 23, and 27 are unique by their full fix commits.
+Cases 7, 10, 11, 13, 14, 15, 22, 23, 27, and 31 are unique by their full fix commits.
 
 Each case keeps the upstream product patch and test patch separate, provides a
 clean Docker evaluator, and stores private/public task records under

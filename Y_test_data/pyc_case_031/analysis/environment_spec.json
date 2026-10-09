@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_031",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_numpy_native_build",
+  "python_version_target": "Python 2.7 legacy build",
+  "native_requirement": "GCC, GFortran, ATLAS development libraries, and nose",
+  "build_system": "NumPy setup.py build_ext -i --force at the verified base commit",
+  "test_execution": [
+    "python2.7 -m nose -v <selected official TestChoose methods>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in numpy/core/tests/test_multiarray.py.",
+    "On Base b65b21c3, test_broadcast1 and test_broadcast2 raise ValueError: too many dimensions; the basic one-dimensional case passes.",
+    "1 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "b65b21c397381351965bf3f590054d2bccdd03d2",
+  "fix_commit": "a0e082a087e9667e3805d3be859958a292e8f336",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "numpy/core/tests/test_multiarray.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test_multiarray.TestChoose.test_broadcast1",
+    "test_multiarray.TestChoose.test_broadcast2"
+  ],
+  "PASS_TO_PASS": [
+    "test_multiarray.TestChoose.test_basic"
+  ]
+}
