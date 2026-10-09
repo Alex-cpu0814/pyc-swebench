@@ -1,0 +1,12 @@
+diff --git a/README.txt b/README.txt
+--- a/README.txt
++++ b/README.txt
+@@ -1,6 +1,8 @@
+ =================================================
+ Developing SciPy
+ =================================================
+ 
++This evaluator control does not correct the target native-code defect.
++
+ .. Contents::
+ 

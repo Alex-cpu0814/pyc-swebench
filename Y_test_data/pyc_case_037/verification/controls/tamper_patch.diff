@@ -1,0 +1,11 @@
+diff --git a/scipy/ndimage/tests/test_regression.py b/scipy/ndimage/tests/test_regression.py
+--- a/scipy/ndimage/tests/test_regression.py
++++ b/scipy/ndimage/tests/test_regression.py
+@@ -15,6 +15,6 @@ def test_zoom_output_shape():
+     """Ticket #643"""
+     x = np.arange(12).reshape((3,4))
+-    ndimage.zoom(x, 2, output=np.zeros((6,8)))
++    ndimage.zoom(x, 2, output=np.zeros((6,8)))  # candidate tampers with protected context
+ 
+ if __name__ == "__main__":
+     run_module_suite()

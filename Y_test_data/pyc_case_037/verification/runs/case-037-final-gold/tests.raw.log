@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-3.10.1, py-1.11.0, pluggy-1.5.0 -- /usr/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /testbed/build/py3k/scipy/ndimage, inifile:
+collecting ... collected 3 items
+
+scipy/ndimage/tests/test_regression.py::test_byte_order_median PASSED    [ 33%]
+scipy/ndimage/tests/test_regression.py::test_zoom_output_shape PASSED    [ 66%]
+scipy/ndimage/tests/test_regression.py::test_ticket_742 PASSED           [100%]
+
+=========================== 3 passed in 0.41 seconds ===========================

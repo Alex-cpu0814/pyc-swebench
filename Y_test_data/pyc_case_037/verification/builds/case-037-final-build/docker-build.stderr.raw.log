@@ -1,0 +1,47 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.14kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:20.04@sha256:7e9558e1203a9a2b0967554abf9ebdc5552f29013b01f6e7271bf2d776d51234
+#2 DONE 28.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/7] FROM public.ecr.aws/ubuntu/ubuntu:20.04@sha256:7e9558e1203a9a2b0967554abf9ebdc5552f29013b01f6e7271bf2d776d51234
+#4 resolve public.ecr.aws/ubuntu/ubuntu:20.04@sha256:7e9558e1203a9a2b0967554abf9ebdc5552f29013b01f6e7271bf2d776d51234
+#4 resolve public.ecr.aws/ubuntu/ubuntu:20.04@sha256:7e9558e1203a9a2b0967554abf9ebdc5552f29013b01f6e7271bf2d776d51234 0.3s done
+#4 DONE 0.3s
+
+#5 [5/7] WORKDIR /testbed
+#5 CACHED
+
+#6 [6/7] RUN python3.8 setup.py build_ext -i
+#6 CACHED
+
+#7 [2/7] RUN sed -i '/focal-backports/d; s|http://archive.ubuntu.com/ubuntu|http://security.ubuntu.com/ubuntu|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=8 update     && for attempt in 1 2 3 4 5 6 7 8; do          apt-get -o Acquire::Retries=8 install -y --no-install-recommends            build-essential ca-certificates gfortran git libopenblas-dev            pkg-config python3.8-dev python3-pip python3-setuptools && break;          test "${attempt}" != 8;          apt-get -o Acquire::Retries=8 update;        done     && dpkg -s build-essential gfortran git libopenblas-dev python3.8-dev python3-pip >/dev/null     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [4/7] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/scipy/scipy.git"     && git fetch --depth=1 origin "bf05e8d3412e2d96ab6735b6935e2a65f2620c30"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "bf05e8d3412e2d96ab6735b6935e2a65f2620c30"     && mkdir -p /benchmark /inputs /results
+#8 CACHED
+
+#9 [3/7] RUN python3.8 -m pip install --no-cache-dir       "pip<24.1" "setuptools<60" "wheel<0.42"       Cython==0.29.36 numpy==1.17.5 pytest==3.10.1
+#9 CACHED
+
+#10 [7/7] RUN sed -i '/from numpy\._import_tools import PackageLoader/,/pkgload(verbose=SCIPY_IMPORT_VERBOSE,postpone=True)/d'       /testbed/build/py3k/scipy/__init__.py     && cd /testbed/build/py3k     && python3.8 -c "import scipy, scipy.ndimage; print(scipy.__version__)"     && test -z "$(git -C /testbed status --porcelain)"
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:5878e6512322b716b92d99772431f0f7a90e31cfe2d22404480edd5e7b319c18 done
+#11 exporting config sha256:a82a15513aff67169ccf2832d54c4694cc4755f4bcd005b16c134f0513144265 done
+#11 exporting attestation manifest sha256:146d0494edc166158874cb15d6efcf7f01d710f7f87af9dcb77ce87e095ccb66 0.0s done
+#11 exporting manifest list sha256:04dff5e59cea830266f4137be5ca38e2333c9668c2880e6f6f542c7188cd8328 0.0s done
+#11 naming to docker.io/yutu0814/pyc-case-037-scipy:benchmark-v1 done
+#11 unpacking to docker.io/yutu0814/pyc-case-037-scipy:benchmark-v1 done
+#11 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nlr2so185d36ios9kngmu6fjy

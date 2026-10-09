@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-037-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-09T10:50:59.682Z",
+  "finished_at": "2026-10-09T10:51:31.366Z",
+  "duration_ms": 31687,
+  "source": {
+    "repo": "https://github.com/scipy/scipy.git",
+    "base_commit": "bf05e8d3412e2d96ab6735b6935e2a65f2620c30"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-037-scipy:benchmark-v1",
+    "id": "sha256:04dff5e59cea830266f4137be5ca38e2333c9668c2880e6f6f542c7188cd8328",
+    "repo_digests": [
+      "yutu0814/pyc-case-037-scipy@sha256:04dff5e59cea830266f4137be5ca38e2333c9668c2880e6f6f542c7188cd8328"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

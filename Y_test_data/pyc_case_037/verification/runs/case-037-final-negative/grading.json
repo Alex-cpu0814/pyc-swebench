@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-037-final-negative",
+  "tests_observed": 2,
+  "FAIL_TO_PASS": {
+    "scipy/ndimage/tests/test_regression.py::test_ticket_742": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "scipy/ndimage/tests/test_regression.py::test_byte_order_median": "PASSED",
+    "scipy/ndimage/tests/test_regression.py::test_zoom_output_shape": "PASSED"
+  },
+  "unexpected_failures": []
+}

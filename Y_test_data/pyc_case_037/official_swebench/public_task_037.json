@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-742",
+  "repo": "scipy/scipy",
+  "base_commit": "bf05e8d3412e2d96ab6735b6935e2a65f2620c30",
+  "problem_statement": "On a 64-bit platform, scipy.ndimage.label can terminate the process when labeling a three-dimensional boolean mask with a fully connected structuring element. The official regression constructs a random array of shape (3, 1240, 1240), thresholds it at 0.7, labels the mask with generate_binary_structure(3, 3), and then calls find_objects. This sequence must complete without crashing. Preserve the neighboring median-filter byte-order and zoom output-shape behavior.",
+  "hints_text": "",
+  "created_at": "2011-06-11",
+  "version": "0.10.0.dev",
+  "issue_id": "742",
+  "issue_url": "https://github.com/scipy/scipy/commit/2a2d8be5f52481938c817eb7150fe7152958853d"
+}

@@ -1,0 +1,2 @@
+error: patch failed: scipy/ndimage/tests/test_regression.py:16
+error: scipy/ndimage/tests/test_regression.py: patch does not apply

@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_037",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_scipy_native_build",
+  "python_version_target": "3.8",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "SciPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "cd /testbed/build/py3k && python3.8 -m pytest -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in scipy/ndimage/tests/test_regression.py.",
+    "On linux/amd64, Base terminates during the official test_ticket_742 sequence. The target node has no completed pytest result and is graded MISSING/unresolved. The upstream C fix and native rebuild allow it to pass; both neighboring regressions pass on Base and Gold.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "bf05e8d3412e2d96ab6735b6935e2a65f2620c30",
+  "fix_commit": "2a2d8be5f52481938c817eb7150fe7152958853d",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "scipy/ndimage/tests/test_regression.py"
+  ],
+  "FAIL_TO_PASS": [
+    "scipy/ndimage/tests/test_regression.py::test_ticket_742"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/ndimage/tests/test_regression.py::test_byte_order_median",
+    "scipy/ndimage/tests/test_regression.py::test_zoom_output_shape"
+  ]
+}
