@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.5.0 -- /usr/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /testbed/scipy/interpolate/tests, configfile: ../../../../dev/null
+collecting ... collected 3 items
+
+scipy/interpolate/tests/test_fitpack.py::test_dblint PASSED              [ 33%]
+scipy/interpolate/tests/test_fitpack.py::test_splev_der_k PASSED         [ 66%]
+scipy/interpolate/tests/test_fitpack.py::test_splprep_segfault PASSED    [100%]
+
+============================== 3 passed in 0.16s ===============================

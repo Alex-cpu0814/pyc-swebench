@@ -21,11 +21,13 @@ SWE-bench-compatible layout.
 | `pyc_case_031` | `numpy/numpy` | ticket #925 / commit `a0e082a0` | Base: 2 choose-broadcast targets failed; Gold: 2 targets and 1 regression passed |
 | `pyc_case_034` | `scipy/scipy` | PR #8822 / merge `0aee4a24` | Base: repeated-time target terminates early; Gold: target and 2 regressions passed |
 | `pyc_case_037` | `scipy/scipy` | ticket #742 / commit `2a2d8be5` | Base: label target SIGSEGV (139); Gold: target and 2 regressions passed |
+| `pyc_case_041` | `scipy/scipy` | PR #12562 / merge `e2091e9e` | Base: fixed-knots `splprep` target SIGSEGV (139); Gold: target and 2 regressions passed |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.
-Cases 7, 10, 11, 13, 14, 15, 22, 23, 27, 31, 34, and 37 are unique by their full fix commits.
+Cases 7, 10, 11, 13, 14, 15, 22, 23, 27, 31, 34, 37, and 41 are unique by their full fix commits.
 Candidate-table Case 37 maps to original source row 36 by fix commit `2a2d8be5f52481938c817eb7150fe7152958853d`.
+Candidate-table Case 41 maps to original source Case 40 by fix commit `e2091e9e4be2dffed8c6535547e8519dc002fa74`.
 
 Each case keeps the upstream product patch and test patch separate, provides a
 clean Docker evaluator, and stores private/public task records under

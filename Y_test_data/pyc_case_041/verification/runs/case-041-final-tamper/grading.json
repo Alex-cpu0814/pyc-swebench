@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-041-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "scipy/interpolate/tests/test_fitpack.py::test_splprep_segfault": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "scipy/interpolate/tests/test_fitpack.py::test_dblint": "MISSING",
+    "scipy/interpolate/tests/test_fitpack.py::test_splev_der_k": "MISSING"
+  },
+  "unexpected_failures": []
+}

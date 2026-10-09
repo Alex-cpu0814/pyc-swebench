@@ -1,0 +1,12 @@
+diff --git a/scipy/interpolate/tests/test_fitpack.py b/scipy/interpolate/tests/test_fitpack.py
+--- a/scipy/interpolate/tests/test_fitpack.py
++++ b/scipy/interpolate/tests/test_fitpack.py
+@@ -456,7 +456,7 @@ def test_splev_der_k():
+ 
+     x = [t[0] - 1., t[-1] + 1.]
+     tck2 = splder((t, c, k), k)
+-    assert_allclose(splev(x, (t, c, k), k), splev(x, tck2))
++    assert_allclose(splev(x, (t, c, k), k), splev(x, tck2))  # candidate tampers with protected context
+ 
+ 
+ def test_bisplev_integer_overflow():

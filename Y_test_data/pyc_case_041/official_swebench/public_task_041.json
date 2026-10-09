@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-12562",
+  "repo": "scipy/scipy",
+  "base_commit": "e13278e712ac33c6110b5d48a8da0acfa7768b71",
+  "problem_statement": "scipy.interpolate.splprep can abort or segfault when task=-1 is used with a fixed knot vector obtained from a preceding fit. The fixed-knots call must complete without crashing, while preserving the neighboring dblint and splev derivative behavior.",
+  "hints_text": "",
+  "created_at": "2020-07-18",
+  "version": "1.6.0.dev0",
+  "issue_id": "12562",
+  "issue_url": "https://github.com/scipy/scipy/pull/12562"
+}

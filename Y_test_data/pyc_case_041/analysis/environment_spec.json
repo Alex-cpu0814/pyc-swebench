@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_041",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_scipy_native_build",
+  "python_version_target": "3.8",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "SciPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "python3.8 -m pytest -c /dev/null -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in scipy/interpolate/tests/test_fitpack.py.",
+    "On linux/amd64, Base passes both neighboring regressions and then aborts in the official test_splprep_segfault sequence, followed by a segmentation fault. The one-line C fix and native rebuild make the same three nodes pass.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "e13278e712ac33c6110b5d48a8da0acfa7768b71",
+  "fix_commit": "e2091e9e4be2dffed8c6535547e8519dc002fa74",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "scipy/interpolate/tests/test_fitpack.py"
+  ],
+  "FAIL_TO_PASS": [
+    "scipy/interpolate/tests/test_fitpack.py::test_splprep_segfault"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/interpolate/tests/test_fitpack.py::test_dblint",
+    "scipy/interpolate/tests/test_fitpack.py::test_splev_der_k"
+  ]
+}

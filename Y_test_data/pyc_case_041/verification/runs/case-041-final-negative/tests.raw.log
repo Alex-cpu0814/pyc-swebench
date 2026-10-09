@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.5.0 -- /usr/bin/python3.8
+cachedir: .pytest_cache
+rootdir: /testbed/scipy/interpolate/tests, configfile: ../../../../dev/null
+collecting ... collected 3 items
+
+scipy/interpolate/tests/test_fitpack.py::test_dblint PASSED              [ 33%]
+scipy/interpolate/tests/test_fitpack.py::test_splev_der_k PASSED         [ 66%]
+scipy/interpolate/tests/test_fitpack.py::test_splprep_segfault Fatal Python error: Segmentation fault
+
+Current thread 0x00007f70ab71a740 (most recent call first):
+/benchmark/case_adapter.sh: line 7:   144 Segmentation fault      (core dumped) python3.8 -m pytest -c /dev/null -vv 'scipy/interpolate/tests/test_fitpack.py::test_dblint' 'scipy/interpolate/tests/test_fitpack.py::test_splev_der_k' 'scipy/interpolate/tests/test_fitpack.py::test_splprep_segfault'
