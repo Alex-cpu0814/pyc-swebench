@@ -1,0 +1,2 @@
+error: patch failed: scipy/integrate/tests/test_integrate.py:805
+error: scipy/integrate/tests/test_integrate.py: patch does not apply

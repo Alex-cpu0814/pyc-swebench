@@ -1,0 +1,12 @@
+diff --git a/scipy/integrate/odepack.py b/scipy/integrate/odepack.py
+--- a/scipy/integrate/odepack.py
++++ b/scipy/integrate/odepack.py
+@@ -3,6 +3,8 @@ from __future__ import division, print_function, absolute_import
+ 
+ __all__ = ['odeint']
+ 
++# Evaluator control: this comment does not correct the target defect.
++
+ from . import _odepack
+ from copy import copy
+ import warnings

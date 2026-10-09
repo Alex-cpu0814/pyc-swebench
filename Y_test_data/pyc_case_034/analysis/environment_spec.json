@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_034",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_scipy_native_build",
+  "python_version_target": "CPython 3.8.10",
+  "native_requirement": "GCC, GFortran, and OpenBLAS development libraries",
+  "build_system": "SciPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "python3.8 -m pytest -vv scipy/integrate/tests/test_integrate.py::<selected official node>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in scipy/integrate/tests/test_integrate.py.",
+    "Base prints 'lsoda-- repeated calls with istate = 1 and tout = t' followed by 'run aborted.. apparent infinite loop' and exits the call before the official assertion can complete.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "9529e47630be8f2345fd3d54302f248ce309d8cd",
+  "fix_commit": "0aee4a24bedb154d07a3b5ba016a385b1ac2910c",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "scipy/integrate/tests/test_integrate.py"
+  ],
+  "FAIL_TO_PASS": [
+    "scipy/integrate/tests/test_integrate.py::test_repeated_t_values"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/integrate/tests/test_integrate.py::test_odeint_trivial_time",
+    "scipy/integrate/tests/test_integrate.py::test_odeint_bad_shapes"
+  ]
+}

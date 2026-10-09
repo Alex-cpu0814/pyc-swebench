@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-034-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "scipy/integrate/tests/test_integrate.py::test_repeated_t_values": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "scipy/integrate/tests/test_integrate.py::test_odeint_trivial_time": "PASSED",
+    "scipy/integrate/tests/test_integrate.py::test_odeint_bad_shapes": "PASSED"
+  },
+  "unexpected_failures": []
+}

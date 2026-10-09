@@ -1,0 +1,38 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "034",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2018-05-14",
+  "created_at_precision": "date",
+  "instance_id": "scipy__scipy-8822",
+  "source_instance_id": "pyc_case_034",
+  "repo": "scipy/scipy",
+  "issue_id": "8822",
+  "issue_url": "https://github.com/scipy/scipy/pull/8822",
+  "project_version": "1.2.0.dev0",
+  "base_commit": "9529e47630be8f2345fd3d54302f248ce309d8cd",
+  "fix_commit": "0aee4a24bedb154d07a3b5ba016a385b1ac2910c",
+  "FAIL_TO_PASS": [
+    "scipy/integrate/tests/test_integrate.py::test_repeated_t_values"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/integrate/tests/test_integrate.py::test_odeint_trivial_time",
+    "scipy/integrate/tests/test_integrate.py::test_odeint_bad_shapes"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/ubuntu/ubuntu:20.04",
+    "python_version": "3.8.10",
+    "test_runner_version": "pytest 3.10.1",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

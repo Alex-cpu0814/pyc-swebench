@@ -1,0 +1,12 @@
+diff --git a/scipy/integrate/tests/test_integrate.py b/scipy/integrate/tests/test_integrate.py
+index aa8620e..d60f053 100644
+--- a/scipy/integrate/tests/test_integrate.py
++++ b/scipy/integrate/tests/test_integrate.py
+@@ -802,6 +802,6 @@ def test_odeint_bad_shapes():
+     # y0 is 10, but badrhs(x, t) returns [1, -1].
+     assert_raises(RuntimeError, odeint, badrhs, 10, [0, 1])
+ 
+-    # shape of array returned by badjac(x, t) is not correct.
++    # shape of array returned by badjac(x, t) is not correct.  # tamper
+     assert_raises(RuntimeError, odeint, sys1, [10, 10], [0, 1], Dfun=badjac)
+ 

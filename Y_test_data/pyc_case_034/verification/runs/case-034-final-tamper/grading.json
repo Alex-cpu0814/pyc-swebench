@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-034-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "scipy/integrate/tests/test_integrate.py::test_repeated_t_values": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "scipy/integrate/tests/test_integrate.py::test_odeint_trivial_time": "MISSING",
+    "scipy/integrate/tests/test_integrate.py::test_odeint_bad_shapes": "MISSING"
+  },
+  "unexpected_failures": []
+}

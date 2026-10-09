@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-8822",
+  "repo": "scipy/scipy",
+  "base_commit": "9529e47630be8f2345fd3d54302f248ce309d8cd",
+  "problem_statement": "scipy.integrate.odeint must safely handle empty time sequences and repeated time values, including repeated initial and intermediate values, while rejecting non-monotonic time sequences. At the base revision, an all-repeated initial time sequence reaches LSODA with tout equal to t, prints an apparent-infinite-loop diagnostic, and terminates before returning a solution.",
+  "hints_text": "",
+  "created_at": "2018-05-14",
+  "version": "1.2.0.dev0",
+  "issue_id": "8822",
+  "issue_url": "https://github.com/scipy/scipy/pull/8822"
+}
