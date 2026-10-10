@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-042-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "scipy/signal/tests/test_bsplines.py::test_sepfir2d_invalid_filter": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_spline_filter": "PASSED",
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_bspline": "PASSED"
+  },
+  "unexpected_failures": []
+}

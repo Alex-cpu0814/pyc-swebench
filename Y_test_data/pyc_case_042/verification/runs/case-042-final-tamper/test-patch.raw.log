@@ -1,0 +1,2 @@
+error: patch failed: scipy/signal/tests/test_bsplines.py:4
+error: scipy/signal/tests/test_bsplines.py: patch does not apply

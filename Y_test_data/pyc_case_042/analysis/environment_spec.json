@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_042",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_scipy_native_build",
+  "python_version_target": "3.8",
+  "native_requirement": "GCC, GFortran, OpenBLAS development libraries",
+  "build_system": "SciPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "python3.8 -m pytest -c /dev/null -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in scipy/signal/tests/test_bsplines.py.",
+    "On linux/amd64, Base passes both neighboring spline regressions but test_sepfir2d_invalid_filter fails because the even-length filter calls do not raise ValueError. Applying the C fix and rebuilding the native extension makes the target and both regressions pass.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "8c7973148c5dea4a28e0e082f8c1f182313b72c1",
+  "fix_commit": "3f4396e7c8e21ea0c432c1747b221e64c162b6f5",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "scipy/signal/tests/test_bsplines.py"
+  ],
+  "FAIL_TO_PASS": [
+    "scipy/signal/tests/test_bsplines.py::test_sepfir2d_invalid_filter"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_spline_filter",
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_bspline"
+  ]
+}

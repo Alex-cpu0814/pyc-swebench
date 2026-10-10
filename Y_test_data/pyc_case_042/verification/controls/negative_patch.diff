@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -1,4 +1,4 @@
+-SciPy
++SciPy (evaluator negative control)
+ =====
+ 
+ .. image:: https://img.shields.io/travis/scipy/scipy/master.svg?label=Travis%20CI

@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-12703",
+  "repo": "scipy/scipy",
+  "base_commit": "8c7973148c5dea4a28e0e082f8c1f182313b72c1",
+  "problem_statement": "scipy.signal.sepfir2d accepts even-length row or column filters even though the separable symmetric convolution requires odd filter lengths. The official regression expects ValueError with an 'odd length' diagnostic for either invalid filter while retaining normal spline-filter and B-spline behavior.",
+  "hints_text": "",
+  "created_at": "2020-08-11",
+  "version": "1.6.0.dev0",
+  "issue_id": "12703",
+  "issue_url": "https://github.com/scipy/scipy/pull/12703"
+}

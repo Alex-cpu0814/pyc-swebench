@@ -1,0 +1,39 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "41",
+  "candidate_case": "042",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-08-11",
+  "created_at_precision": "date",
+  "instance_id": "scipy__scipy-12703",
+  "source_instance_id": "pyc_case_042",
+  "repo": "scipy/scipy",
+  "issue_id": "12703",
+  "issue_url": "https://github.com/scipy/scipy/pull/12703",
+  "project_version": "1.6.0.dev0",
+  "base_commit": "8c7973148c5dea4a28e0e082f8c1f182313b72c1",
+  "fix_commit": "3f4396e7c8e21ea0c432c1747b221e64c162b6f5",
+  "FAIL_TO_PASS": [
+    "scipy/signal/tests/test_bsplines.py::test_sepfir2d_invalid_filter"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_spline_filter",
+    "scipy/signal/tests/test_bsplines.py::TestBSplines::test_bspline"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/ubuntu/ubuntu:20.04",
+    "python_version": "3.8.10",
+    "test_runner_version": "pytest 6.2.5",
+    "compiler_toolchain": "GCC/GFortran and OpenBLAS from Ubuntu 20.04",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

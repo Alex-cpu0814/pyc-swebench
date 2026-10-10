@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-042-final-gold",
+  "label": "gold",
+  "instance_id": "scipy__scipy-12703",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-10T06:36:47.176Z",
+  "finished_at": "2026-10-10T06:36:52.085Z",
+  "duration_ms": 4906,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "dc4f5b7a711fd7ceff132940cb1e0bb028ed8fae8443f3c36840dbae66f48fc4",
+  "test_patch_sha256": "bac1f9a2f23def16135bace0e836b41a0d703684e703a3435e37463b02d959b6",
+  "image": {
+    "name": "yutu0814/pyc-case-042-scipy:benchmark-v1",
+    "id": "sha256:73a308a6d0431d6f5d682647daf0828549209bc26bf7e79d2bff7e205d7d2bcb",
+    "repo_digests": [
+      "yutu0814/pyc-case-042-scipy@sha256:73a308a6d0431d6f5d682647daf0828549209bc26bf7e79d2bff7e205d7d2bcb"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "scipy__scipy-12703"
+  },
+  "grading": {
+    "tests_observed": 3,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}
