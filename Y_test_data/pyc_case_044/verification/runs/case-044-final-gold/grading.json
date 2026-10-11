@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-044-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01": "PASSED",
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02": "PASSED"
+  },
+  "unexpected_failures": []
+}

@@ -1,0 +1,303 @@
+Cythonizing sources
+scipy/special/_ufuncs.pyx has not changed
+scipy/special/_ufuncs_cxx.pyx has not changed
+scipy/stats/_rank.pyx has not changed
+scipy/stats/vonmises_cython.pyx has not changed
+scipy/signal/_spectral.pyx has not changed
+scipy/signal/_max_len_seq.pyx has not changed
+scipy/io/matlab/mio_utils.pyx has not changed
+scipy/io/matlab/streams.pyx has not changed
+scipy/io/matlab/mio5_utils.pyx has not changed
+scipy/interpolate/_ppoly.pyx has not changed
+scipy/interpolate/interpnd.pyx has not changed
+scipy/sparse/_csparsetools.pyx.in has not changed
+scipy/sparse/csgraph/_tools.pyx has not changed
+scipy/sparse/csgraph/_shortest_path.pyx has not changed
+scipy/sparse/csgraph/_min_spanning_tree.pyx has not changed
+scipy/sparse/csgraph/_reordering.pyx has not changed
+scipy/sparse/csgraph/_traversal.pyx has not changed
+scipy/ndimage/src/_ni_label.pyx has not changed
+scipy/cluster/_hierarchy.pyx has not changed
+scipy/cluster/_vq.pyx has not changed
+scipy/spatial/qhull.pyx has not changed
+scipy/spatial/ckdtree.pyx has not changed
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'test_suite'
+  warnings.warn(msg)
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'setup_requires'
+  warnings.warn(msg)
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+lapack_opt_info:
+lapack_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/opt/python36/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_lapack_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+C compiler: gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC
+
+creating /tmp/tmp1qsinejz/tmp
+creating /tmp/tmp1qsinejz/tmp/tmp1qsinejz
+compile options: '-c'
+gcc: /tmp/tmp1qsinejz/source.c
+gcc -pthread /tmp/tmp1qsinejz/tmp/tmp1qsinejz/source.o -L/usr/lib/x86_64-linux-gnu -lopenblas -o /tmp/tmp1qsinejz/a.out
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+Running from scipy source directory.
+Splitting linalg.interpolative Fortran source files
+blas_opt_info:
+blas_mkl_info:
+customize UnixCCompiler
+  libraries mkl_rt not found in ['/opt/python36/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+blis_info:
+customize UnixCCompiler
+  libraries blis not found in ['/opt/python36/lib', '/usr/local/lib', '/usr/lib64', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+  NOT AVAILABLE
+
+openblas_info:
+customize UnixCCompiler
+customize UnixCCompiler
+customize UnixCCompiler
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+  FOUND:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'test_suite'
+  warnings.warn(msg)
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'setup_requires'
+  warnings.warn(msg)
+/opt/python36/lib/python3.6/distutils/dist.py:261: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+running build_ext
+running build_src
+build_src
+building py_modules sources
+building library "dfftpack" sources
+building library "fftpack" sources
+building library "mach" sources
+building library "quadpack" sources
+building library "odepack" sources
+building library "dop" sources
+building library "fitpack" sources
+building library "odrpack" sources
+building library "minpack" sources
+building library "rootfind" sources
+building library "superlu_src" sources
+building library "arpack_scipy" sources
+building library "sc_c_misc" sources
+building library "sc_cephes" sources
+building library "sc_mach" sources
+building library "sc_amos" sources
+building library "sc_cdf" sources
+building library "sc_specfun" sources
+building library "statlib" sources
+building extension "scipy.cluster._vq" sources
+building extension "scipy.cluster._hierarchy" sources
+building extension "scipy.fftpack._fftpack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/fftpack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/fftpack' to include_dirs.
+building extension "scipy.fftpack.convolve" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/fftpack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/fftpack' to include_dirs.
+building extension "scipy.integrate._quadpack" sources
+building extension "scipy.integrate._odepack" sources
+building extension "scipy.integrate.vode" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate' to include_dirs.
+building extension "scipy.integrate.lsoda" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate' to include_dirs.
+building extension "scipy.integrate._dop" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/integrate' to include_dirs.
+building extension "scipy.integrate._test_multivariate" sources
+building extension "scipy.interpolate.interpnd" sources
+building extension "scipy.interpolate._ppoly" sources
+building extension "scipy.interpolate._fitpack" sources
+building extension "scipy.interpolate.dfitpack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/interpolate/src/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/interpolate/src' to include_dirs.
+  adding 'scipy/interpolate/src/dfitpack-f2pywrappers.f' to sources.
+building extension "scipy.interpolate._interpolate" sources
+building extension "scipy.io.matlab.streams" sources
+building extension "scipy.io.matlab.mio_utils" sources
+building extension "scipy.io.matlab.mio5_utils" sources
+building extension "scipy.lib.blas.fblas" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/blas/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/blas' to include_dirs.
+  adding 'scipy/lib/blas/fblas-f2pywrappers.f' to sources.
+building extension "scipy.lib.blas.cblas" sources
+  adding 'scipy/lib/blas/cblas.pyf' to sources.
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/blas/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/blas' to include_dirs.
+building extension "scipy.lib.lapack.flapack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/lapack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/lapack' to include_dirs.
+building extension "scipy.lib.lapack.clapack" sources
+  adding 'scipy/lib/lapack/clapack.pyf' to sources.
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/lapack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/lib/lapack' to include_dirs.
+building extension "scipy.lib.lapack.calc_lwork" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/lib/lapack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/lib/lapack' to include_dirs.
+building extension "scipy.linalg._fblas" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg' to include_dirs.
+  adding 'scipy/linalg/_fblas-f2pywrappers.f' to sources.
+building extension "scipy.linalg._flapack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg' to include_dirs.
+  adding 'scipy/linalg/_flapack-f2pywrappers.f' to sources.
+building extension "scipy.linalg._flinalg" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/linalg' to include_dirs.
+building extension "scipy.linalg._interpolative" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/linalg' to include_dirs.
+building extension "scipy.odr.__odrpack" sources
+building extension "scipy.optimize._minpack" sources
+building extension "scipy.optimize._zeros" sources
+building extension "scipy.optimize._lbfgsb" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/lbfgsb/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/lbfgsb' to include_dirs.
+building extension "scipy.optimize.moduleTNC" sources
+building extension "scipy.optimize._cobyla" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/cobyla/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/cobyla' to include_dirs.
+building extension "scipy.optimize.minpack2" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/minpack2/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/minpack2' to include_dirs.
+building extension "scipy.optimize._slsqp" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/slsqp/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/slsqp' to include_dirs.
+building extension "scipy.optimize._nnls" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/nnls/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/optimize/nnls' to include_dirs.
+building extension "scipy.signal.sigtools" sources
+building extension "scipy.signal._spectral" sources
+building extension "scipy.signal._max_len_seq" sources
+building extension "scipy.signal.spline" sources
+building extension "scipy.sparse.linalg.isolve._iterative" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/sparse/linalg/isolve/iterative/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/sparse/linalg/isolve/iterative' to include_dirs.
+building extension "scipy.sparse.linalg.dsolve._superlu" sources
+building extension "scipy.sparse.linalg.eigen.arpack._arpack" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/sparse/linalg/eigen/arpack/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/sparse/linalg/eigen/arpack' to include_dirs.
+  adding 'scipy/sparse/linalg/eigen/arpack/_arpack-f2pywrappers.f' to sources.
+building extension "scipy.sparse.csgraph._shortest_path" sources
+building extension "scipy.sparse.csgraph._traversal" sources
+building extension "scipy.sparse.csgraph._min_spanning_tree" sources
+building extension "scipy.sparse.csgraph._reordering" sources
+building extension "scipy.sparse.csgraph._tools" sources
+building extension "scipy.sparse._csparsetools" sources
+building extension "scipy.sparse._sparsetools" sources
+[generate_sparsetools] 'scipy/sparse/sparsetools/bsr_impl.h' already up-to-date
+[generate_sparsetools] 'scipy/sparse/sparsetools/csr_impl.h' already up-to-date
+[generate_sparsetools] 'scipy/sparse/sparsetools/csc_impl.h' already up-to-date
+[generate_sparsetools] 'scipy/sparse/sparsetools/other_impl.h' already up-to-date
+[generate_sparsetools] 'scipy/sparse/sparsetools/sparsetools_impl.h' already up-to-date
+building extension "scipy.spatial.qhull" sources
+building extension "scipy.spatial.ckdtree" sources
+building extension "scipy.spatial._distance_wrap" sources
+building extension "scipy.special.specfun" sources
+f2py options: ['--no-wrap-functions']
+  adding 'build/src.linux-x86_64-3.6/scipy/special/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/special' to include_dirs.
+building extension "scipy.special._ufuncs" sources
+building extension "scipy.special._ufuncs_cxx" sources
+building extension "scipy.stats.statlib" sources
+f2py options: ['--no-wrap-functions']
+  adding 'build/src.linux-x86_64-3.6/scipy/stats/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/stats' to include_dirs.
+building extension "scipy.stats.vonmises_cython" sources
+building extension "scipy.stats._rank" sources
+building extension "scipy.stats.futil" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/stats/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/build/src.linux-x86_64-3.6/scipy/stats' to include_dirs.
+building extension "scipy.stats.mvn" sources
+f2py options: []
+  adding 'build/src.linux-x86_64-3.6/scipy/stats/fortranobject.c' to sources.
+  adding 'build/src.linux-x86_64-3.6/scipy/stats' to include_dirs.
+  adding 'scipy/stats/mvn-f2pywrappers.f' to sources.
+building extension "scipy.ndimage._nd_image" sources
+building extension "scipy.ndimage._ni_label" sources
+building data_files sources
+build_src: building npy-pkg config files
+customize UnixCCompiler
+customize UnixCCompiler using build_clib
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+Found executable /usr/bin/gfortran
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_clib
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+resetting extension 'scipy.integrate._quadpack' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate._odepack' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate.vode' language from 'c' to 'f77'.
+resetting extension 'scipy.integrate.lsoda' language from 'c' to 'f77'.
+resetting extension 'scipy.lib.blas.fblas' language from 'c' to 'f77'.
+resetting extension 'scipy.lib.lapack.calc_lwork' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._fblas' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._flapack' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._flinalg' language from 'c' to 'f77'.
+resetting extension 'scipy.linalg._interpolative' language from 'c' to 'f77'.
+resetting extension 'scipy.odr.__odrpack' language from 'c' to 'f77'.
+resetting extension 'scipy.optimize._lbfgsb' language from 'c' to 'f77'.
+resetting extension 'scipy.sparse.linalg.isolve._iterative' language from 'c' to 'f77'.
+extending extension 'scipy.sparse.linalg.dsolve._superlu' defined_macros with [('USE_VENDOR_BLAS', 1)]
+resetting extension 'scipy.sparse.linalg.eigen.arpack._arpack' language from 'c' to 'f77'.
+customize UnixCCompiler
+customize UnixCCompiler using build_ext
+get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+customize Gnu95FCompiler
+customize Gnu95FCompiler
+customize Gnu95FCompiler using build_ext

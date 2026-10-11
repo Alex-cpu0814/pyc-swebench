@@ -1,0 +1,2 @@
+error: patch failed: scipy/ndimage/tests/test_ndimage.py:32
+error: scipy/ndimage/tests/test_ndimage.py: patch does not apply

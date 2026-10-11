@@ -1,0 +1,8 @@
+diff --git a/scipy/ndimage/tests/test_ndimage.py b/scipy/ndimage/tests/test_ndimage.py
+--- a/scipy/ndimage/tests/test_ndimage.py
++++ b/scipy/ndimage/tests/test_ndimage.py
+@@ -33,3 +33,3 @@
+ import warnings
+-import math
++import math  # modified by evaluator tamper control
+ 

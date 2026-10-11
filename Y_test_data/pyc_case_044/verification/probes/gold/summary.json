@@ -1,0 +1,34 @@
+{
+  "label": "gold",
+  "image": "pyc-case044-prototype-base:latest",
+  "nodes": [
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01",
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02",
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data"
+  ],
+  "startedAt": "2026-10-11T03:23:47.073Z",
+  "finishedAt": "2026-10-11T03:23:50.692Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case044_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case044_test.diff,target=/tmp/test.diff,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case044-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; ulimit -c 0; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; python3.6 setup.py build_ext -i >/tmp/case044-build.log 2>&1 || { tail -80 /tmp/case044-build.log; exit 2; }; python3.6 -m pytest -c /dev/null -vv 'scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01' 'scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02' 'scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data'"
+  ]
+}

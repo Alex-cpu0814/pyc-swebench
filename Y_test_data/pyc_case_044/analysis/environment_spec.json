@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_044",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_scipy_native_build",
+  "python_version_target": "3.6",
+  "native_requirement": "64-bit Linux with sparse memory support, at least 3.6 GB virtual address space, GCC/GFortran and OpenBLAS development libraries",
+  "build_system": "SciPy setup.py build_ext -i at the verified base commit",
+  "test_execution": [
+    "python3.6 -m pytest -c /dev/null -vv <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in scipy/ndimage/tests/test_ndimage.py.",
+    "The untouched first-parent Base with the exact upstream test patch passes test_map_coordinates01 and test_map_coordinates02, then test_map_coordinates_large_data terminates with Segmentation fault (exit 139). Applying the four-file upstream product patch and rebuilding yields 3 passed on Python 3.6.15 / NumPy 1.17.5.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "fc6b387bc0c51b5b252712584580b4f0975498fb",
+  "fix_commit": "88d625fc451d3714e640bbec693bb31abb6a05f5",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "scipy/ndimage/tests/test_ndimage.py"
+  ],
+  "FAIL_TO_PASS": [
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01",
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02"
+  ]
+}

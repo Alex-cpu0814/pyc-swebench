@@ -1,0 +1,40 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "43",
+  "candidate_case": "044",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The source record describes NI_Select/NI_RankFilter. The official regression covers the large-array map_coordinates crash in ni_interpolation.c from the same fix commit, and checks completion without crashing. The rank-filter path is not independently asserted by this test.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2014-11-22",
+  "created_at_precision": "date",
+  "instance_id": "scipy__scipy-4143",
+  "source_instance_id": "pyc_case_044",
+  "repo": "scipy/scipy",
+  "issue_id": "4143",
+  "issue_url": "https://github.com/scipy/scipy/pull/4143",
+  "project_version": "0.15.0.dev0",
+  "base_commit": "fc6b387bc0c51b5b252712584580b4f0975498fb",
+  "fix_commit": "88d625fc451d3714e640bbec693bb31abb6a05f5",
+  "FAIL_TO_PASS": [
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01",
+    "scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/ubuntu/ubuntu:20.04@sha256:7e9558e1203a9a2b0967554abf9ebdc5552f29013b01f6e7271bf2d776d51234",
+    "python_version": "3.6.15",
+    "test_runner_version": "pytest 3.10.1",
+    "compiler_toolchain": "GCC/GFortran, OpenBLAS from Ubuntu 20.04; pure-Python Cython 0.21.2; Python 3.6.15 built from official source",
+    "base_target_status": "SIGSEGV (139)",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

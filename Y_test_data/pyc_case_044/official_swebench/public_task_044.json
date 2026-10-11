@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-4143",
+  "repo": "scipy/scipy",
+  "base_commit": "fc6b387bc0c51b5b252712584580b4f0975498fb",
+  "problem_statement": "scipy.ndimage.map_coordinates can crash when evaluating coordinates near the end of a large array on a 64-bit system. A 30000 by 30000 float32 input requires byte offsets beyond the range of a signed 32-bit integer. Interpolation with order=1 near the final elements should complete without a segmentation fault and preserve existing behavior for normal-sized inputs.",
+  "hints_text": "",
+  "created_at": "2014-11-22",
+  "version": "0.15.0.dev0",
+  "issue_id": "4143",
+  "issue_url": "https://github.com/scipy/scipy/pull/4143"
+}

@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.10.1, py-1.11.0, pluggy-1.0.0 -- /opt/python36/bin/python3.6
+cachedir: .pytest_cache
+rootdir: /testbed/scipy/ndimage/tests, inifile: /dev/null
+collecting ... collected 3 items
+
+scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates01 PASSED [ 33%]
+scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates02 PASSED [ 66%]
+scipy/ndimage/tests/test_ndimage.py::TestNdimage::test_map_coordinates_large_data PASSED [100%]
+
+=========================== 3 passed in 0.23 seconds ===========================
