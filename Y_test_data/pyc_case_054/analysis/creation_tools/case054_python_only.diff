@@ -1,0 +1,14 @@
+diff --git a/src/PIL/ImageFilter.py b/src/PIL/ImageFilter.py
+index 59e2c18..63d6dcf 100644
+--- a/src/PIL/ImageFilter.py
++++ b/src/PIL/ImageFilter.py
+@@ -183,6 +183,9 @@ class BoxBlur(MultibandFilter):
+     name = "BoxBlur"
+ 
+     def __init__(self, radius):
++        if radius < 0:
++            msg = "radius must be >= 0"
++            raise ValueError(msg)
+         self.radius = radius
+ 
+     def filter(self, image):

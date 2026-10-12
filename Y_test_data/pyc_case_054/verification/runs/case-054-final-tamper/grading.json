@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-054-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_image_filter.py::test_invalid_box_blur_filter": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_box_blur.py::test_radius_0": "MISSING",
+    "Tests/test_box_blur.py::test_radius_1": "MISSING"
+  },
+  "unexpected_failures": []
+}

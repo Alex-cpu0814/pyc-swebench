@@ -1,0 +1,11 @@
+diff --git a/Tests/test_image_filter.py b/Tests/test_image_filter.py
+index cfe46b6..5eb133c 100644
+--- a/Tests/test_image_filter.py
++++ b/Tests/test_image_filter.py
+@@ -171,5 +171,5 @@ def test_consistency_5x5(mode):
+ 
+             assert_image_equal(
+                 Image.merge(mode, source[: len(mode)]).filter(kernel),
+-                Image.merge(mode, reference[: len(mode)]),
++                Image.merge(mode, source[: len(mode)]),
+             )

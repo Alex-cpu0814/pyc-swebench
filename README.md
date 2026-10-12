@@ -28,6 +28,7 @@ SWE-bench-compatible layout.
 | `pyc_case_048` | `scipy/scipy` | PR #14327 / commit `ed220ccd` | Bounds-instrumented Base: float16 target fails; Gold: target and 2 regressions pass |
 | `pyc_case_049` | `CheetahTemplate3/cheetah3` | Issue / PR #26 / commit `31574d60` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_053` | `python-pillow/Pillow` | Issue / PR #7257 / commit `6f736915` | Base: 2 target failures; Gold: 2 targets and 2 regressions pass |
+| `pyc_case_054` | `python-pillow/Pillow` | Issue / PR #6874 / commit `eb89e3a2` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

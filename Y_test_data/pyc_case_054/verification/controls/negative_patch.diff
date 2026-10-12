@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 489d3db..1b870c7 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@
+ 
+ # Pillow
+ 
++The evaluator negative control leaves BoxBlur validation unchanged.
++
+ ## Python Imaging Library (Fork)
+ 
+ Pillow is the friendly PIL fork by [Alex Clark and

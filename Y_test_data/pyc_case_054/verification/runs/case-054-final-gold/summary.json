@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-054-final-gold",
+  "label": null,
+  "instance_id": "python-pillow__Pillow-6874",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-12T13:17:32.486Z",
+  "finished_at": "2026-10-12T13:17:50.435Z",
+  "duration_ms": 17937,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "3e0766ebf08556a3d853c23922c0d22e72c975cd0ac5eab46b7309d5356c08b6",
+  "test_patch_sha256": "0150e9578c0c889d48013515a75bb8e0b94a19e3b551557e2cd3fea01507551f",
+  "image": {
+    "name": "yutu0814/pyc-case-054-pillow:benchmark-v1",
+    "id": "sha256:418f1ca7c0fe0f3525592d3635a6e06f4e7b45060ad3b0a492f177230eba26fe",
+    "repo_digests": [
+      "yutu0814/pyc-case-054-pillow@sha256:418f1ca7c0fe0f3525592d3635a6e06f4e7b45060ad3b0a492f177230eba26fe"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "python-pillow__Pillow-6874"
+  },
+  "grading": {
+    "tests_observed": 3,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "repo": "python-pillow/Pillow",
+  "instance_id": "python-pillow__Pillow-6874",
+  "base_commit": "c683f048eb117c572b8b4eee47a324aca165fea1",
+  "patch": "diff --git a/src/PIL/ImageFilter.py b/src/PIL/ImageFilter.py\nindex 59e2c18..63d6dcf 100644\n--- a/src/PIL/ImageFilter.py\n+++ b/src/PIL/ImageFilter.py\n@@ -183,6 +183,9 @@ class BoxBlur(MultibandFilter):\n     name = \"BoxBlur\"\n \n     def __init__(self, radius):\n+        if radius < 0:\n+            msg = \"radius must be >= 0\"\n+            raise ValueError(msg)\n         self.radius = radius\n \n     def filter(self, image):\ndiff --git a/src/libImaging/BoxBlur.c b/src/libImaging/BoxBlur.c\nindex 2e45a33..5afe7cf 100644\n--- a/src/libImaging/BoxBlur.c\n+++ b/src/libImaging/BoxBlur.c\n@@ -237,6 +237,9 @@ ImagingBoxBlur(Imaging imOut, Imaging imIn, float radius, int n) {\n     if (n < 1) {\n         return ImagingError_ValueError(\"number of passes must be greater than zero\");\n     }\n+    if (radius < 0) {\n+        return ImagingError_ValueError(\"radius must be >= 0\");\n+    }\n \n     if (strcmp(imIn->mode, imOut->mode) || imIn->type != imOut->type ||\n         imIn->bands != imOut->bands || imIn->xsize != imOut->xsize ||\n",
+  "test_patch": "diff --git a/Tests/test_image_filter.py b/Tests/test_image_filter.py\nindex cfe46b6..a2ef228 100644\n--- a/Tests/test_image_filter.py\n+++ b/Tests/test_image_filter.py\n@@ -24,6 +24,7 @@ from .helper import assert_image_equal, hopper\n         ImageFilter.ModeFilter,\n         ImageFilter.GaussianBlur,\n         ImageFilter.GaussianBlur(5),\n+        ImageFilter.BoxBlur(0),\n         ImageFilter.BoxBlur(5),\n         ImageFilter.UnsharpMask,\n         ImageFilter.UnsharpMask(10),\n@@ -173,3 +174,14 @@ def test_consistency_5x5(mode):\n                 Image.merge(mode, source[: len(mode)]).filter(kernel),\n                 Image.merge(mode, reference[: len(mode)]),\n             )\n+\n+\n+def test_invalid_box_blur_filter():\n+    with pytest.raises(ValueError):\n+        ImageFilter.BoxBlur(-2)\n+\n+    im = hopper()\n+    box_blur_filter = ImageFilter.BoxBlur(2)\n+    box_blur_filter.radius = -2\n+    with pytest.raises(ValueError):\n+        im.filter(box_blur_filter)\n",
+  "problem_statement": "BoxBlur accepts a negative radius during filter construction and after mutation of an existing filter. Negative radii should raise ValueError at the Python constructor and at the native filtering boundary. A zero radius must preserve the image, and positive-radius blur output must remain correct.",
+  "hints_text": "",
+  "created_at": "2023-01-09",
+  "version": "9.5.0.dev0",
+  "issue_id": "6874",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/6874",
+  "FAIL_TO_PASS": [
+    "Tests/test_image_filter.py::test_invalid_box_blur_filter"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_box_blur.py::test_radius_0",
+    "Tests/test_box_blur.py::test_radius_1"
+  ]
+}

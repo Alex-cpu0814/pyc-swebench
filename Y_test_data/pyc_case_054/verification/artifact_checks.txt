@@ -1,0 +1,4 @@
+Parsed 40 JSON/JSONL files; evaluator syntax OK.
+XLSX dates are numeric and use UTC opening/merge dates; all cells error-free; Artifact Tool error scan matched zero entries.
+Original source symptom/trace preserved; Python-only official control has process exit 134, target MISSING, two preceding regressions passed; command/raw evidence preserved.
+All saved probe/build copies match SHA256; 35 final checksums including Python-only evidence match.

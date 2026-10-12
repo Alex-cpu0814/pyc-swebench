@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_054",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_build_with_freetype",
+  "python_version_target": "3.8",
+  "native_requirement": "Pinned Debian Bullseye gcc=4:10.2.1-1, libjpeg62-turbo-dev=1:2.0.6-4, zlib1g-dev=1:1.2.11.dfsg-2+deb11u2, libfreetype6-dev=2.10.4+dfsg-1+deb11u1",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "Protected test patch is the exact upstream change in Tests/test_image_filter.py.",
+    "Untouched Base fails the official constructor check because BoxBlur(-2) does not raise ValueError; two native radius regressions pass. Complete Gold passes all three nodes. With only the exact upstream Python-layer fix, the same official test reaches filtering after radius mutation and aborts (Fatal Python error: Aborted; process exit 134). Both preceding regressions pass, but the target has no terminal pytest result (MISSING). This run establishes an abort, not a reproduced SIGSEGV.",
+    "Two unchanged native radius regressions pass on Base and Gold.",
+    "Original source row 53 records segment fault and a BoxBlur helper path. These remain original source metadata. Untouched Base fails before native filtering; the separate Python-only official-test control reaches the native filter call and observes an abort with process exit 134. No SIGSEGV is claimed for this environment."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "c683f048eb117c572b8b4eee47a324aca165fea1",
+  "fix_commit": "eb89e3a2b1833eb12124fb5f1f26f78342286143",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_image_filter.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_image_filter.py::test_invalid_box_blur_filter"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_box_blur.py::test_radius_0",
+    "Tests/test_box_blur.py::test_radius_1"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 054 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"53\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"eb89e3a2b1833eb12124fb5f1f26f78342286143\"],[\"Base commit\",\"c683f048eb117c572b8b4eee47a324aca165fea1\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/6874\"],[\"Symptom\",\"segment fault.\"],[\"Bug location\",\"line 266\"],[\"Bug location type\",\"function call\"],[\"Root cause\",\"Error handling\"],[\"Fixing strategy\",\"Add a if statement\"],[\"Fix location\",\"if/branching statement + error handling NAX function\"],[\"Problem statement\",\"BoxBlur accepts a negative radius during filter construction and after mutation of an existing filter. Negative radii should raise ValueError at the Python constructor and at the native filtering boundary. A zero radius must preserve the image, and positive-radius blur output must remain correct.\"],[\"Original source trace\",\"241(c_BoxBlur_4-cfg.dot) (ImagingBoxBlur) -> 237(c_BoxBlur_4-cfg.dot) (ImagingBoxBlur) -> 232(c_BoxBlur_4-cfg.dot) (ImagingBoxBlur) -> 2106(c__imaging_65-cfg.dot) (_box_blur) … -> 2089(c__imaging_65-cfg.dot) (_box_blur) -> 25(py_test_box_blur_2-cfg.dot) (box_blur)\"],[\"Source trace scope\",\"Original source row 53 records segment fault and a BoxBlur helper path. These remain original source metadata. Untouched Base fails before native filtering; the separate Python-only official-test control reaches the native filter call and observes an abort with process exit 134. No SIGSEGV is claimed for this environment.\"],[\"Verified Base trace\",\"Untouched Base fails the official constructor check because BoxBlur(-2) does not raise ValueError; two native radius regressions pass. Complete Gold passes all three nodes. With only the exact upstream Python-layer fix, the same official test reaches filtering after radius mutation and aborts (Fatal Python error: Aborted; process exit 134). Both preceding regressions pass, but the target has no terminal pytest result (MISSING). This run establishes an abort, not a reproduced SIGSEGV.\"],[\"Verified official test\",\"Tests/test_image_filter.py::test_invalid_box_blur_filter\\nTests/test_box_blur.py::test_radius_0\\nTests/test_box_blur.py::test_radius_1\"],[\"Official test scope\",\"One unchanged official target body checks construction and then filtering after radius mutation. Two unchanged regressions validate native numerical blur results for radius zero and one. The exact protected upstream patch retains the added BoxBlur(0) sanity parameter, outside graded scope. A Python-only partial control runs the same three nodes with regressions first: two pass, then the target process aborts with exit 134 and no terminal pytest status. The observed native guard is necessary in addition to constructor validation.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "h83gn3",
+          "target": {
+            "id": "wb/jbpefn",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 054 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-6874\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"9.5.0.dev0\"],[\"Created at\",44935],[\"Base commit\",\"c683f048eb117c572b8b4eee47a324aca165fea1\"],[\"Fix commit\",\"eb89e3a2b1833eb12124fb5f1f26f78342286143\"],[\"Merged at\",44937],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/6874\"],[\"Test source\",\"Official upstream pytest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_image_filter.py::test_invalid_box_blur_filter\"],[\"PASS_TO_PASS (1)\",\"Tests/test_box_blur.py::test_radius_0\"],[\"PASS_TO_PASS (2)\",\"Tests/test_box_blur.py::test_radius_1\"],[\"Base / Gold outcome\",\"Base: negative-radius official target fails at Python construction; Gold: target and two unchanged native blur regressions pass\"],[\"Docker image\",\"yutu0814/pyc-case-054-pillow:benchmark-v1\"],[\"Problem statement\",\"BoxBlur accepts a negative radius during filter construction and after mutation of an existing filter. Negative radii should raise ValueError at the Python constructor and at the native filtering boundary. A zero radius must preserve the image, and positive-radius blur output must remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "jmmvyc",
+          "target": {
+            "id": "wb/e12qzr",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

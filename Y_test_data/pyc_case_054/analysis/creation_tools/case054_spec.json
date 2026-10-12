@@ -1,0 +1,140 @@
+{
+  "caseNumber": "054",
+  "sourceCase": "53",
+  "sourceInstanceId": "pyc_case_054",
+  "instanceId": "python-pillow__Pillow-6874",
+  "projectName": "Pillow",
+  "repo": "python-pillow/Pillow",
+  "repoUrl": "https://github.com/python-pillow/Pillow.git",
+  "issueId": "6874",
+  "issueUrl": "https://github.com/python-pillow/Pillow/pull/6874",
+  "baseCommit": "c683f048eb117c572b8b4eee47a324aca165fea1",
+  "fixCommit": "eb89e3a2b1833eb12124fb5f1f26f78342286143",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": "2023-01-09",
+  "mergedAt": "2023-01-11",
+  "version": "9.5.0.dev0",
+  "image": "yutu0814/pyc-case-054-pillow:benchmark-v1",
+  "prototypeImage": "pyc-case054-prototype-base:latest",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/Pillow",
+  "binaryPatches": false,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "nativeRequirement": "Pinned Debian Bullseye gcc=4:10.2.1-1, libjpeg62-turbo-dev=1:2.0.6-4, zlib1g-dev=1:1.2.11.dfsg-2+deb11u2, libfreetype6-dev=2.10.4+dfsg-1+deb11u1",
+  "compilerToolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "buildCommand": "python setup.py build_ext -i --force",
+  "buildSystem": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "environment": "pillow_native_build_with_freetype",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "testExecution": "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>",
+  "pytestPathPrefix": "Tests/",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "testFile": "Tests/test_image_filter.py",
+  "testFiles": [
+    "Tests/test_image_filter.py"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case054_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case054_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pillow054-local",
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationStatus": "verified_base_gold",
+  "failToPass": [
+    "Tests/test_image_filter.py::test_invalid_box_blur_filter"
+  ],
+  "passToPass": [
+    "Tests/test_box_blur.py::test_radius_0",
+    "Tests/test_box_blur.py::test_radius_1"
+  ],
+  "probeNodes": [
+    "Tests/test_box_blur.py::test_radius_0",
+    "Tests/test_box_blur.py::test_radius_1",
+    "Tests/test_image_filter.py::test_invalid_box_blur_filter"
+  ],
+  "problemStatement": "BoxBlur accepts a negative radius during filter construction and after mutation of an existing filter. Negative radii should raise ValueError at the Python constructor and at the native filtering boundary. A zero radius must preserve the image, and positive-radius blur output must remain correct.",
+  "upstreamDescription": "PR 6874 resolves issue 6873 by adding negative-radius ValueError checks in Python ImageFilter.BoxBlur.__init__ and native ImagingBoxBlur. The exact upstream official test checks both construction and mutation followed by filtering, and adds zero-radius BoxBlur to the sanity parametrization.",
+  "provenance": {
+    "upstream_url": "https://github.com/python-pillow/Pillow/pull/6874",
+    "related_issue_url": "https://github.com/python-pillow/Pillow/issues/6873",
+    "base_commit": "c683f048eb117c572b8b4eee47a324aca165fea1",
+    "fix_commit": "eb89e3a2b1833eb12124fb5f1f26f78342286143",
+    "merge_parents": [
+      "c683f048eb117c572b8b4eee47a324aca165fea1",
+      "d504d2a47e8d9014cd4ea84331266ac84e8b18cf"
+    ],
+    "upstream_created_at": "2023-01-09",
+    "upstream_merged_at": "2023-01-11",
+    "upstream_created_at_timestamp": "2023-01-09T17:13:55Z",
+    "upstream_merged_at_timestamp": "2023-01-11T21:25:10Z",
+    "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/6874",
+    "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately. The merge commit displays January 12 in +11 timezone, corresponding to January 11 UTC.",
+    "commit_timestamp_with_timezone": "2023-01-12T08:25:10+11:00",
+    "source_trace_scope": "Original source row 53 records segment fault and a BoxBlur helper path. These remain original source metadata. Untouched Base fails before native filtering; the separate Python-only official-test control reaches the native filter call and observes an abort with process exit 134. No SIGSEGV is claimed for this environment.",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1"
+    },
+    "partial_python_only_control": {
+      "product_file": "src/PIL/ImageFilter.py",
+      "official_test": "Tests/test_image_filter.py::test_invalid_box_blur_filter",
+      "expected_model_patch_sha256": "ae41a6991ee0a5174b9ffd9804579913b4eea16a21dd0ba90d7189cf4d0f4f78",
+      "image_id": "sha256:418f1ca7c0fe0f3525592d3635a6e06f4e7b45060ad3b0a492f177230eba26fe",
+      "test_process_exit_code": 134,
+      "terminal_target_status": "MISSING",
+      "preceding_regressions_passed": 2,
+      "observed_behavior": "The official mutated-radius filter call aborts with Fatal Python error: Aborted and shell process exit 134. The target has no terminal pytest result (MISSING), not an ordinary assertion failure. Both preceding native radius regressions pass."
+    }
+  },
+  "sourceTraceNotes": "Original source row 53 records segment fault and a BoxBlur helper path. These remain original source metadata. Untouched Base fails before native filtering; the separate Python-only official-test control reaches the native filter call and observes an abort with process exit 134. No SIGSEGV is claimed for this environment.",
+  "partialGoldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case054_python_only.diff",
+  "verifiedError": "Untouched Base fails the official constructor check because BoxBlur(-2) does not raise ValueError; two native radius regressions pass. Complete Gold passes all three nodes. With only the exact upstream Python-layer fix, the same official test reaches filtering after radius mutation and aborts (Fatal Python error: Aborted; process exit 134). Both preceding regressions pass, but the target has no terminal pytest result (MISSING). This run establishes an abort, not a reproduced SIGSEGV.",
+  "targetSummary": "Base: negative-radius official target fails at Python construction; Gold: target and two unchanged native blur regressions pass",
+  "verifiedTest": "Tests/test_image_filter.py::test_invalid_box_blur_filter and Tests/test_box_blur.py::test_radius_0 and Tests/test_box_blur.py::test_radius_1",
+  "testScope": "One unchanged official target body checks construction and then filtering after radius mutation. Two unchanged regressions validate native numerical blur results for radius zero and one. The exact protected upstream patch retains the added BoxBlur(0) sanity parameter, outside graded scope. A Python-only partial control runs the same three nodes with regressions first: two pass, then the target process aborts with exit 134 and no terminal pytest status. The observed native guard is necessary in addition to constructor validation.",
+  "negativePatch": "diff --git a/README.md b/README.md\nindex 489d3db..1b870c7 100644\n--- a/README.md\n+++ b/README.md\n@@ -4,6 +4,8 @@\n \n # Pillow\n \n+The evaluator negative control leaves BoxBlur validation unchanged.\n+\n ## Python Imaging Library (Fork)\n \n Pillow is the friendly PIL fork by [Alex Clark and\n",
+  "tamperPatch": "diff --git a/Tests/test_image_filter.py b/Tests/test_image_filter.py\nindex cfe46b6..5eb133c 100644\n--- a/Tests/test_image_filter.py\n+++ b/Tests/test_image_filter.py\n@@ -171,5 +171,5 @@ def test_consistency_5x5(mode):\n \n             assert_image_equal(\n                 Image.merge(mode, source[: len(mode)]).filter(kernel),\n-                Image.merge(mode, reference[: len(mode)]),\n+                Image.merge(mode, source[: len(mode)]),\n             )\n",
+  "partialControl": {
+    "patch": "verification/controls/python_only_patch.diff",
+    "productFiles": [
+      "src/PIL/ImageFilter.py"
+    ],
+    "summary": "verification/runs/case-054-final-python-only/summary.json",
+    "expectedTestProcessExitCode": 134,
+    "observedBehavior": "The official mutated-radius filter call aborts with Fatal Python error: Aborted and shell process exit 134. The target has no terminal pytest result (MISSING), not an ordinary assertion failure. Both preceding native radius regressions pass."
+  },
+  "additionalVerificationAssets": [
+    "verification/controls/python_only_patch.diff",
+    "verification/runs/case-054-final-python-only/summary.json",
+    "verification/runs/case-054-final-python-only/events.jsonl",
+    "verification/runs/case-054-final-python-only/tests.raw.log",
+    "verification/runs/case-054-final-python-only/phase.json",
+    "verification/runs/case-054-final-python-only/grading.json",
+    "verification/runs/case-054-final-python-only/project-build.raw.log",
+    "verification/runs/case-054-final-python-only/model-patch.raw.log",
+    "verification/runs/case-054-final-python-only/test-patch.raw.log",
+    "verification/runs/case-054-final-python-only/docker-run.stdout.raw.log",
+    "verification/runs/case-054-final-python-only/docker-run.stderr.raw.log"
+  ]
+}
