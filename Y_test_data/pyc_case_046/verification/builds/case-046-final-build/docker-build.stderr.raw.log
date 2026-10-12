@@ -1,0 +1,230 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.60kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && rm -rf /var/lib/apt/lists/*     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade        build-essential git ca-certificates libgsl-dev=2.6+dfsg-2     && rm -rf /var/lib/apt/lists/*
+#5 0.763 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 0.981 Get:2 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 1.089 Get:3 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 1.871 Get:4 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 2.648 Fetched 8204 kB in 2s (3601 kB/s)
+#5 2.648 Reading package lists...
+#5 3.111 Reading package lists...
+#5 3.553 Building dependency tree...
+#5 3.662 Reading state information...
+#5 3.765 Skipping ca-certificates, it is already installed and upgrade is not set.
+#5 3.765 Skipping git, it is already installed and upgrade is not set.
+#5 3.765 Suggested packages:
+#5 3.765   gsl-ref-psdoc | gsl-doc-pdf | gsl-doc-info | gsl-ref-html
+#5 3.796 The following NEW packages will be installed:
+#5 3.797   build-essential libgsl-dev libgsl25 libgslcblas0
+#5 4.329 0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+#5 4.329 Need to get 2167 kB of archives.
+#5 4.329 After this operation, 10.8 MB of additional disk space will be used.
+#5 4.329 Get:1 https://deb.debian.org/debian bullseye/main amd64 build-essential amd64 12.9 [7704 B]
+#5 4.414 Get:2 https://deb.debian.org/debian bullseye/main amd64 libgslcblas0 amd64 2.6+dfsg-2 [102 kB]
+#5 4.509 Get:3 https://deb.debian.org/debian bullseye/main amd64 libgsl25 amd64 2.6+dfsg-2 [934 kB]
+#5 4.747 Get:4 https://deb.debian.org/debian bullseye/main amd64 libgsl-dev amd64 2.6+dfsg-2 [1123 kB]
+#5 5.072 debconf: delaying package configuration, since apt-utils is not installed
+#5 5.105 Fetched 2167 kB in 1s (1944 kB/s)
+#5 5.126 Selecting previously unselected package build-essential.
+#5 5.126 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23430 files and directories currently installed.)
+#5 5.192 Preparing to unpack .../build-essential_12.9_amd64.deb ...
+#5 5.195 Unpacking build-essential (12.9) ...
+#5 5.222 Selecting previously unselected package libgslcblas0:amd64.
+#5 5.224 Preparing to unpack .../libgslcblas0_2.6+dfsg-2_amd64.deb ...
+#5 5.231 Unpacking libgslcblas0:amd64 (2.6+dfsg-2) ...
+#5 5.264 Selecting previously unselected package libgsl25:amd64.
+#5 5.266 Preparing to unpack .../libgsl25_2.6+dfsg-2_amd64.deb ...
+#5 5.269 Unpacking libgsl25:amd64 (2.6+dfsg-2) ...
+#5 5.361 Selecting previously unselected package libgsl-dev.
+#5 5.363 Preparing to unpack .../libgsl-dev_2.6+dfsg-2_amd64.deb ...
+#5 5.366 Unpacking libgsl-dev (2.6+dfsg-2) ...
+#5 5.514 Setting up libgslcblas0:amd64 (2.6+dfsg-2) ...
+#5 5.724 Setting up libgsl25:amd64 (2.6+dfsg-2) ...
+#5 5.743 Setting up build-essential (12.9) ...
+#5 5.751 Setting up libgsl-dev (2.6+dfsg-2) ...
+#5 5.758 Processing triggers for libc-bin (2.31-13+deb11u11) ...
+#5 DONE 5.8s
+
+#6 [3/6] RUN python -m pip install --no-cache-dir       pip==24.3.1 setuptools==59.6.0 wheel==0.42.0     && python -m pip install --no-cache-dir       numpy==1.19.5 h5py==2.10.0 attrs==20.3.0 jsonschema==3.2.0       svgwrite==1.4.3 networkx==2.5.1 decorator==4.4.2       pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0       exceptiongroup==1.2.2 tomli==2.0.1 six==1.17.0 pyrsistent==0.20.0     && python -m pip install --no-cache-dir --no-deps --no-build-isolation       kastore==0.2.2 msprime==0.7.4
+#6 2.359 Collecting pip==24.3.1
+#6 2.721   Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+#6 3.133      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 4.9 MB/s eta 0:00:00
+#6 3.527 Collecting setuptools==59.6.0
+#6 3.603   Downloading setuptools-59.6.0-py3-none-any.whl (952 kB)
+#6 3.684      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 952.6/952.6 kB 12.7 MB/s eta 0:00:00
+#6 3.803 Collecting wheel==0.42.0
+#6 3.886   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+#6 3.892      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 30.0 MB/s eta 0:00:00
+#6 3.959 Installing collected packages: wheel, setuptools, pip
+#6 3.959   Attempting uninstall: wheel
+#6 3.960     Found existing installation: wheel 0.44.0
+#6 3.970     Uninstalling wheel-0.44.0:
+#6 3.996       Successfully uninstalled wheel-0.44.0
+#6 4.039   Attempting uninstall: setuptools
+#6 4.039     Found existing installation: setuptools 57.5.0
+#6 4.066     Uninstalling setuptools-57.5.0:
+#6 4.183       Successfully uninstalled setuptools-57.5.0
+#6 4.462   Attempting uninstall: pip
+#6 4.463     Found existing installation: pip 23.0.1
+#6 4.565     Uninstalling pip-23.0.1:
+#6 4.781       Successfully uninstalled pip-23.0.1
+#6 5.500 Successfully installed pip-24.3.1 setuptools-59.6.0 wheel-0.42.0
+#6 5.501 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#6 7.848 Collecting numpy==1.19.5
+#6 8.094   Downloading numpy-1.19.5-cp38-cp38-manylinux2010_x86_64.whl.metadata (2.0 kB)
+#6 8.246 Collecting h5py==2.10.0
+#6 8.319   Downloading h5py-2.10.0-cp38-cp38-manylinux1_x86_64.whl.metadata (2.0 kB)
+#6 8.425 Collecting attrs==20.3.0
+#6 8.507   Downloading attrs-20.3.0-py2.py3-none-any.whl.metadata (10 kB)
+#6 8.643 Collecting jsonschema==3.2.0
+#6 8.737   Downloading jsonschema-3.2.0-py2.py3-none-any.whl.metadata (7.8 kB)
+#6 8.857 Collecting svgwrite==1.4.3
+#6 8.936   Downloading svgwrite-1.4.3-py3-none-any.whl.metadata (8.8 kB)
+#6 11.91 Collecting networkx==2.5.1
+#6 12.26   Downloading networkx-2.5.1-py3-none-any.whl.metadata (4.9 kB)
+#6 12.45 Collecting decorator==4.4.2
+#6 12.52   Downloading decorator-4.4.2-py2.py3-none-any.whl.metadata (4.2 kB)
+#6 12.68 Collecting pytest==7.4.4
+#6 12.76   Downloading pytest-7.4.4-py3-none-any.whl.metadata (7.9 kB)
+#6 12.90 Collecting packaging==23.2
+#6 12.98   Downloading packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+#6 13.09 Collecting pluggy==1.3.0
+#6 13.17   Downloading pluggy-1.3.0-py3-none-any.whl.metadata (4.3 kB)
+#6 13.27 Collecting iniconfig==2.0.0
+#6 13.34   Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+#6 13.45 Collecting exceptiongroup==1.2.2
+#6 13.53   Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+#6 13.66 Collecting tomli==2.0.1
+#6 13.73   Downloading tomli-2.0.1-py3-none-any.whl.metadata (8.9 kB)
+#6 13.84 Collecting six==1.17.0
+#6 14.19   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#6 15.32 Collecting pyrsistent==0.20.0
+#6 15.48   Downloading pyrsistent-0.20.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (27 kB)
+#6 15.49 Requirement already satisfied: setuptools in /usr/local/lib/python3.8/site-packages (from jsonschema==3.2.0) (59.6.0)
+#6 15.65 Downloading numpy-1.19.5-cp38-cp38-manylinux2010_x86_64.whl (14.9 MB)
+#6 20.69    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.9/14.9 MB 3.1 MB/s eta 0:00:00
+#6 20.77 Downloading h5py-2.10.0-cp38-cp38-manylinux1_x86_64.whl (2.9 MB)
+#6 21.27    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 5.7 MB/s eta 0:00:00
+#6 21.39 Downloading attrs-20.3.0-py2.py3-none-any.whl (49 kB)
+#6 21.48 Downloading jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+#6 21.57 Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
+#6 21.67 Downloading networkx-2.5.1-py3-none-any.whl (1.6 MB)
+#6 21.88    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 7.2 MB/s eta 0:00:00
+#6 21.96 Downloading decorator-4.4.2-py2.py3-none-any.whl (9.2 kB)
+#6 22.06 Downloading pytest-7.4.4-py3-none-any.whl (325 kB)
+#6 22.25 Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#6 22.35 Downloading pluggy-1.3.0-py3-none-any.whl (18 kB)
+#6 22.52 Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#6 22.61 Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+#6 22.70 Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#6 22.78 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#6 22.87 Downloading pyrsistent-0.20.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (121 kB)
+#6 22.96 Installing collected packages: tomli, svgwrite, six, pyrsistent, pluggy, packaging, numpy, iniconfig, exceptiongroup, decorator, attrs, pytest, networkx, jsonschema, h5py
+#6 25.49 Successfully installed attrs-20.3.0 decorator-4.4.2 exceptiongroup-1.2.2 h5py-2.10.0 iniconfig-2.0.0 jsonschema-3.2.0 networkx-2.5.1 numpy-1.19.5 packaging-23.2 pluggy-1.3.0 pyrsistent-0.20.0 pytest-7.4.4 six-1.17.0 svgwrite-1.4.3 tomli-2.0.1
+#6 25.49 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#6 25.90 
+#6 25.90 [notice] A new release of pip is available: 24.3.1 -> 25.0.1
+#6 25.90 [notice] To update, run: pip install --upgrade pip
+#6 26.56 Collecting kastore==0.2.2
+#6 26.79   Downloading kastore-0.2.2.tar.gz (24 kB)
+#6 26.84   Preparing metadata (setup.py): started
+#6 27.08   Preparing metadata (setup.py): finished with status 'done'
+#6 27.24 Collecting msprime==0.7.4
+#6 27.37   Downloading msprime-0.7.4.tar.gz (460 kB)
+#6 27.57   Preparing metadata (setup.py): started
+#6 32.52   Preparing metadata (setup.py): finished with status 'done'
+#6 32.53 Building wheels for collected packages: kastore, msprime
+#6 32.53   Building wheel for kastore (setup.py): started
+#6 33.28   Building wheel for kastore (setup.py): finished with status 'done'
+#6 33.28   Created wheel for kastore: filename=kastore-0.2.2-cp38-cp38-linux_x86_64.whl size=56645 sha256=5f8bef991cc342d79118d016fd45c0702bdde20df6b2bd9831bf74468670f562
+#6 33.28   Stored in directory: /tmp/pip-ephem-wheel-cache-pzbm2w_0/wheels/14/1b/0e/d6c41a5d23bd4f43f7b3531393ec267829ea6d8982613131ce
+#6 33.29   Building wheel for msprime (setup.py): started
+#6 38.38   Building wheel for msprime (setup.py): finished with status 'done'
+#6 38.38   Created wheel for msprime: filename=msprime-0.7.4-cp38-cp38-linux_x86_64.whl size=542078 sha256=7e76fd7741b40bd14bea3507975602040962f7bab0cac69c0ef777af31dc7f0e
+#6 38.38   Stored in directory: /tmp/pip-ephem-wheel-cache-pzbm2w_0/wheels/9e/b3/13/04f586183e555906fefa12a52cc2779adbdaf2d4eb46db836d
+#6 38.38 Successfully built kastore msprime
+#6 38.39 Installing collected packages: kastore, msprime
+#6 38.44 Successfully installed kastore-0.2.2 msprime-0.7.4
+#6 38.44 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#6 38.86 
+#6 38.86 [notice] A new release of pip is available: 24.3.1 -> 25.0.1
+#6 38.86 [notice] To update, run: pip install --upgrade pip
+#6 DONE 38.9s
+
+#7 [4/6] RUN git init /testbed     && cd /testbed     && git remote add origin "https://github.com/tskit-dev/tskit.git"     && git fetch --depth=1 origin "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22"     && git checkout --detach FETCH_HEAD     && git submodule update --init --depth=1 c/subprojects/full-projects/kastore     && test "$(git -C c/subprojects/full-projects/kastore rev-parse HEAD)" = "67c5a6af4b85ea263e5cab854d94b691949e88ae"     && git remote remove origin     && git -C c/subprojects/full-projects/kastore remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22"
+#7 0.289 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.289 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.289 hint: of your new repositories, which will suppress this warning, call:
+#7 0.289 hint: 
+#7 0.289 hint: 	git config --global init.defaultBranch <name>
+#7 0.289 hint: 
+#7 0.289 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.289 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.289 hint: 
+#7 0.289 hint: 	git branch -m <name>
+#7 0.291 Initialized empty Git repository in /testbed/.git/
+#7 3.259 From https://github.com/tskit-dev/tskit
+#7 3.259  * branch            eb8b4aebe42f39f7e536a603e8cd25d9cf104e22 -> FETCH_HEAD
+#7 3.291 HEAD is now at eb8b4ae Merge pull request #638 from tskit-dev/dependabot/pip/python/requirements/CI/flake8-3.8.2
+#7 3.316 Submodule 'c/kastore' (https://github.com/tskit-dev/kastore.git) registered for path 'c/subprojects/full-projects/kastore'
+#7 3.319 Cloning into '/testbed/c/subprojects/full-projects/kastore'...
+#7 9.101 From https://github.com/tskit-dev/kastore
+#7 9.101  * branch            67c5a6af4b85ea263e5cab854d94b691949e88ae -> FETCH_HEAD
+#7 9.130 Submodule path 'c/subprojects/full-projects/kastore': checked out '67c5a6af4b85ea263e5cab854d94b691949e88ae'
+#7 DONE 9.2s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN printf '%s\n' 'python/build/' 'python/*.so' '**/__pycache__/' '.pytest_cache/' >> .git/info/exclude     && cd python     && python setup.py build_ext --inplace     && python -c 'import tskit, msprime, _tskit; print(tskit.__version__, msprime.__version__); msprime.simulate(2, random_seed=1)'     && test -z "$(git -C /testbed status --porcelain)"
+#9 0.394 running build_ext
+#9 0.458 building '_tskit' extension
+#9 0.458 creating build
+#9 0.459 creating build/temp.linux-x86_64-3.8
+#9 0.459 creating build/temp.linux-x86_64-3.8/lib
+#9 0.460 creating build/temp.linux-x86_64-3.8/lib/tskit
+#9 0.460 creating build/temp.linux-x86_64-3.8/lib/subprojects
+#9 0.461 creating build/temp.linux-x86_64-3.8/lib/subprojects/kastore
+#9 0.461 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c _tskitmodule.c -o build/temp.linux-x86_64-3.8/_tskitmodule.o -std=c99
+#9 2.680 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/core.c -o build/temp.linux-x86_64-3.8/lib/tskit/core.o -std=c99
+#9 2.751 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/tables.c -o build/temp.linux-x86_64-3.8/lib/tskit/tables.o -std=c99
+#9 4.295 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/trees.c -o build/temp.linux-x86_64-3.8/lib/tskit/trees.o -std=c99
+#9 5.907 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/genotypes.c -o build/temp.linux-x86_64-3.8/lib/tskit/genotypes.o -std=c99
+#9 6.034 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/stats.c -o build/temp.linux-x86_64-3.8/lib/tskit/stats.o -std=c99
+#9 6.154 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/convert.c -o build/temp.linux-x86_64-3.8/lib/tskit/convert.o -std=c99
+#9 6.203 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/tskit/haplotype_matching.c -o build/temp.linux-x86_64-3.8/lib/tskit/haplotype_matching.o -std=c99
+#9 6.643 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -UNDEBUG -Ilib -Ilib/subprojects/kastore -I/usr/local/include/python3.8 -I/usr/local/lib/python3.8/site-packages/numpy/core/include -c lib/subprojects/kastore/kastore.c -o build/temp.linux-x86_64-3.8/lib/subprojects/kastore/kastore.o -std=c99
+#9 6.857 creating build/lib.linux-x86_64-3.8
+#9 6.857 gcc -pthread -shared build/temp.linux-x86_64-3.8/_tskitmodule.o build/temp.linux-x86_64-3.8/lib/tskit/core.o build/temp.linux-x86_64-3.8/lib/tskit/tables.o build/temp.linux-x86_64-3.8/lib/tskit/trees.o build/temp.linux-x86_64-3.8/lib/tskit/genotypes.o build/temp.linux-x86_64-3.8/lib/tskit/stats.o build/temp.linux-x86_64-3.8/lib/tskit/convert.o build/temp.linux-x86_64-3.8/lib/tskit/haplotype_matching.o build/temp.linux-x86_64-3.8/lib/subprojects/kastore/kastore.o -L/usr/local/lib -o build/lib.linux-x86_64-3.8/_tskit.cpython-38-x86_64-linux-gnu.so
+#9 6.895 copying build/lib.linux-x86_64-3.8/_tskit.cpython-38-x86_64-linux-gnu.so -> 
+#9 7.184 0.2.4.dev0 0.7.4
+#9 DONE 7.3s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 3.9s done
+#10 exporting manifest sha256:0a72d37750c81c2c449154cc7bda865ed8b5c0a632a7d2bed6bc4b26327098bb 0.0s done
+#10 exporting config sha256:3e2c245de2b28d1404aa2e9394f9d1292ecdcf3ed8353cba2fba3bb1a90220b6 0.0s done
+#10 exporting attestation manifest sha256:00d4d2600ffbf36a63600794fb67b08666d27a6378a8b4f2f4fcddc08fb21d7c 0.0s done
+#10 exporting manifest list sha256:94b0040be34ac50a0b340ee284e51a414a4d1efa8696791ae661d0cbeea80743 0.0s done
+#10 naming to docker.io/yutu0814/pyc-case-046-tskit:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-046-tskit:benchmark-v1
+#10 unpacking to docker.io/yutu0814/pyc-case-046-tskit:benchmark-v1 1.2s done
+#10 DONE 5.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/c4an04cxe8lxp2bkfh23qzisg

@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_046",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "45",
+  "duplicate_source_cases": [],
+  "deduplication_key": "568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "language_pair": "Python-C",
+  "repo": "tskit-dev/tskit",
+  "issue_id": "453",
+  "issue_url": "https://github.com/tskit-dev/tskit/issues/453",
+  "commit": "568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "base_commit": "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22",
+  "base_commit_status": "verified_parent_of_fix_commit",
+  "fix_commit": "568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "commit_url": "https://github.com/tskit-dev/tskit/commit/568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "problem_statement": "tree.newick() can raise LibraryError when node times are large because the native output buffer is underestimated. Newick output from the C implementation should match the Python implementation for ordinary and large branch lengths at supported precision values. The low-level get_newick interface should accept an explicit buffer_size, reject nonpositive sizes with ValueError, and report a buffer that is too small through LibraryError.",
+  "symptom": "library error",
+  "bug_location": "line 9041",
+  "bug_location_type": "assignment",
+  "bug_path": "9041(c__tskitmodule_336-cfg.dot) (Tree_get_newick) … -> 9016(c__tskitmodule_336-cfg.dot) (Tree_get_newick) -> 1803(py_test_lowlevel_329-cfg.dot) (test_newick_precision)",
+  "cross_language_type": "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,PyErr_SetString,Foreign,Exception Handling",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "initialization error",
+  "fixing_strategy": "initialize the variable to a larger number",
+  "fix_location": "assignment statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/tskit-dev/tskit/issues/453",
+    "upstream_description": "Commit 568a9a953d549ae9a48f0f6d98435249841b7b5e closes issue #453 and is recorded in the upstream changelog under PR #637. It adds a buffer_size argument to Tree_get_newick in the Python/C interface and computes a safe upper bound from node labels, root time, precision and number of nodes in Python. The official high-level regression compares C/Python Newick strings for n=2,10,20,100, Ne=100e6 and precision=0,1,16. The changed low-level test checks explicit buffer validation.",
+    "verified_error": "On Python 3.8.20 with NumPy 1.19.5 and msprime 0.7.4, the exact Base plus official test patch produces 2 failed, 2 passed (exit 1). test_newick_large_times raises _tskit.LibraryError: Supplied buffer is too small; test_newick_interface raises TypeError: buffer_size is an invalid keyword argument. The exact upstream product patch and native rebuild yield 4 passed (exit 0).",
+    "verified_test": "python/tests/test_highlevel.py::TestTree::test_newick_large_times and python/tests/test_lowlevel.py::TestTree::test_newick_interface"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "official_test_scope": "The high-level target reproduces the original buffer underestimate and checks C/Python Newick parity. The low-level target checks the newly added buffer_size argument and error semantics. Unmodified high-level test_newick and low-level test_newick_precision serve as regressions. Only these four official nodes are graded; the full project suite is not claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "python/tests/test_highlevel.py::TestTree::test_newick_large_times",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_interface"
+  ],
+  "PASS_TO_PASS": [
+    "python/tests/test_highlevel.py::TestTree::test_newick",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_precision"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

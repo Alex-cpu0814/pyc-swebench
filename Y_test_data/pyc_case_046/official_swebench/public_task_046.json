@@ -1,0 +1,11 @@
+{
+  "instance_id": "tskit-dev__tskit-453",
+  "repo": "tskit-dev/tskit",
+  "base_commit": "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22",
+  "problem_statement": "tree.newick() can raise LibraryError when node times are large because the native output buffer is underestimated. Newick output from the C implementation should match the Python implementation for ordinary and large branch lengths at supported precision values. The low-level get_newick interface should accept an explicit buffer_size, reject nonpositive sizes with ValueError, and report a buffer that is too small through LibraryError.",
+  "hints_text": "",
+  "created_at": "2020-01-12",
+  "version": "0.2.4.dev0",
+  "issue_id": "453",
+  "issue_url": "https://github.com/tskit-dev/tskit/issues/453"
+}

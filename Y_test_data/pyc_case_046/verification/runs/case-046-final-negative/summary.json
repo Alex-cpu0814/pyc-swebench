@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-046-final-negative",
+  "label": "negative",
+  "instance_id": "tskit-dev__tskit-453",
+  "status": "unresolved",
+  "reason": "expected_test_failed_skipped_or_missing",
+  "started_at": "2026-10-12T08:45:11.303Z",
+  "finished_at": "2026-10-12T08:45:15.897Z",
+  "duration_ms": 4594,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "d161d09a81930c7f9bf3f7c2f45cd79d2f9dc4b45bb241a0a649144659b14196",
+  "test_patch_sha256": "e35f774d55465be41629d71f63a4953e8e5ab3b3079ca1b5b05394d34263bb52",
+  "image": {
+    "name": "yutu0814/pyc-case-046-tskit:benchmark-v1",
+    "id": "sha256:94b0040be34ac50a0b340ee284e51a414a4d1efa8696791ae661d0cbeea80743",
+    "repo_digests": [
+      "yutu0814/pyc-case-046-tskit@sha256:94b0040be34ac50a0b340ee284e51a414a4d1efa8696791ae661d0cbeea80743"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 1,
+    "instance_id": "tskit-dev__tskit-453"
+  },
+  "grading": {
+    "tests_observed": 4,
+    "FAIL_TO_PASS": {
+      "expected": 2,
+      "passed": 0,
+      "failed": 2,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 2
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

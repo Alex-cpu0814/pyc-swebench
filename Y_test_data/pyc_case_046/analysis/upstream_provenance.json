@@ -1,0 +1,20 @@
+{
+  "repository": "tskit-dev/tskit",
+  "issue_url": "https://github.com/tskit-dev/tskit/issues/453",
+  "issue_title": ".newick() raises: LibraryError: Supplied buffer if too small",
+  "issue_created_at": "2020-01-12T21:07:34Z",
+  "issue_original_environment": "msprime 0.6.1, Python 3.6, Ubuntu",
+  "pull_request_url": "https://github.com/tskit-dev/tskit/pull/637",
+  "fix_commit": "568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "fix_committed_at": "2020-05-23T14:52:34Z",
+  "fix_title": "Fix newick buffer size underestimate.",
+  "base_commit": "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22",
+  "base_relation": "sole parent of fix commit",
+  "source_case": "45",
+  "source_excel_row": 47,
+  "candidate_case": "046",
+  "candidate_excel_row": 47,
+  "kastore_c_submodule": "67c5a6af4b85ea263e5cab854d94b691949e88ae",
+  "date_semantics": "SWE-bench created_at uses the issue creation date, not the fix date.",
+  "verification_scope": "Exact upstream test patch and product patch at the recorded Base; two FAIL_TO_PASS and two PASS_TO_PASS nodes. Reproduction environment differs from the original report and is explicitly documented."
+}

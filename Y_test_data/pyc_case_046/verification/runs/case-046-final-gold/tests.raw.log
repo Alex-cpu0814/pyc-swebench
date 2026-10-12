@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 4 items
+
+python/tests/test_highlevel.py::TestTree::test_newick PASSED             [ 25%]
+python/tests/test_lowlevel.py::TestTree::test_newick_precision PASSED    [ 50%]
+python/tests/test_highlevel.py::TestTree::test_newick_large_times PASSED [ 75%]
+python/tests/test_lowlevel.py::TestTree::test_newick_interface PASSED    [100%]
+
+=============================== warnings summary ===============================
+python/tskit/tables.py:46
+  /testbed/python/tskit/tables.py:46: DeprecationWarning: The usage of `cmp` is deprecated and will be removed on or after 2021-06-01.  Please use `eq` and `order` instead.
+    @attr.s(cmp=False, **attr_options)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 4 passed, 1 warning in 1.59s =========================

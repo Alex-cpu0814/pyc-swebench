@@ -24,6 +24,7 @@ SWE-bench-compatible layout.
 | `pyc_case_041` | `scipy/scipy` | PR #12562 / merge `e2091e9e` | Base: fixed-knots `splprep` target SIGSEGV (139); Gold: target and 2 regressions passed |
 | `pyc_case_042` | `scipy/scipy` | PR #12703 / merge `3f4396e7` | Base: even-length `sepfir2d` validation target failed; Gold: target and 2 regressions passed |
 | `pyc_case_044` | `scipy/scipy` | PR #4143 / merge `88d625fc` | Base: large-array `map_coordinates` target SIGSEGV (139); Gold: target and 2 regressions passed |
+| `pyc_case_046` | `tskit-dev/tskit` | Issue #453 / PR #637 / commit `568a9a95` | Base: large-time Newick buffer and buffer-size API targets fail; Gold: 2 targets and 2 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.
@@ -33,6 +34,7 @@ Candidate-table Case 41 maps to original source Case 40 by fix commit `e2091e9e4
 Candidate-table Case 42 maps to original source Case 41 by fix commit `3f4396e7c8e21ea0c432c1747b221e64c162b6f5`.
 Candidate-table Case 44 maps to original source Case 43 by fix commit `88d625fc451d3714e640bbec693bb31abb6a05f5`.
 Case 44's official test covers `map_coordinates`; the source record describes `NI_Select`/`NI_RankFilter` from the same fix commit. The rank-filter path is not independently verified by this test.
+Candidate-table Case 46 maps to original source Case 45 by fix commit `568a9a953d549ae9a48f0f6d98435249841b7b5e`.
 
 Each case keeps the upstream product patch and test patch separate, provides a
 clean Docker evaluator, and stores private/public task records under

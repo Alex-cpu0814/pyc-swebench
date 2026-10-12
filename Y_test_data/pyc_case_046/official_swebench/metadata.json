@@ -1,0 +1,41 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "45",
+  "candidate_case": "046",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The high-level target reproduces the original buffer underestimate and checks C/Python Newick parity. The low-level target checks the newly added buffer_size argument and error semantics. Unmodified high-level test_newick and low-level test_newick_precision serve as regressions. Only these four official nodes are graded; the full project suite is not claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-01-12",
+  "created_at_precision": "date",
+  "instance_id": "tskit-dev__tskit-453",
+  "source_instance_id": "pyc_case_046",
+  "repo": "tskit-dev/tskit",
+  "issue_id": "453",
+  "issue_url": "https://github.com/tskit-dev/tskit/issues/453",
+  "project_version": "0.2.4.dev0",
+  "base_commit": "eb8b4aebe42f39f7e536a603e8cd25d9cf104e22",
+  "fix_commit": "568a9a953d549ae9a48f0f6d98435249841b7b5e",
+  "FAIL_TO_PASS": [
+    "python/tests/test_highlevel.py::TestTree::test_newick_large_times",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_interface"
+  ],
+  "PASS_TO_PASS": [
+    "python/tests/test_highlevel.py::TestTree::test_newick",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_precision"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC 10; GSL 2.6; Python 3.8.20; NumPy 1.19.5; msprime 0.7.4; kastore Python 0.2.2",
+    "base_target_status": "2 FAILED (LibraryError / TypeError)",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "2 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker"
+  }
+}

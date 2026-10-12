@@ -1,0 +1,17 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-046-final-tamper",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "python/tests/test_highlevel.py::TestTree::test_newick_large_times": "FAILED",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_interface": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "python/tests/test_highlevel.py::TestTree::test_newick": "PASSED",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_precision": "PASSED"
+  },
+  "unexpected_failures": [
+    "python/tests/test_highlevel.py::TestTree::test_newick_large_times",
+    "python/tests/test_lowlevel.py::TestTree::test_newick_interface"
+  ]
+}
