@@ -1,0 +1,42 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.20kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==59.6.0 wheel==0.42.0     && python -m pip install --no-cache-dir numpy==1.19.5 pytest==7.4.4        packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/CheetahTemplate3/cheetah3.git"     && git fetch --depth=1 origin "c86628cad04edc5167f9a9c8999abc62c6558e7b" && git checkout --detach FETCH_HEAD     && git remote remove origin && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "c86628cad04edc5167f9a9c8999abc62c6558e7b"
+#6 CACHED
+
+#7 [4/5] WORKDIR /testbed
+#7 CACHED
+
+#8 [5/5] RUN python setup.py build_ext --inplace     && python -c 'import Cheetah._namemapper; print(Cheetah._namemapper.__file__)'     && test -z "$(git status --porcelain)"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers 0.0s done
+#9 exporting manifest sha256:f069fecb94bdf8269d9e54e3ccd5946a469069196892fd1a8d3dad8b78a5d5cf done
+#9 exporting config sha256:84f23b06079fd774fb6d675e26f2cbfc3a6f8547fdf02ed876a76d9914f33d64 done
+#9 exporting attestation manifest sha256:66ce8219e499811caaf469559ff7b690f761d43bb340f42f5d8aad9f7f3b0305
+#9 exporting attestation manifest sha256:66ce8219e499811caaf469559ff7b690f761d43bb340f42f5d8aad9f7f3b0305 0.0s done
+#9 exporting manifest list sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629 0.0s done
+#9 naming to docker.io/yutu0814/pyc-case-049-cheetah:benchmark-v1 done
+#9 unpacking to docker.io/yutu0814/pyc-case-049-cheetah:benchmark-v1 0.0s done
+#9 DONE 0.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/zcvk6glhcu6ogyk3k3d5gektm

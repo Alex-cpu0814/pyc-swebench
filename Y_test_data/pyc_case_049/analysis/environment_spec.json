@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_049",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "requires_cheetah_native_build",
+  "python_version_target": "3.8",
+  "native_requirement": "GCC and Python 3.8 headers to build Cheetah._namemapper",
+  "build_system": "python setup.py build_ext --inplace at exact Base",
+  "test_execution": [
+    "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv <three exact official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Cheetah/Tests/SyntaxAndOutput.py.",
+    "Base with the exact official test patch: GetVar.test6 raises NameMapper.NotFound from Cheetah/Template.py:1446 instead of the expected ValueError. The native name mapper reads an uninitialized chunk when the stripped name is empty. The upstream report describes a Python 2.7/CentOS segfault; this Python 3.8.20 environment reproduces an incorrect exception, not that crash.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "fix_commit": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Cheetah/Tests/SyntaxAndOutput.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6"
+  ],
+  "PASS_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test1",
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test2"
+  ]
+}

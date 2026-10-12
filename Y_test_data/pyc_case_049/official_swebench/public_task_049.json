@@ -1,0 +1,11 @@
+{
+  "instance_id": "CheetahTemplate3__cheetah3-26",
+  "repo": "CheetahTemplate3/cheetah3",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "problem_statement": "Looking up an empty name through Cheetah Template.getVar can read an uninitialized nameChunks entry in the native name mapper. Evaluating $getVar('$') should raise ValueError rather than crash or access invalid memory, and ordinary variable lookups should continue working.",
+  "hints_text": "",
+  "created_at": "2020-09-23",
+  "version": "3.2.6a0",
+  "issue_id": "26",
+  "issue_url": "https://github.com/CheetahTemplate3/cheetah3/issues/26"
+}

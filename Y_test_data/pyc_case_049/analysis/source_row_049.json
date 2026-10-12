@@ -1,0 +1,45 @@
+{
+  "instance_id": "pyc_case_049",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "48",
+  "duplicate_source_cases": [],
+  "deduplication_key": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "language_pair": "Python-C",
+  "repo": "CheetahTemplate3/cheetah3",
+  "issue_id": "26",
+  "issue_url": "https://github.com/CheetahTemplate3/cheetah3/issues/26",
+  "commit": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "base_commit_status": "verified_parent_of_fix_commit",
+  "fix_commit": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "commit_url": "https://github.com/CheetahTemplate3/cheetah3/commit/31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "problem_statement": "Looking up an empty name through Cheetah Template.getVar can read an uninitialized nameChunks entry in the native name mapper. Evaluating $getVar('$') should raise ValueError rather than crash or access invalid memory, and ordinary variable lookups should continue working.",
+  "symptom": "segment fault",
+  "bug_location": "line 271",
+  "bug_location_type": "Cross-Language API callsite + assignment",
+  "bug_path": "271(c__namemapper_9-cfg.dot) (namemapper_valueForName) ... -> 249(c__namemapper_9-cfg.dot) (namemapper_valueForName) -> 112(py_NameMapper_25-cfg.dot) (VFN)",
+  "cross_language_type": "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,PyNamemapper_valueForName,NAX,Mapper API",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Special case handling",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "NAX function + assignment statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/CheetahTemplate3/cheetah3/issues/26",
+    "upstream_description": "Commit 31574d60 checks numChunks before using nameChunks[0] in the native name-mapper entry points and adds the official GetVar.test6 regression for an empty name.",
+    "verified_error": "Base with the exact official test patch: GetVar.test6 raises NameMapper.NotFound from Cheetah/Template.py:1446 instead of the expected ValueError. The native name mapper reads an uninitialized chunk when the stripped name is empty. The upstream report describes a Python 2.7/CentOS segfault; this Python 3.8.20 environment reproduces an incorrect exception, not that crash.",
+    "verified_test": "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6"
+  ],
+  "PASS_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test1",
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test2"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

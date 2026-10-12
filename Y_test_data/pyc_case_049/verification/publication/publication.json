@@ -1,0 +1,8 @@
+{
+  "published_at": "2026-10-12T09:35:11.161Z",
+  "image": "yutu0814/pyc-case-049-cheetah:benchmark-v1",
+  "verified_image_id": "sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629",
+  "registry_digest": "sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629",
+  "evidence": "successful Docker daemon push with matching digest",
+  "registry_independent_recheck": "not performed; desktop client has registry connectivity limitations"
+}

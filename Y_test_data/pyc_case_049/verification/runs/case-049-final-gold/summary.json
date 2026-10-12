@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-049-final-gold",
+  "label": "gold",
+  "instance_id": "CheetahTemplate3__cheetah3-26",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-12T09:30:49.130Z",
+  "finished_at": "2026-10-12T09:30:52.282Z",
+  "duration_ms": 3157,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "de18858faf3fb73c571a4969d314a3c2f98575848267f4e667a2cfe0a872290d",
+  "test_patch_sha256": "d80d53cf428f4a4a47a831bfd60e3c618dd3146e82dc320d3d7cf9ac3f3a6c3c",
+  "image": {
+    "name": "yutu0814/pyc-case-049-cheetah:benchmark-v1",
+    "id": "sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629",
+    "repo_digests": [
+      "yutu0814/pyc-case-049-cheetah@sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "CheetahTemplate3__cheetah3-26"
+  },
+  "grading": {
+    "tests_observed": 3,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

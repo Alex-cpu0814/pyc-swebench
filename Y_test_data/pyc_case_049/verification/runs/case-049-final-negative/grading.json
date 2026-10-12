@@ -1,0 +1,15 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-049-final-negative",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test1": "PASSED",
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test2": "PASSED"
+  },
+  "unexpected_failures": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6"
+  ]
+}

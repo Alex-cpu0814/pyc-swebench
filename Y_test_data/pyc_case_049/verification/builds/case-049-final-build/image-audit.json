@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "CheetahTemplate3__cheetah3-26",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

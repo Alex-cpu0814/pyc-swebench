@@ -1,0 +1,5 @@
+running build_ext
+building 'Cheetah._namemapper' extension
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.8 -c Cheetah/c/_namemapper.c -o build/temp.linux-x86_64-3.8/Cheetah/c/_namemapper.o
+gcc -pthread -shared build/temp.linux-x86_64-3.8/Cheetah/c/_namemapper.o -L/usr/local/lib -o build/lib.linux-x86_64-3.8/Cheetah/_namemapper.cpython-38-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-3.8/Cheetah/_namemapper.cpython-38-x86_64-linux-gnu.so -> Cheetah

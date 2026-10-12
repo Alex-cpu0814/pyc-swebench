@@ -1,0 +1,16 @@
+{
+  "repository": "CheetahTemplate3/cheetah3",
+  "issue_url": "https://github.com/CheetahTemplate3/cheetah3/issues/26",
+  "issue_title": "Calling Template.getVar() with a string beginning with $ crashes",
+  "issue_created_at": "2020-09-23T22:57:50Z",
+  "issue_original_environment": "Cheetah 3.1.0/3.2.5, Python 2.7, CentOS 6.10",
+  "fix_commit": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "base_relation": "sole parent of fix commit",
+  "source_case": "48",
+  "source_excel_row": 50,
+  "candidate_case": "049",
+  "candidate_excel_row": 50,
+  "date_semantics": "created_at is the upstream issue creation date, not the fix date.",
+  "verification_scope": "Exact upstream product and test diffs; native extension compiled at Base; one FAIL_TO_PASS and two PASS_TO_PASS tests. Modern reproduction shows incorrect exception, not the original crash."
+}

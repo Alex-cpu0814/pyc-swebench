@@ -1,0 +1,119 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "48",
+  "candidate_case": "049",
+  "duplicate_source_cases_removed": [],
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-09-23",
+  "created_at_precision": "date",
+  "instance_id": "CheetahTemplate3__cheetah3-26",
+  "source_instance_id": "pyc_case_049",
+  "repo": "CheetahTemplate3/cheetah3",
+  "issue_id": "26",
+  "issue_url": "https://github.com/CheetahTemplate3/cheetah3/issues/26",
+  "project_version": "3.2.6a0",
+  "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+  "fix_commit": "31574d601ed6b675eb2fe8dc82659864bd3ace14",
+  "FAIL_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6"
+  ],
+  "PASS_TO_PASS": [
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test1",
+    "Cheetah/Tests/SyntaxAndOutput.py::GetVar::test2"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC 10 and Python 3.8.20",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-049-cheetah:benchmark-v1",
+      "id": "sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629",
+      "repo_digests": [
+        "yutu0814/pyc-case-049-cheetah@sha256:9b8ca8cf610a15b88d144cab71608125a57d9fa61fd9d41664684b023d991629"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "CheetahTemplate3__cheetah3-26",
+      "base_commit": "c86628cad04edc5167f9a9c8999abc62c6558e7b",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-049-final-gold/summary.json",
+      "verification/runs/case-049-final-negative/summary.json",
+      "verification/runs/case-049-final-tamper/summary.json"
+    ]
+  },
+  "product_files": [
+    "Cheetah/c/_namemapper.c"
+  ],
+  "test_files": [
+    "Cheetah/Tests/SyntaxAndOutput.py"
+  ]
+}

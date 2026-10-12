@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -1,4 +1,4 @@
+-Cheetah Template 3.2.6a0
++Cheetah Template 3.2.6a0 (negative evaluator control)
+ ========================
+ 
+ Cheetah3 is a free and open source template engine and code generation tool.

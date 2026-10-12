@@ -1,0 +1,2 @@
+running build_ext
+copying build/lib.linux-x86_64-3.8/Cheetah/_namemapper.cpython-38-x86_64-linux-gnu.so -> Cheetah

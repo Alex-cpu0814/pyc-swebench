@@ -1,0 +1,8 @@
+diff --git a/Cheetah/Tests/SyntaxAndOutput.py b/Cheetah/Tests/SyntaxAndOutput.py
+--- a/Cheetah/Tests/SyntaxAndOutput.py
++++ b/Cheetah/Tests/SyntaxAndOutput.py
+@@ -3049,3 +3049,3 @@
+         self.verify("$getVar('$bogus',  1234)",
+-                    "1234")
++                    "tampered")
+ 

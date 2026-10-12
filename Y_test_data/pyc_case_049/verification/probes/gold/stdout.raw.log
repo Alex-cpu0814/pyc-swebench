@@ -1,0 +1,129 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 3 items
+
+Cheetah/Tests/SyntaxAndOutput.py::GetVar::test1 PASSED                   [ 33%]
+Cheetah/Tests/SyntaxAndOutput.py::GetVar::test2 PASSED                   [ 66%]
+Cheetah/Tests/SyntaxAndOutput.py::GetVar::test6 PASSED                   [100%]
+
+=============================== warnings summary ===============================
+Cheetah/Tests/SyntaxAndOutput.py:271
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:271: DeprecationWarning: invalid escape sequence \ 
+    self.verify("\ \ ",
+
+Cheetah/Tests/SyntaxAndOutput.py:272
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:272: DeprecationWarning: invalid escape sequence \ 
+    "\ \ ")
+
+Cheetah/Tests/SyntaxAndOutput.py:299
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:299: DeprecationWarning: invalid escape sequence \ 
+    self.verify("\ \ " + "\n\n\n\n\n\n\n\n\n",
+
+Cheetah/Tests/SyntaxAndOutput.py:300
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:300: DeprecationWarning: invalid escape sequence \ 
+    "\ \ " + "\n\n\n\n\n\n\n\n\n")
+
+Cheetah/Tests/SyntaxAndOutput.py:319
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:319: DeprecationWarning: invalid escape sequence \#
+    self.verify("# \# #5 ",
+
+Cheetah/Tests/SyntaxAndOutput.py:324
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:324: DeprecationWarning: invalid escape sequence \#
+    self.verify("  \##escaped comment  ",
+
+Cheetah/Tests/SyntaxAndOutput.py:329
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:329: DeprecationWarning: invalid escape sequence \#
+    self.verify("  \#*escaped comment \n*#  ",
+
+Cheetah/Tests/SyntaxAndOutput.py:816
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:816: DeprecationWarning: invalid escape sequence \$
+    self.verify("\$var",
+
+Cheetah/Tests/SyntaxAndOutput.py:821
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:821: DeprecationWarning: invalid escape sequence \$
+    self.verify("\$var \$_",
+
+Cheetah/Tests/SyntaxAndOutput.py:826
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:826: DeprecationWarning: invalid escape sequence \$
+    self.verify("\$var\$_",
+
+Cheetah/Tests/SyntaxAndOutput.py:831
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:831: DeprecationWarning: invalid escape sequence \$
+    self.verify("\$var(\$_)",
+
+Cheetah/Tests/SyntaxAndOutput.py:836
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:836: DeprecationWarning: invalid escape sequence \$
+    self.verify("\$(var(\$_)",
+
+Cheetah/Tests/SyntaxAndOutput.py:1827
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1827: DeprecationWarning: invalid escape sequence \$
+    "#def testMeth: \$aFunc(\$anInt)\n- $testMeth -",
+
+Cheetah/Tests/SyntaxAndOutput.py:1833
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1833: DeprecationWarning: invalid escape sequence \$
+    "#def testMeth: \$aFunc($anInt)\n- $testMeth -",
+
+Cheetah/Tests/SyntaxAndOutput.py:1839
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1839: DeprecationWarning: invalid escape sequence \$
+    "#def testMeth    : \$aFunc($anInt)\n- $testMeth -",
+
+Cheetah/Tests/SyntaxAndOutput.py:1976
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1976: DeprecationWarning: invalid escape sequence \$
+    "#block testMeth: \$aFunc($anInt)",
+
+Cheetah/Tests/SyntaxAndOutput.py:1982
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1982: DeprecationWarning: invalid escape sequence \$
+    "#block testMeth: \$aFunc( $anInt )",
+
+Cheetah/Tests/SyntaxAndOutput.py:1988
+  /testbed/Cheetah/Tests/SyntaxAndOutput.py:1988: DeprecationWarning: invalid escape sequence \$
+    "#block testMeth  : \$aFunc( $anInt )",
+
+Cheetah/Template.py:142
+  /testbed/Cheetah/Template.py:142: DeprecationWarning: invalid escape sequence \*
+    '''
+
+Cheetah/Template.py:1617
+  /testbed/Cheetah/Template.py:1617: DeprecationWarning: invalid escape sequence \*
+    """Compile the template. This method is automatically called by
+
+Cheetah/Template.py:1728
+  /testbed/Cheetah/Template.py:1728: DeprecationWarning: invalid escape sequence \*
+    """Method for importing web transaction variables in bulk.
+
+Cheetah/Template.py:1984
+  /testbed/Cheetah/Template.py:1984: DeprecationWarning: invalid escape sequence \d
+    re.search('[ \t]*File.*line (\d+)', formatedExc).group(1))
+
+Cheetah/Template.py:2025
+  /testbed/Cheetah/Template.py:2025: DeprecationWarning: invalid escape sequence \d
+    cheetahPosMatch = re.search('line (\d+), col (\d+)', formatedExc)
+
+Cheetah/Template.py:2035
+  /testbed/Cheetah/Template.py:2035: DeprecationWarning: invalid escape sequence \d
+    cheetahPosMatch = re.search('line (\d+), col (\d+)',
+
+Cheetah/SettingsManager.py:19
+  /testbed/Cheetah/SettingsManager.py:19: DeprecationWarning: invalid escape sequence \(
+    '[\(]*' + Number + r'[ \t]*\+[ \t]*' + Number + '[\)]*')
+
+Cheetah/SettingsManager.py:19
+  /testbed/Cheetah/SettingsManager.py:19: DeprecationWarning: invalid escape sequence \)
+    '[\(]*' + Number + r'[ \t]*\+[ \t]*' + Number + '[\)]*')
+
+Cheetah/Parser.py:464
+  /testbed/Cheetah/Parser.py:464: DeprecationWarning: invalid escape sequence \*
+    + r'(?P<REFRESH_CACHE>\*' + interval + '\*)'
+
+Cheetah/Parser.py:557
+  /testbed/Cheetah/Parser.py:557: DeprecationWarning: invalid escape sequence \$
+    """Unescape any escaped Cheetah \$vars in the string.
+
+Cheetah/SourceReader.py:8
+  /testbed/Cheetah/SourceReader.py:8: DeprecationWarning: invalid escape sequence \s
+    ENCODINGsearch = re.compile("coding[=:]\s*([-\w.]+)").search
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 3 passed, 29 warnings in 0.16s ========================
