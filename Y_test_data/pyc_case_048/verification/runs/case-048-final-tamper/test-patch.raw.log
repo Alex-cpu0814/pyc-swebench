@@ -1,0 +1,2 @@
+error: patch failed: scipy/signal/tests/test_signaltools.py:1062
+error: scipy/signal/tests/test_signaltools.py: patch does not apply

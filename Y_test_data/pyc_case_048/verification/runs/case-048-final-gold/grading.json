@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-048-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16]": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic": "PASSED",
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none": "PASSED"
+  },
+  "unexpected_failures": []
+}

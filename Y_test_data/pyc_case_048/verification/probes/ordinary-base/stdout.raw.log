@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 3 items
+
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic PASSED   [ 33%]
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none PASSED    [ 66%]
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16] PASSED [100%]
+
+============================== 3 passed in 0.54s ===============================

@@ -25,6 +25,7 @@ SWE-bench-compatible layout.
 | `pyc_case_042` | `scipy/scipy` | PR #12703 / merge `3f4396e7` | Base: even-length `sepfir2d` validation target failed; Gold: target and 2 regressions passed |
 | `pyc_case_044` | `scipy/scipy` | PR #4143 / merge `88d625fc` | Base: large-array `map_coordinates` target SIGSEGV (139); Gold: target and 2 regressions passed |
 | `pyc_case_046` | `tskit-dev/tskit` | Issue #453 / PR #637 / commit `568a9a95` | Base: large-time Newick buffer and buffer-size API targets fail; Gold: 2 targets and 2 regressions pass |
+| `pyc_case_048` | `scipy/scipy` | PR #14327 / commit `ed220ccd` | Bounds-instrumented Base: float16 target fails; Gold: target and 2 regressions pass |
 | `pyc_case_049` | `CheetahTemplate3/cheetah3` | Issue / PR #26 / commit `31574d60` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.

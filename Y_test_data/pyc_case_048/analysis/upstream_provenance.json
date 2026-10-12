@@ -1,0 +1,23 @@
+{
+  "upstream_url": "https://github.com/scipy/scipy/pull/14327",
+  "base_commit": "018986cb0260881827c6ef33cd2d804f54e39c85",
+  "fix_commit": "ed220ccdf4bab8fd25293afec26a8cb321f12921",
+  "base_commit_selection": "verified first parent of upstream merge",
+  "merge_parents": [
+    "018986cb0260881827c6ef33cd2d804f54e39c85",
+    "da33c0c973cd4e394cdd7deed657855c26d38244"
+  ],
+  "changed_files": [
+    "scipy/signal/sigtoolsmodule.c",
+    "scipy/signal/tests/test_signaltools.py"
+  ],
+  "product_patch": "exact upstream diff for scipy/signal/sigtoolsmodule.c",
+  "test_patch": "exact upstream diff for scipy/signal/tests/test_signaltools.py",
+  "upstream_created_at": "2021-06-30",
+  "verification_scope": "Local instrumented official pytest regression; no claim that an ordinary build crashes.",
+  "upstream_merged_at": "2021-07-02",
+  "upstream_created_at_timestamp": "2021-06-30T12:41:18Z",
+  "upstream_merged_at_timestamp": "2021-07-02T07:25:58Z",
+  "date_source": "https://api.github.com/repos/scipy/scipy/pulls/14327",
+  "date_semantics": "created_at is PR opening date, merged_at is merge date; dataset dates have UTC date precision"
+}

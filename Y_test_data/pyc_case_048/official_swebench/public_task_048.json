@@ -1,0 +1,11 @@
+{
+  "instance_id": "scipy__scipy-14327",
+  "repo": "scipy/scipy",
+  "base_commit": "018986cb0260881827c6ef33cd2d804f54e39c85",
+  "problem_statement": "scipy.signal.medfilt and medfilt2d can access outside the comparator table for unsupported input dtypes. These functions should reject unsupported boolean, complex and float16 input with ValueError referring to order_filterND, while preserving normal median-filter output.",
+  "hints_text": "",
+  "created_at": "2021-06-30",
+  "version": "1.8.0.dev0",
+  "issue_id": "14327",
+  "issue_url": "https://github.com/scipy/scipy/pull/14327"
+}

@@ -1,0 +1,13 @@
+diff --git a/scipy/signal/tests/test_signaltools.py b/scipy/signal/tests/test_signaltools.py
+index 2b5cc6a..a4296c3 100644
+--- a/scipy/signal/tests/test_signaltools.py
++++ b/scipy/signal/tests/test_signaltools.py
+@@ -1060,7 +1060,7 @@ class TestMedFilt:
+         # volume input and output types match
+         in_typed = np.array(self.IN, dtype=dtype)
+         assert_equal(signal.medfilt(in_typed).dtype, dtype)
+-        assert_equal(signal.medfilt2d(in_typed).dtype, dtype)
++        assert_equal(signal.medfilt2d(in_typed).dtype, np.float64)
+ 
+     def test_none(self):
+         # gh-1651, trac #1124. Ensure this does not segfault.

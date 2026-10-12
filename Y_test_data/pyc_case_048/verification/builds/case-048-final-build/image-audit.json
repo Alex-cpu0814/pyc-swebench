@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "scipy__scipy-14327",
+  "base_commit": "018986cb0260881827c6ef33cd2d804f54e39c85",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

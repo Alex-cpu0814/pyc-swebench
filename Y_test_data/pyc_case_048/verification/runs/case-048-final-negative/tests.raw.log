@@ -1,0 +1,237 @@
+BENCHMARK_NODE_START scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic PASSED
+
+============================== 1 passed in 0.51s ===============================
+BENCHMARK_NODE_EXIT scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic 0
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic PASSED
+BENCHMARK_NODE_START scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none PASSED
+
+============================== 1 passed in 0.20s ===============================
+BENCHMARK_NODE_EXIT scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none 0
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none PASSED
+BENCHMARK_NODE_START scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16]
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16] scipy/signal/sigtoolsmodule.c:903:34: runtime error: index 23 out of bounds for type '<unknown> *[21]'
+    #0 0x78502daa7f07 in PyArray_OrderFilterND scipy/signal/sigtoolsmodule.c:903
+    #1 0x78502daa9248 in sigtools_order_filterND scipy/signal/sigtoolsmodule.c:1210
+    #2 0x7850341221ee in cfunction_call_varargs Objects/call.c:758
+    #3 0x7850341214a6 in _PyObject_MakeTpCall Objects/call.c:159
+    #4 0x78503414ed79 in _PyObject_Vectorcall Include/cpython/abstract.h:125
+    #5 0x78503414ed79 in _PyObject_Vectorcall Include/cpython/abstract.h:115
+    #6 0x78503414ed79 in call_function Python/ceval.c:4963
+    #7 0x78503414ed79 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #8 0x78503414a550 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #9 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #10 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #11 0x78503414e825 in call_function Python/ceval.c:4963
+    #12 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #13 0x78503414a550 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #14 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #15 0x7850341228bb in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #16 0x7850341228bb in method_vectorcall Objects/classobject.c:89
+    #17 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #18 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #19 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #20 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #21 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #22 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #23 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #24 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #25 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #26 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #27 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #28 0x78503414e825 in call_function Python/ceval.c:4963
+    #29 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #30 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #31 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #32 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #33 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #34 0x78503414e825 in call_function Python/ceval.c:4963
+    #35 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #36 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #37 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #38 0x7850341212c2 in _PyObject_FastCallDict Objects/call.c:104
+    #39 0x785034121e07 in _PyObject_Call_Prepend Objects/call.c:888
+    #40 0x78503417b968 in slot_tp_call Objects/typeobject.c:6556
+    #41 0x785034121580 in _PyObject_MakeTpCall Objects/call.c:159
+    #42 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:125
+    #43 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:115
+    #44 0x78503414f450 in call_function Python/ceval.c:4963
+    #45 0x78503414f450 in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #46 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #47 0x78503414b09f in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #48 0x78503414b09f in call_function Python/ceval.c:4963
+    #49 0x78503414b09f in _PyEval_EvalFrameDefault Python/ceval.c:3486
+    #50 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #51 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #52 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #53 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #54 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #55 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #56 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #57 0x78503414e825 in call_function Python/ceval.c:4963
+    #58 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #59 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #60 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #61 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #62 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #63 0x78503414e825 in call_function Python/ceval.c:4963
+    #64 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #65 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #66 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #67 0x7850341212c2 in _PyObject_FastCallDict Objects/call.c:104
+    #68 0x785034121e07 in _PyObject_Call_Prepend Objects/call.c:888
+    #69 0x78503417b968 in slot_tp_call Objects/typeobject.c:6556
+    #70 0x78503412208b in PyObject_Call Objects/call.c:246
+    #71 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #72 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #73 0x78503414a9ba in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #74 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #75 0x78503414b323 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #76 0x78503414b323 in call_function Python/ceval.c:4963
+    #77 0x78503414b323 in _PyEval_EvalFrameDefault Python/ceval.c:3500
+    #78 0x78503414a550 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #79 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #80 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #81 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #82 0x78503414c17c in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #83 0x78503414c17c in call_function Python/ceval.c:4963
+    #84 0x78503414c17c in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #85 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #86 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #87 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #88 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #89 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #90 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #91 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #92 0x78503414b323 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #93 0x78503414b323 in call_function Python/ceval.c:4963
+    #94 0x78503414b323 in _PyEval_EvalFrameDefault Python/ceval.c:3500
+    #95 0x78503414a550 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #96 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #97 0x78503414c17c in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #98 0x78503414c17c in call_function Python/ceval.c:4963
+    #99 0x78503414c17c in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #100 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #101 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #102 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #103 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #104 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #105 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #106 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #107 0x78503414e825 in call_function Python/ceval.c:4963
+    #108 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #109 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #110 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #111 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #112 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #113 0x78503414e825 in call_function Python/ceval.c:4963
+    #114 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #115 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #116 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #117 0x7850341212c2 in _PyObject_FastCallDict Objects/call.c:104
+    #118 0x785034121e07 in _PyObject_Call_Prepend Objects/call.c:888
+    #119 0x78503417b968 in slot_tp_call Objects/typeobject.c:6556
+    #120 0x785034121580 in _PyObject_MakeTpCall Objects/call.c:159
+    #121 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:125
+    #122 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:115
+    #123 0x78503414f450 in call_function Python/ceval.c:4963
+    #124 0x78503414f450 in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #125 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #126 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #127 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #128 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #129 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #130 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #131 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #132 0x78503414e825 in call_function Python/ceval.c:4963
+    #133 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #134 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #135 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #136 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #137 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #138 0x78503414e825 in call_function Python/ceval.c:4963
+    #139 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #140 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #141 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #142 0x7850341212c2 in _PyObject_FastCallDict Objects/call.c:104
+    #143 0x785034121e07 in _PyObject_Call_Prepend Objects/call.c:888
+    #144 0x78503417b968 in slot_tp_call Objects/typeobject.c:6556
+    #145 0x785034121580 in _PyObject_MakeTpCall Objects/call.c:159
+    #146 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:125
+    #147 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:115
+    #148 0x78503414f450 in call_function Python/ceval.c:4963
+    #149 0x78503414f450 in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #150 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #151 0x78503414b323 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #152 0x78503414b323 in call_function Python/ceval.c:4963
+    #153 0x78503414b323 in _PyEval_EvalFrameDefault Python/ceval.c:3500
+    #154 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #155 0x78503414b323 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #156 0x78503414b323 in call_function Python/ceval.c:4963
+    #157 0x78503414b323 in _PyEval_EvalFrameDefault Python/ceval.c:3500
+    #158 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #159 0x78503416b63d in PyVectorcall_Call Objects/call.c:200
+    #160 0x78503414f021 in do_call_core Python/ceval.c:5010
+    #161 0x78503414f021 in _PyEval_EvalFrameDefault Python/ceval.c:3559
+    #162 0x78503414a78b in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #163 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #164 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #165 0x78503414e825 in call_function Python/ceval.c:4963
+    #166 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #167 0x785034121c89 in function_code_fastcall Objects/call.c:284
+    #168 0x7850341227f6 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #169 0x7850341227f6 in method_vectorcall Objects/classobject.c:60
+    #170 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #171 0x78503414e825 in call_function Python/ceval.c:4963
+    #172 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #173 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #174 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #175 0x7850341212c2 in _PyObject_FastCallDict Objects/call.c:104
+    #176 0x785034121e07 in _PyObject_Call_Prepend Objects/call.c:888
+    #177 0x78503417b968 in slot_tp_call Objects/typeobject.c:6556
+    #178 0x785034121580 in _PyObject_MakeTpCall Objects/call.c:159
+    #179 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:125
+    #180 0x78503414f450 in _PyObject_Vectorcall Include/cpython/abstract.h:115
+    #181 0x78503414f450 in call_function Python/ceval.c:4963
+    #182 0x78503414f450 in _PyEval_EvalFrameDefault Python/ceval.c:3515
+    #183 0x78503414a550 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #184 0x785034121ad8 in _PyFunction_Vectorcall Objects/call.c:436
+    #185 0x78503414e825 in _PyObject_Vectorcall Include/cpython/abstract.h:127
+    #186 0x78503414e825 in call_function Python/ceval.c:4963
+    #187 0x78503414e825 in _PyEval_EvalFrameDefault Python/ceval.c:3469
+    #188 0x78503414a100 in _PyEval_EvalCodeWithName Python/ceval.c:4298
+    #189 0x785034188118 in PyEval_EvalCodeEx Python/ceval.c:4327
+    #190 0x7850341880da in PyEval_EvalCode Python/ceval.c:718
+    #191 0x785034194357 in run_eval_code_obj Python/pythonrun.c:1166
+    #192 0x7850341942f2 in run_mod Python/pythonrun.c:1188
+    #193 0x78503419418f in pyrun_file Python/pythonrun.c:1085
+    #194 0x785034194075 in pyrun_simple_file Python/pythonrun.c:439
+    #195 0x785034194075 in PyRun_SimpleFileExFlags Python/pythonrun.c:472
+    #196 0x7850341988df in pymain_run_file Modules/main.c:385
+    #197 0x7850341988df in pymain_run_python Modules/main.c:614
+    #198 0x7850341988df in Py_RunMain Modules/main.c:693
+    #199 0x7850341984f8 in Py_BytesMain Modules/main.c:747
+    #200 0x785033e19d79 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x23d79)
+    #201 0x5a7df5bb7089 in _start (/usr/local/bin/python3.8+0x1089)
+
+BENCHMARK_NODE_EXIT scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16] 1
+scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16] FAILED

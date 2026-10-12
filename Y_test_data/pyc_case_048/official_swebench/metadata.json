@@ -1,0 +1,123 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "47",
+  "candidate_case": "048",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The exact upstream protected test patch retains all five dtype parameters. Formal grading selects only float16 (the discriminating comparator-table bounds case) plus test_basic and test_none. Ordinary builds passed on both revisions. The same non-recovering bounds configuration is applied to Base, Gold and candidate builds; each official pytest node runs in a separate subprocess to preserve neighboring results after the diagnostic.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2021-06-30",
+  "created_at_precision": "date",
+  "instance_id": "scipy__scipy-14327",
+  "source_instance_id": "pyc_case_048",
+  "repo": "scipy/scipy",
+  "issue_id": "14327",
+  "issue_url": "https://github.com/scipy/scipy/pull/14327",
+  "project_version": "1.8.0.dev0",
+  "base_commit": "018986cb0260881827c6ef33cd2d804f54e39c85",
+  "fix_commit": "ed220ccdf4bab8fd25293afec26a8cb321f12921",
+  "FAIL_TO_PASS": [
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16]"
+  ],
+  "PASS_TO_PASS": [
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic",
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/GFortran 10; prebuilt C/C++/Fortran -O0 -g0; candidate C -O0 -g -fsanitize=bounds -fno-sanitize-recover=bounds and LDFLAGS=-fsanitize=bounds; Cython 0.29.36; pybind11 2.6.1; SCIPY_USE_PYTHRAN=0",
+    "base_target_status": "FAILED (non-recovering bounds diagnostic in isolated official float16 node)",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-048-scipy:benchmark-v1",
+      "id": "sha256:064bfb4045a30796b74a723138efe20e24f2be4e0aa19f4ef6a3a644cce2ce85",
+      "repo_digests": [
+        "yutu0814/pyc-case-048-scipy@sha256:064bfb4045a30796b74a723138efe20e24f2be4e0aa19f4ef6a3a644cce2ce85"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "scipy__scipy-14327",
+      "base_commit": "018986cb0260881827c6ef33cd2d804f54e39c85",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-048-final-gold/summary.json",
+      "verification/runs/case-048-final-negative/summary.json",
+      "verification/runs/case-048-final-tamper/summary.json"
+    ]
+  },
+  "product_files": [
+    "scipy/signal/sigtoolsmodule.c"
+  ],
+  "test_files": [
+    "scipy/signal/tests/test_signaltools.py"
+  ],
+  "merged_at": "2021-07-02",
+  "created_at_source": "https://api.github.com/repos/scipy/scipy/pulls/14327",
+  "date_semantics": "created_at is PR opening date, merged_at is merge date; dataset dates have UTC date precision"
+}

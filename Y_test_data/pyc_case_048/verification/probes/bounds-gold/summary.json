@@ -1,0 +1,39 @@
+{
+  "label": "gold",
+  "image": "pyc-case048-prototype-base:latest",
+  "instrumentation": "GCC 10 bounds sanitizer, non-recovering; same flags for Base and Gold",
+  "nodes": [
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic",
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none",
+    "scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16]"
+  ],
+  "startedAt": "2026-10-12T11:20:24.480Z",
+  "finishedAt": "2026-10-12T11:20:28.137Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case048_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case048_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case048-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; touch scipy/signal/sigtoolsmodule.c; CFLAGS=\"-O0 -g -fsanitize=bounds -fno-sanitize-recover=bounds\" LDFLAGS=\"-fsanitize=bounds\" python setup.py build_ext -i >/tmp/build-bounds.log 2>&1 || { tail -80 /tmp/build-bounds.log; exit 2; }; grep -E \"sigtoolsmodule.c|fsanitize=bounds\" /tmp/build-bounds.log | tail -10; UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1 python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv 'scipy/signal/tests/test_signaltools.py::TestMedFilt::test_basic' 'scipy/signal/tests/test_signaltools.py::TestMedFilt::test_none' 'scipy/signal/tests/test_signaltools.py::TestMedFilt::test_invalid_dtypes[float16]'"
+  ]
+}
