@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-053-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "Tests/test_imagedraw.py::test_point_I16": "PASSED",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_imagedraw.py::test_sanity": "PASSED",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]": "PASSED"
+  },
+  "unexpected_failures": []
+}

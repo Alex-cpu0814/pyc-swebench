@@ -1,0 +1,2 @@
+error: patch failed: Tests/test_imagefont.py:141
+error: Tests/test_imagefont.py: patch does not apply

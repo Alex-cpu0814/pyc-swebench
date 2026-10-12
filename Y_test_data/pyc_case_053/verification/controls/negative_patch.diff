@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 994146c..dab84ad 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@
+ 
+ # Pillow
+ 
++The evaluator negative control leaves image drawing and text implementations unchanged.
++
+ ## Python Imaging Library (Fork)
+ 
+ Pillow is the friendly PIL fork by [Jeffrey A. Clark (Alex) and

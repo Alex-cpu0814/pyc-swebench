@@ -1,0 +1,35 @@
+{
+  "instance_id": "pyc_case_053",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_build_with_freetype",
+  "python_version_target": "3.8",
+  "native_requirement": "Pinned Debian Bullseye gcc=4:10.2.1-1, libjpeg62-turbo-dev=1:2.0.6-4, zlib1g-dev=1:1.2.11.dfsg-2+deb11u2, libfreetype6-dev=2.10.4+dfsg-1+deb11u1",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_imagedraw.py, Tests/test_imagefont.py, Tests/images/imagedraw_rectangle_I.png.",
+    "Ordinary native Base fails both official I;16 assertions: point produces 13364 (0x3434) instead of 4660 (0x1234), and BASIC-layout text produces 65278 (0xFEFE) instead of 65534 (0xFFFE). Gold passes those two nodes plus the unchanged drawing and font-property regressions.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+  "fix_commit": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_imagedraw.py",
+    "Tests/test_imagefont.py",
+    "Tests/images/imagedraw_rectangle_I.png"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_imagedraw.py::test_point_I16",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_imagedraw.py::test_sanity",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]"
+  ]
+}

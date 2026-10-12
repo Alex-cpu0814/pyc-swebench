@@ -1,0 +1,13 @@
+diff --git a/Tests/test_imagefont.py b/Tests/test_imagefont.py
+index 02622e7..0735941 100644
+--- a/Tests/test_imagefont.py
++++ b/Tests/test_imagefont.py
+@@ -141,7 +141,7 @@ def test_I16(font):
+     draw = ImageDraw.Draw(im)
+ 
+     txt = "Hello World!"
+-    draw.text((10, 10), txt, font=font)
++    draw.text((10, 10), txt, fill=1, font=font)
+ 
+     target = "Tests/images/transparent_background_text_L.png"
+     assert_image_similar_tofile(im.convert("L"), target, 0.01)

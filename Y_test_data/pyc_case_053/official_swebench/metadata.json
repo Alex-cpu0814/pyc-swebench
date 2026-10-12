@@ -1,0 +1,132 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "52",
+  "candidate_case": "053",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Two FAIL_TO_PASS nodes cover independent native corrections: test_point_I16 (Draw.c) and test_I16[Layout.BASIC] (Paste.c). Two unchanged PASS_TO_PASS nodes cover normal drawing and BASIC font properties. The exact protected upstream patch also retains rectangle tests and their binary PNG. RAQM parameters are outside this minimal scope because RAQM is absent; BASIC FreeType nodes execute without skips.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2023-07-04",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-7257",
+  "source_instance_id": "pyc_case_053",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "7257",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/7257",
+  "project_version": "10.1.0.dev0",
+  "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+  "fix_commit": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+  "FAIL_TO_PASS": [
+    "Tests/test_imagedraw.py::test_point_I16",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_imagedraw.py::test_sanity",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "2 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-053-pillow:benchmark-v1",
+      "id": "sha256:fa3a641ce23062b01e43021ba76fa77574047cb21422ef0daa18c642dd7c7ccc",
+      "repo_digests": [
+        "yutu0814/pyc-case-053-pillow@sha256:fa3a641ce23062b01e43021ba76fa77574047cb21422ef0daa18c642dd7c7ccc"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 0,
+            "failed": 2,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 2
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-7257",
+      "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-053-final-gold/summary.json",
+      "verification/runs/case-053-final-negative/summary.json",
+      "verification/runs/case-053-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2023-10-05",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/7257",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately",
+  "binary_patches": true,
+  "test_assets": [
+    "Tests/images/imagedraw_rectangle_I.png"
+  ],
+  "source_trace_scope": "Original source row 52 references the RGB test_modify_after_resizing path. It is retained as source metadata and is not the execution trace of the verified I;16 drawing/text regression.",
+  "product_files": [
+    "src/libImaging/Draw.c",
+    "src/libImaging/Paste.c"
+  ],
+  "test_files": [
+    "Tests/test_imagedraw.py",
+    "Tests/test_imagefont.py",
+    "Tests/images/imagedraw_rectangle_I.png"
+  ]
+}

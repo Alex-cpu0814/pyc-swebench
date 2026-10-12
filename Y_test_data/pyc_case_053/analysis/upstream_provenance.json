@@ -1,0 +1,25 @@
+{
+  "upstream_url": "https://github.com/python-pillow/Pillow/pull/7257",
+  "related_issue_url": "https://github.com/python-pillow/Pillow/issues/7245",
+  "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+  "fix_commit": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+  "merge_parents": [
+    "09605ff48e582fda6870a2c4c519650321f3f8de",
+    "ba9c830b0356a209f44f747ba6b0090894dc1608"
+  ],
+  "upstream_created_at": "2023-07-04",
+  "upstream_merged_at": "2023-10-05",
+  "upstream_created_at_timestamp": "2023-07-04T12:34:55Z",
+  "upstream_merged_at_timestamp": "2023-10-05T18:54:26Z",
+  "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/7257",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately",
+  "source_trace_scope": "Original source row 52 references the RGB test_modify_after_resizing path. It is retained as source metadata and is not the execution trace of the verified I;16 drawing/text regression.",
+  "binary_test_asset": "Tests/images/imagedraw_rectangle_I.png",
+  "binary_test_asset_gold_blob": "a75f12c2e98f417e662f2661eab980b45b61cde1",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1"
+  }
+}

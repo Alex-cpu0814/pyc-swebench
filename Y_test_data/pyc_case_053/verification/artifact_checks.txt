@@ -1,0 +1,3 @@
+Parsed 36 JSON/JSONL files; evaluator syntax OK.
+XLSX two sheets, exact numeric opening/merge dates, no error cells; Artifact Tool error scan has zero matches.
+Original trace preserved and scope distinguished; binary PNG is protected test asset; all saved probe/build/auxiliary copies match SHA256.

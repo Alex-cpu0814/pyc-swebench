@@ -1,0 +1,9 @@
+{
+  "source": "https://api.github.com/repos/python-pillow/Pillow/pulls/7257",
+  "number": 7257,
+  "html_url": "https://github.com/python-pillow/Pillow/pull/7257",
+  "created_at": "2023-07-04T12:34:55Z",
+  "merged_at": "2023-10-05T18:54:26Z",
+  "merge_commit_sha": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+  "verification": "read-only GitHub REST API query; exact fields cross-checked with local merge object"
+}

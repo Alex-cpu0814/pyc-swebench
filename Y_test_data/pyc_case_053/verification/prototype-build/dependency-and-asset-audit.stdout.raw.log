@@ -1,0 +1,7 @@
+BINARY_TEST_ASSET_MATCHES_UPSTREAM
+gcc	4:10.2.1-1
+libfreetype6:amd64	2.10.4+dfsg-1+deb11u1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libjpeg62-turbo-dev:amd64	1:2.0.6-4
+zlib1g-dev:amd64	1:1.2.11.dfsg-2+deb11u2
+/testbed/src/PIL/__init__.py

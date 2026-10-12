@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-053-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_imagedraw.py::test_point_I16": "MISSING",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_imagedraw.py::test_sanity": "MISSING",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]": "MISSING"
+  },
+  "unexpected_failures": []
+}

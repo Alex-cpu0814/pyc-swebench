@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 053 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"52\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"6f73691564908f70967cf76b8f4f88e390f57fe9\"],[\"Base commit\",\"09605ff48e582fda6870a2c4c519650321f3f8de\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/7257\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 428\"],[\"Bug location type\",\"function call + assignment\"],[\"Root cause\",\"logic error\"],[\"Fixing strategy\",\"change the argument in the function call\"],[\"Fix location\",\"assignment statement + function call\"],[\"Problem statement\",\"Drawing on an I;16 image uses the low byte of the requested fill color twice. Drawing a point with fill 0x1234 should preserve the full 16-bit value 0x1234 instead of 0x3434. Rendering text must similarly preserve the independent high and low bytes. Normal drawing and font behavior should remain correct.\"],[\"Original source trace\",\"428(c_Paste_9-cfg.dot) (fill_mask_L) ... -> 400(c_Paste_9-cfg.dot) (fill_mask_L) -> 609(c_Paste_12-cfg.dot) (ImagingFill2) ... -> 549(c_Paste_12-cfg.dot) (ImagingFill2) -> 1402(c__imaging_49-cfg.dot) (_paste) ... -> 1375(c__imaging_49-cfg.dot) (_paste) -> 46(py_test_image_resample_4-cfg.dot) (test_modify_after_resizing)\"],[\"Source trace scope\",\"Original source row 52 references the RGB test_modify_after_resizing path. It is retained as source metadata and is not the execution trace of the verified I;16 drawing/text regression.\"],[\"Verified Base trace\",\"Ordinary native Base fails both official I;16 assertions: point produces 13364 (0x3434) instead of 4660 (0x1234), and BASIC-layout text produces 65278 (0xFEFE) instead of 65534 (0xFFFE). Gold passes those two nodes plus the unchanged drawing and font-property regressions.\"],[\"Verified official test\",\"Tests/test_imagedraw.py::test_point_I16\\nTests/test_imagefont.py::test_I16[Layout.BASIC]\\nTests/test_imagedraw.py::test_sanity\\nTests/test_imagefont.py::test_font_properties[Layout.BASIC]\"],[\"Official test scope\",\"Two FAIL_TO_PASS nodes cover independent native corrections: test_point_I16 (Draw.c) and test_I16[Layout.BASIC] (Paste.c). Two unchanged PASS_TO_PASS nodes cover normal drawing and BASIC font properties. The exact protected upstream patch also retains rectangle tests and their binary PNG. RAQM parameters are outside this minimal scope because RAQM is absent; BASIC FreeType nodes execute without skips.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "y1ou3c",
+          "target": {
+            "id": "wb/cpnr5t",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 053 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-7257\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"10.1.0.dev0\"],[\"Created at\",45111],[\"Base commit\",\"09605ff48e582fda6870a2c4c519650321f3f8de\"],[\"Fix commit\",\"6f73691564908f70967cf76b8f4f88e390f57fe9\"],[\"Merged at\",45204],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/7257\"],[\"Test source\",\"Official upstream pytest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_imagedraw.py::test_point_I16\"],[\"FAIL_TO_PASS (2)\",\"Tests/test_imagefont.py::test_I16[Layout.BASIC]\"],[\"PASS_TO_PASS (1)\",\"Tests/test_imagedraw.py::test_sanity\"],[\"PASS_TO_PASS (2)\",\"Tests/test_imagefont.py::test_font_properties[Layout.BASIC]\"],[\"Base / Gold outcome\",\"Base: two I;16 target failures and two unchanged regressions pass; Gold: all four official nodes pass\"],[\"Docker image\",\"yutu0814/pyc-case-053-pillow:benchmark-v1\"],[\"Problem statement\",\"Drawing on an I;16 image uses the low byte of the requested fill color twice. Drawing a point with fill 0x1234 should preserve the full 16-bit value 0x1234 instead of 0x3434. Rendering text must similarly preserve the independent high and low bytes. Normal drawing and font behavior should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "1381te",
+          "target": {
+            "id": "wb/qyqq9q",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

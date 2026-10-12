@@ -1,0 +1,11 @@
+{
+  "instance_id": "python-pillow__Pillow-7257",
+  "repo": "python-pillow/Pillow",
+  "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+  "problem_statement": "Drawing on an I;16 image uses the low byte of the requested fill color twice. Drawing a point with fill 0x1234 should preserve the full 16-bit value 0x1234 instead of 0x3434. Rendering text must similarly preserve the independent high and low bytes. Normal drawing and font behavior should remain correct.",
+  "hints_text": "",
+  "created_at": "2023-07-04",
+  "version": "10.1.0.dev0",
+  "issue_id": "7257",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/7257"
+}

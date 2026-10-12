@@ -1,0 +1,112 @@
+{
+  "caseNumber": "053",
+  "sourceCase": "52",
+  "sourceInstanceId": "pyc_case_053",
+  "instanceId": "python-pillow__Pillow-7257",
+  "projectName": "Pillow",
+  "repo": "python-pillow/Pillow",
+  "repoUrl": "https://github.com/python-pillow/Pillow.git",
+  "issueId": "7257",
+  "issueUrl": "https://github.com/python-pillow/Pillow/pull/7257",
+  "baseCommit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+  "fixCommit": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": "2023-07-04",
+  "mergedAt": "2023-10-05",
+  "version": "10.1.0.dev0",
+  "image": "yutu0814/pyc-case-053-pillow:benchmark-v1",
+  "prototypeImage": "pyc-case053-prototype-base:latest",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/Pillow",
+  "binaryPatches": true,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "nativeRequirement": "Pinned Debian Bullseye gcc=4:10.2.1-1, libjpeg62-turbo-dev=1:2.0.6-4, zlib1g-dev=1:1.2.11.dfsg-2+deb11u2, libfreetype6-dev=2.10.4+dfsg-1+deb11u1",
+  "compilerToolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "buildCommand": "python setup.py build_ext -i --force",
+  "buildSystem": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "environment": "pillow_native_build_with_freetype",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "testExecution": "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>",
+  "pytestPathPrefix": "Tests/",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "testFile": "Tests/test_imagedraw.py",
+  "testFiles": [
+    "Tests/test_imagedraw.py",
+    "Tests/test_imagefont.py",
+    "Tests/images/imagedraw_rectangle_I.png"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case053_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case053_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pillow053-local",
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationStatus": "verified_base_gold",
+  "failToPass": [
+    "Tests/test_imagedraw.py::test_point_I16",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]"
+  ],
+  "passToPass": [
+    "Tests/test_imagedraw.py::test_sanity",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]"
+  ],
+  "probeNodes": [
+    "Tests/test_imagedraw.py::test_sanity",
+    "Tests/test_imagefont.py::test_font_properties[Layout.BASIC]",
+    "Tests/test_imagedraw.py::test_point_I16",
+    "Tests/test_imagefont.py::test_I16[Layout.BASIC]"
+  ],
+  "problemStatement": "Drawing on an I;16 image uses the low byte of the requested fill color twice. Drawing a point with fill 0x1234 should preserve the full 16-bit value 0x1234 instead of 0x3434. Rendering text must similarly preserve the independent high and low bytes. Normal drawing and font behavior should remain correct.",
+  "upstreamDescription": "PR 7257 resolves issue 7245 by preserving 16-bit ink in Draw.c, writing point bytes in the correct native order, and using ink[1] for the high byte in Paste.c masked fills. It adds a point test, strengthens an I;16 font test and updates the rectangle test and binary reference image.",
+  "provenance": {
+    "upstream_url": "https://github.com/python-pillow/Pillow/pull/7257",
+    "related_issue_url": "https://github.com/python-pillow/Pillow/issues/7245",
+    "base_commit": "09605ff48e582fda6870a2c4c519650321f3f8de",
+    "fix_commit": "6f73691564908f70967cf76b8f4f88e390f57fe9",
+    "merge_parents": [
+      "09605ff48e582fda6870a2c4c519650321f3f8de",
+      "ba9c830b0356a209f44f747ba6b0090894dc1608"
+    ],
+    "upstream_created_at": "2023-07-04",
+    "upstream_merged_at": "2023-10-05",
+    "upstream_created_at_timestamp": "2023-07-04T12:34:55Z",
+    "upstream_merged_at_timestamp": "2023-10-05T18:54:26Z",
+    "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/7257",
+    "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately",
+    "source_trace_scope": "Original source row 52 references the RGB test_modify_after_resizing path. It is retained as source metadata and is not the execution trace of the verified I;16 drawing/text regression.",
+    "binary_test_asset": "Tests/images/imagedraw_rectangle_I.png",
+    "binary_test_asset_gold_blob": "a75f12c2e98f417e662f2661eab980b45b61cde1",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1"
+    }
+  },
+  "verifiedError": "Ordinary native Base fails both official I;16 assertions: point produces 13364 (0x3434) instead of 4660 (0x1234), and BASIC-layout text produces 65278 (0xFEFE) instead of 65534 (0xFFFE). Gold passes those two nodes plus the unchanged drawing and font-property regressions.",
+  "targetSummary": "Base: two I;16 target failures and two unchanged regressions pass; Gold: all four official nodes pass",
+  "verifiedTest": "Tests/test_imagedraw.py::test_point_I16 and Tests/test_imagefont.py::test_I16[Layout.BASIC] and Tests/test_imagedraw.py::test_sanity and Tests/test_imagefont.py::test_font_properties[Layout.BASIC]",
+  "sourceTraceNotes": "Original source row 52 references the RGB test_modify_after_resizing path. It is retained as source metadata and is not the execution trace of the verified I;16 drawing/text regression.",
+  "testScope": "Two FAIL_TO_PASS nodes cover independent native corrections: test_point_I16 (Draw.c) and test_I16[Layout.BASIC] (Paste.c). Two unchanged PASS_TO_PASS nodes cover normal drawing and BASIC font properties. The exact protected upstream patch also retains rectangle tests and their binary PNG. RAQM parameters are outside this minimal scope because RAQM is absent; BASIC FreeType nodes execute without skips.",
+  "negativePatch": "diff --git a/README.md b/README.md\nindex 994146c..dab84ad 100644\n--- a/README.md\n+++ b/README.md\n@@ -4,6 +4,8 @@\n \n # Pillow\n \n+The evaluator negative control leaves image drawing and text implementations unchanged.\n+\n ## Python Imaging Library (Fork)\n \n Pillow is the friendly PIL fork by [Jeffrey A. Clark (Alex) and\n",
+  "tamperPatch": "diff --git a/Tests/test_imagefont.py b/Tests/test_imagefont.py\nindex 02622e7..0735941 100644\n--- a/Tests/test_imagefont.py\n+++ b/Tests/test_imagefont.py\n@@ -141,7 +141,7 @@ def test_I16(font):\n     draw = ImageDraw.Draw(im)\n \n     txt = \"Hello World!\"\n-    draw.text((10, 10), txt, font=font)\n+    draw.text((10, 10), txt, fill=1, font=font)\n \n     target = \"Tests/images/transparent_background_text_L.png\"\n     assert_image_similar_tofile(im.convert(\"L\"), target, 0.01)\n"
+}
