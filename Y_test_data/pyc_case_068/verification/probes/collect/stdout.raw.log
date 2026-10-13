@@ -1,0 +1,8 @@
+Tests/test_image_convert.py::test_default COLLECTED
+Tests/test_image_convert.py::test_8bit COLLECTED
+Tests/test_image_quantize.py::test_octree_quantize COLLECTED
+Tests/test_image_convert.py::test_rgba_p COLLECTED
+Tests/test_image_convert.py::test_trns_p COLLECTED
+Tests/test_image_convert.py::test_trns_l COLLECTED
+Tests/test_image_convert.py::test_trns_RGB COLLECTED
+Tests/test_image_quantize.py::test_rgba_quantize COLLECTED

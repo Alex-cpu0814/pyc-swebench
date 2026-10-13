@@ -1,0 +1,12 @@
+/tmp/test.diff:17: trailing whitespace.
+               
+/tmp/test.diff:18: trailing whitespace.
+def test_trns_p():    
+/tmp/test.diff:32: trailing whitespace.
+    
+/tmp/test.diff:38: trailing whitespace.
+    
+/tmp/test.diff:52: trailing whitespace.
+    
+warning: squelched 2 whitespace errors
+warning: 7 lines add whitespace errors.

@@ -1,0 +1,72 @@
+/tmp/gold.diff:35: trailing whitespace.
+                # color to an alpha channel.         
+/tmp/gold.diff:57: trailing whitespace.
+                        # after quantization. 
+/tmp/gold.diff:60: trailing whitespace.
+                        
+/tmp/gold.diff:61: trailing whitespace.
+                    
+/tmp/gold.diff:69: trailing whitespace.
+                # The transparency would be totally off in that case. 
+warning: squelched 4 whitespace errors
+warning: 9 lines add whitespace errors.
+/tmp/test.diff:17: trailing whitespace.
+               
+/tmp/test.diff:18: trailing whitespace.
+def test_trns_p():    
+/tmp/test.diff:32: trailing whitespace.
+    
+/tmp/test.diff:38: trailing whitespace.
+    
+/tmp/test.diff:52: trailing whitespace.
+    
+warning: squelched 2 whitespace errors
+warning: 7 lines add whitespace errors.
+/testbed/PIL/ImageColor.py:48: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w$", color)
+/testbed/PIL/ImageColor.py:55: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w\w\w\w$", color)
+/testbed/PIL/ImageColor.py:62: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/ImageColor.py:69: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)%\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:76: DeprecationWarning: invalid escape sequence \(
+  m = re.match("hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:89: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/PngImagePlugin.py:47: DeprecationWarning: invalid escape sequence \w
+  is_cid = re.compile(b"\w\w\w\w").match
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)

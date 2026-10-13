@@ -1,0 +1,24 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-068-final-negative",
+  "tests_observed": 8,
+  "FAIL_TO_PASS": {
+    "Tests/test_image_convert.py::test_rgba_p": "FAILED",
+    "Tests/test_image_convert.py::test_trns_p": "FAILED",
+    "Tests/test_image_convert.py::test_trns_l": "FAILED",
+    "Tests/test_image_convert.py::test_trns_RGB": "FAILED",
+    "Tests/test_image_quantize.py::test_rgba_quantize": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_image_convert.py::test_default": "PASSED",
+    "Tests/test_image_convert.py::test_8bit": "PASSED",
+    "Tests/test_image_quantize.py::test_octree_quantize": "PASSED"
+  },
+  "unexpected_failures": [
+    "Tests/test_image_convert.py::test_rgba_p",
+    "Tests/test_image_convert.py::test_trns_RGB",
+    "Tests/test_image_convert.py::test_trns_l",
+    "Tests/test_image_convert.py::test_trns_p",
+    "Tests/test_image_quantize.py::test_rgba_quantize"
+  ]
+}

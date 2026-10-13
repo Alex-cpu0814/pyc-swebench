@@ -1,0 +1,302 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.86kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 3.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade        gcc=4:10.2.1-1 libjpeg62-turbo-dev=1:2.0.6-4        zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 libfreetype6-dev=2.10.4+dfsg-1+deb11u1        libopenjp2-7-dev=2.4.0-3 libtiff-dev=4.2.0-1+deb11u5 git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#5 1.082 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 1.251 Get:2 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 1.393 Get:3 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 3.473 Get:4 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 4.420 Fetched 8204 kB in 4s (2072 kB/s)
+#5 4.420 Reading package lists...
+#5 4.936 Reading package lists...
+#5 5.436 Building dependency tree...
+#5 5.556 Reading state information...
+#5 5.705 Skipping ca-certificates, it is already installed and upgrade is not set.
+#5 5.705 Skipping libfreetype6-dev, it is already installed and upgrade is not set.
+#5 5.705 libfreetype6-dev set to manually installed.
+#5 5.705 Skipping gcc, it is already installed and upgrade is not set.
+#5 5.705 Skipping libjpeg62-turbo-dev, it is already installed and upgrade is not set.
+#5 5.705 libjpeg62-turbo-dev set to manually installed.
+#5 5.705 Skipping libopenjp2-7-dev, it is already installed and upgrade is not set.
+#5 5.705 libopenjp2-7-dev set to manually installed.
+#5 5.705 Skipping libtiff-dev, it is already installed and upgrade is not set.
+#5 5.705 libtiff-dev set to manually installed.
+#5 5.705 Skipping zlib1g-dev, it is already installed and upgrade is not set.
+#5 5.705 Skipping git, it is already installed and upgrade is not set.
+#5 5.705 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#5 DONE 5.7s
+
+#6 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 2.520 Collecting pip==24.3.1
+#6 2.779   Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+#6 3.174      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 4.7 MB/s eta 0:00:00
+#6 3.593 Collecting setuptools==68.2.2
+#6 3.686   Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+#6 3.738      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 16.2 MB/s eta 0:00:00
+#6 3.863 Collecting wheel==0.42.0
+#6 3.942   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+#6 3.950      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 12.8 MB/s eta 0:00:00
+#6 4.107 Collecting pytest==7.4.4
+#6 4.189   Downloading pytest-7.4.4-py3-none-any.whl (325 kB)
+#6 4.216      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.3/325.3 kB 14.7 MB/s eta 0:00:00
+#6 4.318 Collecting packaging==23.2
+#6 4.408   Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#6 4.413      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 17.0 MB/s eta 0:00:00
+#6 4.500 Collecting pluggy==1.3.0
+#6 4.581   Downloading pluggy-1.3.0-py3-none-any.whl (18 kB)
+#6 4.660 Collecting iniconfig==2.0.0
+#6 4.732   Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#6 4.819 Collecting exceptiongroup==1.2.2
+#6 4.894   Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+#6 5.028 Collecting tomli==2.0.1
+#6 5.103   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#6 5.285 Installing collected packages: wheel, tomli, setuptools, pluggy, pip, packaging, iniconfig, exceptiongroup, pytest
+#6 5.286   Attempting uninstall: wheel
+#6 5.287     Found existing installation: wheel 0.44.0
+#6 5.298     Uninstalling wheel-0.44.0:
+#6 5.322       Successfully uninstalled wheel-0.44.0
+#6 5.393   Attempting uninstall: setuptools
+#6 5.394     Found existing installation: setuptools 57.5.0
+#6 5.428     Uninstalling setuptools-57.5.0:
+#6 5.532       Successfully uninstalled setuptools-57.5.0
+#6 6.021   Attempting uninstall: pip
+#6 6.022     Found existing installation: pip 23.0.1
+#6 6.156     Uninstalling pip-23.0.1:
+#6 6.344       Successfully uninstalled pip-23.0.1
+#6 7.485 Successfully installed exceptiongroup-1.2.2 iniconfig-2.0.0 packaging-23.2 pip-24.3.1 pluggy-1.3.0 pytest-7.4.4 setuptools-68.2.2 tomli-2.0.1 wheel-0.42.0
+#6 7.486 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#6 DONE 8.0s
+
+#7 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/python-pillow/Pillow.git"     && git fetch --depth=1 origin "dc1664500be0135d83182d480af341d39b5c78d7"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "dc1664500be0135d83182d480af341d39b5c78d7"
+#7 0.281 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.281 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.281 hint: of your new repositories, which will suppress this warning, call:
+#7 0.281 hint: 
+#7 0.281 hint: 	git config --global init.defaultBranch <name>
+#7 0.281 hint: 
+#7 0.281 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.281 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.281 hint: 
+#7 0.281 hint: 	git branch -m <name>
+#7 0.283 Initialized empty Git repository in /testbed/.git/
+#7 3.798 From https://github.com/python-pillow/Pillow
+#7 3.798  * branch            dc1664500be0135d83182d480af341d39b5c78d7 -> FETCH_HEAD
+#7 3.879 HEAD is now at dc16645 Merge pull request #590 from wiredfool/ppc-setup
+#7 DONE 3.9s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python setup.py build_ext -i     && python -c 'import PIL; from PIL import Image; print(PIL.PILLOW_VERSION,PIL.__file__); assert Image.core.PILLOW_VERSION == PIL.PILLOW_VERSION'     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 0.429 running build_ext
+#9 0.502 building 'PIL._imaging' extension
+#9 0.502 creating build/temp.linux-x86_64-cpython-38/libImaging
+#9 0.503 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _imaging.c -o build/temp.linux-x86_64-cpython-38/_imaging.o
+#9 1.411 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c decode.c -o build/temp.linux-x86_64-cpython-38/decode.o
+#9 1.609 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c display.c -o build/temp.linux-x86_64-cpython-38/display.o
+#9 1.666 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c encode.c -o build/temp.linux-x86_64-cpython-38/encode.o
+#9 1.725 encode.c: In function ‘PyImaging_EncoderNew’:
+#9 1.725 encode.c:57:43: warning: comparison of constant ‘0’ with boolean expression is always false [-Wbool-compare]
+#9 1.725    57 |     if(!PyType_Ready(&ImagingEncoderType) < 0)
+#9 1.725       |                                           ^
+#9 1.725 encode.c:57:43: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+#9 1.725 encode.c:57:8: note: add parentheses around left hand side expression to silence this warning
+#9 1.725    57 |     if(!PyType_Ready(&ImagingEncoderType) < 0)
+#9 1.725       |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 1.725       |        (                                 )
+#9 1.891 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Access.c -o build/temp.linux-x86_64-cpython-38/libImaging/Access.o
+#9 2.076 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/AlphaComposite.c -o build/temp.linux-x86_64-cpython-38/libImaging/AlphaComposite.o
+#9 2.166 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Antialias.c -o build/temp.linux-x86_64-cpython-38/libImaging/Antialias.o
+#9 2.351 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Bands.c -o build/temp.linux-x86_64-cpython-38/libImaging/Bands.o
+#9 2.441 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/BitDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/BitDecode.o
+#9 2.529 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Blend.c -o build/temp.linux-x86_64-cpython-38/libImaging/Blend.o
+#9 2.616 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Chops.c -o build/temp.linux-x86_64-cpython-38/libImaging/Chops.o
+#9 2.819 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Convert.c -o build/temp.linux-x86_64-cpython-38/libImaging/Convert.o
+#9 4.018 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/ConvertYCbCr.c -o build/temp.linux-x86_64-cpython-38/libImaging/ConvertYCbCr.o
+#9 4.147 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Copy.c -o build/temp.linux-x86_64-cpython-38/libImaging/Copy.o
+#9 4.220 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Crc32.c -o build/temp.linux-x86_64-cpython-38/libImaging/Crc32.o
+#9 4.283 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Crop.c -o build/temp.linux-x86_64-cpython-38/libImaging/Crop.o
+#9 4.351 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Dib.c -o build/temp.linux-x86_64-cpython-38/libImaging/Dib.o
+#9 4.411 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Draw.c -o build/temp.linux-x86_64-cpython-38/libImaging/Draw.o
+#9 5.000 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Effects.c -o build/temp.linux-x86_64-cpython-38/libImaging/Effects.o
+#9 5.112 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/EpsEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/EpsEncode.o
+#9 5.188 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/File.c -o build/temp.linux-x86_64-cpython-38/libImaging/File.o
+#9 5.295 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Fill.c -o build/temp.linux-x86_64-cpython-38/libImaging/Fill.o
+#9 5.387 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Filter.c -o build/temp.linux-x86_64-cpython-38/libImaging/Filter.o
+#9 5.603 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/FliDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/FliDecode.o
+#9 5.749 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Geometry.c -o build/temp.linux-x86_64-cpython-38/libImaging/Geometry.o
+#9 6.329 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/GetBBox.c -o build/temp.linux-x86_64-cpython-38/libImaging/GetBBox.o
+#9 6.480 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/GifDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/GifDecode.o
+#9 6.599 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/GifEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/GifEncode.o
+#9 6.806 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/HexDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/HexDecode.o
+#9 6.876 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Histo.c -o build/temp.linux-x86_64-cpython-38/libImaging/Histo.o
+#9 6.984 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Incremental.c -o build/temp.linux-x86_64-cpython-38/libImaging/Incremental.o
+#9 7.036 libImaging/Incremental.c: In function ‘ImagingIncrementalCodecWrite’:
+#9 7.036 libImaging/Incremental.c:594:30: warning: operand of ‘?:’ changes signedness from ‘int’ to ‘size_t’ {aka ‘long unsigned int’} due to unsignedness of other operand [-Wsign-compare]
+#9 7.036   594 |           return done == 0 ? -1 : done;
+#9 7.036       |                              ^~
+#9 7.122 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Jpeg2KDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/Jpeg2KDecode.o
+#9 7.180 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Jpeg2KEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/Jpeg2KEncode.o
+#9 7.235 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/JpegDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/JpegDecode.o
+#9 7.341 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/JpegEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/JpegEncode.o
+#9 7.393 libImaging/JpegEncode.c: In function ‘ImagingJpegEncode’:
+#9 7.393 libImaging/JpegEncode.c:154:20: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
+#9 7.393   154 |      for (i = 0; i < sizeof(context->qtables)/sizeof(unsigned int); i++) {
+#9 7.393       |                    ^
+#9 7.394 libImaging/JpegEncode.c:233:37: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+#9 7.394   233 |         if (context->rawExifLen + 5 >  context->destination.pub.free_in_buffer){
+#9 7.394       |                                     ^
+#9 7.446 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/LzwDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/LzwDecode.o
+#9 7.546 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Matrix.c -o build/temp.linux-x86_64-cpython-38/libImaging/Matrix.o
+#9 7.634 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/ModeFilter.c -o build/temp.linux-x86_64-cpython-38/libImaging/ModeFilter.o
+#9 7.728 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/MspDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/MspDecode.o
+#9 7.802 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Negative.c -o build/temp.linux-x86_64-cpython-38/libImaging/Negative.o
+#9 7.865 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Offset.c -o build/temp.linux-x86_64-cpython-38/libImaging/Offset.o
+#9 7.948 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Pack.c -o build/temp.linux-x86_64-cpython-38/libImaging/Pack.o
+#9 8.389 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/PackDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/PackDecode.o
+#9 8.471 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Palette.c -o build/temp.linux-x86_64-cpython-38/libImaging/Palette.o
+#9 8.537 libImaging/Palette.c: In function ‘ImagingPaletteNew’:
+#9 8.537 libImaging/Palette.c:40:5: warning: ‘strncpy’ specified bound 7 equals destination size [-Wstringop-truncation]
+#9 8.537    40 |     strncpy(palette->mode, mode, IMAGING_MODE_LENGTH);
+#9 8.537       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 8.746 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Paste.c -o build/temp.linux-x86_64-cpython-38/libImaging/Paste.o
+#9 9.244 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/PcdDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/PcdDecode.o
+#9 9.325 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/PcxDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/PcxDecode.o
+#9 9.403 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/PcxEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/PcxEncode.o
+#9 9.496 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Point.c -o build/temp.linux-x86_64-cpython-38/libImaging/Point.o
+#9 9.656 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Quant.c -o build/temp.linux-x86_64-cpython-38/libImaging/Quant.o
+#9 10.11 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/QuantHash.c -o build/temp.linux-x86_64-cpython-38/libImaging/QuantHash.o
+#9 10.24 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/QuantHeap.c -o build/temp.linux-x86_64-cpython-38/libImaging/QuantHeap.o
+#9 10.30 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/QuantOctree.c -o build/temp.linux-x86_64-cpython-38/libImaging/QuantOctree.o
+#9 10.32 libImaging/QuantOctree.c: In function ‘copy_color_cube’:
+#9 10.32 libImaging/QuantOctree.c:188:20: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 10.32   188 |    if (cube->rBits > rBits) {
+#9 10.32       |                    ^
+#9 10.32 libImaging/QuantOctree.c:195:20: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 10.32   195 |    if (cube->gBits > gBits) {
+#9 10.32       |                    ^
+#9 10.32 libImaging/QuantOctree.c:202:20: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 10.32   202 |    if (cube->bBits > bBits) {
+#9 10.32       |                    ^
+#9 10.32 libImaging/QuantOctree.c:209:20: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 10.32   209 |    if (cube->aBits > aBits) {
+#9 10.32       |                    ^
+#9 10.45 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/RankFilter.c -o build/temp.linux-x86_64-cpython-38/libImaging/RankFilter.o
+#9 10.57 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/RawDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/RawDecode.o
+#9 10.65 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/RawEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/RawEncode.o
+#9 10.72 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Storage.c -o build/temp.linux-x86_64-cpython-38/libImaging/Storage.o
+#9 10.85 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/SunRleDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/SunRleDecode.o
+#9 10.93 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/TgaRleDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/TgaRleDecode.o
+#9 11.01 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/TiffDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/TiffDecode.o
+#9 11.12 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/Unpack.c -o build/temp.linux-x86_64-cpython-38/libImaging/Unpack.o
+#9 11.19 libImaging/Unpack.c:867:1: warning: ‘copy3’ defined but not used [-Wunused-function]
+#9 11.19   867 | copy3(UINT8* out, const UINT8* in, int pixels)
+#9 11.19       | ^~~~~
+#9 12.08 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/UnpackYCC.c -o build/temp.linux-x86_64-cpython-38/libImaging/UnpackYCC.o
+#9 12.17 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/UnsharpMask.c -o build/temp.linux-x86_64-cpython-38/libImaging/UnsharpMask.o
+#9 12.40 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/XbmDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/XbmDecode.o
+#9 12.48 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/XbmEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/XbmEncode.o
+#9 12.57 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/ZipDecode.c -o build/temp.linux-x86_64-cpython-38/libImaging/ZipDecode.o
+#9 12.71 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c libImaging/ZipEncode.c -o build/temp.linux-x86_64-cpython-38/libImaging/ZipEncode.o
+#9 12.87 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c map.c -o build/temp.linux-x86_64-cpython-38/map.o
+#9 13.00 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c outline.c -o build/temp.linux-x86_64-cpython-38/outline.o
+#9 13.08 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -DHAVE_LIBTIFF -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c path.c -o build/temp.linux-x86_64-cpython-38/path.o
+#9 13.14 In file included from /usr/local/include/python3.8/pytime.h:6,
+#9 13.14                  from /usr/local/include/python3.8/Python.h:85,
+#9 13.14                  from path.c:29:
+#9 13.14 path.c: In function ‘path_subscript’:
+#9 13.14 /usr/local/include/python3.8/object.h:111:29: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+#9 13.14   111 | #define _PyObject_CAST(op) ((PyObject*)(op))
+#9 13.14       |                            ~^~~~~~~~~~~~~~~~
+#9 13.14 /usr/local/include/python3.8/object.h:122:34: note: in expansion of macro ‘_PyObject_CAST’
+#9 13.14   122 | #define Py_TYPE(ob)             (_PyObject_CAST(ob)->ob_type)
+#9 13.14       |                                  ^~~~~~~~~~~~~~
+#9 13.14 path.c:586:22: note: in expansion of macro ‘Py_TYPE’
+#9 13.14   586 |                      Py_TYPE(&item)->tp_name);
+#9 13.14       |                      ^~~~~~~
+#9 13.30 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/_imaging.o build/temp.linux-x86_64-cpython-38/decode.o build/temp.linux-x86_64-cpython-38/display.o build/temp.linux-x86_64-cpython-38/encode.o build/temp.linux-x86_64-cpython-38/libImaging/Access.o build/temp.linux-x86_64-cpython-38/libImaging/AlphaComposite.o build/temp.linux-x86_64-cpython-38/libImaging/Antialias.o build/temp.linux-x86_64-cpython-38/libImaging/Bands.o build/temp.linux-x86_64-cpython-38/libImaging/BitDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Blend.o build/temp.linux-x86_64-cpython-38/libImaging/Chops.o build/temp.linux-x86_64-cpython-38/libImaging/Convert.o build/temp.linux-x86_64-cpython-38/libImaging/ConvertYCbCr.o build/temp.linux-x86_64-cpython-38/libImaging/Copy.o build/temp.linux-x86_64-cpython-38/libImaging/Crc32.o build/temp.linux-x86_64-cpython-38/libImaging/Crop.o build/temp.linux-x86_64-cpython-38/libImaging/Dib.o build/temp.linux-x86_64-cpython-38/libImaging/Draw.o build/temp.linux-x86_64-cpython-38/libImaging/Effects.o build/temp.linux-x86_64-cpython-38/libImaging/EpsEncode.o build/temp.linux-x86_64-cpython-38/libImaging/File.o build/temp.linux-x86_64-cpython-38/libImaging/Fill.o build/temp.linux-x86_64-cpython-38/libImaging/Filter.o build/temp.linux-x86_64-cpython-38/libImaging/FliDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Geometry.o build/temp.linux-x86_64-cpython-38/libImaging/GetBBox.o build/temp.linux-x86_64-cpython-38/libImaging/GifDecode.o build/temp.linux-x86_64-cpython-38/libImaging/GifEncode.o build/temp.linux-x86_64-cpython-38/libImaging/HexDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Histo.o build/temp.linux-x86_64-cpython-38/libImaging/Incremental.o build/temp.linux-x86_64-cpython-38/libImaging/Jpeg2KDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Jpeg2KEncode.o build/temp.linux-x86_64-cpython-38/libImaging/JpegDecode.o build/temp.linux-x86_64-cpython-38/libImaging/JpegEncode.o build/temp.linux-x86_64-cpython-38/libImaging/LzwDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Matrix.o build/temp.linux-x86_64-cpython-38/libImaging/ModeFilter.o build/temp.linux-x86_64-cpython-38/libImaging/MspDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Negative.o build/temp.linux-x86_64-cpython-38/libImaging/Offset.o build/temp.linux-x86_64-cpython-38/libImaging/Pack.o build/temp.linux-x86_64-cpython-38/libImaging/PackDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Palette.o build/temp.linux-x86_64-cpython-38/libImaging/Paste.o build/temp.linux-x86_64-cpython-38/libImaging/PcdDecode.o build/temp.linux-x86_64-cpython-38/libImaging/PcxDecode.o build/temp.linux-x86_64-cpython-38/libImaging/PcxEncode.o build/temp.linux-x86_64-cpython-38/libImaging/Point.o build/temp.linux-x86_64-cpython-38/libImaging/Quant.o build/temp.linux-x86_64-cpython-38/libImaging/QuantHash.o build/temp.linux-x86_64-cpython-38/libImaging/QuantHeap.o build/temp.linux-x86_64-cpython-38/libImaging/QuantOctree.o build/temp.linux-x86_64-cpython-38/libImaging/RankFilter.o build/temp.linux-x86_64-cpython-38/libImaging/RawDecode.o build/temp.linux-x86_64-cpython-38/libImaging/RawEncode.o build/temp.linux-x86_64-cpython-38/libImaging/Storage.o build/temp.linux-x86_64-cpython-38/libImaging/SunRleDecode.o build/temp.linux-x86_64-cpython-38/libImaging/TgaRleDecode.o build/temp.linux-x86_64-cpython-38/libImaging/TiffDecode.o build/temp.linux-x86_64-cpython-38/libImaging/Unpack.o build/temp.linux-x86_64-cpython-38/libImaging/UnpackYCC.o build/temp.linux-x86_64-cpython-38/libImaging/UnsharpMask.o build/temp.linux-x86_64-cpython-38/libImaging/XbmDecode.o build/temp.linux-x86_64-cpython-38/libImaging/XbmEncode.o build/temp.linux-x86_64-cpython-38/libImaging/ZipDecode.o build/temp.linux-x86_64-cpython-38/libImaging/ZipEncode.o build/temp.linux-x86_64-cpython-38/map.o build/temp.linux-x86_64-cpython-38/outline.o build/temp.linux-x86_64-cpython-38/path.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -ljpeg -lz -ltiff -o /testbed/PIL/_imaging.cpython-38-x86_64-linux-gnu.so
+#9 13.35 building 'PIL._imagingft' extension
+#9 13.35 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _imagingft.c -o build/temp.linux-x86_64-cpython-38/_imagingft.o
+#9 13.42 _imagingft.c: In function ‘font_render’:
+#9 13.42 _imagingft.c:411:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 13.42   411 |             for (y = 0; y < glyph->bitmap.rows; y++) {
+#9 13.42       |                           ^
+#9 13.42 _imagingft.c:430:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 13.42   430 |             for (y = 0; y < glyph->bitmap.rows; y++) {
+#9 13.42       |                           ^
+#9 13.57 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/_imagingft.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -lfreetype -o /testbed/PIL/_imagingft.cpython-38-x86_64-linux-gnu.so
+#9 13.59 building 'PIL._imagingcms' extension
+#9 13.59 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _imagingcms.c -o build/temp.linux-x86_64-cpython-38/_imagingcms.o
+#9 13.75 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/_imagingcms.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -llcms2 -o /testbed/PIL/_imagingcms.cpython-38-x86_64-linux-gnu.so
+#9 13.77 building 'PIL._webp' extension
+#9 13.77 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DHAVE_WEBPMUX -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _webp.c -o build/temp.linux-x86_64-cpython-38/_webp.o
+#9 13.87 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/_webp.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -lwebp -lwebpmux -lwebpdemux -o /testbed/PIL/_webp.cpython-38-x86_64-linux-gnu.so
+#9 13.90 building 'PIL._imagingtk' extension
+#9 13.90 creating build/temp.linux-x86_64-cpython-38/Tk
+#9 13.90 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c Tk/tkImaging.c -o build/temp.linux-x86_64-cpython-38/Tk/tkImaging.o
+#9 14.03 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _imagingtk.c -o build/temp.linux-x86_64-cpython-38/_imagingtk.o
+#9 14.13 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/Tk/tkImaging.o build/temp.linux-x86_64-cpython-38/_imagingtk.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -ltcl8.6 -ltk8.6 -o /testbed/PIL/_imagingtk.cpython-38-x86_64-linux-gnu.so
+#9 14.15 building 'PIL._imagingmath' extension
+#9 14.15 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/freetype2 -I/testbed/libImaging -I/usr/local/include -I/usr/include/tcl8.6 -I/usr/include -I/usr/local/include/python3.8 -I/usr/include/x86_64-linux-gnu -c _imagingmath.c -o build/temp.linux-x86_64-cpython-38/_imagingmath.o
+#9 14.68 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/_imagingmath.o -L/usr/local/lib -L/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib -L/usr/local/lib -L/usr/lib/x86_64-linux-gnu -o /testbed/PIL/_imagingmath.cpython-38-x86_64-linux-gnu.so
+#9 14.70 --------------------------------------------------------------------
+#9 14.70 PIL SETUP SUMMARY
+#9 14.70 --------------------------------------------------------------------
+#9 14.70 version      Pillow 2.3.0
+#9 14.70 platform     linux 3.8.20 (default, Sep 27 2024, 06:04:53)
+#9 14.70              [GCC 10.2.1 20210110]
+#9 14.70 --------------------------------------------------------------------
+#9 14.70 --- TKINTER support available
+#9 14.70 --- JPEG support available
+#9 14.70 *** OPENJPEG (JPEG2000) support not available
+#9 14.70 --- ZLIB (PNG/ZIP) support available
+#9 14.70 --- LIBTIFF support available
+#9 14.70 --- FREETYPE2 support available
+#9 14.70 --- LITTLECMS2 support available
+#9 14.70 --- WEBP support available
+#9 14.70 --- WEBPMUX support available
+#9 14.70 
+#9 14.70 *** Warning: zlib 1.2.11
+#9 14.70 may contain a security vulnerability.
+#9 14.70 *** Consider upgrading to zlib 1.2.3 or newer.
+#9 14.70 *** See: http://www.kb.cert.org/vuls/id/238678
+#9 14.70  http://www.kb.cert.org/vuls/id/680620
+#9 14.70  http://www.gzip.org/zlib/advisory-2002-03-11.txt
+#9 14.70 
+#9 14.70 --------------------------------------------------------------------
+#9 14.70 To add a missing option, make sure you have the required
+#9 14.70 library, and set the corresponding ROOT variable in the
+#9 14.70 setup.py script.
+#9 14.70 
+#9 14.70 To check the build, run the selftest.py script.
+#9 14.70 
+#9 14.74 2.3.0 /testbed/PIL/__init__.py
+#9 DONE 15.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 1.4s done
+#10 exporting manifest sha256:978b86120f05af84206cbc5904bbce553393d6c3b2d143ba5b4530c304be4b68 0.0s done
+#10 exporting config sha256:b9dcae71efe8c4e4c7d73d5394669156fedbb4d3d6c8601a8a7dc5404e987b5a 0.0s done
+#10 exporting attestation manifest sha256:e8789999022e1db7bff25f5051fe9604074153c72528c956503041bd0acb8286 0.0s done
+#10 exporting manifest list sha256:090fc133ed1dd721ca9136d75467ce922bdc4f464957bb02e17ad024bfb1653f 0.0s done
+#10 naming to docker.io/library/pyc-case068-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case068-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case068-prototype-base:latest 0.6s done
+#10 DONE 2.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ucb9jphsr4vlyhwmobu6481js

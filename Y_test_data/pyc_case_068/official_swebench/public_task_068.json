@@ -1,0 +1,11 @@
+{
+  "instance_id": "python-pillow__Pillow-574",
+  "repo": "python-pillow/Pillow",
+  "base_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "problem_statement": "Image conversions between L, RGB and palette modes should preserve or correctly translate indexed transparency metadata. RGBA-to-palette conversion and RGBA quantization should use the supported fast-octree method by default. Existing normal image conversions and quantization should remain correct.",
+  "hints_text": "",
+  "created_at": "2014-03-26",
+  "version": "2.3.0",
+  "issue_id": "574",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/574"
+}

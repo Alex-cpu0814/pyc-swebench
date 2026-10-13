@@ -1,0 +1,61 @@
+{
+  "startedAt": "2026-10-13T09:12:12.172Z",
+  "finishedAt": "2026-10-13T09:12:14.239Z",
+  "image": "yutu0814/pyc-case-068-pillow:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "runtime_audit": {
+    "pillow_version": "2.3.0",
+    "pillow_file": "/testbed/PIL/__init__.py",
+    "core_version": "2.3.0",
+    "core_file": "/testbed/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+    "core_sha256": "6e2ef70f9f930fece5c0ee001d34ada6758bbe9222d8b7ec68c82e1e7a52af26",
+    "jpeg_support": true,
+    "zlib_support": true,
+    "assets": {
+      "Images/lena.ppm": {
+        "size": 49167,
+        "sha256": "f258b4c65bd13ebff4df782016bac39d6775e0ce5eb5a13118ac541a56f10293"
+      },
+      "Images/lena.jpg": {
+        "size": 4788,
+        "sha256": "54e97bc5e2a8744022f3c57c08d2a36566067866d9cabfbdde131e99a485134a"
+      },
+      "PIL/Image.py": {
+        "size": 72534,
+        "sha256": "cd5c6ecb04930a4551afacc5ea437c135d7b4919f6f88830cc601f516e986d2f"
+      },
+      "_imaging.c": {
+        "size": 96038,
+        "sha256": "1b4f71f8fbe64ebf9816e72745a71f2c705d97cb783372e381f9b2bae87f8587"
+      },
+      "libImaging/Quant.c": {
+        "size": 42508,
+        "sha256": "c7e36a4736e0f243b6318c8633fac0a0289b62d9813c0bfa73e7e76fa58718c5"
+      },
+      "libImaging/QuantOctree.c": {
+        "size": 14255,
+        "sha256": "77b857beaf0cd983b1657c99782d400b7675d0aaa4588ea96b2a61f1060ca4c8"
+      }
+    }
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-068-pillow:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"dc1664500be0135d83182d480af341d39b5c78d7\"; test -z \"$(git status --porcelain)\"; test \"$(git hash-object Images/lena.ppm)\" = \"06a398ea5d213c8c2280f15d713ecaaa8d7d0257\"; test \"$(git hash-object Images/lena.jpg)\" = \"ed01c4e6769b3f01b13d78c6ee4e99e123d36464\"; test \"$(git hash-object PIL/Image.py)\" = \"7713fe7d9bce172d216636047432a8789b97900a\"; test \"$(git hash-object _imaging.c)\" = \"138ce01018da12aa525072b15d4ad7745d0190a1\"; test \"$(git hash-object libImaging/Quant.c)\" = \"5b8a8d9947e54915a3304621c1f87b5fef9168e2\"; test \"$(git hash-object libImaging/QuantOctree.c)\" = \"b233ccd2e6bb27411a5ff055cae6d8a9ed3c79aa\"; dpkg-query -W gcc libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev libopenjp2-7-dev libtiff-dev; python -c 'import PIL,json,hashlib,pathlib; from PIL import Image; files=[\"Images/lena.ppm\",\"Images/lena.jpg\",\"PIL/Image.py\",\"_imaging.c\",\"libImaging/Quant.c\",\"libImaging/QuantOctree.c\"]; report={\"pillow_version\":PIL.PILLOW_VERSION,\"pillow_file\":PIL.__file__,\"core_version\":Image.core.PILLOW_VERSION,\"core_file\":Image.core.__file__,\"core_sha256\":hashlib.sha256(pathlib.Path(Image.core.__file__).read_bytes()).hexdigest(),\"jpeg_support\":hasattr(Image.core,\"jpeg_decoder\"),\"zlib_support\":hasattr(Image.core,\"zip_decoder\"),\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files}}; assert report[\"pillow_version\"]==report[\"core_version\"]==\"2.3.0\"; assert report[\"jpeg_support\"] and report[\"zlib_support\"]; assert all(report[k].startswith(\"/testbed/PIL/\") for k in (\"pillow_file\",\"core_file\")); Image.open(\"Images/lena.ppm\").load(); Image.open(\"Images/lena.jpg\").load(); print(json.dumps(report))'"
+  ]
+}

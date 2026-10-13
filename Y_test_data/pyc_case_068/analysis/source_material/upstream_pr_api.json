@@ -1,0 +1,9 @@
+{
+  "number": 574,
+  "html_url": "https://github.com/python-pillow/Pillow/pull/574",
+  "title": "Indexed Transparency handled for conversions between L, RGB, and P modes",
+  "created_at": "2014-03-26T07:03:16Z",
+  "merged_at": "2014-04-01T04:40:22Z",
+  "merge_commit_sha": "fa165c8d70062d1dac943f51d861559b0433cf49",
+  "body": "Fixes #510\n\nIncludes #573, since I was going to have to manually merge anyway. \n"
+}

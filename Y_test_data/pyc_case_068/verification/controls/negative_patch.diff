@@ -1,0 +1,10 @@
+diff --git a/README.rst b/README.rst
+index 78a256c0..17eddebe 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,3 +1,5 @@
++The negative control leaves indexed transparency and RGBA quantization unchanged.
++
+ Pillow
+ ======
+ 

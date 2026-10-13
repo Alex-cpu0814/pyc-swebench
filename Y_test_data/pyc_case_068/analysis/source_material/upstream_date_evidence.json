@@ -1,0 +1,18 @@
+{
+  "source": "https://api.github.com/repos/python-pillow/Pillow/pulls/574",
+  "number": 574,
+  "html_url": "https://github.com/python-pillow/Pillow/pull/574",
+  "created_at": "2014-03-26T07:03:16Z",
+  "merged_at": "2014-04-01T04:40:22Z",
+  "api_merge_commit_sha": "fa165c8d70062d1dac943f51d861559b0433cf49",
+  "pinned_source_fix_commit": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "pinned_first_parent": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "source_commit_api_verified": true,
+  "source_commit_merge_time": "2014-04-01T04:40:22Z",
+  "source_commit_merge_message": "Merge pull request #574 from wiredfool/convert_trns\n\nIndexed Transparency handled for conversions between L, RGB, and P modes",
+  "alternate_commit_lookup": {
+    "requested_sha": "fa165c8d70062d1dac943f51d861559b0433cf49",
+    "error": "HTTP Error 422: Unprocessable Entity"
+  },
+  "relationship_result": "The PR API merge commit fa165c8d70062d1dac943f51d861559b0433cf49 differs from the fixed source commit 6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd. The source commit API verifies PR574 merge subject, parents and the same UTC merge timestamp. The alternate fa165 object returns HTTP 422, so tree or content equivalence cannot be checked. All patches and tests use source 6e2075 and its verified first parent."
+}

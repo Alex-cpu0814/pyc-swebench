@@ -1,0 +1,140 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "67",
+  "candidate_case": "068",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Five unchanged upstream functions cover RGBA-to-palette similarity at epsilon 20, indexed P/L/RGB transparency conversion and saving, default RGBA quantization and rejection of unsupported method 0. Three unchanged regressions cover normal default conversion, 8-bit float conversion and 100-color octree quantization. Each function executes once in a fresh process; original tester assertion counters and yield_test callbacks are preserved. An explicit node status and positive assertion count are required for passing, so os._exit(0) skip cannot pass grading. No new assertions, thresholds, image assets or product changes beyond the exact upstream patch are introduced.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_legacy_tester",
+  "created_at": "2014-03-26",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-574",
+  "source_instance_id": "pyc_case_068",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "574",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/574",
+  "project_version": "2.3.0",
+  "base_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "fix_commit": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "FAIL_TO_PASS": [
+    "Tests/test_image_convert.py::test_rgba_p",
+    "Tests/test_image_convert.py::test_trns_p",
+    "Tests/test_image_convert.py::test_trns_l",
+    "Tests/test_image_convert.py::test_trns_RGB",
+    "Tests/test_image_quantize.py::test_rgba_quantize"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image_convert.py::test_default",
+    "Tests/test_image_convert.py::test_8bit",
+    "Tests/test_image_quantize.py::test_octree_quantize"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "Original Pillow Tests/tester.py with explicit official assertion-count scoring",
+    "compiler_toolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "5 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-068-pillow:benchmark-v1",
+      "id": "sha256:38a579d4478242d8f8c82a87cbfec6b295062262989eb5404bb13f7535fed222",
+      "repo_digests": [
+        "yutu0814/pyc-case-068-pillow@sha256:38a579d4478242d8f8c82a87cbfec6b295062262989eb5404bb13f7535fed222"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 8,
+          "FAIL_TO_PASS": {
+            "expected": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 8,
+          "FAIL_TO_PASS": {
+            "expected": 5,
+            "passed": 0,
+            "failed": 5,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 5
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-574",
+      "base_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-068-final-gold/summary.json",
+      "verification/runs/case-068-final-negative/summary.json",
+      "verification/runs/case-068-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2014-04-01",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/574",
+  "date_semantics": "UTC PR opening and merge dates from official REST; source fixed merge committer UTC timestamp equals merged_at, but REST merge SHA differs and unavailable original object prevents tree equivalence check.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "Python"
+  ],
+  "native_product_files_changed": [],
+  "verified_scope": "Python image conversion/transparency/quantization behavior using a native Pillow runtime; no native C product diff",
+  "source_trace_scope": "Original source case 67 records crash and a mixed Image.quantize/EpsImagePlugin/TiffImagePlugin/ImageOps/ImageDraw/SaneDev_close trace. This original source metadata is retained separately from actual official tester conversion/quantization outcomes; no native crash or C fix is claimed without runtime evidence.",
+  "merge_identity_limitation": "The PR API merge commit fa165c8d70062d1dac943f51d861559b0433cf49 differs from the fixed source commit 6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd. The source commit API verifies PR574 merge subject, parents and the same UTC merge timestamp. The alternate fa165 object returns HTTP 422, so tree or content equivalence cannot be checked. All patches and tests use source 6e2075 and its verified first parent.",
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "CHANGES.rst",
+    "PIL/Image.py"
+  ],
+  "test_files": [
+    "Tests/test_image_convert.py",
+    "Tests/test_image_quantize.py",
+    "Tests/tester.py"
+  ]
+}

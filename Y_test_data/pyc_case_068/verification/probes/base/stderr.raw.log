@@ -1,0 +1,116 @@
+/tmp/test.diff:17: trailing whitespace.
+               
+/tmp/test.diff:18: trailing whitespace.
+def test_trns_p():    
+/tmp/test.diff:32: trailing whitespace.
+    
+/tmp/test.diff:38: trailing whitespace.
+    
+/tmp/test.diff:52: trailing whitespace.
+    
+warning: squelched 2 whitespace errors
+warning: 7 lines add whitespace errors.
+/testbed/PIL/ImageColor.py:48: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w$", color)
+/testbed/PIL/ImageColor.py:55: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w\w\w\w$", color)
+/testbed/PIL/ImageColor.py:62: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/ImageColor.py:69: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)%\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:76: DeprecationWarning: invalid escape sequence \(
+  m = re.match("hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:89: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/PngImagePlugin.py:47: DeprecationWarning: invalid escape sequence \w
+  is_cid = re.compile(b"\w\w\w\w").match
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 71, in <lambda>
+    assert_no_exception(lambda: rgb.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 578, in _save
+    red, green, blue = transparency
+TypeError: cannot unpack non-iterable int object
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 81, in <lambda>
+    assert_no_exception(lambda: rgb.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 578, in _save
+    red, green, blue = transparency
+TypeError: cannot unpack non-iterable int object
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 101, in <lambda>
+    assert_no_exception(lambda: l.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 575, in _save
+    transparency = max(0, min(65535, transparency))
+TypeError: '<' not supported between instances of 'tuple' and 'int'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 105, in <lambda>
+    assert_no_exception(lambda: p.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 571, in _save
+    transparency = max(0, min(255, transparency))
+TypeError: '<' not supported between instances of 'tuple' and 'int'
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/Image.py:656: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalettealphas(self.info["transparency"])
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 110, in <lambda>
+    assert_no_exception(lambda: p.save(f))
+  File "/testbed/PIL/Image.py", line 1464, in save
+    self.load()
+  File "/testbed/PIL/Image.py", line 656, in load
+    self.im.putpalettealphas(self.info["transparency"])
+TypeError: a bytes-like object is required, not 'tuple'
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_quantize.py", line 26, in <lambda>
+    assert_no_exception(lambda: im.quantize())
+  File "/testbed/PIL/Image.py", line 789, in quantize
+    im = self.im.quantize(colors, method, kmeans)
+ValueError: image has wrong mode

@@ -1,0 +1,88 @@
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_default
+/testbed/PIL/ImageColor.py:48: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w$", color)
+/testbed/PIL/ImageColor.py:55: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w\w\w\w$", color)
+/testbed/PIL/ImageColor.py:62: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/ImageColor.py:69: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)%\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:76: DeprecationWarning: invalid escape sequence \(
+  m = re.match("hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:89: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/PngImagePlugin.py:47: DeprecationWarning: invalid escape sequence \w
+  is_cid = re.compile(b"\w\w\w\w").match
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_default", "assertions_passed": 3, "assertions_failed": 0}
+Tests/test_image_convert.py::test_default PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_default", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_8bit
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_8bit", "assertions_passed": 1, "assertions_failed": 0}
+Tests/test_image_convert.py::test_8bit PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_8bit", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_quantize.py::test_octree_quantize
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_quantize.py::test_octree_quantize", "assertions_passed": 1, "assertions_failed": 0}
+Tests/test_image_quantize.py::test_octree_quantize PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_quantize.py::test_octree_quantize", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_rgba_p
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_rgba_p", "assertions_passed": 1, "assertions_failed": 0}
+Tests/test_image_convert.py::test_rgba_p PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_rgba_p", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_p
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_p", "assertions_passed": 4, "assertions_failed": 0}
+Tests/test_image_convert.py::test_trns_p PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_p", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_l
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_l", "assertions_passed": 8, "assertions_failed": 0}
+Tests/test_image_convert.py::test_trns_l PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_l", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_RGB
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_RGB", "assertions_passed": 8, "assertions_failed": 0}
+Tests/test_image_convert.py::test_trns_RGB PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_RGB", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_quantize.py::test_rgba_quantize
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_quantize.py::test_rgba_quantize", "assertions_passed": 2, "assertions_failed": 0}
+Tests/test_image_quantize.py::test_rgba_quantize PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_quantize.py::test_rgba_quantize", "returncode": 0, "signal": null}

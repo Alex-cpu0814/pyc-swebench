@@ -1,0 +1,18 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-068-final-gold",
+  "tests_observed": 8,
+  "FAIL_TO_PASS": {
+    "Tests/test_image_convert.py::test_rgba_p": "PASSED",
+    "Tests/test_image_convert.py::test_trns_p": "PASSED",
+    "Tests/test_image_convert.py::test_trns_l": "PASSED",
+    "Tests/test_image_convert.py::test_trns_RGB": "PASSED",
+    "Tests/test_image_quantize.py::test_rgba_quantize": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_image_convert.py::test_default": "PASSED",
+    "Tests/test_image_convert.py::test_8bit": "PASSED",
+    "Tests/test_image_quantize.py::test_octree_quantize": "PASSED"
+  },
+  "unexpected_failures": []
+}

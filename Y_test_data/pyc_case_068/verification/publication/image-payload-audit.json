@@ -1,0 +1,29 @@
+{
+  "image": "yutu0814/pyc-case-068-pillow:benchmark-v1",
+  "verified_image_id": "sha256:38a579d4478242d8f8c82a87cbfec6b295062262989eb5404bb13f7535fed222",
+  "config_env": [
+    "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+    "PYTHON_VERSION=3.8.20",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "PYTHONPATH=/testbed:/testbed/Tests",
+    "MAX_CONCURRENCY=4"
+  ],
+  "config_volumes": null,
+  "config_labels": null,
+  "source_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "tracked_public_source_files": 540,
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile in staged build context; .dockerignore excludes all other host files",
+  "payload_scope": "Pinned public Python image, public Debian/pip dependencies and anonymous exact public Pillow first-parent source plus its compiled libraries. No user attachments, workbooks, private patches or evaluator runtime assets are copied into the image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-13T09:22:09.234Z"
+}

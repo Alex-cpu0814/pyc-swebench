@@ -1,0 +1,39 @@
+{
+  "instance_id": "pyc_case_068",
+  "task_level": "integration",
+  "validation_type": "official_legacy_tester",
+  "environment": "pillow_legacy_root_package_transparency_quantization",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; root PIL/ layout; PYTHONPATH=/testbed:/testbed/Tests loads rebuilt native extensions",
+  "test_execution": [
+    "Each original official tester function executes in a fresh process. The runner executes official yield_test callbacks and grades original tester.success/failure counters without changing assertions."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_image_convert.py, Tests/test_image_quantize.py, Tests/tester.py.",
+    "Base five official targets fail: RGBA palette roundtrip average pixel difference 162.9834 exceeds the upstream limit of 20; indexed transparency retains incorrect scalar/tuple values and PNG saves raise TypeError; default RGBA quantization raises ValueError: image has wrong mode. Original official tester counters record each failure. Three unchanged conversion/quantization regressions pass. Gold passes all eight nodes without skips or process signals. Product changes are Python-only, no native crash reproduced.",
+    "3 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "fix_commit": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_image_convert.py",
+    "Tests/test_image_quantize.py",
+    "Tests/tester.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_image_convert.py::test_rgba_p",
+    "Tests/test_image_convert.py::test_trns_p",
+    "Tests/test_image_convert.py::test_trns_l",
+    "Tests/test_image_convert.py::test_trns_RGB",
+    "Tests/test_image_quantize.py::test_rgba_quantize"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image_convert.py::test_default",
+    "Tests/test_image_convert.py::test_8bit",
+    "Tests/test_image_quantize.py::test_octree_quantize"
+  ]
+}

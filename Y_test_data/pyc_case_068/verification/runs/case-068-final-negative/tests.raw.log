@@ -1,0 +1,167 @@
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_default
+/testbed/PIL/ImageColor.py:48: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w$", color)
+/testbed/PIL/ImageColor.py:55: DeprecationWarning: invalid escape sequence \w
+  m = re.match("#\w\w\w\w\w\w$", color)
+/testbed/PIL/ImageColor.py:62: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/ImageColor.py:69: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgb\(\s*(\d+)%\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:76: DeprecationWarning: invalid escape sequence \(
+  m = re.match("hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$", color)
+/testbed/PIL/ImageColor.py:89: DeprecationWarning: invalid escape sequence \(
+  m = re.match("rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$", color)
+/testbed/PIL/PngImagePlugin.py:47: DeprecationWarning: invalid escape sequence \w
+  is_cid = re.compile(b"\w\w\w\w").match
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_default", "assertions_passed": 3, "assertions_failed": 0}
+Tests/test_image_convert.py::test_default PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_default", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_8bit
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_8bit", "assertions_passed": 1, "assertions_failed": 0}
+Tests/test_image_convert.py::test_8bit PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_8bit", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_quantize.py::test_octree_quantize
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_quantize.py::test_octree_quantize", "assertions_passed": 1, "assertions_failed": 0}
+Tests/test_image_quantize.py::test_octree_quantize PASSED
+ok
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_quantize.py::test_octree_quantize", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_rgba_p
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+Tests/test_image_convert.py:56: assert_image_similar(im, comparable, 20) failed:
+- average pixel value difference 162.9834 > epsilon 20.0000
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_rgba_p", "assertions_passed": 0, "assertions_failed": 1}
+Tests/test_image_convert.py::test_rgba_p FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_rgba_p", "returncode": 1, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_p
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+Tests/test_image_convert.py:70: assert_equal(rgb.info['transparency'], (0,0,0)) # undone failed:
+- got 0, expected (0, 0, 0)
+Tests/test_image_convert.py:71: assert_no_exception(lambda: rgb.save(f)) failed:
+- expected no exception, got 'TypeError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 71, in <lambda>
+    assert_no_exception(lambda: rgb.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 578, in _save
+    red, green, blue = transparency
+TypeError: cannot unpack non-iterable int object
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_p", "assertions_passed": 2, "assertions_failed": 2}
+Tests/test_image_convert.py::test_trns_p FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_p", "returncode": 1, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_l
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+Tests/test_image_convert.py:80: assert_equal(rgb.info['transparency'], (128,128,128)) # undone failed:
+- got 128, expected (128, 128, 128)
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+Tests/test_image_convert.py:81: assert_no_exception(lambda: rgb.save(f)) failed:
+- expected no exception, got 'TypeError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 81, in <lambda>
+    assert_no_exception(lambda: rgb.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 578, in _save
+    red, green, blue = transparency
+TypeError: cannot unpack non-iterable int object
+/testbed/PIL/Image.py:413: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  return encoder(mode, *args + extra)
+Tests/test_image_convert.py:87: p = assert_warning(UserWarning, failed:
+- expected 'UserWarning' exception, got no exception
+Tests/test_image_convert.py:89: assert_false('transparency' in p.info) failed:
+- got True, expected false value
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_l", "assertions_passed": 4, "assertions_failed": 4}
+Tests/test_image_convert.py::test_trns_l FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_l", "returncode": 1, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_convert.py::test_trns_RGB
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+Tests/test_image_convert.py:100: assert_equal(l.info['transparency'], l.getpixel((0,0))) # undone failed:
+- got (223, 162, 133), expected 176
+/testbed/PIL/PngImagePlugin.py:481: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+Tests/test_image_convert.py:101: assert_no_exception(lambda: l.save(f)) failed:
+- expected no exception, got 'TypeError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 101, in <lambda>
+    assert_no_exception(lambda: l.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 575, in _save
+    transparency = max(0, min(65535, transparency))
+TypeError: '<' not supported between instances of 'tuple' and 'int'
+Tests/test_image_convert.py:105: assert_no_exception(lambda: p.save(f)) failed:
+- expected no exception, got 'TypeError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 105, in <lambda>
+    assert_no_exception(lambda: p.save(f))
+  File "/testbed/PIL/Image.py", line 1496, in save
+    save_handler(self, fp, filename)
+  File "/testbed/PIL/PngImagePlugin.py", line 571, in _save
+    transparency = max(0, min(255, transparency))
+TypeError: '<' not supported between instances of 'tuple' and 'int'
+Tests/test_image_convert.py:107: p = assert_warning(UserWarning, failed:
+- expected 'UserWarning' exception, got no exception
+Tests/test_image_convert.py:109: assert_false('transparency' in p.info) failed:
+- got True, expected false value
+/testbed/PIL/Image.py:648: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalette(*self.palette.getdata())
+/testbed/PIL/Image.py:656: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  self.im.putpalettealphas(self.info["transparency"])
+Tests/test_image_convert.py:110: assert_no_exception(lambda: p.save(f)) failed:
+- expected no exception, got 'TypeError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_convert.py", line 110, in <lambda>
+    assert_no_exception(lambda: p.save(f))
+  File "/testbed/PIL/Image.py", line 1464, in save
+    self.load()
+  File "/testbed/PIL/Image.py", line 656, in load
+    self.im.putpalettealphas(self.info["transparency"])
+TypeError: a bytes-like object is required, not 'tuple'
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_convert.py::test_trns_RGB", "assertions_passed": 2, "assertions_failed": 6}
+Tests/test_image_convert.py::test_trns_RGB FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_convert.py::test_trns_RGB", "returncode": 1, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image_quantize.py::test_rgba_quantize
+/testbed/PIL/ImageFile.py:221: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+  n, e = d.decode(b)
+Tests/test_image_quantize.py:26: assert_no_exception(lambda: im.quantize()) failed:
+- expected no exception, got 'ValueError'
+Traceback (most recent call last):
+  File "/testbed/Tests/tester.py", line 114, in assert_no_exception
+    func()
+  File "Tests/test_image_quantize.py", line 26, in <lambda>
+    assert_no_exception(lambda: im.quantize())
+  File "/testbed/PIL/Image.py", line 789, in quantize
+    im = self.im.quantize(colors, method, kmeans)
+ValueError: image has wrong mode
+OFFICIAL_TESTER_COUNTS {"node": "Tests/test_image_quantize.py::test_rgba_quantize", "assertions_passed": 1, "assertions_failed": 1}
+Tests/test_image_quantize.py::test_rgba_quantize FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_image_quantize.py::test_rgba_quantize", "returncode": 1, "signal": null}

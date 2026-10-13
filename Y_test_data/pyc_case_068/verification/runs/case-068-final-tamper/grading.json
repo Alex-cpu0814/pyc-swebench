@@ -1,0 +1,18 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-068-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_image_convert.py::test_rgba_p": "MISSING",
+    "Tests/test_image_convert.py::test_trns_p": "MISSING",
+    "Tests/test_image_convert.py::test_trns_l": "MISSING",
+    "Tests/test_image_convert.py::test_trns_RGB": "MISSING",
+    "Tests/test_image_quantize.py::test_rgba_quantize": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_image_convert.py::test_default": "MISSING",
+    "Tests/test_image_convert.py::test_8bit": "MISSING",
+    "Tests/test_image_quantize.py::test_octree_quantize": "MISSING"
+  },
+  "unexpected_failures": []
+}

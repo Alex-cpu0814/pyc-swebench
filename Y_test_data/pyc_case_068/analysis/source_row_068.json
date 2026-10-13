@@ -1,0 +1,51 @@
+{
+  "instance_id": "pyc_case_068",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "67",
+  "duplicate_source_cases": [],
+  "deduplication_key": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "language_pair": "Python-C",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "574",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/574",
+  "commit": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "base_commit": "dc1664500be0135d83182d480af341d39b5c78d7",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "commit_url": "https://github.com/python-pillow/Pillow/commit/6e2075e25d49fa0ffaec5892b64e3dd4cd39a9fd",
+  "problem_statement": "Image conversions between L, RGB and palette modes should preserve or correctly translate indexed transparency metadata. RGBA-to-palette conversion and RGBA quantization should use the supported fast-octree method by default. Existing normal image conversions and quantization should remain correct.",
+  "symptom": "crash",
+  "bug_location": "line 789",
+  "bug_location_type": "function call + assignment",
+  "bug_path": "780(py_Image_42-cfg.dot) (quantize) -> 779(py_Image_42-cfg.dot) (quantize) -> 324(py_EpsImagePlugin_20-cfg.dot) (load) -> 323(py_EpsImagePlugin_20-cfg.dot) (load) -> 321(py_EpsImagePlugin_20-cfg.dot) (load) -> 512(py_Image_31-cfg.dot) (_dump) -> 508(py_Image_31-cfg.dot) (_dump) -> 507(py_Image_31-cfg.dot) (_dump) -> 506(py_Image_31-cfg.dot) (_dump) -> 39(py_test_image_3-cfg.dot) (test_internals) -> 38(py_test_image_3-cfg.dot) (test_internals) -> 223(py_tester_20-cfg.dot) (tempfile) -> 222(py_tester_20-cfg.dot) (tempfile) -> 215(py_tester_20-cfg.dot) (tempfile) -> 348(py_TiffImagePlugin_15-cfg.dot) (__iter__) ... -> 347(py_TiffImagePlugin_15-cfg.dot) (__iter__) -> 151(py_ImageOps_5-cfg.dot) (colorize) -> 150(py_ImageOps_5-cfg.dot) (colorize) -> 149(py_ImageOps_5-cfg.dot) (colorize) -> 42(py_ImageOps_2-cfg.dot) (_color) -> 39(py_ImageOps_2-cfg.dot) (_color) -> 10(py__util_3-cfg.dot) (isStringType) -> 9(py__util_3-cfg.dot) (isStringType) -> 145(py_ImageDraw_7-cfg.dot) (_getink) -> 144(py_ImageDraw_7-cfg.dot) (_getink) -> 138(py_ImageDraw_7-cfg.dot) (_getink) -> 137(py_ImageDraw_7-cfg.dot) (_getink) -> 211(py_ImageDraw_13-cfg.dot) (shape) -> 210(py_ImageDraw_13-cfg.dot) (shape) -> 97(c__sane_4-cfg.dot) (SaneDev_close)",
+  "cross_language_type": "ImagingNewPrologue,NAX,Image API",
+  "data_control_flow_direction": "C-> Python",
+  "root_cause": "Special case handling",
+  "fixing_strategy": "Boundary check against value range/limit + exception handling",
+  "fix_location": "if/branching statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/python-pillow/Pillow/pull/574",
+    "upstream_description": "PR574 changes Python PIL/Image.py transparency handling and RGBA quantization defaults, updates CHANGES.rst, and adds official tester functions. No native C product file changes or new binary assets occur.",
+    "verified_error": "Base five official targets fail: RGBA palette roundtrip average pixel difference 162.9834 exceeds the upstream limit of 20; indexed transparency retains incorrect scalar/tuple values and PNG saves raise TypeError; default RGBA quantization raises ValueError: image has wrong mode. Original official tester counters record each failure. Three unchanged conversion/quantization regressions pass. Gold passes all eight nodes without skips or process signals. Product changes are Python-only, no native crash reproduced.",
+    "verified_test": "Tests/test_image_convert.py::test_rgba_p and Tests/test_image_convert.py::test_trns_p and Tests/test_image_convert.py::test_trns_l and Tests/test_image_convert.py::test_trns_RGB and Tests/test_image_quantize.py::test_rgba_quantize and Tests/test_image_convert.py::test_default and Tests/test_image_convert.py::test_8bit and Tests/test_image_quantize.py::test_octree_quantize"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_official_tester_trace",
+  "official_test_scope": "Five unchanged upstream functions cover RGBA-to-palette similarity at epsilon 20, indexed P/L/RGB transparency conversion and saving, default RGBA quantization and rejection of unsupported method 0. Three unchanged regressions cover normal default conversion, 8-bit float conversion and 100-color octree quantization. Each function executes once in a fresh process; original tester assertion counters and yield_test callbacks are preserved. An explicit node status and positive assertion count are required for passing, so os._exit(0) skip cannot pass grading. No new assertions, thresholds, image assets or product changes beyond the exact upstream patch are introduced.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "Tests/test_image_convert.py::test_rgba_p",
+    "Tests/test_image_convert.py::test_trns_p",
+    "Tests/test_image_convert.py::test_trns_l",
+    "Tests/test_image_convert.py::test_trns_RGB",
+    "Tests/test_image_quantize.py::test_rgba_quantize"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image_convert.py::test_default",
+    "Tests/test_image_convert.py::test_8bit",
+    "Tests/test_image_quantize.py::test_octree_quantize"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}
