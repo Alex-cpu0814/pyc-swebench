@@ -1,0 +1,61 @@
+{
+  "upstream_url": "https://github.com/python-pillow/Pillow/pull/5274",
+  "related_issue_url": "https://github.com/python-pillow/Pillow/issues/5272",
+  "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+  "fix_commit": "9a683db33945aacf2fa9a277f680e29d54685930",
+  "merge_parents": [
+    "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+    "297789284b8680a1d15549dc2d192f3abc552160"
+  ],
+  "upstream_created_at": "2021-02-19",
+  "upstream_merged_at": "2021-03-28",
+  "upstream_created_at_timestamp": "2021-02-19T08:12:52Z",
+  "upstream_merged_at_timestamp": "2021-03-28T13:35:22Z",
+  "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5274",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_trace_scope": "Original source row 59 records segment fault (crash) and a mixed ImagingFillLinearGradient/ImagingError/ImagingTransform/_transform2/Python __transformer chain. This is preserved source metadata. Actual official stacks enter Image.linear_gradient/radial_gradient and terminate with SIGSEGV in Base; the unrelated transform chain is not this runtime trace.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/libImaging/Fill.c"
+  ],
+  "verified_scope": "Official Python entrypoints into native C linear/radial gradient storage",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "admission_rule": "Existing source Python-C classification, official regression test and commit deduplication.",
+  "runner_history": "verification/runner-history/summary.json",
+  "formal_runtime_audit": {
+    "image": "yutu0814/pyc-case-060-pillow:benchmark-v1",
+    "runtime": {
+      "pillow_version": "8.2.0.dev0",
+      "pillow_file": "/testbed/src/PIL/__init__.py",
+      "core_version": "8.2.0.dev0",
+      "core_file": "/testbed/src/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+      "core_sha256": "f7685224258f483fb7f02d18e8ad37d1577aadf222bcb53b8810d5dce0e35990",
+      "fill_source_sha256": "bffdcd9ecb03814015ac37b977986b00cc2dede601aecc823ed9f7876869d0fc",
+      "gradient_references": {
+        "Tests/images/linear_gradient.png": "3a93bdcd27d3737317d6f5444c387b6eec2a904819e36b0a6dcdd7a4571cf5f9",
+        "Tests/images/radial_gradient.png": "8b40e805ea57190ddca2a6b48d0cde375cd529f4c13e0bc1266717757df59bfb"
+      }
+    },
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    }
+  },
+  "runner_scope": "Prototype Base/Gold-v2 initial isolated runner invoked python -m pytest; final formal Gold/negative runner invokes pytest_no_dump inside every child after exec. Both official test logic and process-isolation scope remain unchanged; initial runner and SHA256 are retained.",
+  "parser_history": "verification/parser-history/summary.json",
+  "process_grading": "Final Case060 parser validates ISOLATED_NODE_RESULT SIGSEGV/-11 JSON and grades it as process failure. Initial negative parser omitted those targets; its exact source, SHA256 and original summary/tests/grading are preserved. Corrected final negative control reruns the same four official nodes."
+}

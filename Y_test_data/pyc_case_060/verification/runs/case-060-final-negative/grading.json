@@ -1,0 +1,17 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-060-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "Tests/test_image.py::TestImage::test_linear_gradient": "FAILED",
+    "Tests/test_image.py::TestImage::test_radial_gradient": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode": "PASSED",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode": "PASSED"
+  },
+  "unexpected_failures": [
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ]
+}

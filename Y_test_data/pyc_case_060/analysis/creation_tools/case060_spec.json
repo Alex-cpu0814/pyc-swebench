@@ -1,0 +1,169 @@
+{
+  "caseNumber": "060",
+  "sourceCase": "59",
+  "sourceInstanceId": "pyc_case_060",
+  "instanceId": "python-pillow__Pillow-5274",
+  "projectName": "Pillow",
+  "repo": "python-pillow/Pillow",
+  "repoUrl": "https://github.com/python-pillow/Pillow.git",
+  "issueId": "5274",
+  "issueUrl": "https://github.com/python-pillow/Pillow/pull/5274",
+  "baseCommit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+  "fixCommit": "9a683db33945aacf2fa9a277f680e29d54685930",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": "2021-02-19",
+  "mergedAt": "2021-03-28",
+  "version": "8.2.0.dev0",
+  "image": "yutu0814/pyc-case-060-pillow:benchmark-v1",
+  "prototypeImage": "pyc-case060-prototype-base:latest",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/Pillow",
+  "binaryPatches": false,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "nativeRequirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "compilerToolchain": "Debian Bullseye GCC, setuptools 68.2.2; ordinary native build without instrumentation",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "buildCommand": "python setup.py build_ext -i --force",
+  "buildSystem": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "environment": "pillow_native_runtime; native_c_gradient_storage_fix",
+  "testCommand": "python /benchmark/pytest_case060_isolated.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "testExecution": "One subprocess per unchanged official pytest node; native termination is reported with exact signal and node failure; aggregate exit 1 preserves all node results.",
+  "pytestPathPrefix": "Tests/",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_case060_isolated.py",
+      "source": "evaluator/pytest_case060_isolated.py",
+      "target": "/benchmark/pytest_case060_isolated.py"
+    },
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "testFile": "Tests/test_image.py",
+  "testFiles": [
+    "Tests/test_image.py"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case060_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case060_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pillow060-local",
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationStatus": "verified_base_gold",
+  "failToPass": [
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ],
+  "passToPass": [
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode"
+  ],
+  "probeNodes": [
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ],
+  "problemStatement": "Linear and radial gradient generation should support integer I and floating-point F modes as well as L/P. Each supported mode should produce the official reference pixels without terminating the process. Unsupported RGB mode should retain its ValueError behavior.",
+  "upstreamDescription": "PR 5274 fixes native Fill.c gradient writers by choosing 8-bit, 32-bit integer or 32-bit float pixel storage. The exact official linear/radial gradient tests extend their mode loops with I and F. No binary assets are added.",
+  "provenance": {
+    "upstream_url": "https://github.com/python-pillow/Pillow/pull/5274",
+    "related_issue_url": "https://github.com/python-pillow/Pillow/issues/5272",
+    "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+    "fix_commit": "9a683db33945aacf2fa9a277f680e29d54685930",
+    "merge_parents": [
+      "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+      "297789284b8680a1d15549dc2d192f3abc552160"
+    ],
+    "upstream_created_at": "2021-02-19",
+    "upstream_merged_at": "2021-03-28",
+    "upstream_created_at_timestamp": "2021-02-19T08:12:52Z",
+    "upstream_merged_at_timestamp": "2021-03-28T13:35:22Z",
+    "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5274",
+    "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+    "source_trace_scope": "Original source row 59 records segment fault (crash) and a mixed ImagingFillLinearGradient/ImagingError/ImagingTransform/_transform2/Python __transformer chain. This is preserved source metadata. Actual official stacks enter Image.linear_gradient/radial_gradient and terminate with SIGSEGV in Base; the unrelated transform chain is not this runtime trace.",
+    "source_classification": "Python-C (preserved source taxonomy)",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "src/libImaging/Fill.c"
+    ],
+    "verified_scope": "Official Python entrypoints into native C linear/radial gradient storage",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    },
+    "admission_rule": "Existing source Python-C classification, official regression test and commit deduplication.",
+    "runner_history": "verification/runner-history/summary.json",
+    "formal_runtime_audit": {
+      "image": "yutu0814/pyc-case-060-pillow:benchmark-v1",
+      "runtime": {
+        "pillow_version": "8.2.0.dev0",
+        "pillow_file": "/testbed/src/PIL/__init__.py",
+        "core_version": "8.2.0.dev0",
+        "core_file": "/testbed/src/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+        "core_sha256": "f7685224258f483fb7f02d18e8ad37d1577aadf222bcb53b8810d5dce0e35990",
+        "fill_source_sha256": "bffdcd9ecb03814015ac37b977986b00cc2dede601aecc823ed9f7876869d0fc",
+        "gradient_references": {
+          "Tests/images/linear_gradient.png": "3a93bdcd27d3737317d6f5444c387b6eec2a904819e36b0a6dcdd7a4571cf5f9",
+          "Tests/images/radial_gradient.png": "8b40e805ea57190ddca2a6b48d0cde375cd529f4c13e0bc1266717757df59bfb"
+        }
+      },
+      "native_package_versions": {
+        "gcc": "4:10.2.1-1",
+        "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+        "libjpeg62-turbo-dev": "1:2.0.6-4",
+        "libopenjp2-7-dev": "2.4.0-3",
+        "libtiff-dev": "4.2.0-1+deb11u5",
+        "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+      }
+    },
+    "runner_scope": "Prototype Base/Gold-v2 initial isolated runner invoked python -m pytest; final formal Gold/negative runner invokes pytest_no_dump inside every child after exec. Both official test logic and process-isolation scope remain unchanged; initial runner and SHA256 are retained.",
+    "parser_history": "verification/parser-history/summary.json",
+    "process_grading": "Final Case060 parser validates ISOLATED_NODE_RESULT SIGSEGV/-11 JSON and grades it as process failure. Initial negative parser omitted those targets; its exact source, SHA256 and original summary/tests/grading are preserved. Corrected final negative control reruns the same four official nodes."
+  },
+  "sourceTraceNotes": "Original source row 59 records segment fault (crash) and a mixed ImagingFillLinearGradient/ImagingError/ImagingTransform/_transform2/Python __transformer chain. This is preserved source metadata. Actual official stacks enter Image.linear_gradient/radial_gradient and terminate with SIGSEGV in Base; the unrelated transform chain is not this runtime trace.",
+  "additionalVerificationAssets": [
+    "verification/runtime-audit/summary.json",
+    "verification/runtime-audit/stdout.raw.log",
+    "verification/runtime-audit/stderr.raw.log",
+    "verification/probes/gold-initial-timeout/summary.json",
+    "verification/probes/gold-initial-timeout/stdout.raw.log",
+    "verification/probes/gold-initial-timeout/stderr.raw.log",
+    "verification/runner-history/pytest_case060_initial.py",
+    "verification/runner-history/summary.json",
+    "verification/parser-history/evaluate_model_patch_initial.py",
+    "verification/parser-history/summary.json",
+    "verification/runs/case-060-final-negative-initial-parser/summary.json",
+    "verification/runs/case-060-final-negative-initial-parser/tests.raw.log",
+    "verification/runs/case-060-final-negative-initial-parser/grading.json"
+  ],
+  "probeSuffixes": {
+    "gold": "-v2"
+  },
+  "verifiedError": "On Base, both official linear_gradient and radial_gradient test subprocesses terminate with SIGSEGV (returncode -11) at the I-mode call after their L/P iterations. The isolated runner records each signal and reports two node failures, aggregate exit 1; both unchanged RGB wrong-mode ValueError regressions pass. Gold-v2 passes all four unchanged official nodes, including I/F reference-pixel checks. The first Gold attempt timed out before the first wrong-mode result; it remains separate infrastructure evidence and is not a product failure. The product fix changes native C Fill.c storage writes.",
+  "targetSummary": "Base: both gradient targets SIGSEGV; Gold-v2: both targets and two wrong-mode regressions pass",
+  "verifiedTest": "Tests/test_image.py::TestImage::test_linear_gradient and Tests/test_image.py::TestImage::test_radial_gradient and Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode and Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode",
+  "testScope": "The exact upstream linear/radial tests loop L, P, I and F, compare generated pixels against existing PNG references and check key pixels/modes. Base terminates at I, so F is not reached on Base; Gold verifies both I and F. Two unchanged RGB wrong-mode nodes preserve ValueError behavior. Official test logic is unmodified. Each node runs in a separate subprocess; native SIGSEGV is recorded as process failure rather than an assertion, aggregate exit 1 permits complete node grading. The product patch changes C Fill.c only; no binary asset changes.",
+  "negativePatch": "diff --git a/README.md b/README.md\nindex 0408f4c..ed1ad0a 100644\n--- a/README.md\n+++ b/README.md\n@@ -4,6 +4,8 @@\n \n # Pillow\n \n+The negative control leaves native gradient storage unchanged.\n+\n ## Python Imaging Library (Fork)\n \n Pillow is the friendly PIL fork by [Alex Clark and\n",
+  "tamperPatch": "diff --git a/Tests/test_image.py b/Tests/test_image.py\nindex 3fa071b..3e63649 100644\n--- a/Tests/test_image.py\n+++ b/Tests/test_image.py\n@@ -524,7 +524,7 @@ class TestImage:\n \n         # Arrange\n         target_file = \"Tests/images/linear_gradient.png\"\n-        for mode in [\"L\", \"P\"]:\n+        for mode in [\"L\"]:\n \n             # Act\n             im = Image.linear_gradient(mode)\n"
+}

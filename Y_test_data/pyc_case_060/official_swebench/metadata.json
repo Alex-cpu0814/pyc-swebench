@@ -1,0 +1,139 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "59",
+  "candidate_case": "060",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The exact upstream linear/radial tests loop L, P, I and F, compare generated pixels against existing PNG references and check key pixels/modes. Base terminates at I, so F is not reached on Base; Gold verifies both I and F. Two unchanged RGB wrong-mode nodes preserve ValueError behavior. Official test logic is unmodified. Each node runs in a separate subprocess; native SIGSEGV is recorded as process failure rather than an assertion, aggregate exit 1 permits complete node grading. The product patch changes C Fill.c only; no binary asset changes.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2021-02-19",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-5274",
+  "source_instance_id": "pyc_case_060",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "5274",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5274",
+  "project_version": "8.2.0.dev0",
+  "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+  "fix_commit": "9a683db33945aacf2fa9a277f680e29d54685930",
+  "FAIL_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC, setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "2 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-060-pillow:benchmark-v1",
+      "id": "sha256:e5558c76835739376be27654c041f0fc5743476226db4150d772cfa124ff1be8",
+      "repo_digests": [
+        "yutu0814/pyc-case-060-pillow@sha256:e5558c76835739376be27654c041f0fc5743476226db4150d772cfa124ff1be8"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 0,
+            "failed": 2,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 2
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-5274",
+      "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-060-final-gold/summary.json",
+      "verification/runs/case-060-final-negative/summary.json",
+      "verification/runs/case-060-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2021-03-28",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5274",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/libImaging/Fill.c"
+  ],
+  "verified_scope": "Official Python entrypoints into native C linear/radial gradient storage",
+  "source_trace_scope": "Original source row 59 records segment fault (crash) and a mixed ImagingFillLinearGradient/ImagingError/ImagingTransform/_transform2/Python __transformer chain. This is preserved source metadata. Actual official stacks enter Image.linear_gradient/radial_gradient and terminate with SIGSEGV in Base; the unrelated transform chain is not this runtime trace.",
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "runner_history": "verification/runner-history/summary.json",
+  "successful_gold_probe": "verification/probes/gold",
+  "initial_gold_timeout": "verification/probes/gold-initial-timeout",
+  "process_grading": "Final Case060 parser validates ISOLATED_NODE_RESULT SIGSEGV/-11 JSON and grades it as process failure. Initial negative parser omitted those targets; its exact source, SHA256 and original summary/tests/grading are preserved. Corrected final negative control reruns the same four official nodes.",
+  "parser_history": "verification/parser-history/summary.json",
+  "product_files": [
+    "src/libImaging/Fill.c"
+  ],
+  "test_files": [
+    "Tests/test_image.py"
+  ]
+}

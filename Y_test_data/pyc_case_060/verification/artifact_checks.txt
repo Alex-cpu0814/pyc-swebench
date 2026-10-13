@@ -1,0 +1,4 @@
+Parsed 45 JSON/JSONL; evaluator syntax and 38 hashes pass.
+Numeric UTC dates, XLSX cells and Artifact Tool error scan pass.
+Both official Base/negative targets SIGSEGV, two wrong-mode regressions pass, final Gold four passes; no Base F-mode coverage inferred.
+Native C scope/runtime/references/pins, initial runner SHA256, final per-child no-dump configuration, retained timeout and all evidence copies verified.

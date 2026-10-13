@@ -1,0 +1,5 @@
+{
+  "initial_sha256": "66058b68d062e1f0f0361f6bc239b78614c667bf85606449afc5c1b1dabd48fe",
+  "reason": "Template pytest regex did not recognize annotated native process failure; initial negative grading showed targets MISSING despite explicit SIGSEGV records. Final parser recognizes validated ISOLATED_NODE_RESULT native signal JSON as node failure.",
+  "scope": "Only Case060 evaluator parser; official tests/runtime/product patches unchanged."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-060-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_image.py::TestImage::test_linear_gradient": "MISSING",
+    "Tests/test_image.py::TestImage::test_radial_gradient": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode": "MISSING",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode": "MISSING"
+  },
+  "unexpected_failures": []
+}

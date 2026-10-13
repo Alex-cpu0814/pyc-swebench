@@ -1,0 +1,2 @@
+import fs from 'node:fs';const work='E:/CLB_Swe-bench/_work/pyc_batch';const [status,note]=process.argv.slice(2);if(!status||!note)throw new Error('status and note required');
+const p=work+'/batch_state.json',s=JSON.parse(fs.readFileSync(p,'utf8'));Object.assign(s.candidates.find(c=>c.caseNumber==='060'),{status,note,updatedAt:new Date().toISOString()});fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');fs.appendFileSync(work+'/case060_progress.md','\n'+new Date().toISOString()+' '+status+': '+note+'\n');

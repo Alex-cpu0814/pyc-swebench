@@ -1,0 +1,11 @@
+{
+  "instance_id": "python-pillow__Pillow-5274",
+  "repo": "python-pillow/Pillow",
+  "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+  "problem_statement": "Linear and radial gradient generation should support integer I and floating-point F modes as well as L/P. Each supported mode should produce the official reference pixels without terminating the process. Unsupported RGB mode should retain its ValueError behavior.",
+  "hints_text": "",
+  "created_at": "2021-02-19",
+  "version": "8.2.0.dev0",
+  "issue_id": "5274",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5274"
+}

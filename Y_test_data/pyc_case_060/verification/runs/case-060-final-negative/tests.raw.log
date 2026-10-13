@@ -1,0 +1,222 @@
+ISOLATED_NODE_BEGIN Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+--------------------------------------------------------------------
+Pillow 8.2.0.dev0
+Python 3.8.20 (default, Sep 27 2024, 06:04:53)
+       [GCC 10.2.1 20210110]
+--------------------------------------------------------------------
+Python modules loaded from /testbed/src/PIL
+Binary modules loaded from /testbed/src/PIL
+--------------------------------------------------------------------
+--- PIL CORE support ok, compiled for 8.2.0.dev0
+--- TKINTER support ok, loaded 8.6
+--- FREETYPE2 support ok, loaded 2.10.4
+--- LITTLECMS2 support ok, loaded 2.12
+--- WEBP support ok, loaded 0.6.1
+--- WEBP Transparency support ok
+--- WEBPMUX support ok
+--- WEBP Animation support ok
+--- JPEG support ok, compiled for libjpeg-turbo 2.0.6
+--- OPENJPEG (JPEG2000) support ok, loaded 2.4.0
+--- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+--- LIBTIFF support ok, loaded 4.2.0
+*** RAQM (Bidirectional Text) support not installed
+*** LIBIMAGEQUANT (Quantization method) support not installed
+--- XCB (X protocol) support ok
+--------------------------------------------------------------------
+
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode PASSED   [100%]
+
+=============================== warnings summary ===============================
+Tests/test_image.py:665
+  /testbed/Tests/test_image.py:665: PytestUnknownMarkWarning: Unknown pytest.mark.valgrind_known_error - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.valgrind_known_error(reason="Known Failing")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 0.23s =========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+--------------------------------------------------------------------
+Pillow 8.2.0.dev0
+Python 3.8.20 (default, Sep 27 2024, 06:04:53)
+       [GCC 10.2.1 20210110]
+--------------------------------------------------------------------
+Python modules loaded from /testbed/src/PIL
+Binary modules loaded from /testbed/src/PIL
+--------------------------------------------------------------------
+--- PIL CORE support ok, compiled for 8.2.0.dev0
+--- TKINTER support ok, loaded 8.6
+--- FREETYPE2 support ok, loaded 2.10.4
+--- LITTLECMS2 support ok, loaded 2.12
+--- WEBP support ok, loaded 0.6.1
+--- WEBP Transparency support ok
+--- WEBPMUX support ok
+--- WEBP Animation support ok
+--- JPEG support ok, compiled for libjpeg-turbo 2.0.6
+--- OPENJPEG (JPEG2000) support ok, loaded 2.4.0
+--- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+--- LIBTIFF support ok, loaded 4.2.0
+*** RAQM (Bidirectional Text) support not installed
+*** LIBIMAGEQUANT (Quantization method) support not installed
+--- XCB (X protocol) support ok
+--------------------------------------------------------------------
+
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode PASSED   [100%]
+
+=============================== warnings summary ===============================
+Tests/test_image.py:665
+  /testbed/Tests/test_image.py:665: PytestUnknownMarkWarning: Unknown pytest.mark.valgrind_known_error - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.valgrind_known_error(reason="Known Failing")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 0.08s =========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_image.py::TestImage::test_linear_gradient
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+--------------------------------------------------------------------
+Pillow 8.2.0.dev0
+Python 3.8.20 (default, Sep 27 2024, 06:04:53)
+       [GCC 10.2.1 20210110]
+--------------------------------------------------------------------
+Python modules loaded from /testbed/src/PIL
+Binary modules loaded from /testbed/src/PIL
+--------------------------------------------------------------------
+--- PIL CORE support ok, compiled for 8.2.0.dev0
+--- TKINTER support ok, loaded 8.6
+--- FREETYPE2 support ok, loaded 2.10.4
+--- LITTLECMS2 support ok, loaded 2.12
+--- WEBP support ok, loaded 0.6.1
+--- WEBP Transparency support ok
+--- WEBPMUX support ok
+--- WEBP Animation support ok
+--- JPEG support ok, compiled for libjpeg-turbo 2.0.6
+--- OPENJPEG (JPEG2000) support ok, loaded 2.4.0
+--- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+--- LIBTIFF support ok, loaded 4.2.0
+*** RAQM (Bidirectional Text) support not installed
+*** LIBIMAGEQUANT (Quantization method) support not installed
+--- XCB (X protocol) support ok
+--------------------------------------------------------------------
+
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_image.py::TestImage::test_linear_gradient Fatal Python error: Segmentation fault
+
+Current thread 0x00007b41ee0b2740 (most recent call first):
+  File "/testbed/src/PIL/Image.py", line 3263 in linear_gradient
+  File "/testbed/Tests/test_image.py", line 530 in test_linear_gradient
+  File "/usr/local/lib/python3.8/site-packages/_pytest/python.py", line 194 in pytest_pyfunc_call
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/python.py", line 1792 in runtest
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 169 in pytest_runtest_call
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 262 in <lambda>
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 341 in from_call
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 261 in call_runtest_hook
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 222 in call_and_report
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 133 in runtestprotocol
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 114 in pytest_runtest_protocol
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 350 in pytest_runtestloop
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 325 in _main
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 271 in wrap_session
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 318 in pytest_cmdline_main
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/config/__init__.py", line 169 in main
+  File "/benchmark/pytest_no_dump.py", line 12 in <module>
+ISOLATED_NODE_RESULT {"node": "Tests/test_image.py::TestImage::test_linear_gradient", "returncode": -11, "signal": "SIGSEGV"}
+Tests/test_image.py::TestImage::test_linear_gradient FAILED (official test process terminated by SIGSEGV)
+ISOLATED_NODE_BEGIN Tests/test_image.py::TestImage::test_radial_gradient
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+--------------------------------------------------------------------
+Pillow 8.2.0.dev0
+Python 3.8.20 (default, Sep 27 2024, 06:04:53)
+       [GCC 10.2.1 20210110]
+--------------------------------------------------------------------
+Python modules loaded from /testbed/src/PIL
+Binary modules loaded from /testbed/src/PIL
+--------------------------------------------------------------------
+--- PIL CORE support ok, compiled for 8.2.0.dev0
+--- TKINTER support ok, loaded 8.6
+--- FREETYPE2 support ok, loaded 2.10.4
+--- LITTLECMS2 support ok, loaded 2.12
+--- WEBP support ok, loaded 0.6.1
+--- WEBP Transparency support ok
+--- WEBPMUX support ok
+--- WEBP Animation support ok
+--- JPEG support ok, compiled for libjpeg-turbo 2.0.6
+--- OPENJPEG (JPEG2000) support ok, loaded 2.4.0
+--- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+--- LIBTIFF support ok, loaded 4.2.0
+*** RAQM (Bidirectional Text) support not installed
+*** LIBIMAGEQUANT (Quantization method) support not installed
+--- XCB (X protocol) support ok
+--------------------------------------------------------------------
+
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_image.py::TestImage::test_radial_gradient Fatal Python error: Segmentation fault
+
+Current thread 0x00007a93ee3c7740 (most recent call first):
+  File "/testbed/src/PIL/Image.py", line 3272 in radial_gradient
+  File "/testbed/Tests/test_image.py", line 556 in test_radial_gradient
+  File "/usr/local/lib/python3.8/site-packages/_pytest/python.py", line 194 in pytest_pyfunc_call
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/python.py", line 1792 in runtest
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 169 in pytest_runtest_call
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 262 in <lambda>
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 341 in from_call
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 261 in call_runtest_hook
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 222 in call_and_report
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 133 in runtestprotocol
+  File "/usr/local/lib/python3.8/site-packages/_pytest/runner.py", line 114 in pytest_runtest_protocol
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 350 in pytest_runtestloop
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 325 in _main
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 271 in wrap_session
+  File "/usr/local/lib/python3.8/site-packages/_pytest/main.py", line 318 in pytest_cmdline_main
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_callers.py", line 77 in _multicall
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_manager.py", line 115 in _hookexec
+  File "/usr/local/lib/python3.8/site-packages/pluggy/_hooks.py", line 493 in __call__
+  File "/usr/local/lib/python3.8/site-packages/_pytest/config/__init__.py", line 169 in main
+  File "/benchmark/pytest_no_dump.py", line 12 in <module>
+ISOLATED_NODE_RESULT {"node": "Tests/test_image.py::TestImage::test_radial_gradient", "returncode": -11, "signal": "SIGSEGV"}
+Tests/test_image.py::TestImage::test_radial_gradient FAILED (official test process terminated by SIGSEGV)

@@ -1,0 +1,39 @@
+{
+  "label": "base",
+  "image": "pyc-case060-prototype-base:latest",
+  "nodes": [
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ],
+  "startedAt": "2026-10-13T01:31:49.266Z",
+  "finishedAt": "2026-10-13T01:31:53.118Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case060_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case060_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_case060_isolated.py,target=/benchmark/pytest_case060_isolated.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case060-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_case060_isolated.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no 'Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode' 'Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode' 'Tests/test_image.py::TestImage::test_linear_gradient' 'Tests/test_image.py::TestImage::test_radial_gradient'"
+  ]
+}

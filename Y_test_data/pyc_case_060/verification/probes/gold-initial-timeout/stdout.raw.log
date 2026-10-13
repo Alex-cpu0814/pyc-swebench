@@ -1,0 +1,1 @@
+ISOLATED_NODE_BEGIN Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode

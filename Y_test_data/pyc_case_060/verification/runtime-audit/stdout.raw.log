@@ -1,0 +1,7 @@
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libjpeg62-turbo-dev:amd64	1:2.0.6-4
+libopenjp2-7-dev	2.4.0-3
+libtiff-dev:amd64	4.2.0-1+deb11u5
+zlib1g-dev:amd64	1:1.2.11.dfsg-2+deb11u2
+{"pillow_version": "8.2.0.dev0", "pillow_file": "/testbed/src/PIL/__init__.py", "core_version": "8.2.0.dev0", "core_file": "/testbed/src/PIL/_imaging.cpython-38-x86_64-linux-gnu.so", "core_sha256": "f7685224258f483fb7f02d18e8ad37d1577aadf222bcb53b8810d5dce0e35990", "fill_source_sha256": "bffdcd9ecb03814015ac37b977986b00cc2dede601aecc823ed9f7876869d0fc", "gradient_references": {"Tests/images/linear_gradient.png": "3a93bdcd27d3737317d6f5444c387b6eec2a904819e36b0a6dcdd7a4571cf5f9", "Tests/images/radial_gradient.png": "8b40e805ea57190ddca2a6b48d0cde375cd529f4c13e0bc1266717757df59bfb"}}

@@ -1,0 +1,13 @@
+diff --git a/Tests/test_image.py b/Tests/test_image.py
+index 3fa071b..3e63649 100644
+--- a/Tests/test_image.py
++++ b/Tests/test_image.py
+@@ -524,7 +524,7 @@ class TestImage:
+ 
+         # Arrange
+         target_file = "Tests/images/linear_gradient.png"
+-        for mode in ["L", "P"]:
++        for mode in ["L"]:
+ 
+             # Act
+             im = Image.linear_gradient(mode)

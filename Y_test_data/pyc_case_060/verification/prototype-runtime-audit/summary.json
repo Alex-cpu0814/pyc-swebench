@@ -1,0 +1,38 @@
+{
+  "startedAt": "2026-10-13T01:31:29.504Z",
+  "finishedAt": "2026-10-13T01:31:30.431Z",
+  "image": "pyc-case060-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case060-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"d0612030a0ba7aed533e1f9115bbf4bd1019f48e\"; test -z \"$(git status --porcelain)\"; dpkg-query -W gcc libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev libopenjp2-7-dev libtiff-dev; python -c 'import PIL,json,hashlib,pathlib; from PIL import Image; core=pathlib.Path(Image.core.__file__); report={\"pillow_version\":PIL.__version__,\"pillow_file\":PIL.__file__,\"core_version\":Image.core.PILLOW_VERSION,\"core_file\":str(core),\"core_sha256\":hashlib.sha256(core.read_bytes()).hexdigest(),\"fill_source_sha256\":hashlib.sha256(pathlib.Path(\"src/libImaging/Fill.c\").read_bytes()).hexdigest(),\"gradient_references\":{p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in (\"Tests/images/linear_gradient.png\",\"Tests/images/radial_gradient.png\")}}; assert report[\"pillow_version\"]==report[\"core_version\"]==\"8.2.0.dev0\"; assert report[\"pillow_file\"].startswith(\"/testbed/src/PIL/\") and report[\"core_file\"].startswith(\"/testbed/src/PIL/\"); print(json.dumps(report))'"
+  ],
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "runtime_audit": {
+    "pillow_version": "8.2.0.dev0",
+    "pillow_file": "/testbed/src/PIL/__init__.py",
+    "core_version": "8.2.0.dev0",
+    "core_file": "/testbed/src/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+    "core_sha256": "f7685224258f483fb7f02d18e8ad37d1577aadf222bcb53b8810d5dce0e35990",
+    "fill_source_sha256": "bffdcd9ecb03814015ac37b977986b00cc2dede601aecc823ed9f7876869d0fc",
+    "gradient_references": {
+      "Tests/images/linear_gradient.png": "3a93bdcd27d3737317d6f5444c387b6eec2a904819e36b0a6dcdd7a4571cf5f9",
+      "Tests/images/radial_gradient.png": "8b40e805ea57190ddca2a6b48d0cde375cd529f4c13e0bc1266717757df59bfb"
+    }
+  }
+}

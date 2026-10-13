@@ -1,0 +1,7 @@
+{
+  "initial_runner_sha256": "5a9c5206f66d1f39243ce49b2765e12a26a9f43bf7e12037ae2f17b9286280aa",
+  "initial_child_command": "python -m pytest",
+  "final_child_command": "python /benchmark/pytest_no_dump.py",
+  "reason": "Disable dumpability inside each pytest child after Python exec; official test logic unchanged.",
+  "probe_scope": "Original Base and Gold-v2 used the initial runner; formal Gold and negative use the final runner."
+}

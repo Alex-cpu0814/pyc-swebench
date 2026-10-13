@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_060",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_runtime; native_c_gradient_storage_fix",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "One subprocess per unchanged official pytest node; native termination is reported with exact signal and node failure; aggregate exit 1 preserves all node results."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_image.py.",
+    "On Base, both official linear_gradient and radial_gradient test subprocesses terminate with SIGSEGV (returncode -11) at the I-mode call after their L/P iterations. The isolated runner records each signal and reports two node failures, aggregate exit 1; both unchanged RGB wrong-mode ValueError regressions pass. Gold-v2 passes all four unchanged official nodes, including I/F reference-pixel checks. The first Gold attempt timed out before the first wrong-mode result; it remains separate infrastructure evidence and is not a product failure. The product fix changes native C Fill.c storage writes.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "d0612030a0ba7aed533e1f9115bbf4bd1019f48e",
+  "fix_commit": "9a683db33945aacf2fa9a277f680e29d54685930",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_image.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_linear_gradient",
+    "Tests/test_image.py::TestImage::test_radial_gradient"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_linear_gradient_wrong_mode",
+    "Tests/test_image.py::TestImage::test_radial_gradient_wrong_mode"
+  ]
+}
