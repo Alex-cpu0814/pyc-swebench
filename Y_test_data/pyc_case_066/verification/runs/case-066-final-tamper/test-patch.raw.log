@@ -1,0 +1,2 @@
+error: patch failed: Tests/test_file_png.py:1
+error: Tests/test_file_png.py: patch does not apply

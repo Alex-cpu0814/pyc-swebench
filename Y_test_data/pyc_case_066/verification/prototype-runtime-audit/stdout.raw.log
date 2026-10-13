@@ -1,0 +1,7 @@
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libjpeg62-turbo-dev:amd64	1:2.0.6-4
+libopenjp2-7-dev	2.4.0-3
+libtiff-dev:amd64	4.2.0-1+deb11u5
+zlib1g-dev:amd64	1:1.2.11.dfsg-2+deb11u2
+{"pillow_version": "4.3.0.dev0", "pillow_file": "/testbed/PIL/__init__.py", "core_version": "4.3.0.dev0", "core_file": "/testbed/PIL/_imaging.cpython-38-x86_64-linux-gnu.so", "freetype_support": true, "freetype_version": "2.10.4", "freetype_file": "/testbed/PIL/_imagingft.cpython-38-x86_64-linux-gnu.so", "font_size": 592752, "font_sha256": "54cf7fa374a13ddf6e927b515b75b39fad79f6d2cdd2789ad5bf69f207b88c2c", "native_source_sha256": {"_imaging.c": "5bb583a9b4de69cc651c27c41ca91b6c379ddca10463bccdb7b51c49cb6d6183", "_imagingft.c": "b7c0043eea9b999c2d696d6879bc1e44d216e33a3a04313950d04c7b7402852c"}}

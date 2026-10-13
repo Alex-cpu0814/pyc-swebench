@@ -1,0 +1,77 @@
+{
+  "upstream_url": "https://github.com/python-pillow/Pillow/pull/2634",
+  "related_issue_url": "https://github.com/python-pillow/Pillow/issues/2629",
+  "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+  "fix_commit": "e71757aa6f64f698a16acaece9bc5557302a1fe8",
+  "merge_parents": [
+    "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+    "b2cd6aaff729efe0948924ee7fa9e873c1360bc5"
+  ],
+  "upstream_created_at": "2017-07-18",
+  "upstream_merged_at": "2017-09-04",
+  "upstream_created_at_timestamp": "2017-07-18T13:48:44Z",
+  "upstream_merged_at_timestamp": "2017-09-04T10:23:58Z",
+  "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/2634",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "_imaging.c",
+    "_imagingft.c"
+  ],
+  "verified_scope": "Official Unix RSS font-resource regression in native C",
+  "source_trace_scope": "Original source row 65 records a memory leak and a _font_getmask/test_rotated_transposed_font_get_mask chain. This original source trace is retained separately from the official font-leak test paths measured in this case.",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "admission_rule": "A product patch and discriminating official tests are required; source classification alone is insufficient.",
+  "official_rss_limits": {
+    "truetype": {
+      "iterations": 10,
+      "mem_limit_kib": 4096
+    },
+    "default_font": {
+      "iterations": 100,
+      "mem_limit_kib": 1024
+    }
+  },
+  "baseline_font": "Tests/fonts/FreeMono.ttf",
+  "baseline_font_git_blob": "f88bcef9c138ae61473f852d10803c195601d51e",
+  "package_layout": "Root PIL/ and root native source files; PYTHONPATH=/testbed:/testbed/Tests",
+  "runner_scope": "One fresh unittest subprocess per original official node, with upstream RSS thresholds and iterations unchanged.",
+  "discriminating_target": "TestDefaultFontLeak.test_leak",
+  "truetype_limitation": "TrueType original official RSS test passes Base and Gold in this environment and is PASS_TO_PASS; no independent FAIL_TO_PASS claim for _imagingft.c.",
+  "formal_runtime_audit": {
+    "image": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+    "runtime": {
+      "pillow_version": "4.3.0.dev0",
+      "pillow_file": "/testbed/PIL/__init__.py",
+      "core_version": "4.3.0.dev0",
+      "core_file": "/testbed/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+      "freetype_support": true,
+      "freetype_version": "2.10.4",
+      "freetype_file": "/testbed/PIL/_imagingft.cpython-38-x86_64-linux-gnu.so",
+      "font_size": 592752,
+      "font_sha256": "54cf7fa374a13ddf6e927b515b75b39fad79f6d2cdd2789ad5bf69f207b88c2c",
+      "native_source_sha256": {
+        "_imaging.c": "5bb583a9b4de69cc651c27c41ca91b6c379ddca10463bccdb7b51c49cb6d6183",
+        "_imagingft.c": "b7c0043eea9b999c2d696d6879bc1e44d216e33a3a04313950d04c7b7402852c"
+      }
+    },
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    }
+  }
+}

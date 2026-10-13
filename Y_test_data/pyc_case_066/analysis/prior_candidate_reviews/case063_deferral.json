@@ -1,0 +1,28 @@
+{
+  "caseNumber": "063",
+  "sourceCase": "62",
+  "sourceExcelRow": 64,
+  "repo": "python-pillow/Pillow",
+  "fixCommit": "bfa80cd3b387f5f6c1bce12172803a8b7f7c78e2",
+  "baseCommit": "53df62647af19f47819380373b7b4abd1ffe79ff",
+  "mergeParents": [
+    "53df62647af19f47819380373b7b4abd1ffe79ff",
+    "fe0a33173bb9a025ea4d0a76c05d76f3992eb55c"
+  ],
+  "upstreamUrl": "https://github.com/python-pillow/Pillow/pull/2296",
+  "changedFiles": [
+    "Tests/test_image_access.py",
+    "libImaging/Access.c"
+  ],
+  "productFiles": [
+    "libImaging/Access.c"
+  ],
+  "officialTarget": "Tests/test_image_access.py::TestEmbeddable::test_embeddable",
+  "requiredPlatform": "Windows Python2.7 or >=3.5, excluding AppVeyor",
+  "currentEvaluationPlatform": "Docker Desktop Linux containers",
+  "upstreamDiff": "diff --git a/Tests/test_image_access.py b/Tests/test_image_access.py\nindex 005bd5d3..87387bff 100644\n--- a/Tests/test_image_access.py\n+++ b/Tests/test_image_access.py\n@@ -1,4 +1,4 @@\n-from helper import unittest, PillowTestCase, hopper\n+from helper import unittest, PillowTestCase, hopper, on_appveyor\n \n try:\n     from PIL import PyAccess\n@@ -7,7 +7,8 @@ except ImportError:\n     pass\n \n from PIL import Image\n-\n+import sys\n+import os\n \n class AccessTest(PillowTestCase):\n     # initial value\n@@ -249,5 +250,66 @@ class TestCffi(AccessTest):\n                 self.assertEqual(px[i, 0], 0)\n \n \n+class TestEmbeddable(unittest.TestCase):\n+    @unittest.skipIf(not sys.platform.startswith('win32') or\n+                     sys.version_info[:2] in ((3, 3), (3, 4)) or\n+                     on_appveyor(),   # failing on appveyor when run from\n+                                      # subprocess, not from shell\n+                     \"requires Python 2.7 or >=3.5 for Windows\")\n+    def test_embeddable(self):\n+        import subprocess\n+        import ctypes\n+        import setuptools\n+        from distutils import ccompiler, sysconfig\n+\n+        with open('embed_pil.c', 'w') as fh:\n+            fh.write(\"\"\"\n+#include \"Python.h\"\n+\n+int main(int argc, char* argv[])\n+{\n+    char *home = \"%s\";\n+#if PY_MAJOR_VERSION >= 3\n+    wchar_t *whome = Py_DecodeLocale(home, NULL);\n+    Py_SetPythonHome(whome);\n+#else\n+    Py_SetPythonHome(home);\n+#endif\n+\n+    Py_InitializeEx(0);\n+    Py_DECREF(PyImport_ImportModule(\"PIL.Image\"));\n+    Py_Finalize();\n+\n+    Py_InitializeEx(0);\n+    Py_DECREF(PyImport_ImportModule(\"PIL.Image\"));\n+    Py_Finalize();\n+\n+#if PY_MAJOR_VERSION >= 3\n+    PyMem_RawFree(whome);\n+#endif\n+\n+    return 0;\n+}\n+        \"\"\" % sys.prefix.replace('\\\\', '\\\\\\\\'))\n+\n+        compiler = ccompiler.new_compiler()\n+        compiler.add_include_dir(sysconfig.get_python_inc())\n+        \n+        libdir = sysconfig.get_config_var('LIBDIR') or sysconfig.get_python_inc().replace('include', 'libs')\n+        print (libdir)\n+        compiler.add_library_dir(libdir)\n+        objects = compiler.compile(['embed_pil.c'])\n+        compiler.link_executable(objects, 'embed_pil')\n+\n+        env = os.environ.copy()\n+        env[\"PATH\"] = sys.prefix + ';' + env[\"PATH\"]\n+        \n+        # do not display the Windows Error Reporting dialog\n+        ctypes.windll.kernel32.SetErrorMode(0x0002)\n+        \n+        process = subprocess.Popen(['embed_pil.exe'], env=env)\n+        process.communicate()\n+        self.assertEqual(process.returncode, 0)\n+\n if __name__ == '__main__':\n     unittest.main()\ndiff --git a/libImaging/Access.c b/libImaging/Access.c\nindex 059f2aae..292968f1 100644\n--- a/libImaging/Access.c\n+++ b/libImaging/Access.c\n@@ -32,7 +32,7 @@ add_item(const char* mode)\n {\n     UINT32 i = hash(mode);\n     /* printf(\"hash %s => %d\\n\", mode, i); */\n-    if (access_table[i].mode) {\n+    if (access_table[i].mode && strcmp(access_table[i].mode, mode) != 0) {\n         fprintf(stderr, \"AccessInit: hash collision: %d for both %s and %s\\n\",\n                 i, mode, access_table[i].mode);\n         exit(1);",
+  "upstreamDiffSha256": "2bc6016b14958c6c6070b56aabf722a5d47bb90ab87d1de127f36f380575f4e6",
+  "status": "deferred_windows_only_official_test",
+  "reason": "The sole added regression skips on non-win32 and builds embed_pil.exe using Windows ctypes.windll. Current Linux Docker cannot run that official test unmodified. Defer for a matching Windows evaluation environment; no Base/Gold result claimed.",
+  "verifiedAt": "2026-10-13T07:10:38.478Z"
+}

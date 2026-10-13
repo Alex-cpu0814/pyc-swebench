@@ -1,0 +1,36 @@
+ISOLATED_NODE_BEGIN Tests/test_imagefont.py::TestImageFont::test_default_font
+TestImageFont.test_default_font ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.061s
+
+OK
+Tests/test_imagefont.py::TestImageFont::test_default_font PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_imagefont.py::TestImageFont::test_default_font", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_file_png.py::TestFilePng::test_sanity
+TestFilePng.test_sanity ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.039s
+
+OK
+Tests/test_file_png.py::TestFilePng::test_sanity PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_file_png.py::TestFilePng::test_sanity", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak
+TestTTypeFontLeak.test_leak ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.122s
+
+OK
+Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+TestDefaultFontLeak.test_leak ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.357s
+
+OK
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak", "returncode": 0, "signal": null}

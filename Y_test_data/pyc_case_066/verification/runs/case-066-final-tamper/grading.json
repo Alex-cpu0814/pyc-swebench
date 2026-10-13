@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-066-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_imagefont.py::TestImageFont::test_default_font": "MISSING",
+    "Tests/test_file_png.py::TestFilePng::test_sanity": "MISSING",
+    "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak": "MISSING"
+  },
+  "unexpected_failures": []
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-066-final-build",
+  "status": "error",
+  "reason": "image_audit_failed",
+  "started_at": "2026-10-13T08:39:35.890Z",
+  "finished_at": "2026-10-13T08:39:43.501Z",
+  "duration_ms": 7608,
+  "source": {
+    "repo": "https://github.com/python-pillow/Pillow.git",
+    "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+    "id": null,
+    "repo_digests": []
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": null
+  }
+}

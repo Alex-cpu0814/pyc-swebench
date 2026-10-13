@@ -1,0 +1,13 @@
+{
+  "published_at": "2026-10-13T08:53:08.286Z",
+  "image": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+  "verified_image_id": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+  "registry_digest": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+  "local_descriptor": {
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "digest": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+    "size": 856
+  },
+  "evidence": "Successful direct Docker push after read-only historical authorization checks and renewed automatic approval; fixed verified image with matching local RepoDigest/OCI descriptor",
+  "registry_independent_recheck": "unavailable: ERROR: failed to do request: Head \"https://registry-1.docker.io/v2/yutu0814/pyc-case-066-pillow/manifests/benchmark-v1\": dial tcp 157.240.15.8:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+}

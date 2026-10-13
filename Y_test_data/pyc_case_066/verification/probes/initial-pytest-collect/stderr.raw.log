@@ -1,0 +1,11 @@
+/tmp/test.diff:14: trailing whitespace.
+    
+/tmp/test.diff:22: trailing whitespace.
+        
+/tmp/test.diff:33: trailing whitespace.
+            #  This is the maximum resident set size used (in  kilobytes). 
+/tmp/test.diff:139: trailing whitespace.
+            
+/tmp/test.diff:149: trailing whitespace.
+    
+warning: 5 lines add whitespace errors.

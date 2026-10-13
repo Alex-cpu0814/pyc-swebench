@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 066 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"65\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"e71757aa6f64f698a16acaece9bc5557302a1fe8\"],[\"Base commit\",\"3fb62360e61949a2405db0771ad89f1c9a2b25e4\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/2634\"],[\"Symptom\",\"memory leak\"],[\"Bug location\",\"line 2249\"],[\"Bug location type\",\"function call + assignment\"],[\"Root cause\",\"Memory management error\"],[\"Fixing strategy\",\"free the variables\"],[\"Fix location\",\"before return statement\"],[\"Problem statement\",\"Repeated TrueType and default-font drawing should release temporary native font resources and text references so that memory growth stays within the upstream test limits. Normal default-font behavior and PNG decoding should remain correct.\"],[\"Original source trace\",\"-> 2249(c__imaging_87-cfg.dot) (_font_getmask) … -> 2225(c__imaging_87-cfg.dot) (_font_getmask) -> 310(py_test_imagefont_31-cfg.dot) (test_rotated_transposed_font_get_mask)\"],[\"Source trace scope\",\"Original source row 65 records a memory leak and a _font_getmask/test_rotated_transposed_font_get_mask chain. This original source trace is retained separately from the official font-leak test paths measured in this case.\"],[\"Verified Base trace\",\"Base original unittest DefaultFont leak fails: AssertionError 1164 not less than 1024, memory usage limit exceeded in iteration 46. Gold passes this target and all three regressions. TrueType leak passes on both Base and Gold at its original 4096 KiB / 10 iteration limit, so it is PASS_TO_PASS in this environment. Normal default-font and PNG sanity tests pass on both.\"],[\"Verified official test\",\"Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak\\nTests/test_imagefont.py::TestImageFont::test_default_font\\nTests/test_file_png.py::TestFilePng::test_sanity\\nTests/test_font_leaks.py::TestTTypeFontLeak::test_leak\"],[\"Official test scope\",\"Original official unittest cases execute once each in fresh subprocesses. DefaultFont uses 100 iterations and 1024 KiB, TrueType uses 10 iterations and 4096 KiB. Thresholds, loops and test bodies are unchanged. TrueType Base pass does not independently verify the FreeType leak repair in this allocator/dependency environment. The complete two-file upstream C product patch is retained. Initial pytest PNG cleanup incompatibility and DefaultFont assertion, plus the sandbox Docker permission error, remain authoring evidence.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "llkn18",
+          "target": {
+            "id": "wb/ihz2fj",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 066 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-2634\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"4.3.0.dev0\"],[\"Created at\",42934],[\"Base commit\",\"3fb62360e61949a2405db0771ad89f1c9a2b25e4\"],[\"Fix commit\",\"e71757aa6f64f698a16acaece9bc5557302a1fe8\"],[\"Merged at\",42982],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/2634\"],[\"Test source\",\"Original official upstream unittest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak\"],[\"PASS_TO_PASS (1)\",\"Tests/test_imagefont.py::TestImageFont::test_default_font\"],[\"PASS_TO_PASS (2)\",\"Tests/test_file_png.py::TestFilePng::test_sanity\"],[\"PASS_TO_PASS (3)\",\"Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak\"],[\"Base / Gold outcome\",\"Base: 1 font leak target fails and 3 regressions pass. Gold: all 4 official nodes pass without skips.\"],[\"Docker image\",\"yutu0814/pyc-case-066-pillow:benchmark-v1\"],[\"Problem statement\",\"Repeated TrueType and default-font drawing should release temporary native font resources and text references so that memory growth stays within the upstream test limits. Normal default-font behavior and PNG decoding should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "tfwiei",
+          "target": {
+            "id": "wb/0sh9r0",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

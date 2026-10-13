@@ -1,0 +1,35 @@
+{
+  "instance_id": "pyc_case_066",
+  "task_level": "integration",
+  "validation_type": "official_unittest",
+  "environment": "pillow_legacy_root_package_freetype_native_font_resources",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; root PIL/ layout; PYTHONPATH=/testbed:/testbed/Tests loads rebuilt native extensions",
+  "test_execution": [
+    "One fresh unittest subprocess per original official node, with upstream RSS thresholds and iterations unchanged."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/helper.py, Tests/test_file_png.py, Tests/test_font_leaks.py.",
+    "Base original unittest DefaultFont leak fails: AssertionError 1164 not less than 1024, memory usage limit exceeded in iteration 46. Gold passes this target and all three regressions. TrueType leak passes on both Base and Gold at its original 4096 KiB / 10 iteration limit, so it is PASS_TO_PASS in this environment. Normal default-font and PNG sanity tests pass on both.",
+    "3 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+  "fix_commit": "e71757aa6f64f698a16acaece9bc5557302a1fe8",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/helper.py",
+    "Tests/test_file_png.py",
+    "Tests/test_font_leaks.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_imagefont.py::TestImageFont::test_default_font",
+    "Tests/test_file_png.py::TestFilePng::test_sanity",
+    "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak"
+  ]
+}

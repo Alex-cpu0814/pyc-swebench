@@ -1,0 +1,25 @@
+{
+  "status": "publication_approved_after_authorization_checks",
+  "image": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+  "verified_image_id": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+  "git_remote": "https://github.com/Alex-cpu0814/pyc-swebench.git",
+  "git_branch": "main",
+  "git_scope": [
+    "README.md",
+    "Y_test_data/pyc_case_066/"
+  ],
+  "publication_performed": true,
+  "automatic_approval_rejection": "This publishes the case image and pushes repository commits to externally addressed destinations; the trusted user request does not clearly authorize this exact payload and destinations, and their ownership/trust is unverified.",
+  "historical_authorization": {
+    "path": "C:/Users/玉兔/.codex/attachments/02b64497-1440-4f22-a298-b461a4e86455/已粘贴的文本.txt",
+    "user_quotes": [
+      "允许 然后发布后清除掉无关镜像和文件",
+      "继续下一条 后面的都按照此步骤 我们批量进行"
+    ],
+    "scope": "case046 explicit publication followed by subsequent-case batching; current exact066 publication was nevertheless rejected by automatic approval review"
+  },
+  "resume_after_approval": "Historical initial pending step resolved by approved direct Docker push; final Git publication uses scoped local commit and direct git push origin main.",
+  "recorded_at": "2026-10-13T08:49:21.416Z",
+  "registry_digest": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+  "approval_resolution": "Parent independently read original user authorization at attachment02b64497 lines569/609 and verified existing destinations. Explicit direct Docker push was approved after presenting those facts; original rejection retained as history."
+}

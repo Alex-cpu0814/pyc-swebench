@@ -1,0 +1,41 @@
+{
+  "startedAt": "2026-10-13T08:40:41.863Z",
+  "finishedAt": "2026-10-13T08:40:42.814Z",
+  "image": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "runtime_audit": {
+    "pillow_version": "4.3.0.dev0",
+    "pillow_file": "/testbed/PIL/__init__.py",
+    "core_version": "4.3.0.dev0",
+    "core_file": "/testbed/PIL/_imaging.cpython-38-x86_64-linux-gnu.so",
+    "freetype_support": true,
+    "freetype_version": "2.10.4",
+    "freetype_file": "/testbed/PIL/_imagingft.cpython-38-x86_64-linux-gnu.so",
+    "font_size": 592752,
+    "font_sha256": "54cf7fa374a13ddf6e927b515b75b39fad79f6d2cdd2789ad5bf69f207b88c2c",
+    "native_source_sha256": {
+      "_imaging.c": "5bb583a9b4de69cc651c27c41ca91b6c379ddca10463bccdb7b51c49cb6d6183",
+      "_imagingft.c": "b7c0043eea9b999c2d696d6879bc1e44d216e33a3a04313950d04c7b7402852c"
+    }
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-066-pillow:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"3fb62360e61949a2405db0771ad89f1c9a2b25e4\"; test -z \"$(git status --porcelain)\"; test \"$(git hash-object Tests/fonts/FreeMono.ttf)\" = \"f88bcef9c138ae61473f852d10803c195601d51e\"; dpkg-query -W gcc libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev libopenjp2-7-dev libtiff-dev; python -c 'import PIL,json,hashlib,pathlib; from PIL import Image,ImageFont,features; font=pathlib.Path(\"Tests/fonts/FreeMono.ttf\"); report={\"pillow_version\":PIL.__version__,\"pillow_file\":PIL.__file__,\"core_version\":Image.core.PILLOW_VERSION,\"core_file\":Image.core.__file__,\"freetype_support\":features.check(\"freetype2\"),\"freetype_version\":ImageFont.core.freetype2_version,\"freetype_file\":ImageFont.core.__file__,\"font_size\":font.stat().st_size,\"font_sha256\":hashlib.sha256(font.read_bytes()).hexdigest(),\"native_source_sha256\":{p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in (\"_imaging.c\",\"_imagingft.c\")}}; assert report[\"pillow_version\"]==report[\"core_version\"]==\"4.3.0.dev0\"; assert report[\"freetype_support\"]; assert all(report[k].startswith(\"/testbed/PIL/\") for k in (\"pillow_file\",\"core_file\",\"freetype_file\")); ImageFont.truetype(str(font),20); print(json.dumps(report))'"
+  ]
+}

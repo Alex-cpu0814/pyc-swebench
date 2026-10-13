@@ -1,0 +1,175 @@
+ISOLATED_NODE_BEGIN Tests/test_imagefont.py::TestImageFont::test_default_font
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_imagefont.py::TestImageFont::test_default_font PASSED         [100%]
+
+=============================== warnings summary ===============================
+Tests/test_imagefont.py::TestImageFont::test_default_font
+  /testbed/PIL/TiffImagePlugin.py:386: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    class ImageFileDirectory_v2(collections.MutableMapping):
+
+Tests/test_imagefont.py::TestImageFont::test_default_font
+Tests/test_imagefont.py::TestImageFont::test_default_font
+Tests/test_imagefont.py::TestImageFont::test_default_font
+Tests/test_imagefont.py::TestImageFont::test_default_font
+  /testbed/PIL/PngImagePlugin.py:144: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    crc1 = Image.core.crc32(data, Image.core.crc32(cid))
+
+Tests/test_imagefont.py::TestImageFont::test_default_font
+Tests/test_imagefont.py::TestImageFont::test_default_font
+  /testbed/PIL/ImageFile.py:234: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    n, err_code = decoder.decode(b)
+
+Tests/test_imagefont.py::TestImageFont::test_default_font
+  /testbed/PIL/ImageFont.py:108: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    self.font = Image.core.font(image.im, data)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 8 warnings in 0.06s =========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_imagefont.py::TestImageFont::test_default_font", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_file_png.py::TestFilePng::test_sanity
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_file_png.py::TestFilePng::test_sanity FAILED                  [100%]
+
+=================================== FAILURES ===================================
+___________________________ TestFilePng.test_sanity ____________________________
+
+self = <test_file_png.TestFilePng testMethod=test_sanity>
+path = '/tmp/temp1xsduyj0.png'
+
+    def delete_tempfile(self, path):
+        try:
+>           ok = self.currentResult.wasSuccessful()
+E           AttributeError: 'TestCaseFunction' object has no attribute 'wasSuccessful'
+
+Tests/helper.py:43: AttributeError
+
+During handling of the above exception, another exception occurred:
+
+self = <test_file_png.TestFilePng testMethod=test_sanity>
+path = '/tmp/temp1xsduyj0.png'
+
+    def delete_tempfile(self, path):
+        try:
+            ok = self.currentResult.wasSuccessful()
+        except AttributeError:  # for nosetests
+            proxy = self.currentResult
+>           ok = (len(proxy.errors) + len(proxy.failures) == 0)
+E           AttributeError: 'TestCaseFunction' object has no attribute 'errors'
+
+Tests/helper.py:46: AttributeError
+=============================== warnings summary ===============================
+PIL/PngImagePlugin.py:645: 6 warnings
+Tests/test_file_png.py: 38 warnings
+  /testbed/PIL/PngImagePlugin.py:645: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    hi, lo = Image.core.crc32(data, Image.core.crc32(cid))
+
+Tests/test_file_png.py::TestFilePng::test_sanity
+  /testbed/Tests/test_file_png.py:55: DeprecationWarning: Please use assertRegex instead.
+    self.assertRegexpMatches(
+
+Tests/test_file_png.py::TestFilePng::test_sanity
+  /testbed/PIL/TiffImagePlugin.py:386: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    class ImageFileDirectory_v2(collections.MutableMapping):
+
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+  /testbed/PIL/ImageFile.py:234: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    n, err_code = decoder.decode(b)
+
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+Tests/test_file_png.py::TestFilePng::test_sanity
+  /testbed/PIL/Image.py:443: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    return encoder(mode, *args + extra)
+
+Tests/test_file_png.py: 14 warnings
+  /testbed/PIL/PngImagePlugin.py:144: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    crc1 = Image.core.crc32(data, Image.core.crc32(cid))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Tests/test_file_png.py::TestFilePng::test_sanity - AttributeError: 'Te...
+======================== 1 failed, 72 warnings in 0.06s ========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_file_png.py::TestFilePng::test_sanity", "returncode": 1, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak PASSED            [100%]
+
+=============================== warnings summary ===============================
+Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak
+  /testbed/PIL/ImageFont.py:143: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    self.font = core.getfont(font, size, index, encoding, layout_engine=layout_engine)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 1 passed, 1 warning in 1.70s =========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 1 item
+
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak FAILED          [100%]
+
+=================================== FAILURES ===================================
+________________________ TestDefaultFontLeak.test_leak _________________________
+
+self = <test_font_leaks.TestDefaultFontLeak testMethod=test_leak>
+
+    def test_leak(self):
+        default_font = ImageFont.load_default()
+>       self._test_font(default_font)
+
+Tests/test_font_leaks.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+Tests/test_font_leaks.py:15: in _test_font
+    self._test_leak(lambda: draw.text((0, 0), "some text "*1024, #~10k
+Tests/helper.py:205: in _test_leak
+    self.assertLess(mem, self.mem_limit,
+E   AssertionError: 1036 not less than 1024 : memory usage limit exceeded in iteration 30
+=============================== warnings summary ===============================
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+  /testbed/PIL/TiffImagePlugin.py:386: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+    class ImageFileDirectory_v2(collections.MutableMapping):
+
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+  /testbed/PIL/PngImagePlugin.py:144: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    crc1 = Image.core.crc32(data, Image.core.crc32(cid))
+
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+  /testbed/PIL/ImageFile.py:234: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    n, err_code = decoder.decode(b)
+
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+  /testbed/PIL/ImageFont.py:108: DeprecationWarning: PY_SSIZE_T_CLEAN will be required for '#' formats
+    self.font = Image.core.font(image.im, data)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak - AssertionEr...
+======================== 1 failed, 5 warnings in 0.09s =========================
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak", "returncode": 1, "signal": null}

@@ -1,0 +1,41 @@
+{
+  "caseNumber": "061",
+  "sourceCase": "60",
+  "duplicateSourceCases": [],
+  "sourceExcelRow": 62,
+  "repo": "python-pillow/Pillow",
+  "fixCommit": "96f2ef14265b3515c17a64e7ca0d5fe7bd42cd05",
+  "baseCommit": "e84b36860c02e794c3e9df9a49aa42a17e8cd35c",
+  "mergeParents": [
+    "e84b36860c02e794c3e9df9a49aa42a17e8cd35c",
+    "837bc0ad9c9dcb972ed72046c0bdabd456911fa9"
+  ],
+  "upstreamUrl": "https://github.com/python-pillow/Pillow/pull/4622",
+  "commitSubject": "Merge pull request #4622 from hugovk/fix-string",
+  "changedFiles": [
+    "Tests/test_image_reduce.py"
+  ],
+  "productFiles": [],
+  "sourceTreeBase": "37d9b1939016cb673036be44617ce1d38456d705",
+  "sourceTreeFix": "37d9b1939016cb673036be44617ce1d38456d705",
+  "sourceRow": [
+    "60",
+    "https://github.com/python-pillow/Pillow/commit/96f2ef14265b3515c17a64e7ca0d5fe7bd42cd05",
+    "incorrect result/output.",
+    "line 177",
+    "assignment",
+    null,
+    null,
+    " \n 177(py_test_image_reduce_8-cfg.dot) (assert_compare_images)\n -> 178(py_test_image_reduce_8-cfg.dot) (assert_compare_images)\n -> 174(py_test_image_reduce_8-cfg.dot) (assert_compare_images)\n -> 51(py_ImageSequence_5-cfg.dot) (__next__)\n -> 50(py_ImageSequence_5-cfg.dot) (__next__)\n -> 49(py_ImageSequence_5-cfg.dot) (__next__)\n -> 137(py_PsdImagePlugin_4-cfg.dot) (seek)\n ...\n -> 135(py_PsdImagePlugin_4-cfg.dot) (seek)\n -> 125(py_PcfFontFile_9-cfg.dot) (_load_properties)\n -> 124(py_PcfFontFile_9-cfg.dot) (_load_properties)\n -> 122(py_PcfFontFile_9-cfg.dot) (_load_properties)\n -> 605(py_TiffImagePlugin_39-cfg.dot) (__iter__)\n -> 604(py_TiffImagePlugin_39-cfg.dot) (__iter__)\n -> 19(py_test_image_resize_3-cfg.dot) (test_nearest_mode)\n ...\n -> 32(py_test_image_resize_3-cfg.dot) (test_nearest_mode)\n -> 1793(c__imaging_59-cfg.dot) (_resize)\n -> 174(c__imaging_3-cfg.dot) (PyImagingNew)\n -> 173(c__imaging_3-cfg.dot) (PyImagingNew)",
+    "PyObject_New,Foreign,Allocating Objects on the Heap,ImagingDelete,NAX,Image API,PyImagingNew,NAX,Image API",
+    "\nC-> Python",
+    "\n\nBroken string",
+    "change the string",
+    "assignment statement"
+  ],
+  "upstreamDiff": "diff --git a/Tests/test_image_reduce.py b/Tests/test_image_reduce.py\nindex 729645a0..353d0def 100644\n--- a/Tests/test_image_reduce.py\n+++ b/Tests/test_image_reduce.py\n@@ -174,8 +174,10 @@ def assert_compare_images(a, b, max_average_diff, max_diff=255):\n         average_diff = sum(i * num for i, num in enumerate(ch_hist)) / (\n             a.size[0] * a.size[1]\n         )\n-        msg = \"average pixel value difference {:.4f} > expected {:.4f} \"\n-        \"for '{}' band\".format(average_diff, max_average_diff, band)\n+        msg = (\n+            \"average pixel value difference {:.4f} > expected {:.4f} \"\n+            \"for '{}' band\".format(average_diff, max_average_diff, band)\n+        )\n         assert max_average_diff >= average_diff, msg\n \n         last_diff = [i for i, num in enumerate(ch_hist) if num > 0][-1]",
+  "upstreamDiffSha256": "5778b2e7684598cbdc0ca7372842e82239e789eadfa11c08c62843bc5e6e35e3",
+  "status": "excluded_no_product_patch",
+  "reason": "Only the assertion error-message formatting in an official test helper changes; product src tree is identical and product patch is empty. Applying the same protected test patch removes the only difference, so no product FAIL_TO_PASS can be established.",
+  "verifiedAt": "2026-10-13T07:05:46.542Z"
+}

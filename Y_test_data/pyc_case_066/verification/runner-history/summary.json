@@ -1,0 +1,11 @@
+{
+  "initial_runner": "pytest_case066_isolated.py",
+  "final_runner": "unittest_case066_isolated.py",
+  "reason": "Legacy PillowTestCase overrides unittest cleanup internals incompatibly with modern pytest. Original unittest invokes those APIs correctly. RSS thresholds and official logic unchanged.",
+  "initial_driver_scope": "Initial authoring script retains the pre-unittest two-target hypothesis. Final case066_spec.json and stage_case066.mjs contain the measured one-target/three-regression classification.",
+  "files": {
+    "pytest_case066_isolated.py": "99495551f48d697b7b0f10ec0853531b472c24036c3428192cccf423701102fb",
+    "pytest_no_dump.py": "3413e36c66700393b40a9bf91ea0177d8e118efae63a753bdfb9912778015c57",
+    "case066_driver.mjs": "45a6b9cb0e1e370bdeff0108e9ee2cbb946e0c428a182ac3eabae3f5b5eb56c9"
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/README.rst b/README.rst
+index 62cb4bb3..bb25a4dc 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,6 +1,8 @@
+ Pillow
+ ======
+ 
++The negative control leaves native font resources unchanged.
++
+ Python Imaging Library (Fork)
+ -----------------------------
+ 

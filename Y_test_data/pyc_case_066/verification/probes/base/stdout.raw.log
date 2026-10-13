@@ -1,0 +1,48 @@
+ISOLATED_NODE_BEGIN Tests/test_imagefont.py::TestImageFont::test_default_font
+TestImageFont.test_default_font ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.056s
+
+OK
+Tests/test_imagefont.py::TestImageFont::test_default_font PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_imagefont.py::TestImageFont::test_default_font", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_file_png.py::TestFilePng::test_sanity
+TestFilePng.test_sanity ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.030s
+
+OK
+Tests/test_file_png.py::TestFilePng::test_sanity PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_file_png.py::TestFilePng::test_sanity", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak
+TestTTypeFontLeak.test_leak ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.052s
+
+OK
+Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak PASSED
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak", "returncode": 0, "signal": null}
+ISOLATED_NODE_BEGIN Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak
+TestDefaultFontLeak.test_leak ... FAIL
+
+======================================================================
+FAIL: TestDefaultFontLeak.test_leak
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "Tests/test_font_leaks.py", line 30, in test_leak
+    self._test_font(default_font)
+  File "Tests/test_font_leaks.py", line 15, in _test_font
+    self._test_leak(lambda: draw.text((0, 0), "some text "*1024, #~10k
+  File "/testbed/Tests/helper.py", line 205, in _test_leak
+    self.assertLess(mem, self.mem_limit,
+AssertionError: 1164 not less than 1024 : memory usage limit exceeded in iteration 46
+
+----------------------------------------------------------------------
+Ran 1 test in 0.119s
+
+FAILED (failures=1)
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak FAILED
+ISOLATED_NODE_RESULT {"node": "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak", "returncode": 1, "signal": null}

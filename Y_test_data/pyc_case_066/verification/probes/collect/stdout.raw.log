@@ -1,0 +1,4 @@
+Tests/test_imagefont.py::TestImageFont::test_default_font COLLECTED
+Tests/test_file_png.py::TestFilePng::test_sanity COLLECTED
+Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak COLLECTED
+Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak COLLECTED

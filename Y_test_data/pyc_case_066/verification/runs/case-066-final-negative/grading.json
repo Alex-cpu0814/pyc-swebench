@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-066-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_imagefont.py::TestImageFont::test_default_font": "PASSED",
+    "Tests/test_file_png.py::TestFilePng::test_sanity": "PASSED",
+    "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak": "PASSED"
+  },
+  "unexpected_failures": [
+    "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak"
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "65",
+  "candidate_case": "066",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Original official unittest cases execute once each in fresh subprocesses. DefaultFont uses 100 iterations and 1024 KiB, TrueType uses 10 iterations and 4096 KiB. Thresholds, loops and test bodies are unchanged. TrueType Base pass does not independently verify the FreeType leak repair in this allocator/dependency environment. The complete two-file upstream C product patch is retained. Initial pytest PNG cleanup incompatibility and DefaultFont assertion, plus the sandbox Docker permission error, remain authoring evidence.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_unittest",
+  "created_at": "2017-07-18",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-2634",
+  "source_instance_id": "pyc_case_066",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "2634",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/2634",
+  "project_version": "4.3.0.dev0",
+  "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+  "fix_commit": "e71757aa6f64f698a16acaece9bc5557302a1fe8",
+  "FAIL_TO_PASS": [
+    "Tests/test_font_leaks.py::TestDefaultFontLeak::test_leak"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_imagefont.py::TestImageFont::test_default_font",
+    "Tests/test_file_png.py::TestFilePng::test_sanity",
+    "Tests/test_font_leaks.py::TestTTypeFontLeak::test_leak"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "Python 3.8.20 unittest (pytest 7.4.4 installed but unused)",
+    "compiler_toolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-066-pillow:benchmark-v1",
+      "id": "sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e",
+      "repo_digests": [
+        "yutu0814/pyc-case-066-pillow@sha256:7b21635299e99621802eba50557e2f4c87117546a29657660d02b8fcd5aecc6e"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-2634",
+      "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-066-final-gold/summary.json",
+      "verification/runs/case-066-final-negative/summary.json",
+      "verification/runs/case-066-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2017-09-04",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/2634",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "_imaging.c",
+    "_imagingft.c"
+  ],
+  "verified_scope": "Official Unix RSS font-resource regression in native C",
+  "source_trace_scope": "Original source row 65 records a memory leak and a _font_getmask/test_rotated_transposed_font_get_mask chain. This original source trace is retained separately from the official font-leak test paths measured in this case.",
+  "truetype_limitation": "TrueType original official RSS test passes Base and Gold in this environment and is PASS_TO_PASS; no independent FAIL_TO_PASS claim for _imagingft.c.",
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "runner_history": "verification/runner-history/summary.json",
+  "product_files": [
+    "_imaging.c",
+    "_imagingft.c"
+  ],
+  "test_files": [
+    "Tests/helper.py",
+    "Tests/test_file_png.py",
+    "Tests/test_font_leaks.py"
+  ]
+}

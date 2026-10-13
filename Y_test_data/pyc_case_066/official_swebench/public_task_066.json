@@ -1,0 +1,11 @@
+{
+  "instance_id": "python-pillow__Pillow-2634",
+  "repo": "python-pillow/Pillow",
+  "base_commit": "3fb62360e61949a2405db0771ad89f1c9a2b25e4",
+  "problem_statement": "Repeated TrueType and default-font drawing should release temporary native font resources and text references so that memory growth stays within the upstream test limits. Normal default-font behavior and PNG decoding should remain correct.",
+  "hints_text": "",
+  "created_at": "2017-07-18",
+  "version": "4.3.0.dev0",
+  "issue_id": "2634",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/2634"
+}
