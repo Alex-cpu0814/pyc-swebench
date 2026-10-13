@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 0408f4c..6d9a89a 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@
+ 
+ # Pillow
+ 
++The negative control leaves APP14 transform parsing unchanged.
++
+ ## Python Imaging Library (Fork)
+ 
+ Pillow is the friendly PIL fork by [Alex Clark and

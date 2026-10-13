@@ -31,6 +31,7 @@ SWE-bench-compatible layout.
 | `pyc_case_054` | `python-pillow/Pillow` | Issue / PR #6874 / commit `eb89e3a2` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_056` | `python-pillow/Pillow` | Issue / PR #5633 / commit `2e5ce839` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_057` | `python-pillow/Pillow` | Issue / PR #5613 / commit `5f39e8e6` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
+| `pyc_case_058` | `python-pillow/Pillow` | Issue / PR #5408 / commit `d3a3b6dd` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

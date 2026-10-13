@@ -1,0 +1,43 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.80kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 2.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.0s
+
+#5 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/python-pillow/Pillow.git"     && git fetch --depth=1 origin "b21508798ab548ed90eb4d6bf01db14b880c9c91"     && git checkout --detach FETCH_HEAD     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "b21508798ab548ed90eb4d6bf01db14b880c9c91"
+#5 CACHED
+
+#6 [5/6] WORKDIR /testbed
+#6 CACHED
+
+#7 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade        gcc=4:10.2.1-1 libjpeg62-turbo-dev=1:2.0.6-4        zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 libfreetype6-dev=2.10.4+dfsg-1+deb11u1        libopenjp2-7-dev=2.4.0-3 libtiff-dev=4.2.0-1+deb11u5 git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#8 CACHED
+
+#9 [6/6] RUN python setup.py build_ext -i     && python -c 'import PIL; from PIL import Image; print(PIL.__version__,PIL.__file__); assert Image.core.PILLOW_VERSION == PIL.__version__'     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:2fc3ab9721de01b5bdcfe2854e5bd48ebd23e2a3f24a31f9cdaf57ae816d4ec8 done
+#10 exporting config sha256:d959fe1649333fffd692c12e3a63cf2e1ea3aca5af05a0a81f1490aa9f9db5cf done
+#10 exporting attestation manifest sha256:ca4f5ae59808ea1590b208dd65a302be6c394dcfd63a86d1d067c7ad847c7de0 0.0s done
+#10 exporting manifest list sha256:3fbe631ca2fb660e8850b0f3dedfdab10187317ad1520063edca003dbce331d5 0.0s done
+#10 naming to docker.io/yutu0814/pyc-case-058-pillow:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-058-pillow:benchmark-v1 0.0s done
+#10 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/vjl7765vln7lul9m0hveypr3i

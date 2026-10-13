@@ -1,0 +1,4 @@
+Parsed 38 JSON/JSONL; evaluator syntax and 27 hashes pass.
+Numeric UTC opening/merge dates, XLSX cells and Artifact Tool error scan pass.
+Source mixed trace retained; actual Python APP14 assertion 100 == 1 separated from native C claims.
+Exact JPEG asset blob/size/SHA256, APP14 segment/payload lengths, transforms and fixed native packages verified; all evidence copies match.

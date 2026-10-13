@@ -1,0 +1,7 @@
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libjpeg62-turbo-dev:amd64	1:2.0.6-4
+libopenjp2-7-dev	2.4.0-3
+libtiff-dev:amd64	4.2.0-1+deb11u5
+zlib1g-dev:amd64	1:1.2.11.dfsg-2+deb11u2
+{"pillow_version": "8.3.0.dev0", "pillow_file": "/testbed/src/PIL/__init__.py", "core_version": "8.3.0.dev0", "jpeg_support": true, "jpeg_version": "6.2", "fixture_size": 29342, "fixture_sha256": "34bb25d06f445ce4f7d186b965cf30c00f6554fad7425774b0adc41e0028e1ee", "app14_rgb": {"segment_declared_length": 14, "payload_length": 12, "index1": 100, "index11": 1}, "app14_cmyk": {"segment_declared_length": 14, "payload_length": 12, "index1": 100, "index11": 2}, "app14_short": {"segment_declared_length": 13, "payload_length": 11, "index1": 100, "index11": null}}

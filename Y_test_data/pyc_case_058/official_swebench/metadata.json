@@ -1,0 +1,134 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "57",
+  "candidate_case": "058",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The exact upstream APP14 test checks RGB transform 1, CMYK transform 2 and absence of transform for the shortened fixture. Two unchanged regressions cover normal JPEG decoding and CMYK roundtrip. The official 29342-byte JPEG fixture is preserved by an exact binary patch and audited against its upstream blob and SHA256. Its declared APP14 segment length is 13 bytes including the 2-byte length field, leaving an 11-byte payload with no index 11. The upstream comment is preserved verbatim. Product changes are Python-only.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2021-04-15",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-5408",
+  "source_instance_id": "pyc_case_058",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "5408",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5408",
+  "project_version": "8.3.0.dev0",
+  "base_commit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+  "fix_commit": "d3a3b6dddba4af1153aa6c01be6d3be5f43636ca",
+  "FAIL_TO_PASS": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-058-pillow:benchmark-v1",
+      "id": "sha256:3fbe631ca2fb660e8850b0f3dedfdab10187317ad1520063edca003dbce331d5",
+      "repo_digests": [
+        "yutu0814/pyc-case-058-pillow@sha256:3fbe631ca2fb660e8850b0f3dedfdab10187317ad1520063edca003dbce331d5"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-5408",
+      "base_commit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-058-final-gold/summary.json",
+      "verification/runs/case-058-final-negative/summary.json",
+      "verification/runs/case-058-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2021-04-25",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5408",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "Python"
+  ],
+  "native_product_files_changed": [],
+  "verified_scope": "Official JPEG APP14 color-transform metadata regression; no native C product change",
+  "source_trace_scope": "Original source row 57 records incorrect result/output and a mixed APP/JPEG read/ImImagePlugin/ImageSequence/PNG/WalImageFile/native ImagingSplit chain. These remain original source metadata, not this official APP14 metadata test trace. This run observes AssertionError for adobe_transform 100 instead of 1 in Python JPEG metadata parsing; native C runtime presence does not prove a native C defect.",
+  "binary_patches": true,
+  "binary_test_asset": "Tests/images/truncated_app14.jpg",
+  "fixture_audit": "verification/fixture-audit/summary.json",
+  "product_files": [
+    "src/PIL/JpegImagePlugin.py"
+  ],
+  "test_files": [
+    "Tests/test_file_jpeg.py",
+    "Tests/images/truncated_app14.jpg"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "python-pillow__Pillow-5408",
+  "base_commit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

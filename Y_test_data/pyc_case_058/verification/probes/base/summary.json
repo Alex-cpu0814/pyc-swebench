@@ -1,0 +1,38 @@
+{
+  "label": "base",
+  "image": "pyc-case058-prototype-base:latest",
+  "nodes": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform"
+  ],
+  "startedAt": "2026-10-13T01:16:00.207Z",
+  "finishedAt": "2026-10-13T01:16:01.855Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case058_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case058_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case058-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no 'Tests/test_file_jpeg.py::TestFileJpeg::test_sanity' 'Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk' 'Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform'"
+  ]
+}

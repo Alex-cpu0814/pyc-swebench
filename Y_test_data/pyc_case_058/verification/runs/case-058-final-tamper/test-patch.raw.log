@@ -1,0 +1,2 @@
+error: patch failed: Tests/test_file_jpeg.py:795
+error: Tests/test_file_jpeg.py: patch does not apply

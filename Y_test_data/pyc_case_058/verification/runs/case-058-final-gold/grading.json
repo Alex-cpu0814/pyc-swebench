@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-058-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity": "PASSED",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk": "PASSED"
+  },
+  "unexpected_failures": []
+}

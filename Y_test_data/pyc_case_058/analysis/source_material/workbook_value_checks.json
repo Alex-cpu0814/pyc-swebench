@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 058 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"57\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"d3a3b6dddba4af1153aa6c01be6d3be5f43636ca\"],[\"Base commit\",\"b21508798ab548ed90eb4d6bf01db14b880c9c91\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5408\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 143\"],[\"Bug location type\",\"assignment\"],[\"Root cause\",\"index error\"],[\"Fixing strategy\",\"Changed the index number in a array variable\"],[\"Fix location\",\"assignment statement\"],[\"Problem statement\",\"JPEG Adobe APP14 color-transform metadata should use the twelfth payload byte. RGB and CMYK samples should report transforms 1 and 2; a shortened APP14 payload should retain Adobe metadata without inventing an absent transform value. Normal JPEG decoding and CMYK roundtripping should remain correct.\"],[\"Original source trace\",\"143(py_JpegImagePlugin_2-cfg.dot) (APP) ... -> 64(py_JpegImagePlugin_2-cfg.dot) (APP) -> 811(py_test_file_jpeg_67-cfg.dot) (read) -> 810(py_test_file_jpeg_67-cfg.dot) (read) -> 302(py_ImImagePlugin_7-cfg.dot) (tell) ... -> 301(py_ImImagePlugin_7-cfg.dot) (tell) -> 51(py_test_imagesequence_4-cfg.dot) (_test_multipage_tiff) -> 50(py_test_imagesequence_4-cfg.dot) (_test_multipage_tiff) -> 46(py_test_file_png_2-cfg.dot) (load) -> 73(py_WalImageFile_1-cfg.dot) (open) ... -> 70(py_WalImageFile_1-cfg.dot) (open) -> 67(py_WalImageFile_2-cfg.dot) (imopen) -> 64(py_WalImageFile_2-cfg.dot) (imopen) -> 63(py_WalImageFile_2-cfg.dot) (imopen) -> 2308(c__imaging_75-cfg.dot) (_split) -> 2307(c__imaging_75-cfg.dot) (_split) -> 75(c_Bands_2-cfg.dot) (ImagingSplit)\"],[\"Source trace scope\",\"Original source row 57 records incorrect result/output and a mixed APP/JPEG read/ImImagePlugin/ImageSequence/PNG/WalImageFile/native ImagingSplit chain. These remain original source metadata, not this official APP14 metadata test trace. This run observes AssertionError for adobe_transform 100 instead of 1 in Python JPEG metadata parsing; native C runtime presence does not prove a native C defect.\"],[\"Verified Base trace\",\"Base fails the official APP14 test with AssertionError: assert 100 == 1 on the RGB adobe_transform metadata. It reads the ASCII d byte at payload index 1 instead of the transform at index 11. Both unchanged JPEG decoding and CMYK roundtrip regressions pass. Gold passes all three nodes without skips, including RGB transform 1, CMYK transform 2 and absent transform for the shortened APP14 payload. Product changes are Python-only; no native C defect is independently established.\"],[\"Verified official test\",\"Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform\\nTests/test_file_jpeg.py::TestFileJpeg::test_sanity\\nTests/test_file_jpeg.py::TestFileJpeg::test_cmyk\"],[\"Official test scope\",\"The exact upstream APP14 test checks RGB transform 1, CMYK transform 2 and absence of transform for the shortened fixture. Two unchanged regressions cover normal JPEG decoding and CMYK roundtrip. The official 29342-byte JPEG fixture is preserved by an exact binary patch and audited against its upstream blob and SHA256. Its declared APP14 segment length is 13 bytes including the 2-byte length field, leaving an 11-byte payload with no index 11. The upstream comment is preserved verbatim. Product changes are Python-only.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "v948ny",
+          "target": {
+            "id": "wb/87wt1c",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 058 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-5408\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"8.3.0.dev0\"],[\"Created at\",44301],[\"Base commit\",\"b21508798ab548ed90eb4d6bf01db14b880c9c91\"],[\"Fix commit\",\"d3a3b6dddba4af1153aa6c01be6d3be5f43636ca\"],[\"Merged at\",44311],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5408\"],[\"Test source\",\"Official upstream pytest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform\"],[\"PASS_TO_PASS (1)\",\"Tests/test_file_jpeg.py::TestFileJpeg::test_sanity\"],[\"PASS_TO_PASS (2)\",\"Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk\"],[\"Base / Gold outcome\",\"Base: APP14 RGB transform incorrectly 100 rather than 1; Gold: target and two unchanged JPEG regressions pass\"],[\"Docker image\",\"yutu0814/pyc-case-058-pillow:benchmark-v1\"],[\"Problem statement\",\"JPEG Adobe APP14 color-transform metadata should use the twelfth payload byte. RGB and CMYK samples should report transforms 1 and 2; a shortened APP14 payload should retain Adobe metadata without inventing an absent transform value. Normal JPEG decoding and CMYK roundtripping should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "l0wcth",
+          "target": {
+            "id": "wb/yz6yw0",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

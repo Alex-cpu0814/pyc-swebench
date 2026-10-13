@@ -1,0 +1,13 @@
+diff --git a/Tests/test_file_jpeg.py b/Tests/test_file_jpeg.py
+index 1883715..21c92ca 100644
+--- a/Tests/test_file_jpeg.py
++++ b/Tests/test_file_jpeg.py
+@@ -793,7 +793,7 @@ class TestFileJpeg:
+             assert "photoshop" in im.info
+             assert 24 == len(im.info["photoshop"])
+             apps_13_lengths = [len(v) for k, v in im.applist if k == "APP13"]
+-            assert [65504, 24] == apps_13_lengths
++            assert [65504, 25] == apps_13_lengths
+ 
+     def test_icc_after_SOF(self):
+         with Image.open("Tests/images/icc-after-SOF.jpg") as im:

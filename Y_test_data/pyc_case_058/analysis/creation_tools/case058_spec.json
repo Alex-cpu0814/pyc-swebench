@@ -1,0 +1,164 @@
+{
+  "caseNumber": "058",
+  "sourceCase": "57",
+  "sourceInstanceId": "pyc_case_058",
+  "instanceId": "python-pillow__Pillow-5408",
+  "projectName": "Pillow",
+  "repo": "python-pillow/Pillow",
+  "repoUrl": "https://github.com/python-pillow/Pillow.git",
+  "issueId": "5408",
+  "issueUrl": "https://github.com/python-pillow/Pillow/pull/5408",
+  "baseCommit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+  "fixCommit": "d3a3b6dddba4af1153aa6c01be6d3be5f43636ca",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": "2021-04-15",
+  "mergedAt": "2021-04-25",
+  "version": "8.3.0.dev0",
+  "image": "yutu0814/pyc-case-058-pillow:benchmark-v1",
+  "prototypeImage": "pyc-case058-prototype-base:latest",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/Pillow",
+  "binaryPatches": true,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "nativeRequirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "compilerToolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "buildCommand": "python setup.py build_ext -i --force",
+  "buildSystem": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "environment": "pillow_native_runtime; app14_metadata_product_change_python_only",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "testExecution": "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>",
+  "pytestPathPrefix": "Tests/",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "testFile": "Tests/test_file_jpeg.py",
+  "testFiles": [
+    "Tests/test_file_jpeg.py",
+    "Tests/images/truncated_app14.jpg"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case058_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case058_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pillow058-local",
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationStatus": "verified_base_gold",
+  "failToPass": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform"
+  ],
+  "passToPass": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk"
+  ],
+  "probeNodes": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform"
+  ],
+  "problemStatement": "JPEG Adobe APP14 color-transform metadata should use the twelfth payload byte. RGB and CMYK samples should report transforms 1 and 2; a shortened APP14 payload should retain Adobe metadata without inventing an absent transform value. Normal JPEG decoding and CMYK roundtripping should remain correct.",
+  "upstreamDescription": "PR 5408 corrects the APP14 transform byte index from 1 to 11 and narrows the exception to IndexError in Python JpegImagePlugin.py. The official test checks RGB, CMYK and a shortened APP14 fixture. No native C product file changes.",
+  "provenance": {
+    "upstream_url": "https://github.com/python-pillow/Pillow/pull/5408",
+    "related_issue_url": "https://github.com/python-pillow/Pillow/issues/3953",
+    "base_commit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+    "fix_commit": "d3a3b6dddba4af1153aa6c01be6d3be5f43636ca",
+    "merge_parents": [
+      "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+      "6967f3519f3622f7b9ab53470ea75f388beb5b2a"
+    ],
+    "upstream_created_at": "2021-04-15",
+    "upstream_merged_at": "2021-04-25",
+    "upstream_created_at_timestamp": "2021-04-15T11:14:33Z",
+    "upstream_merged_at_timestamp": "2021-04-25T08:36:41Z",
+    "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5408",
+    "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+    "source_trace_scope": "Original source row 57 records incorrect result/output and a mixed APP/JPEG read/ImImagePlugin/ImageSequence/PNG/WalImageFile/native ImagingSplit chain. These remain original source metadata, not this official APP14 metadata test trace. This run observes AssertionError for adobe_transform 100 instead of 1 in Python JPEG metadata parsing; native C runtime presence does not prove a native C defect.",
+    "source_classification": "Python-C (preserved source taxonomy)",
+    "product_patch_languages": [
+      "Python"
+    ],
+    "native_product_files_changed": [],
+    "verified_scope": "Official JPEG APP14 color-transform metadata regression; no native C product change",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    },
+    "admission_rule": "Existing source Python-C classification, official regression test and commit deduplication.",
+    "binary_test_asset": "Tests/images/truncated_app14.jpg",
+    "binary_test_asset_gold_blob": "232a4c35f8c5ac8cba5c873e698f7415165ccfb3",
+    "binary_test_asset_size": 29342,
+    "binary_test_asset_sha256": "34bb25d06f445ce4f7d186b965cf30c00f6554fad7425774b0adc41e0028e1ee",
+    "formal_fixture_audit": {
+      "image": "yutu0814/pyc-case-058-pillow:benchmark-v1",
+      "fixture": {
+        "pillow_version": "8.3.0.dev0",
+        "pillow_file": "/testbed/src/PIL/__init__.py",
+        "core_version": "8.3.0.dev0",
+        "jpeg_support": true,
+        "jpeg_version": "6.2",
+        "fixture_size": 29342,
+        "fixture_sha256": "34bb25d06f445ce4f7d186b965cf30c00f6554fad7425774b0adc41e0028e1ee",
+        "app14_rgb": {
+          "segment_declared_length": 14,
+          "payload_length": 12,
+          "index1": 100,
+          "index11": 1
+        },
+        "app14_cmyk": {
+          "segment_declared_length": 14,
+          "payload_length": 12,
+          "index1": 100,
+          "index11": 2
+        },
+        "app14_short": {
+          "segment_declared_length": 13,
+          "payload_length": 11,
+          "index1": 100,
+          "index11": null
+        }
+      },
+      "git_blob": "232a4c35f8c5ac8cba5c873e698f7415165ccfb3",
+      "native_package_versions": {
+        "gcc": "4:10.2.1-1",
+        "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+        "libjpeg62-turbo-dev": "1:2.0.6-4",
+        "libopenjp2-7-dev": "2.4.0-3",
+        "libtiff-dev": "4.2.0-1+deb11u5",
+        "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+      }
+    }
+  },
+  "sourceTraceNotes": "Original source row 57 records incorrect result/output and a mixed APP/JPEG read/ImImagePlugin/ImageSequence/PNG/WalImageFile/native ImagingSplit chain. These remain original source metadata, not this official APP14 metadata test trace. This run observes AssertionError for adobe_transform 100 instead of 1 in Python JPEG metadata parsing; native C runtime presence does not prove a native C defect.",
+  "additionalVerificationAssets": [
+    "verification/fixture-audit/summary.json",
+    "verification/fixture-audit/stdout.raw.log",
+    "verification/fixture-audit/stderr.raw.log"
+  ],
+  "verifiedError": "Base fails the official APP14 test with AssertionError: assert 100 == 1 on the RGB adobe_transform metadata. It reads the ASCII d byte at payload index 1 instead of the transform at index 11. Both unchanged JPEG decoding and CMYK roundtrip regressions pass. Gold passes all three nodes without skips, including RGB transform 1, CMYK transform 2 and absent transform for the shortened APP14 payload. Product changes are Python-only; no native C defect is independently established.",
+  "targetSummary": "Base: APP14 RGB transform incorrectly 100 rather than 1; Gold: target and two unchanged JPEG regressions pass",
+  "verifiedTest": "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform and Tests/test_file_jpeg.py::TestFileJpeg::test_sanity and Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk",
+  "testScope": "The exact upstream APP14 test checks RGB transform 1, CMYK transform 2 and absence of transform for the shortened fixture. Two unchanged regressions cover normal JPEG decoding and CMYK roundtrip. The official 29342-byte JPEG fixture is preserved by an exact binary patch and audited against its upstream blob and SHA256. Its declared APP14 segment length is 13 bytes including the 2-byte length field, leaving an 11-byte payload with no index 11. The upstream comment is preserved verbatim. Product changes are Python-only.",
+  "negativePatch": "diff --git a/README.md b/README.md\nindex 0408f4c..6d9a89a 100644\n--- a/README.md\n+++ b/README.md\n@@ -4,6 +4,8 @@\n \n # Pillow\n \n+The negative control leaves APP14 transform parsing unchanged.\n+\n ## Python Imaging Library (Fork)\n \n Pillow is the friendly PIL fork by [Alex Clark and\n",
+  "tamperPatch": "diff --git a/Tests/test_file_jpeg.py b/Tests/test_file_jpeg.py\nindex 1883715..21c92ca 100644\n--- a/Tests/test_file_jpeg.py\n+++ b/Tests/test_file_jpeg.py\n@@ -793,7 +793,7 @@ class TestFileJpeg:\n             assert \"photoshop\" in im.info\n             assert 24 == len(im.info[\"photoshop\"])\n             apps_13_lengths = [len(v) for k, v in im.applist if k == \"APP13\"]\n-            assert [65504, 24] == apps_13_lengths\n+            assert [65504, 25] == apps_13_lengths\n \n     def test_icc_after_SOF(self):\n         with Image.open(\"Tests/images/icc-after-SOF.jpg\") as im:\n"
+}

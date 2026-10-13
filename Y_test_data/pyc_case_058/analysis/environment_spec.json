@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_058",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_runtime; app14_metadata_product_change_python_only",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_file_jpeg.py, Tests/images/truncated_app14.jpg.",
+    "Base fails the official APP14 test with AssertionError: assert 100 == 1 on the RGB adobe_transform metadata. It reads the ASCII d byte at payload index 1 instead of the transform at index 11. Both unchanged JPEG decoding and CMYK roundtrip regressions pass. Gold passes all three nodes without skips, including RGB transform 1, CMYK transform 2 and absent transform for the shortened APP14 payload. Product changes are Python-only; no native C defect is independently established.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "b21508798ab548ed90eb4d6bf01db14b880c9c91",
+  "fix_commit": "d3a3b6dddba4af1153aa6c01be6d3be5f43636ca",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_file_jpeg.py",
+    "Tests/images/truncated_app14.jpg"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_adobe_transform"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_sanity",
+    "Tests/test_file_jpeg.py::TestFileJpeg::test_cmyk"
+  ]
+}
