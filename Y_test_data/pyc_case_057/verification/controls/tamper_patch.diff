@@ -1,0 +1,13 @@
+diff --git a/Tests/test_file_psd.py b/Tests/test_file_psd.py
+index bf2a5fe..d855b5e 100644
+--- a/Tests/test_file_psd.py
++++ b/Tests/test_file_psd.py
+@@ -58,7 +58,7 @@ def test_n_frames():
+         assert not im.is_animated
+ 
+     with Image.open(test_file) as im:
+-        assert im.n_frames == 2
++        assert im.n_frames == 1
+         assert im.is_animated
+ 
+ 

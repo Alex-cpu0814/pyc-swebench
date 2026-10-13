@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 057 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"56\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"5f39e8e60ae0662b850484b2ad7a1eaa83677dd3\"],[\"Base commit\",\"f0679aff4d43dbd595b98501dc7a8420550bf4e8\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5613\"],[\"Symptom\",\"hang\"],[\"Bug location\",\"line 182\"],[\"Bug location type\",\"function call + assignment\"],[\"Root cause\",\"Function misuse\"],[\"Fixing strategy\",\"Changed the originally called function to another one.\"],[\"Fix location\",\"assignment statement\"],[\"Problem statement\",\"PSD layer counts may be encoded as negative signed 16-bit big-endian values. Reading the count as unsigned misinterprets valid files. A valid negative-layer-count PSD should open with the correct two-frame count and animation flag while normal PSD pixel decoding and layer seeking remain correct.\"],[\"Original source trace\",\"182(py_PsdImagePlugin_15-cfg.dot) (_layerinfo) -> 828(py_test_file_jpeg_68-cfg.dot) (read) -> 827(py_test_file_jpeg_68-cfg.dot) (read) -> 2340(py_Image_98-cfg.dot) (tell) -> 2331(py_Image_98-cfg.dot) (tell) -> 45(py_test_file_container_4-cfg.dot) (test_seek_mode_1) -> 42(py_test_file_container_4-cfg.dot) (test_seek_mode_1) -> 140(py_PsdImagePlugin_4-cfg.dot) (seek) -> 139(py_PsdImagePlugin_4-cfg.dot) (seek) -> 310(py_ImageFile_11-cfg.dot) (_seek_check) -> 300(py_ImageFile_11-cfg.dot) (_seek_check) -> 298(py_ImageFile_11-cfg.dot) (_seek_check) -> 139(py_PsdImagePlugin_4-cfg.dot) (seek) -> 138(py_PsdImagePlugin_4-cfg.dot) (seek) -> 41(py_test_file_container_4-cfg.dot) (test_seek_mode_1) -> 38(py_test_file_container_4-cfg.dot) (test_seek_mode_1) -> 37(py_test_file_container_4-cfg.dot) (test_seek_mode_1) -> 70(py_WalImageFile_1-cfg.dot) (open) -> 67(py_WalImageFile_2-cfg.dot) (imopen) -> 64(py_WalImageFile_2-cfg.dot) (imopen) -> 63(py_WalImageFile_2-cfg.dot) (imopen) -> 2317(c__imaging_75-cfg.dot) (_split) -> 2316(c__imaging_75-cfg.dot) (_split)\"],[\"Source trace scope\",\"Original source row 56 records hang and a mixed JPEG read/container seek/WalImageFile/native _split call chain. These remain original source metadata, not this official PSD test trace. This run observes PIL.UnidentifiedImageError opening the negative-count PSD, with no hang. The product patch changes Python parsing only; native C runtime presence does not prove a native C defect.\"],[\"Verified Base trace\",\"Base fails the official frame-count test with PIL.UnidentifiedImageError when Image.open reads the valid negative_layer_count.psd fixture. Both unchanged normal PSD regressions pass. Gold passes all three official nodes without skips. No hang was observed; the product patch changes Python signed-count parsing only and does not establish a native C defect.\"],[\"Verified official test\",\"Tests/test_file_psd.py::test_n_frames\\nTests/test_file_psd.py::test_sanity\\nTests/test_file_psd.py::test_eoferror\"],[\"Official test scope\",\"The exact upstream frame-count test checks normal and negative-count PSD files for two frames and animation. Two unchanged regressions exercise normal PSD pixel decoding and layer seeking. The 5492-byte official PSD fixture is preserved by an exact binary test patch and checked against its upstream Git blob and SHA256. Product changes are Python-only; no hang or native C defect was observed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "m39p8k",
+          "target": {
+            "id": "wb/rlye9m",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 057 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-5613\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"8.4.0.dev0\"],[\"Created at\",44392],[\"Base commit\",\"f0679aff4d43dbd595b98501dc7a8420550bf4e8\"],[\"Fix commit\",\"5f39e8e60ae0662b850484b2ad7a1eaa83677dd3\"],[\"Merged at\",44405],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5613\"],[\"Test source\",\"Official upstream pytest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_file_psd.py::test_n_frames\"],[\"PASS_TO_PASS (1)\",\"Tests/test_file_psd.py::test_sanity\"],[\"PASS_TO_PASS (2)\",\"Tests/test_file_psd.py::test_eoferror\"],[\"Base / Gold outcome\",\"Base: negative-count PSD frame test raises UnidentifiedImageError; Gold: target and two unchanged PSD regressions pass\"],[\"Docker image\",\"yutu0814/pyc-case-057-pillow:benchmark-v1\"],[\"Problem statement\",\"PSD layer counts may be encoded as negative signed 16-bit big-endian values. Reading the count as unsigned misinterprets valid files. A valid negative-layer-count PSD should open with the correct two-frame count and animation flag while normal PSD pixel decoding and layer seeking remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "f4ol35",
+          "target": {
+            "id": "wb/xql34q",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

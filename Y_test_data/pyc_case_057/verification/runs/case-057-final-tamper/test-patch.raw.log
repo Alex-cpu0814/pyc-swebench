@@ -1,0 +1,2 @@
+error: patch failed: Tests/test_file_psd.py:57
+error: Tests/test_file_psd.py: patch does not apply

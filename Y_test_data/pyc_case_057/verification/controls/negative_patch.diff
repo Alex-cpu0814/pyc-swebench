@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 29b5b8a..6970c24 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@
+ 
+ # Pillow
+ 
++The negative control leaves PSD signed-count parsing unchanged.
++
+ ## Python Imaging Library (Fork)
+ 
+ Pillow is the friendly PIL fork by [Alex Clark and

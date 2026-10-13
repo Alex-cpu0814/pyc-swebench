@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-057-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "Tests/test_file_psd.py::test_n_frames": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_file_psd.py::test_sanity": "MISSING",
+    "Tests/test_file_psd.py::test_eoferror": "MISSING"
+  },
+  "unexpected_failures": []
+}

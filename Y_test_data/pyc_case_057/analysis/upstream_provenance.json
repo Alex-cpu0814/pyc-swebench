@@ -1,0 +1,59 @@
+{
+  "upstream_url": "https://github.com/python-pillow/Pillow/pull/5613",
+  "related_issue_url": "https://github.com/python-pillow/Pillow/issues/5612",
+  "base_commit": "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
+  "fix_commit": "5f39e8e60ae0662b850484b2ad7a1eaa83677dd3",
+  "merge_parents": [
+    "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
+    "a46f5cdd0a1b47403e5b4733110c3f70fa7a093d"
+  ],
+  "upstream_created_at": "2021-07-15",
+  "upstream_merged_at": "2021-07-28",
+  "upstream_created_at_timestamp": "2021-07-15T09:18:35Z",
+  "upstream_merged_at_timestamp": "2021-07-28T09:53:24Z",
+  "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5613",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_trace_scope": "Original source row 56 records hang and a mixed JPEG read/container seek/WalImageFile/native _split call chain. These remain original source metadata, not this official PSD test trace. This run observes PIL.UnidentifiedImageError opening the negative-count PSD, with no hang. The product patch changes Python parsing only; native C runtime presence does not prove a native C defect.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "Python"
+  ],
+  "native_product_files_changed": [],
+  "verified_scope": "Official PSD signed layer-count parsing regression; no native C product change",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "admission_rule": "Existing source Python-C classification, official regression test and commit deduplication.",
+  "binary_test_asset": "Tests/images/negative_layer_count.psd",
+  "binary_test_asset_gold_blob": "b111c2d5675ab2eec3bf2df52d2af603e006d2a3",
+  "binary_test_asset_size": 5492,
+  "binary_test_asset_sha256": "b968a3619fe49f5c2078db5451057642188d7333a8644a90b3ca9a36efe79765",
+  "formal_fixture_audit": {
+    "image": "yutu0814/pyc-case-057-pillow:benchmark-v1",
+    "fixture": {
+      "pillow_version": "8.4.0.dev0",
+      "pillow_file": "/testbed/src/PIL/__init__.py",
+      "core_version": "8.4.0.dev0",
+      "fixture_size": 5492,
+      "fixture_sha256": "b968a3619fe49f5c2078db5451057642188d7333a8644a90b3ca9a36efe79765",
+      "layer_info_size": 3066,
+      "count_offset": 824,
+      "unsigned_count": 65534,
+      "signed_count": -2
+    },
+    "git_blob": "b111c2d5675ab2eec3bf2df52d2af603e006d2a3",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    }
+  }
+}

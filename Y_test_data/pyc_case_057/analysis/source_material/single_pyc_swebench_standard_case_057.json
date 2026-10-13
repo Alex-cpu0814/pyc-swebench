@@ -1,0 +1,20 @@
+{
+  "repo": "python-pillow/Pillow",
+  "instance_id": "python-pillow__Pillow-5613",
+  "base_commit": "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
+  "patch": "diff --git a/src/PIL/PsdImagePlugin.py b/src/PIL/PsdImagePlugin.py\nindex e7b8846..04b21e3 100644\n--- a/src/PIL/PsdImagePlugin.py\n+++ b/src/PIL/PsdImagePlugin.py\n@@ -22,6 +22,7 @@ from . import Image, ImageFile, ImagePalette\n from ._binary import i8\n from ._binary import i16be as i16\n from ._binary import i32be as i32\n+from ._binary import si16be as si16\n \n MODES = {\n     # (photoshop mode, bits) -> (pil mode, required channels)\n@@ -179,7 +180,7 @@ def _layerinfo(fp, ct_bytes):\n     def read(size):\n         return ImageFile._safe_read(fp, size)\n \n-    ct = i16(read(2))\n+    ct = si16(read(2))\n \n     # sanity check\n     if ct_bytes < (abs(ct) * 20):\ndiff --git a/src/PIL/_binary.py b/src/PIL/_binary.py\nindex 5564f45..a74ee9e 100644\n--- a/src/PIL/_binary.py\n+++ b/src/PIL/_binary.py\n@@ -47,6 +47,16 @@ def si16le(c, o=0):\n     return unpack_from(\"<h\", c, o)[0]\n \n \n+def si16be(c, o=0):\n+    \"\"\"\n+    Converts a 2-bytes (16 bits) string to a signed integer, big endian.\n+\n+    :param c: string containing bytes to convert\n+    :param o: offset of bytes to convert in string\n+    \"\"\"\n+    return unpack_from(\">h\", c, o)[0]\n+\n+\n def i32le(c, o=0):\n     \"\"\"\n     Converts a 4-bytes (32 bits) string to an unsigned integer.\n",
+  "test_patch": "diff --git a/Tests/images/negative_layer_count.psd b/Tests/images/negative_layer_count.psd\nnew file mode 100644\nindex 0000000000000000000000000000000000000000..b111c2d5675ab2eec3bf2df52d2af603e006d2a3\nGIT binary patch\nliteral 5492\nzcmeHKO=uHA7=4?hq{hTl%%O;f98ym$h*rt5u0koK5Yh;(dT_Iwq@meO*iDdtN5N~U\nz2Y(<~_29*`UOjjf1i>E=Z{E~{q6ej}Z)R;1O4EZ72<y%=GjG1X`R02wgk;tH5)^nX\nz!pV?*9AQrsK9p4#7Q<iUDiJT*n&mV#yKLzl2u<X))Ewr>D6Z>y!BC_&{8_Filxe9~\nzwrA<-nTDXqRZ=WNo1)is(}|n_Osi!V=GFA_%Eff_Bce#+0H%=8bf<YXpU-&#_8Nb@\nz_RjQbM#S37Vjo$;C_6fjlcvp_-n3i9SBTGCZ8ZhHO`OtKHC9S_OgwEfLE^VUUh?oK\nzfvXaS2$8ajg>yVxia1^E!=*l~ui7SUW@(c#OpEbD%N{laz9z6)Z!<U91Z(lKbzzBf\nzhW!}kv4BP7kwyt^)KEtYGn_3-92BTm2lyYA{&{+p=v9MGkMn52geLtVIG_z%ueMI*\nz)JZ8);wmuq!F9h)0nwYl*1GHdy6?JM4}kD{;F;C)Z)^hD@073iWSM(F@;dP3c~4fl\nz1w6e0OuplN)8szlPKGKK;OiqGu>u@<3B)dWb)!z`@$d~$WUX>9fID}A<5kAKJmB2p\nzbl9oezBYgB2ORv({?p~S)5s3rjoe+?5I2t_X;(JH&9)l0>53&&+V+U4n!Z-G8*P#-\nzZ0c>RM%^TP3@U4`V+~c<WS~v<3~8g+ZR$nFyPLOvM7%!k%r+<s={P4x4r4j3Q)bM*\nz3?_t_d1~mO%>6yx?wu7L#}{80{`h$3e8C4o{@|m_Cm1j?T3iN<j20ik8yPh|0!9Kx\nkhWD#AdbRzxjQsOEGCZz>$p3Q%x^D0V6&OMVeDZJo54vN9CIA2c\n\nliteral 0\nHcmV?d00001\n\ndiff --git a/Tests/test_file_psd.py b/Tests/test_file_psd.py\nindex bf2a5fe..f50fe13 100644\n--- a/Tests/test_file_psd.py\n+++ b/Tests/test_file_psd.py\n@@ -57,9 +57,10 @@ def test_n_frames():\n         assert im.n_frames == 1\n         assert not im.is_animated\n \n-    with Image.open(test_file) as im:\n-        assert im.n_frames == 2\n-        assert im.is_animated\n+    for path in [test_file, \"Tests/images/negative_layer_count.psd\"]:\n+        with Image.open(path) as im:\n+            assert im.n_frames == 2\n+            assert im.is_animated\n \n \n def test_eoferror():\n",
+  "problem_statement": "PSD layer counts may be encoded as negative signed 16-bit big-endian values. Reading the count as unsigned misinterprets valid files. A valid negative-layer-count PSD should open with the correct two-frame count and animation flag while normal PSD pixel decoding and layer seeking remain correct.",
+  "hints_text": "",
+  "created_at": "2021-07-15",
+  "version": "8.4.0.dev0",
+  "issue_id": "5613",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5613",
+  "FAIL_TO_PASS": [
+    "Tests/test_file_psd.py::test_n_frames"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_file_psd.py::test_sanity",
+    "Tests/test_file_psd.py::test_eoferror"
+  ]
+}

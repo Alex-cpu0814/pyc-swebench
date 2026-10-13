@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-057-final-gold",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "Tests/test_file_psd.py::test_n_frames": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "Tests/test_file_psd.py::test_sanity": "PASSED",
+    "Tests/test_file_psd.py::test_eoferror": "PASSED"
+  },
+  "unexpected_failures": []
+}

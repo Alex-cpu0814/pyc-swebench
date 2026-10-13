@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_057",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_runtime; signed_psd_count_product_change_python_only",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_file_psd.py, Tests/images/negative_layer_count.psd.",
+    "Base fails the official frame-count test with PIL.UnidentifiedImageError when Image.open reads the valid negative_layer_count.psd fixture. Both unchanged normal PSD regressions pass. Gold passes all three official nodes without skips. No hang was observed; the product patch changes Python signed-count parsing only and does not establish a native C defect.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
+  "fix_commit": "5f39e8e60ae0662b850484b2ad7a1eaa83677dd3",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_file_psd.py",
+    "Tests/images/negative_layer_count.psd"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_file_psd.py::test_n_frames"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_file_psd.py::test_sanity",
+    "Tests/test_file_psd.py::test_eoferror"
+  ]
+}

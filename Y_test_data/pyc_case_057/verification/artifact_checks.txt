@@ -1,0 +1,4 @@
+Parsed 38 JSON/JSONL files; evaluator syntax OK; 27 final hashes match.
+Numeric UTC PR opening/merge dates, XLSX cells and Artifact Tool error scan pass.
+Original hang/mixed trace preserved; actual Python parser UnidentifiedImageError and no observed hang explicitly separated.
+Exact protected binary PSD blob/size/SHA256/signedness and fixed package versions verified; all probe/build/audit copies match.

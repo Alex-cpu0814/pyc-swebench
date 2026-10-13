@@ -1,0 +1,11 @@
+{
+  "instance_id": "python-pillow__Pillow-5613",
+  "repo": "python-pillow/Pillow",
+  "base_commit": "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
+  "problem_statement": "PSD layer counts may be encoded as negative signed 16-bit big-endian values. Reading the count as unsigned misinterprets valid files. A valid negative-layer-count PSD should open with the correct two-frame count and animation flag while normal PSD pixel decoding and layer seeking remain correct.",
+  "hints_text": "",
+  "created_at": "2021-07-15",
+  "version": "8.4.0.dev0",
+  "issue_id": "5613",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5613"
+}
