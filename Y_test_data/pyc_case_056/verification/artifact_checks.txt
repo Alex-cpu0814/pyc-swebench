@@ -1,0 +1,4 @@
+Parsed 38 JSON/JSONL files; evaluator syntax OK.
+XLSX dates are numeric UTC opening/merge dates; no error cells; Artifact Tool error scan matched zero entries.
+Source Python-C taxonomy and original WebP/PyAccess trace preserved; product fix and verified failure are explicitly Python-only.
+Required OpenJPEG/JPEG/TIFF codecs enabled; native pins identical in prototype/formal audits; all saved probe/build/audit copies and final checksums match.

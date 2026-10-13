@@ -1,0 +1,151 @@
+{
+  "caseNumber": "056",
+  "sourceCase": "55",
+  "sourceInstanceId": "pyc_case_056",
+  "instanceId": "python-pillow__Pillow-5633",
+  "projectName": "Pillow",
+  "repo": "python-pillow/Pillow",
+  "repoUrl": "https://github.com/python-pillow/Pillow.git",
+  "issueId": "5633",
+  "issueUrl": "https://github.com/python-pillow/Pillow/pull/5633",
+  "baseCommit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+  "fixCommit": "2e5ce839babe540865445316e7abf1cecef97264",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": "2021-07-24",
+  "mergedAt": "2021-08-06",
+  "version": "8.4.0.dev0",
+  "image": "yutu0814/pyc-case-056-pillow:benchmark-v1",
+  "prototypeImage": "pyc-case056-prototype-base:latest",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/Pillow",
+  "binaryPatches": false,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "nativeRequirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "compilerToolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "buildCommand": "python setup.py build_ext -i --force",
+  "buildSystem": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "environment": "pillow_native_build_with_openjpeg_jpeg_tiff; target_product_change_python_only",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "testExecution": "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>",
+  "pytestPathPrefix": "Tests/",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "testFile": "Tests/test_image.py",
+  "testFiles": [
+    "Tests/test_image.py"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case056_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case056_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pillow056-local",
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationStatus": "verified_base_gold",
+  "failToPass": [
+    "Tests/test_image.py::TestImage::test_pathlib"
+  ],
+  "passToPass": [
+    "Tests/test_image.py::TestImage::test_fp_name",
+    "Tests/test_image.py::TestImage::test_tempfile"
+  ],
+  "probeNodes": [
+    "Tests/test_image.py::TestImage::test_fp_name",
+    "Tests/test_image.py::TestImage::test_tempfile",
+    "Tests/test_image.py::TestImage::test_pathlib"
+  ],
+  "problemStatement": "Image.save treats pathlib.Path as a generic path before converting it to str. Saving a JPEG2000 image through a pathlib.Path therefore passes a Path object to the Python codec wrapper, which expects a filename string. Path saving should work for JPEG and JPEG2000 while preserving normal file-object saving.",
+  "upstreamDescription": "PR 5633 resolves issue 5632 by checking isinstance(fp, Path) before isPath(fp) in Image.save, so Path objects are converted to strings. The upstream test expands the pathlib saving case to JPEG and JPEG2000. The product patch changes only src/PIL/Image.py and no native C product file.",
+  "provenance": {
+    "upstream_url": "https://github.com/python-pillow/Pillow/pull/5633",
+    "related_issue_url": "https://github.com/python-pillow/Pillow/issues/5632",
+    "base_commit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+    "fix_commit": "2e5ce839babe540865445316e7abf1cecef97264",
+    "merge_parents": [
+      "6798c87caf25cedf0cef19245e7db1656aed8602",
+      "4038a287eececa0d07b61005fb87292a25da80ca"
+    ],
+    "upstream_created_at": "2021-07-24",
+    "upstream_merged_at": "2021-08-06",
+    "upstream_created_at_timestamp": "2021-07-24T04:28:40Z",
+    "upstream_merged_at_timestamp": "2021-08-06T14:15:16Z",
+    "date_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5633",
+    "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+    "source_trace_scope": "Original source row 55 is classified Python-C and records a WebP/PyAccess/_copy call chain. That chain is retained as source metadata, not the trace of the JP2 pathlib regression. This fix changes Python path adaptation only; the observed wrapper error occurs before native JPEG2000 encoding and does not establish a native C defect.",
+    "source_classification": "Python-C (preserved source taxonomy)",
+    "product_patch_languages": [
+      "Python"
+    ],
+    "native_product_files_changed": [],
+    "verified_scope": "Python path adaptation and codec wrapper behavior; not a verified native C defect",
+    "native_package_versions": {
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libjpeg62-turbo-dev": "1:2.0.6-4",
+      "libopenjp2-7-dev": "2.4.0-3",
+      "libtiff-dev": "4.2.0-1+deb11u5",
+      "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+    },
+    "admission_rule": "Existing batch source Python-C classification, official tests and commit deduplication; no added requirement for a C product patch.",
+    "required_codec_support": {
+      "jpg_2000": true,
+      "jpg": true,
+      "libtiff": true
+    },
+    "required_codec_versions": {
+      "jpg_2000": "2.4.0",
+      "jpg": "6.2",
+      "libtiff": "4.2.0"
+    },
+    "formal_codec_audit": {
+      "image": "yutu0814/pyc-case-056-pillow:benchmark-v1",
+      "codec_support": {
+        "jpg_2000": true,
+        "jpg": true,
+        "libtiff": true
+      },
+      "codec_versions": {
+        "jpg_2000": "2.4.0",
+        "jpg": "6.2",
+        "libtiff": "4.2.0"
+      },
+      "native_package_versions": {
+        "gcc": "4:10.2.1-1",
+        "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+        "libjpeg62-turbo-dev": "1:2.0.6-4",
+        "libopenjp2-7-dev": "2.4.0-3",
+        "libtiff-dev": "4.2.0-1+deb11u5",
+        "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+      }
+    }
+  },
+  "sourceTraceNotes": "Original source row 55 is classified Python-C and records a WebP/PyAccess/_copy call chain. That chain is retained as source metadata, not the trace of the JP2 pathlib regression. This fix changes Python path adaptation only; the observed wrapper error occurs before native JPEG2000 encoding and does not establish a native C defect.",
+  "verifiedError": "Base fails the official pathlib test with AttributeError: 'PosixPath' object has no attribute 'endswith' in the Python Jpeg2KImagePlugin filename check, before native encoding. Gold passes the same JPEG/TIFF opening and JPEG/JP2 pathlib-saving test; the unchanged file-name and temporary-file save regressions pass on both. The exact product fix changes only Python Image.py and does not establish a native C defect.",
+  "targetSummary": "Base: JP2 pathlib target fails with Python filename AttributeError; Gold: target and two unchanged file-object save regressions pass",
+  "verifiedTest": "Tests/test_image.py::TestImage::test_pathlib and Tests/test_image.py::TestImage::test_fp_name and Tests/test_image.py::TestImage::test_tempfile",
+  "testScope": "The exact upstream target opens TIFF/JPEG through Path and saves JPEG/JP2 through Path. Two unchanged neighboring regressions exercise named file-object and temporary-file saving. JPEG2000, JPEG and TIFF codecs are enabled and audited; no tests are skipped. Source Python-C taxonomy is retained, but this product patch changes Python only and the verified failure precedes native JPEG2000 encoding.",
+  "negativePatch": "diff --git a/README.md b/README.md\nindex 29b5b8a..3fb2592 100644\n--- a/README.md\n+++ b/README.md\n@@ -4,6 +4,8 @@\n \n # Pillow\n \n+The evaluator negative control leaves path adaptation unchanged.\n+\n ## Python Imaging Library (Fork)\n \n Pillow is the friendly PIL fork by [Alex Clark and\n",
+  "tamperPatch": "diff --git a/Tests/test_image.py b/Tests/test_image.py\nindex c4e6f8a..26db125 100644\n--- a/Tests/test_image.py\n+++ b/Tests/test_image.py\n@@ -152,7 +152,7 @@ class TestImage:\n             temp_file = str(tmp_path / \"temp.jpg\")\n             if os.path.exists(temp_file):\n                 os.remove(temp_file)\n-            im.save(Path(temp_file))\n+            im.save(temp_file)\n \n     def test_fp_name(self, tmp_path):\n         temp_file = str(tmp_path / \"temp.jpg\")\n",
+  "additionalVerificationAssets": [
+    "verification/dependency-audit/summary.json",
+    "verification/dependency-audit/stdout.raw.log",
+    "verification/dependency-audit/stderr.raw.log"
+  ]
+}

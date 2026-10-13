@@ -1,0 +1,40 @@
+{
+  "startedAt": "2026-10-13T00:31:32.700Z",
+  "finishedAt": "2026-10-13T00:31:34.324Z",
+  "image": "yutu0814/pyc-case-056-pillow:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-056-pillow:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"6798c87caf25cedf0cef19245e7db1656aed8602\"; test -z \"$(git status --porcelain)\"; dpkg-query -W gcc libjpeg62-turbo-dev zlib1g-dev libfreetype6-dev libopenjp2-7-dev libtiff-dev; python -c 'import PIL,json; from PIL import features; required=(\"jpg_2000\",\"jpg\",\"libtiff\"); checks={x:features.check(x) for x in required}; assert all(checks.values()); print(json.dumps({\"pillow_version\":PIL.__version__,\"pillow_file\":PIL.__file__,\"codec_support\":checks,\"codec_versions\":{x:features.version(x) for x in required}}))'"
+  ],
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libjpeg62-turbo-dev": "1:2.0.6-4",
+    "libopenjp2-7-dev": "2.4.0-3",
+    "libtiff-dev": "4.2.0-1+deb11u5",
+    "zlib1g-dev": "1:1.2.11.dfsg-2+deb11u2"
+  },
+  "codec_audit": {
+    "pillow_version": "8.4.0.dev0",
+    "pillow_file": "/testbed/src/PIL/__init__.py",
+    "codec_support": {
+      "jpg_2000": true,
+      "jpg": true,
+      "libtiff": true
+    },
+    "codec_versions": {
+      "jpg_2000": "2.4.0",
+      "jpg": "6.2",
+      "libtiff": "4.2.0"
+    }
+  }
+}

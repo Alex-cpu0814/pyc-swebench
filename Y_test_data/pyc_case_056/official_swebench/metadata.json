@@ -1,0 +1,131 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "55",
+  "candidate_case": "056",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The exact upstream target opens TIFF/JPEG through Path and saves JPEG/JP2 through Path. Two unchanged neighboring regressions exercise named file-object and temporary-file saving. JPEG2000, JPEG and TIFF codecs are enabled and audited; no tests are skipped. Source Python-C taxonomy is retained, but this product patch changes Python only and the verified failure precedes native JPEG2000 encoding.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2021-07-24",
+  "created_at_precision": "date",
+  "instance_id": "python-pillow__Pillow-5633",
+  "source_instance_id": "pyc_case_056",
+  "repo": "python-pillow/Pillow",
+  "issue_id": "5633",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5633",
+  "project_version": "8.4.0.dev0",
+  "base_commit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+  "fix_commit": "2e5ce839babe540865445316e7abf1cecef97264",
+  "FAIL_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_pathlib"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_fp_name",
+    "Tests/test_image.py::TestImage::test_tempfile"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC and FreeType2; setuptools 68.2.2; ordinary native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-056-pillow:benchmark-v1",
+      "id": "sha256:abeb4e9ddc951a5c0e9d63f1d5d0c23a8c0bcb668606cfab3e67adde60b76970",
+      "repo_digests": [
+        "yutu0814/pyc-case-056-pillow@sha256:abeb4e9ddc951a5c0e9d63f1d5d0c23a8c0bcb668606cfab3e67adde60b76970"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "python-pillow__Pillow-5633",
+      "base_commit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-056-final-gold/summary.json",
+      "verification/runs/case-056-final-negative/summary.json",
+      "verification/runs/case-056-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2021-08-06",
+  "created_at_source": "https://api.github.com/repos/python-pillow/Pillow/pulls/5633",
+  "date_semantics": "created_at is the UTC PR opening date; merged_at is recorded separately.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "Python"
+  ],
+  "native_product_files_changed": [],
+  "verified_scope": "Python path adaptation and codec wrapper behavior; not a verified native C defect",
+  "source_trace_scope": "Original source row 55 is classified Python-C and records a WebP/PyAccess/_copy call chain. That chain is retained as source metadata, not the trace of the JP2 pathlib regression. This fix changes Python path adaptation only; the observed wrapper error occurs before native JPEG2000 encoding and does not establish a native C defect.",
+  "codec_audit": "verification/dependency-audit/summary.json",
+  "product_files": [
+    "src/PIL/Image.py"
+  ],
+  "test_files": [
+    "Tests/test_image.py"
+  ]
+}

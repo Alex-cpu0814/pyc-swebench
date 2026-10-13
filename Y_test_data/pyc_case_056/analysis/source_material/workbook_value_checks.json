@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 056 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"55\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Fix commit\",\"2e5ce839babe540865445316e7abf1cecef97264\"],[\"Base commit\",\"6798c87caf25cedf0cef19245e7db1656aed8602\"],[\"Upstream issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5633\"],[\"Symptom\",\"error message (attribute error)\"],[\"Bug location\",\"line 2183\"],[\"Bug location type\",\"Conditional expression\"],[\"Root cause\",\"Logic error\"],[\"Fixing strategy\",\"Change the execution order of branches in the if statement.\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Image.save treats pathlib.Path as a generic path before converting it to str. Saving a JPEG2000 image through a pathlib.Path therefore passes a Path object to the Python codec wrapper, which expects a filename string. Path saving should work for JPEG and JPEG2000 while preserving normal file-object saving.\"],[\"Original source trace\",\"2183(py_Image_93-cfg.dot) (save) -> 6(py__util_1-cfg.dot) (isPath) -> 5(py__util_1-cfg.dot) (isPath) -> 2183(py_Image_93-cfg.dot) (save) -> 2182(py_Image_93-cfg.dot) (save) -> 2181(py_Image_93-cfg.dot) (save) -> 2151(py_Image_93-cfg.dot) (save) -> 135(py_test_file_webp_17-cfg.dot) (test_write_encoding_error_message) -> 134(py_test_file_webp_17-cfg.dot) (test_write_encoding_error_message) -> 133(py_test_file_webp_17-cfg.dot) (test_write_encoding_error_message) -> 352(py_PyAccess_106-cfg.dot) (new) -> 351(py_PyAccess_106-cfg.dot) (new) -> 350(py_PyAccess_106-cfg.dot) (new) -> 349(py_PyAccess_106-cfg.dot) (new) -> 348(py_PyAccess_106-cfg.dot) (new) -> 133(py_test_file_webp_17-cfg.dot) (test_write_encoding_error_message) -> 573(py_Image_35-cfg.dot) (_new) -> 572(py_Image_35-cfg.dot) (_new) -> 1153(py_Image_59-cfg.dot) (copy) -> 977(c__imaging_34-cfg.dot) (_copy)\"],[\"Source trace scope\",\"Original source row 55 is classified Python-C and records a WebP/PyAccess/_copy call chain. That chain is retained as source metadata, not the trace of the JP2 pathlib regression. This fix changes Python path adaptation only; the observed wrapper error occurs before native JPEG2000 encoding and does not establish a native C defect.\"],[\"Verified Base trace\",\"Base fails the official pathlib test with AttributeError: 'PosixPath' object has no attribute 'endswith' in the Python Jpeg2KImagePlugin filename check, before native encoding. Gold passes the same JPEG/TIFF opening and JPEG/JP2 pathlib-saving test; the unchanged file-name and temporary-file save regressions pass on both. The exact product fix changes only Python Image.py and does not establish a native C defect.\"],[\"Verified official test\",\"Tests/test_image.py::TestImage::test_pathlib\\nTests/test_image.py::TestImage::test_fp_name\\nTests/test_image.py::TestImage::test_tempfile\"],[\"Official test scope\",\"The exact upstream target opens TIFF/JPEG through Path and saves JPEG/JP2 through Path. Two unchanged neighboring regressions exercise named file-object and temporary-file saving. JPEG2000, JPEG and TIFF codecs are enabled and audited; no tests are skipped. Source Python-C taxonomy is retained, but this product patch changes Python only and the verified failure precedes native JPEG2000 encoding.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "tz5fj0",
+          "target": {
+            "id": "wb/8h3khc",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 056 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"python-pillow__Pillow-5633\"],[\"Repository\",\"python-pillow/Pillow\"],[\"Version\",\"8.4.0.dev0\"],[\"Created at\",44401],[\"Base commit\",\"6798c87caf25cedf0cef19245e7db1656aed8602\"],[\"Fix commit\",\"2e5ce839babe540865445316e7abf1cecef97264\"],[\"Merged at\",44414],[\"Issue / PR\",\"https://github.com/python-pillow/Pillow/pull/5633\"],[\"Test source\",\"Official upstream pytest tests\"],[\"FAIL_TO_PASS (1)\",\"Tests/test_image.py::TestImage::test_pathlib\"],[\"PASS_TO_PASS (1)\",\"Tests/test_image.py::TestImage::test_fp_name\"],[\"PASS_TO_PASS (2)\",\"Tests/test_image.py::TestImage::test_tempfile\"],[\"Base / Gold outcome\",\"Base: JP2 pathlib target fails with Python filename AttributeError; Gold: target and two unchanged file-object save regressions pass\"],[\"Docker image\",\"yutu0814/pyc-case-056-pillow:benchmark-v1\"],[\"Problem statement\",\"Image.save treats pathlib.Path as a generic path before converting it to str. Saving a JPEG2000 image through a pathlib.Path therefore passes a Path object to the Python codec wrapper, which expects a filename string. Path saving should work for JPEG and JPEG2000 while preserving normal file-object saving.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "2i67j2",
+          "target": {
+            "id": "wb/08qr81",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

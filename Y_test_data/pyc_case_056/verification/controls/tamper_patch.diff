@@ -1,0 +1,13 @@
+diff --git a/Tests/test_image.py b/Tests/test_image.py
+index c4e6f8a..26db125 100644
+--- a/Tests/test_image.py
++++ b/Tests/test_image.py
+@@ -152,7 +152,7 @@ class TestImage:
+             temp_file = str(tmp_path / "temp.jpg")
+             if os.path.exists(temp_file):
+                 os.remove(temp_file)
+-            im.save(Path(temp_file))
++            im.save(temp_file)
+ 
+     def test_fp_name(self, tmp_path):
+         temp_file = str(tmp_path / "temp.jpg")

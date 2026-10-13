@@ -1,0 +1,7 @@
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libjpeg62-turbo-dev:amd64	1:2.0.6-4
+libopenjp2-7-dev	2.4.0-3
+libtiff-dev:amd64	4.2.0-1+deb11u5
+zlib1g-dev:amd64	1:1.2.11.dfsg-2+deb11u2
+{"pillow_version": "8.4.0.dev0", "pillow_file": "/testbed/src/PIL/__init__.py", "codec_support": {"jpg_2000": true, "jpg": true, "libtiff": true}, "codec_versions": {"jpg_2000": "2.4.0", "jpg": "6.2", "libtiff": "4.2.0"}}

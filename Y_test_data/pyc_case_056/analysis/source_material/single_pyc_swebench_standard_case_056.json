@@ -1,0 +1,20 @@
+{
+  "repo": "python-pillow/Pillow",
+  "instance_id": "python-pillow__Pillow-5633",
+  "base_commit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+  "patch": "diff --git a/src/PIL/Image.py b/src/PIL/Image.py\nindex 34959cd..5d565f6 100644\n--- a/src/PIL/Image.py\n+++ b/src/PIL/Image.py\n@@ -2180,12 +2180,12 @@ class Image:\n \n         filename = \"\"\n         open_fp = False\n-        if isPath(fp):\n-            filename = fp\n-            open_fp = True\n-        elif isinstance(fp, Path):\n+        if isinstance(fp, Path):\n             filename = str(fp)\n             open_fp = True\n+        elif isPath(fp):\n+            filename = fp\n+            open_fp = True\n         elif fp == sys.stdout:\n             try:\n                 fp = sys.stdout.buffer\n",
+  "test_patch": "diff --git a/Tests/test_image.py b/Tests/test_image.py\nindex c4e6f8a..2d661a9 100644\n--- a/Tests/test_image.py\n+++ b/Tests/test_image.py\n@@ -149,10 +149,11 @@ class TestImage:\n             assert im.mode == \"RGB\"\n             assert im.size == (128, 128)\n \n-            temp_file = str(tmp_path / \"temp.jpg\")\n-            if os.path.exists(temp_file):\n-                os.remove(temp_file)\n-            im.save(Path(temp_file))\n+            for ext in (\".jpg\", \".jp2\"):\n+                temp_file = str(tmp_path / (\"temp.\" + ext))\n+                if os.path.exists(temp_file):\n+                    os.remove(temp_file)\n+                im.save(Path(temp_file))\n \n     def test_fp_name(self, tmp_path):\n         temp_file = str(tmp_path / \"temp.jpg\")\n",
+  "problem_statement": "Image.save treats pathlib.Path as a generic path before converting it to str. Saving a JPEG2000 image through a pathlib.Path therefore passes a Path object to the Python codec wrapper, which expects a filename string. Path saving should work for JPEG and JPEG2000 while preserving normal file-object saving.",
+  "hints_text": "",
+  "created_at": "2021-07-24",
+  "version": "8.4.0.dev0",
+  "issue_id": "5633",
+  "issue_url": "https://github.com/python-pillow/Pillow/pull/5633",
+  "FAIL_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_pathlib"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_fp_name",
+    "Tests/test_image.py::TestImage::test_tempfile"
+  ]
+}

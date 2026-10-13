@@ -1,0 +1,76 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+--------------------------------------------------------------------
+Pillow 8.4.0.dev0
+Python 3.8.20 (default, Sep 27 2024, 06:04:53)
+       [GCC 10.2.1 20210110]
+--------------------------------------------------------------------
+Python modules loaded from /testbed/src/PIL
+Binary modules loaded from /testbed/src/PIL
+--------------------------------------------------------------------
+--- PIL CORE support ok, compiled for 8.4.0.dev0
+--- TKINTER support ok, loaded 8.6
+--- FREETYPE2 support ok, loaded 2.10.4
+--- LITTLECMS2 support ok, loaded 2.12
+--- WEBP support ok, loaded 0.6.1
+--- WEBP Transparency support ok
+--- WEBPMUX support ok
+--- WEBP Animation support ok
+--- JPEG support ok, compiled for libjpeg-turbo 2.0.6
+--- OPENJPEG (JPEG2000) support ok, loaded 2.4.0
+--- ZLIB (PNG/ZIP) support ok, loaded 1.2.11
+--- LIBTIFF support ok, loaded 4.2.0
+*** RAQM (Bidirectional Text) support not installed
+*** LIBIMAGEQUANT (Quantization method) support not installed
+--- XCB (X protocol) support ok
+--------------------------------------------------------------------
+
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 3 items
+
+Tests/test_image.py::TestImage::test_fp_name PASSED                      [ 33%]
+Tests/test_image.py::TestImage::test_tempfile PASSED                     [ 66%]
+Tests/test_image.py::TestImage::test_pathlib FAILED                      [100%]
+
+=================================== FAILURES ===================================
+____________________________ TestImage.test_pathlib ____________________________
+
+self = <Tests.test_image.TestImage object at 0x7f8169886b80>
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_pathlib0')
+
+    def test_pathlib(self, tmp_path):
+        from PIL.Image import Path
+    
+        with Image.open(Path("Tests/images/multipage-mmap.tiff")) as im:
+            assert im.mode == "P"
+            assert im.size == (10, 10)
+    
+        with Image.open(Path("Tests/images/hopper.jpg")) as im:
+            assert im.mode == "RGB"
+            assert im.size == (128, 128)
+    
+            for ext in (".jpg", ".jp2"):
+                temp_file = str(tmp_path / ("temp." + ext))
+                if os.path.exists(temp_file):
+                    os.remove(temp_file)
+>               im.save(Path(temp_file))
+
+Tests/test_image.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/PIL/Image.py:2233: in save
+    save_handler(self, fp, filename)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+im = <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=128x128 at 0x7F81698CD3D0>
+fp = <_io.BufferedRandom name='/tmp/pytest-of-root/pytest-0/test_pathlib0/temp..jp2'>
+filename = PosixPath('/tmp/pytest-of-root/pytest-0/test_pathlib0/temp..jp2')
+
+    def _save(im, fp, filename):
+>       if filename.endswith(".j2k"):
+E       AttributeError: 'PosixPath' object has no attribute 'endswith'
+
+src/PIL/Jpeg2KImagePlugin.py:320: AttributeError
+=========================== short test summary info ============================
+FAILED Tests/test_image.py::TestImage::test_pathlib - AttributeError: 'PosixP...
+========================= 1 failed, 2 passed in 0.40s ==========================

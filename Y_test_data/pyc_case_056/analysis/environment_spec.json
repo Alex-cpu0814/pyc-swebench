@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_056",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pillow_native_build_with_openjpeg_jpeg_tiff; target_product_change_python_only",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; libfreetype6-dev=2.10.4+dfsg-1+deb11u1; libjpeg62-turbo-dev=1:2.0.6-4; libopenjp2-7-dev=2.4.0-3; libtiff-dev=4.2.0-1+deb11u5; zlib1g-dev=1:1.2.11.dfsg-2+deb11u2",
+  "build_system": "Pillow setup.py build_ext -i --force; PYTHONPATH=/testbed/src uses the rebuilt native extensions",
+  "test_execution": [
+    "PYTHONPATH=/testbed/src python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv --color=no <selected official nodes>"
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in Tests/test_image.py.",
+    "Base fails the official pathlib test with AttributeError: 'PosixPath' object has no attribute 'endswith' in the Python Jpeg2KImagePlugin filename check, before native encoding. Gold passes the same JPEG/TIFF opening and JPEG/JP2 pathlib-saving test; the unchanged file-name and temporary-file save regressions pass on both. The exact product fix changes only Python Image.py and does not establish a native C defect.",
+    "2 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "6798c87caf25cedf0cef19245e7db1656aed8602",
+  "fix_commit": "2e5ce839babe540865445316e7abf1cecef97264",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "Tests/test_image.py"
+  ],
+  "FAIL_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_pathlib"
+  ],
+  "PASS_TO_PASS": [
+    "Tests/test_image.py::TestImage::test_fp_name",
+    "Tests/test_image.py::TestImage::test_tempfile"
+  ]
+}
