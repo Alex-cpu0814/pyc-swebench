@@ -1,0 +1,13 @@
+diff --git a/tests/test_ujson.py b/tests/test_ujson.py
+index 9123254..44fcfb6 100644
+--- a/tests/test_ujson.py
++++ b/tests/test_ujson.py
+@@ -249,7 +249,7 @@ def test_encode_to_utf8():
+     assert dec == json.loads(enc)
+ 
+ 
+-def test_decode_from_unicode():
++def test_decode_from_unicode_tamper():
+     test_input = '{"obj": 31337}'
+     dec1 = ujson.decode(test_input)
+     dec2 = ujson.decode(str(test_input))

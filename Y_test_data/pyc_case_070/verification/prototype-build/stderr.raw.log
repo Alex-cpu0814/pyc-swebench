@@ -1,0 +1,158 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.84kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 19.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates     && rm -rf /var/lib/apt/lists/*
+#5 2.028 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 2.169 Get:2 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 2.371 Get:3 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 3.687 Get:4 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 4.675 Fetched 8204 kB in 4s (1996 kB/s)
+#5 4.675 Reading package lists...
+#5 5.178 Reading package lists...
+#5 5.657 Building dependency tree...
+#5 5.769 Reading state information...
+#5 5.894 Skipping ca-certificates, it is already installed and upgrade is not set.
+#5 5.894 Skipping g++, it is already installed and upgrade is not set.
+#5 5.894 Skipping gcc, it is already installed and upgrade is not set.
+#5 5.894 Skipping git, it is already installed and upgrade is not set.
+#5 5.894 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#5 DONE 5.9s
+
+#6 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0 setuptools_scm==6.4.2        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 2.681 Collecting pip==24.3.1
+#6 2.895   Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+#6 3.491      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 3.1 MB/s eta 0:00:00
+#6 3.978 Collecting setuptools==68.2.2
+#6 4.100   Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+#6 4.184      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 12.0 MB/s eta 0:00:00
+#6 4.299 Collecting wheel==0.42.0
+#6 4.369   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+#6 4.383      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 6.5 MB/s eta 0:00:00
+#6 4.530 Collecting setuptools_scm==6.4.2
+#6 4.602   Downloading setuptools_scm-6.4.2-py3-none-any.whl (37 kB)
+#6 4.762 Collecting pytest==7.4.4
+#6 4.833   Downloading pytest-7.4.4-py3-none-any.whl (325 kB)
+#6 4.861      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.3/325.3 kB 13.6 MB/s eta 0:00:00
+#6 4.977 Collecting packaging==23.2
+#6 5.049   Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#6 5.058      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 11.6 MB/s eta 0:00:00
+#6 5.175 Collecting pluggy==1.3.0
+#6 5.250   Downloading pluggy-1.3.0-py3-none-any.whl (18 kB)
+#6 5.347 Collecting iniconfig==2.0.0
+#6 5.421   Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#6 5.513 Collecting exceptiongroup==1.2.2
+#6 5.583   Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+#6 5.724 Collecting tomli==2.0.1
+#6 5.803   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#6 6.017 Installing collected packages: wheel, tomli, setuptools, pluggy, pip, packaging, iniconfig, exceptiongroup, setuptools_scm, pytest
+#6 6.017   Attempting uninstall: wheel
+#6 6.018     Found existing installation: wheel 0.44.0
+#6 6.031     Uninstalling wheel-0.44.0:
+#6 6.064       Successfully uninstalled wheel-0.44.0
+#6 6.137   Attempting uninstall: setuptools
+#6 6.138     Found existing installation: setuptools 57.5.0
+#6 6.183     Uninstalling setuptools-57.5.0:
+#6 6.318       Successfully uninstalled setuptools-57.5.0
+#6 6.850   Attempting uninstall: pip
+#6 6.851     Found existing installation: pip 23.0.1
+#6 7.019     Uninstalling pip-23.0.1:
+#6 7.274       Successfully uninstalled pip-23.0.1
+#6 8.533 Successfully installed exceptiongroup-1.2.2 iniconfig-2.0.0 packaging-23.2 pip-24.3.1 pluggy-1.3.0 pytest-7.4.4 setuptools-68.2.2 setuptools_scm-6.4.2 tomli-2.0.1 wheel-0.42.0
+#6 8.533 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#6 DONE 9.0s
+
+#7 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/ultrajson/ultrajson.git"     && git fetch --no-tags origin "9c589d1cb5dc81552aa8ee72694cb830bed099c6" refs/tags/3.2.0:refs/tags/3.2.0     && git checkout --detach "9c589d1cb5dc81552aa8ee72694cb830bed099c6"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "9c589d1cb5dc81552aa8ee72694cb830bed099c6"     && test "$(git rev-parse 3.2.0)" = "090d7412cf298085bd8f41cde9bf983f3038496f"     && test "$(git rev-list --count 3.2.0..HEAD)" = "2"
+#7 0.289 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.289 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.289 hint: of your new repositories, which will suppress this warning, call:
+#7 0.289 hint: 
+#7 0.289 hint: 	git config --global init.defaultBranch <name>
+#7 0.289 hint: 
+#7 0.289 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.289 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.289 hint: 
+#7 0.289 hint: 	git branch -m <name>
+#7 0.291 Initialized empty Git repository in /testbed/.git/
+#7 7.378 From https://github.com/ultrajson/ultrajson
+#7 7.378  * branch            9c589d1cb5dc81552aa8ee72694cb830bed099c6 -> FETCH_HEAD
+#7 7.378  * [new tag]         3.2.0      -> 3.2.0
+#7 7.511 HEAD is now at 9c589d1 Merge pull request #427 from verhovsky/master
+#7 DONE 7.5s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python setup.py build_ext -i --force     && python -c 'import ujson; print(ujson.__version__,ujson.__file__); assert ujson.__version__ == "3.2.1.dev2"; assert ujson.__file__.startswith("/testbed/ujson.")'     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 0.462 /usr/local/lib/python3.8/site-packages/setuptools/__init__.py:80: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.
+#9 0.462 !!
+#9 0.462 
+#9 0.462         ********************************************************************************
+#9 0.462         Requirements should be satisfied by a PEP 517 installer.
+#9 0.462         If you are using pip, you can try `pip install --use-pep517`.
+#9 0.462         ********************************************************************************
+#9 0.462 
+#9 0.462 !!
+#9 0.462   dist.fetch_build_eggs(dist.setup_requires)
+#9 0.602 running build_ext
+#9 0.605 building 'ujson' extension
+#9 0.605 creating build
+#9 0.605 creating build/temp.linux-x86_64-cpython-38
+#9 0.606 creating build/temp.linux-x86_64-cpython-38/deps
+#9 0.606 creating build/temp.linux-x86_64-cpython-38/deps/double-conversion
+#9 0.606 creating build/temp.linux-x86_64-cpython-38/deps/double-conversion/double-conversion
+#9 0.607 creating build/temp.linux-x86_64-cpython-38/lib
+#9 0.608 creating build/temp.linux-x86_64-cpython-38/python
+#9 0.609 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/bignum-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum-dtoa.o -D_GNU_SOURCE
+#9 0.859 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/bignum.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum.o -D_GNU_SOURCE
+#9 1.144 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/cached-powers.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/cached-powers.o -D_GNU_SOURCE
+#9 1.224 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/diy-fp.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/diy-fp.o -D_GNU_SOURCE
+#9 1.257 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/double-conversion.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/double-conversion.o -D_GNU_SOURCE
+#9 1.791 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/fast-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fast-dtoa.o -D_GNU_SOURCE
+#9 1.944 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/fixed-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fixed-dtoa.o -D_GNU_SOURCE
+#9 2.148 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/strtod.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/strtod.o -D_GNU_SOURCE
+#9 2.343 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/dconv_wrapper.cc -o build/temp.linux-x86_64-cpython-38/./lib/dconv_wrapper.o -D_GNU_SOURCE
+#9 2.394 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/ultrajsondec.c -o build/temp.linux-x86_64-cpython-38/./lib/ultrajsondec.o -D_GNU_SOURCE
+#9 2.605 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/ultrajsonenc.c -o build/temp.linux-x86_64-cpython-38/./lib/ultrajsonenc.o -D_GNU_SOURCE
+#9 2.645 ./lib/ultrajsonenc.c:76:21: warning: ‘g_pow10’ defined but not used [-Wunused-const-variable=]
+#9 2.645    76 | static const double g_pow10[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000};
+#9 2.645       |                     ^~~~~~~
+#9 2.776 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/JSONtoObj.c -o build/temp.linux-x86_64-cpython-38/./python/JSONtoObj.o -D_GNU_SOURCE
+#9 2.933 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/objToJSON.c -o build/temp.linux-x86_64-cpython-38/./python/objToJSON.o -D_GNU_SOURCE
+#9 2.987 ./python/objToJSON.c: In function ‘PyUnicodeToUTF8’:
+#9 2.987 ./python/objToJSON.c:135:18: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+#9 2.987   135 |     char *data = PyUnicode_AsUTF8AndSize(obj, &len);
+#9 2.987       |                  ^~~~~~~~~~~~~~~~~~~~~~~
+#9 3.166 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/ujson.c -o build/temp.linux-x86_64-cpython-38/./python/ujson.o -D_GNU_SOURCE
+#9 3.240 creating build/lib.linux-x86_64-cpython-38
+#9 3.240 g++ -pthread -shared build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/cached-powers.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/diy-fp.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/double-conversion.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fast-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fixed-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/strtod.o build/temp.linux-x86_64-cpython-38/./lib/dconv_wrapper.o build/temp.linux-x86_64-cpython-38/./lib/ultrajsondec.o build/temp.linux-x86_64-cpython-38/./lib/ultrajsonenc.o build/temp.linux-x86_64-cpython-38/./python/JSONtoObj.o build/temp.linux-x86_64-cpython-38/./python/objToJSON.o build/temp.linux-x86_64-cpython-38/./python/ujson.o -L/usr/local/lib -o build/lib.linux-x86_64-cpython-38/ujson.cpython-38-x86_64-linux-gnu.so -lstdc++ -lm
+#9 3.326 copying build/lib.linux-x86_64-cpython-38/ujson.cpython-38-x86_64-linux-gnu.so -> 
+#9 3.367 3.2.1.dev2 /testbed/ujson.cpython-38-x86_64-linux-gnu.so
+#9 DONE 3.4s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 1.6s done
+#10 exporting manifest sha256:50bbee92f80076fbf5b639f654dc332451e73fb8de23089e2fcb708a498ab5a8 0.0s done
+#10 exporting config sha256:16cc26c25b8d06527d1a1eca16fe850b197ba64b47de6b316d61c05177e3beb4 0.0s done
+#10 exporting attestation manifest sha256:5f8f534483342a01de6f66f3b2e7366aae48ac72defbd1b3c119028c87efe074 0.0s done
+#10 exporting manifest list sha256:b172979198451de2c4849b8ec82904e59da3ef141bbd3d2888cc7a242d689114 0.0s done
+#10 naming to docker.io/library/pyc-case070-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case070-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case070-prototype-base:latest 0.7s done
+#10 DONE 2.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ygdjc9osqpv778ikitu4i2ly3

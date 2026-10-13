@@ -1,0 +1,13 @@
+{
+  "source": "https://api.github.com/repos/ultrajson/ultrajson/pulls/426",
+  "number": 426,
+  "html_url": "https://github.com/ultrajson/ultrajson/pull/426",
+  "created_at": "2020-09-17T14:47:08Z",
+  "merged_at": "2020-09-19T19:00:23Z",
+  "merge_commit_sha": "335ac83c1308b928bb316eb302114d76543868cf",
+  "pinned_source_fix_commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "pinned_first_parent": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+  "source_commit_utc_timestamp": "2020-09-19T19:00:22Z",
+  "source_commit_original_offset_timestamp": "2020-09-19T22:00:22+03:00",
+  "relationship_result": "Exact REST merge SHA equals source fix; first-parent verified. REST merged_at is one second later than Git merge committer UTC timestamp."
+}

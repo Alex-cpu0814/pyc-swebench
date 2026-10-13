@@ -1,0 +1,13 @@
+diff --git a/README.rst b/README.rst
+index f868e6e..d2506bf 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,6 +1,8 @@
+ UltraJSON
+ =========
+ 
++The negative control leaves integer indentation parsing unchanged.
++
+ .. image:: https://img.shields.io/pypi/v/ujson.svg
+     :alt: PyPI version
+     :target: https://pypi.python.org/pypi/ujson

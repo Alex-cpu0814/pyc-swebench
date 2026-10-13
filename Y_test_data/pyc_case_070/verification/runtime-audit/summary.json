@@ -1,0 +1,60 @@
+{
+  "startedAt": "2026-10-13T11:39:59.399Z",
+  "finishedAt": "2026-10-13T11:40:00.375Z",
+  "image": "yutu0814/pyc-case-070-ultrajson:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1"
+  },
+  "runtime_audit": {
+    "ujson_version": "3.2.1.dev2",
+    "ujson_file": "/testbed/ujson.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "fcd7996b925a3de9899d06fe57cd6e5b748aae3f17db2e0f56a9db2cdd0f70a3",
+    "scm_version": "3.2.1.dev2",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "setuptools-scm": "6.4.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "python/objToJSON.c": {
+        "size": 21487,
+        "sha256": "f0af0a0ea98e24af8a28e8e27e6213079d0166620ed3839641ebb184def595be"
+      },
+      "python/version_template.h": {
+        "size": 2002,
+        "sha256": "7dcee82b9d00e92e56d1e3ac319ef29e3d1b2eaa8f96d6d175cbb024dfffa10d"
+      },
+      "python/version.h": {
+        "size": 2003,
+        "sha256": "a506ab724f058c99b7b42a4efc48d5017413fbcb3410cd9061a25caf7d058415"
+      },
+      "deps/double-conversion/double-conversion/double-conversion.cc": {
+        "size": 32277,
+        "sha256": "b99b4755223ca7aaad37e65f2f9508f2167eba0cf88913b2a328530e2adedcf4"
+      }
+    },
+    "base_indent4_output": "{\n \"obj\": 31337\n}"
+  },
+  "source_git_identity": {
+    "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+    "scm_tag": "090d7412cf298085bd8f41cde9bf983f3038496f",
+    "base_distance": 2,
+    "vendor_tree": "6315c0c9f54da18ab2220373aa0f9b2dbe016c13",
+    "generated_version_header_is_ignored": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-070-ultrajson:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"9c589d1cb5dc81552aa8ee72694cb830bed099c6\"; test -z \"$(git status --porcelain)\"; test \"$(git rev-parse 3.2.0)\" = \"090d7412cf298085bd8f41cde9bf983f3038496f\"; test \"$(git rev-list --count 3.2.0..HEAD)\" = \"2\"; test \"$(git rev-parse HEAD:deps/double-conversion)\" = \"6315c0c9f54da18ab2220373aa0f9b2dbe016c13\"; test -z \"$(git ls-tree HEAD python/version.h)\"; git check-ignore python/version.h; test \"$(git hash-object python/objToJSON.c)\" = \"d7be6f6d07241357d29980b46347dfad51a159b5\"; test \"$(git hash-object deps/double-conversion/double-conversion/double-conversion.cc)\" = \"6f21a0124c43decdfef2679794b7678590e69326\"; dpkg-query -W gcc g++; python -c 'import ujson,json,hashlib,pathlib,importlib.metadata; from setuptools_scm import get_version; files=[\"python/objToJSON.c\",\"python/version_template.h\",\"python/version.h\",\"deps/double-conversion/double-conversion/double-conversion.cc\"]; report={\"ujson_version\":ujson.__version__,\"ujson_file\":ujson.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(ujson.__file__).read_bytes()).hexdigest(),\"scm_version\":get_version(local_scheme=lambda v:\"\"),\"build_packages\":{p:importlib.metadata.version(p) for p in (\"setuptools\",\"setuptools-scm\",\"wheel\",\"pytest\")},\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files},\"base_indent4_output\":ujson.encode({\"obj\":31337},indent=4)}; assert report[\"ujson_version\"]==report[\"scm_version\"]==\"3.2.1.dev2\"; assert report[\"ujson_file\"].startswith(\"/testbed/ujson.\"); assert report[\"build_packages\"][\"setuptools-scm\"]==\"6.4.2\"; assert \"O|OOOOpii\" in pathlib.Path(\"python/objToJSON.c\").read_text(); print(json.dumps(report))'"
+  ]
+}

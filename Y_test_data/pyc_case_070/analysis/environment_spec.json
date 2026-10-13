@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_070",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "ultrajson_native_python_argument_parsing_indent",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; g++=4:10.2.1-1; vendored double-conversion from exact Base tree",
+  "build_system": "UltraJSON setup.py native extension build at verified Base, with exact ancestor tag3.2.0 and full Base history for pinned setuptools_scm metadata; PYTHONPATH=/testbed loads local rebuilt ujson extension",
+  "test_execution": [
+    "Four original official pytest functions execute normally in one process, with core dumps disabled by the runner; no test bodies or input values changed."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_ujson.py.",
+    "Base fails the exact official test_encode_indent assertion: ujson.encode(obj, indent=4) emits one leading space instead of the expected four spaces. Native PyArg_ParseTupleAndKeywords parses indent using boolean format p, collapsing nonzero integer 4 to 1. Gold changes that format to integer i and passes the target plus all three unchanged dict/list encoding and Unicode decoding regressions. No skipped or missing nodes, process termination or instrumentation observed.",
+    "3 unmodified neighboring tests pass on both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+  "fix_commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_ujson.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode"
+  ]
+}

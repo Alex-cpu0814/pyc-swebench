@@ -1,0 +1,4 @@
+python/version.h
+g++	4:10.2.1-1
+gcc	4:10.2.1-1
+{"ujson_version": "3.2.1.dev2", "ujson_file": "/testbed/ujson.cpython-38-x86_64-linux-gnu.so", "extension_sha256": "fcd7996b925a3de9899d06fe57cd6e5b748aae3f17db2e0f56a9db2cdd0f70a3", "scm_version": "3.2.1.dev2", "build_packages": {"setuptools": "68.2.2", "setuptools-scm": "6.4.2", "wheel": "0.42.0", "pytest": "7.4.4"}, "assets": {"python/objToJSON.c": {"size": 21487, "sha256": "f0af0a0ea98e24af8a28e8e27e6213079d0166620ed3839641ebb184def595be"}, "python/version_template.h": {"size": 2002, "sha256": "7dcee82b9d00e92e56d1e3ac319ef29e3d1b2eaa8f96d6d175cbb024dfffa10d"}, "python/version.h": {"size": 2003, "sha256": "a506ab724f058c99b7b42a4efc48d5017413fbcb3410cd9061a25caf7d058415"}, "deps/double-conversion/double-conversion/double-conversion.cc": {"size": 32277, "sha256": "b99b4755223ca7aaad37e65f2f9508f2167eba0cf88913b2a328530e2adedcf4"}}, "base_indent4_output": "{\n \"obj\": 31337\n}"}

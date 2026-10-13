@@ -1,0 +1,125 @@
+{
+  "upstream_url": "https://github.com/ultrajson/ultrajson/pull/426",
+  "related_issue_url": "https://github.com/ultrajson/ultrajson/issues/415",
+  "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+  "fix_commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "merge_parents": [
+    "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+    "5b979eeebf31f3bc8d5de914e578935cce8571e1"
+  ],
+  "upstream_created_at": "2020-09-17",
+  "upstream_merged_at": "2020-09-19",
+  "upstream_created_at_timestamp": "2020-09-17T14:47:08Z",
+  "upstream_merged_at_timestamp": "2020-09-19T19:00:23Z",
+  "source_commit_utc_timestamp": "2020-09-19T19:00:22Z",
+  "date_source": "https://api.github.com/repos/ultrajson/ultrajson/pulls/426",
+  "date_semantics": "PR opening and merge timestamps are official REST UTC dates. Source merge committer time is separately preserved; it precedes REST merged_at by one second.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "python/objToJSON.c"
+  ],
+  "verified_scope": "Native C Python argument parser indent integer-width formatting through official ujson.encode",
+  "source_trace_scope": "Original source case69 records incorrect result/output and an objToJSON/benchmark_medium_complex_object chain. This original source trace is retained separately from the actual official test_encode_indent output assertion measured here.",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "g++": "4:10.2.1-1"
+  },
+  "scm_metadata": {
+    "tag": "3.2.0",
+    "tag_commit": "090d7412cf298085bd8f41cde9bf983f3038496f",
+    "base_distance": 2,
+    "pinned_setuptools_scm": "6.4.2",
+    "expected_runtime_version": "3.2.1.dev2",
+    "strategy": "Fetch exact Base full history and only pinned ancestor tag; do not use latest source or pretend-version override"
+  },
+  "vendored_double_conversion": {
+    "kind": "ordinary tracked source files, not a gitlink or external submodule",
+    "tree": "6315c0c9f54da18ab2220373aa0f9b2dbe016c13",
+    "entries": 63,
+    "source": "https://github.com/ultrajson/ultrajson/tree/9c589d1cb5dc81552aa8ee72694cb830bed099c6/deps/double-conversion"
+  },
+  "native_source_git_blobs": {
+    "python/objToJSON.c": "d7be6f6d07241357d29980b46347dfad51a159b5",
+    "deps/double-conversion/double-conversion/double-conversion.cc": "6f21a0124c43decdfef2679794b7678590e69326"
+  },
+  "admission_rule": "A native product patch and unchanged discriminating official regression are required.",
+  "formal_prototype_runtime_audit": {
+    "runtime": {
+      "ujson_version": "3.2.1.dev2",
+      "ujson_file": "/testbed/ujson.cpython-38-x86_64-linux-gnu.so",
+      "extension_sha256": "fcd7996b925a3de9899d06fe57cd6e5b748aae3f17db2e0f56a9db2cdd0f70a3",
+      "scm_version": "3.2.1.dev2",
+      "build_packages": {
+        "setuptools": "68.2.2",
+        "setuptools-scm": "6.4.2",
+        "wheel": "0.42.0",
+        "pytest": "7.4.4"
+      },
+      "assets": {
+        "python/objToJSON.c": {
+          "size": 21487,
+          "sha256": "f0af0a0ea98e24af8a28e8e27e6213079d0166620ed3839641ebb184def595be"
+        },
+        "python/version_template.h": {
+          "size": 2002,
+          "sha256": "7dcee82b9d00e92e56d1e3ac319ef29e3d1b2eaa8f96d6d175cbb024dfffa10d"
+        },
+        "python/version.h": {
+          "size": 2003,
+          "sha256": "a506ab724f058c99b7b42a4efc48d5017413fbcb3410cd9061a25caf7d058415"
+        },
+        "deps/double-conversion/double-conversion/double-conversion.cc": {
+          "size": 32277,
+          "sha256": "b99b4755223ca7aaad37e65f2f9508f2167eba0cf88913b2a328530e2adedcf4"
+        }
+      },
+      "base_indent4_output": "{\n \"obj\": 31337\n}"
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1"
+    }
+  },
+  "formal_runtime_audit": {
+    "image": "yutu0814/pyc-case-070-ultrajson:benchmark-v1",
+    "runtime": {
+      "ujson_version": "3.2.1.dev2",
+      "ujson_file": "/testbed/ujson.cpython-38-x86_64-linux-gnu.so",
+      "extension_sha256": "fcd7996b925a3de9899d06fe57cd6e5b748aae3f17db2e0f56a9db2cdd0f70a3",
+      "scm_version": "3.2.1.dev2",
+      "build_packages": {
+        "setuptools": "68.2.2",
+        "setuptools-scm": "6.4.2",
+        "wheel": "0.42.0",
+        "pytest": "7.4.4"
+      },
+      "assets": {
+        "python/objToJSON.c": {
+          "size": 21487,
+          "sha256": "f0af0a0ea98e24af8a28e8e27e6213079d0166620ed3839641ebb184def595be"
+        },
+        "python/version_template.h": {
+          "size": 2002,
+          "sha256": "7dcee82b9d00e92e56d1e3ac319ef29e3d1b2eaa8f96d6d175cbb024dfffa10d"
+        },
+        "python/version.h": {
+          "size": 2003,
+          "sha256": "a506ab724f058c99b7b42a4efc48d5017413fbcb3410cd9061a25caf7d058415"
+        },
+        "deps/double-conversion/double-conversion/double-conversion.cc": {
+          "size": 32277,
+          "sha256": "b99b4755223ca7aaad37e65f2f9508f2167eba0cf88913b2a328530e2adedcf4"
+        }
+      },
+      "base_indent4_output": "{\n \"obj\": 31337\n}"
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1"
+    }
+  },
+  "source_commit_timestamp_original_offset": "2020-09-19T22:00:22+03:00"
+}

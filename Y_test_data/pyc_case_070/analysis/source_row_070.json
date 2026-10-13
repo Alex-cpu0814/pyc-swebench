@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_070",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "69",
+  "duplicate_source_cases": [],
+  "deduplication_key": "335ac83c1308b928bb316eb302114d76543868cf",
+  "language_pair": "Python-C",
+  "repo": "ultrajson/ultrajson",
+  "issue_id": "426",
+  "issue_url": "https://github.com/ultrajson/ultrajson/pull/426",
+  "commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "commit_url": "https://github.com/ultrajson/ultrajson/commit/335ac83c1308b928bb316eb302114d76543868cf",
+  "problem_statement": "The indent argument to ujson.encode should retain its integer width. Encoding the official decoded object with indent=4 should exactly reproduce the original four-space JSON formatting while ordinary dict/list encoding and Unicode decoding remain correct.",
+  "symptom": "incorrect result/output.",
+  "bug_location": "line 786",
+  "bug_location_type": "Cross-Language API callsite + Conditional expression",
+  "bug_path": "786(c_objToJSON_39-cfg.dot) (objToJSON) -> 755(c_objToJSON_39-cfg.dot) (objToJSON) -> 756(c_objToJSON_39-cfg.dot) (objToJSON) -> 772(c_objToJSON_39-cfg.dot) (objToJSON) -> 753(c_objToJSON_39-cfg.dot) (objToJSON) -> 752(c_objToJSON_39-cfg.dot) (objToJSON) -> 751(c_objToJSON_39-cfg.dot) (objToJSON) -> 750(c_objToJSON_39-cfg.dot) (objToJSON) -> 749(c_objToJSON_39-cfg.dot) (objToJSON) -> 748(c_objToJSON_39-cfg.dot) (objToJSON) -> 747(c_objToJSON_39-cfg.dot) (objToJSON) -> 745(c_objToJSON_39-cfg.dot) (objToJSON) -> 741(c_objToJSON_39-cfg.dot) (objToJSON) -> 739(c_objToJSON_39-cfg.dot) (objToJSON) -> 306(py_benchmark_25-cfg.dot) (benchmark_medium_complex_object)",
+  "cross_language_type": "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Argument error",
+  "fixing_strategy": "change the variable format in argument",
+  "fix_location": "if/branching statement + foreign function",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/ultrajson/ultrajson/pull/426",
+    "upstream_description": "PR426 changes one native C PyArg_ParseTupleAndKeywords format character from p (boolean) to i (integer) for encoder.indent and adds the exact official test_encode_indent function. No other product source or binary asset changes.",
+    "verified_error": "Base fails the exact official test_encode_indent assertion: ujson.encode(obj, indent=4) emits one leading space instead of the expected four spaces. Native PyArg_ParseTupleAndKeywords parses indent using boolean format p, collapsing nonzero integer 4 to 1. Gold changes that format to integer i and passes the target plus all three unchanged dict/list encoding and Unicode decoding regressions. No skipped or missing nodes, process termination or instrumentation observed.",
+    "verified_test": "tests/test_ujson.py::test_encode_indent and tests/test_ujson.py::test_encode_dict_conversion and tests/test_ujson.py::test_encode_list_conversion and tests/test_ujson.py::test_decode_from_unicode"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "official_test_scope": "The exact protected upstream test decodes the JSON object {\"obj\":31337} and compares its indent=4 encoded text with the original four-space formatting. Three unchanged official regressions cover ordinary dictionary/list conversion and Unicode decoding. Tests execute normally in one pytest process, without altered values, assertions or thresholds. Product patch is the single native C argument-format change; vendored C++ double-conversion is compiled but unchanged.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

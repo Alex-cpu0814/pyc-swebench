@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 070 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"69\"],[\"Repository\",\"ultrajson/ultrajson\"],[\"Fix commit\",\"335ac83c1308b928bb316eb302114d76543868cf\"],[\"Base commit\",\"9c589d1cb5dc81552aa8ee72694cb830bed099c6\"],[\"Upstream issue / PR\",\"https://github.com/ultrajson/ultrajson/pull/426\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 786\"],[\"Bug location type\",\"Cross-Language API callsite + Conditional expression\"],[\"Root cause\",\"Argument error\"],[\"Fixing strategy\",\"change the variable format in argument\"],[\"Fix location\",\"if/branching statement + foreign function\"],[\"Problem statement\",\"The indent argument to ujson.encode should retain its integer width. Encoding the official decoded object with indent=4 should exactly reproduce the original four-space JSON formatting while ordinary dict/list encoding and Unicode decoding remain correct.\"],[\"Original source trace\",\"786(c_objToJSON_39-cfg.dot) (objToJSON) -> 755(c_objToJSON_39-cfg.dot) (objToJSON) -> 756(c_objToJSON_39-cfg.dot) (objToJSON) -> 772(c_objToJSON_39-cfg.dot) (objToJSON) -> 753(c_objToJSON_39-cfg.dot) (objToJSON) -> 752(c_objToJSON_39-cfg.dot) (objToJSON) -> 751(c_objToJSON_39-cfg.dot) (objToJSON) -> 750(c_objToJSON_39-cfg.dot) (objToJSON) -> 749(c_objToJSON_39-cfg.dot) (objToJSON) -> 748(c_objToJSON_39-cfg.dot) (objToJSON) -> 747(c_objToJSON_39-cfg.dot) (objToJSON) -> 745(c_objToJSON_39-cfg.dot) (objToJSON) -> 741(c_objToJSON_39-cfg.dot) (objToJSON) -> 739(c_objToJSON_39-cfg.dot) (objToJSON) -> 306(py_benchmark_25-cfg.dot) (benchmark_medium_complex_object)\"],[\"Source trace scope\",\"Original source case69 records incorrect result/output and an objToJSON/benchmark_medium_complex_object chain. This original source trace is retained separately from the actual official test_encode_indent output assertion measured here.\"],[\"Verified Base trace\",\"Base fails the exact official test_encode_indent assertion: ujson.encode(obj, indent=4) emits one leading space instead of the expected four spaces. Native PyArg_ParseTupleAndKeywords parses indent using boolean format p, collapsing nonzero integer 4 to 1. Gold changes that format to integer i and passes the target plus all three unchanged dict/list encoding and Unicode decoding regressions. No skipped or missing nodes, process termination or instrumentation observed.\"],[\"Verified official test\",\"tests/test_ujson.py::test_encode_indent\\ntests/test_ujson.py::test_encode_dict_conversion\\ntests/test_ujson.py::test_encode_list_conversion\\ntests/test_ujson.py::test_decode_from_unicode\"],[\"Official test scope\",\"The exact protected upstream test decodes the JSON object {\\\"obj\\\":31337} and compares its indent=4 encoded text with the original four-space formatting. Three unchanged official regressions cover ordinary dictionary/list conversion and Unicode decoding. Tests execute normally in one pytest process, without altered values, assertions or thresholds. Product patch is the single native C argument-format change; vendored C++ double-conversion is compiled but unchanged.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "4kkizq",
+          "target": {
+            "id": "wb/ey32xy",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 070 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"ultrajson__ultrajson-426\"],[\"Repository\",\"ultrajson/ultrajson\"],[\"Version\",\"3.2.1.dev2\"],[\"Created at\",44091],[\"Base commit\",\"9c589d1cb5dc81552aa8ee72694cb830bed099c6\"],[\"Fix commit\",\"335ac83c1308b928bb316eb302114d76543868cf\"],[\"Merged at\",44093],[\"Issue / PR\",\"https://github.com/ultrajson/ultrajson/pull/426\"],[\"Test source\",\"Original official upstream pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_ujson.py::test_encode_indent\"],[\"PASS_TO_PASS (1)\",\"tests/test_ujson.py::test_encode_dict_conversion\"],[\"PASS_TO_PASS (2)\",\"tests/test_ujson.py::test_encode_list_conversion\"],[\"PASS_TO_PASS (3)\",\"tests/test_ujson.py::test_decode_from_unicode\"],[\"Base / Gold outcome\",\"Base: 1 official indentation target fails and 3 regressions pass. Gold: all 4 official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-070-ultrajson:benchmark-v1\"],[\"Problem statement\",\"The indent argument to ujson.encode should retain its integer width. Encoding the official decoded object with indent=4 should exactly reproduce the original four-space JSON formatting while ordinary dict/list encoding and Unicode decoding remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "3acw87",
+          "target": {
+            "id": "wb/08bqlc",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

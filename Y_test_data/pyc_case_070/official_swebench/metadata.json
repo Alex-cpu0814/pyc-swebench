@@ -1,0 +1,148 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "69",
+  "candidate_case": "070",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The exact protected upstream test decodes the JSON object {\"obj\":31337} and compares its indent=4 encoded text with the original four-space formatting. Three unchanged official regressions cover ordinary dictionary/list conversion and Unicode decoding. Tests execute normally in one pytest process, without altered values, assertions or thresholds. Product patch is the single native C argument-format change; vendored C++ double-conversion is compiled but unchanged.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-09-17",
+  "created_at_precision": "date",
+  "instance_id": "ultrajson__ultrajson-426",
+  "source_instance_id": "pyc_case_070",
+  "repo": "ultrajson/ultrajson",
+  "issue_id": "426",
+  "issue_url": "https://github.com/ultrajson/ultrajson/pull/426",
+  "project_version": "3.2.1.dev2",
+  "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+  "fix_commit": "335ac83c1308b928bb316eb302114d76543868cf",
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/G++10, setuptools68.2.2, setuptools_scm6.4.2, wheel0.42.0; normal native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-070-ultrajson:benchmark-v1",
+      "id": "sha256:90abe0b0aa3f2bd61d589f13a17566da1044a9f66cab7ce180803cb5887f9bcb",
+      "repo_digests": [
+        "yutu0814/pyc-case-070-ultrajson@sha256:90abe0b0aa3f2bd61d589f13a17566da1044a9f66cab7ce180803cb5887f9bcb"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "ultrajson__ultrajson-426",
+      "base_commit": "9c589d1cb5dc81552aa8ee72694cb830bed099c6",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-070-final-gold/summary.json",
+      "verification/runs/case-070-final-negative/summary.json",
+      "verification/runs/case-070-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2020-09-19",
+  "created_at_source": "https://api.github.com/repos/ultrajson/ultrajson/pulls/426",
+  "date_semantics": "PR opening and merge timestamps are official REST UTC dates. Source merge committer time is separately preserved; it precedes REST merged_at by one second.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "python/objToJSON.c"
+  ],
+  "verified_scope": "Native C Python argument parser indent integer-width formatting through official ujson.encode",
+  "source_trace_scope": "Original source case69 records incorrect result/output and an objToJSON/benchmark_medium_complex_object chain. This original source trace is retained separately from the actual official test_encode_indent output assertion measured here.",
+  "scm_metadata": {
+    "tag": "3.2.0",
+    "tag_commit": "090d7412cf298085bd8f41cde9bf983f3038496f",
+    "base_distance": 2,
+    "pinned_setuptools_scm": "6.4.2",
+    "expected_runtime_version": "3.2.1.dev2",
+    "strategy": "Fetch exact Base full history and only pinned ancestor tag; do not use latest source or pretend-version override"
+  },
+  "vendored_double_conversion": {
+    "kind": "ordinary tracked source files, not a gitlink or external submodule",
+    "tree": "6315c0c9f54da18ab2220373aa0f9b2dbe016c13",
+    "entries": 63,
+    "source": "https://github.com/ultrajson/ultrajson/tree/9c589d1cb5dc81552aa8ee72694cb830bed099c6/deps/double-conversion"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "python/objToJSON.c"
+  ],
+  "test_files": [
+    "tests/test_ujson.py"
+  ]
+}

@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 4 items
+
+<Module tests/test_ujson.py>
+  <Function test_encode_dict_conversion>
+  <Function test_encode_list_conversion>
+  <Function test_decode_from_unicode>
+  <Function test_encode_indent>
+
+========================== 4 tests collected in 0.09s ==========================
