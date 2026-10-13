@@ -1,0 +1,79 @@
+{
+  "formulaScan": [
+    {
+      "recordCount": 1,
+      "truncated": false,
+      "metadata": {
+        "revision": "99y7zg",
+        "target": {
+          "id": "wb/fl8192",
+          "beforeLines": 0,
+          "afterLines": 0
+        },
+        "kind": {
+          "requested": "formula",
+          "tokens": [
+            "formula"
+          ]
+        },
+        "include": {
+          "tokens": []
+        },
+        "exclude": {
+          "tokens": []
+        },
+        "notices": []
+      }
+    },
+    {
+      "recordCount": 1,
+      "truncated": false,
+      "metadata": {
+        "revision": "og564b",
+        "target": {
+          "id": "wb/5qqfbi",
+          "beforeLines": 0,
+          "afterLines": 0
+        },
+        "kind": {
+          "requested": "formula",
+          "tokens": [
+            "formula"
+          ]
+        },
+        "include": {
+          "tokens": []
+        },
+        "exclude": {
+          "tokens": []
+        },
+        "notices": []
+      }
+    }
+  ],
+  "errorScan": {
+    "recordCount": 1,
+    "truncated": false,
+    "metadata": {
+      "revision": "w5ph75",
+      "target": {
+        "id": "wb/mukat7",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "match",
+        "tokens": [
+          "match"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  }
+}

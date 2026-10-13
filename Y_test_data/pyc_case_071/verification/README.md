@@ -1,0 +1,9 @@
+# Verification evidence
+
+Gold:8 official nodes pass. README-only negative:4 empty/nested parameter failures and4passes. The four passing regressions consist of the retained nonempty parameter and three unchanged neighboring encoding/decoding functions. Test equality tampering conflicts with the exact protected upstream patch and is rejected before build/grading.
+
+Exact upstream test_encode_indent inputs cover a nonempty object, {}, [], an object containing an empty object, and a list containing an empty list, at indent=4. Both original-format and stdlib-json equality assertions are retained. Four empty/nested inputs are measured FAIL_TO_PASS; the nonempty input and three unchanged dict/list encoding and Unicode decoding tests are PASS_TO_PASS. Real pytest parameter IDs containing spaces and literal escapes are kept exactly; the anchored result parser accepts spaces without decoding or normalizing IDs. No float-representation claim is made.
+
+The result parser was extended from a nonspace-only test ID to an anchored non-greedy tests/... capture followed by exact PASSED/FAILED/ERROR/SKIPPED and optional progress suffix. This accepts the real upstream IDs with spaces while preserving their literal escapes; no decode/re-encode transformations or custom IDs. Independent verification compares every raw status key byte-for-byte with collection and instance records.
+
+One ordinary pytest process runs all selected tests with core dumps disabled; no isolation wrapper, warm-up, instrumentation or test body changes. Both local native extension/SCM/vendor source audits and clean image audits pass. Base actual {} and[] output contains two internal newlines, including nested variants. Official exact patches, all raw collection/Base/Gold/build/control evidence, API dates, workbook inspection and previews remain covered by SHA256SUMS.

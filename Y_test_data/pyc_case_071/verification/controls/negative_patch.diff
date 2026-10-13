@@ -1,0 +1,13 @@
+diff --git a/README.rst b/README.rst
+index 24b7daa..8cf8e74 100644
+--- a/README.rst
++++ b/README.rst
+@@ -1,6 +1,8 @@
+ UltraJSON
+ =========
+ 
++The negative control leaves empty-container newline and indentation logic unchanged.
++
+ .. image:: https://img.shields.io/pypi/v/ujson.svg
+     :alt: PyPI version
+     :target: https://pypi.python.org/pypi/ujson

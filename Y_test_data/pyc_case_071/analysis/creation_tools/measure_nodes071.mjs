@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+const work='E:/CLB_Swe-bench/_work/pyc_batch',p=work+'/case071_spec.json',s=JSON.parse(fs.readFileSync(p,'utf8'));
+const summary=JSON.parse(fs.readFileSync(work+'/case071-probe-collect/summary.json','utf8'));
+if(summary.exitCode!==0||summary.error)throw new Error('Collection failed');
+const raw=fs.readFileSync(work+'/case071-probe-collect/stdout.raw.log','utf8');
+const nodes=raw.split('\n').map(x=>x.replace(/\r$/,'')).filter(x=>x.startsWith('tests/test_ujson.py::'));
+if(nodes.length!==8||new Set(nodes).size!==8)throw new Error('Expected eight exact official node IDs');
+const parameterNodes=nodes.filter(x=>x.startsWith('tests/test_ujson.py::test_encode_indent['));
+if(parameterNodes.length!==5||!parameterNodes.some(x=>x.includes(' '))||!parameterNodes.some(x=>x.includes('\\n')))throw new Error('Official parameter IDs not fully preserved');
+s.probeNodes=nodes;
+s.provenance.official_parameter_nodes=parameterNodes;
+s.provenance.parameter_id_semantics='Exact pytest collection strings including actual spaces and literal escaped-newline characters. No custom IDs or decoding/re-encoding transformations applied.';
+fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+fs.writeFileSync(work+'/case071_collected_nodes.json',JSON.stringify({nodes,parameterNodes,source:'case071-probe-collect/stdout.raw.log'},null,2)+'\n');
+console.log(JSON.stringify({nodes}));

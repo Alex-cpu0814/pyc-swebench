@@ -1,0 +1,11 @@
+# Analysis
+
+Source case 70 maps to benchmark case 071 and source Excel row 72. First parent f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f precedes fix a920bfa9d85bcd78836b866d1be80c1e3dcca1da, identical to the PR441 REST merge SHA. Product changes only lib/ultrajsonenc.c: move newline emission inside actual list/object iteration, and emit closing newline/indentation only when count>0. Empty containers therefore remain compact while nonempty formatting is preserved. The exact protected upstream test expansion keeps all five original inputs and adds stdlib-json equality. No binary asset or C++ product file changes.
+
+Base fails four original parameterized empty-container assertions: {} and [] expand to opening/closing delimiters separated by two newlines, and nested empty containers gain the same extra newline/indentation. The original nonempty four-space parameter and three unchanged encoding/decoding regressions pass. Gold passes all eight official nodes and both equality assertions, including stdlib json.dumps equivalence, for all five parameter inputs. No skip, missing node, native crash or instrumentation observed.
+
+Original source case 70 records incorrect result/output and an encode/test_double_long_issue trace with buffer-management helpers. This supplied trace is retained separately from actual empty-container serialization assertions measured here; float representation is not claimed as the reproduced defect.
+
+Observed local module/SCM version 4.0.2.dev3 derives from full exact Base history, only the pinned ancestor 4.0.1 tag0b5b6358893a4b593c2f977f67f1f7cce0dce0ec and distance3 with setuptools_scm6.4.2. Future release tag4.0.2 is not an ancestor and is excluded from the image. No pretend-version override or release-version claim. Generated version.h is ignored; version_template.h and the ordinary vendored double-conversion source tree are pinned.
+
+All eight official node IDs are measured from collection and preserved literally, including spaces and escaped-newline/quote characters. No custom parameter IDs or string normalization occurs. Date evidence retains official UTC opening/merge timestamps and the source commit time one second earlier; Excel dates are numeric.

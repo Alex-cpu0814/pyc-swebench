@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-071-final-tamper",
+  "label": "tamper",
+  "instance_id": "ultrajson__ultrajson-441",
+  "status": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "started_at": "2026-10-13T12:14:32.737Z",
+  "finished_at": "2026-10-13T12:14:41.398Z",
+  "duration_ms": 8656,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "bd95b61f9c323506c8f3967c2abbea9e201defe76b7e6fa5c566631b783a9473",
+  "test_patch_sha256": "335dea8f7a20636a2a8521afbd05c1df231badf151e1b091f63e40ff930b69fb",
+  "image": {
+    "name": "yutu0814/pyc-case-071-ultrajson:benchmark-v1",
+    "id": "sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66",
+    "repo_digests": [
+      "yutu0814/pyc-case-071-ultrajson@sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "test_patch",
+    "outcome": "unresolved",
+    "reason": "candidate_conflicts_with_test_patch",
+    "test_exit_code": null,
+    "instance_id": "ultrajson__ultrajson-441"
+  },
+  "grading": {
+    "tests_observed": 0,
+    "FAIL_TO_PASS": {
+      "expected": 4,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 4
+    },
+    "PASS_TO_PASS": {
+      "expected": 4,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 4
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": null,
+    "tests": null,
+    "grading": "grading.json"
+  }
+}

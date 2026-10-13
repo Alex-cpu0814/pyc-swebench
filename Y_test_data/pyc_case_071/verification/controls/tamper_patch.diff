@@ -1,0 +1,13 @@
+diff --git a/tests/test_ujson.py b/tests/test_ujson.py
+index b11e5d2..3e7790e 100644
+--- a/tests/test_ujson.py
++++ b/tests/test_ujson.py
+@@ -253,7 +253,7 @@ def test_encode_indent():
+     test_input = '{\n    "obj": 31337\n}'
+     obj = ujson.decode(test_input)
+     output = ujson.encode(obj, indent=4)
+-    assert test_input == output
++    assert test_input != output
+ 
+ 
+ def test_decode_from_unicode():

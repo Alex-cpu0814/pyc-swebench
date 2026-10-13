@@ -1,0 +1,35 @@
+/usr/local/lib/python3.8/site-packages/setuptools/__init__.py:80: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.
+!!
+
+        ********************************************************************************
+        Requirements should be satisfied by a PEP 517 installer.
+        If you are using pip, you can try `pip install --use-pep517`.
+        ********************************************************************************
+
+!!
+  dist.fetch_build_eggs(dist.setup_requires)
+running build_ext
+building 'ujson' extension
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/bignum-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum-dtoa.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/bignum.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/cached-powers.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/cached-powers.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/diy-fp.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/diy-fp.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/double-conversion.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/double-conversion.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/fast-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fast-dtoa.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/fixed-dtoa.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fixed-dtoa.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./deps/double-conversion/double-conversion/strtod.cc -o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/strtod.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/dconv_wrapper.cc -o build/temp.linux-x86_64-cpython-38/./lib/dconv_wrapper.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/ultrajsondec.c -o build/temp.linux-x86_64-cpython-38/./lib/ultrajsondec.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./lib/ultrajsonenc.c -o build/temp.linux-x86_64-cpython-38/./lib/ultrajsonenc.o -D_GNU_SOURCE
+./lib/ultrajsonenc.c:76:21: warning: ‘g_pow10’ defined but not used [-Wunused-const-variable=]
+   76 | static const double g_pow10[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000};
+      |                     ^~~~~~~
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/JSONtoObj.c -o build/temp.linux-x86_64-cpython-38/./python/JSONtoObj.o -D_GNU_SOURCE
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/objToJSON.c -o build/temp.linux-x86_64-cpython-38/./python/objToJSON.o -D_GNU_SOURCE
+./python/objToJSON.c: In function ‘PyUnicodeToUTF8’:
+./python/objToJSON.c:135:18: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  135 |     char *data = PyUnicode_AsUTF8AndSize(obj, &len);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I./python -I./lib -I./deps/double-conversion/double-conversion -I/usr/local/include/python3.8 -c ./python/ujson.c -o build/temp.linux-x86_64-cpython-38/./python/ujson.o -D_GNU_SOURCE
+g++ -pthread -shared build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/bignum.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/cached-powers.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/diy-fp.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/double-conversion.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fast-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/fixed-dtoa.o build/temp.linux-x86_64-cpython-38/./deps/double-conversion/double-conversion/strtod.o build/temp.linux-x86_64-cpython-38/./lib/dconv_wrapper.o build/temp.linux-x86_64-cpython-38/./lib/ultrajsondec.o build/temp.linux-x86_64-cpython-38/./lib/ultrajsonenc.o build/temp.linux-x86_64-cpython-38/./python/JSONtoObj.o build/temp.linux-x86_64-cpython-38/./python/objToJSON.o build/temp.linux-x86_64-cpython-38/./python/ujson.o -L/usr/local/lib -o build/lib.linux-x86_64-cpython-38/ujson.cpython-38-x86_64-linux-gnu.so -lstdc++ -lm
+copying build/lib.linux-x86_64-cpython-38/ujson.cpython-38-x86_64-linux-gnu.so -> 

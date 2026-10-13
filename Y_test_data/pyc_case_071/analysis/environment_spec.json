@@ -1,0 +1,37 @@
+{
+  "instance_id": "pyc_case_071",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "ultrajson_native_empty_container_indentation",
+  "python_version_target": "3.8",
+  "native_requirement": "gcc=4:10.2.1-1; g++=4:10.2.1-1; vendored double-conversion from exact Base tree",
+  "build_system": "UltraJSON local native extension build at exact Base with full history and only pinned ancestor4.0.1 tag; PYTHONPATH=/testbed; SCM version is observed, no pretend override.",
+  "test_execution": [
+    "All five original upstream test_encode_indent parameter inputs and three unchanged pytest regressions run normally in one process; original parameter IDs including spaces and escaped newlines are preserved."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_ujson.py.",
+    "Base fails four original parameterized empty-container assertions: {} and [] expand to opening/closing delimiters separated by two newlines, and nested empty containers gain the same extra newline/indentation. The original nonempty four-space parameter and three unchanged encoding/decoding regressions pass. Gold passes all eight official nodes and both equality assertions, including stdlib json.dumps equivalence, for all five parameter inputs. No skip, missing node, native crash or instrumentation observed.",
+    "The retained nonempty parameter and three unchanged neighboring encoding/decoding functions pass on Base and Gold. The complete upstream parameterized test patch, including the new stdlib-json assertion, is applied to both products."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "fix_commit": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_ujson.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent[{}]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "image": "yutu0814/pyc-case-071-ultrajson:benchmark-v1",
+  "verified_image_id": "sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66",
+  "config_env": [
+    "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+    "PYTHON_VERSION=3.8.20",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "PYTHONPATH=/testbed"
+  ],
+  "config_volumes": null,
+  "config_labels": null,
+  "source_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "tracked_public_source_files": 99,
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile in staged build context; .dockerignore excludes all other host files",
+  "payload_scope": "Pinned public Python image, public Debian/pip dependencies and anonymous exact public UltraJSON Base history/ancestor tag plus native compiled libraries and ordinary vendored double-conversion source. No host attachments/workbooks/private patches/credentials/evaluator runtime assets are copied into the image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "fix_commit_absent": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-13T12:20:28.375Z"
+}

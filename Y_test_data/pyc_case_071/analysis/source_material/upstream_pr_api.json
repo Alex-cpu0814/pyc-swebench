@@ -1,0 +1,9 @@
+{
+  "number": 441,
+  "html_url": "https://github.com/ultrajson/ultrajson/pull/441",
+  "title": "Fix #429: Make empty dict/list indented serialization match stdlib json",
+  "created_at": "2020-11-10T10:54:18Z",
+  "merged_at": "2020-11-15T17:15:24Z",
+  "merge_commit_sha": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "body": "Previously, we'd output a couple of new lines between the start and end of the object, whereas the stdlib doesn't bother with whitespace if they're empty.\r\n\r\nIn my testing, the only difference in indented serialization now is float representation.\r\n\r\nFixes #429\r\n\r\nChanges proposed in this pull request:\r\n\r\n* Serializing an empty dict, with indentation, now outputs `{}`, which matches stdlib\r\n* Serializing an empty list, with indentation, now outputs `[]`, which matches stdlib\r\n"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-071-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "tests/test_ujson.py::test_encode_indent[{}]": "MISSING",
+    "tests/test_ujson.py::test_encode_indent[[]]": "MISSING",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]": "MISSING",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_ujson.py::test_encode_dict_conversion": "MISSING",
+    "tests/test_ujson.py::test_encode_list_conversion": "MISSING",
+    "tests/test_ujson.py::test_decode_from_unicode": "MISSING",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]": "MISSING"
+  },
+  "unexpected_failures": []
+}

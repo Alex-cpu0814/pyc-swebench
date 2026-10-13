@@ -1,0 +1,51 @@
+{
+  "instance_id": "pyc_case_071",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "70",
+  "duplicate_source_cases": [],
+  "deduplication_key": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "language_pair": "Python-C",
+  "repo": "ultrajson/ultrajson",
+  "issue_id": "441",
+  "issue_url": "https://github.com/ultrajson/ultrajson/pull/441",
+  "commit": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "commit_url": "https://github.com/ultrajson/ultrajson/commit/a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "problem_statement": "When indentation is enabled, empty dictionaries and lists should serialize compactly as {} and [], including within nested containers, matching the standard library json output. Nonempty four-space formatting and ordinary dict/list encoding and Unicode decoding should remain correct.",
+  "symptom": "incorrect result/output.",
+  "bug_location": "line 690",
+  "bug_location_type": "function call",
+  "bug_path": "690(c_ultrajsonenc_11-cfg.dot) (encode) ... -> 593(c_ultrajsonenc_11-cfg.dot) (encode) -> 66(py_test_ujson_6-cfg.dot) (test_double_long_issue)",
+  "cross_language_type": "Buffer_AppendCharUnchecked ,NAX,Buffer management,Buffer_EscapeStringUnvalidated,NAX,Buffer management,Buffer_Reserve,NAX,Buffer management",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Special case handling",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "NAX function",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/ultrajson/ultrajson/pull/441",
+    "upstream_description": "PR441 changes native lib/ultrajsonenc.c newline placement and only emits closing indentation when a container has elements. The exact test_encode_indent expansion retains five upstream inputs and compares output with stdlib json.dumps at indent=4. No binary assets change.",
+    "verified_error": "Base fails four original parameterized empty-container assertions: {} and [] expand to opening/closing delimiters separated by two newlines, and nested empty containers gain the same extra newline/indentation. The original nonempty four-space parameter and three unchanged encoding/decoding regressions pass. Gold passes all eight official nodes and both equality assertions, including stdlib json.dumps equivalence, for all five parameter inputs. No skip, missing node, native crash or instrumentation observed.",
+    "verified_test": "tests/test_ujson.py::test_encode_indent[{}] and tests/test_ujson.py::test_encode_indent[[]] and tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}] and tests/test_ujson.py::test_encode_indent[[\\n    []\\n]] and tests/test_ujson.py::test_encode_dict_conversion and tests/test_ujson.py::test_encode_list_conversion and tests/test_ujson.py::test_decode_from_unicode and tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "official_test_scope": "Exact upstream test_encode_indent inputs cover a nonempty object, {}, [], an object containing an empty object, and a list containing an empty list, at indent=4. Both original-format and stdlib-json equality assertions are retained. Four empty/nested inputs are measured FAIL_TO_PASS; the nonempty input and three unchanged dict/list encoding and Unicode decoding tests are PASS_TO_PASS. Real pytest parameter IDs containing spaces and literal escapes are kept exactly; the anchored result parser accepts spaces without decoding or normalizing IDs. No float-representation claim is made.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent[{}]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

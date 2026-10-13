@@ -1,0 +1,23 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-071-final-negative",
+  "tests_observed": 8,
+  "FAIL_TO_PASS": {
+    "tests/test_ujson.py::test_encode_indent[{}]": "FAILED",
+    "tests/test_ujson.py::test_encode_indent[[]]": "FAILED",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]": "FAILED",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_ujson.py::test_encode_dict_conversion": "PASSED",
+    "tests/test_ujson.py::test_encode_list_conversion": "PASSED",
+    "tests/test_ujson.py::test_decode_from_unicode": "PASSED",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]": "PASSED"
+  },
+  "unexpected_failures": [
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[{}]"
+  ]
+}

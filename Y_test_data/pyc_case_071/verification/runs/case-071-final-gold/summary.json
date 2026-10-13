@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-071-final-gold",
+  "label": "gold",
+  "instance_id": "ultrajson__ultrajson-441",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-13T12:14:16.922Z",
+  "finished_at": "2026-10-13T12:14:26.520Z",
+  "duration_ms": 9594,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "6cc871919dab63eb5ad6f5e5170ad3c95869e9e9db4735cbfe4c329d95f4d1e1",
+  "test_patch_sha256": "335dea8f7a20636a2a8521afbd05c1df231badf151e1b091f63e40ff930b69fb",
+  "image": {
+    "name": "yutu0814/pyc-case-071-ultrajson:benchmark-v1",
+    "id": "sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66",
+    "repo_digests": [
+      "yutu0814/pyc-case-071-ultrajson@sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "ultrajson__ultrajson-441"
+  },
+  "grading": {
+    "tests_observed": 8,
+    "FAIL_TO_PASS": {
+      "expected": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

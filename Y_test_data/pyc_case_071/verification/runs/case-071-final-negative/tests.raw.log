@@ -1,0 +1,128 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 8 items
+
+tests/test_ujson.py::test_encode_dict_conversion PASSED                  [ 12%]
+tests/test_ujson.py::test_encode_list_conversion PASSED                  [ 25%]
+tests/test_ujson.py::test_decode_from_unicode PASSED                     [ 37%]
+tests/test_ujson.py::test_encode_indent[{\n    "obj": 31337\n}] PASSED   [ 50%]
+tests/test_ujson.py::test_encode_indent[{}] FAILED                       [ 62%]
+tests/test_ujson.py::test_encode_indent[[]] FAILED                       [ 75%]
+tests/test_ujson.py::test_encode_indent[{\n    "a": {}\n}] FAILED        [ 87%]
+tests/test_ujson.py::test_encode_indent[[\n    []\n]] FAILED             [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_encode_indent[{}] ____________________________
+
+test_input = '{}'
+
+    @pytest.mark.parametrize(
+        "test_input",
+        [
+            '{\n    "obj": 31337\n}',
+            "{}",
+            "[]",
+            '{\n    "a": {}\n}',
+            "[\n    []\n]",
+        ],
+    )
+    def test_encode_indent(test_input):
+        obj = ujson.decode(test_input)
+        output = ujson.encode(obj, indent=4)
+>       assert test_input == output
+E       AssertionError: assert '{}' == '{\n\n}'
+E         + {}
+E         - {
+E         - 
+E         - }
+
+tests/test_ujson.py:265: AssertionError
+____________________________ test_encode_indent[[]] ____________________________
+
+test_input = '[]'
+
+    @pytest.mark.parametrize(
+        "test_input",
+        [
+            '{\n    "obj": 31337\n}',
+            "{}",
+            "[]",
+            '{\n    "a": {}\n}',
+            "[\n    []\n]",
+        ],
+    )
+    def test_encode_indent(test_input):
+        obj = ujson.decode(test_input)
+        output = ujson.encode(obj, indent=4)
+>       assert test_input == output
+E       AssertionError: assert '[]' == '[\n\n]'
+E         + []
+E         - [
+E         - 
+E         - ]
+
+tests/test_ujson.py:265: AssertionError
+____________________ test_encode_indent[{\n    "a": {}\n}] _____________________
+
+test_input = '{\n    "a": {}\n}'
+
+    @pytest.mark.parametrize(
+        "test_input",
+        [
+            '{\n    "obj": 31337\n}',
+            "{}",
+            "[]",
+            '{\n    "a": {}\n}',
+            "[\n    []\n]",
+        ],
+    )
+    def test_encode_indent(test_input):
+        obj = ujson.decode(test_input)
+        output = ujson.encode(obj, indent=4)
+>       assert test_input == output
+E       assert '{\n    "a": {}\n}' == '{\n    "a": {\n\n    }\n}'
+E           {
+E         -     "a": {
+E         +     "a": {}
+E         ?           +
+E         - 
+E         -     }
+E           }
+
+tests/test_ujson.py:265: AssertionError
+_______________________ test_encode_indent[[\n    []\n]] _______________________
+
+test_input = '[\n    []\n]'
+
+    @pytest.mark.parametrize(
+        "test_input",
+        [
+            '{\n    "obj": 31337\n}',
+            "{}",
+            "[]",
+            '{\n    "a": {}\n}',
+            "[\n    []\n]",
+        ],
+    )
+    def test_encode_indent(test_input):
+        obj = ujson.decode(test_input)
+        output = ujson.encode(obj, indent=4)
+>       assert test_input == output
+E       AssertionError: assert '[\n    []\n]' == '[\n    [\n\n    ]\n]'
+E           [
+E         -     [
+E         +     []
+E         ?      +
+E         - 
+E         -     ]
+E           ]
+
+tests/test_ujson.py:265: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_ujson.py::test_encode_indent[{}] - AssertionError: assert '...
+FAILED tests/test_ujson.py::test_encode_indent[[]] - AssertionError: assert '...
+FAILED tests/test_ujson.py::test_encode_indent[{\n    "a": {}\n}] - assert '{...
+FAILED tests/test_ujson.py::test_encode_indent[[\n    []\n]] - AssertionError...
+========================= 4 failed, 4 passed in 0.63s ==========================

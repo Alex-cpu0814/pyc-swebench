@@ -1,0 +1,11 @@
+{
+  "instance_id": "ultrajson__ultrajson-441",
+  "repo": "ultrajson/ultrajson",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "problem_statement": "When indentation is enabled, empty dictionaries and lists should serialize compactly as {} and [], including within nested containers, matching the standard library json output. Nonempty four-space formatting and ordinary dict/list encoding and Unicode decoding should remain correct.",
+  "hints_text": "",
+  "created_at": "2020-11-10",
+  "version": "4.0.2.dev3",
+  "issue_id": "441",
+  "issue_url": "https://github.com/ultrajson/ultrajson/pull/441"
+}

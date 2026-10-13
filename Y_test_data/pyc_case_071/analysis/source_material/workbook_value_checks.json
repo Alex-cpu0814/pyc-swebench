@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 071 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"70\"],[\"Repository\",\"ultrajson/ultrajson\"],[\"Fix commit\",\"a920bfa9d85bcd78836b866d1be80c1e3dcca1da\"],[\"Base commit\",\"f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f\"],[\"Upstream issue / PR\",\"https://github.com/ultrajson/ultrajson/pull/441\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 690\"],[\"Bug location type\",\"function call\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"NAX function\"],[\"Problem statement\",\"When indentation is enabled, empty dictionaries and lists should serialize compactly as {} and [], including within nested containers, matching the standard library json output. Nonempty four-space formatting and ordinary dict/list encoding and Unicode decoding should remain correct.\"],[\"Original source trace\",\"690(c_ultrajsonenc_11-cfg.dot) (encode) ... -> 593(c_ultrajsonenc_11-cfg.dot) (encode) -> 66(py_test_ujson_6-cfg.dot) (test_double_long_issue)\"],[\"Source trace scope\",\"Original source case 70 records incorrect result/output and an encode/test_double_long_issue trace with buffer-management helpers. This supplied trace is retained separately from actual empty-container serialization assertions measured here; float representation is not claimed as the reproduced defect.\"],[\"Verified Base trace\",\"Base fails four original parameterized empty-container assertions: {} and [] expand to opening/closing delimiters separated by two newlines, and nested empty containers gain the same extra newline/indentation. The original nonempty four-space parameter and three unchanged encoding/decoding regressions pass. Gold passes all eight official nodes and both equality assertions, including stdlib json.dumps equivalence, for all five parameter inputs. No skip, missing node, native crash or instrumentation observed.\"],[\"Verified official test\",\"tests/test_ujson.py::test_encode_indent[{}]\\ntests/test_ujson.py::test_encode_indent[[]]\\ntests/test_ujson.py::test_encode_indent[{\\\\n    \\\"a\\\": {}\\\\n}]\\ntests/test_ujson.py::test_encode_indent[[\\\\n    []\\\\n]]\\ntests/test_ujson.py::test_encode_dict_conversion\\ntests/test_ujson.py::test_encode_list_conversion\\ntests/test_ujson.py::test_decode_from_unicode\\ntests/test_ujson.py::test_encode_indent[{\\\\n    \\\"obj\\\": 31337\\\\n}]\"],[\"Official test scope\",\"Exact upstream test_encode_indent inputs cover a nonempty object, {}, [], an object containing an empty object, and a list containing an empty list, at indent=4. Both original-format and stdlib-json equality assertions are retained. Four empty/nested inputs are measured FAIL_TO_PASS; the nonempty input and three unchanged dict/list encoding and Unicode decoding tests are PASS_TO_PASS. Real pytest parameter IDs containing spaces and literal escapes are kept exactly; the anchored result parser accepts spaces without decoding or normalizing IDs. No float-representation claim is made.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "e8jgg4",
+          "target": {
+            "id": "wb/9lrury",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B22\",\"rows\":22,\"cols\":2,\"values\":[[\"Python-C Case 071 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"ultrajson__ultrajson-441\"],[\"Repository\",\"ultrajson/ultrajson\"],[\"Version\",\"4.0.2.dev3\"],[\"Created at\",44145],[\"Base commit\",\"f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f\"],[\"Fix commit\",\"a920bfa9d85bcd78836b866d1be80c1e3dcca1da\"],[\"Merged at\",44150],[\"Issue / PR\",\"https://github.com/ultrajson/ultrajson/pull/441\"],[\"Test source\",\"Original official upstream pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_ujson.py::test_encode_indent[{}]\"],[\"FAIL_TO_PASS (2)\",\"tests/test_ujson.py::test_encode_indent[[]]\"],[\"FAIL_TO_PASS (3)\",\"tests/test_ujson.py::test_encode_indent[{\\\\n    \\\"a\\\": {}\\\\n}]\"],[\"FAIL_TO_PASS (4)\",\"tests/test_ujson.py::test_encode_indent[[\\\\n    []\\\\n]]\"],[\"PASS_TO_PASS (1)\",\"tests/test_ujson.py::test_encode_dict_conversion\"],[\"PASS_TO_PASS (2)\",\"tests/test_ujson.py::test_encode_list_conversion\"],[\"PASS_TO_PASS (3)\",\"tests/test_ujson.py::test_decode_from_unicode\"],[\"PASS_TO_PASS (4)\",\"tests/test_ujson.py::test_encode_indent[{\\\\n    \\\"obj\\\": 31337\\\\n}]\"],[\"Base / Gold outcome\",\"Base: 4 official empty-container parameter targets fail and 4 regressions pass. Gold: all 8 official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-071-ultrajson:benchmark-v1\"],[\"Problem statement\",\"When indentation is enabled, empty dictionaries and lists should serialize compactly as {} and [], including within nested containers, matching the standard library json output. Nonempty four-space formatting and ordinary dict/list encoding and Unicode decoding should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "1qwnl9",
+          "target": {
+            "id": "wb/6hitu0",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

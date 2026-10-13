@@ -1,0 +1,2 @@
+error: patch failed: tests/test_ujson.py:249
+error: tests/test_ujson.py: patch does not apply

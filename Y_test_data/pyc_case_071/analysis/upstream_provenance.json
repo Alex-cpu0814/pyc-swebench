@@ -1,0 +1,99 @@
+{
+  "upstream_url": "https://github.com/ultrajson/ultrajson/pull/441",
+  "related_issue_url": "https://github.com/ultrajson/ultrajson/issues/429",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "fix_commit": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "merge_parents": [
+    "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+    "f4029cc6efea47f0cf9b4a24aa8a93f1ed4620b7"
+  ],
+  "upstream_created_at": "2020-11-10",
+  "upstream_merged_at": "2020-11-15",
+  "upstream_created_at_timestamp": "2020-11-10T10:54:18Z",
+  "upstream_merged_at_timestamp": "2020-11-15T17:15:24Z",
+  "source_commit_timestamp_original_offset": "2020-11-15T19:15:23+02:00",
+  "date_source": "https://api.github.com/repos/ultrajson/ultrajson/pulls/441",
+  "date_semantics": "Official REST PR opening and merge UTC timestamps; source Git committer timestamp separately preserved, one second before REST merge time.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "lib/ultrajsonenc.c"
+  ],
+  "verified_scope": "Official empty dictionary/list and nested-container indented serialization in native C",
+  "source_trace_scope": "Original source case 70 records incorrect result/output and an encode/test_double_long_issue trace with buffer-management helpers. This supplied trace is retained separately from actual empty-container serialization assertions measured here; float representation is not claimed as the reproduced defect.",
+  "native_package_versions": {
+    "gcc": "4:10.2.1-1",
+    "g++": "4:10.2.1-1"
+  },
+  "scm_metadata": {
+    "tag": "4.0.1",
+    "tag_commit": "0b5b6358893a4b593c2f977f67f1f7cce0dce0ec",
+    "base_distance": 3,
+    "pinned_setuptools_scm": "6.4.2",
+    "expected_runtime_version": "4.0.2.dev3",
+    "strategy": "Fetch exact Base full history and only fixed ancestor4.0.1 tag.4.0.2 is not a Base ancestor and is not fetched into the image."
+  },
+  "vendored_double_conversion": {
+    "kind": "ordinary tracked source blobs, not a gitlink/submodule",
+    "tree": "6315c0c9f54da18ab2220373aa0f9b2dbe016c13",
+    "entries": 63,
+    "source": "https://github.com/ultrajson/ultrajson/tree/f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f/deps/double-conversion"
+  },
+  "native_source_git_blobs": {
+    "lib/ultrajsonenc.c": "097e887bafbb3ff6ae9dcaaf2fd5cfc6b5286622",
+    "deps/double-conversion/double-conversion/double-conversion.cc": "6f21a0124c43decdfef2679794b7678590e69326"
+  },
+  "admission_rule": "Native product patch and unchanged discriminating official regression required; exact parameter node IDs measured from collection.",
+  "source_commit_utc_timestamp": "2020-11-15T17:15:23Z",
+  "official_parameter_nodes": [
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]",
+    "tests/test_ujson.py::test_encode_indent[{}]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]"
+  ],
+  "parameter_id_semantics": "Exact pytest collection strings including actual spaces and literal escaped-newline characters. No custom IDs or decoding/re-encoding transformations applied.",
+  "formal_runtime_audit": {
+    "image": "yutu0814/pyc-case-071-ultrajson:benchmark-v1",
+    "runtime": {
+      "ujson_version": "4.0.2.dev3",
+      "ujson_file": "/testbed/ujson.cpython-38-x86_64-linux-gnu.so",
+      "extension_sha256": "c82ee357abc455e306fbfcc3f767e02b4b6beb51e5296182469a0d677fb855b5",
+      "scm_version": "4.0.2.dev3",
+      "build_packages": {
+        "setuptools": "68.2.2",
+        "setuptools-scm": "6.4.2",
+        "wheel": "0.42.0",
+        "pytest": "7.4.4"
+      },
+      "assets": {
+        "lib/ultrajsonenc.c": {
+          "size": 22308,
+          "sha256": "9fdbb3220bf630fa27db7af25479a0882f2b9d6e7ff433b2746ff5d1df10393a"
+        },
+        "python/version_template.h": {
+          "size": 2002,
+          "sha256": "7dcee82b9d00e92e56d1e3ac319ef29e3d1b2eaa8f96d6d175cbb024dfffa10d"
+        },
+        "python/version.h": {
+          "size": 2003,
+          "sha256": "5258626e99df3014d2b6505c89df4136caaaae380d13e647d8d64cd872b44f34"
+        },
+        "deps/double-conversion/double-conversion/double-conversion.cc": {
+          "size": 32277,
+          "sha256": "b99b4755223ca7aaad37e65f2f9508f2167eba0cf88913b2a328530e2adedcf4"
+        }
+      },
+      "base_empty_dict_output": "{\n\n}",
+      "base_empty_list_output": "[\n\n]",
+      "base_nested_dict_output": "{\n    \"a\": {\n\n    }\n}",
+      "base_nested_list_output": "[\n    [\n\n    ]\n]"
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1"
+    }
+  }
+}

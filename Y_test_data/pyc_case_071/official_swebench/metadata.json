@@ -1,0 +1,160 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "70",
+  "candidate_case": "071",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Exact upstream test_encode_indent inputs cover a nonempty object, {}, [], an object containing an empty object, and a list containing an empty list, at indent=4. Both original-format and stdlib-json equality assertions are retained. Four empty/nested inputs are measured FAIL_TO_PASS; the nonempty input and three unchanged dict/list encoding and Unicode decoding tests are PASS_TO_PASS. Real pytest parameter IDs containing spaces and literal escapes are kept exactly; the anchored result parser accepts spaces without decoding or normalizing IDs. No float-representation claim is made.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-11-10",
+  "created_at_precision": "date",
+  "instance_id": "ultrajson__ultrajson-441",
+  "source_instance_id": "pyc_case_071",
+  "repo": "ultrajson/ultrajson",
+  "issue_id": "441",
+  "issue_url": "https://github.com/ultrajson/ultrajson/pull/441",
+  "project_version": "4.0.2.dev3",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "fix_commit": "a920bfa9d85bcd78836b866d1be80c1e3dcca1da",
+  "FAIL_TO_PASS": [
+    "tests/test_ujson.py::test_encode_indent[{}]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_ujson.py::test_encode_dict_conversion",
+    "tests/test_ujson.py::test_encode_list_conversion",
+    "tests/test_ujson.py::test_decode_from_unicode",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/G++10, setuptools68.2.2, setuptools_scm6.4.2, wheel0.42.0; normal native build without instrumentation",
+    "base_target_status": "FAILED",
+    "base_regression_status": "4 passed",
+    "gold_target_status": "4 passed",
+    "gold_regression_status": "4 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-071-ultrajson:benchmark-v1",
+      "id": "sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66",
+      "repo_digests": [
+        "yutu0814/pyc-case-071-ultrajson@sha256:cccd9f8154691264a74f0304fc6ef42e3176983d9c404de0da999c76a38cec66"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 8,
+          "FAIL_TO_PASS": {
+            "expected": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 8,
+          "FAIL_TO_PASS": {
+            "expected": 4,
+            "passed": 0,
+            "failed": 4,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 4
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "ultrajson__ultrajson-441",
+      "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-071-final-gold/summary.json",
+      "verification/runs/case-071-final-negative/summary.json",
+      "verification/runs/case-071-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2020-11-15",
+  "created_at_source": "https://api.github.com/repos/ultrajson/ultrajson/pulls/441",
+  "date_semantics": "Official REST PR opening and merge UTC timestamps; source Git committer timestamp separately preserved, one second before REST merge time.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "lib/ultrajsonenc.c"
+  ],
+  "verified_scope": "Official empty dictionary/list and nested-container indented serialization in native C",
+  "source_trace_scope": "Original source case 70 records incorrect result/output and an encode/test_double_long_issue trace with buffer-management helpers. This supplied trace is retained separately from actual empty-container serialization assertions measured here; float representation is not claimed as the reproduced defect.",
+  "scm_metadata": {
+    "tag": "4.0.1",
+    "tag_commit": "0b5b6358893a4b593c2f977f67f1f7cce0dce0ec",
+    "base_distance": 3,
+    "pinned_setuptools_scm": "6.4.2",
+    "expected_runtime_version": "4.0.2.dev3",
+    "strategy": "Fetch exact Base full history and only fixed ancestor4.0.1 tag.4.0.2 is not a Base ancestor and is not fetched into the image."
+  },
+  "vendored_double_conversion": {
+    "kind": "ordinary tracked source blobs, not a gitlink/submodule",
+    "tree": "6315c0c9f54da18ab2220373aa0f9b2dbe016c13",
+    "entries": 63,
+    "source": "https://github.com/ultrajson/ultrajson/tree/f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f/deps/double-conversion"
+  },
+  "official_parameter_nodes": [
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"obj\": 31337\\n}]",
+    "tests/test_ujson.py::test_encode_indent[{}]",
+    "tests/test_ujson.py::test_encode_indent[[]]",
+    "tests/test_ujson.py::test_encode_indent[{\\n    \"a\": {}\\n}]",
+    "tests/test_ujson.py::test_encode_indent[[\\n    []\\n]]"
+  ],
+  "parameter_id_semantics": "Exact pytest collection strings including actual spaces and literal escaped-newline characters. No custom IDs or decoding/re-encoding transformations applied.",
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "lib/ultrajsonenc.c"
+  ],
+  "test_files": [
+    "tests/test_ujson.py"
+  ]
+}

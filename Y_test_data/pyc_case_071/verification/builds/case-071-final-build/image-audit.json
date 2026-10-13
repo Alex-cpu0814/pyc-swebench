@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "ultrajson__ultrajson-441",
+  "base_commit": "f26f9679f1b9d7fa2d0488e1e7b1256d9391a85f",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

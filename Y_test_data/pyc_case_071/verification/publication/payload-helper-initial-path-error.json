@@ -1,0 +1,8 @@
+{
+  "scope": "authoring helper read-only preflight",
+  "error": "ENOENT stale case-070-final-gold summary path inside current case071",
+  "product_failure": false,
+  "image_modified": false,
+  "publication_attempted": false,
+  "resolution": "Use current spec.caseNumber to load current formal Gold summary before image identity/payload checks."
+}
