@@ -10,4 +10,4 @@ The clean image contains only public pinned Base source/dependencies and tracked
 
 ## Publication status
 
-Publication is pending: formal verification and workbook checks passed, but Docker Desktop currently fails during sailor-ingest socket startup. Neither the 081 Docker Hub push nor Git remote push has been performed. The verified image and all original evidence are retained; cleanup waits until publication succeeds.
+The exact verified image was successfully pushed to Docker Hub after Docker Engine recovered. Digest: sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720. Original startup failures and the data-preserving recovery are retained under verification/publication. Git remote confirmation and final cleanup are recorded in the batch progress after the source commit is published.

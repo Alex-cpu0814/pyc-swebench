@@ -180,9 +180,10 @@
     "test/freetype_test.py"
   ],
   "publication": {
-    "status": "pending_docker_engine_recovery",
-    "image_push_performed": false,
-    "git_push_performed": false,
-    "evidence": "verification/publication/engine-startup-blocker.json"
+    "status": "image_published_source_ready",
+    "registry_digest": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
+    "evidence": "verification/publication/publication.json",
+    "engine_recovery": "verification/publication/engine-recovery.json",
+    "git_remote_verification": "Recorded after source push in batch_state.json and case081_progress.md"
   }
 }

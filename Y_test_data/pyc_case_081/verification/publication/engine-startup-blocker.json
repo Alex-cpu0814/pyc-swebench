@@ -1,5 +1,5 @@
 {
-  "status": "verified_publication_pending_docker",
+  "status": "historical_engine_startup_blocker_resolved",
   "case_number": "081",
   "image": "yutu0814/pyc-case-081-pygame:benchmark-v1",
   "verified_image_id": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
@@ -17,5 +17,7 @@
   "next_step": "User launches Docker Desktop from Windows and confirms Engine running; re-audit exact image then direct push to existing authorized targets",
   "related_public_report": "https://github.com/docker/desktop-feedback/issues/675",
   "report_semantics": "Related user report in Docker issue tracker; not a maintainer-confirmed diagnosis of this machine",
-  "recorded_at": "2026-10-15T15:24:52.0003983Z"
+  "recorded_at": "2026-10-15T15:24:52.0003983Z",
+  "resolved_evidence": "verification/publication/engine-recovery.json",
+  "current_image_push_performed": true
 }

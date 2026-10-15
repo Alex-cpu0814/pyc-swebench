@@ -275,6 +275,7 @@
     "analysis/creation_tools/case081_upstream_api.raw.json",
     "analysis/creation_tools/checkpoint_case081.py",
     "analysis/creation_tools/cleanup_case081.ps1",
+    "analysis/creation_tools/complete_publication_case081.py",
     "analysis/creation_tools/document_case081.mjs",
     "analysis/creation_tools/finalize_case.mjs",
     "analysis/creation_tools/initialize_case081.mjs",
@@ -400,7 +401,17 @@
     "verification/prototype-runtime-audit/stderr.raw.log",
     "verification/prototype-runtime-audit/stdout.raw.log",
     "verification/prototype-runtime-audit/summary.json",
+    "verification/publication/authorization_evidence.json",
+    "verification/publication/docker-push.stderr.raw.log",
+    "verification/publication/docker-push.stdout.raw.log",
+    "verification/publication/engine-recovery.json",
     "verification/publication/engine-startup-blocker.json",
+    "verification/publication/image-history.raw.log",
+    "verification/publication/image-payload-audit.json",
+    "verification/publication/image-payload-audit.raw.log",
+    "verification/publication/publication.json",
+    "verification/publication/registry-inspect.stderr.raw.log",
+    "verification/publication/registry-inspect.stdout.raw.log",
     "verification/runs/case-081-final-gold/docker-run.stderr.raw.log",
     "verification/runs/case-081-final-gold/docker-run.stdout.raw.log",
     "verification/runs/case-081-final-gold/events.jsonl",
@@ -446,5 +457,5 @@
   "passingRegressionDescription": "Three unchanged official font property tests run under the complete upstream protected patch. Missing default package-font data in the first exploratory build is preserved as infrastructure evidence and fixed by materializing the exact tracked Base font at its official data_files destination; no test body changed.",
   "negativePatch": "diff --git a/README.rst b/README.rst\nindex 37e7d6bad..eda66fa8a 100644\n--- a/README.rst\n+++ b/README.rst\n@@ -193,3 +193,5 @@ License\n \n .. |GithubCommits| image:: https://img.shields.io/github/commits-since/pygame/pygame/1.9.4.svg\n .. _GithubCommits: https://github.com/pygame/pygame/compare/1.9.4...master\n+\n+This negative control leaves native font-metrics rotation/style arguments unchanged.\n",
   "tamperPatch": "diff --git a/test/freetype_test.py b/test/freetype_test.py\nindex e0b8803ff..af688cb3f 100644\n--- a/test/freetype_test.py\n+++ b/test/freetype_test.py\n@@ -1424,7 +1424,7 @@ class FreeTypeFontTest(unittest.TestCase):\n                           null_surface, (0, 0), \"Crash!\", size=12)\n \n \n-class FreeTypeTest(unittest.TestCase):\n+class FreeTypeTestConflictControl(unittest.TestCase):\n \n     def test_resolution(self):\n         was_init = ft.was_init()\n",
-  "publicationStatus": "pending_docker_engine_recovery"
+  "publicationStatus": "image_published_source_ready"
 }

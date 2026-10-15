@@ -1,0 +1,27 @@
+{
+  "status": "engine_recovered",
+  "observed_engine_version": "29.7.2",
+  "verified_case081_image": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
+  "original_errors": [
+    "Ingest sailor-ingest.sock rename failed with Windows file-access error",
+    "Secrets Engine engine.sock rename failed with the same error"
+  ],
+  "actions": [
+    "Official Docker Desktop forced stop with process-exit checks",
+    "Preserved runtime-directory backups; no socket or data-file deletion",
+    "Normal Windows desktop Shell launch of the installed Docker Desktop application"
+  ],
+  "runtime_backup_paths": [
+    "C:\\Users\\玉兔\\AppData\\Local\\Docker\\run.recovery-20261015-235145",
+    "C:\\Users\\玉兔\\AppData\\Local\\Docker\\run.recovery-20261015-235306",
+    "C:\\Users\\玉兔\\AppData\\Local\\Docker\\run.recovery-base-20261015-235530"
+  ],
+  "secrets_runtime_backup_paths": [
+    "C:\\Users\\玉兔\\AppData\\Local\\docker-secrets-engine.recovery-20261015-235306",
+    "C:\\Users\\玉兔\\AppData\\Local\\docker-secrets-engine.recovery-base-20261015-235530"
+  ],
+  "data_preservation": "No factory reset, WSL unregister, image/container/volume removal, disk modification, global setting change or reinstall. Exact verified081image remains present and subsequently pushed.",
+  "diagnostic_limit": "Different AppData directory views were observed. Engine responded after directory-preservation attempts and Windows desktop launch; no controlled experiment establishes the sole cause or guarantees later restart behavior.",
+  "related_user_report": "https://github.com/docker/desktop-feedback/issues/531",
+  "observed_recovery_utc": "2026-10-15T16:00:40.7498654Z"
+}
