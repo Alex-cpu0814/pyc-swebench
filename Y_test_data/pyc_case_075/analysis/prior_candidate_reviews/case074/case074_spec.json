@@ -1,0 +1,130 @@
+{
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "binaryPatches": false,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "testCommand": "bash -c 'xvfb-run -a \"$@\"; rc=$?; exit \"$rc\"' -- python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 1,
+  "validationType": "official_pytest",
+  "evidenceType": "source_row_upstream_pr_and_verified_pytest_trace",
+  "projectName": "pygame",
+  "repo": "pygame/pygame",
+  "repoUrl": "https://github.com/pygame/pygame.git",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/pygame",
+  "caseNumber": "074",
+  "sourceCase": "73",
+  "sourceInstanceId": "pyc_case_074",
+  "instanceId": "pygame__pygame-1584",
+  "issueId": "1584",
+  "issueUrl": "https://github.com/pygame/pygame/pull/1584",
+  "baseCommit": "1e55a9412a68123e8cf72acb46c0560534bab408",
+  "fixCommit": "e40d00db1f8015e8f37624f83a0bd334547cd8dc",
+  "createdAt": "2020-02-19",
+  "mergedAt": "2020-09-05",
+  "version": "2.0.0.dev11",
+  "image": "yutu0814/pyc-case-074-pygame:benchmark-v1",
+  "prototypeImage": "pyc-case074-prototype-base:latest",
+  "buildCommand": "python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force",
+  "pytestPathPrefix": "test/",
+  "testFiles": [
+    "test/event_test.py"
+  ],
+  "testFile": "test/event_test.py",
+  "testSourceLabel": "Original official upstream unittest TestCase methods executed by pytest",
+  "nativeRequirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "compilerToolchain": "Debian Bullseye GCC/G++, setuptools68.2.2, wheel0.42.0; normal native compilation without instrumentation.",
+  "buildSystem": "Official setup.py build into /testbed/build/local; PYTHONPATH=/testbed/build/local. Candidate force-build updates the same compiled package path used by the tests.",
+  "environment": "pygame_sdl2_native_keyboard_event_post",
+  "testExecution": "Official unittest methods run directly under pytest in one process. SDL_VIDEODRIVER=x11 via xvfb-run and SDL_AUDIODRIVER=dummy provide an identical headless environment on Base and Gold. First dummy-driver Gold failure is retained.",
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case074_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case074_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pygame074-local",
+  "validationStatus": "pending_base_gold_probe",
+  "nativeAuditCommand": "python -c \"import pygame,pygame.event; print(pygame.version.ver,pygame.event.__file__,pygame.get_sdl_version()); assert pygame.version.ver == '2.0.0.dev11'; assert pygame.event.__file__.startswith('/testbed/build/local/pygame/')\"",
+  "problemStatement": "Posting a KEYDOWN event with key=pygame.K_a should preserve its event type and key when polled from the SDL2 queue. Large user-event payloads and ordinary event queue retrieval should remain correct.",
+  "upstreamDescription": "PR1584 adds native SDL keyboard-event encoding in src_c/event.c and a caution in docs/reST/ref/event.rst. The complete official test/event_test.py patch adds a keydown regression and updates keyboard-event parameters and matching helpers; all upstream test bodies are preserved.",
+  "sourceTraceNotes": "Source case73 labels function Breakdown and traces pg_event_post to test_post_large_user_event with Python dictionary/integer APIs. The actual discriminating upstream test here posts a basic KEYDOWN event; large-user-event is evaluated as a regression. No claim is made for complete scancode/mod/window branches.",
+  "failToPass": [
+    "test/event_test.py::EventModuleTest::test_post_and_get_keydown"
+  ],
+  "passToPass": [
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get",
+    "test/event_test.py::EventModuleTest::test_get_type"
+  ],
+  "probeNodes": [
+    "test/event_test.py::EventModuleTest::test_post_and_get_keydown",
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get",
+    "test/event_test.py::EventModuleTest::test_get_type"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/pygame/pygame/pull/1584",
+    "related_issue_url": "https://github.com/pygame/pygame/issues/1580",
+    "base_commit": "1e55a9412a68123e8cf72acb46c0560534bab408",
+    "fix_commit": "e40d00db1f8015e8f37624f83a0bd334547cd8dc",
+    "merge_parents": [
+      "1e55a9412a68123e8cf72acb46c0560534bab408",
+      "e35acd63f8c15946adae57dba54305d341c0ae3f"
+    ],
+    "upstream_created_at": "2020-02-19",
+    "upstream_merged_at": "2020-09-05",
+    "upstream_created_at_timestamp": "2020-02-19T09:10:08Z",
+    "upstream_merged_at_timestamp": "2020-09-05T12:29:04Z",
+    "source_commit_timestamp_original_offset": "2020-09-05T14:29:04+02:00",
+    "date_source": "https://api.github.com/repos/pygame/pygame/pulls/1584",
+    "date_semantics": "Official REST PR opening and merge UTC timestamps; exact source committer timestamp recorded separately.",
+    "source_classification": "Python-C (preserved source taxonomy)",
+    "product_patch_languages": [
+      "C",
+      "reStructuredText documentation"
+    ],
+    "native_product_files_changed": [
+      "src_c/event.c"
+    ],
+    "nonfunctional_product_files": [
+      "docs/reST/ref/event.rst"
+    ],
+    "verified_scope": "Basic SDL2 KEYDOWN event type/key preservation",
+    "source_trace_scope": "Source case73 labels function Breakdown and traces pg_event_post to test_post_large_user_event with Python dictionary/integer APIs. The actual discriminating upstream test here posts a basic KEYDOWN event; large-user-event is evaluated as a regression. No claim is made for complete scancode/mod/window branches.",
+    "version_metadata": {
+      "strategy": "setup.py METADATA version literal 2.0.0.dev11; generated src_py/version.py, revision empty. No SCM release inference or version override.",
+      "setup_blob": "85db5cb53301539ef03c44b759cf4382dbc15d1e"
+    },
+    "native_source_git_blobs": {
+      "src_c/event.c": "bb4fce7ce3ccceee0304eba17e2257d70cbbd310",
+      "src_c/include/_pygame.h": "f8810692a6d87005911faf817a368f63c90d3155"
+    },
+    "admission_rule": "Exact official discriminating test and actual local native module loading required; source trace scope documented separately.",
+    "xvfb_launch": "A non-executing bash status wrapper keeps xvfb-run as a child rather than container PID1. Initial PID1 xvfb-run waited for readiness despite an established X99 socket. No tests had run. Wrapper only fixes display-startup infrastructure and preserves command exit status."
+  },
+  "additionalVerificationAssets": [],
+  "collectCommand": "bash -c 'xvfb-run -a \"$@\"; rc=$?; exit \"$rc\"' -- python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider --collect-only -q --color=no",
+  "probeSuffixes": {
+    "base": "-v3",
+    "gold": "-v3",
+    "collect": "-v4"
+  }
+}

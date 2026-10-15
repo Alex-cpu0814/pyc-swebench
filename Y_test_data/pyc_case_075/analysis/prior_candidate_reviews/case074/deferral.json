@@ -1,0 +1,49 @@
+{
+  "case_number": "074",
+  "source_case": "73",
+  "source_excel_row": 75,
+  "repo": "pygame/pygame",
+  "fix_commit": "e40d00db1f8015e8f37624f83a0bd334547cd8dc",
+  "base_commit": "1e55a9412a68123e8cf72acb46c0560534bab408",
+  "issue_url": "https://github.com/pygame/pygame/pull/1584",
+  "status": "deferred_gold_official_regression_failure",
+  "reason": "Exact upstream Gold does not pass its official discriminating KEYDOWN test under either SDL2 dummy or normal Xvfb/X11. Publishing a validated benchmark would require unsupported modifications or treating Gold failure as success, so no formal benchmark/image was created or published.",
+  "official_test": "test/event_test.py::EventModuleTest::test_post_and_get_keydown",
+  "observed_base": "1 failed,3 passed; KEYDOWN768 versus NOEVENT0",
+  "observed_gold": "1 failed,3 passed; same type assertion before key assertion",
+  "environment": {
+    "python": "3.8.20",
+    "pygame": "2.0.0.dev11",
+    "sdl": [
+      2,
+      0,
+      14
+    ],
+    "native_path": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so",
+    "build_command": "python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force",
+    "x11_command": "bash -c 'xvfb-run -a \"$@\"; rc=$?; exit \"$rc\"' -- python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no"
+  },
+  "native_rebuild": {
+    "kind": "observed transient-container native rebuild diagnostic captured from tool output",
+    "image": "pyc-case074-prototype-base:latest",
+    "base_extension_sha256": "6ccb1cadf75481469ef6b2118fab5b11c2b0f8d0d6e8e65109a80c38f0b8b9e2",
+    "gold_extension_sha256": "2e2bae490aa0768824a96338ff035fce71446730813c87005e6be98c8b821bd7",
+    "source_patch": "case074_gold.diff",
+    "build_command": "python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force",
+    "binary_string_present": "key event posted without keycode",
+    "diagnostic_input": "pygame.KEYDOWN,key=pygame.K_a;10x10 SDL dummy window; queue cleared",
+    "post_return": "None",
+    "get_without_pump_return": [],
+    "exit_code": 0,
+    "interpretation": "Native binary actually changed and contains new source branch. No-pump queue still empty. Cause not established. No product/test changes or initialization flags added.",
+    "record_semantics": "Structured transcription of completed diagnostic tool stdout. Not an original independently saved raw logfile."
+  },
+  "static_observation": "Gold declares SDL_Event event without zero initialization; existing pg_event_filter rejects KEYDOWN events when repeat is nonzero. This is a static observation, not an established causal diagnosis. No initialization/compiler flags, warm-up, different test inputs, repeated attempts to find an occasional pass or other product/test modifications were added.",
+  "infrastructure_history": [
+    "Prototype v1libudev runtime/dev mismatch;v2security package404;v3fixed matching main-source libudev and builds normally.",
+    "First native audit used unsupported get_sdl_version arguments;v2uses actual oldAPI plus installed SDL header macros and passes.",
+    "First X11 collect and Gold stuck at standard xvfb-run PID1 readiness with X99 socket created and no pytest process;terminated specific containers and saved137. Normal shell parent status wrapper fixes startup.",
+    "Earlier Xvfb build auto_review quota/service failure did not execute operation;user later resumed and regular approval succeeded."
+  ],
+  "scope": "Original source large-user-event trace retained; that regression actually passes in both products. Keyboard basic event target is the only measured discriminator candidate;optional mod/scancode/window/KEYUP branches not claimed."
+}

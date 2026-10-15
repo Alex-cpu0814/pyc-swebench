@@ -1,0 +1,39 @@
+{
+  "label": "collect",
+  "image": "pyc-case075-prototype-base:latest",
+  "nodes": [
+    "test/time_test.py::TimeModuleTest::test_set_timer",
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_post_blocked"
+  ],
+  "startedAt": "2026-10-14T02:18:49.180Z",
+  "finishedAt": "2026-10-14T02:18:50.944Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case075_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case075_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case075-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider --collect-only -q --color=no 'test/time_test.py::TimeModuleTest::test_set_timer' 'test/event_test.py::EventModuleTest::test_post_large_user_event' 'test/event_test.py::EventModuleTest::test_get_type' 'test/event_test.py::EventModuleTest::test_post_blocked'"
+  ]
+}

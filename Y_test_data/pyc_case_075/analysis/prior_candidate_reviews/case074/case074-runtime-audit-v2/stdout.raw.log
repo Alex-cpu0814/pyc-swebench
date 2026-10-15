@@ -1,0 +1,12 @@
+g++	4:10.2.1-1
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libportmidi-dev	1:217-6
+libsdl2-2.0-0:amd64	2.0.14+dfsg2-3+deb11u1
+libsdl2-dev:amd64	2.0.14+dfsg2-3+deb11u1
+libsdl2-image-dev:amd64	2.0.5+dfsg1-2
+libsdl2-mixer-dev:amd64	2.0.4+dfsg1-3
+libsdl2-ttf-dev:amd64	2.0.15+dfsg1-1
+libudev-dev:amd64	247.3-7+deb11u5
+libudev1:amd64	247.3-7+deb11u5
+{"pygame_version": "2.0.0.dev11", "pygame_revision": "", "pygame_file": "/testbed/build/local/pygame/__init__.py", "event_extension": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so", "extension_sha256": "6ccb1cadf75481469ef6b2118fab5b11c2b0f8d0d6e8e65109a80c38f0b8b9e2", "sdl_compiled": [2, 0, 14], "sdl_linked": [2, 0, 14], "build_packages": {"setuptools": "68.2.2", "wheel": "0.42.0", "pytest": "7.4.4"}, "assets": {"src_c/event.c": {"size": 63874, "sha256": "70eb884e8d76b956188628e33cd3218cf955a9804c719cb0b09c7f358b995dc7"}, "src_c/include/_pygame.h": {"size": 18354, "sha256": "184d833e13671f9b29ef34e2c9782d76dbc2cc8e442d196b5d1ddb8651732805"}, "setup.py": {"size": 29816, "sha256": "d1eaf693f1ad848a4475fcde4eef853cbe74bd07c9eebae19887a22f89e20e33"}, "src_py/version.py": {"size": 2395, "sha256": "890c8b9027e267f63884d100d8005bb0e6e6c0f8e24333cce0933d173dc0644c"}, "build/local/pygame/version.py": {"size": 2395, "sha256": "890c8b9027e267f63884d100d8005bb0e6e6c0f8e24333cce0933d173dc0644c"}, "Setup": {"size": 3669, "sha256": "f72b30e0c5c2c59e8d40ff6e8ebe3d8603e1dc044925916c97a2e4c41f758e0c"}}}

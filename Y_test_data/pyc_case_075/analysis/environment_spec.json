@@ -1,0 +1,34 @@
+{
+  "instance_id": "pyc_case_075",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pygame_sdl2_timer_loops_api",
+  "python_version_target": "3.8",
+  "native_requirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "build_system": "Official setup.py build into /testbed/build/local; PYTHONPATH=/testbed/build/local. Candidate force-build updates the same compiled package path used by the tests. Native compilation output is first buffered in container /tmp and copied verbatim to the raw build log to avoid slow per-write Windows shared-result logging. Compile options unchanged.",
+  "test_execution": [
+    "Official unittest methods run directly under pytest in one process. Identical SDL_VIDEODRIVER=dummy and SDL_AUDIODRIVER=dummy environment on Base and Gold. Original timer intervals, event count and 50 ms tolerance remain unchanged."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/time_test.py, test/event_test.py.",
+    "Base fails the official test_set_timer on pygame.time.set_timer(e,millis,loops=3) with TypeError: loops is an invalid keyword argument for this function. The original preceding timer count/timing assertions and three selected event regressions complete. Gold passes all four nodes, including all three official event-object inputs with loops=3. Original timer intervals/counts and 50 ms tolerance are unchanged. No skip or missing node is graded as pass.",
+    "Three original upstream event methods run under the complete protected patch: large-user-event, expanded type-filtered retrieval and newly added blocked-post behavior. Tests modified or added by upstream are described as such rather than called unchanged."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+  "fix_commit": "f3ac656da14e0a40335c54a6b453c2d15184d4a2",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/time_test.py",
+    "test/event_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/time_test.py::TimeModuleTest::test_set_timer"
+  ],
+  "PASS_TO_PASS": [
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_post_blocked"
+  ]
+}

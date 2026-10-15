@@ -1,0 +1,2 @@
+error: patch failed: test/time_test.py:247
+error: test/time_test.py: patch does not apply

@@ -1,0 +1,97 @@
+{
+  "startedAt": "2026-10-14T02:18:47.411Z",
+  "finishedAt": "2026-10-14T02:18:49.003Z",
+  "image": "pyc-case075-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": {
+    "pygame_version": "2.0.1.dev1",
+    "pygame_revision": "",
+    "pygame_file": "/testbed/build/local/pygame/__init__.py",
+    "event_extension": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so",
+    "time_extension": "/testbed/build/local/pygame/time.cpython-38-x86_64-linux-gnu.so",
+    "time_extension_sha256": "61ea5e85eeb59252921e874a69311a9f6d5b60b8b4b675a6f5f994c938928c70",
+    "extension_sha256": "36fbc3d8b871cf0a094cbd8aa6e903a567111d3ec4d8b4cde3b9cf8d42a6e4bb",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/event.c": {
+        "size": 73144,
+        "sha256": "41de52fcf1d7d0f29799c280696f37de87894a1f2b77368d3e4279d9516cf632"
+      },
+      "src_c/time.c": {
+        "size": 16516,
+        "sha256": "49b190e8bbb16e5404e941ceba61465659db6573ace79665dabffd2c5298de69"
+      },
+      "src_c/_pygame.h": {
+        "size": 10177,
+        "sha256": "fd437481b1cbfb4aec0cd764e5dff3ed973a604663ca5aa3851a9760c6a23a0d"
+      },
+      "src_c/include/_pygame.h": {
+        "size": 18463,
+        "sha256": "f887b7e18cd0e861011e33c4ffd1dcabafde75f2224fcfdee8c2f57c73df42b0"
+      },
+      "setup.py": {
+        "size": 29346,
+        "sha256": "5541b909a1cd60f7aa1a43c1dec33ca2cd94240b1b81d87d4c137cb386ec64da"
+      },
+      "src_py/version.py": {
+        "size": 2394,
+        "sha256": "92d924a3e5d28fdc82b67d18c642b4d7887586dd7af3165942a4a5621ea17f2b"
+      },
+      "build/local/pygame/version.py": {
+        "size": 2394,
+        "sha256": "92d924a3e5d28fdc82b67d18c642b4d7887586dd7af3165942a4a5621ea17f2b"
+      },
+      "Setup": {
+        "size": 3669,
+        "sha256": "f72b30e0c5c2c59e8d40ff6e8ebe3d8603e1dc044925916c97a2e4c41f758e0c"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+    "remotes_removed": true,
+    "version_mechanism": {
+      "strategy": "Official setup.py METADATA literal2.0.1.dev1 generates src_py/version.py with empty revision; no SCM inference or override.",
+      "setup_blob": "f79f3ae1c085f9e61920d65727d23724d9c89098"
+    }
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case075-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"0589ca062fa624f4bf2a9ebea7aedb2a08b37780\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src_c/event.c)\" = \"93feec86edbc9ef33b3e79d0a954a88c1f00c5e8\"; test \"$(git hash-object src_c/time.c)\" = \"5a8d9bbdce0a546b295ab5e47096b18d2a960c31\"; test \"$(git hash-object src_c/_pygame.h)\" = \"9261ccbd9313b12f7e8531766947856028b7acba\"; test \"$(git hash-object src_c/include/_pygame.h)\" = \"cb7f5a23d9400fc837cbb86c110011f60e7a27c1\"; test \"$(git hash-object src_py/locals.py)\" = \"5952db27ccab2a7f119eae3e872459ec30e1254b\"; dpkg-query -W gcc g++ libsdl2-dev libsdl2-2.0-0 libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libfreetype6-dev libportmidi-dev libudev-dev libudev1; python -c 'import pygame,pygame.event,pygame.time,json,hashlib,pathlib,importlib.metadata,subprocess,re; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"/usr/include/SDL2/SDL_version.h\",\"-\"],input=b\"\").decode(); header_version=[int(re.search(\"#define \"+n+\" ([0-9]+)\",macros).group(1)) for n in (\"SDL_MAJOR_VERSION\",\"SDL_MINOR_VERSION\",\"SDL_PATCHLEVEL\")]; files=[\"src_c/event.c\",\"src_c/time.c\",\"src_c/_pygame.h\",\"src_c/include/_pygame.h\",\"setup.py\",\"src_py/version.py\",\"build/local/pygame/version.py\",\"Setup\"]; report={\"pygame_version\":pygame.version.ver,\"pygame_revision\":pygame.version.rev,\"pygame_file\":pygame.__file__,\"event_extension\":pygame.event.__file__,\"time_extension\":pygame.time.__file__,\"time_extension_sha256\":hashlib.sha256(pathlib.Path(pygame.time.__file__).read_bytes()).hexdigest(),\"extension_sha256\":hashlib.sha256(pathlib.Path(pygame.event.__file__).read_bytes()).hexdigest(),\"sdl_compiled\":header_version,\"sdl_linked\":pygame.get_sdl_version(),\"build_packages\":{p:importlib.metadata.version(p) for p in (\"setuptools\",\"wheel\",\"pytest\")},\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files}}; assert report[\"pygame_version\"]==\"2.0.1.dev1\"; assert report[\"event_extension\"].startswith(\"/testbed/build/local/pygame/\"); assert report[\"sdl_linked\"][0]==report[\"sdl_compiled\"][0]==2; assert report[\"pygame_revision\"]==\"\"; print(json.dumps(report))'"
+  ]
+}

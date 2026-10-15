@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 075 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"74\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"f3ac656da14e0a40335c54a6b453c2d15184d4a2\"],[\"Base commit\",\"0589ca062fa624f4bf2a9ebea7aedb2a08b37780\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/pull/2398\"],[\"Symptom\",\"function lacking.\"],[\"Bug location\",\"line 288\"],[\"Bug location type\",\"Cross-Language API callsite + Conditional expression\"],[\"Root cause\",\"Cross-language function change\"],[\"Fixing strategy\",\"change the parsing arguments\"],[\"Fix location\",\"foreign function + if/branching statement\"],[\"Problem statement\",\"pygame.time.set_timer should accept loops to control the number of posted events, support integer/custom event objects and stop when millis=0. Blocked-event posting and ordinary queue/type-filtered retrieval should remain correct.\"],[\"Original source trace\",\"288(c_time_10-cfg.dot) (time_set_timer) … -> 273(c_time_10-cfg.dot) (time_set_timer) -> 259(py_time_test_21-cfg.dot) (test_set_timer)\"],[\"Source trace scope\",\"Source case 74 labels function lacking and traces time_set_timer to test_set_timer, classifying argument parsing through Python-to-C APIs. The measured task validates the official loops timer API and event regressions. Event batching performance, RWops close behavior and all renamed window constants are not individually claimed as reproduced defects.\"],[\"Verified Base trace\",\"Base fails the official test_set_timer on pygame.time.set_timer(e,millis,loops=3) with TypeError: loops is an invalid keyword argument for this function. The original preceding timer count/timing assertions and three selected event regressions complete. Gold passes all four nodes, including all three official event-object inputs with loops=3. Original timer intervals/counts and 50 ms tolerance are unchanged. No skip or missing node is graded as pass.\"],[\"Verified official test\",\"test/time_test.py::TimeModuleTest::test_set_timer\\ntest/event_test.py::EventModuleTest::test_post_large_user_event\\ntest/event_test.py::EventModuleTest::test_get_type\\ntest/event_test.py::EventModuleTest::test_post_blocked\"],[\"Official test scope\",\"Official test_set_timer preserves eight events at 100 ms intervals with a 50 ms tolerance, stops via millis=0, checks loops=True for one event, and checks loops=3 for plain custom, attributed custom and KEYDOWN event objects. Selected event regressions cover a 1024-character user payload, type-filtered retrieval including the upstream added ten-event sequence, and blocked-post boolean/event behavior. Complete two-file upstream protected patch is unchanged. Native event batching performance, RWops close handling and every window constant are not individually claimed as tested defects.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "6sc1ek",
+          "target": {
+            "id": "wb/0536m6",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 075 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-2398\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"2.0.1.dev1\"],[\"Created at\",44181],[\"Base commit\",\"0589ca062fa624f4bf2a9ebea7aedb2a08b37780\"],[\"Fix commit\",\"f3ac656da14e0a40335c54a6b453c2d15184d4a2\"],[\"Merged at\",44186],[\"Issue / PR\",\"https://github.com/pygame/pygame/pull/2398\"],[\"Test source\",\"Original official upstream unittest TestCase methods executed by pytest\"],[\"FAIL_TO_PASS (1)\",\"test/time_test.py::TimeModuleTest::test_set_timer\"],[\"PASS_TO_PASS (1)\",\"test/event_test.py::EventModuleTest::test_post_large_user_event\"],[\"PASS_TO_PASS (2)\",\"test/event_test.py::EventModuleTest::test_get_type\"],[\"PASS_TO_PASS (3)\",\"test/event_test.py::EventModuleTest::test_post_blocked\"],[\"Base / Gold outcome\",\"Base: one official loops timer API target fails and three event regressions pass. Gold: all four official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-075-pygame:benchmark-v1\"],[\"Problem statement\",\"pygame.time.set_timer should accept loops to control the number of posted events, support integer/custom event objects and stop when millis=0. Blocked-event posting and ordinary queue/type-filtered retrieval should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "5x8n60",
+          "target": {
+            "id": "wb/h6cmng",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

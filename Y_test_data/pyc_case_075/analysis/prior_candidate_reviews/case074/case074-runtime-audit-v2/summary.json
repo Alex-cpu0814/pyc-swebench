@@ -1,0 +1,87 @@
+{
+  "startedAt": "2026-10-13T12:46:02.226Z",
+  "finishedAt": "2026-10-13T12:46:04.035Z",
+  "image": "pyc-case074-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": {
+    "pygame_version": "2.0.0.dev11",
+    "pygame_revision": "",
+    "pygame_file": "/testbed/build/local/pygame/__init__.py",
+    "event_extension": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "6ccb1cadf75481469ef6b2118fab5b11c2b0f8d0d6e8e65109a80c38f0b8b9e2",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/event.c": {
+        "size": 63874,
+        "sha256": "70eb884e8d76b956188628e33cd3218cf955a9804c719cb0b09c7f358b995dc7"
+      },
+      "src_c/include/_pygame.h": {
+        "size": 18354,
+        "sha256": "184d833e13671f9b29ef34e2c9782d76dbc2cc8e442d196b5d1ddb8651732805"
+      },
+      "setup.py": {
+        "size": 29816,
+        "sha256": "d1eaf693f1ad848a4475fcde4eef853cbe74bd07c9eebae19887a22f89e20e33"
+      },
+      "src_py/version.py": {
+        "size": 2395,
+        "sha256": "890c8b9027e267f63884d100d8005bb0e6e6c0f8e24333cce0933d173dc0644c"
+      },
+      "build/local/pygame/version.py": {
+        "size": 2395,
+        "sha256": "890c8b9027e267f63884d100d8005bb0e6e6c0f8e24333cce0933d173dc0644c"
+      },
+      "Setup": {
+        "size": 3669,
+        "sha256": "f72b30e0c5c2c59e8d40ff6e8ebe3d8603e1dc044925916c97a2e4c41f758e0c"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "1e55a9412a68123e8cf72acb46c0560534bab408",
+    "remotes_removed": true,
+    "version_mechanism": {
+      "strategy": "setup.py METADATA version literal 2.0.0.dev11; generated src_py/version.py, revision empty. No SCM release inference or version override.",
+      "setup_blob": "85db5cb53301539ef03c44b759cf4382dbc15d1e"
+    }
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case074-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"1e55a9412a68123e8cf72acb46c0560534bab408\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src_c/event.c)\" = \"bb4fce7ce3ccceee0304eba17e2257d70cbbd310\"; test \"$(git hash-object src_c/include/_pygame.h)\" = \"f8810692a6d87005911faf817a368f63c90d3155\"; dpkg-query -W gcc g++ libsdl2-dev libsdl2-2.0-0 libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libfreetype6-dev libportmidi-dev libudev-dev libudev1; python -c 'import pygame,pygame.event,json,hashlib,pathlib,importlib.metadata,subprocess,re; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"/usr/include/SDL2/SDL_version.h\",\"-\"],input=b\"\").decode(); header_version=[int(re.search(\"#define \"+n+\" ([0-9]+)\",macros).group(1)) for n in (\"SDL_MAJOR_VERSION\",\"SDL_MINOR_VERSION\",\"SDL_PATCHLEVEL\")]; files=[\"src_c/event.c\",\"src_c/include/_pygame.h\",\"setup.py\",\"src_py/version.py\",\"build/local/pygame/version.py\",\"Setup\"]; report={\"pygame_version\":pygame.version.ver,\"pygame_revision\":pygame.version.rev,\"pygame_file\":pygame.__file__,\"event_extension\":pygame.event.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(pygame.event.__file__).read_bytes()).hexdigest(),\"sdl_compiled\":header_version,\"sdl_linked\":pygame.get_sdl_version(),\"build_packages\":{p:importlib.metadata.version(p) for p in (\"setuptools\",\"wheel\",\"pytest\")},\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files}}; assert report[\"pygame_version\"]==\"2.0.0.dev11\"; assert report[\"event_extension\"].startswith(\"/testbed/build/local/pygame/\"); assert report[\"sdl_linked\"][0]==report[\"sdl_compiled\"][0]==2; assert report[\"pygame_revision\"]==\"\"; print(json.dumps(report))'"
+  ]
+}

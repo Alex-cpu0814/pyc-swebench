@@ -1,0 +1,15 @@
+{
+  "kind": "observed transient-container native rebuild diagnostic captured from tool output",
+  "image": "pyc-case074-prototype-base:latest",
+  "base_extension_sha256": "6ccb1cadf75481469ef6b2118fab5b11c2b0f8d0d6e8e65109a80c38f0b8b9e2",
+  "gold_extension_sha256": "2e2bae490aa0768824a96338ff035fce71446730813c87005e6be98c8b821bd7",
+  "source_patch": "case074_gold.diff",
+  "build_command": "python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force",
+  "binary_string_present": "key event posted without keycode",
+  "diagnostic_input": "pygame.KEYDOWN,key=pygame.K_a;10x10 SDL dummy window; queue cleared",
+  "post_return": "None",
+  "get_without_pump_return": [],
+  "exit_code": 0,
+  "interpretation": "Native binary actually changed and contains new source branch. No-pump queue still empty. Cause not established. No product/test changes or initialization flags added.",
+  "record_semantics": "Structured transcription of completed diagnostic tool stdout. Not an original independently saved raw logfile."
+}

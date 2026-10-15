@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-2398",
+  "repo": "pygame/pygame",
+  "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+  "problem_statement": "pygame.time.set_timer should accept loops to control the number of posted events, support integer/custom event objects and stop when millis=0. Blocked-event posting and ordinary queue/type-filtered retrieval should remain correct.",
+  "hints_text": "",
+  "created_at": "2020-12-16",
+  "version": "2.0.1.dev1",
+  "issue_id": "2398",
+  "issue_url": "https://github.com/pygame/pygame/pull/2398"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-075-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "test/time_test.py::TimeModuleTest::test_set_timer": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "test/event_test.py::EventModuleTest::test_post_large_user_event": "PASSED",
+    "test/event_test.py::EventModuleTest::test_get_type": "PASSED",
+    "test/event_test.py::EventModuleTest::test_post_blocked": "PASSED"
+  },
+  "unexpected_failures": []
+}

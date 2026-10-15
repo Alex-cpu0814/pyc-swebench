@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 4 items
+
+test/event_test.py::EventModuleTest::test_post_and_get_keydown FAILED    [ 25%]
+test/event_test.py::EventModuleTest::test_post_large_user_event PASSED   [ 50%]
+test/event_test.py::EventModuleTest::test_get PASSED                     [ 75%]
+test/event_test.py::EventModuleTest::test_get_type PASSED                [100%]
+
+=================================== FAILURES ===================================
+__________________ EventModuleTest.test_post_and_get_keydown ___________________
+
+self = <test.event_test.EventModuleTest testMethod=test_post_and_get_keydown>
+
+    def test_post_and_get_keydown(self):
+        """Ensure keydown events can be posted to the queue."""
+        surf = pygame.display.set_mode((10, 10))
+        pygame.event.get()
+        e1 = pygame.event.Event(pygame.KEYDOWN, key=pygame.K_a)
+        pygame.event.post(e1)
+        posted_event = pygame.event.poll()
+>       self.assertEqual(e1.type, posted_event.type, race_condition_notification)
+E       AssertionError: 768 != 0 : 
+E       This test is dependent on timing. The event queue is cleared in preparation for
+E       tests. There is a small window where outside events from the OS may have effected
+E       results. Try running the test again.
+
+test/event_test.py:306: AssertionError
+=============================== warnings summary ===============================
+test/event_test.py::EventModuleTest::test_post_and_get_keydown
+  /testbed/build/local/pygame/pkgdata.py:27: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import resource_stream, resource_exists
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED test/event_test.py::EventModuleTest::test_post_and_get_keydown - Asser...
+==================== 1 failed, 3 passed, 1 warning in 0.50s ====================

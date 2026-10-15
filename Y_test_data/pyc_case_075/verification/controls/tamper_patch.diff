@@ -1,0 +1,13 @@
+diff --git a/test/time_test.py b/test/time_test.py
+index 8f99b1db6..b9309f016 100644
+--- a/test/time_test.py
++++ b/test/time_test.py
+@@ -247,7 +247,7 @@ class TimeModuleTest(unittest.TestCase):
+         Also tests if setting milliseconds to 0 stops the timer and if
+         the once argument and repeat arguments work.
+         """
+-        pygame.display.init()
++        pygame.display.quit()
+         TIMER_EVENT_TYPE = pygame.event.custom_type()
+         timer_event = pygame.event.Event(TIMER_EVENT_TYPE)
+         delta = 50

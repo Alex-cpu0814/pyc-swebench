@@ -1,0 +1,3 @@
+# Case074 admission not verified
+
+Exact fixed pygame PR1584 Base and Gold both fail basic keyboard event type assertion768!=0 under dummy and normal Xvfb/X11. Three official regressions pass. Gold native binary SHA6ccb1cadf75481469ef6b2118fab5b11c2b0f8d0d6e8e65109a80c38f0b8b9e2 changed to2e2bae490aa0768824a96338ff035fce71446730813c87005e6be98c8b821bd7, new product branch string observed. Initial Xvfb PID1 wait produced137 with no pytest; normal shell parent fixed only readiness. Native2.0.0.dev11 and SDL2.0.14 validated. No compatibility product/test changes or repeated attempts to seek a chance pass. Deferral evidence to be archived before cleaning prototype.

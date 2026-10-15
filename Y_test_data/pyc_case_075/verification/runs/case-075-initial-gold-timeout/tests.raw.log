@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 4 items
+
+test/event_test.py::EventModuleTest::test_post_large_user_event PASSED   [ 25%]
+test/event_test.py::EventModuleTest::test_get_type PASSED                [ 50%]
+test/event_test.py::EventModuleTest::test_post_blocked PASSED            [ 75%]
+test/time_test.py::TimeModuleTest::test_set_timer PASSED                 [100%]
+
+============================== 4 passed in 2.12s ===============================

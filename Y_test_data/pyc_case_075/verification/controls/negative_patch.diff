@@ -1,0 +1,10 @@
+diff --git a/README.rst b/README.rst
+index 36eae4d98..3bdbdfe2d 100644
+--- a/README.rst
++++ b/README.rst
+@@ -189,3 +189,5 @@ See docs/licenses for licenses of dependencies.
+ .. _Compilation wiki page: https://www.pygame.org/wiki/Compilation
+ .. _docs page: https://www.pygame.org/docs/
+ .. _GNU LGPL version 2.1: https://www.gnu.org/copyleft/lesser.html
++
++This negative control leaves native timer argument parsing unchanged.

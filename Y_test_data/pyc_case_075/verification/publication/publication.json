@@ -1,0 +1,13 @@
+{
+  "published_at": "2026-10-15T07:52:06.333Z",
+  "image": "yutu0814/pyc-case-075-pygame:benchmark-v1",
+  "verified_image_id": "sha256:09531e41aa8f9ff6c8dfe158e64846c0c11ff89f568409e474c6be948578392b",
+  "registry_digest": "sha256:09531e41aa8f9ff6c8dfe158e64846c0c11ff89f568409e474c6be948578392b",
+  "local_descriptor": {
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "digest": "sha256:09531e41aa8f9ff6c8dfe158e64846c0c11ff89f568409e474c6be948578392b",
+    "size": 856
+  },
+  "evidence": "Successful explicit direct Docker push approved on first request after actual read-only user batch authorization and public-only image payload audits; fixed verified image matches local RepoDigest and OCI descriptor",
+  "registry_independent_recheck": "unavailable: ERROR: failed to do request: Head \"https://registry-1.docker.io/v2/yutu0814/pyc-case-075-pygame/manifests/benchmark-v1\": dial tcp 108.160.169.186:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+}

@@ -1,0 +1,6 @@
+test/event_test.py::EventModuleTest::test_post_and_get_keydown
+test/event_test.py::EventModuleTest::test_post_large_user_event
+test/event_test.py::EventModuleTest::test_get
+test/event_test.py::EventModuleTest::test_get_type
+
+4 tests collected in 0.06s

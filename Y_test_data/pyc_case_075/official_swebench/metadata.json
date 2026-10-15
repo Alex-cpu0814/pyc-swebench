@@ -1,0 +1,179 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "74",
+  "candidate_case": "075",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Official test_set_timer preserves eight events at 100 ms intervals with a 50 ms tolerance, stops via millis=0, checks loops=True for one event, and checks loops=3 for plain custom, attributed custom and KEYDOWN event objects. Selected event regressions cover a 1024-character user payload, type-filtered retrieval including the upstream added ten-event sequence, and blocked-post boolean/event behavior. Complete two-file upstream protected patch is unchanged. Native event batching performance, RWops close handling and every window constant are not individually claimed as tested defects.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2020-12-16",
+  "created_at_precision": "date",
+  "instance_id": "pygame__pygame-2398",
+  "source_instance_id": "pyc_case_075",
+  "repo": "pygame/pygame",
+  "issue_id": "2398",
+  "issue_url": "https://github.com/pygame/pygame/pull/2398",
+  "project_version": "2.0.1.dev1",
+  "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+  "fix_commit": "f3ac656da14e0a40335c54a6b453c2d15184d4a2",
+  "FAIL_TO_PASS": [
+    "test/time_test.py::TimeModuleTest::test_set_timer"
+  ],
+  "PASS_TO_PASS": [
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_post_blocked"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-075-pygame:benchmark-v1",
+      "id": "sha256:09531e41aa8f9ff6c8dfe158e64846c0c11ff89f568409e474c6be948578392b",
+      "repo_digests": [
+        "yutu0814/pyc-case-075-pygame@sha256:09531e41aa8f9ff6c8dfe158e64846c0c11ff89f568409e474c6be948578392b"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "pygame__pygame-2398",
+      "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-075-final-gold/summary.json",
+      "verification/runs/case-075-final-negative/summary.json",
+      "verification/runs/case-075-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2020-12-21",
+  "created_at_source": "https://api.github.com/repos/pygame/pygame/pulls/2398",
+  "date_semantics": "Official REST PR opening and merge UTC timestamps; source Git committer timestamp is separately preserved one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C",
+    "Python"
+  ],
+  "native_product_files_changed": [
+    "src_c/_pygame.h",
+    "src_c/constants.c",
+    "src_c/event.c",
+    "src_c/rwobject.c",
+    "src_c/time.c"
+  ],
+  "python_product_files_changed": [
+    "src_py/locals.py"
+  ],
+  "verified_scope": "Official loops timer argument/count behavior and event regressions",
+  "source_trace_scope": "Source case 74 labels function lacking and traces time_set_timer to test_set_timer, classifying argument parsing through Python-to-C APIs. The measured task validates the official loops timer API and event regressions. Event batching performance, RWops close behavior and all renamed window constants are not individually claimed as reproduced defects.",
+  "version_metadata": {
+    "strategy": "Official setup.py METADATA literal2.0.1.dev1 generates src_py/version.py with empty revision; no SCM inference or override.",
+    "setup_blob": "f79f3ae1c085f9e61920d65727d23724d9c89098"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "GCC preprocessor SDL_version.h macros and actual old upstream no-argument get_sdl_version() API."
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "prior_candidate_deferral": "analysis/prior_candidate_reviews/case074/deferral.json",
+  "product_files": [
+    "src_c/_pygame.h",
+    "src_c/constants.c",
+    "src_c/event.c",
+    "src_c/rwobject.c",
+    "src_c/time.c",
+    "src_py/locals.py"
+  ],
+  "test_files": [
+    "test/time_test.py",
+    "test/event_test.py"
+  ]
+}

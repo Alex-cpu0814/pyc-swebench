@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/time_test.py::TimeModuleTest::test_set_timer",
+    "test/event_test.py::EventModuleTest::test_post_large_user_event",
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_post_blocked"
+  ],
+  "count": 4,
+  "source": "Official two-file upstream patch plus actual pytest7.4.4 collection"
+}

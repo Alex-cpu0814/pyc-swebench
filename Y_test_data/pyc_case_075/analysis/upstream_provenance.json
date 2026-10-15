@@ -1,0 +1,159 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/pull/2398",
+  "base_commit": "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+  "fix_commit": "f3ac656da14e0a40335c54a6b453c2d15184d4a2",
+  "merge_parents": [
+    "0589ca062fa624f4bf2a9ebea7aedb2a08b37780",
+    "9f87ed4b2c37c93db73b5d61373076dd2fad7e6b"
+  ],
+  "upstream_created_at": "2020-12-16",
+  "upstream_merged_at": "2020-12-21",
+  "upstream_created_at_timestamp": "2020-12-16T04:42:11Z",
+  "upstream_merged_at_timestamp": "2020-12-21T16:19:15Z",
+  "source_commit_timestamp_original_offset": "2020-12-21T17:19:14+01:00",
+  "date_source": "https://api.github.com/repos/pygame/pygame/pulls/2398",
+  "date_semantics": "Official REST PR opening and merge UTC timestamps; source Git committer timestamp is separately preserved one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C",
+    "Python"
+  ],
+  "native_product_files_changed": [
+    "src_c/_pygame.h",
+    "src_c/constants.c",
+    "src_c/event.c",
+    "src_c/rwobject.c",
+    "src_c/time.c"
+  ],
+  "python_product_files_changed": [
+    "src_py/locals.py"
+  ],
+  "verified_scope": "Official loops timer argument/count behavior and event regressions",
+  "source_trace_scope": "Source case 74 labels function lacking and traces time_set_timer to test_set_timer, classifying argument parsing through Python-to-C APIs. The measured task validates the official loops timer API and event regressions. Event batching performance, RWops close behavior and all renamed window constants are not individually claimed as reproduced defects.",
+  "version_metadata": {
+    "strategy": "Official setup.py METADATA literal2.0.1.dev1 generates src_py/version.py with empty revision; no SCM inference or override.",
+    "setup_blob": "f79f3ae1c085f9e61920d65727d23724d9c89098"
+  },
+  "native_source_git_blobs": {
+    "src_c/event.c": "93feec86edbc9ef33b3e79d0a954a88c1f00c5e8",
+    "src_c/time.c": "5a8d9bbdce0a546b295ab5e47096b18d2a960c31",
+    "src_c/_pygame.h": "9261ccbd9313b12f7e8531766947856028b7acba",
+    "src_c/include/_pygame.h": "cb7f5a23d9400fc837cbb86c110011f60e7a27c1",
+    "src_py/locals.py": "5952db27ccab2a7f119eae3e872459ec30e1254b"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "GCC preprocessor SDL_version.h macros and actual old upstream no-argument get_sdl_version() API."
+  },
+  "dependency_resolution": "Pinned public Bullseye main SDL2/dev companion packages and matching libudev1/dev247.3-7+deb11u5. The prior074 dependency-resolution evidence is archived separately; no product/test compatibility patches.",
+  "admission_rule": "Official unmodified test inputs and timing tolerance; actual local native loading and Base/Gold contrast required.",
+  "prior_candidate_deferral": "074: exact upstream Gold fails official basic KEYDOWN target under SDL2 dummy and X11; no benchmark published; evidence retained under analysis/prior_candidate_reviews.",
+  "source_commit_utc_timestamp": "2020-12-21T16:19:14Z",
+  "formal_logging_infrastructure": {
+    "initial_gold_build_ms": 599565,
+    "initial_negative_build_ms": 598439,
+    "initial_gold_tests_ms": 2534,
+    "initial_negative_tests_ms": 2136,
+    "initial_timeout_seconds": 600,
+    "initial_phase_status": "evaluation_timeout despite completed correct official tests; not graded resolved",
+    "change": "Buffer all build stdout/stderr in Linux /tmp then cat verbatim to results; same official compiler flags/build path, no product/test changes",
+    "cause_status": "Slow direct shared-result logging inferred from observed difference versus prototype; buffering outcome to be measured.",
+    "final_outcome": "With complete /tmp build-log buffering, identical official compilation completes in about64seconds; final Gold resolved in67.6seconds and negative unresolved in67.4seconds. This supports shared-result logging overhead as the cause. Initial timeout evidence remains separately archived."
+  },
+  "formal_runtime_audit": {
+    "image": "yutu0814/pyc-case-075-pygame:benchmark-v1",
+    "runtime": {
+      "pygame_version": "2.0.1.dev1",
+      "pygame_revision": "",
+      "pygame_file": "/testbed/build/local/pygame/__init__.py",
+      "event_extension": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so",
+      "time_extension": "/testbed/build/local/pygame/time.cpython-38-x86_64-linux-gnu.so",
+      "time_extension_sha256": "61ea5e85eeb59252921e874a69311a9f6d5b60b8b4b675a6f5f994c938928c70",
+      "extension_sha256": "36fbc3d8b871cf0a094cbd8aa6e903a567111d3ec4d8b4cde3b9cf8d42a6e4bb",
+      "sdl_compiled": [
+        2,
+        0,
+        14
+      ],
+      "sdl_linked": [
+        2,
+        0,
+        14
+      ],
+      "build_packages": {
+        "setuptools": "68.2.2",
+        "wheel": "0.42.0",
+        "pytest": "7.4.4"
+      },
+      "assets": {
+        "src_c/event.c": {
+          "size": 73144,
+          "sha256": "41de52fcf1d7d0f29799c280696f37de87894a1f2b77368d3e4279d9516cf632"
+        },
+        "src_c/time.c": {
+          "size": 16516,
+          "sha256": "49b190e8bbb16e5404e941ceba61465659db6573ace79665dabffd2c5298de69"
+        },
+        "src_c/_pygame.h": {
+          "size": 10177,
+          "sha256": "fd437481b1cbfb4aec0cd764e5dff3ed973a604663ca5aa3851a9760c6a23a0d"
+        },
+        "src_c/include/_pygame.h": {
+          "size": 18463,
+          "sha256": "f887b7e18cd0e861011e33c4ffd1dcabafde75f2224fcfdee8c2f57c73df42b0"
+        },
+        "setup.py": {
+          "size": 29346,
+          "sha256": "5541b909a1cd60f7aa1a43c1dec33ca2cd94240b1b81d87d4c137cb386ec64da"
+        },
+        "src_py/version.py": {
+          "size": 2394,
+          "sha256": "92d924a3e5d28fdc82b67d18c642b4d7887586dd7af3165942a4a5621ea17f2b"
+        },
+        "build/local/pygame/version.py": {
+          "size": 2394,
+          "sha256": "92d924a3e5d28fdc82b67d18c642b4d7887586dd7af3165942a4a5621ea17f2b"
+        },
+        "Setup": {
+          "size": 3669,
+          "sha256": "f72b30e0c5c2c59e8d40ff6e8ebe3d8603e1dc044925916c97a2e4c41f758e0c"
+        }
+      }
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libportmidi-dev": "1:217-6",
+      "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-image-dev": "2.0.5+dfsg1-2",
+      "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+      "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+      "libudev-dev": "247.3-7+deb11u5",
+      "libudev1": "247.3-7+deb11u5"
+    }
+  }
+}
