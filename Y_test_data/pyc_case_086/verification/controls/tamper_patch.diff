@@ -1,0 +1,13 @@
+diff --git a/test/draw_test.py b/test/draw_test.py
+index a08d3c551..893deb32a 100644
+--- a/test/draw_test.py
++++ b/test/draw_test.py
+@@ -466,7 +466,7 @@ class DrawPolygonTest(unittest.TestCase):
+             for y in range(10):
+                 if (x in range(2, 5) and y <7) or (y in range(2, 5) and x < 7):
+                     # we are on the border of the cross:
+-                    # FIXME currently the test fails here for (0, 4), (1, 4), (5, 4) and (6, 4)
++                    # Conflict control changes the protected upstream context.
+                     self.assertEqual(self.surface.get_at((x, y)), GREEN, msg=str((x, y)))
+                 else:
+                     # we are outside

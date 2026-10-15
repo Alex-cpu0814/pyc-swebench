@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_086",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pygame_filled_polygon_internal_horizontal_edges",
+  "python_version_target": "3.8",
+  "native_requirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "build_system": "Official setup.py force build into /testbed/build/local, PYTHONPATH identical. All build stdout/stderr is buffered in Linux /tmp then copied verbatim to results with the original exit code; compiler flags unchanged. The legacy build command does not copy setup.py data_files, so the exact tracked Base src_py/freesansbold.ttf resource is materialized into the built pygame package, matching official install_data destination. No source/test changes.",
+  "test_execution": [
+    "Complete existing official DrawPolygonTest unittest methods run directly by pytest against the exact source commit and real first parent. The full official test patch only removes two FIXME comments; no test assertions, inputs or bodies are added or modified."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/draw_test.py.",
+    "Base cross and illumine-shape tests fail because pixels on the expected green internal horizontal edge remain red. The cross fails in its filled-polygon phase at (0,4); the illumine shape fails in the complete six-vertex phase on its upper-inner edge. Gold passes both complete original methods. Existing square and diamond pixel assertions pass on both versions.",
+    "Two unchanged official filled square and diamond tests; the complete comment-only official patch is protected on both products."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "5f1d4528b46d7f3c368db6e1c395ffb0ae83623d",
+  "fix_commit": "d33b702dcfdc3b13479e490961b7f51c7e773d33",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/draw_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/draw_test.py::DrawPolygonTest::test_draw_symetric_cross",
+    "test/draw_test.py::DrawPolygonTest::test_illumine_shape"
+  ],
+  "PASS_TO_PASS": [
+    "test/draw_test.py::DrawPolygonTest::test_draw_square",
+    "test/draw_test.py::DrawPolygonTest::test_draw_diamond"
+  ]
+}

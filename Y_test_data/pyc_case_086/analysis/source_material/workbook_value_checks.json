@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 086 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"85\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"d33b702dcfdc3b13479e490961b7f51c7e773d33\"],[\"Base commit\",\"5f1d4528b46d7f3c368db6e1c395ffb0ae83623d\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/pull/515\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 1617\"],[\"Bug location type\",\"loop\"],[\"Root cause\",\"Logic error\"],[\"Fixing strategy\",\"Add a new branch\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Filled polygons should include horizontal internal edges in the existing cross and issue #313 shapes while preserving square and diamond rasterization.\"],[\"Original source trace\",\"1614(c_draw_39-cfg.dot) (draw_fillpoly) … -> 1556(c_draw_39-cfg.dot) (draw_fillpoly) -> 664(c_draw_20-cfg.dot) (polygon) ... -> 585(c_draw_20-cfg.dot) (polygon) -> 415(py_draw_test_44-cfg.dot) (test_1_pixel_high_or_wide_shapes)\"],[\"Source trace scope\",\"Source case 85 traces native draw_fillpoly through polygon to test_1_pixel_high_or_wide_shapes. Actual failing targets here are existing cross and illumine-shape methods. Source branch commit d33b702d is listed in PR 515; PR merge 5590709b differs, and its opening/merge dates are recorded separately from the source commit date. No entire-PR equivalence or original caller failure is claimed.\"],[\"Verified Base trace\",\"Base cross and illumine-shape tests fail because pixels on the expected green internal horizontal edge remain red. The cross fails in its filled-polygon phase at (0,4); the illumine shape fails in the complete six-vertex phase on its upper-inner edge. Gold passes both complete original methods. Existing square and diamond pixel assertions pass on both versions.\"],[\"Verified official test\",\"test/draw_test.py::DrawPolygonTest::test_draw_symetric_cross\\ntest/draw_test.py::DrawPolygonTest::test_illumine_shape\\ntest/draw_test.py::DrawPolygonTest::test_draw_square\\ntest/draw_test.py::DrawPolygonTest::test_draw_diamond\"],[\"Official test scope\",\"Official DrawPolygonTest uses a 20 by 20 pixel Surface. The cross method checks both width 1 outline and width 0 fill over a 10 by 10 pixel region. The illumine-shape method compares original four-vertex and six-vertex paths, checking top and internal horizontal edges. Square and diamond regressions retain their original pixels. The official test patch only deletes two FIXME comments; all assertion bodies and coordinates already exist on Base and are unchanged. No antialiasing, float coordinates, clipping or other drawing APIs are claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "nxv5xr",
+          "target": {
+            "id": "wb/titcfo",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 086 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-d33b702d\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"1.9.5.dev0\"],[\"Created at\",43342],[\"Base commit\",\"5f1d4528b46d7f3c368db6e1c395ffb0ae83623d\"],[\"Fix commit\",\"d33b702dcfdc3b13479e490961b7f51c7e773d33\"],[\"Merged at\",43346],[\"Issue / PR\",\"https://github.com/pygame/pygame/pull/515\"],[\"Test source\",\"Original official upstream unittest TestCase methods executed by pytest\"],[\"FAIL_TO_PASS (1)\",\"test/draw_test.py::DrawPolygonTest::test_draw_symetric_cross\"],[\"FAIL_TO_PASS (2)\",\"test/draw_test.py::DrawPolygonTest::test_illumine_shape\"],[\"PASS_TO_PASS (1)\",\"test/draw_test.py::DrawPolygonTest::test_draw_square\"],[\"PASS_TO_PASS (2)\",\"test/draw_test.py::DrawPolygonTest::test_draw_diamond\"],[\"Base / Gold outcome\",\"Base: two existing official polygon tests fail and two regressions pass. Gold: all four official tests pass.\"],[\"Docker image\",\"yutu0814/pyc-case-086-pygame:benchmark-v1\"],[\"Problem statement\",\"Filled polygons should include horizontal internal edges in the existing cross and issue #313 shapes while preserving square and diamond rasterization.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "ig9gnt",
+          "target": {
+            "id": "wb/r7g0ka",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

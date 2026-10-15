@@ -1,0 +1,10 @@
+diff --git a/README.rst b/README.rst
+index 3f71d8f5f..8a91cb791 100644
+--- a/README.rst
++++ b/README.rst
+@@ -185,3 +185,5 @@ License
+ 
+ .. |GithubCommits| image:: https://img.shields.io/github/commits-since/pygame/pygame/1.9.4.svg
+ .. _GithubCommits: https://github.com/pygame/pygame/compare/1.9.4...master
++
++This control leaves polygon internal horizontal edges unchanged.

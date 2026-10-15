@@ -1,0 +1,15 @@
+{
+  "source": "https://api.github.com/repos/pygame/pygame/pulls/515",
+  "created_at": "2018-08-30T15:02:44Z",
+  "merged_at": "2018-09-03T16:22:00Z",
+  "source_fix": "d33b702dcfdc3b13479e490961b7f51c7e773d33",
+  "api_merge_sha": "5590709b479903807458525912ad448406a73e6c",
+  "first_parent": "5f1d4528b46d7f3c368db6e1c395ffb0ae83623d",
+  "source_committer_utc": "2018-08-30T16:17:53Z",
+  "relationship": "Official commit-associated PR endpoint and PR 515 commit list both include exact source d33b702d. Source is a branch commit, not PR 515 merge 5590709b. Actual source first parent pins benchmark; no equivalence with entire PR merge claimed.",
+  "date_semantics": "Opening and merge dates refer to associated PR 515, separately from pinned source branch commit on 2018-08-30.",
+  "association_evidence": [
+    "upstream_associated_prs.json",
+    "upstream_pr_commits.json"
+  ]
+}

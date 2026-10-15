@@ -1,0 +1,131 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/pull/515",
+  "base_commit": "5f1d4528b46d7f3c368db6e1c395ffb0ae83623d",
+  "fix_commit": "d33b702dcfdc3b13479e490961b7f51c7e773d33",
+  "source_parents": [
+    "5f1d4528b46d7f3c368db6e1c395ffb0ae83623d"
+  ],
+  "api_merge_sha": "5590709b479903807458525912ad448406a73e6c",
+  "association": "Official commit-associated PR endpoint and PR 515 commit list both include exact source d33b702d. Source is a branch commit, not PR 515 merge 5590709b. Actual source first parent pins benchmark; no equivalence with entire PR merge claimed.",
+  "upstream_created_at": "2018-08-30",
+  "upstream_merged_at": "2018-09-03",
+  "upstream_created_at_timestamp": "2018-08-30T15:02:44Z",
+  "upstream_merged_at_timestamp": "2018-09-03T16:22:00Z",
+  "source_commit_timestamp_original_offset": "2018-08-30T18:17:53+02:00",
+  "date_source": "https://api.github.com/repos/pygame/pygame/pulls/515",
+  "date_semantics": "Opening and merge dates refer to associated PR 515, separately from pinned source branch commit on 2018-08-30.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/draw.c"
+  ],
+  "verified_scope": "Official DrawPolygonTest uses a 20 by 20 pixel Surface. The cross method checks both width 1 outline and width 0 fill over a 10 by 10 pixel region. The illumine-shape method compares original four-vertex and six-vertex paths, checking top and internal horizontal edges. Square and diamond regressions retain their original pixels. The official test patch only deletes two FIXME comments; all assertion bodies and coordinates already exist on Base and are unchanged. No antialiasing, float coordinates, clipping or other drawing APIs are claimed.",
+  "source_trace_scope": "Source case 85 traces native draw_fillpoly through polygon to test_1_pixel_high_or_wide_shapes. Actual failing targets here are existing cross and illumine-shape methods. Source branch commit d33b702d is listed in PR 515; PR merge 5590709b differs, and its opening/merge dates are recorded separately from the source commit date. No entire-PR equivalence or original caller failure is claimed.",
+  "version_metadata": {
+    "strategy": "Official setup.py literal 1.9.5.dev0 and generated version.py audited at runtime; no inferred release or SCM override.",
+    "setup_blob": "c5a83ea30091950108934ce157c4693ad9b527b1"
+  },
+  "native_source_git_blobs": {
+    "src_c/draw.c": "be4649a604da5536cc1794249f862f55ff4a7513",
+    "src_c/_pygame.h": "c26df399b9d0144fc60830123a05217edbd37d39",
+    "setup.py": "c5a83ea30091950108934ce157c4693ad9b527b1",
+    "src_py/freesansbold.ttf": "a98562fc1a89075f2218a2dbf2c08785237fab90"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5",
+    "xvfb": "2:1.20.11-1+deb11u13",
+    "xauth": "1:1.1-1"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "configuration": "Official legacy setup.py -auto -sdl2 -config and force native build. Exact tracked font copied to package data_files location; no full install claimed.",
+  "default_font_packaging": {
+    "source": "src_py/freesansbold.ttf",
+    "target": "build/local/pygame/freesansbold.ttf",
+    "git_blob": "a98562fc1a89075f2218a2dbf2c08785237fab90",
+    "reason": "Official legacy setup.py data_files includes src_py non-Python files; build alone omitted default font. Copy fixed Base resource into its normal built-package location after normal native build, same Base/Gold, no new binary patch.",
+    "initial_evidence": "First Base2fail2pass and Gold1fail3pass; shared missing-default-font RuntimeError is infrastructure, not productfailure; retained."
+  },
+  "admission_rule": "Existing complete official polygon assertions must fail on actual Base and pass after exact source product patch. Comment-only test changes do not themselves establish a regression.",
+  "prior_candidate_review": "083 complete product/test diff exactly duplicates published081; full source/patch-id/byte evidence archived.",
+  "source_commit_utc_timestamp": "2018-08-30T16:17:53Z",
+  "formal_runtime_audit": {
+    "pygame_version": "1.9.5.dev0",
+    "pygame_revision": "",
+    "draw_extension": "/testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "a046dfde9df4c11146f92ffa9f7f0b656f09a30ba914dab26b5bf362663757b3",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "video_driver": "x11",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/draw.c": {
+        "size": 51929,
+        "sha256": "70959fac9cd6d9f106fba4a3d9026db4464effe77090bef817ceb20919651363"
+      },
+      "src_c/_pygame.h": {
+        "size": 26983,
+        "sha256": "8e1e8da63d0d7926f2299f79dc42503a07c0c708c39d25e9a67961196c572964"
+      },
+      "setup.py": {
+        "size": 21764,
+        "sha256": "29f96626954f9f7f1e556773e688cb15e64a6410150580e79ac8dc2db889d928"
+      },
+      "src_py/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "build/local/pygame/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "Setup": {
+        "size": 3324,
+        "sha256": "2571e4be9130a53faae137231b8f386cac553ac6936b257b776c9082a2cdee64"
+      },
+      "src_py/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      },
+      "build/local/pygame/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      }
+    }
+  }
+}

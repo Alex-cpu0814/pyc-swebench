@@ -1,0 +1,51 @@
+{
+  "caseNumber": "083",
+  "sourceCase": "82",
+  "sourceExcelRow": 84,
+  "status": "excluded_duplicate_of_published_case081",
+  "fixCommit": "40a77c6b9d2c13f017c63f00a85ef4d200b3be3e",
+  "baseCommit": "ade48ed08fde30599f8292a6698c2dafec40bba3",
+  "changed_files": [
+    "src_c/_freetype.c",
+    "test/freetype_test.py"
+  ],
+  "source_row": [
+    "82",
+    "https://github.com/pygame/pygame/commit/40a77c6b9d2c13f017c63f00a85ef4d200b3be3e",
+    "incorrect result/output",
+    "line 1419",
+    "function call",
+    "Conditional expression ",
+    null,
+    " \n    1419(c__freetype_99-cfg.dot) (_ftfont_getmetrics)\n  …\n -> 1388(c__freetype_99-cfg.dot) (_ftfont_getmetrics)\n -> 1257(py_freetype_test_39-cfg.dot) (test_undefined_character_code)",
+    "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values",
+    "\nPython->C",
+    "\n\nArgument error",
+    "change the argument variable",
+    "conditional expression + function call"
+  ],
+  "mapped_published_case": "Y_test_data/pyc_case_081",
+  "mapped_commit": "7c5906fa21cb42bcf757a18ac9ea9862355c3c4b",
+  "mapped_fix": "1aeecd40314ec00c93d975b31a1f4518979d49a9",
+  "merge_parents": [
+    "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+    "40a77c6b9d2c13f017c63f00a85ef4d200b3be3e"
+  ],
+  "is_second_parent_of_case081_fix": true,
+  "comparisons": {
+    "gold": {
+      "sha256": "d3994a9836b93912cdf704d614fc62cd471f4317eb1d97734bad11adf2baf6a2",
+      "bytes": 723,
+      "exact_bytes_equal_to_case081": true,
+      "stable_patch_id": "450a87e9365e376a1bf8b0ce8f1e9b0422e85bed"
+    },
+    "test": {
+      "sha256": "2337033b0b3ec9c91e85bf02d1e8f2dc71f9437c2a38259c7e7846175cd8734d",
+      "bytes": 1496,
+      "exact_bytes_equal_to_case081": true,
+      "stable_patch_id": "470f6e33f666cd5637f2f15677e6eb65a9dadcac"
+    }
+  },
+  "reason": "Both complete product and official test diffs against their respective first parents are byte-for-byte identical to published case081, and candidate fix is its PR702 merge second parent. No new benchmark/image/tests are manufactured; original source row and caller trace preserved.",
+  "reviewed_at": "2026-10-15T16:20:41.167Z"
+}

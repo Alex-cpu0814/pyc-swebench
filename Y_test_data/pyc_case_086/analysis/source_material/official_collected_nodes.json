@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/draw_test.py::DrawPolygonTest::test_draw_symetric_cross",
+    "test/draw_test.py::DrawPolygonTest::test_illumine_shape",
+    "test/draw_test.py::DrawPolygonTest::test_draw_square",
+    "test/draw_test.py::DrawPolygonTest::test_draw_diamond"
+  ],
+  "count": 4,
+  "source": "Actual pytest collection of unchanged official assertions with exact comment-removal patch"
+}

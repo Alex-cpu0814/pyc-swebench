@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-086-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "test/draw_test.py::DrawPolygonTest::test_draw_symetric_cross": "PASSED",
+    "test/draw_test.py::DrawPolygonTest::test_illumine_shape": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "test/draw_test.py::DrawPolygonTest::test_draw_square": "PASSED",
+    "test/draw_test.py::DrawPolygonTest::test_draw_diamond": "PASSED"
+  },
+  "unexpected_failures": []
+}

@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-d33b702d",
+  "repo": "pygame/pygame",
+  "base_commit": "5f1d4528b46d7f3c368db6e1c395ffb0ae83623d",
+  "problem_statement": "Filled polygons should include horizontal internal edges in the existing cross and issue313 shapes while preserving square and diamond rasterization.",
+  "hints_text": "",
+  "created_at": "2018-08-30",
+  "version": "1.9.5.dev0",
+  "issue_id": "515",
+  "issue_url": "https://github.com/pygame/pygame/pull/515"
+}
