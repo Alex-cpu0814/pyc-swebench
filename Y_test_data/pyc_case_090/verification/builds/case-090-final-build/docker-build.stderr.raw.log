@@ -1,0 +1,47 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.73kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.0s
+
+#5 [2/7] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade --allow-downgrades libudev1=247.3-7+deb11u5 libudev-dev=247.3-7+deb11u5 gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates pkg-config=0.29.2-1 xvfb=2:1.20.11-1+deb11u13 xauth=1:1.1-1 libsdl1.2debian=1.2.15+dfsg2-6 libsdl1.2-dev=1.2.15+dfsg2-6 libsdl-image1.2-dev=1.2.12-12 libsdl-mixer1.2-dev=1.2.12-16+b1 libsdl-ttf2.0-dev=2.0.11-6 libsmpeg-dev=0.4.5+cvs20030824-9 libfreetype6-dev=2.10.4+dfsg-1+deb11u1     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/7] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 CACHED
+
+#7 [4/7] RUN printf '%s\n' '#!/bin/sh' 'case "$1" in' '  --ftversion) exec pkg-config --modversion freetype2 ;;' '  --cflags|--libs) exec pkg-config "$1" freetype2 ;;' '  *) exit 2 ;;' 'esac' > /usr/local/bin/freetype-config && chmod 755 /usr/local/bin/freetype-config
+#7 CACHED
+
+#8 [5/7] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/pygame/pygame.git"     && git fetch --depth=1 --no-tags origin "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3"     && git checkout --detach "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3"
+#8 CACHED
+
+#9 [6/7] WORKDIR /testbed
+#9 CACHED
+
+#10 [7/7] RUN python config.py -auto     && python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force     && cp lib/freesansbold.ttf /testbed/build/local/pygame/freesansbold.ttf     && python -c "import pygame,pygame._freetype; print(pygame.version.ver,pygame._freetype.__file__); assert pygame.version.ver == '1.9.2a0'; assert pygame._freetype.__file__.startswith('/testbed/build/local/pygame/')"     && git restore --source=HEAD --worktree -- .     && printf '%s\n' '/build/' '/Setup' '**/__pycache__/' '*.pyc' '/lib/version.py' '/pygame.egg-info/' >> .git/info/exclude     && git status --porcelain     && test -z "$(git status --porcelain)"
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:ce85ce875d6e2f59af385966d888d58cfe8f5e296cdf1952b17570f116325fb5 done
+#11 exporting config sha256:71504e670fbfdc9a7af1424301741b3bd94fccd19d4bfcbeef6e3e9489c2099f done
+#11 exporting attestation manifest sha256:c0cd28da7a035182e22405f31c9b32c3ee643b462213304f50745c4898cf00f8 0.0s done
+#11 exporting manifest list sha256:150ec56758ae844eb1b5e23a435ebd2c0bd9b72b55416b8a5cfa417ed7bb1df4 0.0s done
+#11 naming to docker.io/yutu0814/pyc-case-090-pygame:benchmark-v1 done
+#11 unpacking to docker.io/yutu0814/pyc-case-090-pygame:benchmark-v1 0.0s done
+#11 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/rs6iyinn3q277vliyn4j0jyup

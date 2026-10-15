@@ -1,0 +1,29 @@
+{
+  "url": "https://api.github.com/repos/pygame/pygame/commits/4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4/pulls",
+  "status": 403,
+  "headers": {
+    "Date": "Thu, 15 Oct 2026 17:05:40 GMT",
+    "Server": "Varnish",
+    "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "deny",
+    "X-XSS-Protection": "1; mode=block",
+    "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-RateLimit-Used, X-RateLimit-Resource, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset",
+    "Content-Type": "application/json; charset=utf-8",
+    "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "X-GitHub-Media-Type": "github.v3; format=json",
+    "X-RateLimit-Limit": "60",
+    "X-RateLimit-Remaining": "0",
+    "X-RateLimit-Used": "60",
+    "X-RateLimit-Resource": "core",
+    "X-RateLimit-Reset": "1792084068",
+    "Content-Length": "278",
+    "X-GitHub-Request-Id": "28C3:2858FD:52FFEF:81DF1B:6AD107E4",
+    "x-github-edge-region": "southeastasia",
+    "connection": "close"
+  },
+  "body": "{\"message\":\"API rate limit exceeded for 185.81.28.69. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)\",\"documentation_url\":\"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting\"}\n",
+  "captured_at": "2026-10-15T17:05:40.985678+00:00"
+}

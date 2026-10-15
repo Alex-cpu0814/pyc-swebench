@@ -1,0 +1,32 @@
+{
+  "image": "yutu0814/pyc-case-090-pygame:benchmark-v1",
+  "verified_image_id": "sha256:150ec56758ae844eb1b5e23a435ebd2c0bd9b72b55416b8a5cfa417ed7bb1df4",
+  "config_env": [
+    "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+    "PYTHON_VERSION=3.8.20",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "PYTHONPATH=/testbed/build/local",
+    "SDL_VIDEODRIVER=x11",
+    "SDL_AUDIODRIVER=dummy",
+    "PYGAME_HIDE_SUPPORT_PROMPT=1"
+  ],
+  "config_volumes": null,
+  "config_labels": null,
+  "source_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+  "tracked_public_source_files": 672,
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile in staged build context; .dockerignore excludes all other host files",
+  "payload_scope": "Pinned public Python image, public Debian/pip dependencies and anonymous exact public pygame Base source plus official native compiled modules and publicly pinned SDL1.2/companion libraries. No host attachments/workbooks/private patches/credentials/evaluator runtime assets are copied into the image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "fix_commit_absent": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-15T17:15:10.567Z"
+}

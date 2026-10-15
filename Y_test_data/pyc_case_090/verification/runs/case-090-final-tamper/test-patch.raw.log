@@ -1,0 +1,2 @@
+error: patch failed: test/freetype_test.py:1257
+error: test/freetype_test.py: patch does not apply

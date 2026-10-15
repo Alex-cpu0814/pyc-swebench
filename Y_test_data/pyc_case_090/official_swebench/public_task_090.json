@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-4c23a6ce",
+  "repo": "pygame/pygame",
+  "base_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+  "problem_statement": "When the style argument is omitted, freetype.Font.get_rect should reflect the Font object style and match the same text rendered to a Surface, preserving existing explicit-style and rendering behavior.",
+  "hints_text": "",
+  "created_at": "2015-04-07",
+  "version": "1.9.2a0",
+  "issue_id": "242",
+  "issue_url": "https://github.com/pygame/pygame/issues/242"
+}

@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_090",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "89",
+  "duplicate_source_cases": [],
+  "deduplication_key": "4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "language_pair": "Python-C",
+  "repo": "pygame/pygame",
+  "issue_id": "242",
+  "issue_url": "https://github.com/pygame/pygame/issues/242",
+  "commit": "4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "base_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "commit_url": "https://github.com/pygame/pygame/commit/4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "problem_statement": "When the style argument is omitted, freetype.Font.get_rect should reflect the Font object style and match the same text rendered to a Surface, preserving existing explicit-style and rendering behavior.",
+  "symptom": "error message (assertion error)",
+  "bug_location": "line 1421",
+  "bug_location_type": "assignment + variable declaration",
+  "bug_path": "1421(c__freetype_97-cfg.dot) (_ftfont_getrect) ... -> 1404(c__freetype_97-cfg.dot) (_ftfont_getrect) -> 1106(py_freetype_test_34-cfg.dot) (test_freetype_Font_resolution)",
+  "cross_language_type": "PyImport_ImportModule ,Foreign,Importing Modules,PySurface_Prep ,NAX",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Initialization error",
+  "fixing_strategy": "change the initial value",
+  "fix_location": "assignment statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/pygame/pygame/issues/242",
+    "upstream_description": "Complete native product change sets _ftfont_getrect local style default to FT_STYLE_DEFAULT instead of0. Complete official test_issue_242 compares get_rect and render for wide M, strong Mm_, oblique | and underlined two spaces at size64, restoring each style in finally blocks.",
+    "verified_error": "Base test_issue_242 fails its first wide-style M comparison at test/freetype_test.py:1286: get_rect returns <rect(5,44,44,44)> while render returns <rect(5,44,46,44)>. The complete original method stops at this first assertion, so later strong/oblique/underline steps are not observed on Base. Gold completes all four original style comparisons. Three unchanged get_rect, style-property and mono-render regressions pass both versions; each official method has testsRun=1 with true child exit and wasSuccessful outcome.",
+    "verified_test": "test/freetype_test.py::FreeTypeFontTest::test_issue_242 and test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect and test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style and test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono"
+  },
+  "evidence_type": "source_row_upstream_issue_and_verified_bundled_unittest_trace",
+  "official_test_scope": "Complete original test_issue_242 at size64 sets wide=True for M, strong=True for Mm_, oblique=True for | and underline=True for two spaces, comparing get_rect to render(None) and restoring each property in finally. Base fails first wide-M equality only; Gold executes all four style blocks. Three complete original regression methods test explicit/default get_rect geometry, Font.style validation/assignment, and monochrome rendering. Official source fonts and all original inputs/assertions/bodies remain unchanged. No full freetype suite, independent failures of later style blocks, crash or other fonts/platforms are claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

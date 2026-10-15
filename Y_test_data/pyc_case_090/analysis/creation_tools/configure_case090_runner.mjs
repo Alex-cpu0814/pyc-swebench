@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',p=w+'/case090_spec.json',s=JSON.parse(fs.readFileSync(p,'utf8')),prev='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_088/analysis/creation_tools';
+s.passToPass=s.passToPass.map(n=>n.endsWith('::test_freetype_Font_render')?n+'_mono':n);s.probeNodes=[...s.passToPass,...s.failToPass];
+fs.writeFileSync(w+'/legacy_unittest090.py',fs.readFileSync(prev+'/legacy_unittest088.py'));fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+let a=fs.readFileSync(prev+'/audit_case088.mjs','utf8').replaceAll('088','090').replaceAll('pygame.surface','pygame._freetype').replaceAll('surface_extension','freetype_extension').replaceAll('src/surface.c','src/_freetype.c').replaceAll('=="dummy"','=="x11"');
+a=a.replace('"build/local/pygame/freesansbold.ttf"];','"build/local/pygame/freesansbold.ttf","test/fixtures/fonts/test_sans.ttf","test/fixtures/fonts/test_fixed.otf","test/fixtures/fonts/PyGameMono.otf","test/fixtures/fonts/PyGameMono-8.bdf","test/fixtures/fonts/PyGameMono-18-75dpi.bdf","test/fixtures/fonts/PyGameMono-18-100dpi.bdf"];');
+a=a.replace('"video_driver":os.environ["SDL_VIDEODRIVER"]','"freetype_compile_time_macros":pygame._freetype.get_version(),"video_driver":os.environ["SDL_VIDEODRIVER"]');
+a=a.replace('dpkg-query -W gcc','dpkg-query -W pkg-config xvfb xauth libfreetype6 gcc');
+fs.writeFileSync(w+'/audit_case090.mjs',a);
+console.log('Official bundled-loader prefix verified count=1; mono rendering regression avoids ambiguous prefix.');

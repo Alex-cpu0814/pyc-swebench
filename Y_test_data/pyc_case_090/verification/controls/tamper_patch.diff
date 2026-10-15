@@ -1,0 +1,13 @@
+diff --git a/test/freetype_test.py b/test/freetype_test.py
+index 9624be274..2ec04fef2 100644
+--- a/test/freetype_test.py
++++ b/test/freetype_test.py
+@@ -1254,7 +1254,7 @@ class FreeTypeFontTest(unittest.TestCase):
+         # returned to Python level.
+         #
+         font = ft.Font(None, size=64)
+-        s = 'M' * 100000  # Way too long for an SDL surface
++        s = 'N' * 100000  # Protected-test conflict control
+         self.assertRaises(pygame.error, font.render, s, (0, 0, 0))
+ 
+     def test_garbage_collection(self):

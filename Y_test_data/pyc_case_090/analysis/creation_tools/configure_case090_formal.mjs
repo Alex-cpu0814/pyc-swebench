@@ -1,0 +1,3 @@
+import fs from'node:fs';
+const p='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_090/evaluator/evaluate_model_patch.py',prev=fs.readFileSync('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_088/evaluator/evaluate_model_patch.py','utf8');
+let t=fs.readFileSync(p,'utf8');const start=t.indexOf('def parse_test_log(text):'),end=t.indexOf('\ndef expected_report(',start);if(start<0||end<0)throw Error('Missing parser');t=t.slice(0,start)+prev.slice(prev.indexOf('def parse_test_log(text):'),prev.indexOf('\ndef expected_report('))+t.slice(end);fs.writeFileSync(p,t);console.log('Exact four terminal IDs only; readable unittest aliases excluded.');

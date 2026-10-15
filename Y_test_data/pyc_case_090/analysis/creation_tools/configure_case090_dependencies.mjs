@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',p=w+'/case090_spec.json',s=JSON.parse(fs.readFileSync(p,'utf8'));
+fs.copyFileSync(s.dockerfileSource,w+'/Dockerfile.pygame090-no-freetype-config-v1');
+let d=fs.readFileSync(s.dockerfileSource,'utf8');
+d=d.replace('git ca-certificates xvfb','git ca-certificates pkg-config=0.29.2-1 xvfb');
+const config=`RUN printf '%s\\n' '#!/bin/sh' 'case "$1" in' '  --ftversion) exec pkg-config --modversion freetype2 ;;' '  --cflags|--libs) exec pkg-config "$1" freetype2 ;;' '  *) exit 2 ;;' 'esac' > /usr/local/bin/freetype-config && chmod 755 /usr/local/bin/freetype-config\n`;
+d=d.replace('ARG REPO_URL=',config+'ARG REPO_URL=');
+fs.writeFileSync(s.dockerfileSource,d);
+s.provenance.freetype_config_adapter='Debian Bullseye no longer ships freetype-config. A minimal command adapter maps legacy --ftversion to installed pkg-config --modversion freetype2 and --cflags/--libs to installed package metadata. Official auto-config and generated package compiler/linker flags are used unchanged on Base/Gold; no product/test source edits. Initial missing-freetype build/import failure retained as environment evidence.';
+fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+console.log('Official legacy freetype config command bridged to public package metadata.');

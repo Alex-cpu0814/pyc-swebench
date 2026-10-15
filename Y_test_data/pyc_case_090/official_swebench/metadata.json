@@ -1,0 +1,156 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "89",
+  "candidate_case": "090",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Complete original test_issue_242 at size64 sets wide=True for M, strong=True for Mm_, oblique=True for | and underline=True for two spaces, comparing get_rect to render(None) and restoring each property in finally. Base fails first wide-M equality only; Gold executes all four style blocks. Three complete original regression methods test explicit/default get_rect geometry, Font.style validation/assignment, and monochrome rendering. Official source fonts and all original inputs/assertions/bodies remain unchanged. No full freetype suite, independent failures of later style blocks, crash or other fonts/platforms are claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_bundled_unittest",
+  "created_at": "2015-04-07",
+  "created_at_precision": "date",
+  "instance_id": "pygame__pygame-4c23a6ce",
+  "source_instance_id": "pyc_case_090",
+  "repo": "pygame/pygame",
+  "issue_id": "242",
+  "issue_url": "https://github.com/pygame/pygame/issues/242",
+  "project_version": "1.9.2a0",
+  "base_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+  "fix_commit": "4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "Upstream bundled unittest Revision1.63 (pytest7.4.4 installed but not used for execution)",
+    "compiler_toolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-090-pygame:benchmark-v1",
+      "id": "sha256:150ec56758ae844eb1b5e23a435ebd2c0bd9b72b55416b8a5cfa417ed7bb1df4",
+      "repo_digests": [
+        "yutu0814/pyc-case-090-pygame@sha256:150ec56758ae844eb1b5e23a435ebd2c0bd9b72b55416b8a5cfa417ed7bb1df4"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "pygame__pygame-4c23a6ce",
+      "base_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-090-final-gold/summary.json",
+      "verification/runs/case-090-final-negative/summary.json",
+      "verification/runs/case-090-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": null,
+  "fix_committed_at": "2015-04-08",
+  "date_semantics": "Issue242 opened2015-04-07. Pinned source commit local2015-04-07 converts to UTC2015-04-08. No associated PR merge date established; issue closure/migration is not a merge date.",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/_freetype.c"
+  ],
+  "verified_scope": "Complete original test_issue_242 at size64 sets wide=True for M, strong=True for Mm_, oblique=True for | and underline=True for two spaces, comparing get_rect to render(None) and restoring each property in finally. Base fails first wide-M equality only; Gold executes all four style blocks. Three complete original regression methods test explicit/default get_rect geometry, Font.style validation/assignment, and monochrome rendering. Official source fonts and all original inputs/assertions/bodies remain unchanged. No full freetype suite, independent failures of later style blocks, crash or other fonts/platforms are claimed.",
+  "source_trace_scope": "Source case89 traces _ftfont_getrect via _ftfont_get to test_freetype_Font_resolution. The measured failing caller here is the exact newly added official test_issue_242; no failure of the original resolution caller is claimed. Pinned source first parent is verified. Issue242 opened2015-04-07; source commit UTC2015-04-08 is not an inferred merge date, and no associated merge is claimed.",
+  "version_metadata": {
+    "strategy": "Official setup.py literal1.9.2a0 generates lib/version.py; hg identifier empty in anonymous Git checkout, actual runtime audited."
+  },
+  "sdl_version": "1.2.15",
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6": "2.10.4+dfsg-1+deb11u1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libsdl-image1.2-dev": "1.2.12-12",
+    "libsdl-mixer1.2-dev": "1.2.12-16+b1",
+    "libsdl-ttf2.0-dev": "2.0.11-6",
+    "libsdl1.2-dev": "1.2.15+dfsg2-6",
+    "libsdl1.2debian": "1.2.15+dfsg2-6",
+    "libsmpeg-dev": "0.4.5+cvs20030824-9",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5",
+    "pkg-config": "0.29.2-1",
+    "xauth": "1:1.1-1",
+    "xvfb": "2:1.20.11-1+deb11u13"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "api_limitation": "All three anonymous REST API endpoints returned HTTP403 rate-limit errors, preserved with headers/body. No empty associated-PR API result is fabricated. Public official HTML supplies issue opening date; no PR merge date established.",
+  "product_files": [
+    "src/_freetype.c"
+  ],
+  "test_files": [
+    "test/freetype_test.py"
+  ]
+}

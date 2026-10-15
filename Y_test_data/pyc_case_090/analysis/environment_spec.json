@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_090",
+  "task_level": "integration",
+  "validation_type": "official_bundled_unittest",
+  "environment": "pygame_freetype_default_styles",
+  "python_version_target": "3.8",
+  "native_requirement": "Public fixed SDL1.2.15, freetype development/runtime and companion SDL libraries; Xvfb/xauth for X11 driver; official Base font fixtures unchanged.",
+  "build_system": "Official legacy config.py -auto uses SDL1 sdl-config, followed by normal setup.py force build into /testbed/build/local. Tracked lib/freesansbold.ttf is copied to package data_files location. Build logs buffered in Linux/tmp preserving complete output/exit code.",
+  "test_execution": [
+    "Original methods use official bundled-unittest loader/TextTestRunner in one fresh child per node. PASSED requires explicit testsRun=1/wasSuccessful with normal exit. SIGSEGV/SIGABRT only after official test-start record is a preserved native failure; missing records/framework errors are infrastructure failures. Each child stdout/stderr and exit is preserved losslessly in OFFICIAL_PROCESS_RECORD plus original readable output. No input/body/assertion/allocator/compiler changes."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/freetype_test.py.",
+    "Base test_issue_242 fails its first wide-style M comparison at test/freetype_test.py:1286: get_rect returns <rect(5,44,44,44)> while render returns <rect(5,44,46,44)>. The complete original method stops at this first assertion, so later strong/oblique/underline steps are not observed on Base. Gold completes all four original style comparisons. Three unchanged get_rect, style-property and mono-render regressions pass both versions; each official method has testsRun=1 with true child exit and wasSuccessful outcome.",
+    "Three unchanged complete official get_rect, style-property and mono-render methods pass on Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "6e5ca4a046fde6c21b0386281e25a83b3c8f9ba3",
+  "fix_commit": "4c23a6ce02e4fa25ee62ba3d996106dcfd7d3cd4",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/freetype_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono"
+  ]
+}

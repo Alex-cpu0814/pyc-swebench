@@ -1,0 +1,64 @@
+OFFICIAL_TEST_START test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect
+OFFICIAL_RESULT {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect", "testsRun": 1, "failures": 0, "errors": 0, "status": "PASSED"}
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_freetype_Font_get_rect (test.freetype_test.FreeTypeFontTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+OFFICIAL_PROCESS_RECORD {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect", "returncode": 0, "stdout_base64": "T0ZGSUNJQUxfVEVTVF9TVEFSVCB0ZXN0L2ZyZWV0eXBlX3Rlc3QucHk6OkZyZWVUeXBlRm9udFRlc3Q6OnRlc3RfZnJlZXR5cGVfRm9udF9nZXRfcmVjdApPRkZJQ0lBTF9SRVNVTFQgeyJub2RlIjogInRlc3QvZnJlZXR5cGVfdGVzdC5weTo6RnJlZVR5cGVGb250VGVzdDo6dGVzdF9mcmVldHlwZV9Gb250X2dldF9yZWN0IiwgInRlc3RzUnVuIjogMSwgImZhaWx1cmVzIjogMCwgImVycm9ycyI6IDAsICJzdGF0dXMiOiAiUEFTU0VEIn0K", "stderr_base64": "L3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL19faW5pdF9fLnB5OjE3MjogU3ludGF4V2FybmluZzogImlzIG5vdCIgd2l0aCBhIGxpdGVyYWwuIERpZCB5b3UgbWVhbiAiIT0iPwogIChyZWN0LmxlZnQgaXMgbm90IDAgYW5kIFsocmVjdC5sZWZ0LTEsIHJlY3QudG9wKV0gb3IgW10pICsKL3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL3Rlc3RfcnVubmVyLnB5OjIxOTogU3ludGF4V2FybmluZzogImlzIiB3aXRoIGEgbGl0ZXJhbC4gRGlkIHlvdSBtZWFuICI9PSI/CiAgaWYgbnVtX2Vycm9ycyBpcyAwIGFuZCByZXN1bHQuZ2V0KCdyZXR1cm5fY29kZScpOgp0ZXN0X2ZyZWV0eXBlX0ZvbnRfZ2V0X3JlY3QgKHRlc3QuZnJlZXR5cGVfdGVzdC5GcmVlVHlwZUZvbnRUZXN0KSAuLi4gb2sKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUmFuIDEgdGVzdCBpbiAwLjAwMnMKCk9LCg=="}
+test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect PASSED
+OFFICIAL_TEST_START test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style
+OFFICIAL_RESULT {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style", "testsRun": 1, "failures": 0, "errors": 0, "status": "PASSED"}
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_freetype_Font_style (test.freetype_test.FreeTypeFontTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+OFFICIAL_PROCESS_RECORD {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style", "returncode": 0, "stdout_base64": "T0ZGSUNJQUxfVEVTVF9TVEFSVCB0ZXN0L2ZyZWV0eXBlX3Rlc3QucHk6OkZyZWVUeXBlRm9udFRlc3Q6OnRlc3RfZnJlZXR5cGVfRm9udF9zdHlsZQpPRkZJQ0lBTF9SRVNVTFQgeyJub2RlIjogInRlc3QvZnJlZXR5cGVfdGVzdC5weTo6RnJlZVR5cGVGb250VGVzdDo6dGVzdF9mcmVldHlwZV9Gb250X3N0eWxlIiwgInRlc3RzUnVuIjogMSwgImZhaWx1cmVzIjogMCwgImVycm9ycyI6IDAsICJzdGF0dXMiOiAiUEFTU0VEIn0K", "stderr_base64": "L3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL19faW5pdF9fLnB5OjE3MjogU3ludGF4V2FybmluZzogImlzIG5vdCIgd2l0aCBhIGxpdGVyYWwuIERpZCB5b3UgbWVhbiAiIT0iPwogIChyZWN0LmxlZnQgaXMgbm90IDAgYW5kIFsocmVjdC5sZWZ0LTEsIHJlY3QudG9wKV0gb3IgW10pICsKL3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL3Rlc3RfcnVubmVyLnB5OjIxOTogU3ludGF4V2FybmluZzogImlzIiB3aXRoIGEgbGl0ZXJhbC4gRGlkIHlvdSBtZWFuICI9PSI/CiAgaWYgbnVtX2Vycm9ycyBpcyAwIGFuZCByZXN1bHQuZ2V0KCdyZXR1cm5fY29kZScpOgp0ZXN0X2ZyZWV0eXBlX0ZvbnRfc3R5bGUgKHRlc3QuZnJlZXR5cGVfdGVzdC5GcmVlVHlwZUZvbnRUZXN0KSAuLi4gb2sKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUmFuIDEgdGVzdCBpbiAwLjAwMHMKCk9LCg=="}
+test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_style PASSED
+OFFICIAL_TEST_START test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono
+OFFICIAL_RESULT {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono", "testsRun": 1, "failures": 0, "errors": 0, "status": "PASSED"}
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_freetype_Font_render_mono (test.freetype_test.FreeTypeFontTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+OFFICIAL_PROCESS_RECORD {"node": "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono", "returncode": 0, "stdout_base64": "T0ZGSUNJQUxfVEVTVF9TVEFSVCB0ZXN0L2ZyZWV0eXBlX3Rlc3QucHk6OkZyZWVUeXBlRm9udFRlc3Q6OnRlc3RfZnJlZXR5cGVfRm9udF9yZW5kZXJfbW9ubwpPRkZJQ0lBTF9SRVNVTFQgeyJub2RlIjogInRlc3QvZnJlZXR5cGVfdGVzdC5weTo6RnJlZVR5cGVGb250VGVzdDo6dGVzdF9mcmVldHlwZV9Gb250X3JlbmRlcl9tb25vIiwgInRlc3RzUnVuIjogMSwgImZhaWx1cmVzIjogMCwgImVycm9ycyI6IDAsICJzdGF0dXMiOiAiUEFTU0VEIn0K", "stderr_base64": "L3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL19faW5pdF9fLnB5OjE3MjogU3ludGF4V2FybmluZzogImlzIG5vdCIgd2l0aCBhIGxpdGVyYWwuIERpZCB5b3UgbWVhbiAiIT0iPwogIChyZWN0LmxlZnQgaXMgbm90IDAgYW5kIFsocmVjdC5sZWZ0LTEsIHJlY3QudG9wKV0gb3IgW10pICsKL3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL3Rlc3RfcnVubmVyLnB5OjIxOTogU3ludGF4V2FybmluZzogImlzIiB3aXRoIGEgbGl0ZXJhbC4gRGlkIHlvdSBtZWFuICI9PSI/CiAgaWYgbnVtX2Vycm9ycyBpcyAwIGFuZCByZXN1bHQuZ2V0KCdyZXR1cm5fY29kZScpOgp0ZXN0X2ZyZWV0eXBlX0ZvbnRfcmVuZGVyX21vbm8gKHRlc3QuZnJlZXR5cGVfdGVzdC5GcmVlVHlwZUZvbnRUZXN0KSAuLi4gb2sKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUmFuIDEgdGVzdCBpbiAwLjAwMXMKCk9LCg=="}
+test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono PASSED
+OFFICIAL_TEST_START test/freetype_test.py::FreeTypeFontTest::test_issue_242
+OFFICIAL_RESULT {"node": "test/freetype_test.py::FreeTypeFontTest::test_issue_242", "testsRun": 1, "failures": 1, "errors": 0, "status": "FAILED"}
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Issue #242: get_rect() uses 0 as default style ... FAIL
+
+======================================================================
+FAIL: Issue #242: get_rect() uses 0 as default style
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/test/freetype_test.py", line 1286, in test_issue_242
+    self.assertEqual(rect, rrect)
+AssertionError: <rect(5, 44, 44, 44)> != <rect(5, 44, 46, 44)>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+OFFICIAL_PROCESS_RECORD {"node": "test/freetype_test.py::FreeTypeFontTest::test_issue_242", "returncode": 1, "stdout_base64": "T0ZGSUNJQUxfVEVTVF9TVEFSVCB0ZXN0L2ZyZWV0eXBlX3Rlc3QucHk6OkZyZWVUeXBlRm9udFRlc3Q6OnRlc3RfaXNzdWVfMjQyCk9GRklDSUFMX1JFU1VMVCB7Im5vZGUiOiAidGVzdC9mcmVldHlwZV90ZXN0LnB5OjpGcmVlVHlwZUZvbnRUZXN0Ojp0ZXN0X2lzc3VlXzI0MiIsICJ0ZXN0c1J1biI6IDEsICJmYWlsdXJlcyI6IDEsICJlcnJvcnMiOiAwLCAic3RhdHVzIjogIkZBSUxFRCJ9Cg==", "stderr_base64": "L3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL19faW5pdF9fLnB5OjE3MjogU3ludGF4V2FybmluZzogImlzIG5vdCIgd2l0aCBhIGxpdGVyYWwuIERpZCB5b3UgbWVhbiAiIT0iPwogIChyZWN0LmxlZnQgaXMgbm90IDAgYW5kIFsocmVjdC5sZWZ0LTEsIHJlY3QudG9wKV0gb3IgW10pICsKL3Rlc3RiZWQvdGVzdC90ZXN0X3V0aWxzL3Rlc3RfcnVubmVyLnB5OjIxOTogU3ludGF4V2FybmluZzogImlzIiB3aXRoIGEgbGl0ZXJhbC4gRGlkIHlvdSBtZWFuICI9PSI/CiAgaWYgbnVtX2Vycm9ycyBpcyAwIGFuZCByZXN1bHQuZ2V0KCdyZXR1cm5fY29kZScpOgpJc3N1ZSAjMjQyOiBnZXRfcmVjdCgpIHVzZXMgMCBhcyBkZWZhdWx0IHN0eWxlIC4uLiBGQUlMCgo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CkZBSUw6IElzc3VlICMyNDI6IGdldF9yZWN0KCkgdXNlcyAwIGFzIGRlZmF1bHQgc3R5bGUKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpUcmFjZWJhY2sgKG1vc3QgcmVjZW50IGNhbGwgbGFzdCk6CiAgRmlsZSAiL3Rlc3RiZWQvdGVzdC9mcmVldHlwZV90ZXN0LnB5IiwgbGluZSAxMjg2LCBpbiB0ZXN0X2lzc3VlXzI0MgogICAgc2VsZi5hc3NlcnRFcXVhbChyZWN0LCBycmVjdCkKQXNzZXJ0aW9uRXJyb3I6IDxyZWN0KDUsIDQ0LCA0NCwgNDQpPiAhPSA8cmVjdCg1LCA0NCwgNDYsIDQ0KT4KCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUmFuIDEgdGVzdCBpbiAwLjAwMXMKCkZBSUxFRCAoZmFpbHVyZXM9MSkK"}
+test/freetype_test.py::FreeTypeFontTest::test_issue_242 FAILED

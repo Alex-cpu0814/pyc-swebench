@@ -1,0 +1,7 @@
+/tmp/test.diff:21: trailing whitespace.
+        # 
+warning: 1 line adds whitespace errors.
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):

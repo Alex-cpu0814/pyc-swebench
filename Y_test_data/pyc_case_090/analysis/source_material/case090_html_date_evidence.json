@@ -1,0 +1,16 @@
+{
+  "url": "https://github.com/pygame/pygame/issues/242",
+  "created_at": "2015-04-07T19:59:02Z",
+  "source_commit_timestamp_original_offset": "2015-04-07T18:13:47-07:00",
+  "source_commit_utc_timestamp": "2015-04-08T01:13:47Z",
+  "merged_at": null,
+  "html_payload_path": "payload.issueViewerRoute.data.repository.issue.createdAt",
+  "linkedPullRequests": {
+    "nodes": []
+  },
+  "closedByPullRequestsReferences": {
+    "nodes": []
+  },
+  "date_semantics": "Issue242 opened2015-04-07. Pinned source commit local2015-04-07 converts to UTC2015-04-08. No associated PR merge date established; issue closure/migration is not a merge date.",
+  "api_limitation": "All three anonymous REST API endpoints returned HTTP403 rate-limit errors, preserved with headers/body. No empty associated-PR API result is fabricated. Public official HTML supplies issue opening date; no PR merge date established."
+}
