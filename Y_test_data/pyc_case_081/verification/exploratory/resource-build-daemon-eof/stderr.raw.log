@@ -1,0 +1,12 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.31kB 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 6.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+ERROR: failed to build: failed to receive status: rpc error: code = Unavailable desc = error reading from server: EOF

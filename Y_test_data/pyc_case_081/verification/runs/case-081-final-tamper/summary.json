@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-081-final-tamper",
+  "label": "tamper",
+  "instance_id": "pygame__pygame-702",
+  "status": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "started_at": "2026-10-15T09:14:05.492Z",
+  "finished_at": "2026-10-15T09:14:09.882Z",
+  "duration_ms": 4390,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "207ebfba32630da07d0240f3d718e3e5609bfdac44c3d41ad2116d47a0543196",
+  "test_patch_sha256": "2337033b0b3ec9c91e85bf02d1e8f2dc71f9437c2a38259c7e7846175cd8734d",
+  "image": {
+    "name": "yutu0814/pyc-case-081-pygame:benchmark-v1",
+    "id": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
+    "repo_digests": [
+      "yutu0814/pyc-case-081-pygame@sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "test_patch",
+    "outcome": "unresolved",
+    "reason": "candidate_conflicts_with_test_patch",
+    "test_exit_code": null,
+    "instance_id": "pygame__pygame-702"
+  },
+  "grading": {
+    "tests_observed": 0,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 1
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 3
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": null,
+    "tests": null,
+    "grading": "grading.json"
+  }
+}

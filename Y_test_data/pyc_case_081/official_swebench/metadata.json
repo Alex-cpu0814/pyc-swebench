@@ -1,0 +1,188 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "80",
+  "candidate_case": "081",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Official test_issue_565 creates a fresh test_sans.ttf Font at size 24 for each unchanged pipe-text comparison, in original size 36, rotation 90, oblique=True order. Base fails at rotation; Gold completes all three. Three unchanged official regressions exercise default-font size, scalable and fixed-width properties. Six tracked setUp fonts plus tracked packaged freesansbold.ttf are audited. The test module uses X11; pytest directly executes its unittest methods, while dummy ignore tags belong to the pygame project runner. Undefined-character behavior from the source trace is not claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2018-12-30",
+  "created_at_precision": "date",
+  "instance_id": "pygame__pygame-702",
+  "source_instance_id": "pyc_case_081",
+  "repo": "pygame/pygame",
+  "issue_id": "702",
+  "issue_url": "https://github.com/pygame/pygame/pull/702",
+  "project_version": "1.9.5.dev0",
+  "base_commit": "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+  "fix_commit": "1aeecd40314ec00c93d975b31a1f4518979d49a9",
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_565"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_size",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_scalable",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_fixed_width"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-081-pygame:benchmark-v1",
+      "id": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
+      "repo_digests": [
+        "yutu0814/pyc-case-081-pygame@sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "pygame__pygame-702",
+      "base_commit": "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-081-final-gold/summary.json",
+      "verification/runs/case-081-final-negative/summary.json",
+      "verification/runs/case-081-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2018-12-31",
+  "created_at_source": "https://api.github.com/repos/pygame/pygame/pulls/702",
+  "date_semantics": "Official REST opening/merge UTC timestamps; actual Git source committer time is one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/_freetype.c"
+  ],
+  "verified_scope": "Original font size/rotation/oblique metrics-change assertion sequence",
+  "source_trace_scope": "Source case 80 records incorrect output and a native _ftfont_getmetrics trace ending in test_undefined_character_code. The measured official regression instead checks font size/rotation/oblique metrics changes using pipe text; undefined-character behavior is not claimed as reproduced.",
+  "version_metadata": {
+    "strategy": "Official setup.py literal1.9.5.dev0 generates version.py with empty revision; actual native runtime audited, no inferred release or SCM override.",
+    "setup_blob": "ebc9e471de277577ccd47557b21308589c5e8771"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5",
+    "xvfb": "2:1.20.11-1+deb11u13",
+    "xauth": "1:1.1-1"
+  },
+  "font_fixture_git_blobs": {
+    "test/fixtures/fonts/test_fixed.otf": "348889828d894b9b57fb6435497d5c034448cb1b",
+    "test/fixtures/fonts/test_sans.ttf": "09fac2ff94ae92033266d8e021c22c382bea19b5",
+    "test/fixtures/fonts/PyGameMono.otf": "5e9b66cc1a575a0cb5d3cfdd35d6587ade9f617f",
+    "test/fixtures/fonts/PyGameMono-8.bdf": "17bef0641505df7de0fbae077e14cb732100b6c9",
+    "test/fixtures/fonts/PyGameMono-18-75dpi.bdf": "127f70430d8742e40a1fec33e269cdcafd4e3c5c",
+    "test/fixtures/fonts/PyGameMono-18-100dpi.bdf": "a88f083e99ab3a94c4943320b6c232c09e505172"
+  },
+  "default_font_packaging": {
+    "source": "src_py/freesansbold.ttf",
+    "target": "build/local/pygame/freesansbold.ttf",
+    "git_blob": "a98562fc1a89075f2218a2dbf2c08785237fab90",
+    "reason": "Official legacy setup.py data_files includes src_py non-Python files; build alone omitted default font. Copy fixed Base resource into its normal built-package location after normal native build, same Base/Gold, no new binary patch.",
+    "initial_evidence": "First Base2fail2pass and Gold1fail3pass; shared missing-default-font RuntimeError is infrastructure, not productfailure; retained."
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "prior_candidate_deferral": "analysis/prior_candidate_reviews/case078/deferral.json",
+  "product_files": [
+    "src_c/_freetype.c"
+  ],
+  "test_files": [
+    "test/freetype_test.py"
+  ],
+  "publication": {
+    "status": "pending_docker_engine_recovery",
+    "image_push_performed": false,
+    "git_push_performed": false,
+    "evidence": "verification/publication/engine-startup-blocker.json"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_081",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pygame_freetype_font_metrics_style_rotation",
+  "python_version_target": "3.8",
+  "native_requirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "build_system": "Official setup.py force build into /testbed/build/local, PYTHONPATH identical. All build stdout/stderr is buffered in Linux /tmp then copied verbatim to results with the original exit code; compiler flags unchanged. The legacy build command does not copy setup.py data_files, so the exact tracked Base src_py/freesansbold.ttf resource is materialized into the built pygame package, matching official install_data destination. No source/test changes.",
+  "test_execution": [
+    "Official unittest methods run directly under pytest in a normal Xvfb/X11 display environment, same dummy audio on Base/Gold. Upstream module dummy ignore tags are pygame-runner metadata; X11 avoids those tags without changing official tests. The original size 36/rotation 90/oblique True sequence and pipe text are unchanged."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/freetype_test.py.",
+    "Base passes the original size=36 metrics-change comparison, then fails at rotation=90 because before and after pipe-text metrics are identical (metrics same for rotation). Its oblique comparison is not reached. Gold completes all three original size, rotation and oblique comparisons. Three official font-size, scalable and fixed-width regressions pass on both products after fixed Base default-font package data is present. No skipped or missing node is counted as pass.",
+    "Three unchanged official font property tests run under the complete upstream protected patch. Missing default package-font data in the first exploratory build is preserved as infrastructure evidence and fixed by materializing the exact tracked Base font at its official data_files destination; no test body changed."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+  "fix_commit": "1aeecd40314ec00c93d975b31a1f4518979d49a9",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/freetype_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_565"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_size",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_scalable",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_fixed_width"
+  ]
+}

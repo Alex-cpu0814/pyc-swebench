@@ -1,0 +1,89 @@
+{
+  "case_number": "078",
+  "source_case": "77",
+  "source_excel_row": 79,
+  "repo": "pygame/pygame",
+  "fix_commit": "fc3e6afca4c896a2b1c1e964eaf563e3cca21149",
+  "base_commit": "c15cc0dd8b4e8b808e658ec89adb02d105e14697",
+  "status": "deferred_no_base_failure",
+  "candidate_target": "test/draw_test.py::DrawEllipseTest::test_ellipse__big_ellipse",
+  "observed_base": "4 passed, including original official1025x1025border1 big_ellipse test",
+  "observed_gold": "4 passed, same original nodes",
+  "reason": "No discriminating FAIL_TO_PASS official test exists in this observed fixed environment: the only upstream added test passes on both Base and Gold. No formal benchmark/image/workbook was produced or published.",
+  "environment": {
+    "python": "3.8.20",
+    "pygame": "2.1.1.dev1",
+    "sdl": [
+      2,
+      0,
+      14
+    ],
+    "compiler": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+    "runtime_audit": {
+      "pygame_version": "2.1.1.dev1",
+      "architecture": "x86_64",
+      "c_int_bits": 32,
+      "c_long_long_bits": 64,
+      "pygame_revision": "",
+      "pygame_file": "/testbed/build/local/pygame/__init__.py",
+      "draw_extension": "/testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so",
+      "extension_sha256": "19c57e3647872dff69d2a955be029c552aab83137b23ed0721d38c89a73ab19e",
+      "sdl_compiled": [
+        2,
+        0,
+        14
+      ],
+      "sdl_linked": [
+        2,
+        0,
+        14
+      ],
+      "build_packages": {
+        "setuptools": "68.2.2",
+        "wheel": "0.42.0",
+        "pytest": "7.4.4"
+      },
+      "assets": {
+        "src_c/draw.c": {
+          "size": 82602,
+          "sha256": "d563114ee311c71dbe8b268de911720df409769a9d724e4b72861998b56c873f"
+        },
+        "src_c/include/_pygame.h": {
+          "size": 17377,
+          "sha256": "af1978ad6818612f31a7d3c74c6bc118b8dc3cde91107c4546ff5e815463e6a1"
+        },
+        "setup.py": {
+          "size": 33620,
+          "sha256": "a78db3af1f908d8dff087419f6766f1986d2c97ac5618090c97c4f5033606c48"
+        },
+        "src_py/version.py": {
+          "size": 2394,
+          "sha256": "096eca3fe69777ceb0e9952fd3560a4fc7846db90ad25b4c7a214c7d45fceb53"
+        },
+        "build/local/pygame/version.py": {
+          "size": 2394,
+          "sha256": "096eca3fe69777ceb0e9952fd3560a4fc7846db90ad25b4c7a214c7d45fceb53"
+        },
+        "Setup": {
+          "size": 3606,
+          "sha256": "2e7b11ba4e9cf35d2cb81aba79355f267d64396faf90757f37caa1ec41946101"
+        }
+      }
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libportmidi-dev": "1:217-6",
+      "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-image-dev": "2.0.5+dfsg1-2",
+      "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+      "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+      "libudev-dev": "247.3-7+deb11u5",
+      "libudev1": "247.3-7+deb11u5"
+    }
+  },
+  "scope": "Exact native product int-to-long-long changes in filled and thickness routines and complete official19-line test patch retained. The actual added test uses border1 and scanlinesx/y410; it does not directly cover large filled ellipse, whole visual contour or original gfxdraw_test trace.",
+  "limits": "No test dimensions, scanlines, expected counts, compiler optimization or product code were changed to manufacture a failure. The reason the official Base test passes here is not established; integer bit widths/native path/source identity are measured, not a causal compiler claim."
+}

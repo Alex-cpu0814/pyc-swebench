@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-702",
+  "repo": "pygame/pygame",
+  "base_commit": "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+  "problem_statement": "Font.get_metrics for pipe text should reflect changes to the font size, rotation and oblique style. Existing scalable/fixed-width and size properties should remain correct.",
+  "hints_text": "",
+  "created_at": "2018-12-30",
+  "version": "1.9.5.dev0",
+  "issue_id": "702",
+  "issue_url": "https://github.com/pygame/pygame/pull/702"
+}

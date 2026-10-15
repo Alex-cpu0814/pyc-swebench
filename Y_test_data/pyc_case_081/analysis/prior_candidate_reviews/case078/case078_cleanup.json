@@ -1,0 +1,32 @@
+{
+  "evidencePreserved": "case078-deferral",
+  "directoriesRemoved": 6,
+  "preserved": [
+    "shared pygame sourcecache",
+    "all formal images",
+    "case078_progress.md"
+  ],
+  "removedPrototype": "pyc-case078-prototype-base:latest",
+  "caseNumber": "078",
+  "targets": [
+    "case078-image-context",
+    "case078-probe-base",
+    "case078-probe-collect",
+    "case078-probe-gold",
+    "case078-prototype-build",
+    "case078-runtime-audit",
+    "audit_case078.mjs",
+    "build_case078_prototype.mjs",
+    "case078_gold.diff",
+    "case078_spec.json",
+    "case078_test.diff",
+    "case078_upstream_api.json",
+    "defer_case078.mjs",
+    "Dockerfile.pygame078-local",
+    "initialize_case078.mjs"
+  ],
+  "status": "deferred_prototype_cleaned",
+  "bytesRemoved": 60997,
+  "filesRemoved": 27,
+  "publicationPerformed": false
+}

@@ -1,0 +1,21 @@
+{
+  "status": "verified_publication_pending_docker",
+  "case_number": "081",
+  "image": "yutu0814/pyc-case-081-pygame:benchmark-v1",
+  "verified_image_id": "sha256:4e5d69e396505fea954f28acb59dc90ef522bafab05dd484c0299e628f938720",
+  "formal_controls": "Gold resolved; negative one failed and three passed; tamper conflicts before build",
+  "docker_push_performed": false,
+  "git_push_performed": false,
+  "observed_failure": "Docker Desktop backend exits while renaming sailor-ingest.sock to sailor-ingest.sock.stale: The file cannot be accessed by the system. Docker Linux engine named pipe is absent.",
+  "source_log": "C:/Users/玉兔/AppData/Local/Docker/log/host/com.docker.backend.exe.log",
+  "source_error_utc": "2026-10-15T15:20:08.739330000Z",
+  "recovery_attempts": [
+    "Approved hidden Docker Desktop launch; backend startup error persisted",
+    "Official docker desktop start --timeout 40 returned already running; engine still unavailable"
+  ],
+  "data_preservation": "No reset, uninstall, socket deletion, global configuration change or image cleanup performed",
+  "next_step": "User launches Docker Desktop from Windows and confirms Engine running; re-audit exact image then direct push to existing authorized targets",
+  "related_public_report": "https://github.com/docker/desktop-feedback/issues/675",
+  "report_semantics": "Related user report in Docker issue tracker; not a maintainer-confirmed diagnosis of this machine",
+  "recorded_at": "2026-10-15T15:24:52.0003983Z"
+}

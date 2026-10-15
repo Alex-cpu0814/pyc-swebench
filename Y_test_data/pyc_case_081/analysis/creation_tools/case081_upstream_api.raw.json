@@ -1,0 +1,9 @@
+{
+  "number": 702,
+  "html_url": "https://github.com/pygame/pygame/pull/702",
+  "title": "Fixes #565 pygame.freetype.Font.get_metrics does not respect style & \u2026",
+  "created_at": "2018-12-30T17:11:06Z",
+  "merged_at": "2018-12-31T10:00:19Z",
+  "merge_commit_sha": "1aeecd40314ec00c93d975b31a1f4518979d49a9",
+  "body": "\u2026rotation\r\n\r\n- added new tests to test/freetype_test.py\r\n- cleaned up deprecated warning in test/freetype_test.py\r\n- modified code to support style, rotation in src_c/freetype.c"
+}

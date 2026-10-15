@@ -1,0 +1,2434 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.23kB 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade --allow-downgrades libudev1=247.3-7+deb11u5 libudev-dev=247.3-7+deb11u5 gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates xvfb=2:1.20.11-1+deb11u13 xauth=1:1.1-1 libsdl2-2.0-0=2.0.14+dfsg2-3+deb11u1 libsdl2-dev=2.0.14+dfsg2-3+deb11u1 libsdl2-image-dev=2.0.5+dfsg1-2 libsdl2-mixer-dev=2.0.4+dfsg1-3 libsdl2-ttf-dev=2.0.15+dfsg1-1 libfreetype6-dev=2.10.4+dfsg-1+deb11u1 libportmidi-dev=1:217-6     && rm -rf /var/lib/apt/lists/*
+#5 2.175 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 2.336 Get:2 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 2.592 Get:3 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 4.526 Get:4 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 5.571 Fetched 8204 kB in 5s (1741 kB/s)
+#5 5.571 Reading package lists...
+#5 6.275 Reading package lists...
+#5 6.958 Building dependency tree...
+#5 7.139 Reading state information...
+#5 7.269 Skipping ca-certificates, it is already installed and upgrade is not set.
+#5 7.269 Skipping libfreetype6-dev, it is already installed and upgrade is not set.
+#5 7.269 libfreetype6-dev set to manually installed.
+#5 7.269 Skipping g++, it is already installed and upgrade is not set.
+#5 7.269 Skipping gcc, it is already installed and upgrade is not set.
+#5 7.269 Skipping libudev1, it is already installed and upgrade is not set.
+#5 7.269 libudev1 set to manually installed.
+#5 7.269 Skipping git, it is already installed and upgrade is not set.
+#5 7.269 The following additional packages will be installed:
+#5 7.270   gir1.2-ibus-1.0 libasound2 libasound2-data libasound2-dev libasyncns0
+#5 7.270   libdbus-1-3 libdbus-1-dev libdrm-amdgpu1 libdrm-common libdrm-intel1
+#5 7.270   libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-dev libegl-mesa0 libegl1
+#5 7.270   libegl1-mesa-dev libflac8 libfluidsynth2 libfontenc1 libgbm1 libgl-dev
+#5 7.270   libgl1 libgl1-mesa-dev libgl1-mesa-dri libglapi-mesa libgles-dev libgles1
+#5 7.270   libgles2 libglu1-mesa libglu1-mesa-dev libglvnd-dev libglvnd0 libglx-dev
+#5 7.270   libglx-mesa0 libglx0 libibus-1.0-5 libibus-1.0-dev libinstpatch-1.0-2
+#5 7.270   libjack-jackd2-0 libllvm11 libmodplug1 libmpg123-0 libogg0 libopengl-dev
+#5 7.270   libopengl0 libopus0 libopusfile0 libpciaccess0 libportmidi0 libpulse-dev
+#5 7.270   libpulse-mainloop-glib0 libpulse0 libsamplerate0 libsdl2-image-2.0-0
+#5 7.270   libsdl2-mixer-2.0-0 libsdl2-ttf-2.0-0 libsensors-config libsensors5
+#5 7.270   libsndfile1 libsndio-dev libsndio7.0 libunwind8 libvorbis0a libvorbisenc2
+#5 7.270   libvorbisfile3 libvulkan1 libwayland-bin libwayland-client0
+#5 7.270   libwayland-cursor0 libwayland-dev libwayland-egl1 libwayland-server0
+#5 7.270   libwrap0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0
+#5 7.270   libxcb-present0 libxcb-sync1 libxcb-xfixes0 libxcursor-dev libxcursor1
+#5 7.270   libxdamage1 libxfixes-dev libxfixes3 libxfont2 libxi-dev libxi6
+#5 7.270   libxinerama-dev libxinerama1 libxkbcommon-dev libxkbcommon0 libxkbfile1
+#5 7.270   libxmu6 libxmuu1 libxpm4 libxrandr-dev libxrandr2 libxshmfence1 libxv-dev
+#5 7.270   libxv1 libxxf86vm-dev libxxf86vm1 libz3-4 timgm6mb-soundfont x11-xkb-utils
+#5 7.270   x11proto-input-dev x11proto-randr-dev x11proto-xf86vidmode-dev
+#5 7.270   x11proto-xinerama-dev xkb-data xserver-common
+#5 7.271 Suggested packages:
+#5 7.271   libasound2-plugins alsa-utils libasound2-doc jackd2 opus-tools pciutils
+#5 7.271   pulseaudio xdg-utils lm-sensors sndiod libwayland-doc fluid-soundfont-gm
+#5 7.271 Recommended packages:
+#5 7.271   alsa-ucm-conf alsa-topology-conf dbus mesa-vulkan-drivers | vulkan-icd
+#5 7.271   xfonts-base
+#5 7.947 The following NEW packages will be installed:
+#5 7.947   gir1.2-ibus-1.0 libasound2 libasound2-data libasound2-dev libasyncns0
+#5 7.947   libdbus-1-3 libdbus-1-dev libdrm-amdgpu1 libdrm-common libdrm-intel1
+#5 7.947   libdrm-nouveau2 libdrm-radeon1 libdrm2 libegl-dev libegl-mesa0 libegl1
+#5 7.948   libegl1-mesa-dev libflac8 libfluidsynth2 libfontenc1 libgbm1 libgl-dev
+#5 7.948   libgl1 libgl1-mesa-dev libgl1-mesa-dri libglapi-mesa libgles-dev libgles1
+#5 7.948   libgles2 libglu1-mesa libglu1-mesa-dev libglvnd-dev libglvnd0 libglx-dev
+#5 7.948   libglx-mesa0 libglx0 libibus-1.0-5 libibus-1.0-dev libinstpatch-1.0-2
+#5 7.948   libjack-jackd2-0 libllvm11 libmodplug1 libmpg123-0 libogg0 libopengl-dev
+#5 7.948   libopengl0 libopus0 libopusfile0 libpciaccess0 libportmidi-dev libportmidi0
+#5 7.948   libpulse-dev libpulse-mainloop-glib0 libpulse0 libsamplerate0 libsdl2-2.0-0
+#5 7.948   libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0
+#5 7.948   libsdl2-mixer-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev libsensors-config
+#5 7.948   libsensors5 libsndfile1 libsndio-dev libsndio7.0 libudev-dev libunwind8
+#5 7.948   libvorbis0a libvorbisenc2 libvorbisfile3 libvulkan1 libwayland-bin
+#5 7.948   libwayland-client0 libwayland-cursor0 libwayland-dev libwayland-egl1
+#5 7.948   libwayland-server0 libwrap0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+#5 7.948   libxcb-glx0 libxcb-present0 libxcb-sync1 libxcb-xfixes0 libxcursor-dev
+#5 7.948   libxcursor1 libxdamage1 libxfixes-dev libxfixes3 libxfont2 libxi-dev libxi6
+#5 7.948   libxinerama-dev libxinerama1 libxkbcommon-dev libxkbcommon0 libxkbfile1
+#5 7.948   libxmu6 libxmuu1 libxpm4 libxrandr-dev libxrandr2 libxshmfence1 libxv-dev
+#5 7.948   libxv1 libxxf86vm-dev libxxf86vm1 libz3-4 timgm6mb-soundfont x11-xkb-utils
+#5 7.948   x11proto-input-dev x11proto-randr-dev x11proto-xf86vidmode-dev
+#5 7.948   x11proto-xinerama-dev xauth xkb-data xserver-common xvfb
+#5 7.950 The following packages will be DOWNGRADED:
+#5 7.950   libudev1
+#5 8.486 0 upgraded, 123 newly installed, 1 downgraded, 0 to remove and 0 not upgraded.
+#5 8.486 Need to get 58.7 MB of archives.
+#5 8.486 After this operation, 206 MB of additional disk space will be used.
+#5 8.486 Get:1 https://deb.debian.org/debian bullseye/main amd64 libudev1 amd64 247.3-7+deb11u5 [169 kB]
+#5 8.940 Get:2 https://deb.debian.org/debian bullseye/main amd64 libibus-1.0-5 amd64 1.5.23-2 [406 kB]
+#5 9.057 Get:3 https://deb.debian.org/debian bullseye/main amd64 gir1.2-ibus-1.0 amd64 1.5.23-2 [317 kB]
+#5 9.114 Get:4 https://deb.debian.org/debian bullseye/main amd64 libasound2-data all 1.2.4-1.1 [38.2 kB]
+#5 9.118 Get:5 https://deb.debian.org/debian bullseye/main amd64 libasound2 amd64 1.2.4-1.1 [356 kB]
+#5 9.161 Get:6 https://deb.debian.org/debian bullseye/main amd64 libasound2-dev amd64 1.2.4-1.1 [126 kB]
+#5 9.177 Get:7 https://deb.debian.org/debian bullseye/main amd64 libasyncns0 amd64 0.8-6+b2 [12.9 kB]
+#5 9.178 Get:8 https://deb.debian.org/debian bullseye/main amd64 libdbus-1-3 amd64 1.12.28-0+deb11u1 [223 kB]
+#5 9.194 Get:9 https://deb.debian.org/debian bullseye/main amd64 libdbus-1-dev amd64 1.12.28-0+deb11u1 [261 kB]
+#5 9.241 Get:10 https://deb.debian.org/debian bullseye/main amd64 libdrm-common all 2.4.104-1 [14.9 kB]
+#5 9.247 Get:11 https://deb.debian.org/debian bullseye/main amd64 libdrm2 amd64 2.4.104-1 [41.5 kB]
+#5 9.249 Get:12 https://deb.debian.org/debian bullseye/main amd64 libdrm-amdgpu1 amd64 2.4.104-1 [28.5 kB]
+#5 9.267 Get:13 https://deb.debian.org/debian bullseye/main amd64 libpciaccess0 amd64 0.16-1 [53.6 kB]
+#5 9.272 Get:14 https://deb.debian.org/debian bullseye/main amd64 libdrm-intel1 amd64 2.4.104-1 [71.8 kB]
+#5 9.297 Get:15 https://deb.debian.org/debian bullseye/main amd64 libdrm-nouveau2 amd64 2.4.104-1 [26.8 kB]
+#5 9.306 Get:16 https://deb.debian.org/debian bullseye/main amd64 libdrm-radeon1 amd64 2.4.104-1 [30.2 kB]
+#5 9.311 Get:17 https://deb.debian.org/debian bullseye/main amd64 libglvnd0 amd64 1.3.2-1 [53.6 kB]
+#5 9.332 Get:18 https://deb.debian.org/debian bullseye/main amd64 libwayland-server0 amd64 1.18.0-2~exp1.1 [34.4 kB]
+#5 9.335 Get:19 https://deb.debian.org/debian bullseye/main amd64 libgbm1 amd64 20.3.5-1 [73.5 kB]
+#5 9.349 Get:20 https://deb.debian.org/debian bullseye/main amd64 libglapi-mesa amd64 20.3.5-1 [71.7 kB]
+#5 9.414 Get:21 https://deb.debian.org/debian bullseye/main amd64 libwayland-client0 amd64 1.18.0-2~exp1.1 [26.9 kB]
+#5 9.455 Get:22 https://deb.debian.org/debian bullseye/main amd64 libx11-xcb1 amd64 2:1.7.2-1+deb11u2 [204 kB]
+#5 9.568 Get:23 https://deb.debian.org/debian bullseye/main amd64 libxcb-dri2-0 amd64 1.14-3 [103 kB]
+#5 9.580 Get:24 https://deb.debian.org/debian bullseye/main amd64 libxcb-dri3-0 amd64 1.14-3 [102 kB]
+#5 9.596 Get:25 https://deb.debian.org/debian bullseye/main amd64 libxcb-present0 amd64 1.14-3 [101 kB]
+#5 9.600 Get:26 https://deb.debian.org/debian bullseye/main amd64 libxcb-sync1 amd64 1.14-3 [105 kB]
+#5 9.610 Get:27 https://deb.debian.org/debian bullseye/main amd64 libxcb-xfixes0 amd64 1.14-3 [105 kB]
+#5 9.617 Get:28 https://deb.debian.org/debian bullseye/main amd64 libxshmfence1 amd64 1.3-1 [8820 B]
+#5 9.618 Get:29 https://deb.debian.org/debian bullseye/main amd64 libegl-mesa0 amd64 20.3.5-1 [141 kB]
+#5 9.627 Get:30 https://deb.debian.org/debian bullseye/main amd64 libegl1 amd64 1.3.2-1 [34.8 kB]
+#5 9.628 Get:31 https://deb.debian.org/debian bullseye/main amd64 libxcb-glx0 amd64 1.14-3 [118 kB]
+#5 9.717 Get:32 https://deb.debian.org/debian bullseye/main amd64 libxdamage1 amd64 1:1.1.5-2 [15.7 kB]
+#5 9.723 Get:33 https://deb.debian.org/debian bullseye/main amd64 libxfixes3 amd64 1:5.0.3-2 [22.1 kB]
+#5 9.728 Get:34 https://deb.debian.org/debian bullseye/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b2 [20.8 kB]
+#5 9.734 Get:35 https://deb.debian.org/debian bullseye/main amd64 libz3-4 amd64 4.8.10-1 [6949 kB]
+#5 11.86 Get:36 https://deb.debian.org/debian bullseye/main amd64 libllvm11 amd64 1:11.0.1-2 [17.9 MB]
+#5 18.29 Get:37 https://deb.debian.org/debian bullseye/main amd64 libsensors-config all 1:3.6.0-7 [32.3 kB]
+#5 18.29 Get:38 https://deb.debian.org/debian bullseye/main amd64 libsensors5 amd64 1:3.6.0-7 [52.3 kB]
+#5 18.29 Get:39 https://deb.debian.org/debian bullseye/main amd64 libvulkan1 amd64 1.2.162.0-1 [103 kB]
+#5 18.29 Get:40 https://deb.debian.org/debian bullseye/main amd64 libgl1-mesa-dri amd64 20.3.5-1 [9633 kB]
+#5 21.76 Get:41 https://deb.debian.org/debian bullseye/main amd64 libglx-mesa0 amd64 20.3.5-1 [186 kB]
+#5 21.79 Get:42 https://deb.debian.org/debian bullseye/main amd64 libglx0 amd64 1.3.2-1 [35.7 kB]
+#5 21.88 Get:43 https://deb.debian.org/debian bullseye/main amd64 libgl1 amd64 1.3.2-1 [89.5 kB]
+#5 21.90 Get:44 https://deb.debian.org/debian bullseye/main amd64 libglx-dev amd64 1.3.2-1 [16.3 kB]
+#5 21.90 Get:45 https://deb.debian.org/debian bullseye/main amd64 libgl-dev amd64 1.3.2-1 [100 kB]
+#5 21.91 Get:46 https://deb.debian.org/debian bullseye/main amd64 libegl-dev amd64 1.3.2-1 [19.6 kB]
+#5 21.91 Get:47 https://deb.debian.org/debian bullseye/main amd64 libgles1 amd64 1.3.2-1 [12.6 kB]
+#5 21.91 Get:48 https://deb.debian.org/debian bullseye/main amd64 libgles2 amd64 1.3.2-1 [17.7 kB]
+#5 21.92 Get:49 https://deb.debian.org/debian bullseye/main amd64 libgles-dev amd64 1.3.2-1 [50.3 kB]
+#5 21.92 Get:50 https://deb.debian.org/debian bullseye/main amd64 libopengl0 amd64 1.3.2-1 [31.5 kB]
+#5 21.94 Get:51 https://deb.debian.org/debian bullseye/main amd64 libopengl-dev amd64 1.3.2-1 [5876 B]
+#5 21.96 Get:52 https://deb.debian.org/debian bullseye/main amd64 libglvnd-dev amd64 1.3.2-1 [13.9 kB]
+#5 21.98 Get:53 https://deb.debian.org/debian bullseye/main amd64 libegl1-mesa-dev amd64 20.3.5-1 [52.5 kB]
+#5 21.99 Get:54 https://deb.debian.org/debian bullseye/main amd64 libogg0 amd64 1.3.4-0.1 [27.3 kB]
+#5 22.00 Get:55 https://deb.debian.org/debian bullseye/main amd64 libflac8 amd64 1.3.3-2+deb11u2 [112 kB]
+#5 22.15 Get:56 https://deb.debian.org/debian bullseye/main amd64 libopus0 amd64 1.3.1-0.1 [190 kB]
+#5 22.17 Get:57 https://deb.debian.org/debian bullseye/main amd64 libvorbis0a amd64 1.3.7-1 [93.0 kB]
+#5 22.18 Get:58 https://deb.debian.org/debian bullseye/main amd64 libvorbisenc2 amd64 1.3.7-1 [80.6 kB]
+#5 22.19 Get:59 https://deb.debian.org/debian bullseye/main amd64 libsndfile1 amd64 1.0.31-2 [188 kB]
+#5 22.32 Get:60 https://deb.debian.org/debian bullseye/main amd64 libinstpatch-1.0-2 amd64 1.1.6-1 [259 kB]
+#5 22.44 Get:61 https://deb.debian.org/debian bullseye/main amd64 libsamplerate0 amd64 0.2.1+ds0-1 [954 kB]
+#5 22.84 Get:62 https://deb.debian.org/debian bullseye/main amd64 libjack-jackd2-0 amd64 1.9.17~dfsg-1 [289 kB]
+#5 22.90 Get:63 https://deb.debian.org/debian bullseye/main amd64 libwrap0 amd64 7.6.q-31 [59.0 kB]
+#5 22.93 Get:64 https://deb.debian.org/debian bullseye/main amd64 libpulse0 amd64 14.2-2 [285 kB]
+#5 23.02 Get:65 https://deb.debian.org/debian bullseye/main amd64 libwayland-cursor0 amd64 1.18.0-2~exp1.1 [14.6 kB]
+#5 23.03 Get:66 https://deb.debian.org/debian bullseye/main amd64 libwayland-egl1 amd64 1.18.0-2~exp1.1 [8448 B]
+#5 23.03 Get:67 https://deb.debian.org/debian bullseye/main amd64 libxcursor1 amd64 1:1.2.0-2 [37.3 kB]
+#5 23.04 Get:68 https://deb.debian.org/debian bullseye/main amd64 libxi6 amd64 2:1.7.10-1 [83.4 kB]
+#5 23.04 Get:69 https://deb.debian.org/debian bullseye/main amd64 libxinerama1 amd64 2:1.1.4-2 [17.7 kB]
+#5 23.05 Get:70 https://deb.debian.org/debian bullseye/main amd64 xkb-data all 2.29-2 [655 kB]
+#5 23.26 Get:71 https://deb.debian.org/debian bullseye/main amd64 libxkbcommon0 amd64 1.0.3-2 [101 kB]
+#5 23.26 Get:72 https://deb.debian.org/debian bullseye/main amd64 libxrandr2 amd64 2:1.5.1-1 [37.5 kB]
+#5 23.26 Get:73 https://deb.debian.org/debian bullseye/main amd64 libsdl2-2.0-0 amd64 2.0.14+dfsg2-3+deb11u1 [506 kB]
+#5 23.52 Get:74 https://deb.debian.org/debian bullseye/main amd64 timgm6mb-soundfont all 1.3-5 [5427 kB]
+#5 24.97 Get:75 https://deb.debian.org/debian bullseye/main amd64 libfluidsynth2 amd64 2.1.7-1.1 [227 kB]
+#5 25.00 Get:76 https://deb.debian.org/debian bullseye/main amd64 libfontenc1 amd64 1:1.1.4-1 [24.3 kB]
+#5 25.30 Get:77 https://deb.debian.org/debian bullseye/main amd64 libgl1-mesa-dev amd64 20.3.5-1 [51.1 kB]
+#5 25.38 Get:78 https://deb.debian.org/debian bullseye/main amd64 libglu1-mesa amd64 9.0.1-1 [168 kB]
+#5 26.88 Get:79 https://deb.debian.org/debian bullseye/main amd64 libglu1-mesa-dev amd64 9.0.1-1 [207 kB]
+#5 26.99 Get:80 https://deb.debian.org/debian bullseye/main amd64 libibus-1.0-dev amd64 1.5.23-2 [431 kB]
+#5 27.12 Get:81 https://deb.debian.org/debian bullseye/main amd64 libmodplug1 amd64 1:0.8.9.0-3 [164 kB]
+#5 27.14 Get:82 https://deb.debian.org/debian bullseye/main amd64 libmpg123-0 amd64 1.26.4-1 [142 kB]
+#5 27.16 Get:83 https://deb.debian.org/debian bullseye/main amd64 libopusfile0 amd64 0.9+20170913-1.1 [40.3 kB]
+#5 27.16 Get:84 https://deb.debian.org/debian bullseye/main amd64 libportmidi0 amd64 1:217-6 [22.7 kB]
+#5 27.17 Get:85 https://deb.debian.org/debian bullseye/main amd64 libportmidi-dev amd64 1:217-6 [58.7 kB]
+#5 27.18 Get:86 https://deb.debian.org/debian bullseye/main amd64 libpulse-mainloop-glib0 amd64 14.2-2 [42.1 kB]
+#5 27.20 Get:87 https://deb.debian.org/debian bullseye/main amd64 libpulse-dev amd64 14.2-2 [104 kB]
+#5 27.22 Get:88 https://deb.debian.org/debian bullseye/main amd64 libsndio7.0 amd64 1.5.0-3 [24.7 kB]
+#5 27.22 Get:89 https://deb.debian.org/debian bullseye/main amd64 libsndio-dev amd64 1.5.0-3 [14.8 kB]
+#5 27.23 Get:90 https://deb.debian.org/debian bullseye/main amd64 libudev-dev amd64 247.3-7+deb11u5 [124 kB]
+#5 27.24 Get:91 https://deb.debian.org/debian bullseye/main amd64 libwayland-bin amd64 1.18.0-2~exp1.1 [23.1 kB]
+#5 27.28 Get:92 https://deb.debian.org/debian bullseye/main amd64 libwayland-dev amd64 1.18.0-2~exp1.1 [69.0 kB]
+#5 27.30 Get:93 https://deb.debian.org/debian bullseye/main amd64 libxfixes-dev amd64 1:5.0.3-2 [24.1 kB]
+#5 27.30 Get:94 https://deb.debian.org/debian bullseye/main amd64 libxcursor-dev amd64 1:1.2.0-2 [44.8 kB]
+#5 27.31 Get:95 https://deb.debian.org/debian bullseye/main amd64 x11proto-input-dev all 2020.1-1 [3412 B]
+#5 27.31 Get:96 https://deb.debian.org/debian bullseye/main amd64 libxi-dev amd64 2:1.7.10-1 [242 kB]
+#5 27.37 Get:97 https://deb.debian.org/debian bullseye/main amd64 x11proto-xinerama-dev all 2020.1-1 [3408 B]
+#5 27.38 Get:98 https://deb.debian.org/debian bullseye/main amd64 libxinerama-dev amd64 2:1.1.4-2 [20.1 kB]
+#5 27.38 Get:99 https://deb.debian.org/debian bullseye/main amd64 libxkbcommon-dev amd64 1.0.3-2 [49.4 kB]
+#5 27.38 Get:100 https://deb.debian.org/debian bullseye/main amd64 x11proto-randr-dev all 2020.1-1 [3412 B]
+#5 27.38 Get:101 https://deb.debian.org/debian bullseye/main amd64 libxrandr-dev amd64 2:1.5.1-1 [45.0 kB]
+#5 27.39 Get:102 https://deb.debian.org/debian bullseye/main amd64 libxv1 amd64 2:1.0.11-1 [24.6 kB]
+#5 27.39 Get:103 https://deb.debian.org/debian bullseye/main amd64 libxv-dev amd64 2:1.0.11-1 [48.1 kB]
+#5 27.39 Get:104 https://deb.debian.org/debian bullseye/main amd64 x11proto-xf86vidmode-dev all 2020.1-1 [3416 B]
+#5 27.39 Get:105 https://deb.debian.org/debian bullseye/main amd64 libxxf86vm-dev amd64 1:1.1.4-1+b2 [25.4 kB]
+#5 27.45 Get:106 https://deb.debian.org/debian bullseye/main amd64 libsdl2-dev amd64 2.0.14+dfsg2-3+deb11u1 [1480 kB]
+#5 28.06 Get:107 https://deb.debian.org/debian bullseye/main amd64 libsdl2-image-2.0-0 amd64 2.0.5+dfsg1-2 [67.0 kB]
+#5 28.07 Get:108 https://deb.debian.org/debian bullseye/main amd64 libsdl2-image-dev amd64 2.0.5+dfsg1-2 [73.8 kB]
+#5 28.07 Get:109 https://deb.debian.org/debian bullseye/main amd64 libvorbisfile3 amd64 1.3.7-1 [26.1 kB]
+#5 28.07 Get:110 https://deb.debian.org/debian bullseye/main amd64 libsdl2-mixer-2.0-0 amd64 2.0.4+dfsg1-3 [64.9 kB]
+#5 28.08 Get:111 https://deb.debian.org/debian bullseye/main amd64 libsdl2-mixer-dev amd64 2.0.4+dfsg1-3 [81.4 kB]
+#5 28.08 Get:112 https://deb.debian.org/debian bullseye/main amd64 libsdl2-ttf-2.0-0 amd64 2.0.15+dfsg1-1 [16.5 kB]
+#5 28.08 Get:113 https://deb.debian.org/debian bullseye/main amd64 libsdl2-ttf-dev amd64 2.0.15+dfsg1-1 [22.8 kB]
+#5 28.08 Get:114 https://deb.debian.org/debian bullseye/main amd64 libunwind8 amd64 1.3.2-2 [54.5 kB]
+#5 28.09 Get:115 https://deb.debian.org/debian bullseye/main amd64 libxmu6 amd64 2:1.1.2-2+b3 [60.8 kB]
+#5 28.15 Get:116 https://deb.debian.org/debian bullseye/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb11u1 [50.0 kB]
+#5 28.15 Get:117 https://deb.debian.org/debian bullseye/main amd64 libxaw7 amd64 2:1.0.13-1.1 [202 kB]
+#5 28.43 Get:118 https://deb.debian.org/debian bullseye/main amd64 libxfont2 amd64 1:2.0.4-1 [136 kB]
+#5 28.44 Get:119 https://deb.debian.org/debian bullseye/main amd64 libxkbfile1 amd64 1:1.1.0-1 [75.2 kB]
+#5 28.44 Get:120 https://deb.debian.org/debian bullseye/main amd64 libxmuu1 amd64 2:1.1.2-2+b3 [23.9 kB]
+#5 28.45 Get:121 https://deb.debian.org/debian bullseye/main amd64 x11-xkb-utils amd64 7.7+5 [163 kB]
+#5 28.46 Get:122 https://deb.debian.org/debian bullseye/main amd64 xauth amd64 1:1.1-1 [40.5 kB]
+#5 28.46 Get:123 https://deb.debian.org/debian bullseye/main amd64 xserver-common all 2:1.20.11-1+deb11u13 [2285 kB]
+#5 29.37 Get:124 https://deb.debian.org/debian bullseye/main amd64 xvfb amd64 2:1.20.11-1+deb11u13 [3044 kB]
+#5 33.21 debconf: delaying package configuration, since apt-utils is not installed
+#5 33.26 Fetched 58.7 MB in 25s (2354 kB/s)
+#5 33.30 dpkg: warning: downgrading libudev1:amd64 from 247.3-7+deb11u6 to 247.3-7+deb11u5
+#5 33.30 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23430 files and directories currently installed.)
+#5 33.45 Preparing to unpack .../libudev1_247.3-7+deb11u5_amd64.deb ...
+#5 33.51 Unpacking libudev1:amd64 (247.3-7+deb11u5) over (247.3-7+deb11u6) ...
+#5 33.60 Setting up libudev1:amd64 (247.3-7+deb11u5) ...
+#5 33.70 Selecting previously unselected package libibus-1.0-5:amd64.
+#5 33.70 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 23430 files and directories currently installed.)
+#5 33.74 Preparing to unpack .../000-libibus-1.0-5_1.5.23-2_amd64.deb ...
+#5 33.74 Unpacking libibus-1.0-5:amd64 (1.5.23-2) ...
+#5 33.80 Selecting previously unselected package gir1.2-ibus-1.0:amd64.
+#5 33.80 Preparing to unpack .../001-gir1.2-ibus-1.0_1.5.23-2_amd64.deb ...
+#5 33.80 Unpacking gir1.2-ibus-1.0:amd64 (1.5.23-2) ...
+#5 33.84 Selecting previously unselected package libasound2-data.
+#5 33.84 Preparing to unpack .../002-libasound2-data_1.2.4-1.1_all.deb ...
+#5 33.85 Unpacking libasound2-data (1.2.4-1.1) ...
+#5 33.92 Selecting previously unselected package libasound2:amd64.
+#5 33.92 Preparing to unpack .../003-libasound2_1.2.4-1.1_amd64.deb ...
+#5 33.93 Unpacking libasound2:amd64 (1.2.4-1.1) ...
+#5 33.99 Selecting previously unselected package libasound2-dev:amd64.
+#5 33.99 Preparing to unpack .../004-libasound2-dev_1.2.4-1.1_amd64.deb ...
+#5 34.00 Unpacking libasound2-dev:amd64 (1.2.4-1.1) ...
+#5 34.08 Selecting previously unselected package libasyncns0:amd64.
+#5 34.08 Preparing to unpack .../005-libasyncns0_0.8-6+b2_amd64.deb ...
+#5 34.09 Unpacking libasyncns0:amd64 (0.8-6+b2) ...
+#5 34.12 Selecting previously unselected package libdbus-1-3:amd64.
+#5 34.12 Preparing to unpack .../006-libdbus-1-3_1.12.28-0+deb11u1_amd64.deb ...
+#5 34.13 Unpacking libdbus-1-3:amd64 (1.12.28-0+deb11u1) ...
+#5 34.20 Selecting previously unselected package libdbus-1-dev:amd64.
+#5 34.20 Preparing to unpack .../007-libdbus-1-dev_1.12.28-0+deb11u1_amd64.deb ...
+#5 34.20 Unpacking libdbus-1-dev:amd64 (1.12.28-0+deb11u1) ...
+#5 34.26 Selecting previously unselected package libdrm-common.
+#5 34.27 Preparing to unpack .../008-libdrm-common_2.4.104-1_all.deb ...
+#5 34.27 Unpacking libdrm-common (2.4.104-1) ...
+#5 34.33 Selecting previously unselected package libdrm2:amd64.
+#5 34.33 Preparing to unpack .../009-libdrm2_2.4.104-1_amd64.deb ...
+#5 34.33 Unpacking libdrm2:amd64 (2.4.104-1) ...
+#5 34.37 Selecting previously unselected package libdrm-amdgpu1:amd64.
+#5 34.37 Preparing to unpack .../010-libdrm-amdgpu1_2.4.104-1_amd64.deb ...
+#5 34.38 Unpacking libdrm-amdgpu1:amd64 (2.4.104-1) ...
+#5 34.44 Selecting previously unselected package libpciaccess0:amd64.
+#5 34.44 Preparing to unpack .../011-libpciaccess0_0.16-1_amd64.deb ...
+#5 34.44 Unpacking libpciaccess0:amd64 (0.16-1) ...
+#5 34.48 Selecting previously unselected package libdrm-intel1:amd64.
+#5 34.49 Preparing to unpack .../012-libdrm-intel1_2.4.104-1_amd64.deb ...
+#5 34.49 Unpacking libdrm-intel1:amd64 (2.4.104-1) ...
+#5 34.59 Selecting previously unselected package libdrm-nouveau2:amd64.
+#5 34.59 Preparing to unpack .../013-libdrm-nouveau2_2.4.104-1_amd64.deb ...
+#5 34.59 Unpacking libdrm-nouveau2:amd64 (2.4.104-1) ...
+#5 34.63 Selecting previously unselected package libdrm-radeon1:amd64.
+#5 34.63 Preparing to unpack .../014-libdrm-radeon1_2.4.104-1_amd64.deb ...
+#5 34.63 Unpacking libdrm-radeon1:amd64 (2.4.104-1) ...
+#5 34.68 Selecting previously unselected package libglvnd0:amd64.
+#5 34.68 Preparing to unpack .../015-libglvnd0_1.3.2-1_amd64.deb ...
+#5 34.70 Unpacking libglvnd0:amd64 (1.3.2-1) ...
+#5 34.78 Selecting previously unselected package libwayland-server0:amd64.
+#5 34.78 Preparing to unpack .../016-libwayland-server0_1.18.0-2~exp1.1_amd64.deb ...
+#5 34.79 Unpacking libwayland-server0:amd64 (1.18.0-2~exp1.1) ...
+#5 34.82 Selecting previously unselected package libgbm1:amd64.
+#5 34.83 Preparing to unpack .../017-libgbm1_20.3.5-1_amd64.deb ...
+#5 34.83 Unpacking libgbm1:amd64 (20.3.5-1) ...
+#5 34.92 Selecting previously unselected package libglapi-mesa:amd64.
+#5 34.92 Preparing to unpack .../018-libglapi-mesa_20.3.5-1_amd64.deb ...
+#5 34.92 Unpacking libglapi-mesa:amd64 (20.3.5-1) ...
+#5 34.96 Selecting previously unselected package libwayland-client0:amd64.
+#5 34.96 Preparing to unpack .../019-libwayland-client0_1.18.0-2~exp1.1_amd64.deb ...
+#5 34.97 Unpacking libwayland-client0:amd64 (1.18.0-2~exp1.1) ...
+#5 35.04 Selecting previously unselected package libx11-xcb1:amd64.
+#5 35.04 Preparing to unpack .../020-libx11-xcb1_2%3a1.7.2-1+deb11u2_amd64.deb ...
+#5 35.06 Unpacking libx11-xcb1:amd64 (2:1.7.2-1+deb11u2) ...
+#5 35.11 Selecting previously unselected package libxcb-dri2-0:amd64.
+#5 35.11 Preparing to unpack .../021-libxcb-dri2-0_1.14-3_amd64.deb ...
+#5 35.11 Unpacking libxcb-dri2-0:amd64 (1.14-3) ...
+#5 35.20 Selecting previously unselected package libxcb-dri3-0:amd64.
+#5 35.20 Preparing to unpack .../022-libxcb-dri3-0_1.14-3_amd64.deb ...
+#5 35.22 Unpacking libxcb-dri3-0:amd64 (1.14-3) ...
+#5 35.27 Selecting previously unselected package libxcb-present0:amd64.
+#5 35.27 Preparing to unpack .../023-libxcb-present0_1.14-3_amd64.deb ...
+#5 35.28 Unpacking libxcb-present0:amd64 (1.14-3) ...
+#5 35.32 Selecting previously unselected package libxcb-sync1:amd64.
+#5 35.32 Preparing to unpack .../024-libxcb-sync1_1.14-3_amd64.deb ...
+#5 35.33 Unpacking libxcb-sync1:amd64 (1.14-3) ...
+#5 35.38 Selecting previously unselected package libxcb-xfixes0:amd64.
+#5 35.38 Preparing to unpack .../025-libxcb-xfixes0_1.14-3_amd64.deb ...
+#5 35.39 Unpacking libxcb-xfixes0:amd64 (1.14-3) ...
+#5 35.43 Selecting previously unselected package libxshmfence1:amd64.
+#5 35.43 Preparing to unpack .../026-libxshmfence1_1.3-1_amd64.deb ...
+#5 35.44 Unpacking libxshmfence1:amd64 (1.3-1) ...
+#5 35.50 Selecting previously unselected package libegl-mesa0:amd64.
+#5 35.50 Preparing to unpack .../027-libegl-mesa0_20.3.5-1_amd64.deb ...
+#5 35.51 Unpacking libegl-mesa0:amd64 (20.3.5-1) ...
+#5 35.55 Selecting previously unselected package libegl1:amd64.
+#5 35.56 Preparing to unpack .../028-libegl1_1.3.2-1_amd64.deb ...
+#5 35.56 Unpacking libegl1:amd64 (1.3.2-1) ...
+#5 35.60 Selecting previously unselected package libxcb-glx0:amd64.
+#5 35.60 Preparing to unpack .../029-libxcb-glx0_1.14-3_amd64.deb ...
+#5 35.64 Unpacking libxcb-glx0:amd64 (1.14-3) ...
+#5 35.70 Selecting previously unselected package libxdamage1:amd64.
+#5 35.70 Preparing to unpack .../030-libxdamage1_1%3a1.1.5-2_amd64.deb ...
+#5 35.70 Unpacking libxdamage1:amd64 (1:1.1.5-2) ...
+#5 35.74 Selecting previously unselected package libxfixes3:amd64.
+#5 35.74 Preparing to unpack .../031-libxfixes3_1%3a5.0.3-2_amd64.deb ...
+#5 35.75 Unpacking libxfixes3:amd64 (1:5.0.3-2) ...
+#5 35.78 Selecting previously unselected package libxxf86vm1:amd64.
+#5 35.78 Preparing to unpack .../032-libxxf86vm1_1%3a1.1.4-1+b2_amd64.deb ...
+#5 35.79 Unpacking libxxf86vm1:amd64 (1:1.1.4-1+b2) ...
+#5 35.85 Selecting previously unselected package libz3-4:amd64.
+#5 35.85 Preparing to unpack .../033-libz3-4_4.8.10-1_amd64.deb ...
+#5 35.85 Unpacking libz3-4:amd64 (4.8.10-1) ...
+#5 36.60 Selecting previously unselected package libllvm11:amd64.
+#5 36.60 Preparing to unpack .../034-libllvm11_1%3a11.0.1-2_amd64.deb ...
+#5 36.61 Unpacking libllvm11:amd64 (1:11.0.1-2) ...
+#5 38.54 Selecting previously unselected package libsensors-config.
+#5 38.54 Preparing to unpack .../035-libsensors-config_1%3a3.6.0-7_all.deb ...
+#5 38.55 Unpacking libsensors-config (1:3.6.0-7) ...
+#5 38.69 Selecting previously unselected package libsensors5:amd64.
+#5 38.69 Preparing to unpack .../036-libsensors5_1%3a3.6.0-7_amd64.deb ...
+#5 38.84 Unpacking libsensors5:amd64 (1:3.6.0-7) ...
+#5 38.87 Selecting previously unselected package libvulkan1:amd64.
+#5 38.87 Preparing to unpack .../037-libvulkan1_1.2.162.0-1_amd64.deb ...
+#5 38.88 Unpacking libvulkan1:amd64 (1.2.162.0-1) ...
+#5 38.98 Selecting previously unselected package libgl1-mesa-dri:amd64.
+#5 38.98 Preparing to unpack .../038-libgl1-mesa-dri_20.3.5-1_amd64.deb ...
+#5 38.99 Unpacking libgl1-mesa-dri:amd64 (20.3.5-1) ...
+#5 39.94 Selecting previously unselected package libglx-mesa0:amd64.
+#5 39.94 Preparing to unpack .../039-libglx-mesa0_20.3.5-1_amd64.deb ...
+#5 39.95 Unpacking libglx-mesa0:amd64 (20.3.5-1) ...
+#5 40.02 Selecting previously unselected package libglx0:amd64.
+#5 40.02 Preparing to unpack .../040-libglx0_1.3.2-1_amd64.deb ...
+#5 40.02 Unpacking libglx0:amd64 (1.3.2-1) ...
+#5 40.06 Selecting previously unselected package libgl1:amd64.
+#5 40.06 Preparing to unpack .../041-libgl1_1.3.2-1_amd64.deb ...
+#5 40.07 Unpacking libgl1:amd64 (1.3.2-1) ...
+#5 40.12 Selecting previously unselected package libglx-dev:amd64.
+#5 40.12 Preparing to unpack .../042-libglx-dev_1.3.2-1_amd64.deb ...
+#5 40.13 Unpacking libglx-dev:amd64 (1.3.2-1) ...
+#5 40.17 Selecting previously unselected package libgl-dev:amd64.
+#5 40.17 Preparing to unpack .../043-libgl-dev_1.3.2-1_amd64.deb ...
+#5 40.18 Unpacking libgl-dev:amd64 (1.3.2-1) ...
+#5 40.22 Selecting previously unselected package libegl-dev:amd64.
+#5 40.22 Preparing to unpack .../044-libegl-dev_1.3.2-1_amd64.deb ...
+#5 40.23 Unpacking libegl-dev:amd64 (1.3.2-1) ...
+#5 40.27 Selecting previously unselected package libgles1:amd64.
+#5 40.27 Preparing to unpack .../045-libgles1_1.3.2-1_amd64.deb ...
+#5 40.28 Unpacking libgles1:amd64 (1.3.2-1) ...
+#5 40.32 Selecting previously unselected package libgles2:amd64.
+#5 40.33 Preparing to unpack .../046-libgles2_1.3.2-1_amd64.deb ...
+#5 40.33 Unpacking libgles2:amd64 (1.3.2-1) ...
+#5 40.36 Selecting previously unselected package libgles-dev:amd64.
+#5 40.36 Preparing to unpack .../047-libgles-dev_1.3.2-1_amd64.deb ...
+#5 40.36 Unpacking libgles-dev:amd64 (1.3.2-1) ...
+#5 40.43 Selecting previously unselected package libopengl0:amd64.
+#5 40.43 Preparing to unpack .../048-libopengl0_1.3.2-1_amd64.deb ...
+#5 40.44 Unpacking libopengl0:amd64 (1.3.2-1) ...
+#5 40.47 Selecting previously unselected package libopengl-dev:amd64.
+#5 40.48 Preparing to unpack .../049-libopengl-dev_1.3.2-1_amd64.deb ...
+#5 40.48 Unpacking libopengl-dev:amd64 (1.3.2-1) ...
+#5 40.51 Selecting previously unselected package libglvnd-dev:amd64.
+#5 40.51 Preparing to unpack .../050-libglvnd-dev_1.3.2-1_amd64.deb ...
+#5 40.52 Unpacking libglvnd-dev:amd64 (1.3.2-1) ...
+#5 40.56 Selecting previously unselected package libegl1-mesa-dev:amd64.
+#5 40.56 Preparing to unpack .../051-libegl1-mesa-dev_20.3.5-1_amd64.deb ...
+#5 40.56 Unpacking libegl1-mesa-dev:amd64 (20.3.5-1) ...
+#5 40.61 Selecting previously unselected package libogg0:amd64.
+#5 40.61 Preparing to unpack .../052-libogg0_1.3.4-0.1_amd64.deb ...
+#5 40.61 Unpacking libogg0:amd64 (1.3.4-0.1) ...
+#5 40.65 Selecting previously unselected package libflac8:amd64.
+#5 40.65 Preparing to unpack .../053-libflac8_1.3.3-2+deb11u2_amd64.deb ...
+#5 40.65 Unpacking libflac8:amd64 (1.3.3-2+deb11u2) ...
+#5 40.70 Selecting previously unselected package libopus0:amd64.
+#5 40.70 Preparing to unpack .../054-libopus0_1.3.1-0.1_amd64.deb ...
+#5 40.70 Unpacking libopus0:amd64 (1.3.1-0.1) ...
+#5 40.75 Selecting previously unselected package libvorbis0a:amd64.
+#5 40.76 Preparing to unpack .../055-libvorbis0a_1.3.7-1_amd64.deb ...
+#5 40.76 Unpacking libvorbis0a:amd64 (1.3.7-1) ...
+#5 40.80 Selecting previously unselected package libvorbisenc2:amd64.
+#5 40.80 Preparing to unpack .../056-libvorbisenc2_1.3.7-1_amd64.deb ...
+#5 40.81 Unpacking libvorbisenc2:amd64 (1.3.7-1) ...
+#5 40.88 Selecting previously unselected package libsndfile1:amd64.
+#5 40.88 Preparing to unpack .../057-libsndfile1_1.0.31-2_amd64.deb ...
+#5 40.88 Unpacking libsndfile1:amd64 (1.0.31-2) ...
+#5 40.93 Selecting previously unselected package libinstpatch-1.0-2:amd64.
+#5 40.93 Preparing to unpack .../058-libinstpatch-1.0-2_1.1.6-1_amd64.deb ...
+#5 40.94 Unpacking libinstpatch-1.0-2:amd64 (1.1.6-1) ...
+#5 41.01 Selecting previously unselected package libsamplerate0:amd64.
+#5 41.01 Preparing to unpack .../059-libsamplerate0_0.2.1+ds0-1_amd64.deb ...
+#5 41.01 Unpacking libsamplerate0:amd64 (0.2.1+ds0-1) ...
+#5 41.14 Selecting previously unselected package libjack-jackd2-0:amd64.
+#5 41.14 Preparing to unpack .../060-libjack-jackd2-0_1.9.17~dfsg-1_amd64.deb ...
+#5 41.15 Unpacking libjack-jackd2-0:amd64 (1.9.17~dfsg-1) ...
+#5 41.21 Selecting previously unselected package libwrap0:amd64.
+#5 41.22 Preparing to unpack .../061-libwrap0_7.6.q-31_amd64.deb ...
+#5 41.22 Unpacking libwrap0:amd64 (7.6.q-31) ...
+#5 41.27 Selecting previously unselected package libpulse0:amd64.
+#5 41.27 Preparing to unpack .../062-libpulse0_14.2-2_amd64.deb ...
+#5 41.28 Unpacking libpulse0:amd64 (14.2-2) ...
+#5 41.35 Selecting previously unselected package libwayland-cursor0:amd64.
+#5 41.35 Preparing to unpack .../063-libwayland-cursor0_1.18.0-2~exp1.1_amd64.deb ...
+#5 41.35 Unpacking libwayland-cursor0:amd64 (1.18.0-2~exp1.1) ...
+#5 41.39 Selecting previously unselected package libwayland-egl1:amd64.
+#5 41.39 Preparing to unpack .../064-libwayland-egl1_1.18.0-2~exp1.1_amd64.deb ...
+#5 41.39 Unpacking libwayland-egl1:amd64 (1.18.0-2~exp1.1) ...
+#5 41.50 Selecting previously unselected package libxcursor1:amd64.
+#5 41.50 Preparing to unpack .../065-libxcursor1_1%3a1.2.0-2_amd64.deb ...
+#5 41.54 Unpacking libxcursor1:amd64 (1:1.2.0-2) ...
+#5 41.59 Selecting previously unselected package libxi6:amd64.
+#5 41.59 Preparing to unpack .../066-libxi6_2%3a1.7.10-1_amd64.deb ...
+#5 41.60 Unpacking libxi6:amd64 (2:1.7.10-1) ...
+#5 41.63 Selecting previously unselected package libxinerama1:amd64.
+#5 41.63 Preparing to unpack .../067-libxinerama1_2%3a1.1.4-2_amd64.deb ...
+#5 41.64 Unpacking libxinerama1:amd64 (2:1.1.4-2) ...
+#5 41.67 Selecting previously unselected package xkb-data.
+#5 41.67 Preparing to unpack .../068-xkb-data_2.29-2_all.deb ...
+#5 41.67 Unpacking xkb-data (2.29-2) ...
+#5 41.85 Selecting previously unselected package libxkbcommon0:amd64.
+#5 41.85 Preparing to unpack .../069-libxkbcommon0_1.0.3-2_amd64.deb ...
+#5 41.85 Unpacking libxkbcommon0:amd64 (1.0.3-2) ...
+#5 41.90 Selecting previously unselected package libxrandr2:amd64.
+#5 41.90 Preparing to unpack .../070-libxrandr2_2%3a1.5.1-1_amd64.deb ...
+#5 41.91 Unpacking libxrandr2:amd64 (2:1.5.1-1) ...
+#5 41.95 Selecting previously unselected package libsdl2-2.0-0:amd64.
+#5 41.95 Preparing to unpack .../071-libsdl2-2.0-0_2.0.14+dfsg2-3+deb11u1_amd64.deb ...
+#5 41.96 Unpacking libsdl2-2.0-0:amd64 (2.0.14+dfsg2-3+deb11u1) ...
+#5 42.04 Selecting previously unselected package timgm6mb-soundfont.
+#5 42.04 Preparing to unpack .../072-timgm6mb-soundfont_1.3-5_all.deb ...
+#5 42.04 Unpacking timgm6mb-soundfont (1.3-5) ...
+#5 42.55 Selecting previously unselected package libfluidsynth2:amd64.
+#5 42.56 Preparing to unpack .../073-libfluidsynth2_2.1.7-1.1_amd64.deb ...
+#5 42.56 Unpacking libfluidsynth2:amd64 (2.1.7-1.1) ...
+#5 42.62 Selecting previously unselected package libfontenc1:amd64.
+#5 42.62 Preparing to unpack .../074-libfontenc1_1%3a1.1.4-1_amd64.deb ...
+#5 42.63 Unpacking libfontenc1:amd64 (1:1.1.4-1) ...
+#5 42.66 Selecting previously unselected package libgl1-mesa-dev:amd64.
+#5 42.66 Preparing to unpack .../075-libgl1-mesa-dev_20.3.5-1_amd64.deb ...
+#5 42.67 Unpacking libgl1-mesa-dev:amd64 (20.3.5-1) ...
+#5 42.70 Selecting previously unselected package libglu1-mesa:amd64.
+#5 42.70 Preparing to unpack .../076-libglu1-mesa_9.0.1-1_amd64.deb ...
+#5 42.71 Unpacking libglu1-mesa:amd64 (9.0.1-1) ...
+#5 42.77 Selecting previously unselected package libglu1-mesa-dev:amd64.
+#5 42.77 Preparing to unpack .../077-libglu1-mesa-dev_9.0.1-1_amd64.deb ...
+#5 42.78 Unpacking libglu1-mesa-dev:amd64 (9.0.1-1) ...
+#5 42.84 Selecting previously unselected package libibus-1.0-dev:amd64.
+#5 42.84 Preparing to unpack .../078-libibus-1.0-dev_1.5.23-2_amd64.deb ...
+#5 42.85 Unpacking libibus-1.0-dev:amd64 (1.5.23-2) ...
+#5 42.91 Selecting previously unselected package libmodplug1:amd64.
+#5 42.91 Preparing to unpack .../079-libmodplug1_1%3a0.8.9.0-3_amd64.deb ...
+#5 42.92 Unpacking libmodplug1:amd64 (1:0.8.9.0-3) ...
+#5 42.98 Selecting previously unselected package libmpg123-0:amd64.
+#5 42.98 Preparing to unpack .../080-libmpg123-0_1.26.4-1_amd64.deb ...
+#5 42.98 Unpacking libmpg123-0:amd64 (1.26.4-1) ...
+#5 43.03 Selecting previously unselected package libopusfile0.
+#5 43.03 Preparing to unpack .../081-libopusfile0_0.9+20170913-1.1_amd64.deb ...
+#5 43.04 Unpacking libopusfile0 (0.9+20170913-1.1) ...
+#5 43.08 Selecting previously unselected package libportmidi0:amd64.
+#5 43.08 Preparing to unpack .../082-libportmidi0_1%3a217-6_amd64.deb ...
+#5 43.08 Unpacking libportmidi0:amd64 (1:217-6) ...
+#5 43.11 Selecting previously unselected package libportmidi-dev.
+#5 43.12 Preparing to unpack .../083-libportmidi-dev_1%3a217-6_amd64.deb ...
+#5 43.12 Unpacking libportmidi-dev (1:217-6) ...
+#5 43.17 Selecting previously unselected package libpulse-mainloop-glib0:amd64.
+#5 43.17 Preparing to unpack .../084-libpulse-mainloop-glib0_14.2-2_amd64.deb ...
+#5 43.18 Unpacking libpulse-mainloop-glib0:amd64 (14.2-2) ...
+#5 43.21 Selecting previously unselected package libpulse-dev:amd64.
+#5 43.21 Preparing to unpack .../085-libpulse-dev_14.2-2_amd64.deb ...
+#5 43.22 Unpacking libpulse-dev:amd64 (14.2-2) ...
+#5 43.26 Selecting previously unselected package libsndio7.0:amd64.
+#5 43.26 Preparing to unpack .../086-libsndio7.0_1.5.0-3_amd64.deb ...
+#5 43.27 Unpacking libsndio7.0:amd64 (1.5.0-3) ...
+#5 43.30 Selecting previously unselected package libsndio-dev:amd64.
+#5 43.30 Preparing to unpack .../087-libsndio-dev_1.5.0-3_amd64.deb ...
+#5 43.31 Unpacking libsndio-dev:amd64 (1.5.0-3) ...
+#5 43.34 Selecting previously unselected package libudev-dev:amd64.
+#5 43.34 Preparing to unpack .../088-libudev-dev_247.3-7+deb11u5_amd64.deb ...
+#5 43.34 Unpacking libudev-dev:amd64 (247.3-7+deb11u5) ...
+#5 43.39 Selecting previously unselected package libwayland-bin.
+#5 43.39 Preparing to unpack .../089-libwayland-bin_1.18.0-2~exp1.1_amd64.deb ...
+#5 43.40 Unpacking libwayland-bin (1.18.0-2~exp1.1) ...
+#5 43.43 Selecting previously unselected package libwayland-dev:amd64.
+#5 43.43 Preparing to unpack .../090-libwayland-dev_1.18.0-2~exp1.1_amd64.deb ...
+#5 43.44 Unpacking libwayland-dev:amd64 (1.18.0-2~exp1.1) ...
+#5 43.47 Selecting previously unselected package libxfixes-dev:amd64.
+#5 43.47 Preparing to unpack .../091-libxfixes-dev_1%3a5.0.3-2_amd64.deb ...
+#5 43.48 Unpacking libxfixes-dev:amd64 (1:5.0.3-2) ...
+#5 43.51 Selecting previously unselected package libxcursor-dev:amd64.
+#5 43.51 Preparing to unpack .../092-libxcursor-dev_1%3a1.2.0-2_amd64.deb ...
+#5 43.51 Unpacking libxcursor-dev:amd64 (1:1.2.0-2) ...
+#5 43.55 Selecting previously unselected package x11proto-input-dev.
+#5 43.55 Preparing to unpack .../093-x11proto-input-dev_2020.1-1_all.deb ...
+#5 43.56 Unpacking x11proto-input-dev (2020.1-1) ...
+#5 43.59 Selecting previously unselected package libxi-dev:amd64.
+#5 43.59 Preparing to unpack .../094-libxi-dev_2%3a1.7.10-1_amd64.deb ...
+#5 43.59 Unpacking libxi-dev:amd64 (2:1.7.10-1) ...
+#5 43.65 Selecting previously unselected package x11proto-xinerama-dev.
+#5 43.65 Preparing to unpack .../095-x11proto-xinerama-dev_2020.1-1_all.deb ...
+#5 43.65 Unpacking x11proto-xinerama-dev (2020.1-1) ...
+#5 43.68 Selecting previously unselected package libxinerama-dev:amd64.
+#5 43.68 Preparing to unpack .../096-libxinerama-dev_2%3a1.1.4-2_amd64.deb ...
+#5 43.69 Unpacking libxinerama-dev:amd64 (2:1.1.4-2) ...
+#5 43.72 Selecting previously unselected package libxkbcommon-dev:amd64.
+#5 43.72 Preparing to unpack .../097-libxkbcommon-dev_1.0.3-2_amd64.deb ...
+#5 43.72 Unpacking libxkbcommon-dev:amd64 (1.0.3-2) ...
+#5 43.75 Selecting previously unselected package x11proto-randr-dev.
+#5 43.76 Preparing to unpack .../098-x11proto-randr-dev_2020.1-1_all.deb ...
+#5 43.76 Unpacking x11proto-randr-dev (2020.1-1) ...
+#5 43.79 Selecting previously unselected package libxrandr-dev:amd64.
+#5 43.79 Preparing to unpack .../099-libxrandr-dev_2%3a1.5.1-1_amd64.deb ...
+#5 43.79 Unpacking libxrandr-dev:amd64 (2:1.5.1-1) ...
+#5 43.83 Selecting previously unselected package libxv1:amd64.
+#5 43.84 Preparing to unpack .../100-libxv1_2%3a1.0.11-1_amd64.deb ...
+#5 43.84 Unpacking libxv1:amd64 (2:1.0.11-1) ...
+#5 43.87 Selecting previously unselected package libxv-dev:amd64.
+#5 43.87 Preparing to unpack .../101-libxv-dev_2%3a1.0.11-1_amd64.deb ...
+#5 43.88 Unpacking libxv-dev:amd64 (2:1.0.11-1) ...
+#5 43.91 Selecting previously unselected package x11proto-xf86vidmode-dev.
+#5 43.91 Preparing to unpack .../102-x11proto-xf86vidmode-dev_2020.1-1_all.deb ...
+#5 43.92 Unpacking x11proto-xf86vidmode-dev (2020.1-1) ...
+#5 43.95 Selecting previously unselected package libxxf86vm-dev:amd64.
+#5 43.95 Preparing to unpack .../103-libxxf86vm-dev_1%3a1.1.4-1+b2_amd64.deb ...
+#5 43.95 Unpacking libxxf86vm-dev:amd64 (1:1.1.4-1+b2) ...
+#5 43.99 Selecting previously unselected package libsdl2-dev:amd64.
+#5 43.99 Preparing to unpack .../104-libsdl2-dev_2.0.14+dfsg2-3+deb11u1_amd64.deb ...
+#5 43.99 Unpacking libsdl2-dev:amd64 (2.0.14+dfsg2-3+deb11u1) ...
+#5 44.18 Selecting previously unselected package libsdl2-image-2.0-0:amd64.
+#5 44.18 Preparing to unpack .../105-libsdl2-image-2.0-0_2.0.5+dfsg1-2_amd64.deb ...
+#5 44.19 Unpacking libsdl2-image-2.0-0:amd64 (2.0.5+dfsg1-2) ...
+#5 44.22 Selecting previously unselected package libsdl2-image-dev:amd64.
+#5 44.23 Preparing to unpack .../106-libsdl2-image-dev_2.0.5+dfsg1-2_amd64.deb ...
+#5 44.23 Unpacking libsdl2-image-dev:amd64 (2.0.5+dfsg1-2) ...
+#5 44.27 Selecting previously unselected package libvorbisfile3:amd64.
+#5 44.27 Preparing to unpack .../107-libvorbisfile3_1.3.7-1_amd64.deb ...
+#5 44.27 Unpacking libvorbisfile3:amd64 (1.3.7-1) ...
+#5 44.30 Selecting previously unselected package libsdl2-mixer-2.0-0:amd64.
+#5 44.31 Preparing to unpack .../108-libsdl2-mixer-2.0-0_2.0.4+dfsg1-3_amd64.deb ...
+#5 44.31 Unpacking libsdl2-mixer-2.0-0:amd64 (2.0.4+dfsg1-3) ...
+#5 44.35 Selecting previously unselected package libsdl2-mixer-dev:amd64.
+#5 44.35 Preparing to unpack .../109-libsdl2-mixer-dev_2.0.4+dfsg1-3_amd64.deb ...
+#5 44.36 Unpacking libsdl2-mixer-dev:amd64 (2.0.4+dfsg1-3) ...
+#5 44.40 Selecting previously unselected package libsdl2-ttf-2.0-0:amd64.
+#5 44.40 Preparing to unpack .../110-libsdl2-ttf-2.0-0_2.0.15+dfsg1-1_amd64.deb ...
+#5 44.41 Unpacking libsdl2-ttf-2.0-0:amd64 (2.0.15+dfsg1-1) ...
+#5 44.44 Selecting previously unselected package libsdl2-ttf-dev:amd64.
+#5 44.44 Preparing to unpack .../111-libsdl2-ttf-dev_2.0.15+dfsg1-1_amd64.deb ...
+#5 44.44 Unpacking libsdl2-ttf-dev:amd64 (2.0.15+dfsg1-1) ...
+#5 44.48 Selecting previously unselected package libunwind8:amd64.
+#5 44.48 Preparing to unpack .../112-libunwind8_1.3.2-2_amd64.deb ...
+#5 44.49 Unpacking libunwind8:amd64 (1.3.2-2) ...
+#5 44.52 Selecting previously unselected package libxmu6:amd64.
+#5 44.52 Preparing to unpack .../113-libxmu6_2%3a1.1.2-2+b3_amd64.deb ...
+#5 44.53 Unpacking libxmu6:amd64 (2:1.1.2-2+b3) ...
+#5 44.57 Selecting previously unselected package libxpm4:amd64.
+#5 44.57 Preparing to unpack .../114-libxpm4_1%3a3.5.12-1.1+deb11u1_amd64.deb ...
+#5 44.57 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb11u1) ...
+#5 44.61 Selecting previously unselected package libxaw7:amd64.
+#5 44.61 Preparing to unpack .../115-libxaw7_2%3a1.0.13-1.1_amd64.deb ...
+#5 44.62 Unpacking libxaw7:amd64 (2:1.0.13-1.1) ...
+#5 44.67 Selecting previously unselected package libxfont2:amd64.
+#5 44.67 Preparing to unpack .../116-libxfont2_1%3a2.0.4-1_amd64.deb ...
+#5 44.68 Unpacking libxfont2:amd64 (1:2.0.4-1) ...
+#5 44.72 Selecting previously unselected package libxkbfile1:amd64.
+#5 44.72 Preparing to unpack .../117-libxkbfile1_1%3a1.1.0-1_amd64.deb ...
+#5 44.72 Unpacking libxkbfile1:amd64 (1:1.1.0-1) ...
+#5 44.76 Selecting previously unselected package libxmuu1:amd64.
+#5 44.77 Preparing to unpack .../118-libxmuu1_2%3a1.1.2-2+b3_amd64.deb ...
+#5 44.77 Unpacking libxmuu1:amd64 (2:1.1.2-2+b3) ...
+#5 44.82 Selecting previously unselected package x11-xkb-utils.
+#5 44.82 Preparing to unpack .../119-x11-xkb-utils_7.7+5_amd64.deb ...
+#5 44.82 Unpacking x11-xkb-utils (7.7+5) ...
+#5 44.87 Selecting previously unselected package xauth.
+#5 44.87 Preparing to unpack .../120-xauth_1%3a1.1-1_amd64.deb ...
+#5 44.87 Unpacking xauth (1:1.1-1) ...
+#5 44.90 Selecting previously unselected package xserver-common.
+#5 44.90 Preparing to unpack .../121-xserver-common_2%3a1.20.11-1+deb11u13_all.deb ...
+#5 44.91 Unpacking xserver-common (2:1.20.11-1+deb11u13) ...
+#5 44.95 Selecting previously unselected package xvfb.
+#5 44.95 Preparing to unpack .../122-xvfb_2%3a1.20.11-1+deb11u13_amd64.deb ...
+#5 44.96 Unpacking xvfb (2:1.20.11-1+deb11u13) ...
+#5 45.08 Setting up libxcb-dri3-0:amd64 (1.14-3) ...
+#5 45.09 Setting up libmodplug1:amd64 (1:0.8.9.0-3) ...
+#5 45.10 Setting up libwayland-server0:amd64 (1.18.0-2~exp1.1) ...
+#5 45.11 Setting up libx11-xcb1:amd64 (2:1.7.2-1+deb11u2) ...
+#5 45.12 Setting up libpciaccess0:amd64 (0.16-1) ...
+#5 45.13 Setting up libxmu6:amd64 (2:1.1.2-2+b3) ...
+#5 45.14 Setting up libxdamage1:amd64 (1:1.1.5-2) ...
+#5 45.15 Setting up libmpg123-0:amd64 (1.26.4-1) ...
+#5 45.16 Setting up libxcb-xfixes0:amd64 (1.14-3) ...
+#5 45.17 Setting up libogg0:amd64 (1.3.4-0.1) ...
+#5 45.17 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb11u1) ...
+#5 45.18 Setting up libxi6:amd64 (2:1.7.10-1) ...
+#5 45.19 Setting up libglvnd0:amd64 (1.3.2-1) ...
+#5 45.20 Setting up x11proto-randr-dev (2020.1-1) ...
+#5 45.21 Setting up libxcb-glx0:amd64 (1.14-3) ...
+#5 45.22 Setting up libibus-1.0-5:amd64 (1.5.23-2) ...
+#5 45.23 Setting up libsensors-config (1:3.6.0-7) ...
+#5 45.24 Setting up xkb-data (2.29-2) ...
+#5 45.25 Setting up libxaw7:amd64 (2:1.0.13-1.1) ...
+#5 45.26 Setting up libunwind8:amd64 (1.3.2-2) ...
+#5 45.27 Setting up x11proto-xinerama-dev (2020.1-1) ...
+#5 45.28 Setting up libopengl0:amd64 (1.3.2-1) ...
+#5 45.29 Setting up libxxf86vm1:amd64 (1:1.1.4-1+b2) ...
+#5 45.30 Setting up libflac8:amd64 (1.3.3-2+deb11u2) ...
+#5 45.31 Setting up libxcb-present0:amd64 (1.14-3) ...
+#5 45.32 Setting up libasound2-data (1.2.4-1.1) ...
+#5 45.32 Setting up libwayland-bin (1.18.0-2~exp1.1) ...
+#5 45.33 Setting up libfontenc1:amd64 (1:1.1.4-1) ...
+#5 45.34 Setting up libz3-4:amd64 (4.8.10-1) ...
+#5 45.35 Setting up libllvm11:amd64 (1:11.0.1-2) ...
+#5 45.36 Setting up libgles2:amd64 (1.3.2-1) ...
+#5 45.37 Setting up libwrap0:amd64 (7.6.q-31) ...
+#5 45.38 Setting up libxfixes3:amd64 (1:5.0.3-2) ...
+#5 45.39 Setting up libxcb-sync1:amd64 (1.14-3) ...
+#5 45.40 Setting up libgles1:amd64 (1.3.2-1) ...
+#5 45.41 Setting up libdbus-1-3:amd64 (1.12.28-0+deb11u1) ...
+#5 45.42 Setting up libopus0:amd64 (1.3.1-0.1) ...
+#5 45.43 Setting up libxinerama1:amd64 (2:1.1.4-2) ...
+#5 45.45 Setting up libxv1:amd64 (2:1.0.11-1) ...
+#5 45.46 Setting up libvorbis0a:amd64 (1.3.7-1) ...
+#5 45.47 Setting up x11proto-input-dev (2020.1-1) ...
+#5 45.48 Setting up libxrandr2:amd64 (2:1.5.1-1) ...
+#5 45.50 Setting up libudev-dev:amd64 (247.3-7+deb11u5) ...
+#5 45.51 Setting up libxinerama-dev:amd64 (2:1.1.4-2) ...
+#5 45.52 Setting up libsensors5:amd64 (1:3.6.0-7) ...
+#5 45.53 Setting up libglapi-mesa:amd64 (20.3.5-1) ...
+#5 45.54 Setting up libvulkan1:amd64 (1.2.162.0-1) ...
+#5 45.55 Setting up libxcb-dri2-0:amd64 (1.14-3) ...
+#5 45.58 Setting up x11proto-xf86vidmode-dev (2020.1-1) ...
+#5 45.59 Setting up libasyncns0:amd64 (0.8-6+b2) ...
+#5 45.60 Setting up libxshmfence1:amd64 (1.3-1) ...
+#5 45.61 Setting up libasound2:amd64 (1.2.4-1.1) ...
+#5 45.62 Setting up libwayland-egl1:amd64 (1.18.0-2~exp1.1) ...
+#5 45.63 Setting up libxkbfile1:amd64 (1:1.1.0-1) ...
+#5 45.64 Setting up libopengl-dev:amd64 (1.3.2-1) ...
+#5 45.65 Setting up libasound2-dev:amd64 (1.2.4-1.1) ...
+#5 45.66 Setting up libsamplerate0:amd64 (0.2.1+ds0-1) ...
+#5 45.66 Setting up timgm6mb-soundfont (1.3-5) ...
+#5 45.69 update-alternatives: using /usr/share/sounds/sf2/TimGM6mb.sf2 to provide /usr/share/sounds/sf2/default-GM.sf2 (default-GM.sf2) in auto mode
+#5 45.70 update-alternatives: using /usr/share/sounds/sf2/TimGM6mb.sf2 to provide /usr/share/sounds/sf3/default-GM.sf3 (default-GM.sf3) in auto mode
+#5 45.70 Setting up gir1.2-ibus-1.0:amd64 (1.5.23-2) ...
+#5 45.71 Setting up libdrm-common (2.4.104-1) ...
+#5 45.72 Setting up libopusfile0 (0.9+20170913-1.1) ...
+#5 45.73 Setting up libxfont2:amd64 (1:2.0.4-1) ...
+#5 45.74 Setting up libxmuu1:amd64 (2:1.1.2-2+b3) ...
+#5 45.75 Setting up libvorbisenc2:amd64 (1.3.7-1) ...
+#5 45.76 Setting up libxkbcommon0:amd64 (1.0.3-2) ...
+#5 45.77 Setting up libwayland-client0:amd64 (1.18.0-2~exp1.1) ...
+#5 45.78 Setting up x11-xkb-utils (7.7+5) ...
+#5 45.79 Setting up libxxf86vm-dev:amd64 (1:1.1.4-1+b2) ...
+#5 45.81 Setting up libxkbcommon-dev:amd64 (1.0.3-2) ...
+#5 45.84 Setting up libxcursor1:amd64 (1:1.2.0-2) ...
+#5 45.86 Setting up libxfixes-dev:amd64 (1:5.0.3-2) ...
+#5 45.87 Setting up libvorbisfile3:amd64 (1.3.7-1) ...
+#5 45.88 Setting up libxv-dev:amd64 (2:1.0.11-1) ...
+#5 45.89 Setting up libxrandr-dev:amd64 (2:1.5.1-1) ...
+#5 45.90 Setting up libdbus-1-dev:amd64 (1.12.28-0+deb11u1) ...
+#5 45.91 Setting up libportmidi0:amd64 (1:217-6) ...
+#5 45.91 Setting up libsndio7.0:amd64 (1.5.0-3) ...
+#5 45.92 Setting up libjack-jackd2-0:amd64 (1.9.17~dfsg-1) ...
+#5 45.93 Setting up libdrm2:amd64 (2.4.104-1) ...
+#5 45.94 Setting up libportmidi-dev (1:217-6) ...
+#5 45.95 Setting up xauth (1:1.1-1) ...
+#5 45.96 Setting up libwayland-cursor0:amd64 (1.18.0-2~exp1.1) ...
+#5 45.97 Setting up libsndfile1:amd64 (1.0.31-2) ...
+#5 46.01 Setting up xserver-common (2:1.20.11-1+deb11u13) ...
+#5 46.03 Setting up libxi-dev:amd64 (2:1.7.10-1) ...
+#5 46.04 Setting up libinstpatch-1.0-2:amd64 (1.1.6-1) ...
+#5 46.06 Setting up libdrm-amdgpu1:amd64 (2.4.104-1) ...
+#5 46.07 Setting up libdrm-nouveau2:amd64 (2.4.104-1) ...
+#5 46.08 Setting up libsndio-dev:amd64 (1.5.0-3) ...
+#5 46.09 Setting up libgbm1:amd64 (20.3.5-1) ...
+#5 46.10 Setting up libpulse0:amd64 (14.2-2) ...
+#5 46.12 Setting up libdrm-radeon1:amd64 (2.4.104-1) ...
+#5 46.13 Setting up libxcursor-dev:amd64 (1:1.2.0-2) ...
+#5 46.15 Setting up libdrm-intel1:amd64 (2.4.104-1) ...
+#5 46.17 Setting up libgl1-mesa-dri:amd64 (20.3.5-1) ...
+#5 46.18 Setting up libwayland-dev:amd64 (1.18.0-2~exp1.1) ...
+#5 46.20 Setting up libibus-1.0-dev:amd64 (1.5.23-2) ...
+#5 46.21 Setting up libegl-mesa0:amd64 (20.3.5-1) ...
+#5 46.22 Setting up libpulse-mainloop-glib0:amd64 (14.2-2) ...
+#5 46.24 Setting up libpulse-dev:amd64 (14.2-2) ...
+#5 46.25 Setting up libegl1:amd64 (1.3.2-1) ...
+#5 46.27 Setting up libsdl2-2.0-0:amd64 (2.0.14+dfsg2-3+deb11u1) ...
+#5 46.28 Setting up libfluidsynth2:amd64 (2.1.7-1.1) ...
+#5 46.30 Setting up libsdl2-image-2.0-0:amd64 (2.0.5+dfsg1-2) ...
+#5 46.31 Setting up libglx-mesa0:amd64 (20.3.5-1) ...
+#5 46.32 Setting up libglx0:amd64 (1.3.2-1) ...
+#5 46.33 Setting up libsdl2-mixer-2.0-0:amd64 (2.0.4+dfsg1-3) ...
+#5 46.34 Setting up libgl1:amd64 (1.3.2-1) ...
+#5 46.36 Setting up libglx-dev:amd64 (1.3.2-1) ...
+#5 46.37 Setting up libsdl2-ttf-2.0-0:amd64 (2.0.15+dfsg1-1) ...
+#5 46.40 Setting up libglu1-mesa:amd64 (9.0.1-1) ...
+#5 46.41 Setting up libgl-dev:amd64 (1.3.2-1) ...
+#5 46.43 Setting up libegl-dev:amd64 (1.3.2-1) ...
+#5 46.44 Setting up xvfb (2:1.20.11-1+deb11u13) ...
+#5 46.45 Setting up libglu1-mesa-dev:amd64 (9.0.1-1) ...
+#5 46.46 Setting up libgles-dev:amd64 (1.3.2-1) ...
+#5 46.47 Setting up libglvnd-dev:amd64 (1.3.2-1) ...
+#5 46.48 Setting up libgl1-mesa-dev:amd64 (20.3.5-1) ...
+#5 46.49 Setting up libegl1-mesa-dev:amd64 (20.3.5-1) ...
+#5 46.50 Setting up libsdl2-dev:amd64 (2.0.14+dfsg2-3+deb11u1) ...
+#5 46.52 Setting up libsdl2-ttf-dev:amd64 (2.0.15+dfsg1-1) ...
+#5 46.67 Setting up libsdl2-mixer-dev:amd64 (2.0.4+dfsg1-3) ...
+#5 46.68 Setting up libsdl2-image-dev:amd64 (2.0.5+dfsg1-2) ...
+#5 46.70 Processing triggers for libc-bin (2.31-13+deb11u11) ...
+#5 DONE 47.2s
+
+#6 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 3.375 Collecting pip==24.3.1
+#6 4.595   Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+#6 5.513      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.0 MB/s eta 0:00:00
+#6 6.333 Collecting setuptools==68.2.2
+#6 6.517   Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+#6 7.336      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 1.2 MB/s eta 0:00:00
+#6 7.670 Collecting wheel==0.42.0
+#6 7.801   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+#6 7.840      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 2.2 MB/s eta 0:00:00
+#6 7.992 Collecting pytest==7.4.4
+#6 8.241   Downloading pytest-7.4.4-py3-none-any.whl (325 kB)
+#6 8.311      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.3/325.3 kB 5.5 MB/s eta 0:00:00
+#6 8.469 Collecting packaging==23.2
+#6 8.578   Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#6 8.617      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 1.8 MB/s eta 0:00:00
+#6 8.799 Collecting pluggy==1.3.0
+#6 8.964   Downloading pluggy-1.3.0-py3-none-any.whl (18 kB)
+#6 9.285 Collecting iniconfig==2.0.0
+#6 9.487   Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#6 9.775 Collecting exceptiongroup==1.2.2
+#6 9.967   Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+#6 10.22 Collecting tomli==2.0.1
+#6 10.52   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#6 10.73 Installing collected packages: wheel, tomli, setuptools, pluggy, pip, packaging, iniconfig, exceptiongroup, pytest
+#6 10.73   Attempting uninstall: wheel
+#6 10.73     Found existing installation: wheel 0.44.0
+#6 10.74     Uninstalling wheel-0.44.0:
+#6 10.77       Successfully uninstalled wheel-0.44.0
+#6 10.88   Attempting uninstall: setuptools
+#6 10.88     Found existing installation: setuptools 57.5.0
+#6 10.92     Uninstalling setuptools-57.5.0:
+#6 11.08       Successfully uninstalled setuptools-57.5.0
+#6 11.69   Attempting uninstall: pip
+#6 11.69     Found existing installation: pip 23.0.1
+#6 11.87     Uninstalling pip-23.0.1:
+#6 12.16       Successfully uninstalled pip-23.0.1
+#6 13.72 Successfully installed exceptiongroup-1.2.2 iniconfig-2.0.0 packaging-23.2 pip-24.3.1 pluggy-1.3.0 pytest-7.4.4 setuptools-68.2.2 tomli-2.0.1 wheel-0.42.0
+#6 13.72 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#6 DONE 14.3s
+
+#7 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/pygame/pygame.git"     && git fetch --depth=1 --no-tags origin "71c90cdb76cd8b12a0969f5d6314315bd0223c28"     && git checkout --detach "71c90cdb76cd8b12a0969f5d6314315bd0223c28"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "71c90cdb76cd8b12a0969f5d6314315bd0223c28"
+#7 0.271 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.271 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.271 hint: of your new repositories, which will suppress this warning, call:
+#7 0.271 hint: 
+#7 0.271 hint: 	git config --global init.defaultBranch <name>
+#7 0.271 hint: 
+#7 0.271 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.271 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.271 hint: 
+#7 0.271 hint: 	git branch -m <name>
+#7 0.273 Initialized empty Git repository in /testbed/.git/
+#7 4.256 From https://github.com/pygame/pygame
+#7 4.256  * branch            71c90cdb76cd8b12a0969f5d6314315bd0223c28 -> FETCH_HEAD
+#7 4.355 HEAD is now at 71c90cd Merge pull request #688 from pygame/sdl2-renderer-messagebox
+#7 DONE 4.4s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python setup.py -auto -sdl2 -config     && python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force     && python -c "import pygame,pygame._freetype; print(pygame.version.ver,pygame._freetype.__file__); assert pygame.version.ver == '1.9.5.dev0'; assert pygame._freetype.__file__.startswith('/testbed/build/local/pygame/')"     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 0.473 
+#9 0.473 
+#9 0.473 WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
+#9 0.477 Using UNIX configuration...
+#9 0.477 
+#9 0.480 
+#9 0.480 Hunting dependencies...
+#9 0.500 SDL     : found 2.0.14
+#9 0.504 FONT    : found
+#9 0.507 IMAGE   : found
+#9 0.510 MIXER   : found
+#9 0.514 PNG     : found
+#9 0.517 JPEG    : found
+#9 0.519 SCRAP   : found
+#9 0.522 PORTMIDI: found
+#9 0.525 PORTTIME: found
+#9 0.525 FREETYPE: found 23.4.17
+#9 0.526 
+#9 0.526 If you get compiler errors during install, doublecheck
+#9 0.526 the compiler flags in the "Setup" file.
+#9 0.526 
+#9 0.677 running build
+#9 0.677 running build_py
+#9 0.681 creating /testbed/build
+#9 0.681 creating /testbed/build/local
+#9 0.682 creating /testbed/build/local/pygame
+#9 0.683 copying src_py/sprite.py -> /testbed/build/local/pygame
+#9 0.684 copying src_py/freetype.py -> /testbed/build/local/pygame
+#9 0.686 copying src_py/macosx.py -> /testbed/build/local/pygame
+#9 0.687 copying src_py/pkgdata.py -> /testbed/build/local/pygame
+#9 0.687 copying src_py/colordict.py -> /testbed/build/local/pygame
+#9 0.688 copying src_py/_numpysurfarray.py -> /testbed/build/local/pygame
+#9 0.688 copying src_py/surfarray.py -> /testbed/build/local/pygame
+#9 0.688 copying src_py/locals.py -> /testbed/build/local/pygame
+#9 0.688 copying src_py/ftfont.py -> /testbed/build/local/pygame
+#9 0.688 copying src_py/draw_py.py -> /testbed/build/local/pygame
+#9 0.689 copying src_py/compat.py -> /testbed/build/local/pygame
+#9 0.689 copying src_py/_camera_vidcapture.py -> /testbed/build/local/pygame
+#9 0.689 copying src_py/camera.py -> /testbed/build/local/pygame
+#9 0.690 copying src_py/midi.py -> /testbed/build/local/pygame
+#9 0.690 copying src_py/sndarray.py -> /testbed/build/local/pygame
+#9 0.690 copying src_py/_camera_opencv_highgui.py -> /testbed/build/local/pygame
+#9 0.691 copying src_py/cursors.py -> /testbed/build/local/pygame
+#9 0.691 copying src_py/_numpysndarray.py -> /testbed/build/local/pygame
+#9 0.691 copying src_py/sysfont.py -> /testbed/build/local/pygame
+#9 0.691 copying src_py/__init__.py -> /testbed/build/local/pygame
+#9 0.692 copying src_py/_dummybackend.py -> /testbed/build/local/pygame
+#9 0.692 copying src_py/version.py -> /testbed/build/local/pygame
+#9 0.692 creating /testbed/build/local/pygame/gp2x
+#9 0.692 copying src_py/gp2x/locals.py -> /testbed/build/local/pygame/gp2x
+#9 0.693 copying src_py/gp2x/constants.py -> /testbed/build/local/pygame/gp2x
+#9 0.694 copying src_py/gp2x/__init__.py -> /testbed/build/local/pygame/gp2x
+#9 0.694 creating /testbed/build/local/pygame/threads
+#9 0.694 copying src_py/threads/Py25Queue.py -> /testbed/build/local/pygame/threads
+#9 0.695 copying src_py/threads/__init__.py -> /testbed/build/local/pygame/threads
+#9 0.695 creating /testbed/build/local/pygame/_sdl2
+#9 0.695 copying src_py/_sdl2/__init__.py -> /testbed/build/local/pygame/_sdl2
+#9 0.697 creating /testbed/build/local/pygame/tests
+#9 0.697 copying test/draw_test.py -> /testbed/build/local/pygame/tests
+#9 0.697 copying test/rect_test.py -> /testbed/build/local/pygame/tests
+#9 0.698 copying test/image_test.py -> /testbed/build/local/pygame/tests
+#9 0.698 copying test/surface_test.py -> /testbed/build/local/pygame/tests
+#9 0.698 copying test/test_test_.py -> /testbed/build/local/pygame/tests
+#9 0.699 copying test/midi_test.py -> /testbed/build/local/pygame/tests
+#9 0.699 copying test/transform_test.py -> /testbed/build/local/pygame/tests
+#9 0.700 copying test/time_test.py -> /testbed/build/local/pygame/tests
+#9 0.700 copying test/sndarray_tags.py -> /testbed/build/local/pygame/tests
+#9 0.701 copying test/imageext_test.py -> /testbed/build/local/pygame/tests
+#9 0.701 copying test/sndarray_test.py -> /testbed/build/local/pygame/tests
+#9 0.701 copying test/rwobject_test.py -> /testbed/build/local/pygame/tests
+#9 0.702 copying test/mixer_tags.py -> /testbed/build/local/pygame/tests
+#9 0.702 copying test/image_tags.py -> /testbed/build/local/pygame/tests
+#9 0.703 copying test/pixelarray_test.py -> /testbed/build/local/pygame/tests
+#9 0.704 copying test/image__save_gl_surface_test.py -> /testbed/build/local/pygame/tests
+#9 0.704 copying test/cdrom_test.py -> /testbed/build/local/pygame/tests
+#9 0.704 copying test/cursors_test.py -> /testbed/build/local/pygame/tests
+#9 0.705 copying test/__main__.py -> /testbed/build/local/pygame/tests
+#9 0.705 copying test/display_test.py -> /testbed/build/local/pygame/tests
+#9 0.705 copying test/overlay_tags.py -> /testbed/build/local/pygame/tests
+#9 0.705 copying test/midi_tags.py -> /testbed/build/local/pygame/tests
+#9 0.706 copying test/surflock_test.py -> /testbed/build/local/pygame/tests
+#9 0.706 copying test/mixer_test.py -> /testbed/build/local/pygame/tests
+#9 0.706 copying test/font_test.py -> /testbed/build/local/pygame/tests
+#9 0.706 copying test/gfxdraw_test.py -> /testbed/build/local/pygame/tests
+#9 0.707 copying test/ftfont_test.py -> /testbed/build/local/pygame/tests
+#9 0.707 copying test/mouse_test.py -> /testbed/build/local/pygame/tests
+#9 0.708 copying test/scrap_tags.py -> /testbed/build/local/pygame/tests
+#9 0.708 copying test/threads_test.py -> /testbed/build/local/pygame/tests
+#9 0.708 copying test/freetype_test.py -> /testbed/build/local/pygame/tests
+#9 0.708 copying test/base_test.py -> /testbed/build/local/pygame/tests
+#9 0.709 copying test/freetype_tags.py -> /testbed/build/local/pygame/tests
+#9 0.709 copying test/sprite_test.py -> /testbed/build/local/pygame/tests
+#9 0.709 copying test/mask_test.py -> /testbed/build/local/pygame/tests
+#9 0.710 copying test/constants_test.py -> /testbed/build/local/pygame/tests
+#9 0.710 copying test/blit_test.py -> /testbed/build/local/pygame/tests
+#9 0.710 copying test/font_tags.py -> /testbed/build/local/pygame/tests
+#9 0.711 copying test/surfarray_tags.py -> /testbed/build/local/pygame/tests
+#9 0.711 copying test/imageext_tags.py -> /testbed/build/local/pygame/tests
+#9 0.711 copying test/ftfont_tags.py -> /testbed/build/local/pygame/tests
+#9 0.711 copying test/surfarray_test.py -> /testbed/build/local/pygame/tests
+#9 0.711 copying test/scrap_test.py -> /testbed/build/local/pygame/tests
+#9 0.712 copying test/mixer_music_test.py -> /testbed/build/local/pygame/tests
+#9 0.712 copying test/cdrom_tags.py -> /testbed/build/local/pygame/tests
+#9 0.712 copying test/pixelcopy_test.py -> /testbed/build/local/pygame/tests
+#9 0.712 copying test/sysfont_test.py -> /testbed/build/local/pygame/tests
+#9 0.712 copying test/bufferproxy_test.py -> /testbed/build/local/pygame/tests
+#9 0.713 copying test/compat_test.py -> /testbed/build/local/pygame/tests
+#9 0.713 copying test/__init__.py -> /testbed/build/local/pygame/tests
+#9 0.713 copying test/event_test.py -> /testbed/build/local/pygame/tests
+#9 0.713 copying test/math_test.py -> /testbed/build/local/pygame/tests
+#9 0.714 copying test/joystick_test.py -> /testbed/build/local/pygame/tests
+#9 0.714 copying test/mixer_music_tags.py -> /testbed/build/local/pygame/tests
+#9 0.714 copying test/overlay_test.py -> /testbed/build/local/pygame/tests
+#9 0.715 copying test/camera_test.py -> /testbed/build/local/pygame/tests
+#9 0.715 copying test/color_test.py -> /testbed/build/local/pygame/tests
+#9 0.716 copying test/fastevent_test.py -> /testbed/build/local/pygame/tests
+#9 0.716 copying test/key_test.py -> /testbed/build/local/pygame/tests
+#9 0.716 creating /testbed/build/local/pygame/tests/test_utils
+#9 0.717 copying test/test_utils/async_sub.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.717 copying test/test_utils/endian.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.717 copying test/test_utils/run_tests.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.717 copying test/test_utils/test_machinery.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.718 copying test/test_utils/buftools.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.718 copying test/test_utils/png.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.718 copying test/test_utils/test_runner.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.718 copying test/test_utils/__init__.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.719 copying test/test_utils/arrinter.py -> /testbed/build/local/pygame/tests/test_utils
+#9 0.719 creating /testbed/build/local/pygame/tests/run_tests__tests
+#9 0.719 copying test/run_tests__tests/run_tests__test.py -> /testbed/build/local/pygame/tests/run_tests__tests
+#9 0.720 copying test/run_tests__tests/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests
+#9 0.720 creating /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.720 copying test/run_tests__tests/all_ok/fake_4_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.721 copying test/run_tests__tests/all_ok/no_assertions__ret_code_of_1__test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.721 copying test/run_tests__tests/all_ok/fake_5_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.721 copying test/run_tests__tests/all_ok/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.721 copying test/run_tests__tests/all_ok/fake_6_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.722 copying test/run_tests__tests/all_ok/zero_tests_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.722 copying test/run_tests__tests/all_ok/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.722 copying test/run_tests__tests/all_ok/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/all_ok
+#9 0.722 creating /testbed/build/local/pygame/tests/run_tests__tests/failures1
+#9 0.723 copying test/run_tests__tests/failures1/fake_4_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/failures1
+#9 0.723 copying test/run_tests__tests/failures1/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/failures1
+#9 0.723 copying test/run_tests__tests/failures1/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/failures1
+#9 0.724 copying test/run_tests__tests/failures1/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/failures1
+#9 0.724 creating /testbed/build/local/pygame/tests/run_tests__tests/incomplete
+#9 0.725 copying test/run_tests__tests/incomplete/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete
+#9 0.725 copying test/run_tests__tests/incomplete/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete
+#9 0.725 copying test/run_tests__tests/incomplete/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete
+#9 0.726 creating /testbed/build/local/pygame/tests/run_tests__tests/infinite_loop
+#9 0.726 copying test/run_tests__tests/infinite_loop/fake_1_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/infinite_loop
+#9 0.726 copying test/run_tests__tests/infinite_loop/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/infinite_loop
+#9 0.726 copying test/run_tests__tests/infinite_loop/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/infinite_loop
+#9 0.727 creating /testbed/build/local/pygame/tests/run_tests__tests/print_stderr
+#9 0.727 copying test/run_tests__tests/print_stderr/fake_4_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stderr
+#9 0.727 copying test/run_tests__tests/print_stderr/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stderr
+#9 0.727 copying test/run_tests__tests/print_stderr/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stderr
+#9 0.728 copying test/run_tests__tests/print_stderr/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stderr
+#9 0.728 creating /testbed/build/local/pygame/tests/run_tests__tests/print_stdout
+#9 0.729 copying test/run_tests__tests/print_stdout/fake_4_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stdout
+#9 0.729 copying test/run_tests__tests/print_stdout/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stdout
+#9 0.729 copying test/run_tests__tests/print_stdout/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stdout
+#9 0.729 copying test/run_tests__tests/print_stdout/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/print_stdout
+#9 0.729 creating /testbed/build/local/pygame/tests/run_tests__tests/incomplete_todo
+#9 0.730 copying test/run_tests__tests/incomplete_todo/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete_todo
+#9 0.730 copying test/run_tests__tests/incomplete_todo/fake_3_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete_todo
+#9 0.730 copying test/run_tests__tests/incomplete_todo/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/incomplete_todo
+#9 0.730 creating /testbed/build/local/pygame/tests/run_tests__tests/exclude
+#9 0.731 copying test/run_tests__tests/exclude/invisible_tag_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/exclude
+#9 0.731 copying test/run_tests__tests/exclude/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/exclude
+#9 0.732 copying test/run_tests__tests/exclude/magic_tag_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/exclude
+#9 0.732 copying test/run_tests__tests/exclude/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/exclude
+#9 0.733 creating /testbed/build/local/pygame/tests/run_tests__tests/timeout
+#9 0.733 copying test/run_tests__tests/timeout/sleep_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/timeout
+#9 0.733 copying test/run_tests__tests/timeout/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/timeout
+#9 0.734 copying test/run_tests__tests/timeout/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/timeout
+#9 0.734 creating /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.734 copying test/run_tests__tests/everything/sleep_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.734 copying test/run_tests__tests/everything/fake_2_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.735 copying test/run_tests__tests/everything/incomplete_todo_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.735 copying test/run_tests__tests/everything/magic_tag_test.py -> /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.735 copying test/run_tests__tests/everything/__init__.py -> /testbed/build/local/pygame/tests/run_tests__tests/everything
+#9 0.736 creating /testbed/build/local/pygame/docs
+#9 0.736 copying docs/__main__.py -> /testbed/build/local/pygame/docs
+#9 0.736 copying docs/__init__.py -> /testbed/build/local/pygame/docs
+#9 0.737 creating /testbed/build/local/pygame/examples
+#9 0.737 copying examples/vgrade.py -> /testbed/build/local/pygame/examples
+#9 0.737 copying examples/blend_fill.py -> /testbed/build/local/pygame/examples
+#9 0.738 copying examples/oldalien.py -> /testbed/build/local/pygame/examples
+#9 0.738 copying examples/liquid.py -> /testbed/build/local/pygame/examples
+#9 0.738 copying examples/eventlist.py -> /testbed/build/local/pygame/examples
+#9 0.739 copying examples/scrap_clipboard.py -> /testbed/build/local/pygame/examples
+#9 0.739 copying examples/stars.py -> /testbed/build/local/pygame/examples
+#9 0.739 copying examples/blit_blends.py -> /testbed/build/local/pygame/examples
+#9 0.739 copying examples/fastevents.py -> /testbed/build/local/pygame/examples
+#9 0.739 copying examples/sound_array_demos.py -> /testbed/build/local/pygame/examples
+#9 0.740 copying examples/aacircle.py -> /testbed/build/local/pygame/examples
+#9 0.740 copying examples/video.py -> /testbed/build/local/pygame/examples
+#9 0.740 copying examples/arraydemo.py -> /testbed/build/local/pygame/examples
+#9 0.740 copying examples/mask.py -> /testbed/build/local/pygame/examples
+#9 0.740 copying examples/testsprite.py -> /testbed/build/local/pygame/examples
+#9 0.741 copying examples/chimp.py -> /testbed/build/local/pygame/examples
+#9 0.741 copying examples/pixelarray.py -> /testbed/build/local/pygame/examples
+#9 0.741 copying examples/glcube.py -> /testbed/build/local/pygame/examples
+#9 0.741 copying examples/playmus.py -> /testbed/build/local/pygame/examples
+#9 0.742 copying examples/camera.py -> /testbed/build/local/pygame/examples
+#9 0.742 copying examples/midi.py -> /testbed/build/local/pygame/examples
+#9 0.742 copying examples/fonty.py -> /testbed/build/local/pygame/examples
+#9 0.742 copying examples/aliens.py -> /testbed/build/local/pygame/examples
+#9 0.743 copying examples/prevent_display_stretching.py -> /testbed/build/local/pygame/examples
+#9 0.743 copying examples/overlay.py -> /testbed/build/local/pygame/examples
+#9 0.743 copying examples/scroll.py -> /testbed/build/local/pygame/examples
+#9 0.744 copying examples/sound.py -> /testbed/build/local/pygame/examples
+#9 0.744 copying examples/cursors.py -> /testbed/build/local/pygame/examples
+#9 0.744 copying examples/audiocapture.py -> /testbed/build/local/pygame/examples
+#9 0.744 copying examples/headless_no_windows_needed.py -> /testbed/build/local/pygame/examples
+#9 0.745 copying examples/__init__.py -> /testbed/build/local/pygame/examples
+#9 0.745 copying examples/freetype_misc.py -> /testbed/build/local/pygame/examples
+#9 0.745 copying examples/moveit.py -> /testbed/build/local/pygame/examples
+#9 0.745 copying examples/scaletest.py -> /testbed/build/local/pygame/examples
+#9 0.748 running build_ext
+#9 0.754 building 'pygame.imageext' extension
+#9 0.754 creating /testbed/build/temp
+#9 0.754 creating /testbed/build/temp/src_c
+#9 0.755 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/imageext.c -o /testbed/build/temp/src_c/imageext.o
+#9 1.180 gcc -pthread -shared /testbed/build/temp/src_c/imageext.o -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib -lSDL2 -lSDL2_image -o /testbed/build/local/pygame/imageext.cpython-38-x86_64-linux-gnu.so
+#9 1.206 building 'pygame.font' extension
+#9 1.206 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/font.c -o /testbed/build/temp/src_c/font.o
+#9 1.452 src_c/font.c: In function ‘font_render’:
+#9 1.452 src_c/font.c:418:29: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘Py_ssize_t’ {aka ‘long int’} [-Wsign-compare]
+#9 1.452   418 |         if (strlen(astring) != Bytes_GET_SIZE(bytes)) {
+#9 1.452       |                             ^~
+#9 1.452 src_c/font.c:445:29: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘Py_ssize_t’ {aka ‘long int’} [-Wsign-compare]
+#9 1.452   445 |         if (strlen(astring) != Bytes_GET_SIZE(text)) {
+#9 1.452       |                             ^~
+#9 1.453 src_c/font.c: In function ‘font_metrics’:
+#9 1.453 src_c/font.c:567:12: warning: assignment to ‘Uint16 *’ {aka ‘short unsigned int *’} from incompatible pointer type ‘char *’ [-Wincompatible-pointer-types]
+#9 1.453   567 |     buffer = Bytes_AS_STRING(obj);
+#9 1.453       |            ^
+#9 1.453 In file included from src_c/pygame.h:32,
+#9 1.453                  from src_c/font.c:32:
+#9 1.453 src_c/font.c: In function ‘font_init’:
+#9 1.453 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.453   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.453       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.453 src_c/font.c:655:9: note: in expansion of macro ‘RAISE’
+#9 1.453   655 |         RAISE(pgExc_SDLError, "font not initialized");
+#9 1.453       |         ^~~~~
+#9 1.454 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.454   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.454       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.454 src_c/font.c:755:9: note: in expansion of macro ‘RAISE’
+#9 1.454   755 |         RAISE(PyExc_RuntimeError, SDL_GetError());
+#9 1.454       |         ^~~~~
+#9 1.621 gcc -pthread -shared /testbed/build/temp/src_c/font.o -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib -lSDL2 -lSDL2_ttf -o /testbed/build/local/pygame/font.cpython-38-x86_64-linux-gnu.so
+#9 1.636 building 'pygame.mixer' extension
+#9 1.637 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/mixer.c -o /testbed/build/temp/src_c/mixer.o
+#9 1.804 In file included from src_c/pygame.h:32,
+#9 1.804                  from src_c/mixer.c:27:
+#9 1.804 src_c/mixer.c: In function ‘_format_view_to_audio’:
+#9 1.804 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.804   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.804       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.804 src_c/mixer.c:149:9: note: in expansion of macro ‘RAISE’
+#9 1.804   149 |         RAISE(PyExc_ValueError, "Array has unsupported item format");
+#9 1.804       |         ^~~~~
+#9 1.804 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.804   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.804       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.804 src_c/mixer.c:177:17: note: in expansion of macro ‘RAISE’
+#9 1.804   177 |                 RAISE(PyExc_ValueError, "Array has unsupported item format");
+#9 1.804       |                 ^~~~~
+#9 1.807 src_c/mixer.c: In function ‘_chunk_from_array’:
+#9 1.807 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.807   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.807       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.807 src_c/mixer.c:1422:9: note: in expansion of macro ‘RAISE’
+#9 1.807  1422 |         RAISE(pgExc_SDLError, "Mixer not initialized");
+#9 1.807       |         ^~~~~
+#9 1.807 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.807   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.807       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.807 src_c/mixer.c:1430:13: note: in expansion of macro ‘RAISE’
+#9 1.807  1430 |             RAISE(PyExc_ValueError,
+#9 1.807       |             ^~~~~
+#9 1.808 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.808   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.808       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.808 src_c/mixer.c:1437:13: note: in expansion of macro ‘RAISE’
+#9 1.808  1437 |             RAISE(PyExc_ValueError,
+#9 1.808       |             ^~~~~
+#9 1.808 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.808   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.808       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.808 src_c/mixer.c:1442:13: note: in expansion of macro ‘RAISE’
+#9 1.808  1442 |             RAISE(PyExc_ValueError,
+#9 1.808       |             ^~~~~
+#9 1.809 src_c/mixer.c: In function ‘sound_init’:
+#9 1.809 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.809   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.809       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.809 src_c/mixer.c:1578:13: note: in expansion of macro ‘RAISE’
+#9 1.809  1578 |             RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#9 1.809       |             ^~~~~
+#9 1.809 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.809   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.809       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.809 src_c/mixer.c:1594:13: note: in expansion of macro ‘RAISE’
+#9 1.809  1594 |             RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#9 1.809       |             ^~~~~
+#9 1.809 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.809   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.809       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.809 src_c/mixer.c:1617:13: note: in expansion of macro ‘RAISE’
+#9 1.809  1617 |             RAISE(PyExc_TypeError,
+#9 1.809       |             ^~~~~
+#9 1.809 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.809   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.809       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.809 src_c/mixer.c:1623:9: note: in expansion of macro ‘RAISE’
+#9 1.809  1623 |         RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#9 1.809       |         ^~~~~
+#9 1.810 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 1.810   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 1.810       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 1.810 src_c/mixer.c:1648:21: note: in expansion of macro ‘RAISE’
+#9 1.810  1648 |                     RAISE(pgExc_SDLError, SDL_GetError());
+#9 1.810       |                     ^~~~~
+#9 2.188 gcc -pthread -shared /testbed/build/temp/src_c/mixer.o -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib -lSDL2 -lSDL2_mixer -o /testbed/build/local/pygame/mixer.cpython-38-x86_64-linux-gnu.so
+#9 2.202 building 'pygame.mixer_music' extension
+#9 2.202 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/music.c -o /testbed/build/temp/src_c/music.o
+#9 2.501 gcc -pthread -shared /testbed/build/temp/src_c/music.o -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib -lSDL2 -lSDL2_mixer -o /testbed/build/local/pygame/mixer_music.cpython-38-x86_64-linux-gnu.so
+#9 2.514 building 'pygame.pypm' extension
+#9 2.514 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include -I/usr/include -I/usr/local/include/python3.8 -c src_c/pypm.c -o /testbed/build/temp/src_c/pypm.o
+#9 2.556 src_c/pypm.c: In function ‘__pyx_pf_4pypm_6Output___init__’:
+#9 2.556 src_c/pypm.c:2247:20: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+#9 2.556  2247 |     __pyx_v_errmsg = Pm_GetErrorText(__pyx_v_err);
+#9 2.556       |                    ^
+#9 2.566 src_c/pypm.c: In function ‘PyInit_pypm’:
+#9 2.567 src_c/pypm.c:6419:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 2.567  6419 |   __pyx_type_4pypm_Output.tp_print = 0;
+#9 2.567       |   ^~~~~~~~~~~~~~~~~~~~~~~
+#9 2.567 In file included from /usr/local/include/python3.8/object.h:746,
+#9 2.567                  from /usr/local/include/python3.8/pytime.h:6,
+#9 2.567                  from /usr/local/include/python3.8/Python.h:85,
+#9 2.567                  from src_c/pypm.c:4:
+#9 2.567 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 2.567   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 2.567       |                              ^~~~~~~~
+#9 2.568 src_c/pypm.c:6434:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 2.568  6434 |   __pyx_type_4pypm_Input.tp_print = 0;
+#9 2.568       |   ^~~~~~~~~~~~~~~~~~~~~~
+#9 2.568 In file included from /usr/local/include/python3.8/object.h:746,
+#9 2.568                  from /usr/local/include/python3.8/pytime.h:6,
+#9 2.568                  from /usr/local/include/python3.8/Python.h:85,
+#9 2.568                  from src_c/pypm.c:4:
+#9 2.568 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 2.568   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 2.568       |                              ^~~~~~~~
+#9 4.292 gcc -pthread -shared /testbed/build/temp/src_c/pypm.o -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib/x86_64-linux-gnu -L/usr/local/lib -lSDL2 -lportmidi -lporttime -o /testbed/build/local/pygame/pypm.cpython-38-x86_64-linux-gnu.so
+#9 4.308 building 'pygame._sdl2.sdl2' extension
+#9 4.308 creating /testbed/build/temp/src_c/_sdl2
+#9 4.309 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/_sdl2/sdl2.c -o /testbed/build/temp/src_c/_sdl2/sdl2.o
+#9 5.202 gcc -pthread -shared /testbed/build/temp/src_c/_sdl2/sdl2.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/_sdl2/sdl2.cpython-38-x86_64-linux-gnu.so
+#9 5.225 building 'pygame._sdl2.audio' extension
+#9 5.225 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/_sdl2/audio.c -o /testbed/build/temp/src_c/_sdl2/audio.o
+#9 5.491 src_c/_sdl2/audio.c: In function ‘__Pyx_modinit_type_init_code’:
+#9 5.492 src_c/_sdl2/audio.c:18781:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 5.492 18781 |   __pyx_type_5audio_AudioDevice.tp_print = 0;
+#9 5.492       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.492 In file included from /usr/local/include/python3.8/object.h:746,
+#9 5.492                  from /usr/local/include/python3.8/pytime.h:6,
+#9 5.492                  from /usr/local/include/python3.8/Python.h:85,
+#9 5.492                  from src_c/_sdl2/audio.c:17:
+#9 5.492 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 5.492   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 5.492       |                              ^~~~~~~~
+#9 5.494 src_c/_sdl2/audio.c:18801:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 5.494 18801 |   __pyx_type___pyx_array.tp_print = 0;
+#9 5.494       |   ^~~~~~~~~~~~~~~~~~~~~~
+#9 5.494 In file included from /usr/local/include/python3.8/object.h:746,
+#9 5.494                  from /usr/local/include/python3.8/pytime.h:6,
+#9 5.494                  from /usr/local/include/python3.8/Python.h:85,
+#9 5.494                  from src_c/_sdl2/audio.c:17:
+#9 5.494 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 5.494   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 5.494       |                              ^~~~~~~~
+#9 5.497 src_c/_sdl2/audio.c:18806:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 5.497 18806 |   __pyx_type___pyx_MemviewEnum.tp_print = 0;
+#9 5.497       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.497 In file included from /usr/local/include/python3.8/object.h:746,
+#9 5.497                  from /usr/local/include/python3.8/pytime.h:6,
+#9 5.497                  from /usr/local/include/python3.8/Python.h:85,
+#9 5.497                  from src_c/_sdl2/audio.c:17:
+#9 5.497 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 5.497   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 5.497       |                              ^~~~~~~~
+#9 5.499 src_c/_sdl2/audio.c:18821:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 5.499 18821 |   __pyx_type___pyx_memoryview.tp_print = 0;
+#9 5.499       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.499 In file included from /usr/local/include/python3.8/object.h:746,
+#9 5.499                  from /usr/local/include/python3.8/pytime.h:6,
+#9 5.499                  from /usr/local/include/python3.8/Python.h:85,
+#9 5.499                  from src_c/_sdl2/audio.c:17:
+#9 5.499 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 5.499   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 5.499       |                              ^~~~~~~~
+#9 5.501 src_c/_sdl2/audio.c:18834:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 5.501 18834 |   __pyx_type___pyx_memoryviewslice.tp_print = 0;
+#9 5.501       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.501 In file included from /usr/local/include/python3.8/object.h:746,
+#9 5.501                  from /usr/local/include/python3.8/pytime.h:6,
+#9 5.501                  from /usr/local/include/python3.8/Python.h:85,
+#9 5.501                  from src_c/_sdl2/audio.c:17:
+#9 5.501 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 5.501   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 5.501       |                              ^~~~~~~~
+#9 9.924 gcc -pthread -shared /testbed/build/temp/src_c/_sdl2/audio.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/_sdl2/audio.cpython-38-x86_64-linux-gnu.so
+#9 9.947 building 'pygame._sdl2.video' extension
+#9 9.947 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/_sdl2/video.c -o /testbed/build/temp/src_c/_sdl2/video.o
+#9 10.16 src_c/_sdl2/video.c: In function ‘__Pyx_modinit_type_init_code’:
+#9 10.17 src_c/_sdl2/video.c:9995:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 10.17  9995 |   __pyx_type_5video_Window.tp_print = 0;
+#9 10.17       |   ^~~~~~~~~~~~~~~~~~~~~~~~
+#9 10.17 In file included from /usr/local/include/python3.8/object.h:746,
+#9 10.17                  from /usr/local/include/python3.8/pytime.h:6,
+#9 10.17                  from /usr/local/include/python3.8/Python.h:85,
+#9 10.17                  from src_c/_sdl2/video.c:22:
+#9 10.17 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 10.17   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 10.17       |                              ^~~~~~~~
+#9 10.17 src_c/_sdl2/video.c:10013:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 10.17 10013 |   __pyx_type_5video_Renderer.tp_print = 0;
+#9 10.17       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 10.17 In file included from /usr/local/include/python3.8/object.h:746,
+#9 10.17                  from /usr/local/include/python3.8/pytime.h:6,
+#9 10.17                  from /usr/local/include/python3.8/Python.h:85,
+#9 10.17                  from src_c/_sdl2/video.c:22:
+#9 10.17 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 10.17   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 10.17       |                              ^~~~~~~~
+#9 10.17 src_c/_sdl2/video.c:10031:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 10.17 10031 |   __pyx_type_5video_Texture.tp_print = 0;
+#9 10.17       |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 10.17 In file included from /usr/local/include/python3.8/object.h:746,
+#9 10.17                  from /usr/local/include/python3.8/pytime.h:6,
+#9 10.17                  from /usr/local/include/python3.8/Python.h:85,
+#9 10.17                  from src_c/_sdl2/video.c:22:
+#9 10.17 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 10.17   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 10.17       |                              ^~~~~~~~
+#9 10.17 src_c/_sdl2/video.c:10049:3: warning: ‘tp_print’ is deprecated [-Wdeprecated-declarations]
+#9 10.17 10049 |   __pyx_type_5video___pyx_scope_struct__get_drivers.tp_print = 0;
+#9 10.17       |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 10.17 In file included from /usr/local/include/python3.8/object.h:746,
+#9 10.17                  from /usr/local/include/python3.8/pytime.h:6,
+#9 10.17                  from /usr/local/include/python3.8/Python.h:85,
+#9 10.17                  from src_c/_sdl2/video.c:22:
+#9 10.17 /usr/local/include/python3.8/cpython/object.h:260:30: note: declared here
+#9 10.17   260 |     Py_DEPRECATED(3.8) int (*tp_print)(PyObject *, FILE *, int);
+#9 10.17       |                              ^~~~~~~~
+#9 13.30 gcc -pthread -shared /testbed/build/temp/src_c/_sdl2/video.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/_sdl2/video.cpython-38-x86_64-linux-gnu.so
+#9 13.33 building 'pygame.gfxdraw' extension
+#9 13.33 creating /testbed/build/temp/src_c/SDL_gfx
+#9 13.33 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/SDL_gfx/SDL_gfxPrimitives.c -o /testbed/build/temp/src_c/SDL_gfx/SDL_gfxPrimitives.o
+#9 13.54 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_aalineColor’:
+#9 13.54 src_c/SDL_gfx/SDL_gfxPrimitives.c:2523:25: warning: variable ‘wgtcompmask’ set but not used [-Wunused-but-set-variable]
+#9 13.54  2523 |  Uint32 erracctmp, wgt, wgtcompmask;
+#9 13.54       |                         ^~~~~~~~~~~
+#9 13.54 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘arcColor’:
+#9 13.54 src_c/SDL_gfx/SDL_gfxPrimitives.c:3116:2: warning: multi-line comment [-Wcomment]
+#9 13.54  3116 |  //     /|\
+#9 13.54       |  ^
+#9 13.54 src_c/SDL_gfx/SDL_gfxPrimitives.c:3118:2: warning: multi-line comment [-Wcomment]
+#9 13.54  3118 |  //   /  |  \
+#9 13.54       |  ^
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_murphyIteration’:
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:6525:25: warning: pointer targets in passing argument 2 of ‘polygonColor’ differ in signedness [-Wpointer-sign]
+#9 13.55  6525 |    polygonColor(m->dst, px, py, 4, m->color);
+#9 13.55       |                         ^~
+#9 13.55       |                         |
+#9 13.55       |                         Uint16 * {aka short unsigned int *}
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:4916:52: note: expected ‘const Sint16 *’ {aka ‘const short int *’} but argument is of type ‘Uint16 *’ {aka ‘short unsigned int *’}
+#9 13.55  4916 | int polygonColor(SDL_Surface * dst, const Sint16 * vx, const Sint16 * vy, int n, Uint32 color)
+#9 13.55       |                                     ~~~~~~~~~~~~~~~^~
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:6525:29: warning: pointer targets in passing argument 3 of ‘polygonColor’ differ in signedness [-Wpointer-sign]
+#9 13.55  6525 |    polygonColor(m->dst, px, py, 4, m->color);
+#9 13.55       |                             ^~
+#9 13.55       |                             |
+#9 13.55       |                             Uint16 * {aka short unsigned int *}
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:4916:71: note: expected ‘const Sint16 *’ {aka ‘const short int *’} but argument is of type ‘Uint16 *’ {aka ‘short unsigned int *’}
+#9 13.55  4916 | int polygonColor(SDL_Surface * dst, const Sint16 * vx, const Sint16 * vy, int n, Uint32 color)
+#9 13.55       |                                                        ~~~~~~~~~~~~~~~^~
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_murphyWideline’:
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:6561:25: warning: variable ‘ptxy’ set but not used [-Wunused-but-set-variable]
+#9 13.55  6561 |  Sint16 ptx, pty, ptxx, ptxy, ml1x, ml1y, ml2x, ml2y, ml1bx, ml1by, ml2bx, ml2by;
+#9 13.55       |                         ^~~~
+#9 13.55 src_c/SDL_gfx/SDL_gfxPrimitives.c:6561:19: warning: variable ‘ptxx’ set but not used [-Wunused-but-set-variable]
+#9 13.55  6561 |  Sint16 ptx, pty, ptxx, ptxy, ml1x, ml1y, ml2x, ml2y, ml1bx, ml1by, ml2bx, ml2by;
+#9 13.55       |                   ^~~~
+#9 13.57 At top level:
+#9 13.57 src_c/SDL_gfx/SDL_gfxPrimitives.c:5688:15: warning: ‘gfxPrimitivesFontColor’ defined but not used [-Wunused-variable]
+#9 13.57  5688 | static Uint32 gfxPrimitivesFontColor[256];
+#9 13.57       |               ^~~~~~~~~~~~~~~~~~~~~~
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_murphyWideline’:
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml2by’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50  6725 |  _murphyIteration(m, miter, ml1bx, ml1by, ml2bx, ml2by, ml1x, ml1y, ml2x, ml2y);
+#9 14.50       |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml2bx’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml1by’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml1bx’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml2y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml2x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml1y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.50 src_c/SDL_gfx/SDL_gfxPrimitives.c:6725:2: warning: ‘ml1x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#9 14.62 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/gfxdraw.c -o /testbed/build/temp/src_c/gfxdraw.o
+#9 15.14 gcc -pthread -shared /testbed/build/temp/src_c/SDL_gfx/SDL_gfxPrimitives.o /testbed/build/temp/src_c/gfxdraw.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/gfxdraw.cpython-38-x86_64-linux-gnu.so
+#9 15.16 building 'pygame._freetype' extension
+#9 15.16 creating /testbed/build/temp/src_c/freetype
+#9 15.16 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/_freetype.c -o /testbed/build/temp/src_c/_freetype.o
+#9 15.40 src_c/_freetype.c: In function ‘parse_dest’:
+#9 15.40 src_c/_freetype.c:272:32: warning: comparison of constant ‘1’ with boolean expression is always false [-Wbool-compare]
+#9 15.40   272 |         !PySequence_Size(dest) > 1) {
+#9 15.40       |                                ^
+#9 15.40 src_c/_freetype.c:272:32: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+#9 15.40 src_c/_freetype.c:272:9: note: add parentheses around left hand side expression to silence this warning
+#9 15.40   272 |         !PySequence_Size(dest) > 1) {
+#9 15.40       |         ^~~~~~~~~~~~~~~~~~~~~~
+#9 15.40       |         (                     )
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_dealloc’:
+#9 15.40 src_c/_freetype.c:709:31: warning: passing argument 1 of ‘(void (*)(PyObject *))PyGAME_C_API[57]’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 15.40   709 |         pgRWopsFreeFromObject(src);
+#9 15.40       |                               ^~~
+#9 15.40       |                               |
+#9 15.40       |                               SDL_RWops *
+#9 15.40 src_c/_freetype.c:709:31: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘SDL_RWops *’
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getstyle_flag’:
+#9 15.40 src_c/_freetype.c:954:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#9 15.40   954 |     const int style_flag = (int)closure;
+#9 15.40       |                            ^
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_setstyle_flag’:
+#9 15.40 src_c/_freetype.c:962:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#9 15.40   962 |     const int style_flag = (int)closure;
+#9 15.40       |                            ^
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getrender_flag’:
+#9 15.40 src_c/_freetype.c:1193:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#9 15.40  1193 |     const int render_flag = (int)closure;
+#9 15.40       |                             ^
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_setrender_flag’:
+#9 15.40 src_c/_freetype.c:1201:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#9 15.40  1201 |     const int render_flag = (int)closure;
+#9 15.40       |                             ^
+#9 15.40 In file included from src_c/pygame.h:32,
+#9 15.40                  from src_c/freetype.h:27,
+#9 15.40                  from src_c/_freetype.c:24:
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getsizedascender’:
+#9 15.40 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 15.40   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 15.40       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 15.40 src_c/_freetype.c:1448:13: note: in expansion of macro ‘RAISE’
+#9 15.40  1448 |             RAISE(PyExc_ValueError,
+#9 15.40       |             ^~~~~
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getsizeddescender’:
+#9 15.40 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 15.40   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 15.40       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 15.40 src_c/_freetype.c:1475:13: note: in expansion of macro ‘RAISE’
+#9 15.40  1475 |             RAISE(PyExc_ValueError,
+#9 15.40       |             ^~~~~
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getsizedheight’:
+#9 15.40 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 15.40   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 15.40       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 15.40 src_c/_freetype.c:1503:13: note: in expansion of macro ‘RAISE’
+#9 15.40  1503 |             RAISE(PyExc_ValueError,
+#9 15.40       |             ^~~~~
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getsizedglyphheight’:
+#9 15.40 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 15.40   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 15.40       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 15.40 src_c/_freetype.c:1530:13: note: in expansion of macro ‘RAISE’
+#9 15.40  1530 |             RAISE(PyExc_ValueError,
+#9 15.40       |             ^~~~~
+#9 15.40 src_c/_freetype.c: In function ‘_ftfont_getsizes’:
+#9 15.40 src_c/_freetype.c:1564:19: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 15.40  1564 |     for (i = 0; i < nsizes; ++i) {
+#9 15.40       |                   ^
+#9 15.81 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_cache.c -o /testbed/build/temp/src_c/freetype/ft_cache.o
+#9 16.05 src_c/freetype/ft_cache.c: In function ‘equal_node_keys’:
+#9 16.05 src_c/freetype/ft_cache.c:82:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
+#9 16.05    82 |     for (i = 0; i < sizeof(a->dwords) / sizeof(a->dwords[0]); ++i) {
+#9 16.05       |                   ^
+#9 16.09 src_c/freetype/ft_cache.c: In function ‘_PGFT_Cache_FindGlyph’:
+#9 16.09 src_c/freetype/ft_cache.c:108:20: warning: array subscript -1 is outside array bounds of ‘NodeKey[1]’ {aka ‘union cachenodekey_[1]’} [-Warray-bounds]
+#9 16.09   108 |         k1 = blocks[i];
+#9 16.09       |                    ^
+#9 16.09 src_c/freetype/ft_cache.c:239:13: note: while referencing ‘key’
+#9 16.09   239 |     NodeKey key;
+#9 16.09       |             ^~~
+#9 16.13 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_layout.c -o /testbed/build/temp/src_c/freetype/ft_layout.o
+#9 16.50 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_render.c -o /testbed/build/temp/src_c/freetype/ft_render.o
+#9 16.73 src_c/freetype/ft_render.c: In function ‘_PGFT_Render_NewSurface’:
+#9 16.73 src_c/freetype/ft_render.c:572: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 16.73   572 | #pragma PG_WARN(SRCALPHA flag problem here. Blend mode not set to SDL_BLENDMODE_BLEND.)
+#9 16.73       | 
+#9 16.73 src_c/freetype/ft_render.c:573: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 16.73   573 | #pragma PG_WARN(Probably should keep flags in pgFontObject.)
+#9 16.73       | 
+#9 16.93 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_render_cb.c -o /testbed/build/temp/src_c/freetype/ft_render_cb.o
+#9 17.18 src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_GRAY1’:
+#9 17.18 src_c/freetype/ft_render_cb.c:57:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18    57 |     for (j = 0; j < bitmap->rows; ++j) {
+#9 17.18       |                   ^
+#9 17.18 src_c/freetype/ft_render_cb.c:61:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18    61 |         for (i = 0; i < bitmap->width; ++i) {
+#9 17.18       |                       ^
+#9 17.18 src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_GRAY_as_MONO1’:
+#9 17.18 src_c/freetype/ft_render_cb.c:143:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   143 |     for (j = 0; j < bitmap->rows; ++j) {
+#9 17.18       |                   ^
+#9 17.18 src_c/freetype/ft_render_cb.c:147:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   147 |         for (i = 0; i < bitmap->width; ++i) {
+#9 17.18       |                       ^
+#9 17.18 src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_INT’:
+#9 17.18 src_c/freetype/ft_render_cb.c:243:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   243 |         for (j = 0; j < bitmap->rows; ++j) {
+#9 17.18       |                       ^
+#9 17.18 src_c/freetype/ft_render_cb.c:247:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   247 |             for (i = 0; i < bitmap->width; ++i) {
+#9 17.18       |                           ^
+#9 17.18 src_c/freetype/ft_render_cb.c:264:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   264 |         for (j = 0; j < bitmap->rows; ++j) {
+#9 17.18       |                       ^
+#9 17.18 src_c/freetype/ft_render_cb.c:268:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 17.18   268 |             for (i = 0; i < bitmap->width; ++i) {
+#9 17.18       |                           ^
+#9 17.19 src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_MONO3’:
+#9 17.19 src_c/freetype/ft_render_cb.c:699:19: warning: variable ‘full_color’ set but not used [-Wunused-but-set-variable]
+#9 17.19   699 |         FT_UInt32 full_color;                                           \
+#9 17.19       |                   ^~~~~~~~~~
+#9 17.19 src_c/freetype/ft_render_cb.c:852:1: note: in expansion of macro ‘_CREATE_MONO_RENDER’
+#9 17.19   852 | _CREATE_MONO_RENDER(3,  GET_PIXEL24(_dst),       _SET_PIXEL_24,          _BLEND_PIXEL_24)
+#9 17.19       | ^~~~~~~~~~~~~~~~~~~
+#9 17.87 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_unicode.c -o /testbed/build/temp/src_c/freetype/ft_unicode.o
+#9 18.17 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.8 -c src_c/freetype/ft_wrap.c -o /testbed/build/temp/src_c/freetype/ft_wrap.o
+#9 18.39 In file included from src_c/freetype/ft_wrap.h:25,
+#9 18.39                  from src_c/freetype/ft_wrap.c:23:
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_IsFixedWidth’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:92:9: note: in expansion of macro ‘RAISE’
+#9 18.39    92 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_NumFixedSizes’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:104:9: note: in expansion of macro ‘RAISE’
+#9 18.39   104 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAvailableSize’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:120:9: note: in expansion of macro ‘RAISE’
+#9 18.39   120 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:123:40: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘FT_Int’ {aka ‘int’} [-Wsign-compare]
+#9 18.39   123 |     if (!FT_HAS_FIXED_SIZES(font) || n > font->num_fixed_sizes) /* cond. or */ {
+#9 18.39       |                                        ^
+#9 18.39 In file included from src_c/freetype/ft_wrap.h:25,
+#9 18.39                  from src_c/freetype/ft_wrap.c:23:
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetName’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:142:9: note: in expansion of macro ‘RAISE’
+#9 18.39   142 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetHeight’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:157:9: note: in expansion of macro ‘RAISE’
+#9 18.39   157 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetHeightSized’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:170:9: note: in expansion of macro ‘RAISE’
+#9 18.39   170 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAscender’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:182:9: note: in expansion of macro ‘RAISE’
+#9 18.39   182 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAscenderSized’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:195:9: note: in expansion of macro ‘RAISE’
+#9 18.39   195 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetDescender’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:207:9: note: in expansion of macro ‘RAISE’
+#9 18.39   207 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetDescenderSized’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:220:9: note: in expansion of macro ‘RAISE’
+#9 18.39   220 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetGlyphHeightSized’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:237:9: note: in expansion of macro ‘RAISE’
+#9 18.39   237 |         RAISE(pgExc_SDLError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘init’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:388:9: note: in expansion of macro ‘RAISE’
+#9 18.39   388 |         RAISE(PyExc_IOError, _PGFT_GetError(ft));
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_TryLoadFont_RWops’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:470:9: note: in expansion of macro ‘RAISE’
+#9 18.39   470 |         RAISE(pgExc_SDLError, "Failed to seek in font stream");
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/ft_wrap.c: In function ‘_PGFT_Init’:
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:554:9: note: in expansion of macro ‘RAISE’
+#9 18.39   554 |         RAISE(PyExc_RuntimeError,
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:562:9: note: in expansion of macro ‘RAISE’
+#9 18.39   562 |         RAISE(PyExc_RuntimeError,
+#9 18.39       |         ^~~~~
+#9 18.39 src_c/freetype/../_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 18.39   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 18.39       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 18.39 src_c/freetype/ft_wrap.c:569:9: note: in expansion of macro ‘RAISE’
+#9 18.39   569 |         RAISE(PyExc_RuntimeError,
+#9 18.39       |         ^~~~~
+#9 18.50 gcc -pthread -shared /testbed/build/temp/src_c/_freetype.o /testbed/build/temp/src_c/freetype/ft_cache.o /testbed/build/temp/src_c/freetype/ft_layout.o /testbed/build/temp/src_c/freetype/ft_render.o /testbed/build/temp/src_c/freetype/ft_render_cb.o /testbed/build/temp/src_c/freetype/ft_unicode.o /testbed/build/temp/src_c/freetype/ft_wrap.o -L/usr/local/lib -lSDL2 -lfreetype -o /testbed/build/local/pygame/_freetype.cpython-38-x86_64-linux-gnu.so
+#9 18.53 building 'pygame.base' extension
+#9 18.53 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/base.c -o /testbed/build/temp/src_c/base.o
+#9 19.22 gcc -pthread -shared /testbed/build/temp/src_c/base.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/base.cpython-38-x86_64-linux-gnu.so
+#9 19.24 building 'pygame.color' extension
+#9 19.24 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/color.c -o /testbed/build/temp/src_c/color.o
+#9 19.45 src_c/color.c:316:5: warning: initialization of ‘long int’ from ‘void *’ makes integer from pointer without a cast [-Wint-conversion]
+#9 19.45   316 |     NULL,                              /* tp_print */
+#9 19.45       |     ^~~~
+#9 19.45 src_c/color.c:316:5: note: (near initialization for ‘pgColor_Type.tp_vectorcall_offset’)
+#9 19.45 In file included from src_c/pygame.h:32,
+#9 19.45                  from src_c/color.c:42:
+#9 19.45 src_c/color.c: In function ‘_color_init’:
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:683:13: note: in expansion of macro ‘RAISE’
+#9 19.45   683 |             RAISE(PyExc_ValueError, "invalid arguments");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:701:21: note: in expansion of macro ‘RAISE’
+#9 19.45   701 |                     RAISE(PyExc_ValueError, "invalid color name");
+#9 19.45       |                     ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:710:13: note: in expansion of macro ‘RAISE’
+#9 19.45   710 |             RAISE(PyExc_ValueError, "invalid color");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:724:13: note: in expansion of macro ‘RAISE’
+#9 19.45   724 |             RAISE(PyExc_ValueError, "invalid argument");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:728:13: note: in expansion of macro ‘RAISE’
+#9 19.45   728 |             RAISE(PyExc_ValueError, "invalid argument");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:737:13: note: in expansion of macro ‘RAISE’
+#9 19.45   737 |             RAISE(PyExc_ValueError, "invalid color argument");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:742:13: note: in expansion of macro ‘RAISE’
+#9 19.45   742 |             RAISE(PyExc_ValueError, "invalid color argument");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:747:13: note: in expansion of macro ‘RAISE’
+#9 19.45   747 |             RAISE(PyExc_ValueError, "invalid color argument");
+#9 19.45       |             ^~~~~
+#9 19.45 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 19.45   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 19.45       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 19.45 src_c/color.c:754:17: note: in expansion of macro ‘RAISE’
+#9 19.45   754 |                 RAISE(PyExc_ValueError, "invalid color argument");
+#9 19.45       |                 ^~~~~
+#9 19.88 gcc -pthread -shared /testbed/build/temp/src_c/color.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/color.cpython-38-x86_64-linux-gnu.so
+#9 19.91 building 'pygame.constants' extension
+#9 19.91 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/constants.c -o /testbed/build/temp/src_c/constants.o
+#9 20.94 gcc -pthread -shared /testbed/build/temp/src_c/constants.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/constants.cpython-38-x86_64-linux-gnu.so
+#9 20.95 building 'pygame.display' extension
+#9 20.95 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/display.c -o /testbed/build/temp/src_c/display.o
+#9 21.17 src_c/display.c:259: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.17   259 | #pragma PG_WARN(The vidinfo object is not used in SDL2 so far.)
+#9 21.17       | 
+#9 21.17 src_c/display.c: In function ‘pg_set_mode’:
+#9 21.17 src_c/display.c:579:61: warning: passing argument 4 of ‘PyArg_ParseTupleAndKeywords’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 21.17   579 |     if (!PyArg_ParseTupleAndKeywords(arg, kwds, "|(ii)iii", keywords,
+#9 21.17       |                                                             ^~~~~~~~
+#9 21.17       |                                                             |
+#9 21.17       |                                                             const char **
+#9 21.17 In file included from /usr/local/include/python3.8/Python.h:137,
+#9 21.17                  from src_c/_pygame.h:85,
+#9 21.17                  from src_c/pygame.h:32,
+#9 21.17                  from src_c/display.c:27:
+#9 21.17 /usr/local/include/python3.8/modsupport.h:42:65: note: expected ‘char **’ but argument is of type ‘const char **’
+#9 21.17    42 |                                                   const char *, char **, ...);
+#9 21.17       |                                                                 ^~~~~~~
+#9 21.18 src_c/display.c:618: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18   618 | #pragma PG_WARN(Add mode stuff.)
+#9 21.18       | 
+#9 21.18 src_c/display.c:639: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18   639 | #pragma PG_WARN(Not setting bpp ?)
+#9 21.18       | 
+#9 21.18 In file included from src_c/pygame.h:32,
+#9 21.18                  from src_c/display.c:27:
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:681:17: note: in expansion of macro ‘RAISE’
+#9 21.18   681 |                 RAISE(pgExc_SDLError, SDL_GetError());
+#9 21.18       |                 ^~~~~
+#9 21.18 src_c/display.c: In function ‘_pg_get_default_display_masks’:
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:772:9: note: in expansion of macro ‘RAISE’
+#9 21.18   772 |         RAISE(PyExc_ValueError, "nonstandard bit depth given");
+#9 21.18       |         ^~~~~
+#9 21.18 src_c/display.c: In function ‘pg_mode_ok’:
+#9 21.18 src_c/display.c:796:62: warning: passing argument 4 of ‘PyArg_ParseTupleAndKeywords’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 21.18   796 |     if (!PyArg_ParseTupleAndKeywords(args, kwds, "(ii)|iii", keywords,
+#9 21.18       |                                                              ^~~~~~~~
+#9 21.18       |                                                              |
+#9 21.18       |                                                              const char **
+#9 21.18 In file included from /usr/local/include/python3.8/Python.h:137,
+#9 21.18                  from src_c/_pygame.h:85,
+#9 21.18                  from src_c/pygame.h:32,
+#9 21.18                  from src_c/display.c:27:
+#9 21.18 /usr/local/include/python3.8/modsupport.h:42:65: note: expected ‘char **’ but argument is of type ‘const char **’
+#9 21.18    42 |                                                   const char *, char **, ...);
+#9 21.18       |                                                                 ^~~~~~~
+#9 21.18 src_c/display.c:806: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18   806 | #pragma PG_WARN(Ignoring most flags)
+#9 21.18       | 
+#9 21.18 src_c/display.c: In function ‘pg_list_modes’:
+#9 21.18 src_c/display.c:864: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18   864 | #pragma PG_WARN(Ignoring flags)
+#9 21.18       | 
+#9 21.18 src_c/display.c:885:43: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+#9 21.18   885 |         if (SDL_BITSPERPIXEL(mode.format) != bpp)
+#9 21.18       |                                           ^~
+#9 21.18 In file included from src_c/pygame.h:32,
+#9 21.18                  from src_c/display.c:27:
+#9 21.18 src_c/display.c: In function ‘pg_convert_to_uint16’:
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:1505:9: note: in expansion of macro ‘RAISE’
+#9 21.18  1505 |         RAISE(PyExc_RuntimeError, "Memory not allocated for c_uint16_array.");
+#9 21.18       |         ^~~~~
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:1509:9: note: in expansion of macro ‘RAISE’
+#9 21.18  1509 |         RAISE(PyExc_TypeError, "Array must be sequence type");
+#9 21.18       |         ^~~~~
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:1513:9: note: in expansion of macro ‘RAISE’
+#9 21.18  1513 |         RAISE(PyExc_ValueError, "gamma ramp must be 256 elements long");
+#9 21.18       |         ^~~~~
+#9 21.18 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.18   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.18       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.18 src_c/display.c:1519:13: note: in expansion of macro ‘RAISE’
+#9 21.18  1519 |             RAISE(PyExc_ValueError,
+#9 21.18       |             ^~~~~
+#9 21.18 src_c/display.c: In function ‘pg_iconify’:
+#9 21.18 src_c/display.c:1646: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18  1646 | #pragma PG_WARN(Does this send the app an SDL_ActiveEvent loss event ?)
+#9 21.18       | 
+#9 21.18 src_c/display.c: At top level:
+#9 21.18 src_c/display.c:1801:18: warning: initialization of ‘PyObject * (*)(PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *)’} from incompatible pointer type ‘PyObject * (*)(PyObject *, PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *, struct _object *)’} [-Wincompatible-pointer-types]
+#9 21.18  1801 |     {"set_mode", pg_set_mode, METH_VARARGS | METH_KEYWORDS, DOC_PYGAMEDISPLAYSETMODE},
+#9 21.18       |                  ^~~~~~~~~~~
+#9 21.18 src_c/display.c:1801:18: note: (near initialization for ‘_pg_display_methods[7].ml_meth’)
+#9 21.18 src_c/display.c:1802:17: warning: initialization of ‘PyObject * (*)(PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *)’} from incompatible pointer type ‘PyObject * (*)(PyObject *, PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *, struct _object *)’} [-Wincompatible-pointer-types]
+#9 21.18  1802 |     {"mode_ok", pg_mode_ok, METH_VARARGS | METH_KEYWORDS, DOC_PYGAMEDISPLAYMODEOK},
+#9 21.18       |                 ^~~~~~~~~~
+#9 21.18 src_c/display.c:1802:17: note: (near initialization for ‘_pg_display_methods[8].ml_meth’)
+#9 21.18 src_c/display.c:1803:20: warning: initialization of ‘PyObject * (*)(PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *)’} from incompatible pointer type ‘PyObject * (*)(PyObject *, PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *, struct _object *)’} [-Wincompatible-pointer-types]
+#9 21.18  1803 |     {"list_modes", pg_list_modes, METH_VARARGS | METH_KEYWORDS, DOC_PYGAMEDISPLAYLISTMODES},
+#9 21.18       |                    ^~~~~~~~~~~~~
+#9 21.18 src_c/display.c:1803:20: note: (near initialization for ‘_pg_display_methods[9].ml_meth’)
+#9 21.18 src_c/display.c:1839: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.18  1839 | #pragma PG_WARN(At some point should add GC slot functions.)
+#9 21.18       | 
+#9 21.46 gcc -pthread -shared /testbed/build/temp/src_c/display.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/display.cpython-38-x86_64-linux-gnu.so
+#9 21.48 building 'pygame.event' extension
+#9 21.48 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/event.c -o /testbed/build/temp/src_c/event.o
+#9 21.72 src_c/event.c: In function ‘pg_event_filter’:
+#9 21.72 src_c/event.c:134: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 21.72   134 | #pragma PG_WARN(Add event blocking here.)
+#9 21.72       | 
+#9 21.72 In file included from src_c/pygame.h:32,
+#9 21.72                  from src_c/event.c:28:
+#9 21.72 src_c/event.c: In function ‘pg_EnableKeyRepeat’:
+#9 21.72 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 21.72   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 21.72       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 21.72 src_c/event.c:185:9: note: in expansion of macro ‘RAISE’
+#9 21.72   185 |         RAISE(PyExc_ValueError, "delay and interval must equal at least 0");
+#9 21.72       |         ^~~~~
+#9 21.72 src_c/event.c: In function ‘dict_from_event’:
+#9 21.72 src_c/event.c:420:26: warning: comparison of integer expressions of different signedness: ‘Sint32’ {aka ‘int’} and ‘unsigned int’ [-Wsign-compare]
+#9 21.72   420 |     if (event->user.code == USEROBJECT_CHECK1 &&
+#9 21.72       |                          ^~
+#9 21.72 src_c/event.c:486:54: warning: passing argument 1 of ‘PyLong_FromLong’ makes integer from pointer without a cast [-Wint-conversion]
+#9 21.72   486 |             _pg_insobj(dict, "which", PyInt_FromLong(&event->adevice.which));
+#9 21.72       |                                                      ^~~~~~~~~~~~~~~~~~~~~
+#9 21.72       |                                                      |
+#9 21.72       |                                                      Uint32 * {aka unsigned int *}
+#9 21.72 In file included from /usr/local/include/python3.8/Python.h:98,
+#9 21.72                  from src_c/_pygame.h:85,
+#9 21.72                  from src_c/pygame.h:32,
+#9 21.72                  from src_c/event.c:28:
+#9 21.72 /usr/local/include/python3.8/longobject.h:18:40: note: expected ‘long int’ but argument is of type ‘Uint32 *’ {aka ‘unsigned int *’}
+#9 21.72    18 | PyAPI_FUNC(PyObject *) PyLong_FromLong(long);
+#9 21.72       |                                        ^~~~
+#9 21.72 src_c/event.c:487:58: warning: passing argument 1 of ‘PyLong_FromLong’ makes integer from pointer without a cast [-Wint-conversion]
+#9 21.72   487 |             _pg_insobj(dict, "iscapture", PyInt_FromLong(&event->adevice.iscapture));
+#9 21.72       |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 21.72       |                                                          |
+#9 21.72       |                                                          Uint8 * {aka unsigned char *}
+#9 21.72 In file included from /usr/local/include/python3.8/Python.h:98,
+#9 21.72                  from src_c/_pygame.h:85,
+#9 21.72                  from src_c/pygame.h:32,
+#9 21.72                  from src_c/event.c:28:
+#9 21.72 /usr/local/include/python3.8/longobject.h:18:40: note: expected ‘long int’ but argument is of type ‘Uint8 *’ {aka ‘unsigned char *’}
+#9 21.72    18 | PyAPI_FUNC(PyObject *) PyLong_FromLong(long);
+#9 21.72       |                                        ^~~~
+#9 21.74 At top level:
+#9 21.74 src_c/event.c:373:1: warning: ‘_pg_our_empty_ustr’ defined but not used [-Wunused-function]
+#9 21.74   373 | _pg_our_empty_ustr(void)
+#9 21.74       | ^~~~~~~~~~~~~~~~~~
+#9 21.74 src_c/event.c:358:1: warning: ‘_pg_our_unichr’ defined but not used [-Wunused-function]
+#9 21.74   358 | _pg_our_unichr(long uni)
+#9 21.74       | ^~~~~~~~~~~~~~
+#9 21.79 src_c/event.c: In function ‘pg_event_filter’:
+#9 21.79 src_c/event.c:160:13: warning: ‘strncpy’ output may be truncated copying 5 bytes from a string of length 31 [-Wstringop-truncation]
+#9 21.79   160 |             strncpy(_pg_last_unicode_char, ev->text.text,
+#9 21.79       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 21.79   161 |                     sizeof(_pg_last_unicode_char));
+#9 21.79       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 22.07 gcc -pthread -shared /testbed/build/temp/src_c/event.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so
+#9 22.09 building 'pygame.key' extension
+#9 22.09 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/key.c -o /testbed/build/temp/src_c/key.o
+#9 22.33 src_c/key.c: In function ‘pg_scancodewrapper_subscript’:
+#9 22.33 src_c/key.c:101:39: warning: passing argument 1 of ‘((PyObject *)self)->ob_type->tp_base->tp_as_mapping->mp_subscript’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 22.33   101 |           tp_as_mapping->mp_subscript(self, adjustedvalue);
+#9 22.33       |                                       ^~~~
+#9 22.33       |                                       |
+#9 22.33       |                                       pgScancodeWrapper *
+#9 22.33 src_c/key.c:101:39: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘pgScancodeWrapper *’
+#9 22.33 src_c/key.c: At top level:
+#9 22.33 src_c/key.c:108:5: warning: initialization of ‘PyObject * (*)(PyObject *, PyObject *)’ {aka ‘struct _object * (*)(struct _object *, struct _object *)’} from incompatible pointer type ‘PyObject * (*)(pgScancodeWrapper *, PyObject *)’ {aka ‘struct _object * (*)(pgScancodeWrapper *, struct _object *)’} [-Wincompatible-pointer-types]
+#9 22.33   108 |     pg_scancodewrapper_subscript,
+#9 22.33       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 22.33 src_c/key.c:108:5: note: (near initialization for ‘pg_scancodewrapper_mapping.mp_subscript’)
+#9 22.33 src_c/key.c: In function ‘pg_scancodewrapper_repr’:
+#9 22.33 src_c/key.c:121:71: warning: passing argument 1 of ‘((PyObject *)self)->ob_type->tp_base->tp_repr’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 22.33   121 |     PyObject *baserepr = ((PyObject*)self)->ob_type->tp_base->tp_repr(self);
+#9 22.33       |                                                                       ^~~~
+#9 22.33       |                                                                       |
+#9 22.33       |                                                                       pgScancodeWrapper *
+#9 22.33 src_c/key.c:121:71: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘pgScancodeWrapper *’
+#9 22.34 src_c/key.c: At top level:
+#9 22.34 src_c/key.c:136:5: warning: initialization of ‘void (*)(PyObject *)’ {aka ‘void (*)(struct _object *)’} from incompatible pointer type ‘void (*)(pgScancodeWrapper *)’ [-Wincompatible-pointer-types]
+#9 22.34   136 |     pg_scancodewrapper_dealloc,                   /* dealloc */
+#9 22.34       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 22.34 src_c/key.c:136:5: note: (near initialization for ‘pgScancodeWrapper_Type.tp_dealloc’)
+#9 22.34 src_c/key.c:141:5: warning: initialization of ‘PyObject * (*)(PyObject *)’ {aka ‘struct _object * (*)(struct _object *)’} from incompatible pointer type ‘PyObject * (*)(pgScancodeWrapper *)’ {aka ‘struct _object * (*)(pgScancodeWrapper *)’} [-Wincompatible-pointer-types]
+#9 22.34   141 |     pg_scancodewrapper_repr,                      /* repr */
+#9 22.34       |     ^~~~~~~~~~~~~~~~~~~~~~~
+#9 22.34 src_c/key.c:141:5: note: (near initialization for ‘pgScancodeWrapper_Type.tp_repr’)
+#9 22.34 src_c/key.c: In function ‘key_get_pressed’:
+#9 22.34 src_c/key.c:187:15: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+#9 22.34   187 |     key_state = SDL_GetKeyboardState(&num_keys);
+#9 22.34       |               ^
+#9 22.34 src_c/key.c:209:41: warning: passing argument 1 of ‘PyObject_CallFunctionObjArgs’ from incompatible pointer type [-Wincompatible-pointer-types]
+#9 22.34   209 |     return PyObject_CallFunctionObjArgs(&pgScancodeWrapper_Type,
+#9 22.34       |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+#9 22.34       |                                         |
+#9 22.34       |                                         PyTypeObject * {aka struct _typeobject *}
+#9 22.34 In file included from /usr/local/include/python3.8/Python.h:147,
+#9 22.34                  from src_c/_pygame.h:85,
+#9 22.34                  from src_c/pygame.h:32,
+#9 22.34                  from src_c/key.c:26:
+#9 22.34 /usr/local/include/python3.8/abstract.h:209:63: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘PyTypeObject *’ {aka ‘struct _typeobject *’}
+#9 22.34   209 | PyAPI_FUNC(PyObject *) PyObject_CallFunctionObjArgs(PyObject *callable,
+#9 22.34       |                                                     ~~~~~~~~~~^~~~~~~~
+#9 22.34 src_c/key.c: In function ‘_get_keycode_name’:
+#9 22.34 src_c/key.c:661: warning: ignoring ‘#pragma WARN ’ [-Wunknown-pragmas]
+#9 22.34   661 | #pragma WARN(Add missing keycode names here? )
+#9 22.34       | 
+#9 22.46 gcc -pthread -shared /testbed/build/temp/src_c/key.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/key.cpython-38-x86_64-linux-gnu.so
+#9 22.48 building 'pygame.mouse' extension
+#9 22.48 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/mouse.c -o /testbed/build/temp/src_c/mouse.o
+#9 22.79 gcc -pthread -shared /testbed/build/temp/src_c/mouse.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/mouse.cpython-38-x86_64-linux-gnu.so
+#9 22.81 building 'pygame.rect' extension
+#9 22.81 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/rect.c -o /testbed/build/temp/src_c/rect.o
+#9 23.04 In file included from src_c/pygame.h:32,
+#9 23.04                  from src_c/rect.c:27:
+#9 23.04 src_c/rect.c: In function ‘pg_rect_unionall’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:374:13: note: in expansion of macro ‘RAISE’
+#9 23.04   374 |             RAISE(PyExc_TypeError,
+#9 23.04       |             ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_unionall_ip’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:422:13: note: in expansion of macro ‘RAISE’
+#9 23.04   422 |             RAISE(PyExc_TypeError,
+#9 23.04       |             ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_collidelist’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:489:13: note: in expansion of macro ‘RAISE’
+#9 23.04   489 |             RAISE(PyExc_TypeError,
+#9 23.04       |             ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_collidedict’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:576:17: note: in expansion of macro ‘RAISE’
+#9 23.04   576 |                 RAISE(PyExc_TypeError,
+#9 23.04       |                 ^~~~~
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:583:17: note: in expansion of macro ‘RAISE’
+#9 23.04   583 |                 RAISE(PyExc_TypeError,
+#9 23.04       |                 ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_ass_item’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:904:13: note: in expansion of macro ‘RAISE’
+#9 23.04   904 |             RAISE(PyExc_IndexError, "Invalid rect Index");
+#9 23.04       |             ^~~~~
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:909:9: note: in expansion of macro ‘RAISE’
+#9 23.04   909 |         RAISE(PyExc_TypeError, "Must assign numeric values");
+#9 23.04       |         ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_subscript’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:979:5: note: in expansion of macro ‘RAISE’
+#9 23.04   979 |     RAISE(PyExc_TypeError, "Invalid Rect slice");
+#9 23.04       |     ^~~~~
+#9 23.04 src_c/rect.c: In function ‘pg_rect_ass_subscript’:
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:1021:17: note: in expansion of macro ‘RAISE’
+#9 23.04  1021 |                 RAISE(PyExc_TypeError, "Expect a length 4 sequence");
+#9 23.04       |                 ^~~~~
+#9 23.04 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.04   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.04       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.04 src_c/rect.c:1038:13: note: in expansion of macro ‘RAISE’
+#9 23.04  1038 |             RAISE(PyExc_TypeError, "Expected an integer or sequence");
+#9 23.04       |             ^~~~~
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1090:13: note: in expansion of macro ‘RAISE’
+#9 23.05  1090 |             RAISE(PyExc_TypeError, "Expected an integer or sequence");
+#9 23.05       |             ^~~~~
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1095:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1095 |         RAISE(PyExc_TypeError, "Invalid Rect slice");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setheight’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1279:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1279 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_settop’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1299:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1299 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setleft’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1319:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1319 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setright’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1339:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1339 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setbottom’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1359:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1359 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setcenterx’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1379:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1379 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setcentery’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1399:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1399 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_settopleft’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1419:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1419 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_settopright’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1440:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1440 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setbottomleft’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1461:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1461 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setbottomright’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1482:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1482 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setmidtop’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1503:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1503 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setmidleft’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1524:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1524 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setmidbottom’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1546:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1546 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setmidright’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1568:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1568 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setcenter’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1590:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1590 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_setsize’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1611:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1611 |         RAISE(PyExc_TypeError, "invalid rect assignment");
+#9 23.05       |         ^~~~~
+#9 23.05 src_c/rect.c: In function ‘pg_rect_init’:
+#9 23.05 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.05   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.05       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.05 src_c/rect.c:1714:9: note: in expansion of macro ‘RAISE’
+#9 23.05  1714 |         RAISE(PyExc_TypeError, "Argument must be rect style object");
+#9 23.05       |         ^~~~~
+#9 23.48 gcc -pthread -shared /testbed/build/temp/src_c/rect.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/rect.cpython-38-x86_64-linux-gnu.so
+#9 23.50 building 'pygame.rwobject' extension
+#9 23.50 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/rwobject.c -o /testbed/build/temp/src_c/rwobject.o
+#9 23.74 src_c/rwobject.c: In function ‘_pg_rw_read’:
+#9 23.74 src_c/rwobject.c:425:20: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+#9 23.74   425 |         if (retval == -1) {
+#9 23.74       |                    ^~
+#9 23.74 src_c/rwobject.c: In function ‘_pg_rw_read_th’:
+#9 23.74 src_c/rwobject.c:711:20: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+#9 23.74   711 |         if (retval == -1) {
+#9 23.74       |                    ^~
+#9 23.74 In file included from src_c/pygame.h:32,
+#9 23.74                  from src_c/rwobject.c:28:
+#9 23.74 src_c/rwobject.c: In function ‘_rwops_from_pystr’:
+#9 23.74 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.74   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.74       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.74 src_c/rwobject.c:840:17: note: in expansion of macro ‘RAISE’
+#9 23.74   840 |                 RAISE(PyExc_FileNotFoundError, "No such file or directory.");
+#9 23.74       |                 ^~~~~
+#9 23.74 src_c/rwobject.c: In function ‘pg_encode_string’:
+#9 23.74 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.74   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.74       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.74 src_c/rwobject.c:897:9: note: in expansion of macro ‘RAISE’
+#9 23.74   897 |         RAISE(PyExc_SyntaxError, "Forwarded exception");
+#9 23.74       |         ^~~~~
+#9 23.74 src_c/rwobject.c: In function ‘pg_encode_file_path’:
+#9 23.74 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 23.74   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 23.74       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 23.74 src_c/rwobject.c:915:9: note: in expansion of macro ‘RAISE’
+#9 23.74   915 |         RAISE(PyExc_SyntaxError, "Forwarded exception");
+#9 23.74       |         ^~~~~
+#9 23.97 gcc -pthread -shared /testbed/build/temp/src_c/rwobject.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/rwobject.cpython-38-x86_64-linux-gnu.so
+#9 23.99 building 'pygame.surface' extension
+#9 23.99 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/alphablit.c -o /testbed/build/temp/src_c/alphablit.o
+#9 27.88 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/surface.c -o /testbed/build/temp/src_c/surface.o
+#9 28.12 In file included from src_c/pygame.h:32,
+#9 28.12                  from src_c/surface.h:33,
+#9 28.12                  from src_c/surface.c:26:
+#9 28.12 src_c/surface.c: In function ‘surface_init’:
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:527:13: note: in expansion of macro ‘RAISE’
+#9 28.12   527 |             RAISE(PyExc_ValueError,
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:533:9: note: in expansion of macro ‘RAISE’
+#9 28.12   533 |         RAISE(PyExc_ValueError, "size needs to be (int width, int height)");
+#9 28.12       |         ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:538:9: note: in expansion of macro ‘RAISE’
+#9 28.12   538 |         RAISE(pgExc_SDLError, "Invalid resolution for Surface");
+#9 28.12       |         ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:551:13: note: in expansion of macro ‘RAISE’
+#9 28.12   551 |             RAISE(PyExc_ValueError,
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:556:13: note: in expansion of macro ‘RAISE’
+#9 28.12   556 |             RAISE(PyExc_ValueError, "invalid bits per pixel depth argument");
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:560:13: note: in expansion of macro ‘RAISE’
+#9 28.12   560 |             RAISE(PyExc_ValueError,
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:568:13: note: in expansion of macro ‘RAISE’
+#9 28.12   568 |             RAISE(PyExc_ValueError, "invalid mask values in masks sequence");
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:574:13: note: in expansion of macro ‘RAISE’
+#9 28.12   574 |             RAISE(PyExc_ValueError, "invalid bits per pixel depth argument");
+#9 28.12       |             ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:596:21: note: in expansion of macro ‘RAISE’
+#9 28.12   596 |                     RAISE(PyExc_ValueError,
+#9 28.12       |                     ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:638:21: note: in expansion of macro ‘RAISE’
+#9 28.12   638 |                     RAISE(PyExc_ValueError, "nonstandard bit depth given");
+#9 28.12       |                     ^~~~~
+#9 28.12 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.12   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.12       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.12 src_c/surface.c:689:21: note: in expansion of macro ‘RAISE’
+#9 28.12   689 |                     RAISE(PyExc_ValueError,
+#9 28.12       |                     ^~~~~
+#9 28.12 src_c/surface.c: In function ‘surf_convert’:
+#9 28.12 src_c/surface.c:1656:27: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+#9 28.12  1656 |                 if (flags != -1 && flags & PGS_SRCALPHA) {
+#9 28.12       |                           ^~
+#9 28.13 src_c/surface.c:1606:11: warning: unused variable ‘alpha’ [-Wunused-variable]
+#9 28.13  1606 |     Uint8 alpha;
+#9 28.13       |           ^~~~~
+#9 28.13 src_c/surface.c: In function ‘surf_convert_alpha’:
+#9 28.13 src_c/surface.c:1840: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 28.13  1840 | #pragma PG_WARN("This doesn't actually do anything?")
+#9 28.13       | 
+#9 28.13 src_c/surface.c:1824:28: warning: variable ‘src’ set but not used [-Wunused-but-set-variable]
+#9 28.13  1824 |     SDL_Surface *newsurf, *src;
+#9 28.13       |                            ^~~
+#9 28.13 In file included from src_c/pygame.h:32,
+#9 28.13                  from src_c/surface.h:33,
+#9 28.13                  from src_c/surface.c:26:
+#9 28.13 src_c/surface.c: In function ‘_PgSurface_SrcAlpha’:
+#9 28.13 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.13   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.13       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.13 src_c/surface.c:2373:13: note: in expansion of macro ‘RAISE’
+#9 28.13  2373 |             RAISE(pgExc_SDLError, SDL_GetError());
+#9 28.13       |             ^~~~~
+#9 28.13 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.13   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.13       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.13 src_c/surface.c:2382:13: note: in expansion of macro ‘RAISE’
+#9 28.13  2382 |             RAISE(pgExc_SDLError, SDL_GetError());
+#9 28.13       |             ^~~~~
+#9 28.14 src_c/surface.c: In function ‘pgSurface_Blit’:
+#9 28.14 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.14   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.14       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.14 src_c/surface.c:3958:9: note: in expansion of macro ‘RAISE’
+#9 28.14  3958 |         RAISE(pgExc_SDLError, SDL_GetError());
+#9 28.14       |         ^~~~~
+#9 28.14 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 28.14   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 28.14       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 28.14 src_c/surface.c:3960:9: note: in expansion of macro ‘RAISE’
+#9 28.14  3960 |         RAISE(pgExc_SDLError, "Surface was lost");
+#9 28.14       |         ^~~~~
+#9 28.91 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/surface_fill.c -o /testbed/build/temp/src_c/surface_fill.o
+#9 30.14 gcc -pthread -shared /testbed/build/temp/src_c/alphablit.o /testbed/build/temp/src_c/surface.o /testbed/build/temp/src_c/surface_fill.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/surface.cpython-38-x86_64-linux-gnu.so
+#9 30.18 building 'pygame.surflock' extension
+#9 30.18 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/surflock.c -o /testbed/build/temp/src_c/surflock.o
+#9 30.41 src_c/surflock.c:173:5: warning: initialization of ‘long int’ from ‘void *’ makes integer from pointer without a cast [-Wint-conversion]
+#9 30.41   173 |     NULL,                              /* tp_print */
+#9 30.41       |     ^~~~
+#9 30.41 src_c/surflock.c:173:5: note: (near initialization for ‘pgLifetimeLock_Type.tp_vectorcall_offset’)
+#9 30.51 gcc -pthread -shared /testbed/build/temp/src_c/surflock.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/surflock.cpython-38-x86_64-linux-gnu.so
+#9 30.52 building 'pygame.time' extension
+#9 30.52 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/time.c -o /testbed/build/temp/src_c/time.o
+#9 30.76 src_c/time.c:37:49: warning: initialization of ‘int’ from ‘void *’ makes integer from pointer without a cast [-Wint-conversion]
+#9 30.76    37 | static SDL_TimerID event_timers[pgNUMEVENTS] = {NULL};
+#9 30.76       |                                                 ^~~~
+#9 30.76 src_c/time.c:37:49: note: (near initialization for ‘event_timers[0]’)
+#9 30.77 In file included from src_c/pygame.h:32,
+#9 30.77                  from src_c/time.c:23:
+#9 30.77 src_c/time.c: In function ‘accurate_delay’:
+#9 30.77 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 30.77   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 30.77       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 30.77 src_c/time.c:103:13: note: in expansion of macro ‘RAISE’
+#9 30.77   103 |             RAISE(pgExc_SDLError, SDL_GetError());
+#9 30.77       |             ^~~~~
+#9 30.77 src_c/time.c: In function ‘time_wait’:
+#9 30.77 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 30.77   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 30.77       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 30.77 src_c/time.c:170:13: note: in expansion of macro ‘RAISE’
+#9 30.77   170 |             RAISE(pgExc_SDLError, SDL_GetError());
+#9 30.77       |             ^~~~~
+#9 30.77 src_c/time.c: In function ‘clock_tick_base’:
+#9 30.77 src_c/_pygame.h:289:47: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#9 30.77   289 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 30.77       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 30.77 src_c/time.c:290:17: note: in expansion of macro ‘RAISE’
+#9 30.77   290 |                 RAISE(pgExc_SDLError, SDL_GetError());
+#9 30.77       |                 ^~~~~
+#9 30.87 gcc -pthread -shared /testbed/build/temp/src_c/time.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/time.cpython-38-x86_64-linux-gnu.so
+#9 30.89 building 'pygame.joystick' extension
+#9 30.89 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/joystick.c -o /testbed/build/temp/src_c/joystick.o
+#9 31.11 src_c/joystick.c: In function ‘joy_get_ball’:
+#9 31.11 src_c/joystick.c:292:30: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 31.11   292 |     if (_index < 0 || _index >= value) {
+#9 31.11       |                              ^~
+#9 31.23 gcc -pthread -shared /testbed/build/temp/src_c/joystick.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/joystick.cpython-38-x86_64-linux-gnu.so
+#9 31.24 building 'pygame.draw' extension
+#9 31.25 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/draw.c -o /testbed/build/temp/src_c/draw.o
+#9 32.13 gcc -pthread -shared /testbed/build/temp/src_c/draw.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so
+#9 32.15 building 'pygame.image' extension
+#9 32.15 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/image.c -o /testbed/build/temp/src_c/image.o
+#9 32.38 src_c/image.c: In function ‘image_tostring’:
+#9 32.38 src_c/image.c:473:62: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   473 |                         data[3] = hascolorkey ? (char)(color != colorkey) * 255
+#9 32.38       |                                                              ^~
+#9 32.38 src_c/image.c:490:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   490 |                                 ? (char)(color != colorkey) * 255
+#9 32.38       |                                                ^~
+#9 32.38 src_c/image.c:514:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   514 |                                 ? (char)(color != colorkey) * 255
+#9 32.38       |                                                ^~
+#9 32.38 src_c/image.c:533:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   533 |                                 ? (char)(color != colorkey) * 255
+#9 32.38       |                                                ^~
+#9 32.38 src_c/image.c:564:62: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   564 |                         data[0] = hascolorkey ? (char)(color != colorkey) * 255
+#9 32.38       |                                                              ^~
+#9 32.38 src_c/image.c:581:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   581 |                                 ? (char)(color != colorkey) * 255
+#9 32.38       |                                                ^~
+#9 32.38 src_c/image.c:605:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.38   605 |                                 ? (char)(color != colorkey) * 255
+#9 32.38       |                                                ^~
+#9 32.39 src_c/image.c:624:48: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.39   624 |                                 ? (char)(color != colorkey) * 255
+#9 32.39       |                                                ^~
+#9 32.39 src_c/image.c: In function ‘image_frombuffer’:
+#9 32.39 src_c/image.c:969:5: warning: ‘PyObject_AsCharBuffer’ is deprecated [-Wdeprecated-declarations]
+#9 32.39   969 |     if (PyObject_AsCharBuffer(buffer, (const char **)&data, &len) == -1)
+#9 32.39       |     ^~
+#9 32.39 In file included from /usr/local/include/python3.8/Python.h:147,
+#9 32.39                  from src_c/_pygame.h:85,
+#9 32.39                  from src_c/pygame.h:32,
+#9 32.39                  from src_c/image.c:27:
+#9 32.39 /usr/local/include/python3.8/abstract.h:320:17: note: declared here
+#9 32.39   320 | PyAPI_FUNC(int) PyObject_AsCharBuffer(PyObject *obj,
+#9 32.39       |                 ^~~~~~~~~~~~~~~~~~~~~
+#9 32.39 src_c/image.c: In function ‘SaveTGA_RW’:
+#9 32.39 src_c/image.c:1239:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#9 32.39  1239 |             entry[3] = (i == surf_colorkey) ? 0 : 0xff;
+#9 32.39       |                           ^~
+#9 32.83 gcc -pthread -shared /testbed/build/temp/src_c/image.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/image.cpython-38-x86_64-linux-gnu.so
+#9 32.85 building 'pygame.transform' extension
+#9 32.85 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -D_NO_MMX_FOR_X86_64 -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/rotozoom.c -o /testbed/build/temp/src_c/rotozoom.o
+#9 33.08 src_c/rotozoom.c: In function ‘zoomSurfaceRGBA’:
+#9 33.08 src_c/rotozoom.c:48:9: warning: variable ‘sgap’ set but not used [-Wunused-but-set-variable]
+#9 33.08    48 |     int sgap, dgap;
+#9 33.08       |         ^~~~
+#9 33.24 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -D_NO_MMX_FOR_X86_64 -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/scale2x.c -o /testbed/build/temp/src_c/scale2x.o
+#9 33.56 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -D_NO_MMX_FOR_X86_64 -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/scale_mmx.c -o /testbed/build/temp/src_c/scale_mmx.o
+#9 33.64 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -D_NO_MMX_FOR_X86_64 -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/transform.c -o /testbed/build/temp/src_c/transform.o
+#9 33.88 src_c/transform.c: In function ‘newsurf_fromsurf’:
+#9 33.88 src_c/transform.c:119:9: warning: unused variable ‘result’ [-Wunused-variable]
+#9 33.88   119 |     int result;
+#9 33.88       |         ^~~~~~
+#9 33.89 src_c/transform.c: In function ‘surf_flip’:
+#9 33.89 src_c/transform.c:751:9: warning: variable ‘pixsize’ set but not used [-Wunused-but-set-variable]
+#9 33.89   751 |     int pixsize, srcpitch, dstpitch;
+#9 33.89       |         ^~~~~~~
+#9 33.89 src_c/transform.c: In function ‘get_threshold’:
+#9 33.89 src_c/transform.c:1630:31: warning: variable ‘destformat’ set but not used [-Wunused-but-set-variable]
+#9 33.89  1630 |     SDL_PixelFormat *format, *destformat = NULL;
+#9 33.89       |                               ^~~~~~~~~~
+#9 33.89 src_c/transform.c:1629:14: warning: unused variable ‘sdlrect’ [-Wunused-variable]
+#9 33.89  1629 |     SDL_Rect sdlrect;
+#9 33.89       |              ^~~~~~~
+#9 33.89 src_c/transform.c:1627:15: warning: unused variable ‘result’ [-Wunused-variable]
+#9 33.89  1627 |     int x, y, result, similar;
+#9 33.89       |               ^~~~~~
+#9 34.84 gcc -pthread -shared /testbed/build/temp/src_c/rotozoom.o /testbed/build/temp/src_c/scale2x.o /testbed/build/temp/src_c/scale_mmx.o /testbed/build/temp/src_c/transform.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/transform.cpython-38-x86_64-linux-gnu.so
+#9 34.86 building 'pygame.mask' extension
+#9 34.86 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/bitmask.c -o /testbed/build/temp/src_c/bitmask.o
+#9 35.49 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/mask.c -o /testbed/build/temp/src_c/mask.o
+#9 35.71 src_c/mask.c: In function ‘mask_from_threshold’:
+#9 35.71 src_c/mask.c:784:9: warning: variable ‘bpp’ set but not used [-Wunused-but-set-variable]
+#9 35.71   784 |     int bpp;
+#9 35.71       |         ^~~
+#9 35.71 src_c/mask.c: In function ‘get_bounding_rects’:
+#9 35.71 src_c/mask.c:1083:19: warning: assignment to ‘GAME_Rect **’ {aka ‘SDL_Rect **’} from incompatible pointer type ‘GAME_Rect *’ {aka ‘SDL_Rect *’} [-Wincompatible-pointer-types]
+#9 35.71  1083 |         ret_rects = rects;
+#9 35.71       |                   ^
+#9 35.71 src_c/mask.c:1112:22: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 35.71  1112 |         if (ufind[x] < x) {             /* is it a union find root? */
+#9 35.71       |                      ^
+#9 35.71 src_c/mask.c: In function ‘get_connected_components’:
+#9 35.71 src_c/mask.c:1265:22: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 35.71  1265 |         if (ufind[x] < x) {
+#9 35.71       |                      ^
+#9 35.71 src_c/mask.c:1275:22: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 35.71  1275 |         if (ufind[x] < x) {             /* is it a union find root? */
+#9 35.71       |                      ^
+#9 35.71 src_c/mask.c:1279:28: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 35.71  1279 |             if (largest[x] >= min) {
+#9 35.71       |                            ^~
+#9 36.13 gcc -pthread -shared /testbed/build/temp/src_c/bitmask.o /testbed/build/temp/src_c/mask.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/mask.cpython-38-x86_64-linux-gnu.so
+#9 36.16 building 'pygame.bufferproxy' extension
+#9 36.16 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/bufferproxy.c -o /testbed/build/temp/src_c/bufferproxy.o
+#9 36.52 gcc -pthread -shared /testbed/build/temp/src_c/bufferproxy.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/bufferproxy.cpython-38-x86_64-linux-gnu.so
+#9 36.54 building 'pygame.pixelarray' extension
+#9 36.54 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/pixelarray.c -o /testbed/build/temp/src_c/pixelarray.o
+#9 36.78 In file included from src_c/pixelarray.c:181:
+#9 36.78 src_c/pixelarray_methods.c: In function ‘_replace_color’:
+#9 36.78 src_c/pixelarray_methods.c:461:13: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   461 |         int ppa = (surf->flags & SDL_SRCALPHA && format->Amask);
+#9 36.78       |             ^~~
+#9 36.78 src_c/pixelarray_methods.c:495:13: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   495 |         int ppa = (surf->flags & SDL_SRCALPHA && format->Amask);
+#9 36.78       |             ^~~
+#9 36.78 src_c/pixelarray_methods.c:526:13: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   526 |         int ppa = (surf->flags & SDL_SRCALPHA && surf->format->Amask);
+#9 36.78       |             ^~~
+#9 36.78 src_c/pixelarray_methods.c: In function ‘_extract_color’:
+#9 36.78 src_c/pixelarray_methods.c:670:9: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   670 |     int ppa = (surf->flags & SDL_SRCALPHA && format->Amask);
+#9 36.78       |         ^~~
+#9 36.78 src_c/pixelarray_methods.c:713:9: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   713 |     int ppa = (surf->flags & SDL_SRCALPHA && format->Amask);
+#9 36.78       |         ^~~
+#9 36.78 src_c/pixelarray_methods.c:754:9: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.78   754 |     int ppa = (surf->flags & SDL_SRCALPHA && surf->format->Amask);
+#9 36.78       |         ^~~
+#9 36.79 src_c/pixelarray_methods.c: In function ‘_compare’:
+#9 36.79 src_c/pixelarray_methods.c:932:13: warning: unused variable ‘other_ppa’ [-Wunused-variable]
+#9 36.79   932 |         int other_ppa = (other_surf->flags & SDL_SRCALPHA &&
+#9 36.79       |             ^~~~~~~~~
+#9 36.79 src_c/pixelarray_methods.c:931:13: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.79   931 |         int ppa = (surf->flags & SDL_SRCALPHA && format->Amask);
+#9 36.79       |             ^~~
+#9 36.79 src_c/pixelarray_methods.c:1037:13: warning: unused variable ‘other_ppa’ [-Wunused-variable]
+#9 36.79  1037 |         int other_ppa = (other_surf->flags & SDL_SRCALPHA &&
+#9 36.79       |             ^~~~~~~~~
+#9 36.79 src_c/pixelarray_methods.c:1036:13: warning: unused variable ‘ppa’ [-Wunused-variable]
+#9 36.79  1036 |         int ppa = (surf->flags & SDL_SRCALPHA && surf->format->Amask);
+#9 36.79       |             ^~~
+#9 37.49 gcc -pthread -shared /testbed/build/temp/src_c/pixelarray.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/pixelarray.cpython-38-x86_64-linux-gnu.so
+#9 37.51 building 'pygame.math' extension
+#9 37.51 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/math.c -o /testbed/build/temp/src_c/math.o
+#9 38.72 gcc -pthread -shared /testbed/build/temp/src_c/math.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/math.cpython-38-x86_64-linux-gnu.so
+#9 38.74 building 'pygame.pixelcopy' extension
+#9 38.74 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/pixelcopy.c -o /testbed/build/temp/src_c/pixelcopy.o
+#9 39.43 gcc -pthread -shared /testbed/build/temp/src_c/pixelcopy.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/pixelcopy.cpython-38-x86_64-linux-gnu.so
+#9 39.45 building 'pygame.newbuffer' extension
+#9 39.45 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -DENABLE_NEWBUF=1 -I/usr/local/include/python3.8 -c src_c/newbuffer.c -o /testbed/build/temp/src_c/newbuffer.o
+#9 39.70 gcc -pthread -shared /testbed/build/temp/src_c/newbuffer.o -L/usr/local/lib -o /testbed/build/local/pygame/newbuffer.cpython-38-x86_64-linux-gnu.so
+#9 39.71 building 'pygame._camera' extension
+#9 39.71 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/_camera.c -o /testbed/build/temp/src_c/_camera.o
+#9 41.52 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -D_REENTRANT -DENABLE_NEWBUF=1 -I/usr/X11R6/include -I/usr/include/SDL2 -I/usr/local/include/python3.8 -c src_c/camera_v4l2.c -o /testbed/build/temp/src_c/camera_v4l2.o
+#9 41.77 src_c/camera_v4l2.c: In function ‘v4l2_process_image’:
+#9 41.77 src_c/camera_v4l2.c:190:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   190 |             if (buffer_size >= self->size * 3) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c:212:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   212 |             if (buffer_size >= self->size * 2) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c:234:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   234 |             if (buffer_size >= self->size * 2) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c:258:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   258 |             if (buffer_size >= self->size * 2) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c:282:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   282 |             if (buffer_size >= self->size) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c:308:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 41.77   308 |             if (buffer_size >= (self->size * 3) / 2) {
+#9 41.77       |                             ^~
+#9 41.77 src_c/camera_v4l2.c: In function ‘v4l2_query_buffer’:
+#9 41.77 src_c/camera_v4l2.c:346:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 41.77   346 |     for (i = 0; i < self->n_buffers; ++i) {
+#9 41.77       |                   ^
+#9 41.89 gcc -pthread -shared /testbed/build/temp/src_c/_camera.o /testbed/build/temp/src_c/camera_v4l2.o -L/usr/local/lib -lSDL2 -o /testbed/build/local/pygame/_camera.cpython-38-x86_64-linux-gnu.so
+#9 42.03 1.9.5.dev0 /testbed/build/local/pygame/_freetype.cpython-38-x86_64-linux-gnu.so
+#9 DONE 42.2s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 8.6s done
+#10 exporting manifest sha256:f181cb6712253326316b6cc313b3166fe3c04e4f0279328aaeb5f3bf7ec4e4f0 0.0s done
+#10 exporting config sha256:fcefc11ce67dbdf9402ab4a3af813c9c6527a7c1f2a71ee9d30462fe1328825d 0.0s done
+#10 exporting attestation manifest sha256:cf117f9c815fa325f622095fe2c3836fc94a52a10925f2529e96329a0e07c773 0.0s done
+#10 exporting manifest list sha256:796f43733f5ec8554151b23b3e534a16fbda4edc61ffd30fb60665f09dd5f78c 0.0s done
+#10 naming to docker.io/library/pyc-case081-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case081-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case081-prototype-base:latest 2.7s done
+#10 DONE 11.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/slas8n87jhpveq7fvb1by90hd

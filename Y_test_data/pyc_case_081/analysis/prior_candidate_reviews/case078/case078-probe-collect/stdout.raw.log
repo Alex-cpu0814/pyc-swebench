@@ -1,0 +1,6 @@
+test/draw_test.py::DrawEllipseTest::test_ellipse__big_ellipse
+test/draw_test.py::DrawEllipseTest::test_ellipse__args_without_width
+test/draw_test.py::DrawEllipseTest::test_ellipse__1_pixel_width_and_height
+test/draw_test.py::DrawEllipseTest::test_ellipse__thick_line
+
+4 tests collected in 0.18s

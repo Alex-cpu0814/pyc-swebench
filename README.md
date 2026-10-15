@@ -39,6 +39,7 @@ SWE-bench-compatible layout.
 | `pyc_case_071` | `ultrajson/ultrajson` | Issue / PR #441 / commit `a920bfa9` | Base: 4 target failures; Gold: 4 targets and 4 regressions pass |
 | `pyc_case_075` | `pygame/pygame` | Issue / PR #2398 / commit `f3ac656d` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_077` | `pygame/pygame` | Issue / PR #2927 / commit `ef30264c` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_081` | `pygame/pygame` | Issue / PR #702 / commit `1aeecd40` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass; publication pending Docker recovery |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

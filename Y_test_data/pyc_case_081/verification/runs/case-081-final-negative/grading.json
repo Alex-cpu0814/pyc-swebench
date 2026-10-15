@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-081-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_565": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_size": "PASSED",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_scalable": "PASSED",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_fixed_width": "PASSED"
+  },
+  "unexpected_failures": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_565"
+  ]
+}

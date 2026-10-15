@@ -1,0 +1,151 @@
+{
+  "projectName": "pygame",
+  "repo": "pygame/pygame",
+  "repoUrl": "https://github.com/pygame/pygame.git",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/pygame",
+  "binaryPatches": false,
+  "workbookDateFields": true,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "collectCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider --collect-only -q --color=no",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "expectedBaseExitCode": 0,
+  "validationType": "official_pytest",
+  "evidenceType": "source_row_upstream_pr_and_verified_pytest_trace",
+  "pytestPathPrefix": "test/",
+  "compilerToolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+  "nativeRequirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "buildCommand": "bash -c 'python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force > /tmp/pygame-build-buffer.raw.log 2>&1; rc=$?; cat /tmp/pygame-build-buffer.raw.log; exit \"$rc\"'",
+  "buildSystem": "Official setup.py force build into /testbed/build/local, PYTHONPATH identical. All build stdout/stderr is buffered in Linux /tmp then copied verbatim to results with the original exit code; compiler flags unchanged.",
+  "nativeAuditCommand": "python -c \"import pygame,pygame.draw; print(pygame.version.ver,pygame.draw.__file__,pygame.get_sdl_version()); assert pygame.version.ver == '2.1.1.dev1'; assert pygame.draw.__file__.startswith('/testbed/build/local/pygame/')\"",
+  "testSourceLabel": "Original official upstream unittest TestCase methods executed by pytest",
+  "caseNumber": "078",
+  "sourceCase": "77",
+  "sourceInstanceId": "pyc_case_078",
+  "instanceId": "pygame__pygame-2880",
+  "issueId": "2880",
+  "issueUrl": "https://github.com/pygame/pygame/pull/2880",
+  "fixCommit": "fc3e6afca4c896a2b1c1e964eaf563e3cca21149",
+  "baseCommit": "c15cc0dd8b4e8b808e658ec89adb02d105e14697",
+  "createdAt": "2021-12-03",
+  "mergedAt": "2021-12-11",
+  "version": "2.1.1.dev1",
+  "image": "yutu0814/pyc-case-078-pygame:benchmark-v1",
+  "prototypeImage": "pyc-case078-prototype-base:latest",
+  "testFiles": [
+    "test/draw_test.py"
+  ],
+  "testFile": "test/draw_test.py",
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case078_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case078_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pygame078-local",
+  "validationStatus": "deferred_no_base_failure",
+  "environment": "pygame_native_large_ellipse_integer_overflow",
+  "testExecution": "Four official unittest methods run normally under pytest, fixed SDL2 dummy video/audio for Base and Gold. The exact 1025x1025 ellipse size, border 1 and two scanning lines remain unchanged.",
+  "problemStatement": "Drawing a 1025x1025 ellipse with a one-pixel red border should yield exactly four red intersections across the horizontal and vertical sample lines at coordinate 410. Existing default filled and small/thick ellipse behavior should remain correct.",
+  "upstreamDescription": "PR2880 changes integer intermediates from int to long long in native draw_ellipse_filled and draw_ellipse_thickness. The complete official 19-line big_ellipse test uses border 1 and directly exercises thickness; the large filled path is not claimed as directly covered by this target.",
+  "sourceTraceNotes": "Source case 77 records incorrect result/output, a draw_ellipse_filled/ellipse trace ending in gfxdraw_test.test_ellipse and a data-type correction. The actual supplied upstream regression is native pygame.draw.ellipse in test/draw_test.py with border 1, not pygame.gfxdraw.ellipse. Its two sampled scanlines do not verify the whole visual contour.",
+  "failToPass": [],
+  "passToPass": [
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__big_ellipse",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__args_without_width",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__1_pixel_width_and_height",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__thick_line"
+  ],
+  "probeNodes": [
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__big_ellipse",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__args_without_width",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__1_pixel_width_and_height",
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__thick_line"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/pygame/pygame/pull/2880",
+    "related_issue_url": "https://github.com/pygame/pygame/issues/2879",
+    "base_commit": "c15cc0dd8b4e8b808e658ec89adb02d105e14697",
+    "fix_commit": "fc3e6afca4c896a2b1c1e964eaf563e3cca21149",
+    "merge_parents": [
+      "c15cc0dd8b4e8b808e658ec89adb02d105e14697",
+      "f0d0bf867788c479c98dec15cd022bd34d4dd90e"
+    ],
+    "upstream_created_at": "2021-12-03",
+    "upstream_merged_at": "2021-12-11",
+    "upstream_created_at_timestamp": "2021-12-03T15:01:09Z",
+    "upstream_merged_at_timestamp": "2021-12-11T16:04:31Z",
+    "source_commit_timestamp_original_offset": "2021-12-11T16:04:31Z",
+    "date_source": "https://api.github.com/repos/pygame/pygame/pulls/2880",
+    "date_semantics": "Official REST opening/merge UTC timestamps; exact source Git committer timestamp retained separately.",
+    "source_classification": "Python-C (preserved source taxonomy)",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "src_c/draw.c"
+    ],
+    "verified_scope": "Official1025x1025 border1 ellipse scanline pixel count",
+    "source_trace_scope": "Source case77 records incorrect result/output, a draw_ellipse_filled/ellipse trace ending in gfxdraw_test.test_ellipse and a data-type correction. The actual supplied upstream regression is native pygame.draw.ellipse in test/draw_test.py with border1, not pygame.gfxdraw.ellipse. Its two sampled scanlines do not verify the whole visual contour.",
+    "version_metadata": {
+      "strategy": "Official setup.py METADATA literal2.1.1.dev1 generates version.py; actual empty revision and native runtime are audited, no release/SCM override.",
+      "setup_blob": "77708c9beffd5c87e4038512ecda4b53312a5b17"
+    },
+    "native_source_git_blobs": {
+      "src_c/draw.c": "950c6d3b9755643d99e2d8f735376b2b351e2730",
+      "src_c/include/_pygame.h": "1d1be4b9ee080a6a36929d7460509ecaf2904871",
+      "setup.py": "77708c9beffd5c87e4038512ecda4b53312a5b17"
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1",
+      "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+      "libportmidi-dev": "1:217-6",
+      "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+      "libsdl2-image-dev": "2.0.5+dfsg1-2",
+      "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+      "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+      "libudev-dev": "247.3-7+deb11u5",
+      "libudev1": "247.3-7+deb11u5"
+    },
+    "sdl_version": {
+      "compiled_header": [
+        2,
+        0,
+        14
+      ],
+      "linked_runtime": [
+        2,
+        0,
+        14
+      ],
+      "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+    },
+    "dependency_resolution": "Public Python digest and actual audited Bullseye SDL2/development companion versions fixed as in prior successful pygame environment. No product compatibility changes.",
+    "admission_rule": "Exact official input/count and active DrawEllipseTest actual BaseGold contrast required. Commented PythonDrawEllipseTest is not run; large filled path and whole-contour appearance not claimed.",
+    "source_commit_utc_timestamp": "2021-12-11T16:04:31Z"
+  },
+  "additionalVerificationAssets": [],
+  "proposedFailToPass": [
+    "test/draw_test.py::DrawEllipseTest::test_ellipse__big_ellipse"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "startedAt": "2026-10-15T08:47:35.517Z",
+  "finishedAt": "2026-10-15T08:47:37.231Z",
+  "image": "pyc-case078-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": {
+    "pygame_version": "2.1.1.dev1",
+    "architecture": "x86_64",
+    "c_int_bits": 32,
+    "c_long_long_bits": 64,
+    "pygame_revision": "",
+    "pygame_file": "/testbed/build/local/pygame/__init__.py",
+    "draw_extension": "/testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "19c57e3647872dff69d2a955be029c552aab83137b23ed0721d38c89a73ab19e",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/draw.c": {
+        "size": 82602,
+        "sha256": "d563114ee311c71dbe8b268de911720df409769a9d724e4b72861998b56c873f"
+      },
+      "src_c/include/_pygame.h": {
+        "size": 17377,
+        "sha256": "af1978ad6818612f31a7d3c74c6bc118b8dc3cde91107c4546ff5e815463e6a1"
+      },
+      "setup.py": {
+        "size": 33620,
+        "sha256": "a78db3af1f908d8dff087419f6766f1986d2c97ac5618090c97c4f5033606c48"
+      },
+      "src_py/version.py": {
+        "size": 2394,
+        "sha256": "096eca3fe69777ceb0e9952fd3560a4fc7846db90ad25b4c7a214c7d45fceb53"
+      },
+      "build/local/pygame/version.py": {
+        "size": 2394,
+        "sha256": "096eca3fe69777ceb0e9952fd3560a4fc7846db90ad25b4c7a214c7d45fceb53"
+      },
+      "Setup": {
+        "size": 3606,
+        "sha256": "2e7b11ba4e9cf35d2cb81aba79355f267d64396faf90757f37caa1ec41946101"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "c15cc0dd8b4e8b808e658ec89adb02d105e14697",
+    "remotes_removed": true,
+    "version_mechanism": {
+      "strategy": "Official setup.py METADATA literal2.1.1.dev1 generates version.py; actual empty revision and native runtime are audited, no release/SCM override.",
+      "setup_blob": "77708c9beffd5c87e4038512ecda4b53312a5b17"
+    }
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case078-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"c15cc0dd8b4e8b808e658ec89adb02d105e14697\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src_c/draw.c)\" = \"950c6d3b9755643d99e2d8f735376b2b351e2730\"; test \"$(git hash-object src_c/include/_pygame.h)\" = \"1d1be4b9ee080a6a36929d7460509ecaf2904871\"; test \"$(git hash-object setup.py)\" = \"77708c9beffd5c87e4038512ecda4b53312a5b17\"; dpkg-query -W gcc g++ libsdl2-dev libsdl2-2.0-0 libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libfreetype6-dev libportmidi-dev libudev-dev libudev1; python -c 'import pygame,pygame.draw,json,ctypes,platform,hashlib,pathlib,importlib.metadata,subprocess,re; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"/usr/include/SDL2/SDL_version.h\",\"-\"],input=b\"\").decode(); header_version=[int(re.search(\"#define \"+n+\" ([0-9]+)\",macros).group(1)) for n in (\"SDL_MAJOR_VERSION\",\"SDL_MINOR_VERSION\",\"SDL_PATCHLEVEL\")]; files=[\"src_c/draw.c\",\"src_c/include/_pygame.h\",\"setup.py\",\"src_py/version.py\",\"build/local/pygame/version.py\",\"Setup\"]; report={\"pygame_version\":pygame.version.ver,\"architecture\":platform.machine(),\"c_int_bits\":ctypes.sizeof(ctypes.c_int)*8,\"c_long_long_bits\":ctypes.sizeof(ctypes.c_longlong)*8,\"pygame_revision\":pygame.version.rev,\"pygame_file\":pygame.__file__,\"draw_extension\":pygame.draw.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(pygame.draw.__file__).read_bytes()).hexdigest(),\"sdl_compiled\":header_version,\"sdl_linked\":pygame.get_sdl_version(),\"build_packages\":{p:importlib.metadata.version(p) for p in (\"setuptools\",\"wheel\",\"pytest\")},\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files}}; assert report[\"pygame_version\"]==\"2.1.1.dev1\"; assert report[\"draw_extension\"].startswith(\"/testbed/build/local/pygame/\"); assert report[\"sdl_linked\"][0]==report[\"sdl_compiled\"][0]==2; assert report[\"pygame_revision\"]==\"\"; print(json.dumps(report))'"
+  ]
+}

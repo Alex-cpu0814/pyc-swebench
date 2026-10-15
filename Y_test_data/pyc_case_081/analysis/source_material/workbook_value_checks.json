@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 081 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"80\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"1aeecd40314ec00c93d975b31a1f4518979d49a9\"],[\"Base commit\",\"71c90cdb76cd8b12a0969f5d6314315bd0223c28\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/pull/702\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 1418\"],[\"Bug location type\",\"function call + Conditional expression\"],[\"Root cause\",\"Argument error\"],[\"Fixing strategy\",\"change the argument variable\"],[\"Fix location\",\"if/branching statement + function call\"],[\"Problem statement\",\"Font.get_metrics for pipe text should reflect changes to the font size, rotation and oblique style. Existing scalable/fixed-width and size properties should remain correct.\"],[\"Original source trace\",\"1418(c__freetype_99-cfg.dot) (_ftfont_getmetrics) … -> 1388(c__freetype_99-cfg.dot) (_ftfont_getmetrics) -> 1257(py_freetype_test_39-cfg.dot) (test_undefined_character_code)\"],[\"Source trace scope\",\"Source case 80 records incorrect output and a native _ftfont_getmetrics trace ending in test_undefined_character_code. The measured official regression instead checks font size/rotation/oblique metrics changes using pipe text; undefined-character behavior is not claimed as reproduced.\"],[\"Verified Base trace\",\"Base passes the original size=36 metrics-change comparison, then fails at rotation=90 because before and after pipe-text metrics are identical (metrics same for rotation). Its oblique comparison is not reached. Gold completes all three original size, rotation and oblique comparisons. Three official font-size, scalable and fixed-width regressions pass on both products after fixed Base default-font package data is present. No skipped or missing node is counted as pass.\"],[\"Verified official test\",\"test/freetype_test.py::FreeTypeFontTest::test_issue_565\\ntest/freetype_test.py::FreeTypeFontTest::test_freetype_Font_size\\ntest/freetype_test.py::FreeTypeFontTest::test_freetype_Font_scalable\\ntest/freetype_test.py::FreeTypeFontTest::test_freetype_Font_fixed_width\"],[\"Official test scope\",\"Official test_issue_565 creates a fresh test_sans.ttf Font at size 24 for each unchanged pipe-text comparison, in original size 36, rotation 90, oblique=True order. Base fails at rotation; Gold completes all three. Three unchanged official regressions exercise default-font size, scalable and fixed-width properties. Six tracked setUp fonts plus tracked packaged freesansbold.ttf are audited. The test module uses X11; pytest directly executes its unittest methods, while dummy ignore tags belong to the pygame project runner. Undefined-character behavior from the source trace is not claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "nsais1",
+          "target": {
+            "id": "wb/rif32s",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 081 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-702\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"1.9.5.dev0\"],[\"Created at\",43464],[\"Base commit\",\"71c90cdb76cd8b12a0969f5d6314315bd0223c28\"],[\"Fix commit\",\"1aeecd40314ec00c93d975b31a1f4518979d49a9\"],[\"Merged at\",43465],[\"Issue / PR\",\"https://github.com/pygame/pygame/pull/702\"],[\"Test source\",\"Original official upstream unittest TestCase methods executed by pytest\"],[\"FAIL_TO_PASS (1)\",\"test/freetype_test.py::FreeTypeFontTest::test_issue_565\"],[\"PASS_TO_PASS (1)\",\"test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_size\"],[\"PASS_TO_PASS (2)\",\"test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_scalable\"],[\"PASS_TO_PASS (3)\",\"test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_fixed_width\"],[\"Base / Gold outcome\",\"Base: one official font-metrics rotation target fails and three regressions pass. Gold: all four official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-081-pygame:benchmark-v1\"],[\"Problem statement\",\"Font.get_metrics for pipe text should reflect changes to the font size, rotation and oblique style. Existing scalable/fixed-width and size properties should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "skmv4f",
+          "target": {
+            "id": "wb/ff8u9e",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

@@ -1,0 +1,178 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/pull/702",
+  "related_issue_url": "https://github.com/pygame/pygame/issues/565",
+  "base_commit": "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+  "fix_commit": "1aeecd40314ec00c93d975b31a1f4518979d49a9",
+  "merge_parents": [
+    "71c90cdb76cd8b12a0969f5d6314315bd0223c28",
+    "40a77c6b9d2c13f017c63f00a85ef4d200b3be3e"
+  ],
+  "upstream_created_at": "2018-12-30",
+  "upstream_merged_at": "2018-12-31",
+  "upstream_created_at_timestamp": "2018-12-30T17:11:06Z",
+  "upstream_merged_at_timestamp": "2018-12-31T10:00:19Z",
+  "source_commit_timestamp_original_offset": "2018-12-31T11:00:18+01:00",
+  "date_source": "https://api.github.com/repos/pygame/pygame/pulls/702",
+  "date_semantics": "Official REST opening/merge UTC timestamps; actual Git source committer time is one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/_freetype.c"
+  ],
+  "verified_scope": "Original font size/rotation/oblique metrics-change assertion sequence",
+  "source_trace_scope": "Source case 80 records incorrect output and a native _ftfont_getmetrics trace ending in test_undefined_character_code. The measured official regression instead checks font size/rotation/oblique metrics changes using pipe text; undefined-character behavior is not claimed as reproduced.",
+  "version_metadata": {
+    "strategy": "Official setup.py literal1.9.5.dev0 generates version.py with empty revision; actual native runtime audited, no inferred release or SCM override.",
+    "setup_blob": "ebc9e471de277577ccd47557b21308589c5e8771"
+  },
+  "native_source_git_blobs": {
+    "src_c/_freetype.c": "05e111b7a2761d1d808046c0da1d5982ec55f20c",
+    "src_c/_pygame.h": "47c34ae03d3238114f02f98819aa52917fdc41b9",
+    "setup.py": "ebc9e471de277577ccd47557b21308589c5e8771",
+    "test/fixtures/fonts/test_fixed.otf": "348889828d894b9b57fb6435497d5c034448cb1b",
+    "test/fixtures/fonts/test_sans.ttf": "09fac2ff94ae92033266d8e021c22c382bea19b5",
+    "test/fixtures/fonts/PyGameMono.otf": "5e9b66cc1a575a0cb5d3cfdd35d6587ade9f617f",
+    "test/fixtures/fonts/PyGameMono-8.bdf": "17bef0641505df7de0fbae077e14cb732100b6c9",
+    "test/fixtures/fonts/PyGameMono-18-75dpi.bdf": "127f70430d8742e40a1fec33e269cdcafd4e3c5c",
+    "test/fixtures/fonts/PyGameMono-18-100dpi.bdf": "a88f083e99ab3a94c4943320b6c232c09e505172",
+    "src_py/freesansbold.ttf": "a98562fc1a89075f2218a2dbf2c08785237fab90"
+  },
+  "font_fixtures": [
+    "test/fixtures/fonts/test_fixed.otf",
+    "test/fixtures/fonts/test_sans.ttf",
+    "test/fixtures/fonts/PyGameMono.otf",
+    "test/fixtures/fonts/PyGameMono-8.bdf",
+    "test/fixtures/fonts/PyGameMono-18-75dpi.bdf",
+    "test/fixtures/fonts/PyGameMono-18-100dpi.bdf"
+  ],
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5",
+    "xvfb": "2:1.20.11-1+deb11u13",
+    "xauth": "1:1.1-1"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "configuration": "This2018config defaultsSDL1; official setup.py -auto -sdl2 -config createsSetup before ordinary setup.py build. No compatibility source changes.",
+  "xvfb_launch": "Keep shell parent around standard xvfb-run and preserve command exit code, avoiding PID1 readiness wait. SDL_VIDEODRIVER=x11 so module dummy tags not activated.",
+  "dependency_resolution": "Public pinned Python/SDL2/freetype and Xvfb/xauth versions; all font fixture bytes tracked at fixed Base. No user fonts copied into image.",
+  "admission_rule": "Full official size/rotation/oblique test must show true BaseGold contrast; skips/setup errors are not passes.",
+  "prior_candidate_deferral": "078 exact official large-ellipse test passes on both fixed Base/Gold; full no_base_failure evidence archived separately.",
+  "source_commit_utc_timestamp": "2018-12-31T10:00:18Z",
+  "default_font_packaging": {
+    "source": "src_py/freesansbold.ttf",
+    "target": "build/local/pygame/freesansbold.ttf",
+    "git_blob": "a98562fc1a89075f2218a2dbf2c08785237fab90",
+    "reason": "Official legacy setup.py data_files includes src_py non-Python files; build alone omitted default font. Copy fixed Base resource into its normal built-package location after normal native build, same Base/Gold, no new binary patch.",
+    "initial_evidence": "First Base2fail2pass and Gold1fail3pass; shared missing-default-font RuntimeError is infrastructure, not productfailure; retained."
+  },
+  "formal_runtime_audit": {
+    "default_font_height": 1090,
+    "pygame_version": "1.9.5.dev0",
+    "pygame_revision": "",
+    "freetype_python_file": "/testbed/build/local/pygame/freetype.py",
+    "freetype_extension": "/testbed/build/local/pygame/_freetype.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "840d633c078fa04e1e9775d31b688512b02c5ba79495e057365453944373d117",
+    "freetype_version": [
+      2,
+      10,
+      4
+    ],
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "video_driver": "x11",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_py/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      },
+      "build/local/pygame/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      },
+      "src_c/_freetype.c": {
+        "size": 63382,
+        "sha256": "7d4edc585c57165e3d0d3585054a84eceba0efb1e84cea6f1b290be84a6c066a"
+      },
+      "src_c/_pygame.h": {
+        "size": 27518,
+        "sha256": "2c4e54f73c340c9cbef98ab65344ff920f351037cb677cfed9c66a4f2d22ea31"
+      },
+      "setup.py": {
+        "size": 22699,
+        "sha256": "b4ca420da91fb0ee90bdd573835a6b252a74992536c6b4166464d89ef62f117c"
+      },
+      "src_py/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "build/local/pygame/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "Setup": {
+        "size": 3449,
+        "sha256": "cd2f5c162b2fdb6d595a8f98e3a16b0c3e2a3d78c1827d59fa7476bb8226a997"
+      },
+      "test/fixtures/fonts/test_fixed.otf": {
+        "size": 58464,
+        "sha256": "1561e616c414a1b82d6e6dfbd18e5726fd65028913ade191e5fa38b6ec375a1a"
+      },
+      "test/fixtures/fonts/test_sans.ttf": {
+        "size": 133088,
+        "sha256": "9eb67a1517ade1dc25bc0ef139179808fd90c3219e6e4d2254969215bb693a13"
+      },
+      "test/fixtures/fonts/PyGameMono.otf": {
+        "size": 3128,
+        "sha256": "fc07f82f230480a2866bc8c395f8a4f3d6b184b7371e84bc686e491d6379b19c"
+      },
+      "test/fixtures/fonts/PyGameMono-8.bdf": {
+        "size": 1365,
+        "sha256": "68ad0a57efe8b033d33e20350540a06473a6b9fcba27d561e697f52008b4ff28"
+      },
+      "test/fixtures/fonts/PyGameMono-18-75dpi.bdf": {
+        "size": 1648,
+        "sha256": "e24074b98784a5add6f99028985329734843fa1e859ce8769b920f8bac737ddb"
+      },
+      "test/fixtures/fonts/PyGameMono-18-100dpi.bdf": {
+        "size": 1947,
+        "sha256": "9e6de89319df005b400e5a7bb36018e37cd2e3d35883d8eaec65731b694f84e4"
+      }
+    }
+  }
+}

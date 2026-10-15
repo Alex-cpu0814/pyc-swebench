@@ -1,0 +1,13 @@
+diff --git a/test/freetype_test.py b/test/freetype_test.py
+index e0b8803ff..af688cb3f 100644
+--- a/test/freetype_test.py
++++ b/test/freetype_test.py
+@@ -1424,7 +1424,7 @@ class FreeTypeFontTest(unittest.TestCase):
+                           null_surface, (0, 0), "Crash!", size=12)
+ 
+ 
+-class FreeTypeTest(unittest.TestCase):
++class FreeTypeTestConflictControl(unittest.TestCase):
+ 
+     def test_resolution(self):
+         was_init = ft.was_init()
