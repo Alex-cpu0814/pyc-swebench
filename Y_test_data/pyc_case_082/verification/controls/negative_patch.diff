@@ -1,0 +1,10 @@
+diff --git a/README.rst b/README.rst
+index eb2954f7c..2efc25586 100644
+--- a/README.rst
++++ b/README.rst
+@@ -193,3 +193,5 @@ License
+ 
+ .. |GithubCommits| image:: https://img.shields.io/github/commits-since/pygame/pygame/1.9.4.svg
+ .. _GithubCommits: https://github.com/pygame/pygame/compare/1.9.4...master
++
++This control leaves native event.get and empty peek behavior unchanged.

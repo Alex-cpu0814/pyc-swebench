@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 082 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"81\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"20ff3f8e021d207b6053dd98eadf606c1eb8f451\"],[\"Base commit\",\"8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/pull/804\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 1337\"],[\"Bug location type\",\"function call + return\"],[\"Root cause\",\"Logic error\"],[\"Fixing strategy\",\"Add a return statement\"],[\"Fix location\",\"if/branching statement + return statement + foreign function\"],[\"Problem statement\",\"event.get(type) should return posted matching events without a TypeError; peek() on an empty queue should be false. Existing get and populated peek behavior should remain correct.\"],[\"Original source trace\",\"1339(c_event_26-cfg.dot) (pg_event_get) … -> 1283(c_event_26-cfg.dot) (pg_event_get) -> 195(py_gen_stubs_7-cfg.dot) (get_callables)\"],[\"Source trace scope\",\"Source case 81 records incorrect result/output and a pg_event_get native trace ending in gen_stubs.get_callables. The measured regression executes official EventModuleTest get(type) and empty peek functions; the source stub-generation caller is not claimed as reproduced.\"],[\"Verified Base trace\",\"Base test_get_type raises TypeError: get type must be numeric or a sequence when the original numeric USEREVENT filter is used. Base test_peek_empty fails because peek() returns a truthy Event with an unknown type after event.clear(). Gold passes both original assertions. Existing get-all and populated peek regressions pass on both versions. The arbitrary Base event type is uninitialized data, not a fixed expected value.\"],[\"Verified official test\",\"test/event_test.py::EventModuleTest::test_get_type\\ntest/event_test.py::EventModuleTest::test_peek_empty\\ntest/event_test.py::EventModuleTest::test_get\\ntest/event_test.py::EventModuleTest::test_peek\"],[\"Official test scope\",\"Complete official test_get_type posts one USEREVENT, retrieves it by numeric type and checks list length 1 and matching type. test_peek_empty clears the queue and asserts peek() is false. Existing test_get posts ten user events; test_peek checks three populated event types and their sequence. Tests run against SDL2 2.0.14 under X11. SDL1 code changes and get(type) sequence/invalid-type cases are not directly covered. No new custom inputs or assertion changes.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "7u0x9j",
+          "target": {
+            "id": "wb/jqerz6",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 082 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-804\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"1.9.5.dev0\"],[\"Created at\",43504],[\"Base commit\",\"8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85\"],[\"Fix commit\",\"20ff3f8e021d207b6053dd98eadf606c1eb8f451\"],[\"Merged at\",43507],[\"Issue / PR\",\"https://github.com/pygame/pygame/pull/804\"],[\"Test source\",\"Original official upstream unittest TestCase methods executed by pytest\"],[\"FAIL_TO_PASS (1)\",\"test/event_test.py::EventModuleTest::test_get_type\"],[\"FAIL_TO_PASS (2)\",\"test/event_test.py::EventModuleTest::test_peek_empty\"],[\"PASS_TO_PASS (1)\",\"test/event_test.py::EventModuleTest::test_get\"],[\"PASS_TO_PASS (2)\",\"test/event_test.py::EventModuleTest::test_peek\"],[\"Base / Gold outcome\",\"Base: two official event targets fail and two regressions pass. Gold: all four official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-082-pygame:benchmark-v1\"],[\"Problem statement\",\"event.get(type) should return posted matching events without a TypeError; peek() on an empty queue should be false. Existing get and populated peek behavior should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "sr5dby",
+          "target": {
+            "id": "wb/uv8lf0",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

@@ -1,0 +1,20 @@
+test/event_test.py::EventModuleTest::test_get_type
+test/event_test.py::EventModuleTest::test_peek_empty
+test/event_test.py::EventModuleTest::test_get
+test/event_test.py::EventModuleTest::test_peek
+
+=============================== warnings summary ===============================
+test/test_utils/__init__.py:138
+  /testbed/test/test_utils/__init__.py:138: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+    (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+
+test/test_utils/run_tests.py:137
+  /testbed/test/test_utils/run_tests.py:137: DeprecationWarning: invalid escape sequence \.
+    TEST_MODULE_RE = re.compile('^(.+_test)\.py$')
+
+test/test_utils/test_runner.py:44
+  /testbed/test/test_utils/test_runner.py:44: DeprecationWarning: invalid escape sequence \s
+    EXCLUDE_RE = re.compile("(%s,?\s*)+$" % (TAG_PAT,))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+4 tests collected in 0.04s

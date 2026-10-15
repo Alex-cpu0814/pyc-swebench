@@ -1,0 +1,13 @@
+diff --git a/test/event_test.py b/test/event_test.py
+index de9cb1a34..ff142ce21 100644
+--- a/test/event_test.py
++++ b/test/event_test.py
+@@ -147,7 +147,7 @@ class EventModuleTest(unittest.TestCase):
+         self.assertEqual(len(queue), event_cnt)
+         self.assertTrue(all(e.type == pygame.USEREVENT for e in queue))
+ 
+-    def test_clear(self):
++    def test_clear_conflict_control(self):
+         """Ensure clear() removes all the events on the queue."""
+         for e in events:
+             pygame.event.post(pygame.event.Event(e))

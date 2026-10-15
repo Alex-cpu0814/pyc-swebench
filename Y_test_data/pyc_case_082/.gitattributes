@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.diff text eol=lf whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+*.raw.log -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.xlsx binary
+
+analysis/creation_tools/case082_upstream_api.raw.json -text whitespace=cr-at-eol

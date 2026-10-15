@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_082",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pygame_event_get_type_and_empty_peek",
+  "python_version_target": "3.8",
+  "native_requirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "build_system": "Official setup.py force build into /testbed/build/local, PYTHONPATH identical. All build stdout/stderr is buffered in Linux /tmp then copied verbatim to results with the original exit code; compiler flags unchanged. The legacy build command does not copy setup.py data_files, so the exact tracked Base src_py/freesansbold.ttf resource is materialized into the built pygame package, matching official install_data destination. No source/test changes.",
+  "test_execution": [
+    "Complete official event unittest methods executed directly by pytest under a normal Xvfb/X11 display and dummy audio, identical Base/Gold conditions. No official input or assertion changed."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/event_test.py.",
+    "Base test_get_type raises TypeError: get type must be numeric or a sequence when the original numeric USEREVENT filter is used. Base test_peek_empty fails because peek() returns a truthy Event with an unknown type after event.clear(). Gold passes both original assertions. Existing get-all and populated peek regressions pass on both versions. The arbitrary Base event type is uninitialized data, not a fixed expected value.",
+    "Two unchanged official event.get-all and populated peek functions, with the complete protected upstream patch applied identically on Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85",
+  "fix_commit": "20ff3f8e021d207b6053dd98eadf606c1eb8f451",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/event_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_peek_empty"
+  ],
+  "PASS_TO_PASS": [
+    "test/event_test.py::EventModuleTest::test_get",
+    "test/event_test.py::EventModuleTest::test_peek"
+  ]
+}

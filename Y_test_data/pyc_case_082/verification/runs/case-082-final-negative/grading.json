@@ -1,0 +1,17 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-082-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "test/event_test.py::EventModuleTest::test_get_type": "FAILED",
+    "test/event_test.py::EventModuleTest::test_peek_empty": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "test/event_test.py::EventModuleTest::test_get": "PASSED",
+    "test/event_test.py::EventModuleTest::test_peek": "PASSED"
+  },
+  "unexpected_failures": [
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_peek_empty"
+  ]
+}

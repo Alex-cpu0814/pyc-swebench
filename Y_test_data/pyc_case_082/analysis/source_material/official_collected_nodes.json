@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/event_test.py::EventModuleTest::test_get_type",
+    "test/event_test.py::EventModuleTest::test_peek_empty",
+    "test/event_test.py::EventModuleTest::test_get",
+    "test/event_test.py::EventModuleTest::test_peek"
+  ],
+  "count": 4,
+  "source": "Actual pytest collection with complete official protected test patch"
+}

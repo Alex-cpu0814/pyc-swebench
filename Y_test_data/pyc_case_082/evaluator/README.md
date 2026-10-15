@@ -1,0 +1,9 @@
+# Evaluator
+
+The candidate product patch is applied before the complete protected official upstream test patch. Normal force-build refreshes /testbed/build/local/pygame/event and preserves the compiler exit code and full output. The four collected test/event_test.py IDs are parsed from anchored PASSED/FAILED/SKIPPED/ERROR terminal lines. Formal order is two regressions then two targets.
+
+Complete official test_get_type posts one USEREVENT, retrieves it by numeric type and checks list length 1 and matching type. test_peek_empty clears the queue and asserts peek() is false. Existing test_get posts ten user events; test_peek checks three populated event types and their sequence. Tests run against SDL2 2.0.14 under X11. SDL1 code changes and get(type) sequence/invalid-type cases are not directly covered. No new custom inputs or assertion changes.
+
+Actual pygame 1.9.5.dev0 comes from official setup.py literal metadata; revision is empty, with no inferred release or SCM override. Public pinned Python 3.8.20, SDL2 header/linked 2.0.14, companion libraries, Xvfb and xauth versions are audited. Official setup.py -auto -sdl2 -config precedes native force-build into /testbed/build/local. PYTHONPATH and native event extension path match on Base and Gold. Xvfb/X11 video and dummy audio are identical. Standard xvfb-run retains a parent shell and propagates the test exit code. Build logging buffers all compiler stdout/stderr in Linux /tmp, copies it verbatim and preserves the original build exit code. The exact Base tracked src_py/freesansbold.ttf is copied into the built pygame package data_files destination; a complete install was not performed. Event tests do not consume font fixtures.
+
+Runtime assets are mounted only during evaluation; protected-test conflicts are rejected. The source cache is separate from the clean published image.

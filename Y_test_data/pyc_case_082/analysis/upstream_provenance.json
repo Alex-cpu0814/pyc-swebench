@@ -1,0 +1,129 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/pull/804",
+  "base_commit": "8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85",
+  "fix_commit": "20ff3f8e021d207b6053dd98eadf606c1eb8f451",
+  "merge_parents": [
+    "8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85",
+    "b2ec108f908b548f8d0bc44add64785db4c957ab"
+  ],
+  "upstream_created_at": "2019-02-08",
+  "upstream_merged_at": "2019-02-11",
+  "upstream_created_at_timestamp": "2019-02-08T01:34:02Z",
+  "upstream_merged_at_timestamp": "2019-02-11T18:21:35Z",
+  "source_commit_timestamp_original_offset": "2019-02-11T19:21:35+01:00",
+  "date_source": "https://api.github.com/repos/pygame/pygame/pulls/804",
+  "date_semantics": "Official REST opening/merge timestamps and exact source committer time recorded independently.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/event.c"
+  ],
+  "verified_scope": "Complete official test_get_type posts one USEREVENT, retrieves it by numeric type and checks list length 1 and matching type. test_peek_empty clears the queue and asserts peek() is false. Existing test_get posts ten user events; test_peek checks three populated event types and their sequence. Tests run against SDL2 2.0.14 under X11. SDL1 code changes and get(type) sequence/invalid-type cases are not directly covered. No new custom inputs or assertion changes.",
+  "source_trace_scope": "Source case 81 records incorrect result/output and a pg_event_get native trace ending in gen_stubs.get_callables. The measured regression executes official EventModuleTest get(type) and empty peek functions; the source stub-generation caller is not claimed as reproduced.",
+  "version_metadata": {
+    "strategy": "Official setup.py literal 1.9.5.dev0 with generated version.py and actual runtime verification.",
+    "setup_blob": "08b8bd20f7e7d2814f7a1f1ca778305d380870cb"
+  },
+  "native_source_git_blobs": {
+    "src_c/event.c": "a4ae2d7285c6bf88821ec4c7c304f1c879ecb744",
+    "src_c/_pygame.h": "3475f7f3d8f152dfaefcb0241e1fd9148a1b505f",
+    "setup.py": "08b8bd20f7e7d2814f7a1f1ca778305d380870cb",
+    "src_py/freesansbold.ttf": "a98562fc1a89075f2218a2dbf2c08785237fab90"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5",
+    "xvfb": "2:1.20.11-1+deb11u13",
+    "xauth": "1:1.1-1"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "configuration": "Official legacy setup.py -auto -sdl2 -config followed by force native build. Exact tracked default package font copied to data_files destination; no complete install claimed.",
+  "default_font_packaging": {
+    "source": "src_py/freesansbold.ttf",
+    "target": "build/local/pygame/freesansbold.ttf",
+    "git_blob": "a98562fc1a89075f2218a2dbf2c08785237fab90",
+    "reason": "Official legacy setup.py data_files includes src_py non-Python files; build alone omitted default font. Copy fixed Base resource into its normal built-package location after normal native build, same Base/Gold, no new binary patch.",
+    "initial_evidence": "First Base2fail2pass and Gold1fail3pass; shared missing-default-font RuntimeError is infrastructure, not productfailure; retained."
+  },
+  "admission_rule": "Official nodes must show genuine Base/Gold contrast. Empty peek may be stack dependent; classify only actual measurements.",
+  "source_commit_utc_timestamp": "2019-02-11T18:21:35Z",
+  "formal_runtime_audit": {
+    "pygame_version": "1.9.5.dev0",
+    "pygame_revision": "",
+    "event_extension": "/testbed/build/local/pygame/event.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "b10d7ca7e4951c53b3341bc68535518f4fc62c997142081faff02ce8fbb71a7e",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "video_driver": "x11",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/event.c": {
+        "size": 51720,
+        "sha256": "0f58684f4ab5523525f28efc98705f479437641f6b448a9eaee331f54b686e2a"
+      },
+      "src_c/_pygame.h": {
+        "size": 28664,
+        "sha256": "54e5b2065357becb90d555bfbe40cb87cd20ab060861d5515eab2ddef60cd6b6"
+      },
+      "setup.py": {
+        "size": 24078,
+        "sha256": "e0a926c9710b7d8982aa3902048eb36fffedba0000308f5ea1cfd52595d2bcbd"
+      },
+      "src_py/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "build/local/pygame/version.py": {
+        "size": 1345,
+        "sha256": "2dfe3a18bd8937b43f5a3e735f206b9724cb85c9383ffbda1116724dd1cc14bc"
+      },
+      "Setup": {
+        "size": 3449,
+        "sha256": "cd2f5c162b2fdb6d595a8f98e3a16b0c3e2a3d78c1827d59fa7476bb8226a997"
+      },
+      "src_py/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      },
+      "build/local/pygame/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"
+      }
+    }
+  }
+}

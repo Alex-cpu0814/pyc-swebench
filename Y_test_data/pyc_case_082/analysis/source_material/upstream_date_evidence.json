@@ -1,0 +1,10 @@
+{
+  "source": "https://api.github.com/repos/pygame/pygame/pulls/804",
+  "created_at": "2019-02-08T01:34:02Z",
+  "merged_at": "2019-02-11T18:21:35Z",
+  "source_fix": "20ff3f8e021d207b6053dd98eadf606c1eb8f451",
+  "api_merge_sha": "20ff3f8e021d207b6053dd98eadf606c1eb8f451",
+  "first_parent": "8a63c06f2e082b8c7e3c0fce035a0a7e4ca55d85",
+  "source_committer_utc": "2019-02-11T18:21:35Z",
+  "relationship": "Exact API merge SHA equals fixed source; actual first parent verified. REST merge timestamp and source committer UTC match."
+}

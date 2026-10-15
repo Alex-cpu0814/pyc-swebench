@@ -1,0 +1,6 @@
+{
+  "phase": "local publication evidence archival",
+  "error": "ENOENT copying stale audit_publication081.mjs after successful push and independent registry query had already been recorded",
+  "impact": "Docker push and digest verification succeeded; publication.json and authorization_evidence.json were already saved. No product/test failure.",
+  "resolution": "Copied helper filename references corrected to082; final local refresh archives all current helpers and publication files without repeating upload or network query."
+}

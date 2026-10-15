@@ -1,0 +1,79 @@
+{
+  "formulaScan": [
+    {
+      "recordCount": 1,
+      "truncated": false,
+      "metadata": {
+        "revision": "8kfrpm",
+        "target": {
+          "id": "wb/kw7z6l",
+          "beforeLines": 0,
+          "afterLines": 0
+        },
+        "kind": {
+          "requested": "formula",
+          "tokens": [
+            "formula"
+          ]
+        },
+        "include": {
+          "tokens": []
+        },
+        "exclude": {
+          "tokens": []
+        },
+        "notices": []
+      }
+    },
+    {
+      "recordCount": 1,
+      "truncated": false,
+      "metadata": {
+        "revision": "mdeitb",
+        "target": {
+          "id": "wb/kdnrhc",
+          "beforeLines": 0,
+          "afterLines": 0
+        },
+        "kind": {
+          "requested": "formula",
+          "tokens": [
+            "formula"
+          ]
+        },
+        "include": {
+          "tokens": []
+        },
+        "exclude": {
+          "tokens": []
+        },
+        "notices": []
+      }
+    }
+  ],
+  "errorScan": {
+    "recordCount": 1,
+    "truncated": false,
+    "metadata": {
+      "revision": "s9w0k6",
+      "target": {
+        "id": "wb/zcgcym",
+        "beforeLines": 0,
+        "afterLines": 0
+      },
+      "kind": {
+        "requested": "match",
+        "tokens": [
+          "match"
+        ]
+      },
+      "include": {
+        "tokens": []
+      },
+      "exclude": {
+        "tokens": []
+      },
+      "notices": []
+    }
+  }
+}
