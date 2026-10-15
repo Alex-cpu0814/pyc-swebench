@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_077",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pygame_native_rectangle_stroke",
+  "python_version_target": "3.8",
+  "native_requirement": "Debian Bullseye SDL2 development/runtime and companion SDL2/image/mixer/ttf, freetype, portmidi dependencies; exact installed versions audited.",
+  "build_system": "Official setup.py force build into /testbed/build/local, PYTHONPATH identical. All build stdout/stderr is buffered in Linux /tmp then copied verbatim to results with the original exit code; compiler flags unchanged.",
+  "test_execution": [
+    "Four original official unittest methods under normal pytest, identical SDL2 dummy video/audio environment for Base and Gold; no changed test inputs or pixel expectations."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/draw_test.py.",
+    "Base fails the exact official rectangle line-width test because an expected white border corner pixel remains black. The 100x100 surface contains an 80x50 rectangle with line width 10. Gold satisfies all 40 white corner-point assertions and four black inner-point assertions. Three unchanged official filled-rectangle, one-pixel-line and default-width tests pass on both products. No skip, missing node or native crash is observed.",
+    "Three unchanged official native DrawRectTest methods cover filled rectangles, one-pixel borders and default-width argument handling. The complete upstream official test patch is applied identically on both products."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+  "fix_commit": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/draw_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width"
+  ],
+  "PASS_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__fill",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  ]
+}

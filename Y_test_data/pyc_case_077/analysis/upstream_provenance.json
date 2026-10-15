@@ -1,0 +1,112 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/pull/2927",
+  "related_issue_url": "https://github.com/pygame/pygame/issues/2862",
+  "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+  "fix_commit": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "merge_parents": [
+    "c09d677a6c1c2e814683576035f13c6a07d64f67",
+    "810702a3b66a0d9f9a4777f44e38f4584ff24417"
+  ],
+  "upstream_created_at": "2021-12-18",
+  "upstream_merged_at": "2021-12-19",
+  "upstream_created_at_timestamp": "2021-12-18T16:17:19Z",
+  "upstream_merged_at_timestamp": "2021-12-19T12:15:55Z",
+  "source_commit_timestamp_original_offset": "2021-12-19T17:45:54+05:30",
+  "date_source": "https://api.github.com/repos/pygame/pygame/pulls/2927",
+  "date_semantics": "Official REST PR opening/merge UTC timestamps; exact source committer UTC is one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/draw.c"
+  ],
+  "verified_scope": "Official rectangle width/corner pixel rasterization",
+  "source_trace_scope": "Source case 76 records incorrect result/output and a rect-to-test_anti_aliasing_float_coordinates trace with Python-to-C object/argument APIs. The measured official regression instead checks integer rectangle border width/corners; float anti-aliasing is not claimed as the reproduced defect.",
+  "version_metadata": {
+    "strategy": "Official setup.py METADATA literal2.1.1.dev1 generates version.py; observed runtime and revision audited, no inferred release/SCM override.",
+    "setup_blob": "022c641809d9c30827b5a1413b13adaaaabdc131"
+  },
+  "native_source_git_blobs": {
+    "src_c/draw.c": "2ac37723626b147ea9e5e77c9550b7964ecc3a9b",
+    "src_c/include/_pygame.h": "bdcd8ff4163c7288c2f3476e82a5aed06e8b1fe3",
+    "setup.py": "022c641809d9c30827b5a1413b13adaaaabdc131"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "dependency_resolution": "Public Python digest and actual audited Bullseye SDL2/development companion versions fixed as in prior successful pygame environment. No product compatibility changes.",
+  "admission_rule": "Exact upstream test patch and real Base/Gold contrast required. Only active DrawRectTest is measured; commented Python implementation test class excluded.",
+  "source_commit_utc_timestamp": "2021-12-19T12:15:54Z",
+  "formal_runtime_audit": {
+    "pygame_version": "2.1.1.dev1",
+    "pygame_revision": "",
+    "pygame_file": "/testbed/build/local/pygame/__init__.py",
+    "draw_extension": "/testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "e8a68f8f8fb0313c7c92a493d894ed170fb2ee71429f19235ab581d896f67466",
+    "sdl_compiled": [
+      2,
+      0,
+      14
+    ],
+    "sdl_linked": [
+      2,
+      0,
+      14
+    ],
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src_c/draw.c": {
+        "size": 85716,
+        "sha256": "223aaa46b397fc69ed5c71abe7fceb959a98474963d083d0b0db38bfcbd98915"
+      },
+      "src_c/include/_pygame.h": {
+        "size": 15800,
+        "sha256": "df0146f7d78fce1752c3de88940ff7e8789d563f44b6aae2917266652372879f"
+      },
+      "setup.py": {
+        "size": 34355,
+        "sha256": "8423e799af78a3bb7639a2704b871fd198fe056e709917b2bb4f4feac9057b63"
+      },
+      "src_py/version.py": {
+        "size": 2444,
+        "sha256": "f5edf51e77fe8b12e3d0a7e7cef661e31e45f5502d035fb4371d525b7b6ab7f3"
+      },
+      "build/local/pygame/version.py": {
+        "size": 2444,
+        "sha256": "f5edf51e77fe8b12e3d0a7e7cef661e31e45f5502d035fb4371d525b7b6ab7f3"
+      },
+      "Setup": {
+        "size": 3606,
+        "sha256": "2e7b11ba4e9cf35d2cb81aba79355f267d64396faf90757f37caa1ec41946101"
+      }
+    }
+  }
+}

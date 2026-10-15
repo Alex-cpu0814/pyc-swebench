@@ -1,0 +1,155 @@
+src_c/imageext.c: In function ‘image_load_ext’:
+src_c/imageext.c:119:13: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  119 |         ext = find_extension(name);
+      |             ^
+src_c/imageext.c:108:9: warning: variable ‘lock_mutex’ set but not used [-Wunused-but-set-variable]
+  108 |     int lock_mutex = 0;
+      |         ^~~~~~~~~~
+src_c/font.c: In function ‘font_dealloc’:
+src_c/font.c:694:29: warning: initialization of ‘int **’ from incompatible pointer type ‘TTF_Font *’ {aka ‘struct _TTF_Font *’} [-Wincompatible-pointer-types]
+  694 |             int **face_pp = font;
+      |                             ^~~~
+At top level:
+src_c/font.c:79:1: warning: ‘utf_8_needs_UCS_4’ defined but not used [-Wunused-function]
+   79 | utf_8_needs_UCS_4(const char *str)
+      | ^~~~~~~~~~~~~~~~~
+src_c/music.c: In function ‘_get_type_from_hint’:
+src_c/music.c:305:22: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  305 |             namehint = dot + 1;
+      |                      ^
+In file included from src_c/pygame.h:30,
+                 from src_c/music.c:27:
+src_c/music.c: In function ‘_load_music’:
+src_c/_pygame.h:228:47: warning: returning ‘PyObject *’ {aka ‘struct _object *’} from a function with incompatible return type ‘Mix_Music *’ {aka ‘struct _Mix_Music *’} [-Wincompatible-pointer-types]
+  228 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+src_c/mixer.h:9:12: note: in expansion of macro ‘RAISE’
+    9 |     return RAISE(pgExc_SDLError, "mixer not initialized")
+      |            ^~~~~
+src_c/music.c:377:5: note: in expansion of macro ‘MIXER_INIT_CHECK’
+  377 |     MIXER_INIT_CHECK();
+      |     ^~~~~~~~~~~~~~~~
+src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_aalineColor’:
+src_c/SDL_gfx/SDL_gfxPrimitives.c:2533:25: warning: variable ‘wgtcompmask’ set but not used [-Wunused-but-set-variable]
+ 2533 |  Uint32 erracctmp, wgt, wgtcompmask;
+      |                         ^~~~~~~~~~~
+src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘arcColor’:
+src_c/SDL_gfx/SDL_gfxPrimitives.c:3128:2: warning: multi-line comment [-Wcomment]
+ 3128 |  //     /|\
+      |  ^
+src_c/SDL_gfx/SDL_gfxPrimitives.c:3130:2: warning: multi-line comment [-Wcomment]
+ 3130 |  //   /  |  \
+      |  ^
+src_c/freetype/ft_cache.c: In function ‘_PGFT_Cache_FindGlyph’:
+src_c/freetype/ft_cache.c:111:20: warning: array subscript -1 is outside array bounds of ‘NodeKey[1]’ {aka ‘union cachenodekey_[1]’} [-Warray-bounds]
+  111 |         k1 = blocks[i];
+      |                    ^
+src_c/freetype/ft_cache.c:246:13: note: while referencing ‘key’
+  246 |     NodeKey key;
+      |             ^~~
+src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_MONO3’:
+src_c/freetype/ft_render_cb.c:669:19: warning: variable ‘full_color’ set but not used [-Wunused-but-set-variable]
+  669 |         FT_UInt32 full_color;                                                 \
+      |                   ^~~~~~~~~~
+src_c/freetype/ft_render_cb.c:814:1: note: in expansion of macro ‘_CREATE_MONO_RENDER’
+  814 | _CREATE_MONO_RENDER(3, GET_PIXEL24(_dst), _SET_PIXEL_24, _BLEND_PIXEL_24)
+      | ^~~~~~~~~~~~~~~~~~~
+src_c/display.c: In function ‘pg_GetVideoInfo’:
+src_c/display.c:409: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+  409 | #pragma PG_WARN(hardcoding wm_available to 1)
+      | 
+src_c/display.c:410: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+  410 | #pragma PG_WARN(setting available video RAM to 0 KB)
+      | 
+src_c/display.c: In function ‘pg_set_mode’:
+src_c/display.c:992: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+  992 | #pragma PG_WARN(Not setting bpp ?)
+      | 
+src_c/display.c:993: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+  993 | #pragma PG_WARN(Add mode stuff.)
+      | 
+src_c/display.c:1019:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+ 1019 |                         if (x == SDL_WINDOWPOS_UNDEFINED_DISPLAY(display))
+      |                               ^~
+src_c/display.c:1021:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+ 1021 |                         if (y == SDL_WINDOWPOS_UNDEFINED_DISPLAY(display))
+      |                               ^~
+src_c/display.c: In function ‘pg_mode_ok’:
+src_c/display.c:1417: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+ 1417 | #pragma PG_WARN(Ignoring most flags)
+      | 
+src_c/display.c: In function ‘pg_list_modes’:
+src_c/display.c:1471: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+ 1471 | #pragma PG_WARN(Ignoring flags)
+      | 
+src_c/display.c:1499:43: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+ 1499 |         if (SDL_BITSPERPIXEL(mode.format) != bpp)
+      |                                           ^~
+src_c/display.c: At top level:
+src_c/display.c:2574: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+ 2574 | #pragma PG_WARN(At some point should add GC slot functions.)
+      | 
+src_c/key.c: In function ‘_get_keycode_name’:
+src_c/key.c:690: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+  690 | #pragma PG_WARN(Add missing keycode names here ?)
+      | 
+src_c/alphablit.c: In function ‘blit_blend_premultiplied_sse2’:
+src_c/alphablit.c:1031:53: warning: variable ‘multmask_128’ set but not used [-Wunused-but-set-variable]
+ 1031 |     __m128i src1, dst1, sub_dst, mm_alpha, mm_zero, multmask_128, ones_128;
+      |                                                     ^~~~~~~~~~~~
+src_c/alphablit.c: In function ‘alphablit_alpha_sse2_argb_surf_alpha’:
+src_c/alphablit.c:2282:9: warning: unused variable ‘dstbpp’ [-Wunused-variable]
+ 2282 |     int dstbpp = dstfmt->BytesPerPixel;
+      |         ^~~~~~
+src_c/alphablit.c:2281:9: warning: unused variable ‘srcbpp’ [-Wunused-variable]
+ 2281 |     int srcbpp = srcfmt->BytesPerPixel;
+      |         ^~~~~~
+src_c/alphablit.c: In function ‘alphablit_alpha_sse2_argb_no_surf_alpha_opaque_dst’:
+src_c/alphablit.c:2808:12: warning: unused variable ‘src_amask32’ [-Wunused-variable]
+ 2808 |     Uint32 src_amask32 = srcfmt->Amask;
+      |            ^~~~~~~~~~~
+src_c/alphablit.c:2801:12: warning: unused variable ‘src_amask64’ [-Wunused-variable]
+ 2801 |     Uint64 src_amask64 = ((Uint64)srcfmt->Amask << 32) | srcfmt->Amask;
+      |            ^~~~~~~~~~~
+src_c/alphablit.c:2796:22: warning: unused variable ‘dstfmt’ [-Wunused-variable]
+ 2796 |     SDL_PixelFormat *dstfmt = info->dst;
+      |                      ^~~~~~
+src_c/surface.c: In function ‘surf_convert_alpha’:
+src_c/surface.c:1684: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+ 1684 | #pragma PG_WARN("srcsurf doesn't actually do anything?")
+      | 
+src_c/image.c: In function ‘image_load_basic’:
+src_c/image.c:72:15: warning: unused variable ‘oencoded’ [-Wunused-variable]
+   72 |     PyObject *oencoded;
+      |               ^~~~~~~~
+src_c/transform.c: In function ‘surf_rotate’:
+src_c/transform.c:627:16: warning: returning ‘pgSurfaceObject *’ from a function with incompatible return type ‘PyObject *’ {aka ‘struct _object *’} [-Wincompatible-pointer-types]
+  627 |         return surfobj;
+      |                ^~~~~~~
+src_c/_camera.c: In function ‘bgr32_to_rgb’:
+src_c/_camera.c:592:17: warning: value computed is not used [-Wunused-value]
+  592 |                 *s++;
+      |                 ^~~~
+src_c/camera_v4l2.c: In function ‘v4l2_process_image’:
+src_c/camera_v4l2.c:190:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  190 |             if (buffer_size >= self->size * 3) {
+      |                             ^~
+src_c/camera_v4l2.c:212:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  212 |             if (buffer_size >= self->size * 2) {
+      |                             ^~
+src_c/camera_v4l2.c:234:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  234 |             if (buffer_size >= self->size * 2) {
+      |                             ^~
+src_c/camera_v4l2.c:258:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  258 |             if (buffer_size >= self->size * 2) {
+      |                             ^~
+src_c/camera_v4l2.c:282:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  282 |             if (buffer_size >= self->size) {
+      |                             ^~
+src_c/camera_v4l2.c:308:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+  308 |             if (buffer_size >= (self->size * 3) / 2) {
+      |                             ^~
+src_c/camera_v4l2.c: In function ‘v4l2_query_buffer’:
+src_c/camera_v4l2.c:342:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+  342 |     for (i = 0; i < self->n_buffers; ++i) {
+      |                   ^

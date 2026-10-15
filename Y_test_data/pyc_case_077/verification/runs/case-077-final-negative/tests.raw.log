@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 4 items
+
+test/draw_test.py::DrawRectTest::test_rect__fill PASSED                  [ 25%]
+test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines PASSED       [ 50%]
+test/draw_test.py::DrawRectTest::test_rect__args_without_width PASSED    [ 75%]
+test/draw_test.py::DrawRectTest::test_rect__draw_line_width FAILED       [100%]
+
+=================================== FAILURES ===================================
+___________________ DrawRectTest.test_rect__draw_line_width ____________________
+
+self = <test.draw_test.DrawRectTest testMethod=test_rect__draw_line_width>
+
+    def test_rect__draw_line_width(self):
+        surface = pygame.Surface((100, 100))
+        color = pygame.Color(255, 255, 255)
+        rect_width = 80
+        rect_height = 50
+        line_width = 10
+        pygame.draw.rect(
+            surface, color, pygame.Rect(0, 0, rect_width, rect_height), line_width
+        )
+        for i in range(line_width):
+            self.assertEqual(surface.get_at((i, i)), color)
+            self.assertEqual(surface.get_at((rect_width - i - 1, i)), color)
+            self.assertEqual(surface.get_at((i, rect_height - i - 1)), color)
+>           self.assertEqual(
+                surface.get_at((rect_width - i - 1, rect_height - i - 1)), color
+            )
+E           AssertionError: (0, 0, 0, 255) != (255, 255, 255, 255)
+
+test/draw_test.py:4966: AssertionError
+=========================== short test summary info ============================
+FAILED test/draw_test.py::DrawRectTest::test_rect__draw_line_width - Assertio...
+========================= 1 failed, 3 passed in 2.05s ==========================

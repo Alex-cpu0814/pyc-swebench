@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_077",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "76",
+  "duplicate_source_cases": [],
+  "deduplication_key": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "language_pair": "Python-C",
+  "repo": "pygame/pygame",
+  "issue_id": "2927",
+  "issue_url": "https://github.com/pygame/pygame/pull/2927",
+  "commit": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+  "base_commit_status": "verified_first_parent_of_merge",
+  "fix_commit": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "commit_url": "https://github.com/pygame/pygame/commit/ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "problem_statement": "Drawing an unrounded rectangle with a positive line width should paint the full border inside its original bounds, including all corner pixels, while leaving the adjacent inner pixels unpainted. Filled rectangles and one-pixel borders should remain correct.",
+  "symptom": "incorrect result/output.",
+  "bug_location": "line 937",
+  "bug_location_type": "function call + assignment",
+  "bug_path": "937(c_draw_21-cfg.dot) (rect) … -> 863(c_draw_21-cfg.dot) (rect) -> 3146(py_draw_test_254-cfg.dot) (test_anti_aliasing_float_coordinates)",
+  "cross_language_type": "Py_DECREF,Foreign,Reference Counting,Py_BuildValue,Foreign,Sequence Protocol,PyErr_Format,Foreign,Exception Handling,PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Logic error",
+  "fixing_strategy": "add a new function to handle",
+  "fix_location": "if/branching statement + foreign function",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/pygame/pygame/pull/2927",
+    "upstream_description": "PR2927 replaces the native polygon-based rectangle outline with a dedicated draw_rect routine, updates rectangle clipping/return bounds and routes other shape helpers through the bounding horizontal-line variant. The complete native draw.c patch and the exact official added rectangle-width test are preserved.",
+    "verified_error": "Base fails the exact official rectangle line-width test because an expected white border corner pixel remains black. The 100x100 surface contains an 80x50 rectangle with line width 10. Gold satisfies all 40 white corner-point assertions and four black inner-point assertions. Three unchanged official filled-rectangle, one-pixel-line and default-width tests pass on both products. No skip, missing node or native crash is observed.",
+    "verified_test": "test/draw_test.py::DrawRectTest::test_rect__draw_line_width and test/draw_test.py::DrawRectTest::test_rect__fill and test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines and test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  },
+  "evidence_type": "source_row_upstream_pr_and_verified_pytest_trace",
+  "official_test_scope": "The active native DrawRectTest runs the complete upstream added test_rect__draw_line_width: a 100x100 surface, 80x50 rectangle, line width 10, 40 white corner diagonal samples and four black inner corners. Three unchanged neighboring methods cover filled rectangles, one-pixel lines and the width-omitted default. Commented PythonDrawRectTest is not executed. Original inputs/assertions are unchanged. Float anti-aliasing, every clipping case and other shape algorithms are not claimed as reproduced defects.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width"
+  ],
+  "PASS_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__fill",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

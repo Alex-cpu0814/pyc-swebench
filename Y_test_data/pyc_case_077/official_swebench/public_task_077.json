@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-2927",
+  "repo": "pygame/pygame",
+  "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+  "problem_statement": "Drawing an unrounded rectangle with a positive line width should paint the full border inside its original bounds, including all corner pixels, while leaving the adjacent inner pixels unpainted. Filled rectangles and one-pixel borders should remain correct.",
+  "hints_text": "",
+  "created_at": "2021-12-18",
+  "version": "2.1.1.dev1",
+  "issue_id": "2927",
+  "issue_url": "https://github.com/pygame/pygame/pull/2927"
+}

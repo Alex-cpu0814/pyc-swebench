@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 077 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"76\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b\"],[\"Base commit\",\"c09d677a6c1c2e814683576035f13c6a07d64f67\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/pull/2927\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 937\"],[\"Bug location type\",\"function call + assignment\"],[\"Root cause\",\"Logic error\"],[\"Fixing strategy\",\"add a new function to handle\"],[\"Fix location\",\"if/branching statement + foreign function\"],[\"Problem statement\",\"Drawing an unrounded rectangle with a positive line width should paint the full border inside its original bounds, including all corner pixels, while leaving the adjacent inner pixels unpainted. Filled rectangles and one-pixel borders should remain correct.\"],[\"Original source trace\",\"937(c_draw_21-cfg.dot) (rect) … -> 863(c_draw_21-cfg.dot) (rect) -> 3146(py_draw_test_254-cfg.dot) (test_anti_aliasing_float_coordinates)\"],[\"Source trace scope\",\"Source case 76 records incorrect result/output and a rect-to-test_anti_aliasing_float_coordinates trace with Python-to-C object/argument APIs. The measured official regression instead checks integer rectangle border width/corners; float anti-aliasing is not claimed as the reproduced defect.\"],[\"Verified Base trace\",\"Base fails the exact official rectangle line-width test because an expected white border corner pixel remains black. The 100x100 surface contains an 80x50 rectangle with line width 10. Gold satisfies all 40 white corner-point assertions and four black inner-point assertions. Three unchanged official filled-rectangle, one-pixel-line and default-width tests pass on both products. No skip, missing node or native crash is observed.\"],[\"Verified official test\",\"test/draw_test.py::DrawRectTest::test_rect__draw_line_width\\ntest/draw_test.py::DrawRectTest::test_rect__fill\\ntest/draw_test.py::DrawRectTest::test_rect__one_pixel_lines\\ntest/draw_test.py::DrawRectTest::test_rect__args_without_width\"],[\"Official test scope\",\"The active native DrawRectTest runs the complete upstream added test_rect__draw_line_width: a 100x100 surface, 80x50 rectangle, line width 10, 40 white corner diagonal samples and four black inner corners. Three unchanged neighboring methods cover filled rectangles, one-pixel lines and the width-omitted default. Commented PythonDrawRectTest is not executed. Original inputs/assertions are unchanged. Float anti-aliasing, every clipping case and other shape algorithms are not claimed as reproduced defects.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "s9q5sj",
+          "target": {
+            "id": "wb/vp2dqs",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 077 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-2927\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"2.1.1.dev1\"],[\"Created at\",44548],[\"Base commit\",\"c09d677a6c1c2e814683576035f13c6a07d64f67\"],[\"Fix commit\",\"ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b\"],[\"Merged at\",44549],[\"Issue / PR\",\"https://github.com/pygame/pygame/pull/2927\"],[\"Test source\",\"Original official upstream unittest TestCase methods executed by pytest\"],[\"FAIL_TO_PASS (1)\",\"test/draw_test.py::DrawRectTest::test_rect__draw_line_width\"],[\"PASS_TO_PASS (1)\",\"test/draw_test.py::DrawRectTest::test_rect__fill\"],[\"PASS_TO_PASS (2)\",\"test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines\"],[\"PASS_TO_PASS (3)\",\"test/draw_test.py::DrawRectTest::test_rect__args_without_width\"],[\"Base / Gold outcome\",\"Base: one official rectangle-border pixel target fails and three regressions pass. Gold: all four official nodes pass.\"],[\"Docker image\",\"yutu0814/pyc-case-077-pygame:benchmark-v1\"],[\"Problem statement\",\"Drawing an unrounded rectangle with a positive line width should paint the full border inside its original bounds, including all corner pixels, while leaving the adjacent inner pixels unpainted. Filled rectangles and one-pixel borders should remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "q8321j",
+          "target": {
+            "id": "wb/rwdauo",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

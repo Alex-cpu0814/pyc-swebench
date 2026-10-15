@@ -1,0 +1,13 @@
+diff --git a/test/draw_test.py b/test/draw_test.py
+index 8ad7d0d18..1113cea6f 100644
+--- a/test/draw_test.py
++++ b/test/draw_test.py
+@@ -4950,7 +4950,7 @@ class DrawRectMixin(object):
+ 
+             self.assertNotEqual(color_at_pt, self.color)
+ 
+-    def test_rect__bounding_rect(self):
++    def test_rect__bounding_rect_conflict_control(self):
+         """Ensures draw rect returns the correct bounding rect.
+ 
+         Tests rects on and off the surface and a range of width/thickness

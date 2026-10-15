@@ -1,0 +1,164 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "76",
+  "candidate_case": "077",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The active native DrawRectTest runs the complete upstream added test_rect__draw_line_width: a 100x100 surface, 80x50 rectangle, line width 10, 40 white corner diagonal samples and four black inner corners. Three unchanged neighboring methods cover filled rectangles, one-pixel lines and the width-omitted default. Commented PythonDrawRectTest is not executed. Original inputs/assertions are unchanged. Float anti-aliasing, every clipping case and other shape algorithms are not claimed as reproduced defects.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2021-12-18",
+  "created_at_precision": "date",
+  "instance_id": "pygame__pygame-2927",
+  "source_instance_id": "pyc_case_077",
+  "repo": "pygame/pygame",
+  "issue_id": "2927",
+  "issue_url": "https://github.com/pygame/pygame/pull/2927",
+  "project_version": "2.1.1.dev1",
+  "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+  "fix_commit": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "FAIL_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width"
+  ],
+  "PASS_TO_PASS": [
+    "test/draw_test.py::DrawRectTest::test_rect__fill",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20",
+    "test_runner_version": "pytest 7.4.4",
+    "compiler_toolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+    "base_target_status": "FAILED",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-077-pygame:benchmark-v1",
+      "id": "sha256:9033751a383ee84641f989c2efc2da75bec96025e77dda11dd9736a992a9a912",
+      "repo_digests": [
+        "yutu0814/pyc-case-077-pygame@sha256:9033751a383ee84641f989c2efc2da75bec96025e77dda11dd9736a992a9a912"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "pygame__pygame-2927",
+      "base_commit": "c09d677a6c1c2e814683576035f13c6a07d64f67",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-077-final-gold/summary.json",
+      "verification/runs/case-077-final-negative/summary.json",
+      "verification/runs/case-077-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2021-12-19",
+  "created_at_source": "https://api.github.com/repos/pygame/pygame/pulls/2927",
+  "date_semantics": "Official REST PR opening/merge UTC timestamps; exact source committer UTC is one second earlier than REST merge.",
+  "source_classification": "Python-C (preserved source taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src_c/draw.c"
+  ],
+  "verified_scope": "Official rectangle width/corner pixel rasterization",
+  "source_trace_scope": "Source case 76 records incorrect result/output and a rect-to-test_anti_aliasing_float_coordinates trace with Python-to-C object/argument APIs. The measured official regression instead checks integer rectangle border width/corners; float anti-aliasing is not claimed as the reproduced defect.",
+  "version_metadata": {
+    "strategy": "Official setup.py METADATA literal2.1.1.dev1 generates version.py; observed runtime and revision audited, no inferred release/SCM override.",
+    "setup_blob": "022c641809d9c30827b5a1413b13adaaaabdc131"
+  },
+  "sdl_version": {
+    "compiled_header": [
+      2,
+      0,
+      14
+    ],
+    "linked_runtime": [
+      2,
+      0,
+      14
+    ],
+    "method": "Actual installed SDL2 header macros and no-argument linked runtime API."
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libportmidi-dev": "1:217-6",
+    "libsdl2-2.0-0": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-dev": "2.0.14+dfsg2-3+deb11u1",
+    "libsdl2-image-dev": "2.0.5+dfsg1-2",
+    "libsdl2-mixer-dev": "2.0.4+dfsg1-3",
+    "libsdl2-ttf-dev": "2.0.15+dfsg1-1",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "src_c/draw.c"
+  ],
+  "test_files": [
+    "test/draw_test.py"
+  ]
+}

@@ -1,0 +1,6 @@
+test/draw_test.py::DrawRectTest::test_rect__draw_line_width
+test/draw_test.py::DrawRectTest::test_rect__fill
+test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines
+test/draw_test.py::DrawRectTest::test_rect__args_without_width
+
+4 tests collected in 0.20s

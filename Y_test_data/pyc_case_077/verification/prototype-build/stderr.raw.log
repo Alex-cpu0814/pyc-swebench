@@ -1,0 +1,238 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.16kB 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 5.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade --allow-downgrades libudev1=247.3-7+deb11u5 libudev-dev=247.3-7+deb11u5 gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates libsdl2-2.0-0=2.0.14+dfsg2-3+deb11u1 libsdl2-dev=2.0.14+dfsg2-3+deb11u1 libsdl2-image-dev=2.0.5+dfsg1-2 libsdl2-mixer-dev=2.0.4+dfsg1-3 libsdl2-ttf-dev=2.0.15+dfsg1-1 libfreetype6-dev=2.10.4+dfsg-1+deb11u1 libportmidi-dev=1:217-6     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 CACHED
+
+#7 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/pygame/pygame.git"     && git fetch --depth=1 --no-tags origin "c09d677a6c1c2e814683576035f13c6a07d64f67"     && git checkout --detach "c09d677a6c1c2e814683576035f13c6a07d64f67"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "c09d677a6c1c2e814683576035f13c6a07d64f67"
+#7 0.523 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.523 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.523 hint: of your new repositories, which will suppress this warning, call:
+#7 0.523 hint: 
+#7 0.523 hint: 	git config --global init.defaultBranch <name>
+#7 0.523 hint: 
+#7 0.523 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.523 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.523 hint: 
+#7 0.523 hint: 	git branch -m <name>
+#7 0.527 Initialized empty Git repository in /testbed/.git/
+#7 3.817 From https://github.com/pygame/pygame
+#7 3.817  * branch            c09d677a6c1c2e814683576035f13c6a07d64f67 -> FETCH_HEAD
+#7 4.074 HEAD is now at c09d677 Merge pull request #2930 from novialriptide/novial-typehint-spritedict
+#7 DONE 4.1s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force     && python -c "import pygame,pygame.draw; print(pygame.version.ver,pygame.draw.__file__,pygame.get_sdl_version()); assert pygame.version.ver == '2.1.1.dev1'; assert pygame.draw.__file__.startswith('/testbed/build/local/pygame/')"     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 0.583 
+#9 0.583 
+#9 0.583 WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
+#9 0.587 Using UNIX configuration...
+#9 0.587 
+#9 0.591 
+#9 0.591 Hunting dependencies...
+#9 0.625 SDL     : found 2.0.14
+#9 0.640 FONT    : found
+#9 0.643 IMAGE   : found
+#9 0.647 MIXER   : found
+#9 0.653 PNG     : found
+#9 0.656 JPEG    : found
+#9 0.660 SCRAP   : found
+#9 0.664 PORTMIDI: found
+#9 0.667 PORTTIME: found
+#9 0.667 FREETYPE: found 23.4.17
+#9 0.668 
+#9 0.668 If you get compiler errors during install, double-check
+#9 0.668 the compiler flags in the "Setup" file.
+#9 0.668 
+#9 0.668 
+#9 0.668 Continuing With "setup.py"
+#9 1.277 src_c/imageext.c: In function ‘image_load_ext’:
+#9 1.277 src_c/imageext.c:119:13: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+#9 1.277   119 |         ext = find_extension(name);
+#9 1.277       |             ^
+#9 1.277 src_c/imageext.c:108:9: warning: variable ‘lock_mutex’ set but not used [-Wunused-but-set-variable]
+#9 1.277   108 |     int lock_mutex = 0;
+#9 1.277       |         ^~~~~~~~~~
+#9 1.715 src_c/font.c: In function ‘font_dealloc’:
+#9 1.715 src_c/font.c:694:29: warning: initialization of ‘int **’ from incompatible pointer type ‘TTF_Font *’ {aka ‘struct _TTF_Font *’} [-Wincompatible-pointer-types]
+#9 1.715   694 |             int **face_pp = font;
+#9 1.715       |                             ^~~~
+#9 1.723 At top level:
+#9 1.723 src_c/font.c:79:1: warning: ‘utf_8_needs_UCS_4’ defined but not used [-Wunused-function]
+#9 1.723    79 | utf_8_needs_UCS_4(const char *str)
+#9 1.723       | ^~~~~~~~~~~~~~~~~
+#9 3.226 src_c/music.c: In function ‘_get_type_from_hint’:
+#9 3.226 src_c/music.c:305:22: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+#9 3.226   305 |             namehint = dot + 1;
+#9 3.226       |                      ^
+#9 3.226 In file included from src_c/pygame.h:30,
+#9 3.226                  from src_c/music.c:27:
+#9 3.226 src_c/music.c: In function ‘_load_music’:
+#9 3.226 src_c/_pygame.h:228:47: warning: returning ‘PyObject *’ {aka ‘struct _object *’} from a function with incompatible return type ‘Mix_Music *’ {aka ‘struct _Mix_Music *’} [-Wincompatible-pointer-types]
+#9 3.226   228 | #define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
+#9 3.226       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+#9 3.226 src_c/mixer.h:9:12: note: in expansion of macro ‘RAISE’
+#9 3.226     9 |     return RAISE(pgExc_SDLError, "mixer not initialized")
+#9 3.226       |            ^~~~~
+#9 3.226 src_c/music.c:377:5: note: in expansion of macro ‘MIXER_INIT_CHECK’
+#9 3.226   377 |     MIXER_INIT_CHECK();
+#9 3.226       |     ^~~~~~~~~~~~~~~~
+#9 24.36 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_aalineColor’:
+#9 24.36 src_c/SDL_gfx/SDL_gfxPrimitives.c:2533:25: warning: variable ‘wgtcompmask’ set but not used [-Wunused-but-set-variable]
+#9 24.36  2533 |  Uint32 erracctmp, wgt, wgtcompmask;
+#9 24.36       |                         ^~~~~~~~~~~
+#9 24.36 src_c/SDL_gfx/SDL_gfxPrimitives.c: In function ‘arcColor’:
+#9 24.36 src_c/SDL_gfx/SDL_gfxPrimitives.c:3128:2: warning: multi-line comment [-Wcomment]
+#9 24.36  3128 |  //     /|\
+#9 24.36       |  ^
+#9 24.36 src_c/SDL_gfx/SDL_gfxPrimitives.c:3130:2: warning: multi-line comment [-Wcomment]
+#9 24.36  3130 |  //   /  |  \
+#9 24.36       |  ^
+#9 26.83 src_c/freetype/ft_cache.c: In function ‘_PGFT_Cache_FindGlyph’:
+#9 26.83 src_c/freetype/ft_cache.c:111:20: warning: array subscript -1 is outside array bounds of ‘NodeKey[1]’ {aka ‘union cachenodekey_[1]’} [-Warray-bounds]
+#9 26.83   111 |         k1 = blocks[i];
+#9 26.83       |                    ^
+#9 26.83 src_c/freetype/ft_cache.c:246:13: note: while referencing ‘key’
+#9 26.83   246 |     NodeKey key;
+#9 26.83       |             ^~~
+#9 27.87 src_c/freetype/ft_render_cb.c: In function ‘__render_glyph_MONO3’:
+#9 27.87 src_c/freetype/ft_render_cb.c:669:19: warning: variable ‘full_color’ set but not used [-Wunused-but-set-variable]
+#9 27.87   669 |         FT_UInt32 full_color;                                                 \
+#9 27.87       |                   ^~~~~~~~~~
+#9 27.87 src_c/freetype/ft_render_cb.c:814:1: note: in expansion of macro ‘_CREATE_MONO_RENDER’
+#9 27.87   814 | _CREATE_MONO_RENDER(3, GET_PIXEL24(_dst), _SET_PIXEL_24, _BLEND_PIXEL_24)
+#9 27.87       | ^~~~~~~~~~~~~~~~~~~
+#9 41.40 src_c/display.c: In function ‘pg_GetVideoInfo’:
+#9 41.40 src_c/display.c:409: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40   409 | #pragma PG_WARN(hardcoding wm_available to 1)
+#9 41.40       | 
+#9 41.40 src_c/display.c:410: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40   410 | #pragma PG_WARN(setting available video RAM to 0 KB)
+#9 41.40       | 
+#9 41.40 src_c/display.c: In function ‘pg_set_mode’:
+#9 41.40 src_c/display.c:992: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40   992 | #pragma PG_WARN(Not setting bpp ?)
+#9 41.40       | 
+#9 41.40 src_c/display.c:993: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40   993 | #pragma PG_WARN(Add mode stuff.)
+#9 41.40       | 
+#9 41.40 src_c/display.c:1019:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 41.40  1019 |                         if (x == SDL_WINDOWPOS_UNDEFINED_DISPLAY(display))
+#9 41.40       |                               ^~
+#9 41.40 src_c/display.c:1021:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 41.40  1021 |                         if (y == SDL_WINDOWPOS_UNDEFINED_DISPLAY(display))
+#9 41.40       |                               ^~
+#9 41.40 src_c/display.c: In function ‘pg_mode_ok’:
+#9 41.40 src_c/display.c:1417: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40  1417 | #pragma PG_WARN(Ignoring most flags)
+#9 41.40       | 
+#9 41.40 src_c/display.c: In function ‘pg_list_modes’:
+#9 41.40 src_c/display.c:1471: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.40  1471 | #pragma PG_WARN(Ignoring flags)
+#9 41.40       | 
+#9 41.40 src_c/display.c:1499:43: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+#9 41.40  1499 |         if (SDL_BITSPERPIXEL(mode.format) != bpp)
+#9 41.40       |                                           ^~
+#9 41.41 src_c/display.c: At top level:
+#9 41.41 src_c/display.c:2574: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 41.41  2574 | #pragma PG_WARN(At some point should add GC slot functions.)
+#9 41.41       | 
+#9 43.02 src_c/key.c: In function ‘_get_keycode_name’:
+#9 43.02 src_c/key.c:690: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 43.02   690 | #pragma PG_WARN(Add missing keycode names here ?)
+#9 43.02       | 
+#9 45.03 src_c/alphablit.c: In function ‘blit_blend_premultiplied_sse2’:
+#9 45.03 src_c/alphablit.c:1031:53: warning: variable ‘multmask_128’ set but not used [-Wunused-but-set-variable]
+#9 45.03  1031 |     __m128i src1, dst1, sub_dst, mm_alpha, mm_zero, multmask_128, ones_128;
+#9 45.03       |                                                     ^~~~~~~~~~~~
+#9 45.05 src_c/alphablit.c: In function ‘alphablit_alpha_sse2_argb_surf_alpha’:
+#9 45.05 src_c/alphablit.c:2282:9: warning: unused variable ‘dstbpp’ [-Wunused-variable]
+#9 45.05  2282 |     int dstbpp = dstfmt->BytesPerPixel;
+#9 45.05       |         ^~~~~~
+#9 45.05 src_c/alphablit.c:2281:9: warning: unused variable ‘srcbpp’ [-Wunused-variable]
+#9 45.05  2281 |     int srcbpp = srcfmt->BytesPerPixel;
+#9 45.05       |         ^~~~~~
+#9 45.05 src_c/alphablit.c: In function ‘alphablit_alpha_sse2_argb_no_surf_alpha_opaque_dst’:
+#9 45.05 src_c/alphablit.c:2808:12: warning: unused variable ‘src_amask32’ [-Wunused-variable]
+#9 45.05  2808 |     Uint32 src_amask32 = srcfmt->Amask;
+#9 45.05       |            ^~~~~~~~~~~
+#9 45.05 src_c/alphablit.c:2801:12: warning: unused variable ‘src_amask64’ [-Wunused-variable]
+#9 45.05  2801 |     Uint64 src_amask64 = ((Uint64)srcfmt->Amask << 32) | srcfmt->Amask;
+#9 45.05       |            ^~~~~~~~~~~
+#9 45.05 src_c/alphablit.c:2796:22: warning: unused variable ‘dstfmt’ [-Wunused-variable]
+#9 45.05  2796 |     SDL_PixelFormat *dstfmt = info->dst;
+#9 45.05       |                      ^~~~~~
+#9 49.41 src_c/surface.c: In function ‘surf_convert_alpha’:
+#9 49.41 src_c/surface.c:1684: warning: ignoring ‘#pragma PG_WARN ’ [-Wunknown-pragmas]
+#9 49.41  1684 | #pragma PG_WARN("srcsurf doesn't actually do anything?")
+#9 49.41       | 
+#9 54.06 src_c/image.c: In function ‘image_load_basic’:
+#9 54.06 src_c/image.c:72:15: warning: unused variable ‘oencoded’ [-Wunused-variable]
+#9 54.06    72 |     PyObject *oencoded;
+#9 54.06       |               ^~~~~~~~
+#9 55.57 src_c/transform.c: In function ‘surf_rotate’:
+#9 55.57 src_c/transform.c:627:16: warning: returning ‘pgSurfaceObject *’ from a function with incompatible return type ‘PyObject *’ {aka ‘struct _object *’} [-Wincompatible-pointer-types]
+#9 55.57   627 |         return surfobj;
+#9 55.57       |                ^~~~~~~
+#9 62.52 src_c/_camera.c: In function ‘bgr32_to_rgb’:
+#9 62.52 src_c/_camera.c:592:17: warning: value computed is not used [-Wunused-value]
+#9 62.52   592 |                 *s++;
+#9 62.52       |                 ^~~~
+#9 64.50 src_c/camera_v4l2.c: In function ‘v4l2_process_image’:
+#9 64.50 src_c/camera_v4l2.c:190:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   190 |             if (buffer_size >= self->size * 3) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c:212:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   212 |             if (buffer_size >= self->size * 2) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c:234:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   234 |             if (buffer_size >= self->size * 2) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c:258:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   258 |             if (buffer_size >= self->size * 2) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c:282:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   282 |             if (buffer_size >= self->size) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c:308:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#9 64.50   308 |             if (buffer_size >= (self->size * 3) / 2) {
+#9 64.50       |                             ^~
+#9 64.50 src_c/camera_v4l2.c: In function ‘v4l2_query_buffer’:
+#9 64.50 src_c/camera_v4l2.c:342:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#9 64.50   342 |     for (i = 0; i < self->n_buffers; ++i) {
+#9 64.50       |                   ^
+#9 64.82 2.1.1.dev1 /testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so (2, 0, 14)
+#9 DONE 65.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 2.0s done
+#10 exporting manifest sha256:3b9257200cd83c9861acf9b8f2c5db3fab84e289ca7845e51c6505cb36f028f8 0.0s done
+#10 exporting config sha256:0eab3dfa4216646d399bf5b050ddf70853feef82dac3a8f132eb3ce9c9e5baff 0.0s done
+#10 exporting attestation manifest sha256:ee1046f681a20b97d72db458d55a526771934812f7d621b13b1129c3c7e4cce6 0.0s done
+#10 exporting manifest list sha256:d918678b1bbab89dfd1e99e4a0a6f8b0dc4bd732aff1ab4a02ddd8139df555eb 0.0s done
+#10 naming to docker.io/library/pyc-case077-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case077-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case077-prototype-base:latest 0.6s done
+#10 DONE 2.8s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/8pbbp5bl52z4rjnpt77afbska

@@ -1,0 +1,12 @@
+g++	4:10.2.1-1
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libportmidi-dev	1:217-6
+libsdl2-2.0-0:amd64	2.0.14+dfsg2-3+deb11u1
+libsdl2-dev:amd64	2.0.14+dfsg2-3+deb11u1
+libsdl2-image-dev:amd64	2.0.5+dfsg1-2
+libsdl2-mixer-dev:amd64	2.0.4+dfsg1-3
+libsdl2-ttf-dev:amd64	2.0.15+dfsg1-1
+libudev-dev:amd64	247.3-7+deb11u5
+libudev1:amd64	247.3-7+deb11u5
+{"pygame_version": "2.1.1.dev1", "pygame_revision": "", "pygame_file": "/testbed/build/local/pygame/__init__.py", "draw_extension": "/testbed/build/local/pygame/draw.cpython-38-x86_64-linux-gnu.so", "extension_sha256": "e8a68f8f8fb0313c7c92a493d894ed170fb2ee71429f19235ab581d896f67466", "sdl_compiled": [2, 0, 14], "sdl_linked": [2, 0, 14], "build_packages": {"setuptools": "68.2.2", "wheel": "0.42.0", "pytest": "7.4.4"}, "assets": {"src_c/draw.c": {"size": 85716, "sha256": "223aaa46b397fc69ed5c71abe7fceb959a98474963d083d0b0db38bfcbd98915"}, "src_c/include/_pygame.h": {"size": 15800, "sha256": "df0146f7d78fce1752c3de88940ff7e8789d563f44b6aae2917266652372879f"}, "setup.py": {"size": 34355, "sha256": "8423e799af78a3bb7639a2704b871fd198fe056e709917b2bb4f4feac9057b63"}, "src_py/version.py": {"size": 2444, "sha256": "f5edf51e77fe8b12e3d0a7e7cef661e31e45f5502d035fb4371d525b7b6ab7f3"}, "build/local/pygame/version.py": {"size": 2444, "sha256": "f5edf51e77fe8b12e3d0a7e7cef661e31e45f5502d035fb4371d525b7b6ab7f3"}, "Setup": {"size": 3606, "sha256": "2e7b11ba4e9cf35d2cb81aba79355f267d64396faf90757f37caa1ec41946101"}}}

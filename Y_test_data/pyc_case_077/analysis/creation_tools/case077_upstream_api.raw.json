@@ -1,0 +1,9 @@
+{
+  "number": 2927,
+  "html_url": "https://github.com/pygame/pygame/pull/2927",
+  "title": "Fix rect drawing with width",
+  "created_at": "2021-12-18T16:17:19Z",
+  "merged_at": "2021-12-19T12:15:55Z",
+  "merge_commit_sha": "ef30264c6c85d4eeebcbbf3c9b10106782ed4a0b",
+  "body": "Continue from #2881, because that PR kinda failed\r\n\r\nThis should fix #2862"
+}

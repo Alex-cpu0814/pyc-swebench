@@ -1,0 +1,9 @@
+# Verification
+
+Official Base and README-only negative:1 pixel target failure, 3 regression passes. Official Gold: 4 passes. Protected-test context tamper is rejected as candidate_conflicts_with_test_patch before build. Actual complete container status and exact raw parsed node set are checked, not only pytest's printed summary. No skipped/missing node counts as pass.
+
+The active native DrawRectTest runs the complete upstream added test_rect__draw_line_width: a 100x100 surface, 80x50 rectangle, line width 10, 40 white corner diagonal samples and four black inner corners. Three unchanged neighboring methods cover filled rectangles, one-pixel lines and the width-omitted default. Commented PythonDrawRectTest is not executed. Original inputs/assertions are unchanged. Float anti-aliasing, every clipping case and other shape algorithms are not claimed as reproduced defects.
+
+Base fails the exact official rectangle line-width test because an expected white border corner pixel remains black. The 100x100 surface contains an 80x50 rectangle with line width 10. Gold satisfies all 40 white corner-point assertions and four black inner-point assertions. Three unchanged official filled-rectangle, one-pixel-line and default-width tests pass on both products. No skip, missing node or native crash is observed.
+
+One normal pytest process runs upstream unittest methods. No retries seeking chance passes, instrumentation, altered assertions or thresholds. Core dumps disabled. Compiled package path is identical before and after candidate force-build. All raw collection/Base/Gold/build/control logs, source/API/runtime audits, saved workbook checks/previews and creation tools are preserved and covered by unique complete-file SHA256 entries. Clean published image contains public fixed Base/native dependencies only; candidate, protected test patch, Gold/fix object and evaluator runtime assets are absent.

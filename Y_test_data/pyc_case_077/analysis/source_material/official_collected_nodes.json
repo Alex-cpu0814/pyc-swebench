@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width",
+    "test/draw_test.py::DrawRectTest::test_rect__fill",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  ],
+  "count": 4,
+  "source": "Exact official upstream test patch and actual active native DrawRectTest collection"
+}

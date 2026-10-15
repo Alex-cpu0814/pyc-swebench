@@ -1,0 +1,39 @@
+{
+  "label": "gold",
+  "image": "pyc-case077-prototype-base:latest",
+  "nodes": [
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width",
+    "test/draw_test.py::DrawRectTest::test_rect__fill",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width"
+  ],
+  "startedAt": "2026-10-15T08:06:54.252Z",
+  "finishedAt": "2026-10-15T08:08:06.454Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case077_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case077_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case077-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; bash -c 'python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force > /tmp/pygame-build-buffer.raw.log 2>&1; rc=$?; cat /tmp/pygame-build-buffer.raw.log; exit \"$rc\"' >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no 'test/draw_test.py::DrawRectTest::test_rect__draw_line_width' 'test/draw_test.py::DrawRectTest::test_rect__fill' 'test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines' 'test/draw_test.py::DrawRectTest::test_rect__args_without_width'"
+  ]
+}

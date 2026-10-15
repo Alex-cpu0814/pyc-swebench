@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-077-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "test/draw_test.py::DrawRectTest::test_rect__draw_line_width": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "test/draw_test.py::DrawRectTest::test_rect__fill": "MISSING",
+    "test/draw_test.py::DrawRectTest::test_rect__one_pixel_lines": "MISSING",
+    "test/draw_test.py::DrawRectTest::test_rect__args_without_width": "MISSING"
+  },
+  "unexpected_failures": []
+}

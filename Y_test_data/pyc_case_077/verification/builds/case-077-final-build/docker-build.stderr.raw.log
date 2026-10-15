@@ -1,0 +1,46 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 30B 0.1s
+#1 transferring dockerfile: 2.16kB 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B 0.1s done
+#3 DONE 0.1s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.0s
+
+#5 [5/6] WORKDIR /testbed
+#5 CACHED
+
+#6 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade --allow-downgrades libudev1=247.3-7+deb11u5 libudev-dev=247.3-7+deb11u5 gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates libsdl2-2.0-0=2.0.14+dfsg2-3+deb11u1 libsdl2-dev=2.0.14+dfsg2-3+deb11u1 libsdl2-image-dev=2.0.5+dfsg1-2 libsdl2-mixer-dev=2.0.4+dfsg1-3 libsdl2-ttf-dev=2.0.15+dfsg1-1 libfreetype6-dev=2.10.4+dfsg-1+deb11u1 libportmidi-dev=1:217-6     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#7 CACHED
+
+#8 [4/6] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/pygame/pygame.git"     && git fetch --depth=1 --no-tags origin "c09d677a6c1c2e814683576035f13c6a07d64f67"     && git checkout --detach "c09d677a6c1c2e814683576035f13c6a07d64f67"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "c09d677a6c1c2e814683576035f13c6a07d64f67"
+#8 CACHED
+
+#9 [6/6] RUN python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force     && python -c "import pygame,pygame.draw; print(pygame.version.ver,pygame.draw.__file__,pygame.get_sdl_version()); assert pygame.version.ver == '2.1.1.dev1'; assert pygame.draw.__file__.startswith('/testbed/build/local/pygame/')"     && git restore --source=HEAD --worktree -- .     && test -z "$(git status --porcelain)"
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers done
+#10 exporting manifest sha256:3b9257200cd83c9861acf9b8f2c5db3fab84e289ca7845e51c6505cb36f028f8 done
+#10 exporting config sha256:0eab3dfa4216646d399bf5b050ddf70853feef82dac3a8f132eb3ce9c9e5baff done
+#10 exporting attestation manifest sha256:ebd59dca8548b1c09b3cd61ad493ad378bf43fb1c393732344bd24a56dc03ee1 0.0s done
+#10 exporting manifest list sha256:9033751a383ee84641f989c2efc2da75bec96025e77dda11dd9736a992a9a912 done
+#10 naming to docker.io/yutu0814/pyc-case-077-pygame:benchmark-v1 done
+#10 unpacking to docker.io/yutu0814/pyc-case-077-pygame:benchmark-v1 0.0s done
+#10 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wg0wcvxz0yo28kzehvb524x6x
