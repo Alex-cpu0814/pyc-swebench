@@ -1,0 +1,13 @@
+diff --git a/test/surface_test.py b/test/surface_test.py
+index 19f30d83f..e1116f1ce 100644
+--- a/test/surface_test.py
++++ b/test/surface_test.py
+@@ -163,7 +163,7 @@ class SurfaceTypeTest(unittest.TestCase):
+         self.assertEqual(bound_rect.left, 30)
+         self.assertEqual(bound_rect.top, 30)
+         self.assertEqual(bound_rect.width, 31)
+-        self.assertEqual(bound_rect.height, 31)
++        self.assertEqual(bound_rect.height, 30)
+ 
+     def test_copy(self):
+ 

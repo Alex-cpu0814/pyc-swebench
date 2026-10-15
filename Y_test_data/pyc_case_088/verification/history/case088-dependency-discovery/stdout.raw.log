@@ -1,0 +1,49 @@
+libsdl1.2-dev:
+  Installed: (none)
+  Candidate: 1.2.15+dfsg2-6
+  Version table:
+     1.2.15+dfsg2-6 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libsdl1.2debian:
+  Installed: (none)
+  Candidate: 1.2.15+dfsg2-6
+  Version table:
+     1.2.15+dfsg2-6 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libsdl-image1.2-dev:
+  Installed: (none)
+  Candidate: 1.2.12-12
+  Version table:
+     1.2.12-12 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libsdl-mixer1.2-dev:
+  Installed: (none)
+  Candidate: 1.2.12-16+b1
+  Version table:
+     1.2.12-16+b1 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libsdl-ttf2.0-dev:
+  Installed: (none)
+  Candidate: 2.0.11-6
+  Version table:
+     2.0.11-6 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libsmpeg-dev:
+  Installed: (none)
+  Candidate: 0.4.5+cvs20030824-9
+  Version table:
+     0.4.5+cvs20030824-9 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+libfreetype6-dev:
+  Installed: 2.10.4+dfsg-1+deb11u1
+  Candidate: 2.10.4+dfsg-1+deb11u1
+  Version table:
+ *** 2.10.4+dfsg-1+deb11u1 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages
+        100 /var/lib/dpkg/status
+libportmidi-dev:
+  Installed: (none)
+  Candidate: 1:217-6
+  Version table:
+     1:217-6 500
+        500 https://deb.debian.org/debian bullseye/main amd64 Packages

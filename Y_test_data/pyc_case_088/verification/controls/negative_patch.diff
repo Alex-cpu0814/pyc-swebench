@@ -1,0 +1,10 @@
+diff --git a/readme.rst b/readme.rst
+index 8fbc5bf08..99e20c11d 100644
+--- a/readme.rst
++++ b/readme.rst
+@@ -156,3 +156,5 @@ License
+ 
+      The programs in the "examples" subdirectory are in the public
+      domain.
++
++This evaluator control leaves Surface bounding scans unchanged.

@@ -1,0 +1,12 @@
+ERROR: not found: /testbed/test/surface_test.py::SurfaceTypeTest::test_copy
+(no name '/testbed/test/surface_test.py::SurfaceTypeTest::test_copy' in any of [<Module surface_test.py>])
+
+ERROR: not found: /testbed/test/surface_test.py::SurfaceTypeTest::test_get_bytesize
+(no name '/testbed/test/surface_test.py::SurfaceTypeTest::test_get_bytesize' in any of [<Module surface_test.py>])
+
+ERROR: not found: /testbed/test/surface_test.py::SurfaceTypeTest::test_get_rect
+(no name '/testbed/test/surface_test.py::SurfaceTypeTest::test_get_rect' in any of [<Module surface_test.py>])
+
+ERROR: not found: /testbed/test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect
+(no name '/testbed/test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect' in any of [<Module surface_test.py>])
+

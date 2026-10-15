@@ -1,0 +1,12 @@
+g++	4:10.2.1-1
+gcc	4:10.2.1-1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libsdl-image1.2-dev:amd64	1.2.12-12
+libsdl-mixer1.2-dev:amd64	1.2.12-16+b1
+libsdl-ttf2.0-dev:amd64	2.0.11-6
+libsdl1.2-dev	1.2.15+dfsg2-6
+libsdl1.2debian:amd64	1.2.15+dfsg2-6
+libsmpeg-dev	0.4.5+cvs20030824-9
+libudev-dev:amd64	247.3-7+deb11u5
+libudev1:amd64	247.3-7+deb11u5
+{"pygame_version": "1.9.2a0", "pygame_revision": "", "surface_extension": "/testbed/build/local/pygame/surface.cpython-38-x86_64-linux-gnu.so", "extension_sha256": "05d1049d2425bfdcaef5c6cf191979de6b7de91a9fa289d0ceef0cd09392663e", "sdl_compiled": [1, 2, 15], "sdl_linked": [1, 2, 15], "video_driver": "dummy", "byteorder": "little", "build_packages": {"setuptools": "68.2.2", "wheel": "0.42.0", "pytest": "7.4.4"}, "assets": {"src/surface.c": {"size": 95470, "sha256": "ec437f1c23c9de95ff855cc26a97394ee7ec041cd6b983c44d5327116ea3ea63"}, "src/pygame.h": {"size": 1246, "sha256": "f74b57fa0bdaa5416fd3bedcdd9db6c7caf5ec30746e63187d0eda76ec4e2877"}, "src/_pygame.h": {"size": 27782, "sha256": "472f50495574a18f2e8f72b07444d0f0dba71910a6c091c0612e5ba0a7ab3ac0"}, "setup.py": {"size": 23799, "sha256": "ed82b3cb984f39df60b5907803219c02594b2db1d4dee865f98f7b0615de237e"}, "lib/version.py": {"size": 1342, "sha256": "bdc6ce291fcef18a0e12f17622a617f3075cf16c8961eb04ce31dcfe19167c9a"}, "build/local/pygame/version.py": {"size": 1342, "sha256": "bdc6ce291fcef18a0e12f17622a617f3075cf16c8961eb04ce31dcfe19167c9a"}, "Setup": {"size": 3587, "sha256": "7d37be680a24b0b7acd4799a0a83ee1f929bd8b98c17d902cffc038807d5df38"}, "lib/freesansbold.ttf": {"size": 98600, "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"}, "build/local/pygame/freesansbold.ttf": {"size": 98600, "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"}}}

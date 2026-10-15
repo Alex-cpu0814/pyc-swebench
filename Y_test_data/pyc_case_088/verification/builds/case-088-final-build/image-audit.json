@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "pygame__pygame-0e7f7b83",
+  "base_commit": "cd173f0ebf77e2b652de1a20a5f3eccf78e8cf12",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

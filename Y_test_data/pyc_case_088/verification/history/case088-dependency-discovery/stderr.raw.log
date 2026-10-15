@@ -1,0 +1,4 @@
+Unable to find image 'public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337' locally
+public.ecr.aws/docker/library/python@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337: Pulling from docker/library/python
+Digest: sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+Status: Downloaded newer image for public.ecr.aws/docker/library/python@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337

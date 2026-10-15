@@ -1,0 +1,48 @@
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Traceback (most recent call last):
+  File "/benchmark/legacy_unittest088.py", line 38, in <module>
+    module, suite = load(node)
+  File "/benchmark/legacy_unittest088.py", line 25, in load
+    suite = module.unittest.TestLoader().loadTestsFromName(classname + '.' + method, module)
+  File "/testbed/test/test_utils/unittest.py", line 603, in loadTestsFromName
+    elif type(obj) == types.UnboundMethodType:
+AttributeError: module 'types' has no attribute 'UnboundMethodType'
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Traceback (most recent call last):
+  File "/benchmark/legacy_unittest088.py", line 38, in <module>
+    module, suite = load(node)
+  File "/benchmark/legacy_unittest088.py", line 25, in load
+    suite = module.unittest.TestLoader().loadTestsFromName(classname + '.' + method, module)
+  File "/testbed/test/test_utils/unittest.py", line 603, in loadTestsFromName
+    elif type(obj) == types.UnboundMethodType:
+AttributeError: module 'types' has no attribute 'UnboundMethodType'
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Traceback (most recent call last):
+  File "/benchmark/legacy_unittest088.py", line 38, in <module>
+    module, suite = load(node)
+  File "/benchmark/legacy_unittest088.py", line 25, in load
+    suite = module.unittest.TestLoader().loadTestsFromName(classname + '.' + method, module)
+  File "/testbed/test/test_utils/unittest.py", line 603, in loadTestsFromName
+    elif type(obj) == types.UnboundMethodType:
+AttributeError: module 'types' has no attribute 'UnboundMethodType'
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Traceback (most recent call last):
+  File "/benchmark/legacy_unittest088.py", line 38, in <module>
+    module, suite = load(node)
+  File "/benchmark/legacy_unittest088.py", line 25, in load
+    suite = module.unittest.TestLoader().loadTestsFromName(classname + '.' + method, module)
+  File "/testbed/test/test_utils/unittest.py", line 603, in loadTestsFromName
+    elif type(obj) == types.UnboundMethodType:
+AttributeError: module 'types' has no attribute 'UnboundMethodType'

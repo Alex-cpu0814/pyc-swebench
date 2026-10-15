@@ -1,0 +1,118 @@
+{
+  "projectName": "pygame",
+  "repo": "pygame/pygame",
+  "repoUrl": "https://github.com/pygame/pygame.git",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/pygame",
+  "binaryPatches": false,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest 7.4.4",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_pytest",
+  "evidenceType": "source_row_upstream_pr_and_verified_pytest_trace",
+  "pytestPathPrefix": "test/",
+  "compilerToolchain": "Debian Bullseye GCC/G++, setuptools 68.2.2, wheel 0.42.0; normal native compilation without instrumentation.",
+  "caseNumber": "088",
+  "sourceCase": "87",
+  "sourceInstanceId": "pyc_case_088",
+  "instanceId": "pygame__pygame-0e7f7b83",
+  "issueId": "180",
+  "issueUrl": "https://github.com/pygame/pygame/issues/180",
+  "fixCommit": "0e7f7b8327a18386843cf7baf4c24f07d826520e",
+  "baseCommit": "cd173f0ebf77e2b652de1a20a5f3eccf78e8cf12",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": "2013-10-21",
+  "mergedAt": null,
+  "fixCommittedAt": "2013-10-28",
+  "version": "1.9.2a0",
+  "image": "yutu0814/pyc-case-088-pygame:benchmark-v1",
+  "prototypeImage": "pyc-case088-prototype-base:latest",
+  "testFiles": [
+    "test/surface_test.py"
+  ],
+  "testFile": "test/surface_test.py",
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case088_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case088_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pygame088-local",
+  "validationStatus": "pending_base_gold_probe",
+  "expectedBaseExitCode": 139,
+  "environment": "pygame_surface_bounding_rect_sdl1_legacy",
+  "testExecution": "Original official test_get_bounding_rect method including the added 4x1 8-bit call is executed unchanged under pytest. No guard page, allocator change, compiler instrumentation or geometry modifications. True process crash is distinguished from infrastructure failure.",
+  "nativeAuditCommand": "python -c \"import pygame,pygame.surface; print(pygame.version.ver,pygame.surface.__file__); assert pygame.version.ver == '1.9.2a0'; assert pygame.surface.__file__.startswith('/testbed/build/local/pygame/')\"",
+  "buildCommand": "bash -c 'python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force > /tmp/pygame-build-buffer.raw.log 2>&1; rc=$?; cat /tmp/pygame-build-buffer.raw.log; exit \"$rc\"' && cp lib/freesansbold.ttf /testbed/build/local/pygame/freesansbold.ttf",
+  "buildSystem": "Official legacy config.py -auto uses SDL1 sdl-config, followed by normal setup.py force build into /testbed/build/local. Tracked lib/freesansbold.ttf is copied to package data_files location. Build logs buffered in Linux/tmp preserving complete output/exit code.",
+  "testSourceLabel": "Original official upstream unittest TestCase methods executed by pytest",
+  "testCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider -vv --color=no",
+  "collectCommand": "python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -p no:cacheprovider --collect-only -q --color=no",
+  "problemStatement": "Surface.get_bounding_rect should complete for the exact official 4x1 8-bit filled surface without crashing, while existing Surface geometry properties remain correct.",
+  "upstreamDescription": "Source product switch handles1/2/3/4 bytes per pixel in four bounding scans, with endian-aware 24-bit assembly. Official test adds only one unchanged 4x1 8-bit call inside the existing bounding method; no return assertion is added.",
+  "sourceTraceNotes": "Original source trace names surf_get_bounding_rect through test_get_bounding_rect; actual official process outcome must be measured in this SDL1 environment.",
+  "nativeRequirement": "Public pinned SDL1.2 development/runtime and companion image/mixer/ttf/smpeg dependencies; actual versions and native path audited.",
+  "failToPass": [
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect"
+  ],
+  "passToPass": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect"
+  ],
+  "probeNodes": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/pygame/pygame/commit/0e7f7b8327a18386843cf7baf4c24f07d826520e",
+    "issue_url": "https://github.com/pygame/pygame/issues/180",
+    "base_commit": "cd173f0ebf77e2b652de1a20a5f3eccf78e8cf12",
+    "fix_commit": "0e7f7b8327a18386843cf7baf4c24f07d826520e",
+    "source_parents": [
+      "cd173f0ebf77e2b652de1a20a5f3eccf78e8cf12"
+    ],
+    "source_commit_utc_timestamp": "2013-10-28T17:08:38Z",
+    "upstream_created_at_timestamp": "2013-10-21T08:02:15Z",
+    "issue_closed_at_timestamp": "2017-03-26T16:54:40Z",
+    "date_semantics": "Created date is actual issue180 opening; fix timestamp is source commit2013-10-28. No associated PR or merge date exists; migrated issue closed_at2017 is not a merge date.",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "src/surface.c"
+    ],
+    "version_metadata": {
+      "strategy": "Official setup.py literal1.9.2a0 generates lib/version.py; hg identifier empty in anonymous Git checkout, actual runtime audited."
+    },
+    "native_source_git_blobs": {
+      "src/surface.c": "aa6b7b9a92efb92df210ba4e5ac7fc101fc7bdbc",
+      "src/pygame.h": "bcbf1d9998de7304f73682b8e2c9243272f95223",
+      "src/_pygame.h": "0fe65854623ac2355a0e175a0a87e7825c8766bc",
+      "setup.py": "993ebe25256bd942929e9d562844ed06b307d2ab",
+      "lib/freesansbold.ttf": "a98562fc1a89075f2218a2dbf2c08785237fab90"
+    },
+    "admission_rule": "Exact official uninstrumented Base call must fail/crash and Gold pass. If both pass objectively defer without altering dimensions/allocator/flags.",
+    "native_package_versions": {},
+    "sdl_version": "1.2.15"
+  },
+  "additionalVerificationAssets": []
+}

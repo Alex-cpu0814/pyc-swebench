@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-0e7f7b83",
+  "repo": "pygame/pygame",
+  "base_commit": "cd173f0ebf77e2b652de1a20a5f3eccf78e8cf12",
+  "problem_statement": "Surface.get_bounding_rect should complete for the exact official 4x1 8-bit filled surface without crashing, while existing Surface geometry properties remain correct.",
+  "hints_text": "",
+  "created_at": "2013-10-21",
+  "version": "1.9.2a0",
+  "issue_id": "180",
+  "issue_url": "https://github.com/pygame/pygame/issues/180"
+}

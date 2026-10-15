@@ -1,0 +1,4 @@
+test/surface_test.py::SurfaceTypeTest::test_copy
+test/surface_test.py::SurfaceTypeTest::test_get_bytesize
+test/surface_test.py::SurfaceTypeTest::test_get_rect
+test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect

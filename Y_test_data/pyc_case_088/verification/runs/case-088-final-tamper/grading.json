@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-088-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "test/surface_test.py::SurfaceTypeTest::test_copy": "MISSING",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize": "MISSING",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect": "MISSING"
+  },
+  "unexpected_failures": []
+}

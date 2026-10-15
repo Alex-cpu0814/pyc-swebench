@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-088-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "test/surface_test.py::SurfaceTypeTest::test_copy": "PASSED",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize": "PASSED",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect": "PASSED"
+  },
+  "unexpected_failures": [
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect"
+  ]
+}

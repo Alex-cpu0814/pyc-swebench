@@ -1,0 +1,45 @@
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_copy (test.surface_test.SurfaceTypeTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_get_bytesize (test.surface_test.SurfaceTypeTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_get_rect (test.surface_test.SurfaceTypeTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_get_bounding_rect (test.surface_test.SurfaceTypeTest) ... Fatal Python error: (pygame parachute) Segmentation Fault
+Python runtime state: initialized
+
+Current thread 0x0000787730dbe740 (most recent call first):
+  File "/testbed/test/surface_test.py", line 173 in test_get_bounding_rect
+  File "/testbed/test/test_utils/unittest.py", line 303 in run
+  File "/testbed/test/test_utils/unittest.py", line 324 in __call__
+  File "/testbed/test/test_utils/unittest.py", line 477 in run
+  File "/testbed/test/test_utils/unittest.py", line 481 in __call__
+  File "/testbed/test/test_utils/unittest.py", line 763 in run
+  File "/benchmark/legacy_unittest088.py", line 42 in <module>

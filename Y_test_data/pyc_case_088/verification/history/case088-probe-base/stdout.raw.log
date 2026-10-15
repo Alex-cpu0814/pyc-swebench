@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-7.4.4, pluggy-1.3.0 -- /usr/local/bin/python
+rootdir: /testbed
+configfile: ../dev/null
+collecting ... collected 0 items
+
+=============================== warnings summary ===============================
+test/test_utils/__init__.py:172
+  /testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+    (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+
+build/local/pygame/surfarray.py:64
+  /testbed/build/local/pygame/surfarray.py:64: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+    import imp
+
+test/test_utils/run_tests.py:141
+  /testbed/test/test_utils/run_tests.py:141: DeprecationWarning: invalid escape sequence \.
+    TEST_MODULE_RE = re.compile('^(.+_test)\.py$')
+
+test/test_utils/test_runner.py:60
+  /testbed/test/test_utils/test_runner.py:60: DeprecationWarning: invalid escape sequence \s
+    EXCLUDE_RE = re.compile("(%s,?\s*)+$" % (TAG_PAT,))
+
+test/test_utils/test_runner.py:219
+  /testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+    if num_errors is 0 and result.get('return_code'):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= 5 warnings in 0.09s ==============================

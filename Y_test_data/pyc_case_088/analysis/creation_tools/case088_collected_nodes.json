@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bounding_rect"
+  ],
+  "count": 4,
+  "source": "Actual official bundled unittest loader countTestCases=1 for each unchanged complete method; exact official test patch"
+}
