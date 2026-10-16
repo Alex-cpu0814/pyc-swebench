@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect",
+    "test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect"
+  ],
+  "count": 4,
+  "source": "Actual official bundled TestLoader per-method count1"
+}

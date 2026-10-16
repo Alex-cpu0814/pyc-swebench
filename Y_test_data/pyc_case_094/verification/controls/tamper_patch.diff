@@ -1,0 +1,13 @@
+diff --git a/test/surface_test.py b/test/surface_test.py
+index a0fa54d11..1023978bf 100644
+--- a/test/surface_test.py
++++ b/test/surface_test.py
+@@ -1527,7 +1527,7 @@ class SurfaceBlendTest (unittest.TestCase):
+                                      (dst.get_at((x, y)), tst.get_at((x, y)),
+                                       x, y))
+ 
+-    def test_GET_PIXELVALS(self):
++    def test_GET_PIXELVALS_control(self):
+         # surface.h GET_PIXELVALS bug regarding whether of not
+         # a surface has per-pixel alpha. Looking at the Amask
+         # is not enough. The surface's SRCALPHA flag must also

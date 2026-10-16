@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-c7ec1528",
+  "repo": "pygame/pygame",
+  "base_commit": "2d7786bc2453561a696281299104f95814e676b3",
+  "problem_statement": "Surface.fill with additive blending should clip oversized rectangles and keep writes through a subsurface within its boundaries, preserving the returned rectangle and neighboring parent pixels.",
+  "hints_text": "",
+  "created_at": "2011-10-05",
+  "version": "1.9.2pre",
+  "issue_id": "93",
+  "issue_url": "https://github.com/pygame/pygame/issues/93"
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_094",
+  "task_level": "integration",
+  "validation_type": "official_bundled_unittest",
+  "environment": "pygame_surface_fill_blend_bounds",
+  "python_version_target": "3.8",
+  "native_requirement": "Public fixed SDL1.2.15, freetype development/runtime and companion SDL libraries; Xvfb/xauth for X11 driver; official Base font fixtures unchanged.",
+  "build_system": "Official legacy config.py -auto uses SDL1 sdl-config, followed by normal setup.py force build into /testbed/build/local. Tracked lib/freesansbold.ttf is copied to package data_files location. Build logs buffered in Linux/tmp preserving complete output/exit code.",
+  "test_execution": [
+    "Full original official methods use bundled TestLoader/TextTestRunner once per fresh child. PASSED requires testsRun1/wasSuccessful plus normal exit. SIGSEGV/SIGABRT after actual OFFICIAL_TEST_START is FAILED even if the original runner emitted a result before shutdown; original stdout/stderr, result, native signal and true process exit remain losslessly recorded. Missing loader/results without such a genuine started-method signal are infrastructure errors. No test body/input/assertion/compiler/allocator changes."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/surface_test.py.",
+    "Initial ordinary Base target reports test/surface_test.py:1540 AssertionError: <rect(1,1,3,3)> != <rect(1,1,30,30)>, testsRun1/failures1/errors0, then childSIGSEGV(-11). Correctly classified Base-v2 target starts the same complete original method and terminatesSIGABRT(-6), stderr free(): invalid size, before a final result record. Original heap-failure timing differs naturally; no allocator/compiler/input edits. Both Base runs preserve3 regression passes. Gold completes all4 methods with normal exit0. Base initial first-return-rectangle failure prevents later pixel/subsurface assertions; no Base outcome for later assertions is claimed.",
+    "Three unchanged complete official SurfaceTypeTest copy/get_bytesize/get_rect methods pass both Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "2d7786bc2453561a696281299104f95814e676b3",
+  "fix_commit": "c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/surface_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect"
+  ],
+  "PASS_TO_PASS": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect"
+  ]
+}

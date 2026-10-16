@@ -1,0 +1,2 @@
+error: patch failed: test/surface_test.py:1527
+error: test/surface_test.py: patch does not apply

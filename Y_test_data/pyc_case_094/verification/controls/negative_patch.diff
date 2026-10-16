@@ -1,0 +1,10 @@
+diff --git a/readme.rst b/readme.rst
+index 623dd9899..613599d78 100644
+--- a/readme.rst
++++ b/readme.rst
+@@ -157,3 +157,5 @@ License
+ 
+      The programs in the "examples" subdirectory are in the public
+      domain.
++
++This evaluator control leaves native blend rectangle bounds unchanged.

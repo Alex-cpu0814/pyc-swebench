@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 094 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"93\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"c7ec15285c23ce54f466c9a3482b4d087eb8b0ff\"],[\"Base commit\",\"2d7786bc2453561a696281299104f95814e676b3\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/issues/93\"],[\"Symptom\",\"segment fault (crash)\"],[\"Bug location\",\"line 1439\"],[\"Bug location type\",\"Conditional expression\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Surface.fill with additive blending should clip oversized rectangles and keep writes through a subsurface within its boundaries, preserving the returned rectangle and neighboring parent pixels.\"],[\"Original source trace\",\"1439(c_surface_90-cfg.dot) (surf_fill) ... -> 1392(c_surface_90-cfg.dot) (surf_fill) -> 172(py_transform_test_6-cfg.dot) (test_threshold__honors_third_surface)\"],[\"Source trace scope\",\"Original source case93 traces surf_fill to test_threshold__honors_third_surface in transform_test.py. The actually selected failing candidate is the complete newly added official SurfaceBlendTest.test_blit_blend_big_rect; no failure of the original transform caller is claimed. Source commit is a two-parent merge; Base is actual first parent, and its complete diff has only src/surface.c and test/surface_test.py. Original source taxonomy remains Python-C; source-row broad test-file trace is not the set of files changed by this merge.\"],[\"Verified Base trace\",\"Initial ordinary Base target reports test/surface_test.py:1540 AssertionError: <rect(1,1,3,3)> != <rect(1,1,30,30)>, testsRun1/failures1/errors0, then childSIGSEGV(-11). Correctly classified Base-v2 target starts the same complete original method and terminatesSIGABRT(-6), stderr free(): invalid size, before a final result record. Original heap-failure timing differs naturally; no allocator/compiler/input edits. Both Base runs preserve3 regression passes. Gold completes all4 methods with normal exit0. Base initial first-return-rectangle failure prevents later pixel/subsurface assertions; no Base outcome for later assertions is claimed.\"],[\"Verified official test\",\"test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect\\ntest/surface_test.py::SurfaceTypeTest::test_copy\\ntest/surface_test.py::SurfaceTypeTest::test_get_bytesize\\ntest/surface_test.py::SurfaceTypeTest::test_get_rect\"],[\"Official test scope\",\"Complete official test_blit_blend_big_rect first additive-fills32-bit4x4 Surface with color(1,2,3,255), area(1,1,30,30), and asserts returned Rect(1,1,3,3) plus two pixels. It then checks black/red differ and, on a10x10 parent with10x8 subsurface at(0,1), verifies parent top/bottom pixels stay black after fills at(0,-1,10,1) and(0,8,10,1). Initial Base stops at the first Rect assertion; repeat Base aborts during that started method. Gold completes every original assertion. Three unchanged full copy/get_bytesize/get_rect methods pass both. No full surface suite, original transform caller failure, full directional clipping coverage, other bit-depth/platform coverage or timing guarantee is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "7vu78d",
+          "target": {
+            "id": "wb/bggc78",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 094 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-c7ec1528\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"1.9.2pre\"],[\"Created at\",40821],[\"Base commit\",\"2d7786bc2453561a696281299104f95814e676b3\"],[\"Fix commit\",\"c7ec15285c23ce54f466c9a3482b4d087eb8b0ff\"],[\"Issue / PR\",\"https://github.com/pygame/pygame/issues/93\"],[\"Test source\",\"Original official TestCase methods executed by their own bundled unittest loader and TextTestRunner\"],[\"FAIL_TO_PASS (1)\",\"test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect\"],[\"PASS_TO_PASS (1)\",\"test/surface_test.py::SurfaceTypeTest::test_copy\"],[\"PASS_TO_PASS (2)\",\"test/surface_test.py::SurfaceTypeTest::test_get_bytesize\"],[\"PASS_TO_PASS (3)\",\"test/surface_test.py::SurfaceTypeTest::test_get_rect\"],[\"Base / Gold outcome\",\"Base: complete official oversized-blend method fails with a native signal; initial run also records wrong returned-Rect assertion. Three regressions pass. Gold: all four complete methods pass with normal exit.\"],[\"Docker image\",\"yutu0814/pyc-case-094-pygame:benchmark-v1\"],[\"Problem statement\",\"Surface.fill with additive blending should clip oversized rectangles and keep writes through a subsurface within its boundaries, preserving the returned rectangle and neighboring parent pixels.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "v5mzow",
+          "target": {
+            "id": "wb/oufb2p",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

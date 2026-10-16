@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',r='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_094',old='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_091',prev=fs.readFileSync(old+'/evaluator/evaluate_model_patch.py','utf8'),p=r+'/evaluator/evaluate_model_patch.py',t=fs.readFileSync(p,'utf8'),a=t.indexOf('def parse_test_log(text):'),b=t.indexOf('\ndef expected_report(',a);
+if(a<0||b<0)throw Error('Missing parser');fs.writeFileSync(p,t.slice(0,a)+prev.slice(prev.indexOf('def parse_test_log(text):'),prev.indexOf('\ndef expected_report('))+t.slice(b));
+for(const n of ['refresh_case091.mjs','audit_publication091.mjs','record_publication091.mjs','verify_committed_case091.mjs','push_case091_image.mjs','commit_case091.mjs','clean_case091_bytecode.ps1'])fs.writeFileSync(w+'/'+n.replaceAll('091','094'),fs.readFileSync(old+'/analysis/creation_tools/'+n,'utf8').replaceAll('091','094'));
+let cleanup=fs.readFileSync(old+'/analysis/creation_tools/cleanup_case091.ps1','utf8').replaceAll('091','094');cleanup=cleanup.replace(" 'case094-probe-base'='verification/probes/base'"," 'case094-probe-base'='verification/history/case094-probe-base'\n 'case094-probe-base-v2'='verification/probes/base'");fs.writeFileSync(w+'/cleanup_case094.ps1',cleanup);
+let v=fs.readFileSync(old+'/analysis/creation_tools/verify_case091.py','utf8').replaceAll('091','094').replaceAll('1.9.2a0','1.9.2pre').replaceAll('freetype_extension','surface_extension').replaceAll("v['pygame_revision']==''","v['pygame_revision']is None").replaceAll('2015-04-14T02:15:58Z','2011-10-05T01:36:04Z').replaceAll('2015-04-14','2011-10-05').replaceAll('datetime.date(2015,4,14)','datetime.date(2011,10,5)');
+const start=v.indexOf('   if exitcode and'),end=v.indexOf('   else:',start);
+v=v.slice(0,start)+`   if exitcode and v['node']in s['failToPass']:
+    assert v['returncode']in(-6,-11),v
+    assert any(l.startswith('OFFICIAL_NATIVE_FAILURE ')and json.loads(l.removeprefix('OFFICIAL_NATIVE_FAILURE '))['node']==v['node']for l in raw.splitlines())
+    assert ('free(): invalid size'in err or 'AssertionError:'in err or 'Segmentation Fault'in err),err
+`+v.slice(end);
+v=v.replaceAll('is Noneand','is None and').replaceAll("'free(): invalid size'in err","'invalid size'in err").replace('true ordinary one-space width AssertionError','true native oversized-fill failure');fs.writeFileSync(w+'/verify_case094.py',v);
+fs.writeFileSync(w+'/case094_authoring_corrections.json',JSON.stringify({product_tests_unchanged:true,corrections:[{phase:'source_audit_initialization',reason:'Old source has src/surface.h, not later src/_pygame.h; lookup failed before spec/build.',fix:'Audit actual existing tracked headers.'},{phase:'staging_validation',reason:'JavaScript chained strict equality on two zero counters rejected passing records before materialization.',fix:'Compare each counter separately to zero.'}],normal_source_version:'1.9.2pre',initial_runner_failure:'case094_runner_correction.json'},null,2)+'\n');
+console.log('094 exact terminal parser, native signal verification and scoped publication/cleanup helpers prepared.');

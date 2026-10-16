@@ -1,0 +1,117 @@
+{
+  "upstream_url": "https://github.com/pygame/pygame/commit/c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "issue_url": "https://github.com/pygame/pygame/issues/93",
+  "base_commit": "2d7786bc2453561a696281299104f95814e676b3",
+  "fix_commit": "c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "source_parents": [
+    "2d7786bc2453561a696281299104f95814e676b3",
+    "36ec9f67f7b22bb4c2d5e2f46156080caf033671"
+  ],
+  "source_commit_timestamp_original_offset": "2011-10-05T16:46:56+02:00",
+  "source_commit_utc_timestamp": "2011-10-05T14:46:56Z",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/surface.c"
+  ],
+  "version_metadata": {
+    "strategy": "Official tracked lib/version.py and setup.py identify1.9.2pre; native actual runtime audited. This old source does not expose a generated hg revision."
+  },
+  "native_source_git_blobs": {
+    "src/surface.c": "eea77074987ad3e485f6c785fc6786e0a7207a82",
+    "src/pygame.h": "81e06be190eeab76f7b08c8b1f82f2d6ec67126e",
+    "src/surface.h": "8999777749cee3d8bc504688305c00772486127b",
+    "setup.py": "446c25805f30c88c49cdbf734bb59cedf10e0bd6",
+    "lib/version.py": "0284e0dd189b18a3dc342ba25a54fcfcf7b6034e",
+    "lib/freesansbold.ttf": "649ebddde6f4cc9f3c976cf4def0b61631d2aa05"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libsdl-image1.2-dev": "1.2.12-12",
+    "libsdl-mixer1.2-dev": "1.2.12-16+b1",
+    "libsdl-ttf2.0-dev": "2.0.11-6",
+    "libsdl1.2-dev": "1.2.15+dfsg2-6",
+    "libsdl1.2debian": "1.2.15+dfsg2-6",
+    "libsmpeg-dev": "0.4.5+cvs20030824-9",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "sdl_version": "1.2.15",
+  "optional_modules": "MIDI omitted by absence of optional portmidi development dependency; use official auto-config without product/test edits.",
+  "generated_artifact_ignores": "Only upstream hgignore-equivalent known generated paths listed in Git local info/exclude: build,Setup,lib/version.py,Python caches and egg-info. Tracked source blobs independently audited; no source .gitignore added.",
+  "display_selection": "Dummy video/audio drivers for noninteractive official Surface tests; no test body/tag modifications.",
+  "freetype_config_adapter": "Debian Bullseye no longer ships freetype-config. A minimal command adapter maps legacy --ftversion to installed pkg-config --modversion freetype2 and --cflags/--libs to installed package metadata. Official auto-config and generated compiler/linker flags are unchanged on Base/Gold. The initial missing-freetype failure belongs to case090 dependency setup and remains in published case090; case091 reuses the established bridge without manufacturing product differences.",
+  "admission_rule": "Complete original official method must fail on unchanged first-parent Base and pass with full exact product patch. No assertion/body/input/compiler/allocator changes.",
+  "upstream_created_at_timestamp": "2011-10-05T01:36:04Z",
+  "issue_closed_at_timestamp": "2017-03-26T16:41:53Z",
+  "associated_prs": [],
+  "date_source": "https://api.github.com/repos/pygame/pygame/issues/93, independently matched saved official HTML createdAt",
+  "date_semantics": "Issue93 opened2011-10-05. Source commit is a genuine two-parent merge committed2011-10-05; no associated GitHub PR/merge date is established by the empty associated-PR endpoint. Migrated issue closure2017-03-26T16:41:53Z is not a merge date.",
+  "verified_scope": "Complete official test_blit_blend_big_rect first additive-fills32-bit4x4 Surface with color(1,2,3,255), area(1,1,30,30), and asserts returned Rect(1,1,3,3) plus two pixels. It then checks black/red differ and, on a10x10 parent with10x8 subsurface at(0,1), verifies parent top/bottom pixels stay black after fills at(0,-1,10,1) and(0,8,10,1). Initial Base stops at the first Rect assertion; repeat Base aborts during that started method. Gold completes every original assertion. Three unchanged full copy/get_bytesize/get_rect methods pass both. No full surface suite, original transform caller failure, full directional clipping coverage, other bit-depth/platform coverage or timing guarantee is claimed.",
+  "source_trace_scope": "Original source case93 traces surf_fill to test_threshold__honors_third_surface in transform_test.py. The actually selected failing candidate is the complete newly added official SurfaceBlendTest.test_blit_blend_big_rect; no failure of the original transform caller is claimed. Source commit is a two-parent merge; Base is actual first parent, and its complete diff has only src/surface.c and test/surface_test.py. Original source taxonomy remains Python-C; source-row broad test-file trace is not the set of files changed by this merge.",
+  "formal_runtime_audit": {
+    "pygame_version": "1.9.2pre",
+    "pygame_revision": null,
+    "surface_extension": "/testbed/build/local/pygame/surface.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "a747b7e3a4662c1ab7b704a49d4ad3ea6da869790c224290859f5ec3b20c596b",
+    "sdl_compiled": [
+      1,
+      2,
+      15
+    ],
+    "sdl_linked": [
+      1,
+      2,
+      15
+    ],
+    "video_driver": "dummy",
+    "byteorder": "little",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src/surface.c": {
+        "size": 81574,
+        "sha256": "91ca6256d413863461916e6d78b11b4d68fe76028f562931331819f9a38e9c08"
+      },
+      "src/pygame.h": {
+        "size": 25473,
+        "sha256": "9e2ca9ac2c8de8c0af57a953883b2522378f78205032bf2234affa9e3e7d9e18"
+      },
+      "src/surface.h": {
+        "size": 12912,
+        "sha256": "053cc6299988029da7062d4aa2f0ce673b94300542a4ae81d648330b664b87f4"
+      },
+      "setup.py": {
+        "size": 21024,
+        "sha256": "6e57d6bd7763129779e50240a962d59aae225b3986712b7059a0da5eca717025"
+      },
+      "lib/version.py": {
+        "size": 1334,
+        "sha256": "4acbfdc7f2cbb6ad517355a2f69d1ac3ffff15f0dcc5e125478eb0277fb919e3"
+      },
+      "build/local/pygame/version.py": {
+        "size": 1334,
+        "sha256": "4acbfdc7f2cbb6ad517355a2f69d1ac3ffff15f0dcc5e125478eb0277fb919e3"
+      },
+      "Setup": {
+        "size": 3636,
+        "sha256": "6b1057ac11572bcf336df45c5738ba43e25fd2d85ed8f59957e8f1d43f75ae36"
+      },
+      "lib/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "83f8ee6b8010d2e457d78d895fceaae5ce78babf877a3dce8921f10e8e5a2352"
+      },
+      "build/local/pygame/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "83f8ee6b8010d2e457d78d895fceaae5ce78babf877a3dce8921f10e8e5a2352"
+      }
+    }
+  }
+}

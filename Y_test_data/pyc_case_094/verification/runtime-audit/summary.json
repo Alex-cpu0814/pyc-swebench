@@ -1,0 +1,96 @@
+{
+  "startedAt": "2026-10-16T02:50:51.851Z",
+  "finishedAt": "2026-10-16T02:50:52.527Z",
+  "image": "yutu0814/pyc-case-094-pygame:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "libfreetype6-dev": "2.10.4+dfsg-1+deb11u1",
+    "libsdl-image1.2-dev": "1.2.12-12",
+    "libsdl-mixer1.2-dev": "1.2.12-16+b1",
+    "libsdl-ttf2.0-dev": "2.0.11-6",
+    "libsdl1.2-dev": "1.2.15+dfsg2-6",
+    "libsdl1.2debian": "1.2.15+dfsg2-6",
+    "libsmpeg-dev": "0.4.5+cvs20030824-9",
+    "libudev-dev": "247.3-7+deb11u5",
+    "libudev1": "247.3-7+deb11u5"
+  },
+  "runtime_audit": {
+    "pygame_version": "1.9.2pre",
+    "pygame_revision": null,
+    "surface_extension": "/testbed/build/local/pygame/surface.cpython-38-x86_64-linux-gnu.so",
+    "extension_sha256": "a747b7e3a4662c1ab7b704a49d4ad3ea6da869790c224290859f5ec3b20c596b",
+    "sdl_compiled": [
+      1,
+      2,
+      15
+    ],
+    "sdl_linked": [
+      1,
+      2,
+      15
+    ],
+    "video_driver": "dummy",
+    "byteorder": "little",
+    "build_packages": {
+      "setuptools": "68.2.2",
+      "wheel": "0.42.0",
+      "pytest": "7.4.4"
+    },
+    "assets": {
+      "src/surface.c": {
+        "size": 81574,
+        "sha256": "91ca6256d413863461916e6d78b11b4d68fe76028f562931331819f9a38e9c08"
+      },
+      "src/pygame.h": {
+        "size": 25473,
+        "sha256": "9e2ca9ac2c8de8c0af57a953883b2522378f78205032bf2234affa9e3e7d9e18"
+      },
+      "src/surface.h": {
+        "size": 12912,
+        "sha256": "053cc6299988029da7062d4aa2f0ce673b94300542a4ae81d648330b664b87f4"
+      },
+      "setup.py": {
+        "size": 21024,
+        "sha256": "6e57d6bd7763129779e50240a962d59aae225b3986712b7059a0da5eca717025"
+      },
+      "lib/version.py": {
+        "size": 1334,
+        "sha256": "4acbfdc7f2cbb6ad517355a2f69d1ac3ffff15f0dcc5e125478eb0277fb919e3"
+      },
+      "build/local/pygame/version.py": {
+        "size": 1334,
+        "sha256": "4acbfdc7f2cbb6ad517355a2f69d1ac3ffff15f0dcc5e125478eb0277fb919e3"
+      },
+      "Setup": {
+        "size": 3636,
+        "sha256": "6b1057ac11572bcf336df45c5738ba43e25fd2d85ed8f59957e8f1d43f75ae36"
+      },
+      "lib/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "83f8ee6b8010d2e457d78d895fceaae5ce78babf877a3dce8921f10e8e5a2352"
+      },
+      "build/local/pygame/freesansbold.ttf": {
+        "size": 98600,
+        "sha256": "83f8ee6b8010d2e457d78d895fceaae5ce78babf877a3dce8921f10e8e5a2352"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "2d7786bc2453561a696281299104f95814e676b3",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-094-pygame:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"2d7786bc2453561a696281299104f95814e676b3\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src/surface.c)\" = \"eea77074987ad3e485f6c785fc6786e0a7207a82\"; test \"$(git hash-object src/pygame.h)\" = \"81e06be190eeab76f7b08c8b1f82f2d6ec67126e\"; test \"$(git hash-object src/surface.h)\" = \"8999777749cee3d8bc504688305c00772486127b\"; test \"$(git hash-object setup.py)\" = \"446c25805f30c88c49cdbf734bb59cedf10e0bd6\"; test \"$(git hash-object lib/version.py)\" = \"0284e0dd189b18a3dc342ba25a54fcfcf7b6034e\"; test \"$(git hash-object lib/freesansbold.ttf)\" = \"649ebddde6f4cc9f3c976cf4def0b61631d2aa05\"; dpkg-query -W gcc g++ libsdl1.2-dev libsdl1.2debian libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libfreetype6-dev libudev-dev libudev1; python -c 'import pygame,pygame.surface,json,pathlib,hashlib,importlib.metadata,os,subprocess,re,sys; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"/usr/include/SDL/SDL_version.h\",\"-\"],input=b\"\").decode(); header=[int(re.search(\"#define \"+n+\" ([0-9]+)\",macros).group(1)) for n in (\"SDL_MAJOR_VERSION\",\"SDL_MINOR_VERSION\",\"SDL_PATCHLEVEL\")]; files=[\"src/surface.c\",\"src/pygame.h\",\"src/surface.h\",\"setup.py\",\"lib/version.py\",\"build/local/pygame/version.py\",\"Setup\",\"lib/freesansbold.ttf\",\"build/local/pygame/freesansbold.ttf\"]; report={\"pygame_version\":pygame.version.ver,\"pygame_revision\":getattr(pygame.version,\"rev\",None),\"surface_extension\":pygame.surface.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(pygame.surface.__file__).read_bytes()).hexdigest(),\"sdl_compiled\":header,\"sdl_linked\":pygame.get_sdl_version(),\"video_driver\":os.environ[\"SDL_VIDEODRIVER\"],\"byteorder\":sys.byteorder,\"build_packages\":{p:importlib.metadata.version(p) for p in (\"setuptools\",\"wheel\",\"pytest\")},\"assets\":{p:{\"size\":pathlib.Path(p).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()} for p in files}}; assert report[\"pygame_version\"]==\"1.9.2pre\"; assert report[\"surface_extension\"].startswith(\"/testbed/build/local/pygame/\"); assert report[\"video_driver\"]==\"dummy\"; assert report[\"sdl_linked\"][0]==report[\"sdl_compiled\"][0]==1; assert report[\"pygame_revision\"] is None; print(json.dumps(report))'"
+  ]
+}

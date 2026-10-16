@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_094",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "93",
+  "duplicate_source_cases": [],
+  "deduplication_key": "c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "language_pair": "Python-C",
+  "repo": "pygame/pygame",
+  "issue_id": "93",
+  "issue_url": "https://github.com/pygame/pygame/issues/93",
+  "commit": "c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "base_commit": "2d7786bc2453561a696281299104f95814e676b3",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "commit_url": "https://github.com/pygame/pygame/commit/c7ec15285c23ce54f466c9a3482b4d087eb8b0ff",
+  "problem_statement": "Surface.fill with additive blending should clip oversized rectangles and keep writes through a subsurface within its boundaries, preserving the returned rectangle and neighboring parent pixels.",
+  "symptom": "segment fault (crash)",
+  "bug_location": "line 1439",
+  "bug_location_type": "Conditional expression",
+  "bug_path": "1439(c_surface_90-cfg.dot) (surf_fill) ... -> 1392(c_surface_90-cfg.dot) (surf_fill) -> 172(py_transform_test_6-cfg.dot) (test_threshold__honors_third_surface)",
+  "cross_language_type": "PyLong_Check ,Foreign,Integer Objects,PyInt_Check ,Foreign,Plain Integer Objects,PyArg_ParseTupleAndKeywords ,Foreign,Parsing arguments and building values",
+  "data_control_flow_direction": "Python ->C",
+  "root_cause": "Special case handling",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/pygame/pygame/issues/93",
+    "upstream_description": "Complete surf_fill product diff rejects wholly beyond-right/bottom rectangles, clips negative x/y and caps width/height to surface bounds. Complete newly added test_blit_blend_big_rect checks a32-bit4x4 additive oversized fill returned Rect/pixels and top/bottom neighboring parent pixels after two10x8 subsurface out-of-range fills.",
+    "verified_error": "Initial ordinary Base target reports test/surface_test.py:1540 AssertionError: <rect(1,1,3,3)> != <rect(1,1,30,30)>, testsRun1/failures1/errors0, then childSIGSEGV(-11). Correctly classified Base-v2 target starts the same complete original method and terminatesSIGABRT(-6), stderr free(): invalid size, before a final result record. Original heap-failure timing differs naturally; no allocator/compiler/input edits. Both Base runs preserve3 regression passes. Gold completes all4 methods with normal exit0. Base initial first-return-rectangle failure prevents later pixel/subsurface assertions; no Base outcome for later assertions is claimed.",
+    "verified_test": "test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect and test/surface_test.py::SurfaceTypeTest::test_copy and test/surface_test.py::SurfaceTypeTest::test_get_bytesize and test/surface_test.py::SurfaceTypeTest::test_get_rect"
+  },
+  "evidence_type": "source_row_upstream_issue_and_verified_bundled_unittest_trace",
+  "official_test_scope": "Complete official test_blit_blend_big_rect first additive-fills32-bit4x4 Surface with color(1,2,3,255), area(1,1,30,30), and asserts returned Rect(1,1,3,3) plus two pixels. It then checks black/red differ and, on a10x10 parent with10x8 subsurface at(0,1), verifies parent top/bottom pixels stay black after fills at(0,-1,10,1) and(0,8,10,1). Initial Base stops at the first Rect assertion; repeat Base aborts during that started method. Gold completes every original assertion. Three unchanged full copy/get_bytesize/get_rect methods pass both. No full surface suite, original transform caller failure, full directional clipping coverage, other bit-depth/platform coverage or timing guarantee is claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "test/surface_test.py::SurfaceBlendTest::test_blit_blend_big_rect"
+  ],
+  "PASS_TO_PASS": [
+    "test/surface_test.py::SurfaceTypeTest::test_copy",
+    "test/surface_test.py::SurfaceTypeTest::test_get_bytesize",
+    "test/surface_test.py::SurfaceTypeTest::test_get_rect"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

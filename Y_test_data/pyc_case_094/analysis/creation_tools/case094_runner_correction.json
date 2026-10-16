@@ -1,0 +1,8 @@
+{
+  "reason": "Initial Base has genuine official testsRun1/failures1 report followed by childSIGSEGV; original wrapper mislabeled the recorded failure plus abnormal shutdown as infrastructure ERROR.",
+  "fix": "Classify native SIGSEGV/SIGABRT after OFFICIAL_TEST_START as FAILED before ordinary result/exit consistency checks; preserve full raw/encoded result and exact exit. Never turn abnormal exit into PASSED.",
+  "initial_evidence": "case094-probe-base",
+  "base_repeat_suffix": "-v2",
+  "successful_gold_repeated": false,
+  "product_or_test_source_modified": false
+}

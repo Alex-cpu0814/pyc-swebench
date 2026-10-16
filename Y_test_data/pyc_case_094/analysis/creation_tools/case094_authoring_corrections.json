@@ -1,0 +1,17 @@
+{
+  "product_tests_unchanged": true,
+  "corrections": [
+    {
+      "phase": "source_audit_initialization",
+      "reason": "Old source has src/surface.h, not later src/_pygame.h; lookup failed before spec/build.",
+      "fix": "Audit actual existing tracked headers."
+    },
+    {
+      "phase": "staging_validation",
+      "reason": "JavaScript chained strict equality on two zero counters rejected passing records before materialization.",
+      "fix": "Compare each counter separately to zero."
+    }
+  ],
+  "normal_source_version": "1.9.2pre",
+  "initial_runner_failure": "case094_runner_correction.json"
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/pygame/pygame/issues/93",
+  "created_at": "2011-10-05T01:36:04Z",
+  "html_created_at": "2011-10-05T01:36:04Z",
+  "source_commit_timestamp_original_offset": "2011-10-05T16:46:56+02:00",
+  "source_commit_utc_timestamp": "2011-10-05T14:46:56Z",
+  "closed_at": "2017-03-26T16:41:53Z",
+  "merged_at": null,
+  "associated_prs": [],
+  "date_semantics": "Issue93 opened2011-10-05. Source commit is a genuine two-parent merge committed2011-10-05; no associated GitHub PR/merge date is established by the empty associated-PR endpoint. Migrated issue closure2017-03-26T16:41:53Z is not a merge date."
+}
