@@ -1,0 +1,4 @@
+{
+  "observation": "The requested /pulls/52 HTML route returned the general pull-request listing (title Pull requests), not the specific PR. Original raw bytes retained. Correct PR52 API was already captured and independently matched merge commit.",
+  "correction": "Fetch actual /pull/52 HTML and verify title; no source metadata inferred from the initial general listing."
+}

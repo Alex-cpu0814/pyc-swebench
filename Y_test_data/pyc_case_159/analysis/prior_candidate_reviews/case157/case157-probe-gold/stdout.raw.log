@@ -1,0 +1,55 @@
+CheckSmallInt (pysqlite2.test.types.SqliteTypeTests) ... ERROR
+lib/test/types.py::SqliteTypeTests::CheckSmallInt ERROR
+CheckSmallInt (pysqlite2.test.types.AdvancedTypeTests) ... ERROR
+lib/test/types.py::AdvancedTypeTests::CheckSmallInt ERROR
+CheckFloat (pysqlite2.test.types.SqliteTypeTests) ... ERROR
+lib/test/types.py::SqliteTypeTests::CheckFloat ERROR
+CheckLargeInt (pysqlite2.test.types.SqliteTypeTests) ... ERROR
+lib/test/types.py::SqliteTypeTests::CheckLargeInt ERROR
+CheckLargeInt (pysqlite2.test.types.AdvancedTypeTests) ... ERROR
+lib/test/types.py::AdvancedTypeTests::CheckLargeInt ERROR
+
+======================================================================
+ERROR: CheckSmallInt (pysqlite2.test.types.SqliteTypeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/pysqlite_lib/pysqlite2/test/types.py", line 31, in setUp
+    self.cur.execute("create table test(i integer, s varchar, f number, b blob)")
+SystemError: error return without exception set
+
+======================================================================
+ERROR: CheckSmallInt (pysqlite2.test.types.AdvancedTypeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/pysqlite_lib/pysqlite2/test/types.py", line 99, in setUp
+    self.cur.execute("create table test(i int, s str, f float, b bool, u unicode, foo foo, bin blob)")
+SystemError: error return without exception set
+
+======================================================================
+ERROR: CheckFloat (pysqlite2.test.types.SqliteTypeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/pysqlite_lib/pysqlite2/test/types.py", line 31, in setUp
+    self.cur.execute("create table test(i integer, s varchar, f number, b blob)")
+SystemError: error return without exception set
+
+======================================================================
+ERROR: CheckLargeInt (pysqlite2.test.types.SqliteTypeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/pysqlite_lib/pysqlite2/test/types.py", line 31, in setUp
+    self.cur.execute("create table test(i integer, s varchar, f number, b blob)")
+SystemError: error return without exception set
+
+======================================================================
+ERROR: CheckLargeInt (pysqlite2.test.types.AdvancedTypeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/pysqlite_lib/pysqlite2/test/types.py", line 99, in setUp
+    self.cur.execute("create table test(i int, s str, f float, b bool, u unicode, foo foo, bin blob)")
+SystemError: error return without exception set
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (errors=5)

@@ -1,0 +1,42 @@
+{
+  "label": "base",
+  "image": "pyc-case157-prototype-base:latest",
+  "nodes": [
+    "lib/test/types.py::SqliteTypeTests::CheckSmallInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckSmallInt",
+    "lib/test/types.py::SqliteTypeTests::CheckFloat",
+    "lib/test/types.py::SqliteTypeTests::CheckLargeInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckLargeInt"
+  ],
+  "startedAt": "2026-10-16T08:58:46.800Z",
+  "finishedAt": "2026-10-16T08:58:47.983Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--platform",
+    "linux/386",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case157_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case157_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\pysqlite32_unittest_nodes.py,target=/benchmark/pysqlite32_unittest_nodes.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case157-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python2.7 setup.py build --build-lib /testbed/build/pysqlite_lib --force >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python2.7 /benchmark/pysqlite32_unittest_nodes.py 'lib/test/types.py::SqliteTypeTests::CheckSmallInt' 'lib/test/types.py::AdvancedTypeTests::CheckSmallInt' 'lib/test/types.py::SqliteTypeTests::CheckFloat' 'lib/test/types.py::SqliteTypeTests::CheckLargeInt' 'lib/test/types.py::AdvancedTypeTests::CheckLargeInt'"
+  ]
+}

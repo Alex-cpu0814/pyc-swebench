@@ -1,0 +1,12 @@
+import fs from 'node:fs';import{spawnSync}from'node:child_process';
+const repo='E:/CLB_Swe-bench/pyc-swebench',root=repo+'/Y_test_data/pyc_case_159',run=args=>{const r=spawnSync('git',['-C',repo,...args],{encoding:'utf8',timeout:30000,maxBuffer:8*1024*1024,windowsHide:true});if(r.status)throw Error(r.stderr||r.stdout);return r.stdout.trim();};
+const publication=JSON.parse(fs.readFileSync(root+'/verification/publication/publication.json','utf8'));
+if(publication.image!=='yutu0814/pyc-case-159-fast-histogram:benchmark-v1'||!/^sha256:[0-9a-f]{64}$/.test(publication.registry_digest))throw Error('Publication missing');
+if(run(['remote','get-url','--push','origin'])!=='https://github.com/Alex-cpu0814/pyc-swebench.git'||run(['branch','--show-current'])!=='main')throw Error('Unexpected destination');
+const allowed=p=>p==='README.md'||p.startsWith('Y_test_data/pyc_case_159/');
+for(const p of run(['diff','--cached','--name-only']).split('\n').filter(Boolean))if(!allowed(p))throw Error('Unrelated staged path');
+run(['add','--','README.md','Y_test_data/pyc_case_159/']);
+const paths=run(['diff','--cached','--name-only']).split('\n').filter(Boolean);if(!paths.length||!paths.every(allowed))throw Error('Unexpected staged scope');
+run(['diff','--cached','--check']);
+run(['commit','-m','Add verified Python-C Case 159 (fast-histogram)']);
+console.log(JSON.stringify({commit:run(['rev-parse','HEAD']),files:paths.length,status:'scoped_case159_committed'}));

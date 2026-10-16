@@ -1,0 +1,7 @@
+/usr/local/lib/python3.6/site-packages/setuptools_scm/git.py:68: UserWarning: "/testbed" is shallow and may cause errors
+  warnings.warn('"%s" is shallow and may cause errors' % (wd.path,))
+running build_ext
+building 'fast_histogram._histogram_core' extension
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/lib/python3.6/site-packages/numpy/core/include -I/usr/local/include/python3.6m -c fast_histogram/_histogram_core.c -o build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o
+gcc -pthread -shared build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so -> fast_histogram

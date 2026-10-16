@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-5.4.2, py-1.8.1, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed
+plugins: hypothesis-5.16.0
+collecting ... collected 4 items
+
+fast_histogram/tests/test_histogram.py::test_nd_arrays PASSED            [ 25%]
+fast_histogram/tests/test_histogram.py::test_list PASSED                 [ 50%]
+fast_histogram/tests/test_histogram.py::test_non_contiguous PASSED       [ 75%]
+fast_histogram/tests/test_histogram.py::test_mixed_strides PASSED        [100%]
+
+============================== 4 passed in 0.49s ===============================

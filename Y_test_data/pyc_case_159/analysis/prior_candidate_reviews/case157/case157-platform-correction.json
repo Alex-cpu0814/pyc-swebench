@@ -1,0 +1,5 @@
+{
+  "observed": "The original FROM --platform=linux/386 build succeeded and its native audit inside build measured32-bit Python and long operand; docker image inspect also reported386. However explicit docker run --platform linux/386 could not find a matching local image variant and tried to pull the local-only tag. All3 initial probes exited125 before any test ran. Initial runtime audit likewise failed before audit execution.",
+  "correction": "Pass --platform linux/386 explicitly to docker build as well as FROM/run so exported OCI index and target platform agree. Preserve initial build/probe/audit evidence; rebuild with cached unchanged source/dependencies/tests/compile flags, then run original fixed node selection.",
+  "scope": "Build/export platform metadata correction; no original product/test/compiler/allocator changes and no tests selected by outcomes."
+}

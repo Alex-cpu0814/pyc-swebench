@@ -1,0 +1,5 @@
+lib/test/types.py::SqliteTypeTests::CheckSmallInt
+lib/test/types.py::AdvancedTypeTests::CheckSmallInt
+lib/test/types.py::SqliteTypeTests::CheckFloat
+lib/test/types.py::SqliteTypeTests::CheckLargeInt
+lib/test/types.py::AdvancedTypeTests::CheckLargeInt

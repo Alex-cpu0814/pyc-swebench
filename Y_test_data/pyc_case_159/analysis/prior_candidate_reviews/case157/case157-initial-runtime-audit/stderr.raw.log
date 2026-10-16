@@ -1,0 +1,4 @@
+Unable to find image 'pyc-case157-prototype-base:latest' locally
+docker: Error response from daemon: failed to resolve reference "docker.io/library/pyc-case157-prototype-base:latest": failed to authorize: failed to fetch oauth token: Post "https://auth.docker.io/token": net/http: TLS handshake timeout
+
+Run 'docker run --help' for more information

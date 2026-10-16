@@ -1,0 +1,82 @@
+{
+  "image": "pyc-case159-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10"
+  },
+  "runtime_audit": {
+    "package_version": "0.8",
+    "numpy_version": "1.15.4",
+    "numpy_include": "/usr/local/lib/python3.6/site-packages/numpy/core/include",
+    "numpy_header_abi": "0x01000009",
+    "numpy_linked_abi": 16777225,
+    "numpy_config_sha256": "1e1649e8ecd65a51a966aa3e89c1ed573588590dd447598cdf535e4b6bd8c747",
+    "native_extension": "/testbed/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "b3523966d449a74592a65119abae1562b63a0a4e5fe5eda9253a59f4f87b0954",
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "setuptools_scm": "3.3.3",
+      "numpy": "1.15.4",
+      "pytest": "5.4.2",
+      "hypothesis": "5.16.0",
+      "attrs": "19.3.0",
+      "sortedcontainers": "2.1.0",
+      "py": "1.8.1",
+      "pluggy": "0.13.1",
+      "packaging": "20.4",
+      "pyparsing": "2.4.7",
+      "more-itertools": "8.3.0",
+      "wcwidth": "0.1.9",
+      "importlib-metadata": "1.6.0",
+      "zipp": "3.1.0",
+      "six": "1.15.0"
+    },
+    "compiler": "gcc (Debian 8.3.0-6) 8.3.0",
+    "assets": {
+      "fast_histogram/_histogram_core.c": {
+        "size": 18431,
+        "sha256": "f23f549eeb0cd8c9251fa74a5122b008d329c4dd1f9f38650430dabb75a9b7b1"
+      },
+      "fast_histogram/histogram.py": {
+        "size": 3213,
+        "sha256": "b3da82a0c06b69b6bc389375de807902aaee763bf795f87a318720bc214c7ba3"
+      },
+      "fast_histogram/version.py": {
+        "size": 114,
+        "sha256": "9821e6eb1956c1828095d815fd21caf8645bb7f9e88db0cec9079ed9c898295e"
+      },
+      "setup.py": {
+        "size": 428,
+        "sha256": "51f595b6cae3c622e5037d15c83405eb488a3debecf7babaadcbb5d6f1035f11"
+      },
+      "setup.cfg": {
+        "size": 465,
+        "sha256": "a59db683aa6e3fd39490dcaab660f2df7341b2fe1a78ada5b70bd8deab6429c9"
+      },
+      "azure-pipelines.yml": {
+        "size": 1508,
+        "sha256": "7c4be375bc3995bd4228500ff3f22924c84e5cf9cdef6398b8aff3caacb01ccc"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "085efdad6570e25440beab781ef70e1f81605c12",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case159-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"085efdad6570e25440beab781ef70e1f81605c12\"; test \"$(git rev-parse v0.8^{commit})\" = \"085efdad6570e25440beab781ef70e1f81605c12\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object fast_histogram/_histogram_core.c)\" = \"8d4f68b4f5fbcab56d1e0cd288f89fe5ad79003f\"; test \"$(git hash-object fast_histogram/histogram.py)\" = \"dd9e0e1bc9bdde930aa1fea476c97a057cb762e2\"; test \"$(git hash-object fast_histogram/__init__.py)\" = \"2274b9222a4dcdafef8c73dc2942aa2b05363054\"; test \"$(git hash-object fast_histogram/tests/test_histogram.py)\" = \"f4c86a64972a4d3792222fdad744ee857366f319\"; test \"$(git hash-object setup.py)\" = \"80a68698e7d677a594d4f751393a08d82f122f77\"; test \"$(git hash-object setup.cfg)\" = \"0998b8e053104b1c859b34fcce21b3b6263d63f8\"; test \"$(git hash-object pyproject.toml)\" = \"03b6c62a02bcef1ff6dbac21a262db2170101491\"; test \"$(git hash-object azure-pipelines.yml)\" = \"3c7cb9e33c3973d350747b5ca87a0708d9209e72\"; test \"$(git hash-object tox.ini)\" = \"c39d3f541010cdb91b1d7617c2c7913a9a84241c\"; dpkg-query -W libc6 gcc git; ldd $(find /testbed/fast_histogram -maxdepth 1 -name '_histogram_core*.so'); python -c 'import fast_histogram as pkg,fast_histogram._histogram_core as native,numpy as np,numpy.core.multiarray as multi,json,pathlib,hashlib,sys,pkg_resources,subprocess,re; config=pathlib.Path(np.get_include()+\"/numpy/_numpyconfig.h\"); macros=config.read_text(); abi=re.search(r\"#define NPY_ABI_VERSION (0x[0-9a-fA-F]+)\",macros).group(1); files=[\"fast_histogram/_histogram_core.c\",\"fast_histogram/histogram.py\",\"fast_histogram/version.py\",\"setup.py\",\"setup.cfg\",\"azure-pipelines.yml\"]; report={\"package_version\":pkg.__version__,\"numpy_version\":np.__version__,\"numpy_include\":np.get_include(),\"numpy_header_abi\":abi,\"numpy_linked_abi\":multi._get_ndarray_c_version(),\"numpy_config_sha256\":hashlib.sha256(config.read_bytes()).hexdigest(),\"native_extension\":native.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(native.__file__).read_bytes()).hexdigest(),\"python_version\":sys.version,\"build_packages\":{n:pkg_resources.get_distribution(n).version for n in (\"setuptools\",\"wheel\",\"setuptools_scm\",\"numpy\",\"pytest\",\"hypothesis\",\"attrs\",\"sortedcontainers\",\"py\",\"pluggy\",\"packaging\",\"pyparsing\",\"more-itertools\",\"wcwidth\",\"importlib-metadata\",\"zipp\",\"six\")},\"compiler\":subprocess.check_output([\"gcc\",\"--version\"]).decode().splitlines()[0],\"assets\":{f:{\"size\":pathlib.Path(f).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(f).read_bytes()).hexdigest()}for f in files}}; assert report[\"package_version\"]==\"0.8\"; assert report[\"numpy_version\"]==\"1.15.4\"; assert int(abi,16)==report[\"numpy_linked_abi\"]; assert report[\"native_extension\"].startswith(\"/testbed/fast_histogram/_histogram_core.\"); print(json.dumps(report))'"
+  ]
+}

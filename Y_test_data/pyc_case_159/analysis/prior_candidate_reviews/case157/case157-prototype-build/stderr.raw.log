@@ -1,0 +1,45 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.58kB done
+#1 WARN: FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/386" (line 1)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:fc896f56642f382e99601461c683dee1534f0d4cb7e17bcb3494d5ed0f3a8a06
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:fc896f56642f382e99601461c683dee1534f0d4cb7e17bcb3494d5ed0f3a8a06
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:fc896f56642f382e99601461c683dee1534f0d4cb7e17bcb3494d5ed0f3a8a06 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git pkg-config python-minimal python2.7 python2.7-dev libsqlite3-dev && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/ghaering/pysqlite.git" && git fetch --depth=1 --no-tags origin "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf" && git checkout --detach "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf"
+#6 CACHED
+
+#7 [4/5] WORKDIR /testbed
+#7 CACHED
+
+#8 [5/5] RUN python2.7 setup.py build --build-lib /testbed/build/pysqlite_lib --force && python2.7 -c "import pysqlite2.dbapi2 as db,pysqlite2._sqlite as native,struct,sys; print(db.version,db.sqlite_version,native.__file__,struct.calcsize('P')*8,type(2**40).__name__); assert db.version == '2.0.alpha4'; assert struct.calcsize('P')*8 == 32; assert type(2**40) is long; assert native.__file__.startswith('/testbed/build/pysqlite_lib/pysqlite2/_sqlite')" && git checkout HEAD -- . && printf '%s\n' '/build/' '*.pyc' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:091e927113ef8c0c2565be871a8964642d0be4e3ab163cc780fb3a4a79ed116d done
+#9 exporting config sha256:a7eea83a0dd3c3d10f02b4f6e7bf4db1acab0b120e6707fa57a949c9bd2694ee done
+#9 exporting attestation manifest sha256:bf2dbd4d6e73823ec5d6822fab35bfc5132904a78fcd76ef2140b9cc82bc03a3 0.0s done
+#9 exporting manifest list sha256:aafdc49d83da7cd8dcb33c9ba69dcddf6e9052e0576497af4991a98bca5a64e4 0.0s done
+#9 naming to docker.io/library/pyc-case157-prototype-base:latest
+#9 naming to docker.io/library/pyc-case157-prototype-base:latest done
+#9 unpacking to docker.io/library/pyc-case157-prototype-base:latest done
+#9 DONE 0.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/386" (line 1)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/x5uquz1mr0qad53dp2ad7jncs

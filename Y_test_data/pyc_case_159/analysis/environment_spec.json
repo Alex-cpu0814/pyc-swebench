@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_159",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "fast_histogram_mixed_numpy_array_strides",
+  "python_version_target": "3.6",
+  "native_requirement": "Original Azure CI explicitly includes Python3.6/NumPy1.15 on Linux. Public NumPy1.15.4, pytest5.4.2 and hypothesis5.16.0 with ordinary original GCC extension build.",
+  "build_system": "Original setup.py build_ext --inplace --force uses installed NumPy headers. Actual public v0.8 tag resolves exactly to Base and is fetched for original setuptools_scm version derivation; no fabricated version override.",
+  "test_execution": [
+    "3 complete original regressions followed by the complete new mixed-strides function, preserving random array shapes, slices and all NumPy comparisons."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in fast_histogram/tests/test_histogram.py.",
+    "Base passes3 complete unchanged regressions. Complete original test_mixed_strides reaches its weighted1d result_3/result_4 exact NumPy comparison and fails with arrays not equal at tests/test_histogram.py:224, terminalFAILED/process exit1. It passes the preceding shape/stride assertions and unweighted1d comparison, but does not reach the later2d comparisons. Gold completes all original comparisons plus3 regressions,4PASSED/exit0. Random samples and original shapes/slices/assertions remain unchanged; no fixed seed, extra sampling loop or compiler/allocator change.",
+    "Complete unchanged test_nd_arrays, test_list and test_non_contiguous pass on Base/Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "085efdad6570e25440beab781ef70e1f81605c12",
+  "fix_commit": "82f140be8f098e00e4eef35e8f6582c8b7067fba",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "fast_histogram/tests/test_histogram.py"
+  ],
+  "FAIL_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_mixed_strides"
+  ],
+  "PASS_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays",
+    "fast_histogram/tests/test_histogram.py::test_list",
+    "fast_histogram/tests/test_histogram.py::test_non_contiguous"
+  ]
+}

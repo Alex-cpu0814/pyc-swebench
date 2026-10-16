@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-159-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_mixed_strides": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays": "PASSED",
+    "fast_histogram/tests/test_histogram.py::test_list": "PASSED",
+    "fast_histogram/tests/test_histogram.py::test_non_contiguous": "PASSED"
+  },
+  "unexpected_failures": []
+}

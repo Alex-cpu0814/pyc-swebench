@@ -1,0 +1,9 @@
+diff --git a/fast_histogram/tests/test_histogram.py b/fast_histogram/tests/test_histogram.py
+--- a/fast_histogram/tests/test_histogram.py
++++ b/fast_histogram/tests/test_histogram.py
+@@ -200,4 +200,4 @@
+     with pytest.raises(TypeError) as exc:
+         histogram2d([1, 2, 3], [1, 2 ,3], bins=[edges, edges],
+                     range=[(0, 10), (0, 10)])
+-    assert exc.value.args[0] == 'bins should be an iterable of two integers'
++    assert exc.value.args[0] == 'bins should be an iterable of two integers'  # Protected hunk conflict

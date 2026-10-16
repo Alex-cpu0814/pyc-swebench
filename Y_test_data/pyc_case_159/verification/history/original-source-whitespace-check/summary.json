@@ -1,0 +1,11 @@
+{
+  "command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "exitCode": 2,
+  "reason": "Original upstream SQLite header and cursor source snapshots contain trailing spaces. Preserve exact original bytes; narrowly exempt only these immutable raw source snapshots from whitespace/eol normalization. Do not edit the captured sources or weaken checks for authored code.",
+  "prior_commit_not_created": true
+}

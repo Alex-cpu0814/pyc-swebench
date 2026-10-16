@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-159-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-16T09:13:54.760Z",
+  "finished_at": "2026-10-16T09:13:57.654Z",
+  "duration_ms": 2889,
+  "source": {
+    "repo": "https://github.com/astrofrog/fast-histogram.git",
+    "base_commit": "085efdad6570e25440beab781ef70e1f81605c12"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-159-fast-histogram:benchmark-v1",
+    "id": "sha256:6c5fb4016d7c9713831eb383ae90b667367d51538afd93fd0bdfd6edefa11313",
+    "repo_digests": [
+      "yutu0814/pyc-case-159-fast-histogram@sha256:6c5fb4016d7c9713831eb383ae90b667367d51538afd93fd0bdfd6edefa11313"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

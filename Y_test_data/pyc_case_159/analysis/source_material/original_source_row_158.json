@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 160,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "158",
+    "https://github.com/astrofrog/fast-histogram/commit/82f140be8f098e00e4eef35e8f6582c8b7067fba",
+    "incorrect result/output",
+    "line 305",
+    "assignment",
+    "variable declaration",
+    null,
+    " \n 305(c__histogram_core_9-cfg.dot) (_histogram2d)\n ...\n -> 185(py__histogram_core_9-cfg.dot) (_histogram2d)\n -> 127(py_histogram_6-cfg.dot) (histogram2d)\n ...\n -> 63(py_histogram_6-cfg.dot) (histogram2d)\n -> 226(py_velodyne_16-cfg.dot) (test_mixed_strides)",
+    "PyErr_SetString,Foreign,Exception Handling,PyArg_ParseTuple,Foreign,Parsing arguments and building values,Py_XDECREF,Foreign,Reference Counting,Py_DECREF,Foreign,Reference Counting,PyArray_FILLWBYTE,NAX,Array API",
+    "\n Python->C",
+    "\n\nData handling",
+    "save data to multiple variables",
+    "assignment statement"
+  ]
+}

@@ -1,0 +1,112 @@
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:42: trailing whitespace.
++** The SQLITE_VERSION_NUMBER is an integer with the value 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:43: trailing whitespace.
++** (X*100000 + Y*1000 + Z). For example, for version "3.1.1beta", 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:44: trailing whitespace.
++** SQLITE_VERSION_NUMBER is set to 3001001. To detect if they are using 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:45: trailing whitespace.
++** version 3.1.1 or greater at compile time, programs may use the test 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:141: trailing whitespace.
++** return value depends on the type of error. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:277: trailing whitespace.
++** Sqlite is re-entrant, so the busy handler may start a new query. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:280: trailing whitespace.
++** database.  Closing the database from a busy handler will delete 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:281: trailing whitespace.
++** data structures out from under the executing query and will 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:288: trailing whitespace.
++** table is locked.  The handler will sleep multiple times until 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:303: trailing whitespace.
++** query has finished. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:330: trailing whitespace.
++** After the calling function has finished using the result, it should 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:331: trailing whitespace.
++** pass the result data pointer to sqlite3_free_table() in order to 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:332: trailing whitespace.
++** release the memory that was malloc-ed.  Because of the way the 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:333: trailing whitespace.
++** malloc() happens, the calling function must not try to call 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:334: trailing whitespace.
++** free() directly.  Only sqlite3_free_table() is able to release 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:390: trailing whitespace.
++** should always use %q instead of %s when inserting text into a string 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:422: trailing whitespace.
++** the access attempt or NULL if this access attempt is directly from 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:475: trailing whitespace.
++** sqlite3_step() and sqlite3_get_table(). An example use for this API is to 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:484: trailing whitespace.
++** If a call to sqlite3_exec(), sqlite3_step() or sqlite3_get_table() results 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:487: trailing whitespace.
++** 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:491: trailing whitespace.
++** If the progress callback returns a result other than 0, then the current 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:494: trailing whitespace.
++** back and remains active. The sqlite3_exec() call returns SQLITE_ABORT. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:543: trailing whitespace.
++** with sqlite3 handle 'db'. SQLITE_OK is returned if the most recent 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:642: trailing whitespace.
++** named parameters (":AAA" or "$VVV") you can use 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:714: trailing whitespace.
++** is a SELECT statement, the Nth column of the returned result set 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:734: trailing whitespace.
++** is a SELECT statement, the Nth column of the returned result set 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:752: trailing whitespace.
++/* 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:757: trailing whitespace.
++** The return value will be either SQLITE_BUSY, SQLITE_DONE, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:768: trailing whitespace.
++** If the SQL statement being executed returns any data, then 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:773: trailing whitespace.
++** 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:792: trailing whitespace.
++** error code, or before sqlite3_step() has been called on a 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:824: trailing whitespace.
++** the second argument is the index of the column for which information 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:891: trailing whitespace.
++** statement failed then an error code is returned. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:920: trailing whitespace.
++** database handle internally, then user functions or aggregates must 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1048: trailing whitespace.
++** and will never change.  It does not need to be destroyed.  The 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1085: trailing whitespace.
++** sqlite3 handle specified as the first argument. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1112: trailing whitespace.
++  sqlite3*, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1113: trailing whitespace.
++  const char *zName, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1114: trailing whitespace.
++  int eTextRep, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1119: trailing whitespace.
++  sqlite3*, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1120: trailing whitespace.
++  const char *zName, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1121: trailing whitespace.
++  int eTextRep, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1151: trailing whitespace.
++  sqlite3*, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1152: trailing whitespace.
++  void*, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1156: trailing whitespace.
++  sqlite3*, 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1188: trailing whitespace.
++** miliseconds to sleep for. 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1190: trailing whitespace.
++** If the operating system does not support sleep requests with 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1191: trailing whitespace.
++** milisecond time resolution, then the time will be rounded up to 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1192: trailing whitespace.
++** the nearest second. The number of miliseconds of sleep actually 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1225: trailing whitespace.
++** within the SQLite library. Normally, after a single malloc() fails the 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1232: trailing whitespace.
++** database, SQLITE_ERROR is returned. In either of these cases, the 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/case157-sqlite-history-review/sqlite321-header.h.in:1239: trailing whitespace.
++** This functionality can be omitted from a build by defining the 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/original_cursor_source.c:79: trailing whitespace.
++        return -1; 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/original_cursor_source.c:238: trailing whitespace.
++            return NULL; 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/original_cursor_source.c:261: trailing whitespace.
++            return NULL; 
+Y_test_data/pyc_case_159/analysis/prior_candidate_reviews/case157/original_cursor_source.c:669: trailing whitespace.
++        return NULL; 

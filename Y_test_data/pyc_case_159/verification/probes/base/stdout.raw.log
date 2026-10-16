@@ -1,0 +1,48 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-5.4.2, py-1.8.1, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples')
+rootdir: /testbed
+plugins: hypothesis-5.16.0
+collecting ... collected 4 items
+
+fast_histogram/tests/test_histogram.py::test_nd_arrays PASSED            [ 25%]
+fast_histogram/tests/test_histogram.py::test_list PASSED                 [ 50%]
+fast_histogram/tests/test_histogram.py::test_non_contiguous PASSED       [ 75%]
+fast_histogram/tests/test_histogram.py::test_mixed_strides FAILED        [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_mixed_strides ______________________________
+
+    def test_mixed_strides():
+    
+        # Make sure all functions work properly when passed arrays with mismatched
+        # strides.
+    
+        x = np.random.random((30, 20, 40, 50))[:, 10, :, 20]
+        y = np.random.random((30, 40, 50))[:, :, 10]
+        z = np.random.random((30, 10, 5, 80, 90))[:, 5, 2, ::2, 22]
+    
+        assert x.shape == y.shape and x.shape == z.shape
+        assert x.strides != y.strides and y.strides != z.strides and z.strides != x.strides
+    
+        result_1 = histogram1d(x, bins=10, range=(0, 1))
+        result_2, _ = np.histogram(x, bins=10, range=(0, 1))
+        np.testing.assert_equal(result_1, result_2)
+    
+        result_3 = histogram1d(x, weights=y, bins=10, range=(0, 1))
+        result_4, _ = np.histogram(x, weights=y, bins=10, range=(0, 1))
+>       np.testing.assert_equal(result_3, result_4)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       (mismatch 100.0%)
+E        x: array([55.540414, 55.766897, 64.174132, 56.398089, 61.536597, 68.314851,
+E              61.11279 , 65.820496, 60.245517, 62.518855])
+E        y: array([57.454526, 52.434216, 66.727759, 57.027988, 59.692506, 62.862789,
+E              60.138783, 70.812467, 60.35431 , 65.31661 ])
+
+fast_histogram/tests/test_histogram.py:224: AssertionError
+=========================== short test summary info ============================
+FAILED fast_histogram/tests/test_histogram.py::test_mixed_strides - Assertion...
+========================= 1 failed, 3 passed in 0.39s ==========================

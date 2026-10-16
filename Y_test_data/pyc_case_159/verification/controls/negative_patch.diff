@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -158,3 +158,5 @@
+ 
+ .. |asv| image:: https://img.shields.io/badge/benchmarked%20by-asv-brightgreen.svg
+    :target: https://astrofrog.github.io/fast-histogram
++
++This control leaves the native per-operand iterator strides unchanged.

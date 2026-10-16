@@ -1,0 +1,11 @@
+{
+  "instance_id": "astrofrog__fast-histogram-82f140be",
+  "repo": "astrofrog/fast-histogram",
+  "base_commit": "085efdad6570e25440beab781ef70e1f81605c12",
+  "problem_statement": "Histogram functions must advance each input and weight array with its own NumPy iterator stride when arrays have different memory layouts.",
+  "hints_text": "",
+  "created_at": "2020-05-24",
+  "version": "0.8",
+  "issue_id": "52",
+  "issue_url": "https://github.com/astrofrog/fast-histogram/pull/52"
+}

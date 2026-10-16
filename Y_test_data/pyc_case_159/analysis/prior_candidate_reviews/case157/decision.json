@@ -1,0 +1,34 @@
+{
+  "case_number": "157",
+  "repo": "ghaering/pysqlite",
+  "fix_commit": "ae4c5454849f3e0d08c35ebfface95d297340a14",
+  "base_commit": "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf",
+  "status": "deferred_gold_original_setup_failure",
+  "product_files": [
+    "src/cursor.c"
+  ],
+  "test_files": [
+    "lib/test/types.py"
+  ],
+  "runtime_verified": true,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "publication_performed": false,
+  "architecture": "linux/386",
+  "prototype_image": "pyc-case157-prototype-base:latest",
+  "reason": "Both ordinary Base and exact full Gold produce5 original unittestERROR statuses in unchanged setUp CREATE TABLE calls: SystemError error return without exception set. Neither2**40 target body is reached; all3 intended regressions also ERROR. Thus no complete original Gold pass, no P2P and no node-level target distinction. Do not add the unrelated sqlite3_prepare length correction or modify tests to admit this candidate.",
+  "observed_counts": {
+    "base": "5 ERROR in original setUp",
+    "gold": "5 ERROR in original setUp"
+  },
+  "platform_proof": "Existing64-bit Python2 was measured with type(2**40)=int. Actual32-bit prototype audit proves pointer32, original operand long, HAVE_LONG_LONG=1, pysqlite2.0.alpha4, SQLite header/linked3.22.0; source/compiler/test inputs unchanged. Explicit build/FROM/run platform required to align OCI index. Initial3probes125 and initial runtime startup failure occurred before tests and are separately retained.",
+  "compatibility_analysis": "Unmodified query execution passes nBytes0 to sqlite3_prepare. Current official interface documents that0 compiles no statement; official version3.2.1 header also treats nonnegative nBytes as the literal byte length. This is consistent with the measured setup failure, not an instrumented C-stack proof. No historical SQLite runtime was built or tested, and no claim that arbitrary older releases pass/fail is made.",
+  "source_urls": [
+    "https://sqlite.org/c3ref/prepare.html",
+    "https://raw.githubusercontent.com/sqlite/sqlite/version-3.2.1/src/sqlite.h.in"
+  ],
+  "date_semantics": "Verified commit2005-04-29. Closes#89 legacy tracker identity/opening/merge dates unverified; associated PR API[]. No modern issue89 or fabricated creation/merge dates.",
+  "future_admission": "Require a genuine supported dependency/interpreter environment passing the full unchanged original fixtures/methods and demonstrating an actual Base target failure with regressions passing. No extra product patch, assertion/input substitution, disabled fixture or modified compiler guard.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case157"
+}

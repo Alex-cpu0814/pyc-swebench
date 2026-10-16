@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_159",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "158",
+  "duplicate_source_cases": [],
+  "deduplication_key": "82f140be8f098e00e4eef35e8f6582c8b7067fba",
+  "language_pair": "Python-C",
+  "repo": "astrofrog/fast-histogram",
+  "issue_id": "52",
+  "issue_url": "https://github.com/astrofrog/fast-histogram/pull/52",
+  "commit": "82f140be8f098e00e4eef35e8f6582c8b7067fba",
+  "base_commit": "085efdad6570e25440beab781ef70e1f81605c12",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "82f140be8f098e00e4eef35e8f6582c8b7067fba",
+  "commit_url": "https://github.com/astrofrog/fast-histogram/commit/82f140be8f098e00e4eef35e8f6582c8b7067fba",
+  "problem_statement": "Histogram functions must advance each input and weight array with its own NumPy iterator stride when arrays have different memory layouts.",
+  "symptom": "incorrect result/output",
+  "bug_location": "line 305",
+  "bug_location_type": "assignment + variable declaration",
+  "bug_path": "305(c__histogram_core_9-cfg.dot) (_histogram2d) ... -> 185(py__histogram_core_9-cfg.dot) (_histogram2d) -> 127(py_histogram_6-cfg.dot) (histogram2d) ... -> 63(py_histogram_6-cfg.dot) (histogram2d) -> 226(py_velodyne_16-cfg.dot) (test_mixed_strides)",
+  "cross_language_type": "PyErr_SetString,Foreign,Exception Handling,PyArg_ParseTuple,Foreign,Parsing arguments and building values,Py_XDECREF,Foreign,Reference Counting,Py_DECREF,Foreign,Reference Counting,PyArray_FILLWBYTE,NAX,Array API",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Data handling",
+  "fixing_strategy": "save data to multiple variables",
+  "fix_location": "assignment statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/astrofrog/fast-histogram/pull/52",
+    "upstream_description": "Full upstream product patch updates separate iterator strides in unweighted2d and weighted1d/2d native loops plus CHANGES.rst. Exact29-line official test addition preserves original random arrays and compares all4 histogram paths to NumPy.",
+    "verified_error": "Base passes3 complete unchanged regressions. Complete original test_mixed_strides reaches its weighted1d result_3/result_4 exact NumPy comparison and fails with arrays not equal at tests/test_histogram.py:224, terminalFAILED/process exit1. It passes the preceding shape/stride assertions and unweighted1d comparison, but does not reach the later2d comparisons. Gold completes all original comparisons plus3 regressions,4PASSED/exit0. Random samples and original shapes/slices/assertions remain unchanged; no fixed seed, extra sampling loop or compiler/allocator change.",
+    "verified_test": "fast_histogram/tests/test_histogram.py::test_mixed_strides and fast_histogram/tests/test_histogram.py::test_nd_arrays and fast_histogram/tests/test_histogram.py::test_list and fast_histogram/tests/test_histogram.py::test_non_contiguous"
+  },
+  "evidence_type": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "official_test_scope": "Full original test_mixed_strides constructs the exact random arrays/slices from shapes(30,20,40,50),(30,40,50),(30,10,5,80,90), yielding matching shapes and pairwise distinct strides. It retains all shape/stride checks and exact NumPy comparisons for unweighted1d, weighted1d, unweighted2d and weighted2d. Base stops at weighted1d; Gold reaches and passes all4 paths. Complete unchanged test_nd_arrays, test_list and test_non_contiguous cover multidimensional reshaping, list conversion, and all4 histogram paths with equally strided noncontiguous inputs versus copies. No parameterized Hypothesis test or full suite executed; import-time Hypothesis presence is not a claim of running its500 examples.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_mixed_strides"
+  ],
+  "PASS_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays",
+    "fast_histogram/tests/test_histogram.py::test_list",
+    "fast_histogram/tests/test_histogram.py::test_non_contiguous"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

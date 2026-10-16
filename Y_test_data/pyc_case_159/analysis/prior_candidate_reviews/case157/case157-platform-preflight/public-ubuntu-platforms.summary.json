@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-10-16T08:49:29.418Z",
+  "finishedAt": "2026-10-16T08:49:31.823Z",
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "buildx",
+    "imagetools",
+    "inspect",
+    "public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null
+}

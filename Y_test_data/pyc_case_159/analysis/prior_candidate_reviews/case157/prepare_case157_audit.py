@@ -1,0 +1,11 @@
+import pathlib
+w=pathlib.Path('E:/CLB_Swe-bench/_work/pyc_batch');old=pathlib.Path('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_156/analysis/creation_tools')
+text=(old/'audit_case156.mjs').read_text(encoding='utf-8').replace('156','157').replace('2.6.3','2.0.alpha4').replace('/testbed/build/lib.linux-x86_64-2.7','/testbed/build/pysqlite_lib').replace('"src/sqlite_constants.h",','').replace('"lib/test/hooks.py"','"lib/test/types.py"')
+text=text.replace('native,json,hashlib,sys,subprocess,re;','native,json,hashlib,sys,subprocess,re,struct; import distutils.sysconfig as config;')
+text=text.replace('"pysqlite_version":db.version','"python_bits":struct.calcsize("P")*8,"original_operand_type":type(2**40).__name__,"have_long_long":config.get_config_var("HAVE_LONG_LONG"),"pysqlite_version":db.version')
+text=text.replace('assert sys.version_info[:2]==(2,7);','assert sys.version_info[:2]==(2,7); assert report["python_bits"]==32; assert report["original_operand_type"]=="long"; assert report["have_long_long"]==1;')
+text=text.replace("command=['run','--rm','--network','none'","command=['run','--rm','--platform','linux/386','--network','none'")
+(w/'audit_case157.mjs').write_bytes(text.encode())
+configure=(old/'configure_case156_formal.mjs').read_text(encoding='utf-8').replace('156','157').replace('pyc_case_142','pyc_case_156').replace("['refresh_case142.mjs','record_publication142.mjs','verify_committed_case142.mjs','push_case142_image.mjs','commit_case142.mjs','clean_case142_bytecode.ps1','cleanup_case142.ps1']","['refresh_case156.mjs','record_publication156.mjs','verify_committed_case156.mjs','push_case156_image.mjs','commit_case156.mjs','clean_case156_bytecode.ps1','cleanup_case156.ps1']").replace("n.replaceAll('142','157')","n.replaceAll('156','157')").replace(".replaceAll('142','157')",".replaceAll('156','157')")
+(w/'configure_case157_formal.mjs').write_bytes(configure.encode())
+print('157 read-only audit and future formal configuration prepared; actual results still pending.')

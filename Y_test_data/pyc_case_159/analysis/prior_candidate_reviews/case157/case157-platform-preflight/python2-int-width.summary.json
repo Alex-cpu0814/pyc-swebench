@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-10-16T08:49:28.936Z",
+  "finishedAt": "2026-10-16T08:49:29.416Z",
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "python2.7",
+    "yutu0814/pyc-case-156-pysqlite:benchmark-v1",
+    "-c",
+    "import sys,struct,json; print(json.dumps({\"python\":sys.version,\"bits\":struct.calcsize(\"P\")*8,\"maxint\":sys.maxint,\"original_operand\":2**40,\"operand_type\":type(2**40).__name__}))"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null
+}

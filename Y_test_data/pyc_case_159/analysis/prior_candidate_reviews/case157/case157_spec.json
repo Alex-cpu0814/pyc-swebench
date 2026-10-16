@@ -1,0 +1,138 @@
+{
+  "projectName": "pysqlite",
+  "repo": "ghaering/pysqlite",
+  "repoUrl": "https://github.com/ghaering/pysqlite.git",
+  "sourceRepo": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\pysqlite",
+  "binaryPatches": false,
+  "pythonExecutable": "python2.7",
+  "pythonVersionTarget": "2.7",
+  "pythonVersionConfig": "2.7",
+  "pythonVersionLabel": "2.7.17",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "CPython2.7 standard unittest; original Check methods",
+  "baseImage": "public.ecr.aws/ubuntu/ubuntu:18.04@sha256:fc896f56642f382e99601461c683dee1534f0d4cb7e17bcb3494d5ed0f3a8a06",
+  "dockerRunArgs": [
+    "--platform",
+    "linux/386",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\pysqlite32_unittest_nodes.py",
+      "source": "evaluator/pysqlite32_unittest_nodes.py",
+      "target": "/benchmark/pysqlite32_unittest_nodes.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_unittest",
+  "evidenceType": "source_row_upstream_issues_and_original_unittest",
+  "pytestPathPrefix": "lib/",
+  "compilerToolchain": "Native32-bit public Ubuntu18.04 standard Python2.7-dev/GCC/SQLite development libraries. Ordinary original distutils build, no added compiler/allocator/instrumentation flags. Original setup.cfg PYSQLITE_DEBUG preserved.",
+  "caseNumber": "157",
+  "sourceCase": "156",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_157",
+  "instanceId": "ghaering__pysqlite-ae4c5454",
+  "issueId": "89",
+  "issueUrl": "https://github.com/ghaering/pysqlite/commit/ae4c5454849f3e0d08c35ebfface95d297340a14",
+  "fixCommit": "ae4c5454849f3e0d08c35ebfface95d297340a14",
+  "baseCommit": "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": null,
+  "mergedAt": null,
+  "fixCommittedAt": "2005-04-29",
+  "version": "2.0.alpha4",
+  "image": "yutu0814/pyc-case-157-pysqlite:benchmark-v1",
+  "prototypeImage": "pyc-case157-prototype-base:latest",
+  "testFiles": [
+    "lib/test/types.py"
+  ],
+  "testFile": "lib/test/types.py",
+  "goldPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case157_gold.diff",
+  "testPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case157_test.diff",
+  "dockerfileSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.pysqlite157-local",
+  "validationStatus": "deferred_gold_original_setup_failure",
+  "expectedBaseExitCode": null,
+  "environment": "pysqlite_python2_long_parameter_on_linux386",
+  "testExecution": "Same32-bit Python2.7 normal original build and complete original unittest methods on Base/Gold, preserving2**40 operands and original fixtures.",
+  "nativeAuditCommand": "python2.7 -c \"import pysqlite2.dbapi2 as db,pysqlite2._sqlite as native,struct,sys; print(db.version,db.sqlite_version,native.__file__,struct.calcsize('P')*8,type(2**40).__name__); assert db.version == '2.0.alpha4'; assert struct.calcsize('P')*8 == 32; assert type(2**40) is long; assert native.__file__.startswith('/testbed/build/pysqlite_lib/pysqlite2/_sqlite')\"",
+  "buildCommand": "python2.7 setup.py build --build-lib /testbed/build/pysqlite_lib --force",
+  "buildSystem": "Original python2.7 setup.py build --build-lib /testbed/build/pysqlite_lib --force, standard output-directory option only. Same ordinary build compiles native extension and copies original package/tests on Base/Gold.",
+  "testSourceLabel": "Complete original standard unittest Check methods",
+  "testCommand": "python2.7 /benchmark/pysqlite32_unittest_nodes.py",
+  "collectCommand": "python2.7 /benchmark/pysqlite32_unittest_nodes.py --collect-only",
+  "problemStatement": "Bind Python2 long integer parameters to SQLite int64 values and read them back through both ordinary and advanced type conversion paths.",
+  "upstreamDescription": "Exact C cursor parameter-binding change adds the HAVE_LONG_LONG guarded PyLong branch using PyLong_AsLongLong and sqlite_int64. Official test patch only renames2 existing _does_not_work_atm_CheckLargeInt methods to enable them in the original Check suite; bodies are unchanged.",
+  "sourceTraceNotes": "Original source156/Excel158 traces _bind_parameter through _query_execute/cursor_execute to stress.getcon, and classifies data type error. Preserve that stress trace separately from the two actually re-enabled complete SqliteTypeTests/AdvancedTypeTests.CheckLargeInt methods. The commit says Closes#89 but legacy tracker identity/issue opening are unverified; the verified source URL is the exact commit, not an asserted modern GitHub issue.",
+  "nativeRequirement": "32-bit Python2 so the complete original2**40 input naturally has long type.64-bit Python2 was measured to produce int for this exact input; no tests run or claimed on that unrepresentative branch.",
+  "workbookDateFields": true,
+  "probeNodes": [
+    "lib/test/types.py::SqliteTypeTests::CheckSmallInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckSmallInt",
+    "lib/test/types.py::SqliteTypeTests::CheckFloat",
+    "lib/test/types.py::SqliteTypeTests::CheckLargeInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckLargeInt"
+  ],
+  "testNodeOrder": [
+    "lib/test/types.py::SqliteTypeTests::CheckSmallInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckSmallInt",
+    "lib/test/types.py::SqliteTypeTests::CheckFloat",
+    "lib/test/types.py::SqliteTypeTests::CheckLargeInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckLargeInt"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/ghaering/pysqlite/commit/ae4c5454849f3e0d08c35ebfface95d297340a14",
+    "legacy_issue_reference": "Closes: #89 (tracker identity and creation date not established)",
+    "base_commit": "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf",
+    "fix_commit": "ae4c5454849f3e0d08c35ebfface95d297340a14",
+    "source_parents": [
+      "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf"
+    ],
+    "source_commit_timestamp_original_offset": "2005-04-29T12:33:14Z",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "src/cursor.c"
+    ],
+    "native_source_git_blobs": {
+      "src/cursor.c": "1138b7e376e2642806576a1347ffe0f981567508",
+      "src/module.c": "bd1221588a680e4c4a8112f6f4540d696715328b",
+      "src/connection.c": "483509e8552362776e829174afa9c1891cbf1002",
+      "lib/dbapi2.py": "2afd08925cd95794b0435e42157ac57e6461c894",
+      "lib/test/types.py": "c80dc0333f419ea1b97a70046879cd1ac7e0a4d0",
+      "setup.py": "e8552a1972ecb9191aaf5a8d4a5eb942a4da5dda",
+      "setup.cfg": "a275aaf19ed2eb68af6c9ef81cd4289b9ae726e1"
+    },
+    "native_package_versions": {
+      "gcc": "4:7.4.0-1ubuntu2.3",
+      "git": "1:2.17.1-1ubuntu0.18",
+      "libc6:i386": "2.27-3ubuntu1.6",
+      "libpython2.7:i386": "2.7.17-1~18.04ubuntu1.11",
+      "libsqlite3-0:i386": "3.22.0-1ubuntu0.7",
+      "libsqlite3-dev:i386": "3.22.0-1ubuntu0.7",
+      "pkg-config": "0.29.1-0ubuntu2",
+      "python2.7": "2.7.17-1~18.04ubuntu1.11",
+      "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+    },
+    "environment_selection": "Public32-bit Ubuntu18.04 interpreter/runtime; unchanged original2**40 becomes Python2long naturally on32-bit. Native source guard HAVE_LONG_LONG retained; verify actual pointer width/input type and compile macro rather than adding flags. Architecture is explicitly linux/386, not linux/amd64. No original test input/body/fixture changes."
+  },
+  "architecture": "linux/386",
+  "candidateFailToPass": [
+    "lib/test/types.py::SqliteTypeTests::CheckLargeInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckLargeInt"
+  ],
+  "failToPass": [],
+  "candidatePassToPass": [
+    "lib/test/types.py::SqliteTypeTests::CheckSmallInt",
+    "lib/test/types.py::AdvancedTypeTests::CheckSmallInt",
+    "lib/test/types.py::SqliteTypeTests::CheckFloat"
+  ],
+  "passToPass": []
+}

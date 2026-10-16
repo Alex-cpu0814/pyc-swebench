@@ -1,0 +1,68 @@
+{
+  "image": "pyc-case157-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6:i386": "2.27-3ubuntu1.6",
+    "libpython2.7:i386": "2.7.17-1~18.04ubuntu1.11",
+    "libsqlite3-0:i386": "3.22.0-1ubuntu0.7",
+    "libsqlite3-dev:i386": "3.22.0-1ubuntu0.7",
+    "pkg-config": "0.29.1-0ubuntu2",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "runtime_audit": {
+    "python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]",
+    "original_operand_type": "long",
+    "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0",
+    "sqlite_headers": "3.22.0",
+    "native_extension": "/testbed/build/pysqlite_lib/pysqlite2/_sqlite.so",
+    "pysqlite_version": "2.0.alpha4",
+    "assets": {
+      "setup.cfg": {
+        "sha256": "835cc9736e98e7d4763564c5c049ba3902024e94bf830d02e1fdfb65490bf221"
+      },
+      "lib/test/types.py": {
+        "sha256": "dc973697bda414812134dc02fecefe191fed4130e0d63df2c24affa256cf3762"
+      },
+      "src/connection.c": {
+        "sha256": "0bd1043d3ef1acc6f122a2986c8d31d1ad6f2d6bf2ebf67b63177e950f82789c"
+      },
+      "lib/dbapi2.py": {
+        "sha256": "90200202c0cdcbfba1ad9dc163bcfaab4723b07bddf5f88a152eab1d6233aa7a"
+      },
+      "src/module.c": {
+        "sha256": "10d29106e23b212f3f493210a3daa0170b0d813fa690d100b8503f5757d0843b"
+      },
+      "src/cursor.c": {
+        "sha256": "6832cffb8242c991b734544d85d7145aee6b6395ee68c8cf2eeae1cf4be3542d"
+      },
+      "setup.py": {
+        "sha256": "ce8085152d5dc7452956d4f2cb8f5a66e41fba1786915c2d124db3870170c3f2"
+      }
+    },
+    "sqlite_linked_version": "3.22.0",
+    "python_bits": 32,
+    "have_long_long": 1,
+    "extension_sha256": "9e214139f3c8feb1373b075f7e3e4ee1d3bd209e942a11099baed416f6024531"
+  },
+  "source_git_identity": {
+    "base_commit": "b124ba3992dbd3d87a7cf5609e8acba952c2a3cf",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--platform",
+    "linux/386",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case157-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"b124ba3992dbd3d87a7cf5609e8acba952c2a3cf\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src/cursor.c)\" = \"1138b7e376e2642806576a1347ffe0f981567508\"; test \"$(git hash-object src/module.c)\" = \"bd1221588a680e4c4a8112f6f4540d696715328b\"; test \"$(git hash-object src/connection.c)\" = \"483509e8552362776e829174afa9c1891cbf1002\"; test \"$(git hash-object lib/dbapi2.py)\" = \"2afd08925cd95794b0435e42157ac57e6461c894\"; test \"$(git hash-object lib/test/types.py)\" = \"c80dc0333f419ea1b97a70046879cd1ac7e0a4d0\"; test \"$(git hash-object setup.py)\" = \"e8552a1972ecb9191aaf5a8d4a5eb942a4da5dda\"; test \"$(git hash-object setup.cfg)\" = \"a275aaf19ed2eb68af6c9ef81cd4289b9ae726e1\"; dpkg-query -W python2.7 python2.7-dev libpython2.7 libsqlite3-0 libsqlite3-dev libc6 gcc git pkg-config; ldd /testbed/build/pysqlite_lib/pysqlite2/_sqlite.so; python2.7 -c 'import pysqlite2.dbapi2 as db,pysqlite2._sqlite as native,json,hashlib,sys,subprocess,re,struct; import distutils.sysconfig as config; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"sqlite3.h\",\"-\"],stdin=open(\"/dev/null\")).decode(); header=re.search(r'\\''^#define SQLITE_VERSION \"([^\"]+)\"'\\'',macros,re.M).group(1); files=[\"src/cursor.c\",\"src/connection.c\",\"src/module.c\",\"lib/dbapi2.py\",\"lib/test/types.py\",\"setup.py\",\"setup.cfg\"]; report={\"python_bits\":struct.calcsize(\"P\")*8,\"original_operand_type\":type(2**40).__name__,\"have_long_long\":config.get_config_var(\"HAVE_LONG_LONG\"),\"pysqlite_version\":db.version,\"sqlite_headers\":header,\"sqlite_linked_version\":db.sqlite_version,\"python_version\":sys.version,\"native_extension\":native.__file__,\"extension_sha256\":hashlib.sha256(open(native.__file__,\"rb\").read()).hexdigest(),\"compiler\":subprocess.check_output([\"gcc\",\"--version\"]).decode().splitlines()[0],\"assets\":dict((f,{\"sha256\":hashlib.sha256(open(f,\"rb\").read()).hexdigest()})for f in files)}; assert report[\"pysqlite_version\"]==\"2.0.alpha4\"; assert sys.version_info[:2]==(2,7); assert report[\"python_bits\"]==32; assert report[\"original_operand_type\"]==\"long\"; assert report[\"have_long_long\"]==1; assert report[\"native_extension\"].startswith(\"/testbed/build/pysqlite_lib/pysqlite2/_sqlite\"); assert header==db.sqlite_version; print(json.dumps(report))'"
+  ]
+}

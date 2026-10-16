@@ -1,0 +1,4 @@
+Unable to find image 'pyc-case157-prototype-base:latest' locally
+docker: Error response from daemon: pull access denied for pyc-case157-prototype-base, repository does not exist or may require 'docker login'
+
+Run 'docker run --help' for more information

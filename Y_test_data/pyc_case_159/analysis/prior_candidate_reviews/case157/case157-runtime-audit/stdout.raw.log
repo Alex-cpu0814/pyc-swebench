@@ -1,0 +1,17 @@
+gcc	4:7.4.0-1ubuntu2.3
+git	1:2.17.1-1ubuntu0.18
+libc6:i386	2.27-3ubuntu1.6
+libpython2.7:i386	2.7.17-1~18.04ubuntu1.11
+libsqlite3-0:i386	3.22.0-1ubuntu0.7
+libsqlite3-dev:i386	3.22.0-1ubuntu0.7
+pkg-config	0.29.1-0ubuntu2
+python2.7	2.7.17-1~18.04ubuntu1.11
+python2.7-dev	2.7.17-1~18.04ubuntu1.11
+	linux-gate.so.1 (0xf7f85000)
+	libsqlite3.so.0 => /usr/lib/i386-linux-gnu/libsqlite3.so.0 (0xf7e4e000)
+	libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xf7c72000)
+	libm.so.6 => /lib/i386-linux-gnu/libm.so.6 (0xf7b70000)
+	libpthread.so.0 => /lib/i386-linux-gnu/libpthread.so.0 (0xf7b50000)
+	libdl.so.2 => /lib/i386-linux-gnu/libdl.so.2 (0xf7b4b000)
+	/lib/ld-linux.so.2 (0xf7f87000)
+{"python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]", "original_operand_type": "long", "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0", "sqlite_headers": "3.22.0", "native_extension": "/testbed/build/pysqlite_lib/pysqlite2/_sqlite.so", "pysqlite_version": "2.0.alpha4", "assets": {"setup.cfg": {"sha256": "835cc9736e98e7d4763564c5c049ba3902024e94bf830d02e1fdfb65490bf221"}, "lib/test/types.py": {"sha256": "dc973697bda414812134dc02fecefe191fed4130e0d63df2c24affa256cf3762"}, "src/connection.c": {"sha256": "0bd1043d3ef1acc6f122a2986c8d31d1ad6f2d6bf2ebf67b63177e950f82789c"}, "lib/dbapi2.py": {"sha256": "90200202c0cdcbfba1ad9dc163bcfaab4723b07bddf5f88a152eab1d6233aa7a"}, "src/module.c": {"sha256": "10d29106e23b212f3f493210a3daa0170b0d813fa690d100b8503f5757d0843b"}, "src/cursor.c": {"sha256": "6832cffb8242c991b734544d85d7145aee6b6395ee68c8cf2eeae1cf4be3542d"}, "setup.py": {"sha256": "ce8085152d5dc7452956d4f2cb8f5a66e41fba1786915c2d124db3870170c3f2"}}, "sqlite_linked_version": "3.22.0", "python_bits": 32, "have_long_long": 1, "extension_sha256": "9e214139f3c8feb1373b075f7e3e4ee1d3bd209e942a11099baed416f6024531"}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-159-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_mixed_strides": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays": "MISSING",
+    "fast_histogram/tests/test_histogram.py::test_list": "MISSING",
+    "fast_histogram/tests/test_histogram.py::test_non_contiguous": "MISSING"
+  },
+  "unexpected_failures": []
+}
