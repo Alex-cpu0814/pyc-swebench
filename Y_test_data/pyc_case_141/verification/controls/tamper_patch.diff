@@ -1,0 +1,12 @@
+diff --git a/tests/test_api.py b/tests/test_api.py
+--- a/tests/test_api.py
++++ b/tests/test_api.py
+@@ -59,7 +59,7 @@
+     m = cairo.Matrix()
+     m.rotate(10)
+     m.scale(1.5, 2.5)
+-    m.translate(10, 20)
++    m.translate(10, 20)  # Protected official test-patch context conflict
+ 
+ 
+ def test_path():

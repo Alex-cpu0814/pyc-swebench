@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-141-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "tests/test_api.py::test_matrix": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_api.py::test_context": "PASSED",
+    "tests/test_api.py::test_error": "PASSED",
+    "tests/test_api.py::test_pattern": "PASSED"
+  },
+  "unexpected_failures": [
+    "tests/test_api.py::test_matrix"
+  ]
+}

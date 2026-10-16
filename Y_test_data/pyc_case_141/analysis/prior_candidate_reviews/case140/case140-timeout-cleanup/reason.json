@@ -1,0 +1,7 @@
+{
+  "reason": "Remove only this explicitly verified case140 test container after the preconfigured 600000ms client timeout. This is an external cleanup, not a native program exit or a FAILED node.",
+  "container": "da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986",
+  "probeExitCode": null,
+  "probeSignal": "SIGTERM",
+  "probeError": "spawnSync C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe ETIMEDOUT"
+}

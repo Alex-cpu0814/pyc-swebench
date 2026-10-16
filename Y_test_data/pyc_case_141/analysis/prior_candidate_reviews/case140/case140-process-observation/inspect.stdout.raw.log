@@ -1,0 +1,257 @@
+[
+    {
+        "Id": "da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986",
+        "Created": "2026-10-16T07:55:19.535759234Z",
+        "Path": "/bin/bash",
+        "Args": [
+            "-lc",
+            "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -vv 'tests/test_api.py::test_image_surface_create_for_data' 'tests/test_api.py::test_image_surface_get_data' 'tests/test_api.py::test_surface' 'tests/test_api.py::test_surface_destroy_before_context' 'tests/test_api.py::test_surface_destroy_before_surface_pattern'"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 12023,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-16T07:55:19.678544818Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:ad07ed8a4e9e3e4d5347a4a7ea14dfbe8c6a2193942b181f5fee6142b430b73a",
+        "ResolvConfPath": "/var/lib/docker/containers/da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986/hostname",
+        "HostsPath": "/var/lib/docker/containers/da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986/hosts",
+        "LogPath": "/var/lib/docker/containers/da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986/da98fed50a11ffe66a7caf34fafdda9ca5d9ddc12338158eeafbf3b9a09a1986-json.log",
+        "Name": "/keen_almeida",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 4000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [
+                {
+                    "Name": "core",
+                    "Hard": 0,
+                    "Soft": 0
+                }
+            ],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff",
+                    "Target": "/tmp/gold.diff",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff",
+                    "Target": "/tmp/test.diff",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+                    "Target": "/benchmark/pytest_no_dump.py",
+                    "ReadOnly": true
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff",
+                "Destination": "/tmp/gold.diff",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff",
+                "Destination": "/tmp/test.diff",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+                "Destination": "/benchmark/pytest_no_dump.py",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "da98fed50a11",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+                "PYTHON_VERSION=3.6.15",
+                "PYTHON_PIP_VERSION=21.2.4",
+                "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+                "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+                "PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+                "PYTHONUNBUFFERED=1",
+                "LC_ALL=C.UTF-8",
+                "PYTHONPATH=/testbed"
+            ],
+            "Cmd": [
+                "-lc",
+                "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -vv 'tests/test_api.py::test_image_surface_create_for_data' 'tests/test_api.py::test_image_surface_get_data' 'tests/test_api.py::test_surface' 'tests/test_api.py::test_surface_destroy_before_context' 'tests/test_api.py::test_surface_destroy_before_surface_pattern'"
+            ],
+            "Image": "pyc-case140-prototype-base:latest",
+            "Volumes": null,
+            "WorkingDir": "/testbed",
+            "Entrypoint": [
+                "/bin/bash"
+            ],
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "SandboxID": "9fe9050ff65822afdc67074748d53da70d098aa90b13d058955551e77b6c89e6",
+            "SandboxKey": "/var/run/docker/netns/9fe9050ff658",
+            "Ports": {},
+            "Networks": {
+                "none": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "145aa0fcce5c8b808a7f7843e4618c8aca74b9996a158e7499f68d7e4d8ac76b",
+                    "EndpointID": "a1f517ede614b13b629ab1ff41b6fd9aed47f6b0ac3cbf05acb043539c99de23",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:e47716d3345415873aa6db625c00d3005e9a6f6371a8d1cc172b94a4de38d42d",
+            "size": 2780,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

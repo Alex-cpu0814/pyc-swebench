@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile:
+collecting ... collected 105 items
+
+tests/test_api.py::test_image_surface_create_for_data PASSED
+tests/test_api.py::test_image_surface_get_data PASSED
+tests/test_api.py::test_surface PASSED
+tests/test_api.py::test_surface_destroy_before_context PASSED
+tests/test_api.py::test_surface_destroy_before_surface_pattern PASSED
+
+=========================== 5 passed in 0.05 seconds ===========================

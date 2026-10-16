@@ -1,0 +1,12 @@
+{
+  "startedAt": "2026-10-16T08:04:30.909Z",
+  "finishedAt": "2026-10-16T08:04:31.110Z",
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "inspect",
+    "da98fed50a11"
+  ],
+  "exitCode": 0,
+  "signal": null,
+  "error": null
+}

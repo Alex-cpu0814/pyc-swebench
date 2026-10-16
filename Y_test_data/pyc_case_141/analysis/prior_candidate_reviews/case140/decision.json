@@ -1,0 +1,36 @@
+{
+  "case_number": "140",
+  "repo": "pygobject/pycairo",
+  "fix_commit": "be23eb87cf592a4ee5c616b2de3864fd8c2d5b43",
+  "base_commit": "0170e90026faca0b510bb3657439794884c25c90",
+  "product_files": [
+    "cairo/pattern.c",
+    "cairo/surface.c"
+  ],
+  "test_files": [
+    "tests/test_api.py"
+  ],
+  "status": "deferred_no_node_failure_with_post_suite_process_timeout",
+  "runtime_verified": true,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "publication_performed": false,
+  "reason": "The complete two new official methods and three original regressions all emitted PASSED on both Base and Gold. Base Python stayed running after the pytest 5 passed summary and the preconfigured 600000ms Docker client timeout expired. Gold completed normally with exit0. No node failed or went missing; no admissible node-level FAIL_TO_PASS was measured. Preserve the process nonexit separately without claiming its cause or assigning a native exit code. Only the verified test container was externally removed after timeout.",
+  "observed_nodes": {
+    "base": "5 PASSED",
+    "gold": "5 PASSED"
+  },
+  "base_process": {
+    "exitCode": null,
+    "signal": "SIGTERM",
+    "error": "spawnSync C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe ETIMEDOUT"
+  },
+  "gold_process_exit": 0,
+  "pr_url": "https://github.com/pygobject/pycairo/pull/12",
+  "pr_created_at": "2017-04-16T07:07:43Z",
+  "pr_merged_at": "2017-04-16T11:02:31Z",
+  "source_trace": "Original139/Excel141 image_surface_create_for_data trace retained separately from the PDF/PS lifetime targets.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case140",
+  "future_admission": "Require genuine complete-original-method node failure on Base and Gold pass in a supported environment. Do not convert PASSED to FAILED, introduce assertions, or alter inputs, ordering, allocator, loops or compiler settings to manufacture an outcome."
+}

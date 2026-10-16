@@ -1,0 +1,9 @@
+import fs from 'node:fs';import {spawnSync} from 'node:child_process';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',out=w+'/case140-timeout-cleanup';fs.mkdirSync(out);
+const docker='C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe',id='da98fed50a11';
+function run(name,args){const startedAt=new Date().toISOString(),r=spawnSync(docker,args,{encoding:'utf8',timeout:30000});fs.writeFileSync(out+'/'+name+'.stdout.raw.log',r.stdout??'');fs.writeFileSync(out+'/'+name+'.stderr.raw.log',r.stderr??'');fs.writeFileSync(out+'/'+name+'.summary.json',JSON.stringify({startedAt,finishedAt:new Date().toISOString(),command:[docker,...args],exitCode:r.status,error:r.error?.message??null},null,2)+'\n');return r;}
+const probe=JSON.parse(fs.readFileSync(w+'/case140-probe-base/summary.json','utf8'));if(!probe.error?.includes('ETIMEDOUT')||probe.exitCode!==null)throw Error('Require actual external timeout');
+const r=run('before-inspect',['inspect',id]);if(r.status!==0)throw Error('Cannot verify exact container');const c=JSON.parse(r.stdout)[0];if(c.Config.Image!=='pyc-case140-prototype-base:latest'||!c.Args.join(' ').includes('test_surface_destroy_before_context'))throw Error('Unexpected container');
+run('before-logs',['logs',c.Id]);run('before-top',['top',c.Id,'-eo','pid,ppid,stat,comm,args']);
+const stop=run('external-stop',['rm','--force',c.Id]);if(stop.status!==0)throw Error('External stop failed');
+fs.writeFileSync(out+'/reason.json',JSON.stringify({reason:'Remove only this explicitly verified case140 test container after the preconfigured 600000ms client timeout. This is an external cleanup, not a native program exit or a FAILED node.',container:c.Id,probeExitCode:probe.exitCode,probeSignal:probe.signal,probeError:probe.error},null,2)+'\n');console.log('Exact case140 timed-out test container removed; no native failure inferred.');

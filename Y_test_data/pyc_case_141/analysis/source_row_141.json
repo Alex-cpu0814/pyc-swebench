@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_141",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "140",
+  "duplicate_source_cases": [],
+  "deduplication_key": "e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "language_pair": "Python-C",
+  "repo": "pygobject/pycairo",
+  "issue_id": "8",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/8",
+  "commit": "e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "base_commit": "eeea4de31f9c8f4496f5695ee0258040b401f0b4",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "commit_url": "https://github.com/pygobject/pycairo/commit/e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "problem_statement": "The Matrix multiplication operator must reject objects of an incompatible type under Python3 instead of using their memory as a matrix.",
+  "symptom": "crash or incorrect result/output.",
+  "bug_location": "line 111",
+  "bug_location_type": "function call",
+  "bug_path": "111(c_matrix_15-cfg.dot) (matrix_operator_multiply) ... -> 108(c_matrix_15-cfg.dot) (matrix_operator_multiply) -> 181(py_test_api_11-cfg.dot) (test_matrix)",
+  "cross_language_type": "PyErr_SetString,Foreign,Exception Handling,PyObject_IsInstance,Foreign,Object Protocol",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Special case handling",
+  "fixing_strategy": "Boundary check against value range/limit + exception handling",
+  "fix_location": "if/branching statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/pygobject/pycairo/issues/8",
+    "upstream_description": "Exact upstream cairo/matrix.c type check and Python2 type flag change with the complete10-line official addition to test_matrix.",
+    "verified_error": "Base passes the3 complete unchanged regressions, then complete original test_matrix fails its first new assertion because m * 42 does not raise TypeError; actual exit1 and terminalFAILED are retained. Gold completes all4 original methods normally/exit0. No crash occurred in this run; later matrix assertions were not reached on Base.",
+    "verified_test": "tests/test_api.py::test_matrix and tests/test_api.py::test_context and tests/test_api.py::test_error and tests/test_api.py::test_pattern"
+  },
+  "evidence_type": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "official_test_scope": "The complete official test_matrix rotates, scales and translates a Cairo Matrix, expects TypeError for m * 42 and m + 42, then checks unequal-to-42, equal-to-self and unequal-to-identity. Base stops at the first multiplication assertion; Gold reaches and passes all of them. Three unchanged complete methods cover Context paint, Cairo Error fields/subclass construction, and solid/linear/radial pattern API calls. No additional assertions, alternative operands, body extraction, allocator changes, Python2 execution or full-suite validation is claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "tests/test_api.py::test_matrix"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_api.py::test_context",
+    "tests/test_api.py::test_error",
+    "tests/test_api.py::test_pattern"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

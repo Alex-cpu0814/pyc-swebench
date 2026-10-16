@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 141,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "139",
+    "https://github.com/pygobject/pycairo/commit/be23eb87cf592a4ee5c616b2de3864fd8c2d5b43",
+    "crash.",
+    "line 594",
+    "Cross-Language API callsite ",
+    "return",
+    null,
+    " \n     594(c_surface_16-cfg.dot) (image_surface_create_for_data)\n...\n -> 552(c_surface_16-cfg.dot) (image_surface_create_for_data)\n -> 181(py_test_api_11-cfg.dot) (test_image_surface_create_for_data)",
+    "PyErr_SetString,Foreign,Exception Handling,PyObject_AsWriteBuffer ,Foreign,Old Buffer Protocol,PyArg_ParseTuple,Foreign,Parsing arguments and building values",
+    "\n Python->C",
+    "\n\nData reference error",
+    "change function call",
+    "return statement + NAX function"
+  ]
+}

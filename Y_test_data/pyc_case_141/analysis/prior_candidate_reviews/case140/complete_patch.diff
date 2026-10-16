@@ -1,0 +1,147 @@
+diff --git a/cairo/pattern.c b/cairo/pattern.c
+index 7dd77b8..6b948d9 100644
+--- a/cairo/pattern.c
++++ b/cairo/pattern.c
+@@ -48,8 +48,6 @@
+  *   pattern has an error status.
+  * base - the base object used to create the pattern, or NULL.
+  *   It is referenced to keep it alive while the cairo_pattern_t is being used.
+- *   For PycairoSurfacePattern base should be the PycairoSurface, for other
+- #   patterns it should be NULL.
+  * Return value: New reference or NULL on failure
+  */
+ PyObject *
+@@ -283,7 +281,7 @@ surface_pattern_new (PyTypeObject *type, PyObject *args, PyObject *kwds) {
+ 			 &PycairoSurface_Type, &s))
+     return NULL;
+   return PycairoPattern_FromPattern (
+-	     cairo_pattern_create_for_surface (s->surface), (PyObject *)s);
++	     cairo_pattern_create_for_surface (s->surface), NULL);
+ }
+ 
+ static PyObject *
+@@ -293,14 +291,9 @@ surface_pattern_get_filter (PycairoSurfacePattern *o) {
+ 
+ static PyObject *
+ surface_pattern_get_surface (PycairoSurfacePattern *o) {
+-  if (o->base != NULL) {
+-    /* surface_pattern was created using surface_pattern_new() */
+-    return Py_BuildValue("O", o->base);
+-  } else {
+-    cairo_surface_t *surface;
+-    cairo_pattern_get_surface (o->pattern, &surface);
+-    return PycairoSurface_FromSurface(cairo_surface_reference (surface), NULL);
+-  }
++  cairo_surface_t *surface;
++  RETURN_NULL_IF_CAIRO_ERROR(cairo_pattern_get_surface (o->pattern, &surface));
++  return PycairoSurface_FromSurface(cairo_surface_reference (surface), NULL);
+ }
+ 
+ static PyObject *
+diff --git a/cairo/surface.c b/cairo/surface.c
+index 30c68a5..697d17e 100644
+--- a/cairo/surface.c
++++ b/cairo/surface.c
+@@ -161,6 +161,39 @@ surface_dealloc (PycairoSurface *o) {
+   Py_TYPE(o)->tp_free(o);
+ }
+ 
++static const cairo_user_data_key_t surface_base_object_key;
++
++static void
++_decref_destroy_func(void *user_data) {
++  PyGILState_STATE gstate = PyGILState_Ensure();
++  Py_DECREF(user_data);
++  PyGILState_Release(gstate);
++}
++
++/* Like PycairoSurface_FromSurface, but keeps the base object alive as long
++ * as cairo_surface_t exists and not as long as the wrapper exists.
++ */
++static PyObject *
++_surface_create_with_object(cairo_surface_t *surface, PyObject *base) {
++  PyObject *pysurface;
++  cairo_status_t status;
++
++  pysurface = PycairoSurface_FromSurface(surface, NULL);
++  if (pysurface == NULL)
++    return NULL;
++
++  if (base != NULL) {
++    status = cairo_surface_set_user_data(
++      surface, &surface_base_object_key, base, _decref_destroy_func);
++    if (status != CAIRO_STATUS_SUCCESS)
++      Py_DECREF(pysurface);
++    RETURN_NULL_IF_CAIRO_ERROR(status);
++    Py_INCREF(base);
++  }
++
++  return pysurface;
++}
++
+ static PyObject *
+ surface_new (PyTypeObject *type, PyObject *args, PyObject *kwds) {
+   PyErr_SetString(PyExc_TypeError,
+@@ -591,7 +624,7 @@ image_surface_create_for_data (PyTypeObject *type, PyObject *args) {
+   surface = cairo_image_surface_create_for_data (buffer, format, width,
+ 						 height, stride);
+   Py_END_ALLOW_THREADS;
+-  return PycairoSurface_FromSurface(surface, obj);
++  return _surface_create_with_object(surface, obj);
+ }
+ 
+ 
+@@ -905,7 +938,7 @@ pdf_surface_new (PyTypeObject *type, PyObject *args, PyObject *kwds) {
+   sfc = cairo_pdf_surface_create_for_stream (_write_func, file,
+ 					     width_in_points, height_in_points);
+   Py_END_ALLOW_THREADS;
+-  return PycairoSurface_FromSurface (sfc, file);
++  return _surface_create_with_object (sfc, file);
+ }
+ 
+ static PyObject *
+@@ -1026,7 +1059,7 @@ ps_surface_new (PyTypeObject *type, PyObject *args, PyObject *kwds) {
+   sfc = cairo_ps_surface_create_for_stream (_write_func, file,
+ 					    width_in_points, height_in_points);
+   Py_END_ALLOW_THREADS;
+-  return PycairoSurface_FromSurface (sfc, file);
++  return _surface_create_with_object (sfc, file);
+ }
+ 
+ static PyObject *
+@@ -1318,7 +1351,7 @@ svg_surface_new (PyTypeObject *type, PyObject *args, PyObject *kwds) {
+   sfc = cairo_svg_surface_create_for_stream (_write_func, file,
+ 					     width_in_points, height_in_points);
+   Py_END_ALLOW_THREADS;
+-  return PycairoSurface_FromSurface (sfc, file);
++  return _surface_create_with_object (sfc, file);
+ }
+ 
+ static PyMethodDef svg_surface_methods[] = {
+diff --git a/tests/test_api.py b/tests/test_api.py
+index b17b3b8..92ae35c 100644
+--- a/tests/test_api.py
++++ b/tests/test_api.py
+@@ -136,6 +136,22 @@ def test_surface():
+         s = cairo.SVGSurface(f, w, h)
+ 
+ 
++def test_surface_destroy_before_context():
++    for kind in [cairo.PDFSurface, cairo.PSSurface]:
++        surface = kind(io.BytesIO(), 1, 1)
++        ctx = cairo.Context(surface)
++        del surface
++        ctx.paint()
++
++
++def test_surface_destroy_before_surface_pattern():
++    surface = cairo.PDFSurface(io.BytesIO(), 1, 1)
++    pattern = cairo.SurfacePattern(surface)
++    del surface
++    ctx = cairo.Context(pattern.get_surface())
++    ctx.paint()
++
++
+ def test_image_surface_get_data():
+     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 3, 3)
+     ctx = cairo.Context(surface)

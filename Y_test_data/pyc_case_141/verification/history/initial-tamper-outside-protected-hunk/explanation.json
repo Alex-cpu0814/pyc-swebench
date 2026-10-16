@@ -1,0 +1,5 @@
+{
+  "observation": "Initial control changed the test_matrix def line, which lies outside the actual official test-patch hunk; it applied successfully and the original Base test failed normally. It was not a successful conflict control.",
+  "correction": "Change m.translate context inside the protected official hunk. No test body or evaluator rule changed; rerun only the corrected conflict control.",
+  "initial_reason": "expected_test_failed_skipped_or_missing"
+}

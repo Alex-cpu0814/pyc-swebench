@@ -1,0 +1,88 @@
+{
+  "upstream_url": "https://github.com/pygobject/pycairo/commit/e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/8",
+  "base_commit": "eeea4de31f9c8f4496f5695ee0258040b401f0b4",
+  "fix_commit": "e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "source_parents": [
+    "eeea4de31f9c8f4496f5695ee0258040b401f0b4"
+  ],
+  "source_commit_timestamp_original_offset": "2017-04-16T10:49:02+02:00",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "cairo/matrix.c"
+  ],
+  "native_source_git_blobs": {
+    "cairo/matrix.c": "91e8aa1f348428dfb6fd5327a7e888db432d6429",
+    "cairo/cairomodule.c": "75f99da46ed87ec7851e42cdfcf94cdce0fa69dd",
+    "cairo/__init__.py": "821a1f25c27220b53d7842823d6c49ab720ea9be",
+    "setup.py": "74170772e591694e18e7e53d6876e7dc56fd55cc",
+    ".travis.yml": "251ae0e93605b2a0117f681f79892643a0af5925",
+    "tests/test_api.py": "20bb058c19d97cbe61cbbbb6770026b08a665781"
+  },
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10",
+    "libcairo2": "1.16.0-4+deb10u1",
+    "libcairo2-dev": "1.16.0-4+deb10u1",
+    "libfreetype6": "2.9.1-3+deb10u2",
+    "libpixman-1-0": "0.36.0-1",
+    "libpixman-1-dev": "0.36.0-1",
+    "pkg-config": "0.29-6"
+  },
+  "environment_selection": "Same pinned public Python3.6.15-buster normal GCC8.3/Cairo1.16.0 dependencies. Actual source package1.11.1. Original tests and normal build flags unchanged.",
+  "upstream_created_at_timestamp": "2017-04-14T09:48:32Z",
+  "upstream_merged_at_timestamp": "2017-04-16T08:49:03Z",
+  "issue_created_at_timestamp": "2017-04-14T09:21:35Z",
+  "associated_pr_url": "https://github.com/pygobject/pycairo/pull/9",
+  "date_source": "https://api.github.com/repos/pygobject/pycairo/pulls/9",
+  "date_semantics": "Created at is PR9 opening 2017-04-14T09:48:32Z; merged at is actual PR9 merge 2017-04-16T08:49:03Z. Issue8 opening 2017-04-14T09:21:35Z and Git commit timestamp 2017-04-16T10:49:02+02:00 are separate provenance dates.",
+  "verified_scope": "The complete official test_matrix rotates, scales and translates a Cairo Matrix, expects TypeError for m * 42 and m + 42, then checks unequal-to-42, equal-to-self and unequal-to-identity. Base stops at the first multiplication assertion; Gold reaches and passes all of them. Three unchanged complete methods cover Context paint, Cairo Error fields/subclass construction, and solid/linear/radial pattern API calls. No additional assertions, alternative operands, body extraction, allocator changes, Python2 execution or full-suite validation is claimed.",
+  "source_trace_scope": "Original source140/Excel142 traces matrix_operator_multiply to test_matrix (original recorded line181). Preserve the original trace and Python-C taxonomy. The measured complete method fails at current tests/test_api.py:65 on m * 42; the recorded source line is not replaced with the measured line.",
+  "formal_runtime_audit": {
+    "has_pdf_surface": true,
+    "has_ps_surface": true,
+    "pycairo_version": "1.11.1",
+    "native_extension": "/testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "c6301b37719ca445636b343c878b1493bf317d006058c77ef60af6fec577dce5",
+    "cairo_headers": [
+      1,
+      16,
+      0
+    ],
+    "cairo_linked_version": "1.16.0",
+    "cairo_linked_integer": 11600,
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "pytest": "3.0.7",
+      "py": "1.4.34"
+    },
+    "assets": {
+      "cairo/matrix.c": {
+        "size": 11521,
+        "sha256": "7d71b01eee265b29e32b546bd3bc33155386f9c1a14d15c0f05b8a63fb79a21d"
+      },
+      "cairo/cairomodule.c": {
+        "size": 19115,
+        "sha256": "9a55d15d6d9932dec62f440ef0fd8457fea8428191b299b92b9d08aeb0e0343d"
+      },
+      "cairo/__init__.py": {
+        "size": 22,
+        "sha256": "4c06e2d53991eea4522bc4d013091a81e8e4d5643cb073cf89f9d597ef4f34ee"
+      },
+      "cairo/config.h": {
+        "size": 246,
+        "sha256": "655dc8c96f9c6e1bfac00554ffe7b878739c601297d17842d6ac993728461ead"
+      },
+      "setup.py": {
+        "size": 6707,
+        "sha256": "d4222f8ec7448cc86c5677743de0e0fad3e39e1979a5bde88c51433fcb13abdb"
+      }
+    }
+  }
+}

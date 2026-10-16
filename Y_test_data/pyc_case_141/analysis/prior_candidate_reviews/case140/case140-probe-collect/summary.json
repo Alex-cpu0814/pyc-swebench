@@ -1,0 +1,40 @@
+{
+  "label": "collect",
+  "image": "pyc-case140-prototype-base:latest",
+  "nodes": [
+    "tests/test_api.py::test_image_surface_create_for_data",
+    "tests/test_api.py::test_image_surface_get_data",
+    "tests/test_api.py::test_surface",
+    "tests/test_api.py::test_surface_destroy_before_context",
+    "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+  ],
+  "startedAt": "2026-10-16T07:45:33.571Z",
+  "finishedAt": "2026-10-16T07:45:34.574Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case140-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py --collect-only -q 'tests/test_api.py::test_image_surface_create_for_data' 'tests/test_api.py::test_image_surface_get_data' 'tests/test_api.py::test_surface' 'tests/test_api.py::test_surface_destroy_before_context' 'tests/test_api.py::test_surface_destroy_before_surface_pattern'"
+  ]
+}

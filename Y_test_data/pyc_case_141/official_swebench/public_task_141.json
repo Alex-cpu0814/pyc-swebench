@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygobject__pycairo-e2154f11",
+  "repo": "pygobject/pycairo",
+  "base_commit": "eeea4de31f9c8f4496f5695ee0258040b401f0b4",
+  "problem_statement": "The Matrix multiplication operator must reject objects of an incompatible type under Python3 instead of using their memory as a matrix.",
+  "hints_text": "",
+  "created_at": "2017-04-14",
+  "version": "1.11.1",
+  "issue_id": "8",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/8"
+}

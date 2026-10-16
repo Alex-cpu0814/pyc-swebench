@@ -1,0 +1,11 @@
+# Verification
+
+The same audited formal image runs exact full original methods in fixed order: tests/test_api.py::test_context, tests/test_api.py::test_error, tests/test_api.py::test_pattern, tests/test_api.py::test_matrix. Gold completes all4 original methods; README-negative retains the actual measured Base behavior; protected-test-context tamper rejects as candidate_conflicts_with_test_patch. Exact raw terminal/process evidence and per-node grading are retained. Only canonical anchored complete node terminal lines are counted. Pytest collection totals do not mean the unselected methods executed.
+
+Base passes the3 complete unchanged regressions, then complete original test_matrix fails its first new assertion because m * 42 does not raise TypeError; actual exit1 and terminalFAILED are retained. Gold completes all4 original methods normally/exit0. No crash occurred in this run; later matrix assertions were not reached on Base.
+
+The complete official test_matrix rotates, scales and translates a Cairo Matrix, expects TypeError for m * 42 and m + 42, then checks unequal-to-42, equal-to-self and unequal-to-identity. Base stops at the first multiplication assertion; Gold reaches and passes all of them. Three unchanged complete methods cover Context paint, Cairo Error fields/subclass construction, and solid/linear/radial pattern API calls. No additional assertions, alternative operands, body extraction, allocator changes, Python2 execution or full-suite validation is claimed.
+
+Actual pycairo1.11.1, CPython3.6.15, pytest3.0.7/py1.4.34 and unmodified GCC8.3. Exact pinned public Python3.6.15-buster base already includes normal Cairo1.16.0 headers/runtime and development libraries. Ordinary upstream setup.py builds cairo._cairo in place on Base/Gold with identical metadata. Source Git blobs, module path/hash, generatedconfig.h, package versions and linked/header versions are audited. No test input/assertion/helper, compiler, allocator or instrumentation changes.
+
+Raw prototype/formal stdout/stderr, process exits, grading and protected-test checks are preserved. Public image contains only pinned public Base/dependencies/ordinary modules; no host attachments/private files/credentials, patches, fix object or evaluator runtime assets.

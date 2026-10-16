@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -26,3 +26,5 @@
+ 
+ .. image:: https://travis-ci.org/pygobject/pycairo.svg?branch=master
+     :target: https://travis-ci.org/pygobject/pycairo
++
++This control leaves the native matrix type check unchanged.

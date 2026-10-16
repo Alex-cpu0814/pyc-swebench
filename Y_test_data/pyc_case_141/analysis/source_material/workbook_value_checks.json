@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 141 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"140\"],[\"Repository\",\"pygobject/pycairo\"],[\"Fix commit\",\"e2154f115d8ef32221f8a1fe08bdee49d23518ba\"],[\"Base commit\",\"eeea4de31f9c8f4496f5695ee0258040b401f0b4\"],[\"Upstream issue / PR\",\"https://github.com/pygobject/pycairo/issues/8\"],[\"Symptom\",\"crash or incorrect result/output.\"],[\"Bug location\",\"line 111\"],[\"Bug location type\",\"function call\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit + exception handling\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"The Matrix multiplication operator must reject objects of an incompatible type under Python3 instead of using their memory as a matrix.\"],[\"Original source trace\",\"111(c_matrix_15-cfg.dot) (matrix_operator_multiply) ... -> 108(c_matrix_15-cfg.dot) (matrix_operator_multiply) -> 181(py_test_api_11-cfg.dot) (test_matrix)\"],[\"Source trace scope\",\"Original source140/Excel142 traces matrix_operator_multiply to test_matrix (original recorded line181). Preserve the original trace and Python-C taxonomy. The measured complete method fails at current tests/test_api.py:65 on m * 42; the recorded source line is not replaced with the measured line.\"],[\"Verified Base trace\",\"Base passes the3 complete unchanged regressions, then complete original test_matrix fails its first new assertion because m * 42 does not raise TypeError; actual exit1 and terminalFAILED are retained. Gold completes all4 original methods normally/exit0. No crash occurred in this run; later matrix assertions were not reached on Base.\"],[\"Verified official test\",\"tests/test_api.py::test_matrix\\ntests/test_api.py::test_context\\ntests/test_api.py::test_error\\ntests/test_api.py::test_pattern\"],[\"Official test scope\",\"The complete official test_matrix rotates, scales and translates a Cairo Matrix, expects TypeError for m * 42 and m + 42, then checks unequal-to-42, equal-to-self and unequal-to-identity. Base stops at the first multiplication assertion; Gold reaches and passes all of them. Three unchanged complete methods cover Context paint, Cairo Error fields/subclass construction, and solid/linear/radial pattern API calls. No additional assertions, alternative operands, body extraction, allocator changes, Python2 execution or full-suite validation is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "godaqp",
+          "target": {
+            "id": "wb/e72i5n",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 141 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygobject__pycairo-e2154f11\"],[\"Repository\",\"pygobject/pycairo\"],[\"Version\",\"1.11.1\"],[\"Created at\",42839],[\"Base commit\",\"eeea4de31f9c8f4496f5695ee0258040b401f0b4\"],[\"Fix commit\",\"e2154f115d8ef32221f8a1fe08bdee49d23518ba\"],[\"Merged at\",42841],[\"Issue / PR\",\"https://github.com/pygobject/pycairo/issues/8\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_api.py::test_matrix\"],[\"PASS_TO_PASS (1)\",\"tests/test_api.py::test_context\"],[\"PASS_TO_PASS (2)\",\"tests/test_api.py::test_error\"],[\"PASS_TO_PASS (3)\",\"tests/test_api.py::test_pattern\"],[\"Base / Gold outcome\",\"Base: test_matrix FAILED (DID NOT RAISE TypeError),3 regressions PASSED. Gold: all4 complete methods PASSED.\"],[\"Docker image\",\"yutu0814/pyc-case-141-pycairo:benchmark-v1\"],[\"Problem statement\",\"The Matrix multiplication operator must reject objects of an incompatible type under Python3 instead of using their memory as a matrix.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "1u3l47",
+          "target": {
+            "id": "wb/eupryd",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

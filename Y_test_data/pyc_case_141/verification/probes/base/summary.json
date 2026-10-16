@@ -1,0 +1,39 @@
+{
+  "label": "base",
+  "image": "pyc-case141-prototype-base:latest",
+  "nodes": [
+    "tests/test_api.py::test_context",
+    "tests/test_api.py::test_error",
+    "tests/test_api.py::test_pattern",
+    "tests/test_api.py::test_matrix"
+  ],
+  "startedAt": "2026-10-16T08:08:32.525Z",
+  "finishedAt": "2026-10-16T08:08:33.367Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case141_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case141_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case141-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -vv 'tests/test_api.py::test_context' 'tests/test_api.py::test_error' 'tests/test_api.py::test_pattern' 'tests/test_api.py::test_matrix'"
+  ]
+}

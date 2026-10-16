@@ -1,0 +1,12 @@
+diff --git a/tests/test_api.py b/tests/test_api.py
+--- a/tests/test_api.py
++++ b/tests/test_api.py
+@@ -55,7 +55,7 @@
+         ctx.paint()
+ 
+ 
+-def test_matrix():
++def test_matrix():  # Protected-test context conflict
+     m = cairo.Matrix()
+     m.rotate(10)
+     m.scale(1.5, 2.5)

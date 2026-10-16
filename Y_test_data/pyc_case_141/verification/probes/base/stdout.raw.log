@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile:
+collecting ... collected 60 items
+
+tests/test_api.py::test_context PASSED
+tests/test_api.py::test_error PASSED
+tests/test_api.py::test_pattern PASSED
+tests/test_api.py::test_matrix FAILED
+
+=================================== FAILURES ===================================
+_________________________________ test_matrix __________________________________
+
+    def test_matrix():
+        m = cairo.Matrix()
+        m.rotate(10)
+        m.scale(1.5, 2.5)
+        m.translate(10, 20)
+    
+        with pytest.raises(TypeError):
+>           m * 42
+E           Failed: DID NOT RAISE <class 'TypeError'>
+
+tests/test_api.py:65: Failed
+====================== 1 failed, 3 passed in 0.06 seconds ======================

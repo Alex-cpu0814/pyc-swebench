@@ -1,0 +1,217 @@
+{
+  "projectName": "pycairo",
+  "repo": "pygobject/pycairo",
+  "repoUrl": "https://github.com/pygobject/pycairo.git",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/pycairo",
+  "binaryPatches": false,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.6",
+  "pythonVersionConfig": "3.6",
+  "pythonVersionLabel": "3.6.15",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest3.0.7 / py1.4.34",
+  "baseImage": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_pytest",
+  "evidenceType": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "pytestPathPrefix": "tests/",
+  "compilerToolchain": "Unmodified GCC8.3 in exact public Python3.6.15-buster image; normal official setup.py native build, no compiler/allocator/instrumentation changes.",
+  "caseNumber": "140",
+  "sourceCase": "139",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_140",
+  "instanceId": "pygobject__pycairo-be23eb87",
+  "issueId": "11",
+  "issueUrl": "https://github.com/pygobject/pycairo/issues/11",
+  "fixCommit": "be23eb87cf592a4ee5c616b2de3864fd8c2d5b43",
+  "baseCommit": "0170e90026faca0b510bb3657439794884c25c90",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": "2017-04-16",
+  "mergedAt": "2017-04-16",
+  "fixCommittedAt": "2017-04-16",
+  "version": "1.11.1",
+  "image": "yutu0814/pyc-case-140-pycairo:benchmark-v1",
+  "prototypeImage": "pyc-case140-prototype-base:latest",
+  "testFiles": [
+    "tests/test_api.py"
+  ],
+  "testFile": "tests/test_api.py",
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.pycairo140-local",
+  "validationStatus": "deferred_no_node_failure_with_post_suite_process_timeout",
+  "expectedBaseExitCode": null,
+  "environment": "pycairo_surface_base_object_lifetime",
+  "testExecution": "Three complete unchanged regressions followed by both complete new official surface destruction methods, without body extraction or input/assertion changes.",
+  "nativeAuditCommand": "python -c \"import cairo,cairo._cairo as native; print(cairo.version,cairo.cairo_version_string(),native.__file__); assert cairo.version == '1.11.1'; assert native.__file__.startswith('/testbed/cairo/_cairo.')\"",
+  "buildCommand": "python setup.py build_ext --inplace --force",
+  "buildSystem": "Original setup.py configures Cairo through installed pkg-config metadata, writes normal cairo/config.h and builds cairo._cairo in place. Same ordinary dependency metadata/compile parameters on Base/Gold.",
+  "testSourceLabel": "Complete original official pytest functions",
+  "testCommand": "python /benchmark/pytest_no_dump.py -vv",
+  "collectCommand": "python /benchmark/pytest_no_dump.py --collect-only -q",
+  "problemStatement": "Surface base objects must stay alive while native Cairo contexts or surface patterns retain the surface, after the original Python surface wrapper is deleted.",
+  "upstreamDescription": "Exact two-file C product fix ties the base object lifetime to cairo_surface_t user data and updates SurfacePattern wrapping. Full16-line official test addition exercises PDF/PS surfaces through contexts and a PDF surface through SurfacePattern.",
+  "sourceTraceNotes": "Original source139 traces image_surface_create_for_data through test_image_surface_create_for_data. That complete unchanged buffer caller is retained as P2P. The actual added lifetime methods exercise PDF/PS stream base objects; they do not assert buffer owner lifetime or measure reference counts.",
+  "nativeRequirement": "Public Cairo1.16.0 development/runtime and pkg-config already included in exact public Python3.6-buster base, confirmed by read-only dependency inventory; original headless Cairo image surfaces.",
+  "workbookDateFields": true,
+  "passToPass": [
+    "tests/test_api.py::test_image_surface_create_for_data",
+    "tests/test_api.py::test_image_surface_get_data",
+    "tests/test_api.py::test_surface"
+  ],
+  "probeNodes": [
+    "tests/test_api.py::test_image_surface_create_for_data",
+    "tests/test_api.py::test_image_surface_get_data",
+    "tests/test_api.py::test_surface",
+    "tests/test_api.py::test_surface_destroy_before_context",
+    "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+  ],
+  "testNodeOrder": [
+    "tests/test_api.py::test_image_surface_create_for_data",
+    "tests/test_api.py::test_image_surface_get_data",
+    "tests/test_api.py::test_surface",
+    "tests/test_api.py::test_surface_destroy_before_context",
+    "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/pygobject/pycairo/commit/be23eb87cf592a4ee5c616b2de3864fd8c2d5b43",
+    "issue_url": "https://github.com/pygobject/pycairo/issues/11",
+    "base_commit": "0170e90026faca0b510bb3657439794884c25c90",
+    "fix_commit": "be23eb87cf592a4ee5c616b2de3864fd8c2d5b43",
+    "source_parents": [
+      "0170e90026faca0b510bb3657439794884c25c90"
+    ],
+    "source_commit_timestamp_original_offset": "2017-04-16T13:02:30+02:00",
+    "source_commit_utc_timestamp": "2017-04-16T11:02:30Z",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "cairo/pattern.c",
+      "cairo/surface.c"
+    ],
+    "native_source_git_blobs": {
+      "cairo/pattern.c": "7dd77b8c80542aa07de87b43e5fdb8adccd83a4a",
+      "cairo/surface.c": "30c68a5e32b7a9e59dc0da367b876deb7b8bfdd9",
+      "cairo/cairomodule.c": "20a18ea1c9a9d6ec1f255a1f9dbc3ef57e625785",
+      "cairo/__init__.py": "821a1f25c27220b53d7842823d6c49ab720ea9be",
+      "setup.py": "74170772e591694e18e7e53d6876e7dc56fd55cc",
+      ".travis.yml": "251ae0e93605b2a0117f681f79892643a0af5925",
+      "tests/test_api.py": "b17b3b889f9a7eef1ff9c5895b7f2d9cfcd5d9e6"
+    },
+    "native_package_versions": {
+      "gcc": "4:8.3.0-1",
+      "git": "1:2.20.1-2+deb10u3",
+      "libc6": "2.28-10",
+      "libcairo2": "1.16.0-4+deb10u1",
+      "libcairo2-dev": "1.16.0-4+deb10u1",
+      "libfreetype6": "2.9.1-3+deb10u2",
+      "libpixman-1-0": "0.36.0-1",
+      "libpixman-1-dev": "0.36.0-1",
+      "pkg-config": "0.29-6"
+    },
+    "environment_selection": "Original stable CPython3.6 normal Cairo development dependencies; pinned Python3.6.15-buster/Cairo1.16.0. Actual source setup.py package version is1.11.1. No source/test/compiler/allocator edits.",
+    "admission_rule": "Complete original methods must exhibit actual Base/Gold distinction while selected original regressions pass; preserve real terminal statuses and process exits."
+  },
+  "candidateFailToPass": [
+    "tests/test_api.py::test_surface_destroy_before_context",
+    "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+  ],
+  "failToPass": [],
+  "observedBaseProcess": {
+    "label": "base",
+    "image": "pyc-case140-prototype-base:latest",
+    "nodes": [
+      "tests/test_api.py::test_image_surface_create_for_data",
+      "tests/test_api.py::test_image_surface_get_data",
+      "tests/test_api.py::test_surface",
+      "tests/test_api.py::test_surface_destroy_before_context",
+      "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+    ],
+    "startedAt": "2026-10-16T07:55:19.384Z",
+    "finishedAt": "2026-10-16T08:05:19.417Z",
+    "exitCode": null,
+    "signal": "SIGTERM",
+    "error": "spawnSync C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe ETIMEDOUT",
+    "command": [
+      "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--memory",
+      "2g",
+      "--cpus",
+      "4",
+      "--ulimit",
+      "core=0:0",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff,target=/tmp/gold.diff,readonly",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff,target=/tmp/test.diff,readonly",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+      "--entrypoint",
+      "/bin/bash",
+      "pyc-case140-prototype-base:latest",
+      "-lc",
+      "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -vv 'tests/test_api.py::test_image_surface_create_for_data' 'tests/test_api.py::test_image_surface_get_data' 'tests/test_api.py::test_surface' 'tests/test_api.py::test_surface_destroy_before_context' 'tests/test_api.py::test_surface_destroy_before_surface_pattern'"
+    ]
+  },
+  "observedGoldProcess": {
+    "label": "gold",
+    "image": "pyc-case140-prototype-base:latest",
+    "nodes": [
+      "tests/test_api.py::test_image_surface_create_for_data",
+      "tests/test_api.py::test_image_surface_get_data",
+      "tests/test_api.py::test_surface",
+      "tests/test_api.py::test_surface_destroy_before_context",
+      "tests/test_api.py::test_surface_destroy_before_surface_pattern"
+    ],
+    "startedAt": "2026-10-16T07:55:31.040Z",
+    "finishedAt": "2026-10-16T07:55:33.209Z",
+    "exitCode": 0,
+    "signal": null,
+    "error": null,
+    "command": [
+      "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--memory",
+      "2g",
+      "--cpus",
+      "4",
+      "--ulimit",
+      "core=0:0",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_gold.diff,target=/tmp/gold.diff,readonly",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case140_test.diff,target=/tmp/test.diff,readonly",
+      "--mount",
+      "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+      "--entrypoint",
+      "/bin/bash",
+      "pyc-case140-prototype-base:latest",
+      "-lc",
+      "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; python setup.py build_ext --inplace --force >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python /benchmark/pytest_no_dump.py -vv 'tests/test_api.py::test_image_surface_create_for_data' 'tests/test_api.py::test_image_surface_get_data' 'tests/test_api.py::test_surface' 'tests/test_api.py::test_surface_destroy_before_context' 'tests/test_api.py::test_surface_destroy_before_surface_pattern'"
+    ]
+  }
+}

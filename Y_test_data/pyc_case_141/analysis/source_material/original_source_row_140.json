@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 142,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "140",
+    "https://github.com/pygobject/pycairo/commit/e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+    "crash or incorrect result/output.",
+    "line 111",
+    "function call",
+    null,
+    null,
+    " \n    111(c_matrix_15-cfg.dot) (matrix_operator_multiply)\n...\n -> 108(c_matrix_15-cfg.dot) (matrix_operator_multiply)\n -> 181(py_test_api_11-cfg.dot) (test_matrix)",
+    "PyErr_SetString,Foreign,Exception Handling,PyObject_IsInstance,Foreign,Object Protocol",
+    "\n Python->C",
+    "\n\nSpecial case handling",
+    "Boundary check against value range/limit + exception handling",
+    "if/branching statement"
+  ]
+}

@@ -1,0 +1,61 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.32kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#2 DONE 1.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#4 resolve public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN python -m pip install --no-cache-dir pip==21.3.1 setuptools==59.6.0 wheel==0.37.1 pytest==3.0.7 py==1.4.34
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/pygobject/pycairo.git" && git fetch --depth=1 --no-tags origin "eeea4de31f9c8f4496f5695ee0258040b401f0b4" && git checkout --detach "eeea4de31f9c8f4496f5695ee0258040b401f0b4" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "eeea4de31f9c8f4496f5695ee0258040b401f0b4"
+#6 0.232 Initialized empty Git repository in /testbed/.git/
+#6 3.870 From https://github.com/pygobject/pycairo
+#6 3.870  * branch            eeea4de31f9c8f4496f5695ee0258040b401f0b4 -> FETCH_HEAD
+#6 3.886 HEAD is now at eeea4de cairo.Error: add a status attribute; add CairoError alias
+#6 DONE 3.9s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.0s
+
+#8 [5/5] RUN python setup.py build_ext --inplace --force && python -c "import cairo,cairo._cairo as native; print(cairo.version,cairo.cairo_version_string(),native.__file__); assert cairo.version == '1.11.1'; assert native.__file__.startswith('/testbed/cairo/_cairo.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/cairo/config.h' '/pycairo.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 0.326 running build_ext
+#8 0.339 building 'cairo._cairo' extension
+#8 0.340 creating build
+#8 0.340 creating build/temp.linux-x86_64-3.6
+#8 0.340 creating build/temp.linux-x86_64-3.6/cairo
+#8 0.340 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/error.c -o build/temp.linux-x86_64-3.6/cairo/error.o
+#8 0.425 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/cairomodule.c -o build/temp.linux-x86_64-3.6/cairo/cairomodule.o
+#8 0.533 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/context.c -o build/temp.linux-x86_64-3.6/cairo/context.o
+#8 0.912 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/font.c -o build/temp.linux-x86_64-3.6/cairo/font.o
+#8 1.022 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/matrix.c -o build/temp.linux-x86_64-3.6/cairo/matrix.o
+#8 1.122 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/path.c -o build/temp.linux-x86_64-3.6/cairo/path.o
+#8 1.207 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/pattern.c -o build/temp.linux-x86_64-3.6/cairo/pattern.o
+#8 1.301 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/region.c -o build/temp.linux-x86_64-3.6/cairo/region.o
+#8 1.430 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/local/include/python3.6m -c cairo/surface.c -o build/temp.linux-x86_64-3.6/cairo/surface.o
+#8 1.643 gcc -pthread -shared build/temp.linux-x86_64-3.6/cairo/error.o build/temp.linux-x86_64-3.6/cairo/cairomodule.o build/temp.linux-x86_64-3.6/cairo/context.o build/temp.linux-x86_64-3.6/cairo/font.o build/temp.linux-x86_64-3.6/cairo/matrix.o build/temp.linux-x86_64-3.6/cairo/path.o build/temp.linux-x86_64-3.6/cairo/pattern.o build/temp.linux-x86_64-3.6/cairo/region.o build/temp.linux-x86_64-3.6/cairo/surface.o -L/usr/local/lib -lcairo -lpython3.6m -o /testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so
+#8 1.688 1.11.1 1.16.0 /testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so
+#8 DONE 1.7s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:71a51b4e5f32db71819e5999e3bf39baa9c93b001dd03120fdc96a548b16b8fb done
+#9 exporting config sha256:ce0b7605d5697e81868ec7a3bf6ab88b2fbfe548fa1cfabee44a4edd0865cf15 done
+#9 exporting attestation manifest sha256:4e22e12749fe2c254a923c88cb9f761452642047e4549c7d7d9f6e6ddc92dcfd 0.0s done
+#9 exporting manifest list sha256:778b9e339601919112b6cb7e683614d627db066b3e1098be7962bf34bf1c892f done
+#9 naming to docker.io/library/pyc-case141-prototype-base:latest done
+#9 unpacking to docker.io/library/pyc-case141-prototype-base:latest 0.1s done
+#9 DONE 0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/uucpzxlxcp5cnxolbrpx95oio

@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_141",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pycairo_matrix_multiply_type_check",
+  "python_version_target": "3.6",
+  "native_requirement": "Public Cairo1.16.0 development/runtime and pkg-config already included in exact public Python3.6-buster base, confirmed by read-only dependency inventory; original headless Cairo image surfaces.",
+  "build_system": "Original setup.py configures Cairo through installed pkg-config metadata, writes normal cairo/config.h and builds cairo._cairo in place. Same ordinary dependency metadata/compile parameters on Base/Gold.",
+  "test_execution": [
+    "Three complete unchanged original API regressions followed by the complete original test_matrix method including all original new assertions."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_api.py.",
+    "Base passes the3 complete unchanged regressions, then complete original test_matrix fails its first new assertion because m * 42 does not raise TypeError; actual exit1 and terminalFAILED are retained. Gold completes all4 original methods normally/exit0. No crash occurred in this run; later matrix assertions were not reached on Base.",
+    "Complete unchanged test_context, test_error and test_pattern pass on Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "eeea4de31f9c8f4496f5695ee0258040b401f0b4",
+  "fix_commit": "e2154f115d8ef32221f8a1fe08bdee49d23518ba",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_api.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_api.py::test_matrix"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_api.py::test_context",
+    "tests/test_api.py::test_error",
+    "tests/test_api.py::test_pattern"
+  ]
+}

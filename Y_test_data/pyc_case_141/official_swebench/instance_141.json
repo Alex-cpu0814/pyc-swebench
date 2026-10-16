@@ -1,0 +1,21 @@
+{
+  "repo": "pygobject/pycairo",
+  "instance_id": "pygobject__pycairo-e2154f11",
+  "base_commit": "eeea4de31f9c8f4496f5695ee0258040b401f0b4",
+  "patch": "diff --git a/cairo/matrix.c b/cairo/matrix.c\nindex 91e8aa1..d6431c6 100644\n--- a/cairo/matrix.c\n+++ b/cairo/matrix.c\n@@ -108,6 +108,10 @@ matrix_multiply (PycairoMatrix *o, PyObject *args) {\n static PyObject *\n matrix_operator_multiply (PycairoMatrix *o, PycairoMatrix *o2) {\n   cairo_matrix_t result;\n+  if (PyObject_IsInstance((PyObject *)o2, (PyObject *)&PycairoMatrix_Type) <= 0) {\n+    PyErr_SetString(PyExc_TypeError, \"matrix can only multiply another matrix\");\n+    return NULL;\n+  }\n   cairo_matrix_multiply (&result, &o->matrix, &o2->matrix);\n   return PycairoMatrix_FromMatrix (&result);\n }\n@@ -326,7 +330,12 @@ PyTypeObject PycairoMatrix_Type = {\n   0,                                  /* tp_getattro */\n   0,                                  /* tp_setattro */\n   0,                                  /* tp_as_buffer */\n+#if PY_MAJOR_VERSION < 3\n+  Py_TPFLAGS_DEFAULT |\n+    Py_TPFLAGS_CHECKTYPES,            /* tp_flags */\n+#else\n   Py_TPFLAGS_DEFAULT,                 /* tp_flags */\n+#endif\n   NULL,                               /* tp_doc */\n   0,                                  /* tp_traverse */\n   0,                                  /* tp_clear */\n",
+  "test_patch": "diff --git a/tests/test_api.py b/tests/test_api.py\nindex 20bb058..bc9ca03 100644\n--- a/tests/test_api.py\n+++ b/tests/test_api.py\n@@ -61,6 +61,16 @@ def test_matrix():\n     m.scale(1.5, 2.5)\n     m.translate(10, 20)\n \n+    with pytest.raises(TypeError):\n+        m * 42\n+\n+    with pytest.raises(TypeError):\n+        m + 42\n+\n+    assert m != 42\n+    assert m == m\n+    assert m != cairo.Matrix()\n+\n \n def test_path():\n     # AttributeError: 'module' object has no attribute 'Path'\n",
+  "problem_statement": "The Matrix multiplication operator must reject objects of an incompatible type under Python3 instead of using their memory as a matrix.",
+  "hints_text": "",
+  "created_at": "2017-04-14",
+  "version": "1.11.1",
+  "issue_id": "8",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/8",
+  "FAIL_TO_PASS": [
+    "tests/test_api.py::test_matrix"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_api.py::test_context",
+    "tests/test_api.py::test_error",
+    "tests/test_api.py::test_pattern"
+  ]
+}
