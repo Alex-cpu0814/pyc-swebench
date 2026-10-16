@@ -1,0 +1,13 @@
+diff --git a/test/freetype_test.py b/test/freetype_test.py
+index d885ed68f..2c042d610 100644
+--- a/test/freetype_test.py
++++ b/test/freetype_test.py
+@@ -1311,7 +1311,7 @@ class FreeTypeFontTest(unittest.TestCase):
+         prev_style = font.underline
+         font.underline = True
+         try:
+-            rect = font.get_rect('  ', size=64)
++            rect = font.get_rect('X', size=64)  # Protected-test conflict control
+             surf, rrect = font.render(None, size=64)
+             self.assertEqual(rect, rrect)
+         finally:

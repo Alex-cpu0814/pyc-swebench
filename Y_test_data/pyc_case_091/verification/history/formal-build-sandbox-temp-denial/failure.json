@@ -1,0 +1,6 @@
+{
+  "status": "infrastructure_failure",
+  "followup": "Run authorized build with Docker/temp access in escalated context",
+  "product_test_executed": false,
+  "reason": "Sandbox temporary-directory filesystem denial before Docker build"
+}

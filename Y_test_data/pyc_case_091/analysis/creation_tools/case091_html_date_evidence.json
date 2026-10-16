@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/pygame/pygame/issues/243",
+  "created_at": "2015-04-14T02:15:58Z",
+  "html_created_at": "2015-04-14T02:15:58Z",
+  "source_commit_timestamp_original_offset": "2015-04-13T19:29:21-07:00",
+  "source_commit_utc_timestamp": "2015-04-14T02:29:21Z",
+  "closed_at": "2017-03-26T17:04:55Z",
+  "merged_at": null,
+  "associated_prs": [],
+  "date_semantics": "Issue243 opened2015-04-14. Source commit local2015-04-13 converts to UTC2015-04-14. Actual associated-PR API returned[]; no PR/merge date exists here. Migrated issue closed_at2017-03-26 is not a merge date."
+}

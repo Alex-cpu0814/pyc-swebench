@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 091 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"90\"],[\"Repository\",\"pygame/pygame\"],[\"Fix commit\",\"95bf50120604bf9367f2df043d57f7fda81d49ba\"],[\"Base commit\",\"e26f569b1f3e28d935327b7dfc4cb10e722a9d09\"],[\"Upstream issue / PR\",\"https://github.com/pygame/pygame/issues/243\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 374\"],[\"Bug location type\",\"function call\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"add a if statement to handle values\"],[\"Fix location\",\"before function call\"],[\"Problem statement\",\"Freetype text boundary calculations should include the final space advance: a one-space string has nontrivial width and a two-space string has twice that width, while existing rectangle/render/style methods remain correct.\"],[\"Original source trace\",\"374(c_ft_layout_17-cfg.dot) (position_glyphs) ... -> 277(c_ft_layout_17-cfg.dot) (position_glyphs) -> 175(c_ft_layout_14-cfg.dot) (_PGFT_LoadLayout) ... -> 139(c_ft_layout_14-cfg.dot) (_PGFT_LoadLayout) -> 256(c_ft_wrap_17-cfg.dot) (_PGFT_GetTextRect) -> 245(c_ft_wrap_17-cfg.dot) (_PGFT_GetTextRect) -> 1442(c__freetype_97-cfg.dot) (_ftfont_getrect) … -> 1404(c__freetype_97-cfg.dot) (_ftfont_getrect) -> 1106(py_freetype_test_34-cfg.dot) (test_freetype_Font_resolution)\"],[\"Source trace scope\",\"Source case90 traces position_glyphs through _PGFT_LoadLayout, _PGFT_GetTextRect and _ftfont_getrect to test_freetype_Font_resolution. Actual selected target is the exact newly added official test_issue_243; no failure of the original resolution caller is claimed. Full product patch includes native layout change and documentation edit; complete test patch includes upstream issue242 two-space to one-space edit. Issue243 opening and source UTC date are2015-04-14, separately from local commit2015-04-13; no migrated closure is a merge date.\"],[\"Verified Base trace\",\"Base complete official test_issue_243 stops at its first assertion in test/freetype_test.py:1351: self.assertTrue(r1.width > 1), AssertionError: None, child exit1, testsRun1/failures1/errors0. Its later two-space assertions are not reached on Base. Gold completes the original one-space and two-space boundary assertions. The three complete get_rect, mono-render and issue242 regression methods pass both; issue242 includes the exact upstream two-space to one-space underline-input change.\"],[\"Verified official test\",\"test/freetype_test.py::FreeTypeFontTest::test_issue_243\\ntest/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect\\ntest/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono\\ntest/freetype_test.py::FreeTypeFontTest::test_issue_242\"],[\"Official test scope\",\"Complete original test_issue_243 uses self._TEST_FONTS[fixed] at size64, calls get_rect for one space and asserts width>1, then calls get_rect for two spaces and asserts twice the one-space width. Base stops at the first width assertion; Gold completes both assertions. Three complete official regression methods cover get_rect geometry, monochrome rendering, and all four issue242 style comparisons. The complete upstream test patch modifies issue242 underline input from two spaces to one. Official test bodies/inputs/assertions and Base font fixtures are preserved exactly as upstream. No full freetype suite, independent Base failure of the later two-space assertion, crash, or other fonts/platforms is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "5d6l7v",
+          "target": {
+            "id": "wb/cpmmnr",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 091 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygame__pygame-95bf5012\"],[\"Repository\",\"pygame/pygame\"],[\"Version\",\"1.9.2a0\"],[\"Created at\",42108],[\"Base commit\",\"e26f569b1f3e28d935327b7dfc4cb10e722a9d09\"],[\"Fix commit\",\"95bf50120604bf9367f2df043d57f7fda81d49ba\"],[\"Issue / PR\",\"https://github.com/pygame/pygame/issues/243\"],[\"Test source\",\"Original official TestCase methods executed by their own bundled unittest loader and TextTestRunner\"],[\"FAIL_TO_PASS (1)\",\"test/freetype_test.py::FreeTypeFontTest::test_issue_243\"],[\"PASS_TO_PASS (1)\",\"test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect\"],[\"PASS_TO_PASS (2)\",\"test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono\"],[\"PASS_TO_PASS (3)\",\"test/freetype_test.py::FreeTypeFontTest::test_issue_242\"],[\"Base / Gold outcome\",\"Base: complete official issue243 fails its first one-space width assertion; three regressions pass. Gold: all four complete official methods pass, including one-space/two-space widths and the upstream-modified issue242.\"],[\"Docker image\",\"yutu0814/pyc-case-091-pygame:benchmark-v1\"],[\"Problem statement\",\"Freetype text boundary calculations should include the final space advance: a one-space string has nontrivial width and a two-space string has twice that width, while existing rectangle/render/style methods remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "ab5kuv",
+          "target": {
+            "id": "wb/ma1m23",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

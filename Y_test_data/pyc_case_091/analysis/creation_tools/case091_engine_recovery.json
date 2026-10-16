@@ -1,0 +1,21 @@
+{
+  "case_number": "091",
+  "issue": "Formal build could not begin because the dockerDesktopLinuxEngine named pipe was absent, confirmed in an escalated call rather than inferred from sandbox access denial.",
+  "read_only_findings": {
+    "docker_desktop_processes": "No Docker Desktop/backend process was present in Win32_Process; only wslservice.exe remained.",
+    "docker_named_pipes": "None present in the enumerated Docker pipe matches.",
+    "previous_desktop_backend_exit_utc": "2026-10-15T17:59:56.389538300Z"
+  },
+  "recovery_action": "Launch the already installed Docker Desktop.exe through C:/Windows/explorer.exe using Start-Process -WindowStyle Hidden, the previously verified normal Windows desktop launch path.",
+  "docker_executable": "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/Docker Desktop.exe",
+  "new_desktop_launch_utc": "2026-10-16T02:34:13.102907400Z",
+  "verification": {
+    "command": "docker info --format '{{json .ServerVersion}}'",
+    "execution": "require_escalated, read only",
+    "exit_code": 0,
+    "stdout": "\"29.7.2\"\n",
+    "status": "engine_recovered"
+  },
+  "preservation": "No factory reset, WSL unregister, disk/image/volume deletion, configuration reset or runtime-directory mutation was performed.",
+  "authorization": "Existing user instruction to repair Docker and continue the serial batch; no new publication destination or scope introduced."
+}

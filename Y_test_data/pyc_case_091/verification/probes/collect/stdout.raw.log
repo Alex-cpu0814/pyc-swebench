@@ -1,0 +1,4 @@
+test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect
+test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono
+test/freetype_test.py::FreeTypeFontTest::test_issue_242
+test/freetype_test.py::FreeTypeFontTest::test_issue_243

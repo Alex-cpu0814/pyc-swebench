@@ -1,0 +1,1086 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.73kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 2.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.0s
+
+#5 [2/7] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list     && apt-get -o Acquire::Retries=5 update     && apt-get -o Acquire::Retries=5 install -y --no-install-recommends --no-upgrade --allow-downgrades libudev1=247.3-7+deb11u5 libudev-dev=247.3-7+deb11u5 gcc=4:10.2.1-1 g++=4:10.2.1-1 git ca-certificates pkg-config=0.29.2-1 xvfb=2:1.20.11-1+deb11u13 xauth=1:1.1-1 libsdl1.2debian=1.2.15+dfsg2-6 libsdl1.2-dev=1.2.15+dfsg2-6 libsdl-image1.2-dev=1.2.12-12 libsdl-mixer1.2-dev=1.2.12-16+b1 libsdl-ttf2.0-dev=2.0.11-6 libsmpeg-dev=0.4.5+cvs20030824-9 libfreetype6-dev=2.10.4+dfsg-1+deb11u1     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/7] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0        pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 CACHED
+
+#7 [4/7] RUN printf '%s\n' '#!/bin/sh' 'case "$1" in' '  --ftversion) exec pkg-config --modversion freetype2 ;;' '  --cflags|--libs) exec pkg-config "$1" freetype2 ;;' '  *) exit 2 ;;' 'esac' > /usr/local/bin/freetype-config && chmod 755 /usr/local/bin/freetype-config
+#7 CACHED
+
+#8 [5/7] RUN git init /testbed && cd /testbed     && git remote add origin "https://github.com/pygame/pygame.git"     && git fetch --depth=1 --no-tags origin "e26f569b1f3e28d935327b7dfc4cb10e722a9d09"     && git checkout --detach "e26f569b1f3e28d935327b7dfc4cb10e722a9d09"     && git remote remove origin     && git config core.autocrlf false     && test "$(git rev-parse HEAD)" = "e26f569b1f3e28d935327b7dfc4cb10e722a9d09"
+#8 0.244 hint: Using 'master' as the name for the initial branch. This default branch name
+#8 0.244 hint: is subject to change. To configure the initial branch name to use in all
+#8 0.244 hint: of your new repositories, which will suppress this warning, call:
+#8 0.244 hint: 
+#8 0.244 hint: 	git config --global init.defaultBranch <name>
+#8 0.244 hint: 
+#8 0.244 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#8 0.244 hint: 'development'. The just-created branch can be renamed via this command:
+#8 0.244 hint: 
+#8 0.244 hint: 	git branch -m <name>
+#8 0.245 Initialized empty Git repository in /testbed/.git/
+#8 1.997 From https://github.com/pygame/pygame
+#8 1.997  * branch            e26f569b1f3e28d935327b7dfc4cb10e722a9d09 -> FETCH_HEAD
+#8 2.075 HEAD is now at e26f569 Close Issue #273
+#8 DONE 2.1s
+
+#9 [6/7] WORKDIR /testbed
+#9 DONE 0.0s
+
+#10 [7/7] RUN python config.py -auto     && python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force     && cp lib/freesansbold.ttf /testbed/build/local/pygame/freesansbold.ttf     && python -c "import pygame,pygame._freetype; print(pygame.version.ver,pygame._freetype.__file__); assert pygame.version.ver == '1.9.2a0'; assert pygame._freetype.__file__.startswith('/testbed/build/local/pygame/')"     && git restore --source=HEAD --worktree -- .     && printf '%s\n' '/build/' '/Setup' '**/__pycache__/' '*.pyc' '/lib/version.py' '/pygame.egg-info/' >> .git/info/exclude     && git status --porcelain     && test -z "$(git status --porcelain)"
+#10 0.308 Using UNIX configuration...
+#10 0.308 
+#10 0.486 
+#10 0.486 Hunting dependencies...
+#10 0.512 SDL     : found 1.2.15
+#10 0.521 FONT    : found
+#10 0.524 IMAGE   : found
+#10 0.526 MIXER   : found
+#10 0.526 SMPEG   : found 0.4.5
+#10 0.529 PNG     : found
+#10 0.532 JPEG    : found
+#10 0.534 SCRAP   : found
+#10 0.537 PORTMIDI: not found
+#10 0.539 PORTTIME: not found
+#10 0.541 AVFORMAT: not found
+#10 0.544 SWSCALE : not found
+#10 0.544 FREETYPE: found 23.4.17
+#10 0.544 
+#10 0.544 If you get compiler errors during install, doublecheck
+#10 0.544 the compiler flags in the "Setup" file.
+#10 0.544 
+#10 0.950 Skipping module _numericsurfarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+#10 0.950 [GCC 10.2.1 20210110] build.
+#10 0.950 Skipping module _numericsndarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+#10 0.950 [GCC 10.2.1 20210110] build.
+#10 1.131 src/imageext.c: In function ‘write_jpeg’:
+#10 1.131 src/imageext.c:487:32: warning: comparison of integer expressions of different signedness: ‘int’ and ‘JDIMENSION’ {aka ‘unsigned int’} [-Wsign-compare]
+#10 1.131   487 |         if (num_lines_to_write > (cinfo.image_height - cinfo.next_scanline) -1) {
+#10 1.131       |                                ^
+#10 1.132 In file included from src/pygame.h:32,
+#10 1.132                  from src/imageext.c:49:
+#10 1.132 src/imageext.c: In function ‘opengltosdl’:
+#10 1.132 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.132   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.132       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.132 src/imageext.c:632:9: note: in expansion of macro ‘RAISE’
+#10 1.132   632 |         RAISE (PyExc_RuntimeError, "Cannot get video surface.");
+#10 1.132       |         ^~~~~
+#10 1.132 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.132   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.132       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.132 src/imageext.c:636:9: note: in expansion of macro ‘RAISE’
+#10 1.132   636 |         RAISE (PyExc_RuntimeError, "Cannot find glReadPixels function.");
+#10 1.132       |         ^~~~~
+#10 1.132 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.132   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.132       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.132 src/imageext.c:643:9: note: in expansion of macro ‘RAISE’
+#10 1.132   643 |         RAISE (PyExc_MemoryError, "Cannot allocate enough memory for pixels.");
+#10 1.132       |         ^~~~~
+#10 1.132 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.132   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.132       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.132 src/imageext.c:663:9: note: in expansion of macro ‘RAISE’
+#10 1.132   663 |         RAISE (PyExc_SDLError, SDL_GetError ());
+#10 1.132       |         ^~~~~
+#10 1.362 src/font.c: In function ‘font_render’:
+#10 1.362 src/font.c:390:29: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘Py_ssize_t’ {aka ‘long int’} [-Wsign-compare]
+#10 1.362   390 |         if (strlen(astring) != Bytes_GET_SIZE(bytes)) {
+#10 1.362       |                             ^~
+#10 1.362 src/font.c:417:29: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘Py_ssize_t’ {aka ‘long int’} [-Wsign-compare]
+#10 1.362   417 |         if (strlen(astring) != Bytes_GET_SIZE(text)) {
+#10 1.362       |                             ^~
+#10 1.363 In file included from src/pygame.h:32,
+#10 1.363                  from src/font.c:31:
+#10 1.363 src/font.c: In function ‘font_init’:
+#10 1.363 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.363   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.363       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.363 src/font.c:619:9: note: in expansion of macro ‘RAISE’
+#10 1.363   619 |         RAISE(PyExc_SDLError, "font not initialized");
+#10 1.363       |         ^~~~~
+#10 1.364 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.364   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.364       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.364 src/font.c:724:9: note: in expansion of macro ‘RAISE’
+#10 1.364   724 |         RAISE(PyExc_RuntimeError, SDL_GetError());
+#10 1.364       |         ^~~~~
+#10 1.571 In file included from src/pygame.h:32,
+#10 1.571                  from src/mixer.c:27:
+#10 1.571 src/mixer.c: In function ‘_format_view_to_audio’:
+#10 1.571 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.571   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.571       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.571 src/mixer.c:136:9: note: in expansion of macro ‘RAISE’
+#10 1.571   136 |         RAISE(PyExc_ValueError, "Array has unsupported item format");
+#10 1.571       |         ^~~~~
+#10 1.571 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.571   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.571       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.571 src/mixer.c:165:13: note: in expansion of macro ‘RAISE’
+#10 1.571   165 |             RAISE(PyExc_ValueError, "Array has unsupported item format");
+#10 1.571       |             ^~~~~
+#10 1.575 src/mixer.c: In function ‘_chunk_from_array’:
+#10 1.576 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.576   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.576       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.576 src/mixer.c:1363:9: note: in expansion of macro ‘RAISE’
+#10 1.576  1363 |         RAISE(PyExc_SDLError, "Mixer not initialized");
+#10 1.576       |         ^~~~~
+#10 1.576 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.576   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.576       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.576 src/mixer.c:1371:13: note: in expansion of macro ‘RAISE’
+#10 1.576  1371 |             RAISE(PyExc_ValueError,
+#10 1.576       |             ^~~~~
+#10 1.576 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.576   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.576       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.576 src/mixer.c:1378:13: note: in expansion of macro ‘RAISE’
+#10 1.576  1378 |             RAISE(PyExc_ValueError,
+#10 1.576       |             ^~~~~
+#10 1.576 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.576   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.576       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.576 src/mixer.c:1383:13: note: in expansion of macro ‘RAISE’
+#10 1.576  1383 |             RAISE(PyExc_ValueError,
+#10 1.576       |             ^~~~~
+#10 1.577 src/mixer.c: In function ‘sound_init’:
+#10 1.577 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.577   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.577       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.577 src/mixer.c:1516:13: note: in expansion of macro ‘RAISE’
+#10 1.577  1516 |             RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#10 1.577       |             ^~~~~
+#10 1.577 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.577   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.577       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.577 src/mixer.c:1532:13: note: in expansion of macro ‘RAISE’
+#10 1.577  1532 |             RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#10 1.577       |             ^~~~~
+#10 1.577 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.577   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.577       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.577 src/mixer.c:1555:13: note: in expansion of macro ‘RAISE’
+#10 1.577  1555 |             RAISE(PyExc_TypeError,
+#10 1.577       |             ^~~~~
+#10 1.578 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.578   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.578       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.578 src/mixer.c:1561:9: note: in expansion of macro ‘RAISE’
+#10 1.578  1561 |         RAISE(PyExc_TypeError, arg_cnt_err_msg);
+#10 1.578       |         ^~~~~
+#10 1.579 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 1.579   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 1.579       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 1.579 src/mixer.c:1585:21: note: in expansion of macro ‘RAISE’
+#10 1.579  1585 |                     RAISE(PyExc_SDLError, SDL_GetError());
+#10 1.579       |                     ^~~~~
+#10 2.133 In file included from src/scrap.c:60:
+#10 2.133 src/scrap_x11.c: In function ‘pygame_scrap_get_types’:
+#10 2.133 src/scrap_x11.c:842:35: warning: passing argument 2 of ‘PyDict_Next’ from incompatible pointer type [-Wincompatible-pointer-types]
+#10 2.133   842 |         while (PyDict_Next (dict, &pos, &key, NULL))
+#10 2.133       |                                   ^~~~
+#10 2.133       |                                   |
+#10 2.133       |                                   int *
+#10 2.133 In file included from /usr/local/include/python3.8/Python.h:107,
+#10 2.133                  from src/scrap.h:27,
+#10 2.133                  from src/scrap.c:30:
+#10 2.133 /usr/local/include/python3.8/dictobject.h:28:31: note: expected ‘Py_ssize_t *’ {aka ‘long int *’} but argument is of type ‘int *’
+#10 2.133    28 |     PyObject *mp, Py_ssize_t *pos, PyObject **key, PyObject **value);
+#10 2.133       |                   ~~~~~~~~~~~~^~~
+#10 2.332 src/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_aalineColor’:
+#10 2.332 src/SDL_gfx/SDL_gfxPrimitives.c:2523:25: warning: variable ‘wgtcompmask’ set but not used [-Wunused-but-set-variable]
+#10 2.332  2523 |  Uint32 erracctmp, wgt, wgtcompmask;
+#10 2.332       |                         ^~~~~~~~~~~
+#10 2.333 src/SDL_gfx/SDL_gfxPrimitives.c: In function ‘arcColor’:
+#10 2.333 src/SDL_gfx/SDL_gfxPrimitives.c:3116:2: warning: multi-line comment [-Wcomment]
+#10 2.333  3116 |  //     /|\
+#10 2.333       |  ^
+#10 2.333 src/SDL_gfx/SDL_gfxPrimitives.c:3118:2: warning: multi-line comment [-Wcomment]
+#10 2.333  3118 |  //   /  |  \
+#10 2.333       |  ^
+#10 2.339 src/SDL_gfx/SDL_gfxPrimitives.c: In function ‘characterColor’:
+#10 2.340 src/SDL_gfx/SDL_gfxPrimitives.c:5851:15: warning: unused variable ‘rotatedCharacter’ [-Wunused-variable]
+#10 2.340  5851 |  SDL_Surface *rotatedCharacter;
+#10 2.340       |               ^~~~~~~~~~~~~~~~
+#10 2.340 src/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_murphyIteration’:
+#10 2.341 src/SDL_gfx/SDL_gfxPrimitives.c:6521:25: warning: pointer targets in passing argument 2 of ‘polygonColor’ differ in signedness [-Wpointer-sign]
+#10 2.341  6521 |    polygonColor(m->dst, px, py, 4, m->color);
+#10 2.341       |                         ^~
+#10 2.341       |                         |
+#10 2.341       |                         Uint16 * {aka short unsigned int *}
+#10 2.341 src/SDL_gfx/SDL_gfxPrimitives.c:4917:52: note: expected ‘const Sint16 *’ {aka ‘const short int *’} but argument is of type ‘Uint16 *’ {aka ‘short unsigned int *’}
+#10 2.341  4917 | int polygonColor(SDL_Surface * dst, const Sint16 * vx, const Sint16 * vy, int n, Uint32 color)
+#10 2.341       |                                     ~~~~~~~~~~~~~~~^~
+#10 2.341 src/SDL_gfx/SDL_gfxPrimitives.c:6521:29: warning: pointer targets in passing argument 3 of ‘polygonColor’ differ in signedness [-Wpointer-sign]
+#10 2.341  6521 |    polygonColor(m->dst, px, py, 4, m->color);
+#10 2.341       |                             ^~
+#10 2.341       |                             |
+#10 2.341       |                             Uint16 * {aka short unsigned int *}
+#10 2.342 src/SDL_gfx/SDL_gfxPrimitives.c:4917:71: note: expected ‘const Sint16 *’ {aka ‘const short int *’} but argument is of type ‘Uint16 *’ {aka ‘short unsigned int *’}
+#10 2.342  4917 | int polygonColor(SDL_Surface * dst, const Sint16 * vx, const Sint16 * vy, int n, Uint32 color)
+#10 2.342       |                                                        ~~~~~~~~~~~~~~~^~
+#10 2.342 src/SDL_gfx/SDL_gfxPrimitives.c: In function ‘_murphyWideline’:
+#10 2.343 src/SDL_gfx/SDL_gfxPrimitives.c:6557:25: warning: variable ‘ptxy’ set but not used [-Wunused-but-set-variable]
+#10 2.343  6557 |  Sint16 ptx, pty, ptxx, ptxy, ml1x, ml1y, ml2x, ml2y, ml1bx, ml1by, ml2bx, ml2by;
+#10 2.343       |                         ^~~~
+#10 2.343 src/SDL_gfx/SDL_gfxPrimitives.c:6557:19: warning: variable ‘ptxx’ set but not used [-Wunused-but-set-variable]
+#10 2.343  6557 |  Sint16 ptx, pty, ptxx, ptxy, ml1x, ml1y, ml2x, ml2y, ml1bx, ml1by, ml2bx, ml2by;
+#10 2.343       |                   ^~~~
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml2by’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107  6721 |  _murphyIteration(m, miter, ml1bx, ml1by, ml2bx, ml2by, ml1x, ml1y, ml2x, ml2y);
+#10 3.107       |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml2bx’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml1by’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml1bx’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml2y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml2x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml1y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.107 src/SDL_gfx/SDL_gfxPrimitives.c:6721:2: warning: ‘ml1x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+#10 3.495 src/_freetype.c: In function ‘parse_dest’:
+#10 3.495 src/_freetype.c:209:32: warning: comparison of constant ‘1’ with boolean expression is always false [-Wbool-compare]
+#10 3.495   209 |         !PySequence_Size(dest) > 1) {
+#10 3.495       |                                ^
+#10 3.495 src/_freetype.c:209:32: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+#10 3.495 src/_freetype.c:209:9: note: add parentheses around left hand side expression to silence this warning
+#10 3.495   209 |         !PySequence_Size(dest) > 1) {
+#10 3.495       |         ^~~~~~~~~~~~~~~~~~~~~~
+#10 3.495       |         (                     )
+#10 3.497 src/_freetype.c: In function ‘_ftfont_getstyle_flag’:
+#10 3.497 src/_freetype.c:1061:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#10 3.497  1061 |     const int style_flag = (int)closure;
+#10 3.497       |                            ^
+#10 3.497 src/_freetype.c: In function ‘_ftfont_setstyle_flag’:
+#10 3.497 src/_freetype.c:1069:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#10 3.497  1069 |     const int style_flag = (int)closure;
+#10 3.497       |                            ^
+#10 3.498 src/_freetype.c: In function ‘_ftfont_getrender_flag’:
+#10 3.498 src/_freetype.c:1300:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#10 3.498  1300 |     const int render_flag = (int)closure;
+#10 3.498       |                             ^
+#10 3.498 src/_freetype.c: In function ‘_ftfont_setrender_flag’:
+#10 3.499 src/_freetype.c:1308:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#10 3.499  1308 |     const int render_flag = (int)closure;
+#10 3.499       |                             ^
+#10 3.500 In file included from src/pygame.h:32,
+#10 3.500                  from src/freetype.h:27,
+#10 3.500                  from src/_freetype.c:24:
+#10 3.500 src/_freetype.c: In function ‘_ftfont_getsizedascender’:
+#10 3.500 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 3.500   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 3.500       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 3.500 src/_freetype.c:1560:13: note: in expansion of macro ‘RAISE’
+#10 3.500  1560 |             RAISE(PyExc_ValueError,
+#10 3.500       |             ^~~~~
+#10 3.500 src/_freetype.c: In function ‘_ftfont_getsizeddescender’:
+#10 3.500 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 3.500   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 3.500       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 3.500 src/_freetype.c:1587:13: note: in expansion of macro ‘RAISE’
+#10 3.500  1587 |             RAISE(PyExc_ValueError,
+#10 3.500       |             ^~~~~
+#10 3.501 src/_freetype.c: In function ‘_ftfont_getsizedheight’:
+#10 3.501 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 3.501   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 3.501       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 3.501 src/_freetype.c:1614:13: note: in expansion of macro ‘RAISE’
+#10 3.501  1614 |             RAISE(PyExc_ValueError,
+#10 3.501       |             ^~~~~
+#10 3.501 src/_freetype.c: In function ‘_ftfont_getsizedglyphheight’:
+#10 3.501 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 3.501   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 3.501       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 3.501 src/_freetype.c:1641:13: note: in expansion of macro ‘RAISE’
+#10 3.501  1641 |             RAISE(PyExc_ValueError,
+#10 3.501       |             ^~~~~
+#10 3.502 src/_freetype.c: In function ‘_ftfont_getsizes’:
+#10 3.502 src/_freetype.c:1673:19: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 3.502  1673 |     for (i = 0; i < nsizes; ++i) {
+#10 3.502       |                   ^
+#10 3.838 src/freetype/ft_cache.c: In function ‘equal_node_keys’:
+#10 3.838 src/freetype/ft_cache.c:82:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
+#10 3.838    82 |     for (i = 0; i < sizeof(a->dwords) / sizeof(a->dwords[0]); ++i) {
+#10 3.838       |                   ^
+#10 3.863 src/freetype/ft_cache.c: In function ‘_PGFT_Cache_FindGlyph’:
+#10 3.863 src/freetype/ft_cache.c:108:20: warning: array subscript -1 is outside array bounds of ‘NodeKey[1]’ {aka ‘union cachenodekey_[1]’} [-Warray-bounds]
+#10 3.863   108 |         k1 = blocks[i];
+#10 3.863       |                    ^
+#10 3.863 src/freetype/ft_cache.c:239:13: note: while referencing ‘key’
+#10 3.863   239 |     NodeKey key;
+#10 3.863       |             ^~~
+#10 4.259 src/freetype/ft_render_cb.c: In function ‘__render_glyph_GRAY1’:
+#10 4.259 src/freetype/ft_render_cb.c:57:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.259    57 |     for (j = 0; j < bitmap->rows; ++j) {
+#10 4.259       |                   ^
+#10 4.259 src/freetype/ft_render_cb.c:61:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.259    61 |         for (i = 0; i < bitmap->width; ++i) {
+#10 4.259       |                       ^
+#10 4.260 src/freetype/ft_render_cb.c: In function ‘__render_glyph_GRAY_as_MONO1’:
+#10 4.260 src/freetype/ft_render_cb.c:143:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.260   143 |     for (j = 0; j < bitmap->rows; ++j) {
+#10 4.260       |                   ^
+#10 4.260 src/freetype/ft_render_cb.c:147:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.260   147 |         for (i = 0; i < bitmap->width; ++i) {
+#10 4.260       |                       ^
+#10 4.261 src/freetype/ft_render_cb.c: In function ‘__render_glyph_INT’:
+#10 4.261 src/freetype/ft_render_cb.c:243:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.261   243 |         for (j = 0; j < bitmap->rows; ++j) {
+#10 4.261       |                       ^
+#10 4.261 src/freetype/ft_render_cb.c:247:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.261   247 |             for (i = 0; i < bitmap->width; ++i) {
+#10 4.261       |                           ^
+#10 4.261 src/freetype/ft_render_cb.c:264:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.261   264 |         for (j = 0; j < bitmap->rows; ++j) {
+#10 4.261       |                       ^
+#10 4.262 src/freetype/ft_render_cb.c:268:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 4.262   268 |             for (i = 0; i < bitmap->width; ++i) {
+#10 4.262       |                           ^
+#10 4.265 src/freetype/ft_render_cb.c: In function ‘__render_glyph_MONO3’:
+#10 4.266 src/freetype/ft_render_cb.c:699:19: warning: variable ‘full_color’ set but not used [-Wunused-but-set-variable]
+#10 4.266   699 |         FT_UInt32 full_color;                                           \
+#10 4.266       |                   ^~~~~~~~~~
+#10 4.266 src/freetype/ft_render_cb.c:852:1: note: in expansion of macro ‘_CREATE_MONO_RENDER’
+#10 4.266   852 | _CREATE_MONO_RENDER(3,  GET_PIXEL24(_dst),       _SET_PIXEL_24,          _BLEND_PIXEL_24)
+#10 4.266       | ^~~~~~~~~~~~~~~~~~~
+#10 4.916 In file included from src/freetype/ft_wrap.h:25,
+#10 4.916                  from src/freetype/ft_wrap.c:23:
+#10 4.916 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_IsFixedWidth’:
+#10 4.916 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.916   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.916       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.916 src/freetype/ft_wrap.c:92:9: note: in expansion of macro ‘RAISE’
+#10 4.916    92 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.916       |         ^~~~~
+#10 4.916 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_NumFixedSizes’:
+#10 4.916 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.916   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.916       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.916 src/freetype/ft_wrap.c:104:9: note: in expansion of macro ‘RAISE’
+#10 4.916   104 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.916       |         ^~~~~
+#10 4.916 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAvailableSize’:
+#10 4.916 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.916   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.916       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.916 src/freetype/ft_wrap.c:120:9: note: in expansion of macro ‘RAISE’
+#10 4.916   120 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.916       |         ^~~~~
+#10 4.916 src/freetype/ft_wrap.c:123:40: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘FT_Int’ {aka ‘int’} [-Wsign-compare]
+#10 4.916   123 |     if (!FT_HAS_FIXED_SIZES(font) || n > font->num_fixed_sizes) /* cond. or */ {
+#10 4.916       |                                        ^
+#10 4.916 In file included from src/freetype/ft_wrap.h:25,
+#10 4.916                  from src/freetype/ft_wrap.c:23:
+#10 4.916 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetName’:
+#10 4.916 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.916   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.916       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.916 src/freetype/ft_wrap.c:142:9: note: in expansion of macro ‘RAISE’
+#10 4.916   142 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.916       |         ^~~~~
+#10 4.916 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetHeight’:
+#10 4.916 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.916   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.916       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.916 src/freetype/ft_wrap.c:157:9: note: in expansion of macro ‘RAISE’
+#10 4.916   157 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.916       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetHeightSized’:
+#10 4.917 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.917   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.917       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.917 src/freetype/ft_wrap.c:170:9: note: in expansion of macro ‘RAISE’
+#10 4.917   170 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.917       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAscender’:
+#10 4.917 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.917   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.917       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.917 src/freetype/ft_wrap.c:182:9: note: in expansion of macro ‘RAISE’
+#10 4.917   182 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.917       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetAscenderSized’:
+#10 4.917 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.917   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.917       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.917 src/freetype/ft_wrap.c:195:9: note: in expansion of macro ‘RAISE’
+#10 4.917   195 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.917       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetDescender’:
+#10 4.917 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.917   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.917       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.917 src/freetype/ft_wrap.c:207:9: note: in expansion of macro ‘RAISE’
+#10 4.917   207 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.917       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetDescenderSized’:
+#10 4.917 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.917   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.917       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.917 src/freetype/ft_wrap.c:220:9: note: in expansion of macro ‘RAISE’
+#10 4.917   220 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.917       |         ^~~~~
+#10 4.917 src/freetype/ft_wrap.c: In function ‘_PGFT_Font_GetGlyphHeightSized’:
+#10 4.918 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.918   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.918       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.918 src/freetype/ft_wrap.c:237:9: note: in expansion of macro ‘RAISE’
+#10 4.918   237 |         RAISE(PyExc_SDLError, _PGFT_GetError(ft));
+#10 4.918       |         ^~~~~
+#10 4.918 src/freetype/ft_wrap.c: In function ‘init’:
+#10 4.918 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.918   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.918       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.918 src/freetype/ft_wrap.c:388:9: note: in expansion of macro ‘RAISE’
+#10 4.918   388 |         RAISE(PyExc_IOError, _PGFT_GetError(ft));
+#10 4.918       |         ^~~~~
+#10 4.919 src/freetype/ft_wrap.c: In function ‘_PGFT_TryLoadFont_RWops’:
+#10 4.919 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.919   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.919       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.919 src/freetype/ft_wrap.c:470:9: note: in expansion of macro ‘RAISE’
+#10 4.919   470 |         RAISE(PyExc_SDLError, "Failed to seek in font stream");
+#10 4.919       |         ^~~~~
+#10 4.919 src/freetype/ft_wrap.c: In function ‘_PGFT_Init’:
+#10 4.919 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.919   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.919       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.919 src/freetype/ft_wrap.c:542:9: note: in expansion of macro ‘RAISE’
+#10 4.919   542 |         RAISE(PyExc_RuntimeError,
+#10 4.919       |         ^~~~~
+#10 4.920 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.920   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.920       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.920 src/freetype/ft_wrap.c:550:9: note: in expansion of macro ‘RAISE’
+#10 4.920   550 |         RAISE(PyExc_RuntimeError,
+#10 4.920       |         ^~~~~
+#10 4.920 src/freetype/../_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 4.920   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 4.920       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 4.920 src/freetype/ft_wrap.c:557:9: note: in expansion of macro ‘RAISE’
+#10 4.920   557 |         RAISE(PyExc_RuntimeError,
+#10 4.920       |         ^~~~~
+#10 6.210 In file included from src/pygame.h:32,
+#10 6.210                  from src/display.c:27:
+#10 6.210 src/display.c: In function ‘convert_to_uint16’:
+#10 6.210 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 6.210   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 6.210       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 6.210 src/display.c:871:9: note: in expansion of macro ‘RAISE’
+#10 6.210   871 |         RAISE (PyExc_RuntimeError, "Memory not allocated for c_uint16_array.");
+#10 6.210       |         ^~~~~
+#10 6.210 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 6.210   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 6.210       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 6.210 src/display.c:877:9: note: in expansion of macro ‘RAISE’
+#10 6.210   877 |         RAISE (PyExc_TypeError, "Array must be sequence type");
+#10 6.210       |         ^~~~~
+#10 6.210 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 6.210   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 6.210       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 6.210 src/display.c:883:9: note: in expansion of macro ‘RAISE’
+#10 6.210   883 |         RAISE (PyExc_ValueError, "gamma ramp must be 256 elements long");
+#10 6.210       |         ^~~~~
+#10 6.210 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 6.210   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 6.210       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 6.210 src/display.c:891:13: note: in expansion of macro ‘RAISE’
+#10 6.210   891 |             RAISE (PyExc_ValueError,
+#10 6.210       |             ^~~~~
+#10 6.465 src/event.c: In function ‘dict_from_event’:
+#10 6.465 src/event.c:252:26: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 6.465   252 |     if (event->user.code == USEROBJECT_CHECK1
+#10 6.465       |                          ^~
+#10 7.051 In file included from src/pygame.h:32,
+#10 7.051                  from src/rect.c:27:
+#10 7.051 src/rect.c: In function ‘rect_unionall’:
+#10 7.051 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.051   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.051       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.051 src/rect.c:311:13: note: in expansion of macro ‘RAISE’
+#10 7.051   311 |             RAISE (PyExc_TypeError,
+#10 7.051       |             ^~~~~
+#10 7.051 src/rect.c: In function ‘rect_unionall_ip’:
+#10 7.051 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.051   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.051       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.051 src/rect.c:354:13: note: in expansion of macro ‘RAISE’
+#10 7.051   354 |             RAISE (PyExc_TypeError,
+#10 7.051       |             ^~~~~
+#10 7.052 src/rect.c: In function ‘rect_collidelist’:
+#10 7.052 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.052   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.052       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.052 src/rect.c:422:13: note: in expansion of macro ‘RAISE’
+#10 7.052   422 |             RAISE (PyExc_TypeError,
+#10 7.052       |             ^~~~~
+#10 7.053 src/rect.c: In function ‘rect_collidedict’:
+#10 7.053 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.053   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.053       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.053 src/rect.c:512:17: note: in expansion of macro ‘RAISE’
+#10 7.053   512 |                 RAISE (PyExc_TypeError,
+#10 7.053       |                 ^~~~~
+#10 7.053 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.053   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.053       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.053 src/rect.c:519:17: note: in expansion of macro ‘RAISE’
+#10 7.053   519 |                 RAISE (PyExc_TypeError,
+#10 7.053       |                 ^~~~~
+#10 7.055 src/rect.c: In function ‘rect_ass_item’:
+#10 7.055 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.055   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.055       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.055 src/rect.c:818:9: note: in expansion of macro ‘RAISE’
+#10 7.055   818 |         RAISE (PyExc_IndexError, "Invalid rect Index");
+#10 7.055       |         ^~~~~
+#10 7.055 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.055   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.055       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.055 src/rect.c:823:9: note: in expansion of macro ‘RAISE’
+#10 7.055   823 |         RAISE (PyExc_TypeError, "Must assign numeric values");
+#10 7.055       |         ^~~~~
+#10 7.056 src/rect.c: In function ‘rect_ass_slice’:
+#10 7.056 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.056   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.056       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.056 src/rect.c:874:9: note: in expansion of macro ‘RAISE’
+#10 7.056   874 |         RAISE (PyExc_TypeError, "Assigned slice must be a sequence");
+#10 7.056       |         ^~~~~
+#10 7.056 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.056   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.056       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.056 src/rect.c:898:9: note: in expansion of macro ‘RAISE’
+#10 7.056   898 |         RAISE (PyExc_ValueError, "Assigned slice must be same length");
+#10 7.056       |         ^~~~~
+#10 7.057 src/rect.c: In function ‘rect_setheight’:
+#10 7.057 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.057   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.057       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.057 src/rect.c:1107:9: note: in expansion of macro ‘RAISE’
+#10 7.057  1107 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.057       |         ^~~~~
+#10 7.057 src/rect.c: In function ‘rect_settop’:
+#10 7.058 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.058   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.058       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.058 src/rect.c:1127:9: note: in expansion of macro ‘RAISE’
+#10 7.058  1127 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.058       |         ^~~~~
+#10 7.058 src/rect.c: In function ‘rect_setleft’:
+#10 7.058 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.058   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.058       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.058 src/rect.c:1147:9: note: in expansion of macro ‘RAISE’
+#10 7.058  1147 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.058       |         ^~~~~
+#10 7.058 src/rect.c: In function ‘rect_setright’:
+#10 7.058 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.058   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.058       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.058 src/rect.c:1167:9: note: in expansion of macro ‘RAISE’
+#10 7.058  1167 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.058       |         ^~~~~
+#10 7.058 src/rect.c: In function ‘rect_setbottom’:
+#10 7.059 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.059   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.059       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.059 src/rect.c:1187:9: note: in expansion of macro ‘RAISE’
+#10 7.059  1187 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.059       |         ^~~~~
+#10 7.059 src/rect.c: In function ‘rect_setcenterx’:
+#10 7.059 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.059   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.059       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.059 src/rect.c:1207:9: note: in expansion of macro ‘RAISE’
+#10 7.059  1207 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.059       |         ^~~~~
+#10 7.059 src/rect.c: In function ‘rect_setcentery’:
+#10 7.060 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.060   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.060       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.060 src/rect.c:1227:9: note: in expansion of macro ‘RAISE’
+#10 7.060  1227 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.060       |         ^~~~~
+#10 7.060 src/rect.c: In function ‘rect_settopleft’:
+#10 7.060 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.060   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.060       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.060 src/rect.c:1247:9: note: in expansion of macro ‘RAISE’
+#10 7.060  1247 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.060       |         ^~~~~
+#10 7.060 src/rect.c: In function ‘rect_settopright’:
+#10 7.060 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.060   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.060       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.060 src/rect.c:1268:9: note: in expansion of macro ‘RAISE’
+#10 7.060  1268 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.060       |         ^~~~~
+#10 7.060 src/rect.c: In function ‘rect_setbottomleft’:
+#10 7.060 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.060   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.060       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.060 src/rect.c:1289:9: note: in expansion of macro ‘RAISE’
+#10 7.060  1289 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.060       |         ^~~~~
+#10 7.060 src/rect.c: In function ‘rect_setbottomright’:
+#10 7.060 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.060   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.060       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.060 src/rect.c:1310:9: note: in expansion of macro ‘RAISE’
+#10 7.060  1310 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.060       |         ^~~~~
+#10 7.061 src/rect.c: In function ‘rect_setmidtop’:
+#10 7.061 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.061   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.061       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.061 src/rect.c:1331:9: note: in expansion of macro ‘RAISE’
+#10 7.061  1331 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.061       |         ^~~~~
+#10 7.061 src/rect.c: In function ‘rect_setmidleft’:
+#10 7.061 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.061   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.061       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.061 src/rect.c:1352:9: note: in expansion of macro ‘RAISE’
+#10 7.061  1352 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.061       |         ^~~~~
+#10 7.061 src/rect.c: In function ‘rect_setmidbottom’:
+#10 7.061 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.061   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.061       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.061 src/rect.c:1374:9: note: in expansion of macro ‘RAISE’
+#10 7.061  1374 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.061       |         ^~~~~
+#10 7.061 src/rect.c: In function ‘rect_setmidright’:
+#10 7.061 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.061   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.061       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.061 src/rect.c:1396:9: note: in expansion of macro ‘RAISE’
+#10 7.061  1396 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.061       |         ^~~~~
+#10 7.062 src/rect.c: In function ‘rect_setcenter’:
+#10 7.062 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.062   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.062       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.062 src/rect.c:1418:9: note: in expansion of macro ‘RAISE’
+#10 7.062  1418 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.062       |         ^~~~~
+#10 7.062 src/rect.c: In function ‘rect_setsize’:
+#10 7.062 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.062   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.062       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.062 src/rect.c:1439:9: note: in expansion of macro ‘RAISE’
+#10 7.062  1439 |         RAISE (PyExc_TypeError, "invalid rect assignment");
+#10 7.062       |         ^~~~~
+#10 7.062 src/rect.c: In function ‘rect_init’:
+#10 7.062 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.062   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.062       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.062 src/rect.c:1549:9: note: in expansion of macro ‘RAISE’
+#10 7.062  1549 |         RAISE (PyExc_TypeError, "Argument must be rect style object");
+#10 7.062       |         ^~~~~
+#10 7.401 In file included from src/pygame.h:32,
+#10 7.401                  from src/rwobject.c:28:
+#10 7.401 src/rwobject.c: In function ‘rwobject_encode_string’:
+#10 7.401 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.401   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.401       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.401 src/rwobject.c:629:9: note: in expansion of macro ‘RAISE’
+#10 7.401   629 |         RAISE(PyExc_SyntaxError, "Forwarded exception");
+#10 7.401       |         ^~~~~
+#10 7.401 src/rwobject.c: In function ‘rwobject_encode_file_path’:
+#10 7.401 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 7.401   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 7.401       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 7.401 src/rwobject.c:647:9: note: in expansion of macro ‘RAISE’
+#10 7.401   647 |         RAISE(PyExc_SyntaxError, "Forwarded exception");
+#10 7.401       |         ^~~~~
+#10 11.43 In file included from src/pygame.h:32,
+#10 11.43                  from src/surface.h:33,
+#10 11.43                  from src/surface.c:26:
+#10 11.43 src/surface.c: In function ‘surface_init’:
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:395:13: note: in expansion of macro ‘RAISE’
+#10 11.43   395 |             RAISE (PyExc_ValueError, "size needs to be (int width, int height)");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:399:9: note: in expansion of macro ‘RAISE’
+#10 11.43   399 |         RAISE (PyExc_ValueError, "size needs to be (int width, int height)");
+#10 11.43       |         ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:404:9: note: in expansion of macro ‘RAISE’
+#10 11.43   404 |         RAISE (PyExc_SDLError, "Invalid resolution for Surface");
+#10 11.43       |         ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:413:13: note: in expansion of macro ‘RAISE’
+#10 11.43   413 |             RAISE (PyExc_ValueError, "cannot pass surface for depth and color masks");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:417:13: note: in expansion of macro ‘RAISE’
+#10 11.43   417 |             RAISE (PyExc_ValueError, "invalid bits per pixel depth argument");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:421:13: note: in expansion of macro ‘RAISE’
+#10 11.43   421 |             RAISE (PyExc_ValueError, "masks argument must be sequence of four numbers");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:428:13: note: in expansion of macro ‘RAISE’
+#10 11.43   428 |             RAISE (PyExc_ValueError, "invalid mask values in masks sequence");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:434:13: note: in expansion of macro ‘RAISE’
+#10 11.43   434 |             RAISE (PyExc_ValueError, "invalid bits per pixel depth argument");
+#10 11.43       |             ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:453:17: note: in expansion of macro ‘RAISE’
+#10 11.43   453 |                 RAISE (PyExc_ValueError, "no standard masks exist for given bitdepth with alpha");
+#10 11.43       |                 ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:488:17: note: in expansion of macro ‘RAISE’
+#10 11.43   488 |                 RAISE (PyExc_ValueError, "nonstandard bit depth given");
+#10 11.43       |                 ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:530:17: note: in expansion of macro ‘RAISE’
+#10 11.43   530 |                 RAISE (PyExc_ValueError, "no standard masks exist for given bitdepth with alpha");
+#10 11.43       |                 ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:546:9: note: in expansion of macro ‘RAISE’
+#10 11.43   546 |         RAISE (PyExc_SDLError, SDL_GetError ());
+#10 11.43       |         ^~~~~
+#10 11.43 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.43   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.43       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.43 src/surface.c:569:9: note: in expansion of macro ‘RAISE’
+#10 11.43   569 |         RAISE (PyExc_ValueError, "Invalid mask values");
+#10 11.43       |         ^~~~~
+#10 11.44 src/surface.c: In function ‘surf_convert’:
+#10 11.44 src/surface.c:1223:27: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+#10 11.44  1223 |                 if (flags != -1 && flags & SDL_SRCALPHA) {
+#10 11.44       |                           ^~
+#10 11.44 src/surface.c:1310:23: warning: comparison of integer expressions of different signedness: ‘Uint32’ {aka ‘unsigned int’} and ‘int’ [-Wsign-compare]
+#10 11.44  1310 |             if (flags == -1)
+#10 11.44       |                       ^~
+#10 11.44 src/surface.c: In function ‘surf_convert_alpha’:
+#10 11.44 src/surface.c:1337:28: warning: variable ‘src’ set but not used [-Wunused-but-set-variable]
+#10 11.44  1337 |     SDL_Surface *newsurf, *src;
+#10 11.44       |                            ^~~
+#10 11.44 In file included from src/pygame.h:32,
+#10 11.44                  from src/surface.h:33,
+#10 11.44                  from src/surface.c:26:
+#10 11.44 src/surface.c: In function ‘PySurface_Blit’:
+#10 11.44 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.44   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.44       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.44 src/surface.c:3105:9: note: in expansion of macro ‘RAISE’
+#10 11.44  3105 |         RAISE (PyExc_SDLError, SDL_GetError ());
+#10 11.44       |         ^~~~~
+#10 11.44 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 11.44   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 11.44       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 11.44 src/surface.c:3107:9: note: in expansion of macro ‘RAISE’
+#10 11.44  3107 |         RAISE (PyExc_SDLError, "Surface was lost");
+#10 11.44       |         ^~~~~
+#10 13.20 In file included from src/pygame.h:32,
+#10 13.20                  from src/time.c:23:
+#10 13.20 src/time.c: In function ‘accurate_delay’:
+#10 13.20 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 13.20   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 13.20       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 13.20 src/time.c:54:13: note: in expansion of macro ‘RAISE’
+#10 13.20    54 |             RAISE (PyExc_SDLError, SDL_GetError ());
+#10 13.20       |             ^~~~~
+#10 13.20 src/time.c: In function ‘time_wait’:
+#10 13.20 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 13.20   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 13.20       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 13.20 src/time.c:128:13: note: in expansion of macro ‘RAISE’
+#10 13.20   128 |             RAISE (PyExc_SDLError, SDL_GetError ());
+#10 13.20       |             ^~~~~
+#10 13.20 src/time.c: In function ‘clock_tick_base’:
+#10 13.20 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 13.20   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 13.20       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 13.20 src/time.c:216:17: note: in expansion of macro ‘RAISE’
+#10 13.20   216 |                 RAISE (PyExc_SDLError, SDL_GetError ());
+#10 13.20       |                 ^~~~~
+#10 13.33 src/joystick.c: In function ‘joy_get_ball’:
+#10 13.33 src/joystick.c:285:30: warning: comparison of integer expressions of different signedness: ‘int’ and ‘Uint32’ {aka ‘unsigned int’} [-Wsign-compare]
+#10 13.33   285 |     if (_index < 0 || _index >= value) {
+#10 13.33       |                              ^~
+#10 14.02 In file included from src/pygame.h:32,
+#10 14.02                  from src/image.c:27:
+#10 14.02 src/image.c: In function ‘opengltosdl’:
+#10 14.02 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 14.02   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 14.02       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 14.02 src/image.c:120:9: note: in expansion of macro ‘RAISE’
+#10 14.02   120 |         RAISE (PyExc_RuntimeError, "Cannot get video surface.");
+#10 14.02       |         ^~~~~
+#10 14.02 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 14.02   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 14.02       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 14.02 src/image.c:126:9: note: in expansion of macro ‘RAISE’
+#10 14.02   126 |         RAISE (PyExc_RuntimeError, "Cannot find glReadPixels function.");
+#10 14.02       |         ^~~~~
+#10 14.02 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 14.02   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 14.02       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 14.02 src/image.c:138:9: note: in expansion of macro ‘RAISE’
+#10 14.02   138 |         RAISE (PyExc_MemoryError, "Cannot allocate enough memory for pixels.");
+#10 14.02       |         ^~~~~
+#10 14.02 src/_pygame.h:206:46: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+#10 14.02   206 | #define RAISE(x,y) (PyErr_SetString((x), (y)), (PyObject*)NULL)
+#10 14.02       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+#10 14.02 src/image.c:158:9: note: in expansion of macro ‘RAISE’
+#10 14.02   158 |         RAISE (PyExc_SDLError, SDL_GetError ());
+#10 14.02       |         ^~~~~
+#10 14.02 src/image.c: In function ‘image_frombuffer’:
+#10 14.02 src/image.c:956:5: warning: ‘PyObject_AsCharBuffer’ is deprecated [-Wdeprecated-declarations]
+#10 14.02   956 |     if (PyObject_AsCharBuffer (buffer, (const char**)&data, &len) == -1)
+#10 14.02       |     ^~
+#10 14.02 In file included from /usr/local/include/python3.8/Python.h:147,
+#10 14.02                  from src/_pygame.h:80,
+#10 14.02                  from src/pygame.h:32,
+#10 14.02                  from src/image.c:27:
+#10 14.02 /usr/local/include/python3.8/abstract.h:320:17: note: declared here
+#10 14.02   320 | PyAPI_FUNC(int) PyObject_AsCharBuffer(PyObject *obj,
+#10 14.02       |                 ^~~~~~~~~~~~~~~~~~~~~
+#10 14.55 src/rotozoom.c: In function ‘zoomSurfaceRGBA’:
+#10 14.55 src/rotozoom.c:42:9: warning: variable ‘sgap’ set but not used [-Wunused-but-set-variable]
+#10 14.55    42 |     int sgap, dgap;
+#10 14.55       |         ^~~~
+#10 14.87 src/transform.c: In function ‘surf_flip’:
+#10 14.87 src/transform.c:701:9: warning: variable ‘pixsize’ set but not used [-Wunused-but-set-variable]
+#10 14.87   701 |     int pixsize, srcpitch, dstpitch;
+#10 14.87       |         ^~~~~~~
+#10 14.87 src/transform.c: In function ‘get_threshold’:
+#10 14.87 src/transform.c:1520:15: warning: variable ‘result’ set but not used [-Wunused-but-set-variable]
+#10 14.87  1520 |     int x, y, result, similar, rshift, gshift, bshift, rshift2, gshift2, bshift2;
+#10 14.87       |               ^~~~~~
+#10 14.87 src/transform.c: In function ‘surf_threshold’:
+#10 14.87 src/transform.c:1781:9: warning: variable ‘bpp’ set but not used [-Wunused-but-set-variable]
+#10 14.87  1781 |     int bpp, change_return = 1, inverse = 0;
+#10 14.87       |         ^~~
+#10 16.11 src/mask.c: In function ‘mask_from_threshold’:
+#10 16.11 src/mask.c:715:9: warning: variable ‘bpp’ set but not used [-Wunused-but-set-variable]
+#10 16.11   715 |     int bpp;
+#10 16.11       |         ^~~
+#10 16.11 src/mask.c: In function ‘get_bounding_rects’:
+#10 16.11 src/mask.c:1013:23: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 16.11  1013 |          if (ufind[x] < x) {             /* is it a union find root? */
+#10 16.11       |                       ^
+#10 16.12 src/mask.c: In function ‘get_connected_components’:
+#10 16.12 src/mask.c:1157:22: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 16.12  1157 |         if (ufind[x] < x) {
+#10 16.12       |                      ^
+#10 16.12 src/mask.c:1167:22: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 16.12  1167 |         if (ufind[x] < x) {             /* is it a union find root? */
+#10 16.12       |                      ^
+#10 16.12 src/mask.c:1170:28: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 16.12  1170 |             if (largest[x] >= min) {
+#10 16.12       |                            ^~
+#10 17.31 src/math.c: In function ‘PySequence_AsVectorCoords’:
+#10 17.31 src/math.c:273:58: warning: comparison of integer expressions of different signedness: ‘Py_ssize_t’ {aka ‘long int’} and ‘size_t’ {aka ‘const long unsigned int’} [-Wsign-compare]
+#10 17.31   273 |     if (!PySequence_Check(seq) || PySequence_Length(seq) != size) {
+#10 17.31       |                                                          ^~
+#10 17.31 src/math.c:278:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘const long unsigned int’} [-Wsign-compare]
+#10 17.31   278 |     for (i = 0; i < size; ++i) {
+#10 17.31       |                   ^
+#10 17.31 src/math.c: In function ‘vector_neg’:
+#10 17.31 src/math.c:676:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.31   676 |         for (i = 0; i < self->dim; i++) {
+#10 17.31       |                       ^
+#10 17.31 src/math.c: In function ‘vector_nonzero’:
+#10 17.31 src/math.c:697:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.31   697 |     for (i = 0; i < self->dim; i++) {
+#10 17.31       |                   ^
+#10 17.32 In file included from /usr/local/include/python3.8/Python.h:118,
+#10 17.32                  from src/_pygame.h:80,
+#10 17.32                  from src/pygame.h:32,
+#10 17.32                  from src/math.c:33:
+#10 17.32 src/math.c: In function ‘vector_subscript’:
+#10 17.32 src/math.c:903:35: warning: passing argument 1 of ‘PySlice_Unpack’ from incompatible pointer type [-Wincompatible-pointer-types]
+#10 17.32   903 |         if (PySlice_GetIndicesEx ((PySliceObject*)key, self->dim,
+#10 17.32 /usr/local/include/python3.8/sliceobject.h:51:21: note: in definition of macro ‘PySlice_GetIndicesEx’
+#10 17.32    51 |     PySlice_Unpack((slice), (start), (stop), (step)) < 0 ?                  \
+#10 17.32       |                     ^~~~~
+#10 17.32 /usr/local/include/python3.8/sliceobject.h:55:42: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘PySliceObject *’
+#10 17.32    55 | PyAPI_FUNC(int) PySlice_Unpack(PyObject *slice,
+#10 17.32       |                                ~~~~~~~~~~^~~~~
+#10 17.32 src/math.c: In function ‘vector_ass_subscript’:
+#10 17.32 src/math.c:963:35: warning: passing argument 1 of ‘PySlice_Unpack’ from incompatible pointer type [-Wincompatible-pointer-types]
+#10 17.32   963 |         if (PySlice_GetIndicesEx ((PySliceObject*)key, self->dim,
+#10 17.32 /usr/local/include/python3.8/sliceobject.h:51:21: note: in definition of macro ‘PySlice_GetIndicesEx’
+#10 17.32    51 |     PySlice_Unpack((slice), (start), (stop), (step)) < 0 ?                  \
+#10 17.32       |                     ^~~~~
+#10 17.32 /usr/local/include/python3.8/sliceobject.h:55:42: note: expected ‘PyObject *’ {aka ‘struct _object *’} but argument is of type ‘PySliceObject *’
+#10 17.32    55 | PyAPI_FUNC(int) PySlice_Unpack(PyObject *slice,
+#10 17.32       |                                ~~~~~~~~~~^~~~~
+#10 17.32 src/math.c: In function ‘vector_set_component’:
+#10 17.32 src/math.c:1020:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1020 |     if (component >= self->dim) {
+#10 17.32       |                   ^~
+#10 17.32 src/math.c: In function ‘vector_richcompare’:
+#10 17.32 src/math.c:1117:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1117 |         for (i = 0; i < vec->dim; i++) {
+#10 17.32       |                       ^
+#10 17.32 src/math.c:1126:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1126 |         for (i = 0; i < vec->dim; i++) {
+#10 17.32       |                       ^
+#10 17.32 src/math.c: In function ‘vector_normalize_ip’:
+#10 17.32 src/math.c:1194:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1194 |     for (i = 0; i < self->dim; ++i)
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘vector_scale_to_length’:
+#10 17.32 src/math.c:1244:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1244 |     for (i = 0; i < self->dim; ++i)
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘vector_slerp’:
+#10 17.32 src/math.c:1300:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1300 |         for (i = 0; i < self->dim; ++i)
+#10 17.32       |                       ^
+#10 17.32 src/math.c:1314:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1314 |         for (i = 0; i < self->dim; ++i) {
+#10 17.32       |                       ^
+#10 17.32 src/math.c: In function ‘vector_lerp’:
+#10 17.32 src/math.c:1346:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1346 |     for (i = 0; i < self->dim; ++i)
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘_vector_distance_helper’:
+#10 17.32 src/math.c:1418:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1418 |     for (i = 0; i < self->dim; ++i) {
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘vector_repr’:
+#10 17.32 src/math.c:1473:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1473 |     for (i = 0; i < self->dim - 1; ++i) {
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘vector_str’:
+#10 17.32 src/math.c:1498:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1498 |     for (i = 0; i < self->dim - 1; ++i) {
+#10 17.32       |                   ^
+#10 17.32 src/math.c: In function ‘vector_setAttr_swizzle’:
+#10 17.32 src/math.c:1600:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1600 |     for (i = 0; i < self->dim; ++i)
+#10 17.32       |                   ^
+#10 17.32 src/math.c:1629:17: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1629 |         if (idx >= self->dim) {
+#10 17.32       |                 ^~
+#10 17.32 src/math.c:1648:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.32  1648 |         for (i = 0; i < self->dim; ++i)
+#10 17.32       |                       ^
+#10 17.33 src/math.c: In function ‘vector_elementwiseproxy_generic_math’:
+#10 17.33 src/math.c:3155:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3155 |         for (i = 0; i < vec->dim; i++)
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3159:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3159 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3169:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3169 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3179:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3179 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3189:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3189 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3199:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3199 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3209:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3209 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3219:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3219 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3235:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3235 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3255:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3255 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c:3265:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3265 |         for (i = 0; i < vec->dim; i++) {
+#10 17.33       |                       ^
+#10 17.33 src/math.c: In function ‘vector_elementwiseproxy_abs’:
+#10 17.33 src/math.c:3421:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 17.33  3421 |         for (i = 0; i < self->vec->dim; i++) {
+#10 17.33       |                       ^
+#10 19.95 src/camera_v4l2.c: In function ‘v4l2_process_image’:
+#10 19.95 src/camera_v4l2.c:182:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 19.95   182 |             if (buffer_size >= self->size * 3) {
+#10 19.95       |                             ^~
+#10 19.95 src/camera_v4l2.c:200:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 19.95   200 |             if (buffer_size >= self->size * 2) {
+#10 19.95       |                             ^~
+#10 19.95 src/camera_v4l2.c:218:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 19.95   218 |             if (buffer_size >= self->size * 2) {
+#10 19.95       |                             ^~
+#10 19.95 src/camera_v4l2.c:237:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 19.95   237 |             if (buffer_size >= self->size) {
+#10 19.95       |                             ^~
+#10 19.95 src/camera_v4l2.c:257:29: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+#10 19.95   257 |             if (buffer_size >= (self->size * 3) / 2) {
+#10 19.95       |                             ^~
+#10 19.95 src/camera_v4l2.c: In function ‘v4l2_query_buffer’:
+#10 19.95 src/camera_v4l2.c:288:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+#10 19.95   288 |     for (i = 0; i < self->n_buffers; ++i) {
+#10 19.95       |                   ^
+#10 20.19 1.9.2a0 /testbed/build/local/pygame/_freetype.cpython-38-x86_64-linux-gnu.so
+#10 DONE 20.2s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.6s done
+#11 exporting manifest sha256:322b9212866f6f8898b6ddb5903630d8c5b2f47f34e793107a276c89bb3ed7df done
+#11 exporting config sha256:8b7003b45af4129e0ae9e51f0fcbb2b0bd7c8639380d1f02d285163dc3670f9f done
+#11 exporting attestation manifest sha256:c098e472b14997287dd9d9185412311b224674c99852afb45f21baa774546393 0.0s done
+#11 exporting manifest list sha256:9da50c789c96eac9081def5b6791b0183f2ccc2d0c9cb8254767342850125758 0.0s done
+#11 naming to docker.io/library/pyc-case091-prototype-base:latest done
+#11 unpacking to docker.io/library/pyc-case091-prototype-base:latest
+#11 unpacking to docker.io/library/pyc-case091-prototype-base:latest 0.3s done
+#11 DONE 1.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/uvks591pd1g3419vz2oxi5x3w

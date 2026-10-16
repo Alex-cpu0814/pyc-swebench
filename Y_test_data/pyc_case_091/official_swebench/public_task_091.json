@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygame__pygame-95bf5012",
+  "repo": "pygame/pygame",
+  "base_commit": "e26f569b1f3e28d935327b7dfc4cb10e722a9d09",
+  "problem_statement": "Freetype text boundary calculations should include the final space advance: a one-space string has nontrivial width and a two-space string has twice that width, while existing rectangle/render/style methods remain correct.",
+  "hints_text": "",
+  "created_at": "2015-04-14",
+  "version": "1.9.2a0",
+  "issue_id": "243",
+  "issue_url": "https://github.com/pygame/pygame/issues/243"
+}

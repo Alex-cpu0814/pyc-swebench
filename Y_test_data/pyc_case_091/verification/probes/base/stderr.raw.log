@@ -1,0 +1,48 @@
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_freetype_Font_get_rect (test.freetype_test.FreeTypeFontTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+test_freetype_Font_render_mono (test.freetype_test.FreeTypeFontTest) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Issue #242: get_rect() uses 0 as default style ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+/testbed/test/test_utils/__init__.py:172: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  (rect.left is not 0 and [(rect.left-1, rect.top)] or []) +
+/testbed/test/test_utils/test_runner.py:219: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if num_errors is 0 and result.get('return_code'):
+Issue Y: trailing space ignored in boundary calculation ... FAIL
+
+======================================================================
+FAIL: Issue Y: trailing space ignored in boundary calculation
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/test/freetype_test.py", line 1351, in test_issue_243
+    self.assertTrue(r1.width > 1)
+AssertionError: None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

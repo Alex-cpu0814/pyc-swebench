@@ -1,0 +1,294 @@
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:138: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:185: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:440: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:463: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:585: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:603: trailing whitespace.
++                          
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:607: trailing whitespace.
++                     (1, int), (int, 1)]: 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:666: trailing whitespace.
++            
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:841: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:843: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:858: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:863: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-after.txt:1272: trailing whitespace.
++        # 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:138: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:185: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:440: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:463: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:585: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:603: trailing whitespace.
++                          
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:607: trailing whitespace.
++                     (1, int), (int, 1)]: 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:666: trailing whitespace.
++            
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:841: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:843: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:858: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:863: trailing whitespace.
++        
+Y_test_data/pyc_case_091/analysis/creation_tools/case091-control-before.txt:1272: trailing whitespace.
++        # 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_gold.diff:19: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_gold.diff:21: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_gold.diff:48: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_gold.diff:48: new blank line at EOF.
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:5: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:10: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:13: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:40: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:60: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:142: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:153: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:164: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:179: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:186: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:190: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:202: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:225: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:259: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:266: trailing whitespace.
++</span>      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:276: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:285: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:297: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:303: trailing whitespace.
++          
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:322: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:330: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:344: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:365: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:374: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:384: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:400: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:401: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:402: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:405: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:414: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:448: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:454: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:460: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:464: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:465: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:466: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:629: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:643: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:683: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:733: trailing whitespace.
++          
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_issue243.raw.html:840: new blank line at EOF.
+Y_test_data/pyc_case_091/analysis/creation_tools/case091_test.diff:17: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:5: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:10: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:13: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:40: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:60: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:142: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:153: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:164: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:179: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:186: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:190: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:202: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:225: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:259: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:266: trailing whitespace.
++</span>      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:276: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:285: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:297: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:303: trailing whitespace.
++          
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:322: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:330: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:344: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:365: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:374: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:384: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:400: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:401: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:402: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:405: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:414: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:448: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:454: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:460: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:464: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:465: trailing whitespace.
++      
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:466: trailing whitespace.
++    
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:629: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:643: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:683: trailing whitespace.
++  
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:733: trailing whitespace.
++          
+Y_test_data/pyc_case_091/analysis/source_material/case091_issue243.raw.html:840: new blank line at EOF.
+Y_test_data/pyc_case_091/patches/gold_patch.diff:19: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/patches/gold_patch.diff:21: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/patches/gold_patch.diff:48: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/patches/gold_patch.diff:48: new blank line at EOF.
+Y_test_data/pyc_case_091/patches/test_patch.diff:17: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/verification/controls/negative_patch.diff:6: trailing whitespace.
++ 
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:1: trailing whitespace.
++{
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:2: trailing whitespace.
++  "status": "infrastructure_failure",
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:3: trailing whitespace.
++  "endpoint": "npipe:////./pipe/dockerDesktopLinuxEngine",
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:4: trailing whitespace.
++  "product_test_executed": false,
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:5: trailing whitespace.
++  "reason": "Docker Linux engine pipe missing before image build",
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:6: trailing whitespace.
++  "docker_context": "desktop-linux",
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:7: trailing whitespace.
++  "root_informed": true,
+Y_test_data/pyc_case_091/verification/history/formal-build-missing-engine-pipe/failure.json:8: trailing whitespace.
++  "error": "The system cannot find the file specified"
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:1: trailing whitespace.
++{
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:2: trailing whitespace.
++  "status": "infrastructure_failure",
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:3: trailing whitespace.
++  "followup": "Run authorized build with Docker/temp access in escalated context",
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:4: trailing whitespace.
++  "product_test_executed": false,
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:5: trailing whitespace.
++  "reason": "Sandbox temporary-directory filesystem denial before Docker build"
+Y_test_data/pyc_case_091/verification/history/formal-build-sandbox-temp-denial/failure.json:6: trailing whitespace.
++}
+Y_test_data/pyc_case_091/verification/probes/gold/stdout.raw.log:1: trailing whitespace.
++Skipping module _numericsurfarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/probes/gold/stdout.raw.log:3: trailing whitespace.
++Skipping module _numericsndarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:31: trailing whitespace.
++#8 0.244 hint: 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:33: trailing whitespace.
++#8 0.244 hint: 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:36: trailing whitespace.
++#8 0.244 hint: 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:49: trailing whitespace.
++#10 0.308 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:50: trailing whitespace.
++#10 0.486 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:65: trailing whitespace.
++#10 0.544 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:68: trailing whitespace.
++#10 0.544 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:69: trailing whitespace.
++#10 0.950 Skipping module _numericsurfarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/prototype-build/stderr.raw.log:71: trailing whitespace.
++#10 0.950 Skipping module _numericsndarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/publication/image-history.raw.log:26: trailing whitespace.
++/bin/sh -c #(nop) ADD file:52a4b3d3a7281812594cb25cd6c6e83649d63a981e9f92f7c189ebe080249490 in / 
+Y_test_data/pyc_case_091/verification/runs/case-091-final-gold/project-build.raw.log:1: trailing whitespace.
++Skipping module _numericsurfarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/runs/case-091-final-gold/project-build.raw.log:3: trailing whitespace.
++Skipping module _numericsndarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/runs/case-091-final-negative/project-build.raw.log:1: trailing whitespace.
++Skipping module _numericsurfarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 
+Y_test_data/pyc_case_091/verification/runs/case-091-final-negative/project-build.raw.log:3: trailing whitespace.
++Skipping module _numericsndarray for Python 3.8.20 (default, Sep 27 2024, 06:04:53) 

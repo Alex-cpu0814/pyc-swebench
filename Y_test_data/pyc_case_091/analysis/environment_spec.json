@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_091",
+  "task_level": "integration",
+  "validation_type": "official_bundled_unittest",
+  "environment": "pygame_freetype_trailing_space_layout",
+  "python_version_target": "3.8",
+  "native_requirement": "Public fixed SDL1.2.15, freetype development/runtime and companion SDL libraries; Xvfb/xauth for X11 driver; official Base font fixtures unchanged.",
+  "build_system": "Official legacy config.py -auto uses SDL1 sdl-config, followed by normal setup.py force build into /testbed/build/local. Tracked lib/freesansbold.ttf is copied to package data_files location. Build logs buffered in Linux/tmp preserving complete output/exit code.",
+  "test_execution": [
+    "Original methods use official bundled-unittest loader/TextTestRunner in one fresh child per node. PASSED requires explicit testsRun=1/wasSuccessful with normal exit. SIGSEGV/SIGABRT only after official test-start record is a preserved native failure; missing records/framework errors are infrastructure failures. Each child stdout/stderr and exit is preserved losslessly in OFFICIAL_PROCESS_RECORD plus original readable output. No input/body/assertion/allocator/compiler changes."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/freetype_test.py.",
+    "Base complete official test_issue_243 stops at its first assertion in test/freetype_test.py:1351: self.assertTrue(r1.width > 1), AssertionError: None, child exit1, testsRun1/failures1/errors0. Its later two-space assertions are not reached on Base. Gold completes the original one-space and two-space boundary assertions. The three complete get_rect, mono-render and issue242 regression methods pass both; issue242 includes the exact upstream two-space to one-space underline-input change.",
+    "Three complete official get_rect, mono-render and issue242 methods pass both Base and Gold; issue242 includes the exact upstream one-space underline-input modification."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "e26f569b1f3e28d935327b7dfc4cb10e722a9d09",
+  "fix_commit": "95bf50120604bf9367f2df043d57f7fda81d49ba",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/freetype_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_243"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono",
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242"
+  ]
+}

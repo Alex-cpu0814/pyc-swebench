@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',r='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_091';
+const prev=fs.readFileSync('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_090/evaluator/evaluate_model_patch.py','utf8');
+const p=r+'/evaluator/evaluate_model_patch.py',t=fs.readFileSync(p,'utf8'),a=t.indexOf('def parse_test_log(text):'),b=t.indexOf('\ndef expected_report(',a);
+if(a<0||b<0)throw Error('Missing parser');
+fs.writeFileSync(p,t.slice(0,a)+prev.slice(prev.indexOf('def parse_test_log(text):'),prev.indexOf('\ndef expected_report('))+t.slice(b));
+const old='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_090/analysis/creation_tools';
+for(const n of ['refresh_case090.mjs','audit_publication090.mjs','record_publication090.mjs','verify_committed_case090.mjs'])fs.writeFileSync(w+'/'+n.replaceAll('090','091'),fs.readFileSync(old+'/'+n,'utf8').replaceAll('090','091'));
+let v=fs.readFileSync(old+'/verify_case090.py','utf8').replaceAll('090','091').replaceAll("'AssertionError: <rect(5, 44, 44, 44)> != <rect(5, 44, 46, 44)>'in err","'self.assertTrue(r1.width > 1)'in err and 'AssertionError: None'in err");
+v=v.replace("assert json.loads(read(r/'analysis/source_material/case091_upstream_associated_prs.json.unavailable.json'))['status']==403","assert json.loads(read(r/'analysis/source_material/case091_upstream_associated_prs.json'))==[]").replaceAll('2015-04-07T19:59:02Z','2015-04-14T02:15:58Z').replaceAll('2015-04-07','2015-04-14').replaceAll('2015-04-08','2015-04-14').replaceAll('datetime.date(2015,4,7)','datetime.date(2015,4,14)').replaceAll('true ordinary wide-M AssertionError','true ordinary one-space width AssertionError');
+fs.writeFileSync(w+'/verify_case091.py',v);
+console.log('Precise terminal parser and case091 publication/verification helpers prepared.');

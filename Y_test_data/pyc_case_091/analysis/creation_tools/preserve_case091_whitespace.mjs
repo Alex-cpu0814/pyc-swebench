@@ -1,0 +1,10 @@
+import fs from 'node:fs';import{spawnSync}from'node:child_process';
+const r='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_091',repo='E:/CLB_Swe-bench/pyc-swebench',dir=r+'/verification/history/git-raw-evidence-whitespace';fs.mkdirSync(dir,{recursive:true});
+const result=spawnSync('git',['-C',repo,'diff','--cached','--check'],{maxBuffer:8*1024*1024});
+fs.writeFileSync(dir+'/stdout.raw.log',result.stdout??Buffer.alloc(0));fs.writeFileSync(dir+'/stderr.raw.log',result.stderr??Buffer.alloc(0));
+for(const p of ['verification/history/formal-build-missing-engine-pipe/failure.json','verification/history/formal-build-sandbox-temp-denial/failure.json'])fs.writeFileSync(r+'/'+p,fs.readFileSync(r+'/'+p,'utf8').replaceAll('\r\n','\n'));
+let attrs=fs.readFileSync(r+'/.gitattributes','utf8');
+for(const pattern of ['*.diff','*.raw.log','*.raw.html','*.txt'])if(!attrs.includes(pattern+' -whitespace'))attrs+=pattern+' -whitespace\n';
+fs.writeFileSync(r+'/.gitattributes',attrs);
+fs.writeFileSync(dir+'/explanation.json',JSON.stringify({status:'authoring_check_failure_resolved',check:'git diff --cached --check',exit_code:result.status,reason:'Exact upstream patches/source fragments/HTML and original build/runner logs contain their original trailing whitespace. Preserve those bytes and narrowly disable whitespace diagnostics for these evidence extensions. Newly serialized failure JSON metadata is normalized to LF; source/raw logs remain untouched.',product_tests_repeated:false},null,2)+'\n');
+console.log('Original evidence whitespace preserved; authored failure metadata uses LF.');

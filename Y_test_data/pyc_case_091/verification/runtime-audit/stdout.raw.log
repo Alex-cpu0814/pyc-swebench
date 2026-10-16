@@ -1,0 +1,16 @@
+g++	4:10.2.1-1
+gcc	4:10.2.1-1
+libfreetype6:amd64	2.10.4+dfsg-1+deb11u1
+libfreetype6-dev:amd64	2.10.4+dfsg-1+deb11u1
+libsdl-image1.2-dev:amd64	1.2.12-12
+libsdl-mixer1.2-dev:amd64	1.2.12-16+b1
+libsdl-ttf2.0-dev:amd64	2.0.11-6
+libsdl1.2-dev	1.2.15+dfsg2-6
+libsdl1.2debian:amd64	1.2.15+dfsg2-6
+libsmpeg-dev	0.4.5+cvs20030824-9
+libudev-dev:amd64	247.3-7+deb11u5
+libudev1:amd64	247.3-7+deb11u5
+pkg-config	0.29.2-1
+xauth	1:1.1-1
+xvfb	2:1.20.11-1+deb11u13
+{"pygame_version": "1.9.2a0", "pygame_revision": "", "freetype_extension": "/testbed/build/local/pygame/_freetype.cpython-38-x86_64-linux-gnu.so", "extension_sha256": "aafc4f703486eb58b5044ca07625e3b6110752a4daa36bac085c0df1b330140f", "sdl_compiled": [1, 2, 15], "sdl_linked": [1, 2, 15], "freetype_compile_time_macros": [2, 10, 4], "video_driver": "x11", "byteorder": "little", "build_packages": {"setuptools": "68.2.2", "wheel": "0.42.0", "pytest": "7.4.4"}, "assets": {"src/freetype/ft_layout.c": {"size": 23447, "sha256": "b705421b88580a3ab25bc7f97970cc2b35ab913ae5ba1097bf0376949ff04021"}, "docs/reST/ref/freetype.rst": {"size": 29815, "sha256": "7ef10acadf091c2f2bb618ec9806969005822e3041c62d5f688872e07008ae2b"}, "src/_freetype.c": {"size": 63227, "sha256": "23cf1a5424c03025b56bb8da2ddbbc9f46a0dc419f9946e4c664adb2eefd1105"}, "src/pygame.h": {"size": 1246, "sha256": "f74b57fa0bdaa5416fd3bedcdd9db6c7caf5ec30746e63187d0eda76ec4e2877"}, "src/_pygame.h": {"size": 27782, "sha256": "472f50495574a18f2e8f72b07444d0f0dba71910a6c091c0612e5ba0a7ab3ac0"}, "setup.py": {"size": 23808, "sha256": "fc7d50b8f3bf3bbfa880e4cb4bb0d9c3f5232cd2fa1d1942116192dee0d82916"}, "lib/version.py": {"size": 1342, "sha256": "bdc6ce291fcef18a0e12f17622a617f3075cf16c8961eb04ce31dcfe19167c9a"}, "build/local/pygame/version.py": {"size": 1342, "sha256": "bdc6ce291fcef18a0e12f17622a617f3075cf16c8961eb04ce31dcfe19167c9a"}, "Setup": {"size": 3636, "sha256": "df93f88029a3c86b82a1ef67a0a1fa6eb8a39c6e97e7464bbfd0667d2b2da216"}, "lib/freesansbold.ttf": {"size": 98600, "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"}, "build/local/pygame/freesansbold.ttf": {"size": 98600, "sha256": "bf9251269f11e4b35582a99376096deee3d0c4973a459cbd97b0bebc01f440ad"}, "test/fixtures/fonts/test_sans.ttf": {"size": 133088, "sha256": "9eb67a1517ade1dc25bc0ef139179808fd90c3219e6e4d2254969215bb693a13"}, "test/fixtures/fonts/test_fixed.otf": {"size": 58464, "sha256": "1561e616c414a1b82d6e6dfbd18e5726fd65028913ade191e5fa38b6ec375a1a"}, "test/fixtures/fonts/PyGameMono.otf": {"size": 3128, "sha256": "fc07f82f230480a2866bc8c395f8a4f3d6b184b7371e84bc686e491d6379b19c"}, "test/fixtures/fonts/PyGameMono-8.bdf": {"size": 1365, "sha256": "68ad0a57efe8b033d33e20350540a06473a6b9fcba27d561e697f52008b4ff28"}, "test/fixtures/fonts/PyGameMono-18-75dpi.bdf": {"size": 1648, "sha256": "e24074b98784a5add6f99028985329734843fa1e859ce8769b920f8bac737ddb"}, "test/fixtures/fonts/PyGameMono-18-100dpi.bdf": {"size": 1947, "sha256": "9e6de89319df005b400e5a7bb36018e37cd2e3d35883d8eaec65731b694f84e4"}}}

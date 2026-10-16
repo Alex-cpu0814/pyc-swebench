@@ -1,0 +1,9 @@
+{
+  "status": "infrastructure_failure",
+  "endpoint": "npipe:////./pipe/dockerDesktopLinuxEngine",
+  "product_test_executed": false,
+  "reason": "Docker Linux engine pipe missing before image build",
+  "docker_context": "desktop-linux",
+  "root_informed": true,
+  "error": "The system cannot find the file specified"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "authoring_check_failure_resolved",
+  "check": "git diff --cached --check",
+  "exit_code": 2,
+  "reason": "Exact upstream patches/source fragments/HTML and original build/runner logs contain their original trailing whitespace. Preserve those bytes and narrowly disable whitespace diagnostics for these evidence extensions. Newly serialized failure JSON metadata is normalized to LF; source/raw logs remain untouched.",
+  "product_tests_repeated": false
+}

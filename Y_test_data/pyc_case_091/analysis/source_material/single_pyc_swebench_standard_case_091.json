@@ -1,0 +1,21 @@
+{
+  "repo": "pygame/pygame",
+  "instance_id": "pygame__pygame-95bf5012",
+  "base_commit": "e26f569b1f3e28d935327b7dfc4cb10e722a9d09",
+  "patch": "diff --git a/docs/reST/ref/freetype.rst b/docs/reST/ref/freetype.rst\nindex a566c4cf7..f65a6a848 100644\n--- a/docs/reST/ref/freetype.rst\n+++ b/docs/reST/ref/freetype.rst\n@@ -422,7 +422,7 @@ The :mod:`freetype` module is new in Pygame 1.9.2\n               width, height = surf.get_size()\n               line_spacing = font.get_sized_height() + 2\n               x, y = 0, line_spacing\n-              space = font.get_rect(' ' * 2)  # second space given width 0\n+              space = font.get_rect(' ')\n               for word in words:\n                   bounds = font.get_rect(word)\n                   if x + bounds.width + bounds.x >= width:\ndiff --git a/src/freetype/ft_layout.c b/src/freetype/ft_layout.c\nindex acc6f8627..95d53cb44 100644\n--- a/src/freetype/ft_layout.c\n+++ b/src/freetype/ft_layout.c\n@@ -371,6 +371,30 @@ position_glyphs(Layout *ftext)\n \n     }\n \n+    /* Deal with the special case of a trailing space.\n+     *\n+     * In determining the bounding box of the text, the above loop omits\n+     * the advance of the last character from the calculation. This is\n+     * intensional. For a printing character with a bitmap, it avoids\n+     * padding of the boundary. But a space is nothing but padding, so\n+     * a trailing space gets left out. This adds it in.\n+     */\n+    if (n_glyphs > 0 &&  /* conditional && */\n+        (glyph_array + n_glyphs - 1)->glyph->image->bitmap.width == 0) {\n+        if (pen.x < min_x) {\n+            min_x = pen.x;\n+        }\n+        else if (pen.x > max_x) {\n+            max_x = pen.x;\n+        }\n+        if (pen.y < min_y) {\n+            min_y = pen.y;\n+        }\n+        else if (pen.y > max_y) {\n+            max_y = pen.y;\n+        }\n+    }\n+\n     fill_text_bounding_box(ftext, pen, min_x, max_x, min_y, max_y, top);\n }\n \n",
+  "test_patch": "diff --git a/test/freetype_test.py b/test/freetype_test.py\nindex d885ed68f..2648ce66b 100644\n--- a/test/freetype_test.py\n+++ b/test/freetype_test.py\n@@ -1311,7 +1311,7 @@ class FreeTypeFontTest(unittest.TestCase):\n         prev_style = font.underline\n         font.underline = True\n         try:\n-            rect = font.get_rect('  ', size=64)\n+            rect = font.get_rect(' ', size=64)\n             surf, rrect = font.render(None, size=64)\n             self.assertEqual(rect, rrect)\n         finally:\n@@ -1340,6 +1340,18 @@ class FreeTypeFontTest(unittest.TestCase):\n             font.underline_adjustment = adj\n             s, r = font.render(\"Amazon\", size=19)\n \n+    def test_issue_243(self):\n+        \"\"\"Issue Y: trailing space ignored in boundary calculation\"\"\"\n+\n+        # Issue #243: For a string with trailing spaces, freetype ignores the\n+        # last space in boundary calculations\n+        #\n+        font = self._TEST_FONTS['fixed']\n+        r1 = font.get_rect(\" \", size=64)\n+        self.assertTrue(r1.width > 1)\n+        r2 = font.get_rect(\"  \", size=64)\n+        self.assertEqual(r2.width, 2 * r1.width)\n+\n     def test_garbage_collection(self):\n         \"\"\"Check reference counting on returned new references\"\"\"\n         def ref_items(seq):\n",
+  "problem_statement": "Freetype text boundary calculations should include the final space advance: a one-space string has nontrivial width and a two-space string has twice that width, while existing rectangle/render/style methods remain correct.",
+  "hints_text": "",
+  "created_at": "2015-04-14",
+  "version": "1.9.2a0",
+  "issue_id": "243",
+  "issue_url": "https://github.com/pygame/pygame/issues/243",
+  "FAIL_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_243"
+  ],
+  "PASS_TO_PASS": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono",
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242"
+  ]
+}

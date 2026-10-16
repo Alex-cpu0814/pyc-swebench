@@ -1,0 +1,10 @@
+diff --git a/readme.rst b/readme.rst
+index da8d8985a..39670137c 100644
+--- a/readme.rst
++++ b/readme.rst
+@@ -156,3 +156,5 @@ License
+ 
+      The programs in the "examples" subdirectory are in the public
+      domain.
++
++This evaluator control leaves freetype trailing-space bounds unchanged.

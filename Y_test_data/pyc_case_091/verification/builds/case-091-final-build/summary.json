@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-091-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-16T02:35:24.725Z",
+  "finished_at": "2026-10-16T02:35:29.728Z",
+  "duration_ms": 5000,
+  "source": {
+    "repo": "https://github.com/pygame/pygame.git",
+    "base_commit": "e26f569b1f3e28d935327b7dfc4cb10e722a9d09"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-091-pygame:benchmark-v1",
+    "id": "sha256:f416079adbe2fdc2542d0842b9d09f7f0b4fab0032a8de19fd08abd9b93b2777",
+    "repo_digests": [
+      "yutu0814/pyc-case-091-pygame@sha256:f416079adbe2fdc2542d0842b9d09f7f0b4fab0032a8de19fd08abd9b93b2777"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

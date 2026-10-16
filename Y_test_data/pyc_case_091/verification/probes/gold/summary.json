@@ -1,0 +1,41 @@
+{
+  "label": "gold",
+  "image": "pyc-case091-prototype-base:latest",
+  "nodes": [
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect",
+    "test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono",
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_242",
+    "test/freetype_test.py::FreeTypeFontTest::test_issue_243"
+  ],
+  "startedAt": "2026-10-15T17:24:43.743Z",
+  "finishedAt": "2026-10-15T17:25:05.171Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case091_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case091_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/legacy_unittest091.py,target=/benchmark/legacy_unittest091.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case091-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; bash -c 'python setup.py build --build-lib /testbed/build/local --build-temp /testbed/build/temp --force > /tmp/pygame-build-buffer.raw.log 2>&1; rc=$?; cat /tmp/pygame-build-buffer.raw.log; exit \"$rc\"' && cp lib/freesansbold.ttf /testbed/build/local/pygame/freesansbold.ttf >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; bash -c 'xvfb-run -a \"$@\"; rc=$?; exit \"$rc\"' -- python /benchmark/legacy_unittest091.py 'test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_get_rect' 'test/freetype_test.py::FreeTypeFontTest::test_freetype_Font_render_mono' 'test/freetype_test.py::FreeTypeFontTest::test_issue_242' 'test/freetype_test.py::FreeTypeFontTest::test_issue_243'"
+  ]
+}
