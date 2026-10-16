@@ -1,0 +1,322 @@
+diff --git a/docs/CHANGES.rst b/docs/CHANGES.rst
+index 6a372ff..f784f83 100644
+--- a/docs/CHANGES.rst
++++ b/docs/CHANGES.rst
+@@ -26,6 +26,8 @@ Version 0.6.0 (unreleased)
+ - ``replicate`` now throws an exception if the ``times`` argument is smaller
+   or equal to 1.
+ 
++- corrected handling of exceptions and overflow in ``__length_hint__`` methods.
++
+ 
+ Version 0.5.2 (2017-03-30)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/src/accumulate.c b/src/accumulate.c
+index 3da83c8..a9b04aa 100644
+--- a/src/accumulate.c
++++ b/src/accumulate.c
+@@ -199,7 +199,11 @@ accumulate_reduce(PyIUObject_Accumulate *self)
+ static PyObject *
+ accumulate_lengthhint(PyIUObject_Accumulate *self)
+ {
+-    return PyLong_FromSsize_t(PyObject_LengthHint(self->iterator, 0));
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    return PyLong_FromSsize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/clamp.c b/src/clamp.c
+index 7219b8f..83741e4 100644
+--- a/src/clamp.c
++++ b/src/clamp.c
+@@ -184,6 +184,9 @@ clamp_lengthhint(PyIUObject_Clamp *self)
+        determine the length. */
+     if (!(self->remove) || (self->low == NULL && self->high == NULL)) {
+         len = PyObject_LengthHint(self->iterator, 0);
++        if (len == -1) {
++            return NULL;
++        }
+     }
+     return PyLong_FromSsize_t(len);
+ }
+diff --git a/src/deepflatten.c b/src/deepflatten.c
+index f535332..b300edb 100644
+--- a/src/deepflatten.c
++++ b/src/deepflatten.c
+@@ -192,7 +192,7 @@ deepflatten_next(PyIUObject_DeepFlatten *self)
+         /* If types is given then check if it's an instance thereof and if
+            so replace activeiterator, otherwise return the item. */
+         } else if (self->types) {
+-            if (ok = PyObject_IsInstance(item, self->types)) {
++            if ((ok = PyObject_IsInstance(item, self->types))) {
+                 if (ok == -1) {
+                     Py_DECREF(item);
+                     return NULL;
+diff --git a/src/grouper.c b/src/grouper.c
+index cc46b47..838ee17 100644
+--- a/src/grouper.c
++++ b/src/grouper.c
+@@ -289,12 +289,20 @@ grouper_setstate(PyIUObject_Grouper *self,
+ static PyObject *
+ grouper_lengthhint(PyIUObject_Grouper *self)
+ {
++    Py_ssize_t groups, rem;
+     Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
+-    Py_ssize_t groups = len / self->times;
+-    Py_ssize_t rem = len % self->times;
++    if (len == -1) {
++        return NULL;
++    }
++    groups = len / self->times;
++    rem = len % self->times;
+     if (self->truncate || rem == 0) {
+         return PyLong_FromSsize_t(groups);
+     } else {
++        /* groups + 1 cannot overflow because that could only happen if
++           "times" is 1 and in that case "rem==0". So it would always enter the
++           first branch which does not contain addition.
++           */
+         return PyLong_FromSsize_t(groups + 1);
+     }
+ }
+diff --git a/src/intersperse.c b/src/intersperse.c
+index c4039eb..9dbcca7 100644
+--- a/src/intersperse.c
++++ b/src/intersperse.c
+@@ -213,16 +213,26 @@ static PyObject *
+ intersperse_lengthhint(PyIUObject_Intersperse *self)
+ {
+     Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    /* We need to multiply the length_hint with 2, to make sure this doesn't
++       trigger undefined behaviour we convert it to "size_t" which can always
++       hold the result (because it's maximum value is 2 * max(py_ssize_t) + 1)
++       Also "LengthHint" always returns >= -1 and we already catched the case
++       where it was -1 so it's not-negative (which could be a problem in the
++       signed -> unsigned conversion).
++       */
+     if (self->started == 0) {
+         if (len == 0) {
+-            return  PyLong_FromLong(0);
++            return PyLong_FromLong(0);
+         }
+-        return PyLong_FromSsize_t(len * 2 - 1);
++        return PyLong_FromSize_t((size_t)len * 2 - 1);
+     } else if (self->nextitem == NULL) {
+-        return PyLong_FromSsize_t(len * 2);
++        return PyLong_FromSize_t((size_t)len * 2);
+     } else {
+         /* The iterator is always one step advanced! */
+-        return PyLong_FromSsize_t(len * 2 + 1);
++        return PyLong_FromSize_t((size_t)len * 2 + 1);
+     }
+ }
+ #endif
+diff --git a/src/merge.c b/src/merge.c
+index 53c3437..87ace67 100644
+--- a/src/merge.c
++++ b/src/merge.c
+@@ -638,22 +638,68 @@ merge_setstate(PyIUObject_Merge *self,
+ static PyObject *
+ merge_lengthhint(PyIUObject_Merge *self)
+ {
+-    Py_ssize_t i, len = 0;
++    Py_ssize_t i;
++    size_t len = 0;
++
++    /* TODO: The following cases share a lot of code, maybe the shared lines
++             could be refactored into a helper function....
++       */
++
+     if (self->current == NULL) {
++        /* If we have no current we simply sum the lengths of the iterators.
++           */
+         for (i=0 ; i<PyTuple_GET_SIZE(self->iteratortuple) ; i++) {
+-            len += PyObject_LengthHint(PyTuple_GET_ITEM(self->iteratortuple, i), 0);
++            PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, i);
++            Py_ssize_t len_tmp = PyObject_LengthHint(it, 0);
++
++            if (len_tmp == -1) {
++                return NULL;
++            }
++            len += (size_t)len_tmp;
++            /* adding two py_ssize_t values (even when they are MAX) cannot
++               overflow "size_t" so we can simply check if the new len is
++               above "PY_SSIZE_T_MAX" to find out if we have overflow.
++               */
++            if (len > (size_t)PY_SSIZE_T_MAX) {
++                PyErr_SetString(PyExc_OverflowError,
++                                "cannot fit 'int' into an index-sized "
++                                "integer");
++                return NULL;
++            }
+         }
+     } else {
+-        len += self->numactive;
++        /* Add the number of items in "current" to the length, because these
++           were taken from the iterables already.
++           */
++        len += (size_t)self->numactive;
++
+         for (i=0 ; i<self->numactive ; i++) {
++            Py_ssize_t len_tmp;
++
++            /* We need to avoid the iterators that are already exhausted so
++               just iterate over the "current" and only sum the iterators that
++               are still in the "current".
++               */
+             PyObject *iik = PyTuple_GET_ITEM(self->current, i);
+             Py_ssize_t idx = ((PyIUObject_ItemIdxKey *)iik)->idx;
+             PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, idx);
+-            len += PyObject_LengthHint(it, 0);
++            len_tmp = PyObject_LengthHint(it, 0);
++
++            if (len_tmp == -1) {
++                return NULL;
++            }
++            /* See above for explanation. */
++            len += (size_t)len_tmp;
++            if (len > (size_t)PY_SSIZE_T_MAX) {
++                PyErr_SetString(PyExc_OverflowError,
++                                "cannot fit 'int' into an index-sized "
++                                "integer");
++                return NULL;
++            }
+         }
+     }
+ 
+-    return PyLong_FromSsize_t(len);
++    return PyLong_FromSize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/replicate.c b/src/replicate.c
+index 73cb20e..6334a4d 100644
+--- a/src/replicate.c
++++ b/src/replicate.c
+@@ -216,11 +216,28 @@ replicate_lengthhint(PyIUObject_Replicate *self)
+     if (len == -1) {
+         return NULL;
+     }
+-    /* Not overflow safe ... */
++
++    /* Check if it is safe (no overflow) to multiply it. */
++    if (len > PY_SSIZE_T_MAX / self->repeattotal) {
++        PyErr_SetString(PyExc_OverflowError,
++                        "cannot fit 'int' into an index-sized "
++                        "integer");
++        return NULL;
++    }
+     len *= self->repeattotal;
++
+     if (self->current != NULL) {
+-        /* Not overflow safe ... */
+-        len += self->repeattotal - self->repeatcurrent;
++        /* We need to avoid signed integer overflow so do the operation on
++           size_t instead. "repeattotal" >= "repeatcurrent" so we only
++           deal with positive values here and we're overflow safe when doing
++           the operation on (size_t) because 2*PY_SSIZE_T_MAX is still
++           below SIZE_T_MAX. We also don't need to check for overflow because
++           we can simply return "PyLong_FromSize_t", which will fail when
++           someone else wants it as Py_ssize_t (later).
++           */
++        size_t ulen = (size_t)len;
++        ulen += (size_t)(self->repeattotal - self->repeatcurrent);
++        return PyLong_FromSize_t(ulen);
+     }
+     return PyLong_FromSsize_t(len);
+ }
+diff --git a/src/roundrobin.c b/src/roundrobin.c
+index 06c945f..bb2c13d 100644
+--- a/src/roundrobin.c
++++ b/src/roundrobin.c
+@@ -263,11 +263,29 @@ roundrobin_setstate(PyIUObject_Roundrobin *self,
+ static PyObject *
+ roundrobin_lengthhint(PyIUObject_Roundrobin *self)
+ {
+-    Py_ssize_t i, len = 0;
++    Py_ssize_t i;
++    size_t len = 0;
+ 
+     for (i=0 ; i<self->numactive ; i++) {
+         PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, i);
+-        len += PyObject_LengthHint(it, 0);
++        Py_ssize_t len_tmp = PyObject_LengthHint(it, 0);
++
++        if (len_tmp == -1) {
++            return NULL;
++        }
++
++        /* The logic to avoid overflow is the same as in merge. Basically
++           adding the current length + next iterator length cannot lead to
++           overflow for size_t because we check after each addition if the
++           current length goes above py_ssize_t maximum.
++           */
++        len += (size_t)len_tmp;
++        if (len > (size_t)PY_SSIZE_T_MAX) {
++            PyErr_SetString(PyExc_OverflowError,
++                            "cannot fit 'int' into an index-sized "
++                            "integer");
++            return NULL;
++        }
+     }
+ 
+     return PyLong_FromSsize_t(len);
+diff --git a/src/sideeffect.c b/src/sideeffect.c
+index 7690782..9542dc1 100644
+--- a/src/sideeffect.c
++++ b/src/sideeffect.c
+@@ -405,7 +405,11 @@ sideeffects_setstate(PyIUObject_Sideeffects *self,
+ static PyObject *
+ sideeffects_lengthhint(PyIUObject_Sideeffects *self)
+ {
+-    return PyLong_FromSsize_t(PyObject_LengthHint(self->iterator, 0));
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    return PyLong_FromSsize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/successive.c b/src/successive.c
+index d983b58..4d5c866 100644
+--- a/src/successive.c
++++ b/src/successive.c
+@@ -257,15 +257,23 @@ successive_setstate(PyIUObject_Successive *self,
+ static PyObject *
+ successive_lengthhint(PyIUObject_Successive *self)
+ {
+-    Py_ssize_t len = 0;
+-    if (self->result == NULL) {
+-        len = (PyObject_LengthHint(self->iterator, 0) - self->times) + 1;
+-    } else {
+-        len = PyObject_LengthHint(self->iterator, 0);
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
+     }
+-
+-    if (len < 0) {
+-        len = 0;
++    /* If we are already started we will have one result for every remaining
++       item in the iterator. However if we haven't started we have less than
++       that. We need "self->times" objects to fill the first return value, so
++       we need to subtract "self->times - 1" from the length. In case the
++       "times > len" the function won't return anything so we can set the
++       length simply to 0.
++       */
++    if (self->result == NULL) {
++        if (self->times > len) {
++            len = 0;
++        } else {
++            len -= (self->times - 1);
++        }
+     }
+ 
+     return PyLong_FromSsize_t(len);

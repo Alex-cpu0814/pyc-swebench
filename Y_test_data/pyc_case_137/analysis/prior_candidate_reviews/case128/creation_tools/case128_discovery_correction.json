@@ -1,0 +1,7 @@
+{
+  "initial_evidence": "case128-probe-collect",
+  "diagnostic": "case128-discovery-audit",
+  "reason": "With -c /dev/null and no explicit rootdir, full module collection emitted IDs without file prefixes (::function) and selected cross-module nodes were not found. Original modules contain all functions; no product test has run yet.",
+  "fix": "Set explicit pytest --rootdir=/testbed so full original file::function IDs are canonical. Original decorators/helpers/bodies/assertions are unchanged.",
+  "tests_modified": false
+}

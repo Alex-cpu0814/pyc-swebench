@@ -1,0 +1,10 @@
+commit 1361a3a3e1c0d75dd4ee2ad2609d2f795bcdfc6f
+Merge: 479d40e bb4e819
+Author:     Michael Seifert <michaelseifert04@yahoo.de>
+AuthorDate: Wed Apr 5 16:00:21 2017 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Wed Apr 5 16:00:21 2017 +0200
+
+    Merge pull request #192 from MSeifert04/pyobject_isinstance_errors
+    
+    Check for errors when using PyObject_IsInstance or avoid it

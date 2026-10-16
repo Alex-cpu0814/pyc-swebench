@@ -1,0 +1,87 @@
+{
+  "upstream_url": "https://github.com/pygobject/pycairo/commit/065a7a7aed9e5523dcbf41568d89e94fc0af44b9",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/50",
+  "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "fix_commit": "065a7a7aed9e5523dcbf41568d89e94fc0af44b9",
+  "source_parents": [
+    "9ebff889d4c68927ab1c152b6ae7c8327283b6ed"
+  ],
+  "source_commit_timestamp_original_offset": "2017-07-11T08:34:08+02:00",
+  "source_commit_utc_timestamp": "2017-07-11T06:34:08Z",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "cairo/surface.c"
+  ],
+  "native_source_git_blobs": {
+    "cairo/surface.c": "f8fbf11e71e611367ce321af64be967a0485f83d",
+    "cairo/cairomodule.c": "198f3318e5d04d2ebe34ae1e3092617abc387376",
+    "cairo/__init__.py": "dd86f6a5154b349be2d79e6a26387cb361f84cff",
+    "setup.py": "b1e292006b06db64ac73820379900d669510a901",
+    ".travis.yml": "1066a8f76b33821139b3ed083659423cae13555b",
+    "tests/test_surface.py": "d5287c206471f6dd8c6bb8f94dfa3d9d85b2e180"
+  },
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10",
+    "libcairo2": "1.16.0-4+deb10u1",
+    "libcairo2-dev": "1.16.0-4+deb10u1",
+    "libfreetype6": "2.9.1-3+deb10u2",
+    "libpixman-1-0": "0.36.0-1",
+    "libpixman-1-dev": "0.36.0-1",
+    "pkg-config": "0.29-6"
+  },
+  "environment_selection": "Original .travis.yml stable CPython3.6, Linux apt-installed libcairo2-dev. Use exact public Python3.6.15-buster image that already contains normal Cairo1.16.0 headers/runtime; normal setup.py build followed by selected complete pytest functions. No coverage/GC decorator semantics occur in this target.",
+  "admission_rule": "Exact complete original target must exhibit actual Base failure/native abort and full Gold pass, while all selected ordinary regressions pass. No forced compiler macros or product/test input changes.",
+  "upstream_created_at_timestamp": "2017-07-11T04:20:40Z",
+  "issue_closed_at_timestamp": "2017-07-11T06:35:10Z",
+  "associated_prs": [],
+  "date_source": "https://api.github.com/repos/pygobject/pycairo/issues/50",
+  "date_semantics": "Actual issue50 opening2017-07-11 and source commit2017-07-11 are distinct timestamps. Associated-PR API returned empty array; no merge date established. Issue closed_at2017-07-11 is not copied to a merged_at field.",
+  "verified_scope": "Complete test_surface_set_device_scale retains existing10x10ARGB32 surface scale(5.0,3.0) call and ret-is-None assertion, then creates exact100x100ARGB32 surface and expects cairo.Error for scale(1,0). Base reaches target execution but abort prevents complete method return; no intermediate terminal completion is claimed. Gold completes all original assertions. Three unchanged complete regressions test get_device_scale tuplefloat values, get_content enum and get_format enum. No full Cairo suite, arbitrary negative/nonfinite input, alternate dimensions/platforms or internal downstream Cairo assertion text absent from raw logs is claimed.",
+  "source_trace_scope": "Original source136 names native surface_set_device_scale through exact test_surface_set_device_scale; selected target is this complete original method with its existing valid-scale assertions and exact new invalid-scale check. Actual native failure behavior will be reported from logs; no independent coverage of arbitrary nonfinite/negative/matrix inputs is claimed.",
+  "formal_runtime_audit": {
+    "pycairo_version": "1.13.4",
+    "native_extension": "/testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "4e4939237f2ef71716f8c80e4f6415553f310cc6a917159a3d5b04071b5f1abe",
+    "cairo_headers": [
+      1,
+      16,
+      0
+    ],
+    "cairo_linked_version": "1.16.0",
+    "cairo_linked_integer": 11600,
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "pytest": "3.0.7",
+      "py": "1.4.34"
+    },
+    "assets": {
+      "cairo/surface.c": {
+        "size": 73567,
+        "sha256": "196240c5bf627c0d00a53cdeb45dc02f08f0098b6f46ce6c3ff5b63eae3e581e"
+      },
+      "cairo/cairomodule.c": {
+        "size": 16143,
+        "sha256": "7295cd6044b92900c7e824abcfe039713a8d4b0d54f34c65d77a3bc96ffff922"
+      },
+      "cairo/__init__.py": {
+        "size": 41,
+        "sha256": "3d7fc31e167df2c055e154a6e15136144c82ff3c13a4f01f45ccee2f107338c5"
+      },
+      "cairo/config.h": {
+        "size": 246,
+        "sha256": "966dcebe2844ad01147a4cebde85b5bc9f9525c1346d535a99c86cde2657e38b"
+      },
+      "setup.py": {
+        "size": 8207,
+        "sha256": "035f6313e2a0aa3d9dc70f73dd7051f76820c4b1b5413f3b1d041e05b2bcc4e0"
+      }
+    }
+  }
+}

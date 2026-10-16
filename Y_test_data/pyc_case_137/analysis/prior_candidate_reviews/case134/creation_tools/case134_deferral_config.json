@@ -1,0 +1,14 @@
+{
+  "status": "deferred_gold_official_memory_check_failure",
+  "additionalSources": ["setup.py", "setup.cfg", ".travis.yml", "pytest.ini", "tests/helper_leak.py", "iteration_utilities/__init__.py"],
+  "observedCounts": {"base": "2failed3passed", "gold": "1failed4passed"},
+  "reason": "One upfront fixed5-method F2P then P2P selection through actual originalCI coverage run --source=iteration_utilities setup.py test launch, original setup.cfg pytest alias and original memory/ABC helpers produced Base2failed3passed, Gold1failed4passed. Base types target fails its original message assertion ('T object is not iterable' versus 'isinstance failed'); ignore target leaks active TypeError into a weakref/SystemError chain. Gold corrects both function bodies, but the first complete failure9 decorated method fails original helper_leak.py object-count check with one added _weakrefset.WeakSet. Other target and3regressions pass. This is not a full original-method Gold pass and cannot be admitted merely on body-level functional correction.",
+  "history": [
+    "Selected Python3.6 from original stableCI matrix; fixed compatible period coverage4.3.4/pytest-runner2.11.1/pytest3.0.7 dependencies. Upstream CI dependencies were unpinned; exact historical package-resolution reproduction is not claimed.",
+    "Used actual original coverage/setup.py test entry from first134 test run, passing only complete official node subset and verbosity via --addopts; no extra unscored calls/custom warmup.",
+    "Initial native compilation succeeded but inherited later-source top-level module import audit was wrong. Corrected audit to actual iteration_utilities._cfuncs from exact setup.py/__init__; initial Dockerfile/full raw failure retained. No source/test/compiler edits.",
+    "No further regression swapping, order search, memory-helper parameter change, tolerance/offset/loop edits or disabled checks after observed Gold failure.",
+    "Official PR192 API/HTML/merge evidence preserved; no formal workbook was generated."
+  ],
+  "futureAdmission": "Require a genuine supported environment passing complete original decorated methods. Keep134/132/128 frozen and do not infer reliability merely because native functional assertions are fixed. No helper weakening, fake allocations or custom warmup."
+}

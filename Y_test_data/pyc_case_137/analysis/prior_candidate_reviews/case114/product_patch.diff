@@ -1,0 +1,32 @@
+diff --git a/psutil/_psutil_linux.c b/psutil/_psutil_linux.c
+index 8683ce6b..a3bf5643 100644
+--- a/psutil/_psutil_linux.c
++++ b/psutil/_psutil_linux.c
+@@ -336,8 +336,8 @@ psutil_proc_cpu_affinity_get(PyObject *self, PyObject *args)
+     unsigned int len = sizeof(cpu_set_t);
+     long pid;
+     int i;
+-    PyObject* py_retlist;
+-    PyObject *py_cpu_num;
++    PyObject* py_retlist = NULL;
++    PyObject *py_cpu_num = NULL;
+ 
+     if (!PyArg_ParseTuple(args, "i", &pid))
+         return NULL;
+diff --git a/psutil/_pswindows.py b/psutil/_pswindows.py
+index 26bc77ab..2ca96106 100644
+--- a/psutil/_pswindows.py
++++ b/psutil/_pswindows.py
+@@ -87,9 +87,9 @@ pmmap_grouped = namedtuple('pmmap_grouped', ['path', 'rss'])
+ pmmap_ext = namedtuple(
+     'pmmap_ext', 'addr perms ' + ' '.join(pmmap_grouped._fields))
+ ntpinfo = namedtuple(
+-   'ntpinfo', ['num_handles', 'ctx_switches', 'user_time', 'kernel_time',
+-               'create_time', 'num_threads', 'io_rcount', 'io_wcount',
+-               'io_rbytes', 'io_wbytes'])
++    'ntpinfo', ['num_handles', 'ctx_switches', 'user_time', 'kernel_time',
++                'create_time', 'num_threads', 'io_rcount', 'io_wcount',
++                'io_rbytes', 'io_wbytes'])
+ 
+ # set later from __init__.py
+ NoSuchProcess = None

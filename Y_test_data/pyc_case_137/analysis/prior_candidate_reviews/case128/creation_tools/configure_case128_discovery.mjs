@@ -1,0 +1,7 @@
+import fs from'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',p=w+'/case128_spec.json',s=JSON.parse(fs.readFileSync(p,'utf8'));
+s.testCommand='python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv';s.collectCommand='python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed --collect-only -q';s.probeSuffixes={collect:'-v2',base:'',gold:''};fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+fs.writeFileSync(w+'/case128_discovery_correction.json',JSON.stringify({initial_evidence:'case128-probe-collect',diagnostic:'case128-discovery-audit',reason:'With -c /dev/null and no explicit rootdir, full module collection emitted IDs without file prefixes (::function) and selected cross-module nodes were not found. Original modules contain all functions; no product test has run yet.',fix:'Set explicit pytest --rootdir=/testbed so full original file::function IDs are canonical. Original decorators/helpers/bodies/assertions are unchanged.',tests_modified:false},null,2)+'\n');
+const html=fs.readFileSync(w+'/case128_pr200.raw.html','utf8'),matches=[];
+for(const m of html.matchAll(/<(?:relative-time|time-ago)[^>]*datetime="([^"]+)"[^>]*>/g))matches.push({timestamp:m[1],context:html.slice(Math.max(0,m.index-700),m.index+250).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()});
+fs.writeFileSync(w+'/case128_html_time_candidates.json',JSON.stringify(matches,null,2)+'\n');console.log(JSON.stringify(matches));

@@ -1,0 +1,14 @@
+{
+  "run_order": [
+    "tests/test_surface.py::test_surface_get_device_scale",
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format",
+    "tests/test_surface.py::test_surface_set_device_scale"
+  ],
+  "base_native_exit": 134,
+  "base_and_negative_expected_terminal_nodes": 3,
+  "fail_to_pass_terminal_status": "MISSING",
+  "reason": "Original native abort after actual target start prevents terminal pytest completion; do not manufacture a FAILED line. Exactly three unchanged earlier regressions must pass. Gold must complete all four.",
+  "container_summary_semantics": "Formal outer evaluation exits1 for unresolved; phase.test_exit_code preserves the true native134. Prototype Docker exits134 directly.",
+  "no_new_test_wrapper": true
+}

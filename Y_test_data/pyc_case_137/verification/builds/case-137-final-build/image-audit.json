@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "pygobject__pycairo-065a7a7a",
+  "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

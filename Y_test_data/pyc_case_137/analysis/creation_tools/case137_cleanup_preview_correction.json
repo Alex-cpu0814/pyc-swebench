@@ -1,0 +1,8 @@
+{
+  "phase": "read_only_cleanup_preview",
+  "initial_result": "Rejected unarchived case106_progress.md; no deletion occurred because PreviewOnly was set and all archive checks precede deletion.",
+  "reason": "PowerShell string concatenations inside the exclusions array needed individual parentheses to match the intended exact progress/cleanup filenames.",
+  "correction": "Explicitly parenthesize each exact excluded filename. Preserve all deferred progress reports and reject any remaining unarchived file before deletion.",
+  "product_tests_repeated": false,
+  "raw_evidence_changed": false
+}

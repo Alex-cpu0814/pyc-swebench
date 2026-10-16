@@ -1,0 +1,10 @@
+commit dc5e033ad648e5373ae1f34d4409380bbd4ab8a1
+Merge: d12877a 8b07072
+Author:     Michael Seifert <michaelseifert04@yahoo.de>
+AuthorDate: Sat Apr 8 02:46:57 2017 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Sat Apr 8 02:46:57 2017 +0200
+
+    Merge pull request #198 from MSeifert04/fix_length_hints
+    
+    Check return of PyObject_LengthHint and test for overflow

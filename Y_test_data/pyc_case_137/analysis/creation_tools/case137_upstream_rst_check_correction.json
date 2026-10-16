@@ -1,0 +1,8 @@
+{
+  "stage": "final_git_diff_cached_check_before_commit",
+  "initial_result": "Git reported leftover conflict markers at upstream docs/index.rst lines2267 and2306",
+  "actual_source": "Both lines are the original seven-equals reStructuredText underlines for Unicode and Recipes headings, independently verified as exact upstream bytes; no merge conflict exists.",
+  "correction": "Set conflict-marker-size=32 only for the immutable archived case107/upstream/docs/index.rst file, keeping all raw upstream bytes unchanged. Repeat the scoped Git precheck and commit after manifest refresh.",
+  "product_tests_or_raw_results_changed": false,
+  "initial_commit_created": false
+}

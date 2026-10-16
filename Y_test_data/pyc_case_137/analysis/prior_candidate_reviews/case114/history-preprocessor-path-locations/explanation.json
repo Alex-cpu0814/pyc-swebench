@@ -1,0 +1,4 @@
+{
+  "reason": "Two authoring equality checks found only different mounted source paths in preprocessor line directives and __FILE__ literals from Py_DECREF. Neither attempt changed product source/test/compiler macro/allocator. Correct audit mounts Base/Gold at the same source path, preserving all previous raw output.",
+  "attempts": 2
+}

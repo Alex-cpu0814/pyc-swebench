@@ -1,0 +1,120 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.79kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 2.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN sed -i '/bullseye-security/d; s|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list && apt-get -o Acquire::Retries=5 update && apt-get -o Acquire::Retries=5 install -y --no-install-recommends gcc=4:10.2.1-1 git ca-certificates && rm -rf /var/lib/apt/lists/*
+#5 0.737 Get:1 https://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 0.966 Get:2 https://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 1.353 Get:3 https://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 2.756 Get:4 https://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 3.511 Fetched 8204 kB in 3s (2536 kB/s)
+#5 3.511 Reading package lists...
+#5 3.899 Reading package lists...
+#5 4.267 Building dependency tree...
+#5 4.365 Reading state information...
+#5 4.468 ca-certificates is already the newest version (20210119).
+#5 4.468 gcc is already the newest version (4:10.2.1-1).
+#5 4.468 git is already the newest version (1:2.30.2-1+deb11u3).
+#5 4.468 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#5 DONE 4.5s
+
+#6 [3/6] RUN python -m pip install --no-cache-dir pip==24.3.1 setuptools==68.2.2 wheel==0.42.0 pytest==7.4.4 packaging==23.2 pluggy==1.3.0 iniconfig==2.0.0 exceptiongroup==1.2.2 tomli==2.0.1
+#6 2.169 Collecting pip==24.3.1
+#6 2.490   Downloading pip-24.3.1-py3-none-any.whl (1.8 MB)
+#6 3.113      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.9 MB/s eta 0:00:00
+#6 3.597 Collecting setuptools==68.2.2
+#6 3.716   Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+#6 3.911      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 4.2 MB/s eta 0:00:00
+#6 4.075 Collecting wheel==0.42.0
+#6 4.157   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+#6 4.190      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.4/65.4 kB 1.8 MB/s eta 0:00:00
+#6 4.377 Collecting pytest==7.4.4
+#6 4.462   Downloading pytest-7.4.4-py3-none-any.whl (325 kB)
+#6 4.812      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.3/325.3 kB 908.2 kB/s eta 0:00:00
+#6 4.958 Collecting packaging==23.2
+#6 5.043   Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#6 5.114      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 22.2 MB/s eta 0:00:00
+#6 5.227 Collecting pluggy==1.3.0
+#6 5.304   Downloading pluggy-1.3.0-py3-none-any.whl (18 kB)
+#6 5.462 Collecting iniconfig==2.0.0
+#6 5.542   Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+#6 5.640 Collecting exceptiongroup==1.2.2
+#6 5.959   Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+#6 6.206 Collecting tomli==2.0.1
+#6 6.285   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#6 6.476 Installing collected packages: wheel, tomli, setuptools, pluggy, pip, packaging, iniconfig, exceptiongroup, pytest
+#6 6.476   Attempting uninstall: wheel
+#6 6.476     Found existing installation: wheel 0.44.0
+#6 6.484     Uninstalling wheel-0.44.0:
+#6 6.504       Successfully uninstalled wheel-0.44.0
+#6 6.563   Attempting uninstall: setuptools
+#6 6.564     Found existing installation: setuptools 57.5.0
+#6 6.587     Uninstalling setuptools-57.5.0:
+#6 6.678       Successfully uninstalled setuptools-57.5.0
+#6 7.067   Attempting uninstall: pip
+#6 7.067     Found existing installation: pip 23.0.1
+#6 7.170     Uninstalling pip-23.0.1:
+#6 7.327       Successfully uninstalled pip-23.0.1
+#6 8.204 Successfully installed exceptiongroup-1.2.2 iniconfig-2.0.0 packaging-23.2 pip-24.3.1 pluggy-1.3.0 pytest-7.4.4 setuptools-68.2.2 tomli-2.0.1 wheel-0.42.0
+#6 8.204 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#6 DONE 8.7s
+
+#7 [4/6] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/MSeifert04/iteration_utilities.git" && git fetch --depth=1 --no-tags origin "5e2f2df0ba543352ae28d7b4c23d0be1008aebf6" && git checkout --detach "5e2f2df0ba543352ae28d7b4c23d0be1008aebf6" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "5e2f2df0ba543352ae28d7b4c23d0be1008aebf6"
+#7 0.293 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.293 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.293 hint: of your new repositories, which will suppress this warning, call:
+#7 0.293 hint: 
+#7 0.293 hint: 	git config --global init.defaultBranch <name>
+#7 0.293 hint: 
+#7 0.293 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.293 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.293 hint: 
+#7 0.293 hint: 	git branch -m <name>
+#7 0.294 Initialized empty Git repository in /testbed/.git/
+#7 1.398 From https://github.com/MSeifert04/iteration_utilities
+#7 1.398  * branch            5e2f2df0ba543352ae28d7b4c23d0be1008aebf6 -> FETCH_HEAD
+#7 1.412 HEAD is now at 5e2f2df Merge pull request #199 from MSeifert04/test_refactor
+#7 DONE 1.4s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 [6/6] RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git restore --source=HEAD --worktree -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#9 0.372 running build_ext
+#9 0.374 building '_iteration_utilities' extension
+#9 0.374 creating build
+#9 0.375 creating build/temp.linux-x86_64-cpython-38
+#9 0.375 creating build/temp.linux-x86_64-cpython-38/src
+#9 0.375 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.8 -c src/_module.c -o build/temp.linux-x86_64-cpython-38/src/_module.o
+#9 1.953 creating build/lib.linux-x86_64-cpython-38
+#9 1.953 gcc -pthread -shared build/temp.linux-x86_64-cpython-38/src/_module.o -L/usr/local/lib -o build/lib.linux-x86_64-cpython-38/_iteration_utilities.cpython-38-x86_64-linux-gnu.so
+#9 1.981 copying build/lib.linux-x86_64-cpython-38/_iteration_utilities.cpython-38-x86_64-linux-gnu.so -> 
+#9 2.030 0.6.0 /testbed/_iteration_utilities.cpython-38-x86_64-linux-gnu.so
+#9 DONE 2.1s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.9s done
+#10 exporting manifest sha256:59473c6ccb55d66f352019ead06647dfd4b4eb0ec8f42c3629f3e38e75398d31 0.0s done
+#10 exporting config sha256:e6e6bc2f5874ca9cd3dd41b6c80a85a46c1d9b933a9b7de77bd21f9e073e70a8 0.0s done
+#10 exporting attestation manifest sha256:54a560db4b3b3833f77b7f60051804e7b65286ce6102c39b8ce2bb9e1b6db172 0.0s done
+#10 exporting manifest list sha256:b8abbe67d18c848ab98c5c0d1bba097c12c71077da9502020c7116bd8df84fcf 0.0s done
+#10 naming to docker.io/library/pyc-case128-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case128-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case128-prototype-base:latest 0.4s done
+#10 DONE 1.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/po19ovyizd1jvldtm9llrcsiq

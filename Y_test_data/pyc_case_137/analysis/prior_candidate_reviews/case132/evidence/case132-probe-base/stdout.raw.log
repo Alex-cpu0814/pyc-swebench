@@ -1,0 +1,159 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile: pytest.ini
+collecting ... collected 152 items
+
+tests/test_accumulate.py::test_accumulate_lengthhint_failure1 <- tests/helper_leak.py FAILED
+tests/test_accumulate.py::test_accumulate_lengthhint_failure2 <- tests/helper_leak.py FAILED
+tests/test_replicate.py::test_replicate_failure_lengthhint3 <- tests/helper_leak.py FAILED
+tests/test_replicate.py::test_replicate_failure_lengthhint4 <- tests/helper_leak.py FAILED
+tests/test_accumulate.py::test_accumulate_lengthhint1 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_lengthhint1 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_normal1 <- tests/helper_leak.py PASSED
+
+=================================== FAILURES ===================================
+_____________________ test_accumulate_lengthhint_failure1 ______________________
+
+self = <helper_cls.FailLengthHint object at 0x775725b37e80>
+
+    def __length_hint__(self):
+>       raise ValueError("length_hint failed")
+E       ValueError: length_hint failed
+
+tests/helper_cls.py:105: ValueError
+
+The above exception was the direct cause of the following exception:
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @pytest.mark.xfail(not iteration_utilities.GE_PY34,
+                       reason='length does not work before Python 3.4')
+    @memory_leak_decorator(collect=True)
+    def test_accumulate_lengthhint_failure1():
+        f_it = FailLengthHint(toT([1, 2, 3]))
+        acc = accumulate(f_it)
+        with pytest.raises(ValueError) as exc:
+>           operator.length_hint(acc)
+E           SystemError: <built-in method __length_hint__ of iteration_utilities.accumulate object at 0x775724c24a20> returned a result with an error set
+
+tests/test_accumulate.py:191: SystemError
+_____________________ test_accumulate_lengthhint_failure2 ______________________
+OverflowError: Python int too large to convert to C ssize_t
+
+The above exception was the direct cause of the following exception:
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @pytest.mark.xfail(not iteration_utilities.GE_PY34,
+                       reason='length does not work before Python 3.4')
+    @memory_leak_decorator(collect=True)
+    def test_accumulate_lengthhint_failure2():
+        of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
+        acc = accumulate(of_it)
+        with pytest.raises(OverflowError):
+>           operator.length_hint(acc)
+E           SystemError: <built-in method __length_hint__ of iteration_utilities.accumulate object at 0x775724bd95e8> returned a result with an error set
+
+tests/test_accumulate.py:206: SystemError
+______________________ test_replicate_failure_lengthhint3 ______________________
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @pytest.mark.xfail(not iteration_utilities.GE_PY34,
+                       reason='length does not work before Python 3.4')
+    @memory_leak_decorator(collect=True)
+    def test_replicate_failure_lengthhint3():
+        # It is also possible that the length_hint overflows when the length is
+        # below maxsize but "times * length" is above maxsize.
+        # In this case length = maxsize / 2 but times = 3
+        of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize // 2)
+        it = replicate(of_it, 3)
+        with pytest.raises(OverflowError):
+>           operator.length_hint(it)
+E           ValueError: __length_hint__() should return >= 0
+
+tests/test_replicate.py:194: ValueError
+______________________ test_replicate_failure_lengthhint4 ______________________
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @pytest.mark.xfail(not iteration_utilities.GE_PY34,
+                       reason='length does not work before Python 3.4')
+    @memory_leak_decorator(collect=True)
+    def test_replicate_failure_lengthhint4():
+        # There is also the possibility that "length * times" does not overflow
+        # but adding the "times - timescurrent" afterwards will overflow.
+        # That's a bit tricky, but it seems that ((2**x-1) // 10) * 10 + 9 > 2**x-1
+        # is true for x=15, 31, 63 and 127 so it's possible by setting the times to
+        # 10 and the length to sys.maxsize // 10. The 9 are because the first item
+        # is already popped and should be replicated 9 more times.
+        of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize // 10)
+        it = replicate(of_it, 10)
+        next(it)
+        with pytest.raises(OverflowError):
+>           operator.length_hint(it)
+E           ValueError: __length_hint__() should return >= 0
+
+tests/test_replicate.py:214: ValueError
+====================== 4 failed, 3 passed in 0.13 seconds ======================

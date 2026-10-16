@@ -1,0 +1,42 @@
+{
+  "label": "gold",
+  "image": "pyc-case128-prototype-base:latest",
+  "nodes": [
+    "tests/test_allisinstance.py::test_allisinstance_failure3",
+    "tests/test_anyisinstance.py::test_anyisinstance_normal1",
+    "tests/test_groupedby.py::test_groupedby_normal1",
+    "tests/test_allisinstance.py::test_allisinstance_failure5",
+    "tests/test_anyisinstance.py::test_anyisinstance_failure5",
+    "tests/test_groupedby.py::test_groupedby_failure10",
+    "tests/test_grouper.py::test_grouper_failure7"
+  ],
+  "startedAt": "2026-10-16T03:12:17.761Z",
+  "finishedAt": "2026-10-16T03:12:20.624Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case128_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case128_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case128-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/gold.diff; git apply /tmp/test.diff; python setup.py build_ext --inplace --force >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python /benchmark/pytest_no_dump.py -c /dev/null --rootdir=/testbed -vv 'tests/test_allisinstance.py::test_allisinstance_failure3' 'tests/test_anyisinstance.py::test_anyisinstance_normal1' 'tests/test_groupedby.py::test_groupedby_normal1' 'tests/test_allisinstance.py::test_allisinstance_failure5' 'tests/test_anyisinstance.py::test_anyisinstance_failure5' 'tests/test_groupedby.py::test_groupedby_failure10' 'tests/test_grouper.py::test_grouper_failure7'"
+  ]
+}

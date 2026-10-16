@@ -1,0 +1,53 @@
+{
+  "source_cases": [
+    "131",
+    "132"
+  ],
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_rows": [
+    [
+      "131",
+      "https://github.com/MSeifert04/iteration_utilities/commit/dc5e033ad648e5373ae1f34d4409380bbd4ab8a1",
+      "no description",
+      "line 202",
+      "Cross-Language API callsite ",
+      "return",
+      null,
+      " \n  202(c_accumulate_5-cfg.dot) (accumulate_lengthhint)\n …\n -> 199(c_accumulate_5-cfg.dot) (accumulate_lengthhint)\n -> 173(py_test_accumulate_41-cfg.dot) (test_accumulate_lengthhint1)",
+      "PyLong_FromSsize_t,Foreign,Integer Objects,PyObject_LengthHint,Foreign,bject Protocol",
+      "\n Python->C",
+      "\n\nSpecial case handling",
+      "Boundary check against value range/limit + return Null value",
+      "if/branching statement + function call"
+    ],
+    [
+      "132",
+      "https://github.com/MSeifert04/iteration_utilities/commit/dc5e033ad648e5373ae1f34d4409380bbd4ab8a1",
+      "no description",
+      "line 223",
+      "assignment",
+      null,
+      null,
+      " \n  202(c_replicate_11-cfg.dot) (replicate_lengthhint)\n …\n -> 199(c_replicate_11-cfg.dot) (replicate_lengthhint)\n -> 162(py_test_replicate_43-cfg.dot) (test_replicate_failure_lengthhint1)",
+      "PyLong_FromSsize_t,Foreign,Integer Objects,PyObject_LengthHint,Foreign,bject Protocol,PyErr_SetString,Foreign,Exception Handling",
+      "\n Python->C",
+      "\n\nInteger overflow",
+      "type conversion",
+      "assignment statement + return"
+    ]
+  ]
+}

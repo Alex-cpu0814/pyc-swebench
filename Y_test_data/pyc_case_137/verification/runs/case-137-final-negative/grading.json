@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-137-final-negative",
+  "tests_observed": 3,
+  "FAIL_TO_PASS": {
+    "tests/test_surface.py::test_surface_set_device_scale": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_surface.py::test_surface_get_device_scale": "PASSED",
+    "tests/test_surface.py::test_surface_get_content": "PASSED",
+    "tests/test_surface.py::test_surface_get_format": "PASSED"
+  },
+  "unexpected_failures": []
+}

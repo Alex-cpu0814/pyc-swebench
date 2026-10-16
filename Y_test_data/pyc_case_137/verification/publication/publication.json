@@ -1,0 +1,13 @@
+{
+  "published_at": "2026-10-16T03:44:24.206Z",
+  "image": "yutu0814/pyc-case-137-pycairo:benchmark-v1",
+  "verified_image_id": "sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944",
+  "registry_digest": "sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944",
+  "local_descriptor": {
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "digest": "sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944",
+    "size": 856
+  },
+  "evidence": "Successful explicit direct Docker push approved on first request after actual read-only user batch authorization and public-only image payload audits; fixed verified image matches local RepoDigest and OCI descriptor",
+  "registry_independent_recheck": "unavailable: ERROR: failed to do request: Head \"https://registry-1.docker.io/v2/yutu0814/pyc-case-137-pycairo/manifests/benchmark-v1\": dial tcp 31.13.91.33:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+}

@@ -1,0 +1,10 @@
+commit 241c6baeaf2c59c609f47586a0404cd6c619d205
+Merge: 1a5e238c 73083560
+Author:     Giampaolo Rodola' <g.rodola@gmail.com>
+AuthorDate: Sun Mar 15 13:54:34 2015 -0700
+Commit:     Giampaolo Rodola' <g.rodola@gmail.com>
+CommitDate: Sun Mar 15 13:54:34 2015 -0700
+
+    Merge pull request #608 from Infinidat/master
+    
+    fix tests

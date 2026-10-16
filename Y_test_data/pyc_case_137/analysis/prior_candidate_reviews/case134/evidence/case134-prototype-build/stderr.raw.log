@@ -1,0 +1,107 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.42kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#4 resolve public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN python -m pip install --no-cache-dir pip==21.3.1 setuptools==34.4.1 wheel==0.29.0 pytest==3.0.7 py==1.4.34 pytest-runner==2.11.1 coverage==4.3.4
+#5 2.451 Collecting pip==21.3.1
+#5 2.723   Downloading pip-21.3.1-py3-none-any.whl (1.7 MB)
+#5 4.029 Collecting setuptools==34.4.1
+#5 4.116   Downloading setuptools-34.4.1-py2.py3-none-any.whl (390 kB)
+#5 4.517 Collecting wheel==0.29.0
+#5 4.597   Downloading wheel-0.29.0-py2.py3-none-any.whl (66 kB)
+#5 4.861 Collecting pytest==3.0.7
+#5 4.941   Downloading pytest-3.0.7-py2.py3-none-any.whl (172 kB)
+#5 5.517 Collecting py==1.4.34
+#5 5.595   Downloading py-1.4.34-py2.py3-none-any.whl (84 kB)
+#5 5.822 Collecting pytest-runner==2.11.1
+#5 5.917   Downloading pytest_runner-2.11.1-py2.py3-none-any.whl (8.4 kB)
+#5 9.301 Collecting coverage==4.3.4
+#5 9.393   Downloading coverage-4.3.4-cp36-cp36m-manylinux1_x86_64.whl (191 kB)
+#5 9.734 Collecting six>=1.6.0
+#5 9.855   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#5 10.02 Collecting packaging>=16.8
+#5 10.11   Downloading packaging-21.3-py3-none-any.whl (40 kB)
+#5 10.27 Collecting appdirs>=1.4.0
+#5 10.35   Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+#5 10.57 Collecting pyparsing!=3.0.5,>=2.0.2
+#5 10.65   Downloading pyparsing-3.1.4-py3-none-any.whl (104 kB)
+#5 10.84 Installing collected packages: pyparsing, six, packaging, appdirs, setuptools, py, wheel, pytest-runner, pytest, pip, coverage
+#5 10.94   Attempting uninstall: setuptools
+#5 10.94     Found existing installation: setuptools 57.5.0
+#5 10.97     Uninstalling setuptools-57.5.0:
+#5 11.06       Successfully uninstalled setuptools-57.5.0
+#5 11.23   Attempting uninstall: wheel
+#5 11.23     Found existing installation: wheel 0.37.0
+#5 11.24     Uninstalling wheel-0.37.0:
+#5 11.25       Successfully uninstalled wheel-0.37.0
+#5 11.38   Attempting uninstall: pip
+#5 11.38     Found existing installation: pip 21.2.4
+#5 11.46     Uninstalling pip-21.2.4:
+#5 11.60       Successfully uninstalled pip-21.2.4
+#5 12.35 Successfully installed appdirs-1.4.4 coverage-4.3.4 packaging-21.3 pip-21.3.1 py-1.4.34 pyparsing-3.1.4 pytest-3.0.7 pytest-runner-2.11.1 setuptools-34.4.1 six-1.17.0 wheel-0.29.0
+#5 12.35 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#5 DONE 12.9s
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/MSeifert04/iteration_utilities.git" && git fetch --depth=1 --no-tags origin "479d40e12706983a298386df09d9e2a95e04e158" && git checkout --detach "479d40e12706983a298386df09d9e2a95e04e158" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "479d40e12706983a298386df09d9e2a95e04e158"
+#6 0.257 Initialized empty Git repository in /testbed/.git/
+#6 2.159 From https://github.com/MSeifert04/iteration_utilities
+#6 2.159  * branch            479d40e12706983a298386df09d9e2a95e04e158 -> FETCH_HEAD
+#6 2.176 HEAD is now at 479d40e Merge pull request #190 from MSeifert04/move_helper_out_of_package_directory
+#6 DONE 2.2s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.0s
+
+#8 [5/5] RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 0.421 running build_ext
+#8 0.423 building 'iteration_utilities._cfuncs' extension
+#8 0.423 creating build
+#8 0.424 creating build/temp.linux-x86_64-3.6
+#8 0.424 creating build/temp.linux-x86_64-3.6/src
+#8 0.424 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.6m -c src/_module.c -o build/temp.linux-x86_64-3.6/src/_module.o
+#8 1.863 creating build/lib.linux-x86_64-3.6
+#8 1.863 creating build/lib.linux-x86_64-3.6/iteration_utilities
+#8 1.864 gcc -pthread -shared build/temp.linux-x86_64-3.6/src/_module.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so
+#8 1.931 copying build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so -> iteration_utilities
+#8 1.982 Traceback (most recent call last):
+#8 1.982   File "<string>", line 1, in <module>
+#8 1.982 ModuleNotFoundError: No module named '_iteration_utilities'
+#8 ERROR: process "/bin/bash -o pipefail -c python setup.py build_ext --inplace --force && python -c \"import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')\" && git checkout HEAD -- . && printf '%s\\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z \"$(git status --porcelain)\"" did not complete successfully: exit code: 1
+------
+ > [5/5] RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)":
+0.424 creating build/temp.linux-x86_64-3.6
+0.424 creating build/temp.linux-x86_64-3.6/src
+0.424 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.6m -c src/_module.c -o build/temp.linux-x86_64-3.6/src/_module.o
+1.863 creating build/lib.linux-x86_64-3.6
+1.863 creating build/lib.linux-x86_64-3.6/iteration_utilities
+1.864 gcc -pthread -shared build/temp.linux-x86_64-3.6/src/_module.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so
+1.931 copying build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so -> iteration_utilities
+1.982 Traceback (most recent call last):
+1.982   File "<string>", line 1, in <module>
+1.982 ModuleNotFoundError: No module named '_iteration_utilities'
+------
+Dockerfile:10
+--------------------
+   8 |     RUN git init /testbed && cd /testbed && git remote add origin "${REPO_URL}" && git fetch --depth=1 --no-tags origin "${BASE_COMMIT}" && git checkout --detach "${BASE_COMMIT}" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "${BASE_COMMIT}"
+   9 |     WORKDIR /testbed
+  10 | >>> RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+  11 |     CMD ["/bin/bash"]
+  12 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/bash -o pipefail -c python setup.py build_ext --inplace --force && python -c \"import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')\" && git checkout HEAD -- . && printf '%s\\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z \"$(git status --porcelain)\"" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/lhr92ebpk7ku7112c1ejzdgcd

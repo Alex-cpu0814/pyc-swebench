@@ -1,0 +1,7 @@
+commit fd2205bad09db0efab8958c359897fc1772dc187
+Author:     Giampaolo Rodola <g.rodola@gmail.com>
+AuthorDate: Sun May 14 14:17:46 2017 +0200
+Commit:     Giampaolo Rodola <g.rodola@gmail.com>
+CommitDate: Sun May 14 14:17:46 2017 +0200
+
+    fix #1069 / freebsd: cpu_num() may return 255; now returns -1

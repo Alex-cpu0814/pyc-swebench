@@ -1,0 +1,55 @@
+{
+  "image": "yutu0814/pyc-case-094-pygame:benchmark-v1",
+  "scope": "Preprocess exact public Base/Gold C with ordinary Python3.8 include path; source itself defines_GNU_SOURCE. No compiler macro/allocator/test changes. No product tests or extension build run.",
+  "selected_native_function_identical": true,
+  "definitions": {
+    "base": {
+      "command": [
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case114-platform-review/native-base.c,target=/source/_psutil_linux.c,readonly",
+        "--mount",
+        "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case114-platform-review/upstream/psutil/_psutil_linux.h,target=/source/_psutil_linux.h,readonly",
+        "--entrypoint",
+        "/bin/bash",
+        "yutu0814/pyc-case-094-pygame:benchmark-v1",
+        "-lc",
+        "gcc -E -I/usr/local/include/python3.8 -I/source /source/_psutil_linux.c"
+      ],
+      "source_sha256": "3f5d76b7d5841fe417e7cf02bd492cee1815fc9759ddc342d8a96b6fc82cc8e6",
+      "preprocessor_exit": 0,
+      "raw_selected_definition_sha256": "684829ea1bec602bce9f9f4041767e97de61869d46d554577e01685fce1ed347",
+      "selected_definition_sha256": "50e24189ecb006958e03fffa78da5030a562c6511662b2cd7a82ae1d7f77d4c3",
+      "comparison_excludes_only_preprocessor_line_location_directives": true,
+      "primary_dynamic_cpu_set_branch": true,
+      "changed_pointer_initialization_branch_present": false
+    },
+    "gold": {
+      "command": [
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case114-platform-review/native-gold.c,target=/source/_psutil_linux.c,readonly",
+        "--mount",
+        "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case114-platform-review/upstream/psutil/_psutil_linux.h,target=/source/_psutil_linux.h,readonly",
+        "--entrypoint",
+        "/bin/bash",
+        "yutu0814/pyc-case-094-pygame:benchmark-v1",
+        "-lc",
+        "gcc -E -I/usr/local/include/python3.8 -I/source /source/_psutil_linux.c"
+      ],
+      "source_sha256": "908d330ab4be57f4f390242405ea66a640bb086b7c43b17a858cdca84d673b96",
+      "preprocessor_exit": 0,
+      "raw_selected_definition_sha256": "684829ea1bec602bce9f9f4041767e97de61869d46d554577e01685fce1ed347",
+      "selected_definition_sha256": "50e24189ecb006958e03fffa78da5030a562c6511662b2cd7a82ae1d7f77d4c3",
+      "comparison_excludes_only_preprocessor_line_location_directives": true,
+      "primary_dynamic_cpu_set_branch": true,
+      "changed_pointer_initialization_branch_present": false
+    }
+  }
+}

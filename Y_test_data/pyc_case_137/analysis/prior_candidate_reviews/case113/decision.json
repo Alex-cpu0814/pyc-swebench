@@ -1,0 +1,31 @@
+{
+  "case_number": "113",
+  "repo": "giampaolo/psutil",
+  "fix_commit": "08c6017fbb2820e7cefed8b0f41f59877969f7f3",
+  "base_commit": "36316de315a55dece354cf98533e647d7f62c49b",
+  "source_parents": [
+    "36316de315a55dece354cf98533e647d7f62c49b",
+    "be08da36c04cbb269de15c38d563dd62e5f1efb6"
+  ],
+  "status": "deferred_solaris_native_only",
+  "product_files": [
+    "psutil/_common.py",
+    "psutil/_pssunos.py",
+    "psutil/_psutil_sunos.c"
+  ],
+  "test_files": [
+    "test/test_psutil.py"
+  ],
+  "available_evaluator": "Docker Linux containers",
+  "required_platforms": [
+    "Solaris/SunOS"
+  ],
+  "runtime_verified": false,
+  "base_gold_tests_run": false,
+  "image_created": false,
+  "publication_performed": false,
+  "reason": "Complete first-parent product patch repairs Solaris _pssunos.net_connections argument agreement with _psutil_sunos.c and Solaris executable-path lookup. The only other product change removes an unused _common.py shebang/comment. Linux setup/import select the unchanged Linux implementation, not Solaris /dev/arp native networking. The sole official test diff adds skipIf(SUNOS) to an unrelated funky-executable-name test; it does not add a discriminating net_connections test on Linux. No Linux product FAIL_TO_PASS is established.",
+  "source_trace": "Original row112 traces _psutil_sunos.c psutil_net_connections to _pssunos.net_connections; retained verbatim. Source commit is a two-parent merge and the exact first-parent complete patch is preserved.",
+  "future_admission": "Use real Solaris native dependencies and complete official tests for an actual Base/Gold distinction. Do not fake platform selection, invoke Solaris C under Linux, weaken assertions or treat the common shebang deletion as a behavioral fix.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case113"
+}

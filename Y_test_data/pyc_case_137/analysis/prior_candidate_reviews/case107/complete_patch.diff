@@ -1,0 +1,82 @@
+diff --git a/HISTORY.rst b/HISTORY.rst
+index 2ada3621..eeb38bec 100644
+--- a/HISTORY.rst
++++ b/HISTORY.rst
+@@ -54,6 +54,8 @@
+ - 1064_: [NetBSD] swap_memory() may segfault in case of error.
+ - 1065_: [OpenBSD] Process.cmdline() may raise SystemError.
+ - 1067_: [NetBSD] Process.cmdline() leaks memory if proces has terminated.
++- 1069_: [FreeBSD] Process.cpu_num() may return 255 for certain kernel
++  processes.
+ 
+ **Porting notes**
+ 
+diff --git a/docs/index.rst b/docs/index.rst
+index 2bbcde7b..4c0bb597 100644
+--- a/docs/index.rst
++++ b/docs/index.rst
+@@ -1472,6 +1472,7 @@ Process class
+ 
+     Return what CPU this process is currently running on.
+     The returned number should be ``<=`` :func:`psutil.cpu_count()`.
++    On FreeBSD certain kernel process may return ``-1``.
+     It may be used in conjunction with ``psutil.cpu_percent(percpu=True)`` to
+     observe the system workload distributed across multiple CPUs as shown by
+     `cpu_distribution.py <https://github.com/giampaolo/psutil/blob/master/scripts/cpu_distribution.py>`__ example script.
+diff --git a/psutil/_psutil_bsd.c b/psutil/_psutil_bsd.c
+index 6478cc65..03bdd94f 100644
+--- a/psutil/_psutil_bsd.c
++++ b/psutil/_psutil_bsd.c
+@@ -197,7 +197,7 @@ psutil_proc_oneshot_info(PyObject *self, PyObject *args) {
+     long memtext;
+     long memdata;
+     long memstack;
+-    unsigned char oncpu;
++    int oncpu;
+     kinfo_proc kp;
+     long pagesize = sysconf(_SC_PAGESIZE);
+     char str[1000];
+@@ -252,6 +252,7 @@ psutil_proc_oneshot_info(PyObject *self, PyObject *args) {
+     // what CPU we're on; top was used as an example:
+     // https://svnweb.freebsd.org/base/head/usr.bin/top/machine.c?
+     //     view=markup&pathrev=273835
++    // XXX - note: for "intr" PID this is -1.
+     if (kp.ki_stat == SRUN && kp.ki_oncpu != NOCPU)
+         oncpu = kp.ki_oncpu;
+     else
+@@ -300,7 +301,7 @@ psutil_proc_oneshot_info(PyObject *self, PyObject *args) {
+         memdata,                          // (long) mem data
+         memstack,                         // (long) mem stack
+         // others
+-        oncpu,                            // (unsigned char) the CPU we are on
++        oncpu,                            // (int) the CPU we are on
+ #elif defined(PSUTIL_OPENBSD) || defined(PSUTIL_NETBSD)
+         //
+         (long)kp.p_ppid,                 // (long) ppid
+@@ -336,7 +337,7 @@ psutil_proc_oneshot_info(PyObject *self, PyObject *args) {
+         memdata,                          // (long) mem data
+         memstack,                         // (long) mem stack
+         // others
+-        oncpu,                            // (unsigned char) the CPU we are on
++        oncpu,                            // (int) the CPU we are on
+ #endif
+         py_name                           // (pystr) name
+     );
+diff --git a/psutil/tests/test_contracts.py b/psutil/tests/test_contracts.py
+index 7666f2f8..7dd83259 100755
+--- a/psutil/tests/test_contracts.py
++++ b/psutil/tests/test_contracts.py
+@@ -468,10 +468,12 @@ class TestFetchAllProcesses(unittest.TestCase):
+ 
+     def cpu_num(self, ret, proc):
+         self.assertIsInstance(ret, int)
++        if FREEBSD and ret == -1:
++            return
+         self.assertGreaterEqual(ret, 0)
+         if psutil.cpu_count() == 1:
+             self.assertEqual(ret, 0)
+-        self.assertIn(ret, range(psutil.cpu_count()))
++        self.assertIn(ret, list(range(psutil.cpu_count())))
+ 
+     def memory_info(self, ret, proc):
+         assert is_namedtuple(ret)

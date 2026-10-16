@@ -1,0 +1,9 @@
+{
+  "phase": "authoring_verification",
+  "initial_helper": "verify_case137_initial_layout.py",
+  "reason": "Prototype keeps stdout/stderr separately, leaving a standalone target-start progress line. Formal original runner combines stdout/stderr, so bash Aborted text follows the target-start progress on the same line. Initial verifier incorrectly required standalone layout.",
+  "correction": "Accept actual anchored full target-start plus same-line native Aborted diagnostic, while still requiring no target terminal status, phase exit134, canonical MISSING and three genuine preceding regression passes.",
+  "raw_logs_edited": false,
+  "tests_repeated": false,
+  "terminal_status_fabricated": false
+}

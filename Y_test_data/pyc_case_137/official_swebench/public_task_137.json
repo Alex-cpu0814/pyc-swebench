@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygobject__pycairo-065a7a7a",
+  "repo": "pygobject/pycairo",
+  "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "problem_statement": "Surface.set_device_scale should reject a noninvertible scale with cairo.Error instead of terminating Python, while valid scaling and ordinary surface properties remain correct.",
+  "hints_text": "",
+  "created_at": "2017-07-11",
+  "version": "1.13.4",
+  "issue_id": "50",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/50"
+}

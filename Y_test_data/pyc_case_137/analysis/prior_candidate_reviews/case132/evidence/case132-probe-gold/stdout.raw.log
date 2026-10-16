@@ -1,0 +1,54 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile: pytest.ini
+collecting ... collected 152 items
+
+tests/test_accumulate.py::test_accumulate_lengthhint_failure1 <- tests/helper_leak.py FAILED
+tests/test_accumulate.py::test_accumulate_lengthhint_failure2 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_failure_lengthhint3 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_failure_lengthhint4 <- tests/helper_leak.py PASSED
+tests/test_accumulate.py::test_accumulate_lengthhint1 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_lengthhint1 <- tests/helper_leak.py PASSED
+tests/test_replicate.py::test_replicate_normal1 <- tests/helper_leak.py PASSED
+
+=================================== FAILURES ===================================
+_____________________ test_accumulate_lengthhint_failure1 ______________________
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+        func()
+        if collect:
+            gc.collect()  # Takes care of cyclic references!
+    
+        # Tracked objects after the function call
+        after.update(map(type, gc.get_objects()))
+    
+        specifics = _make_tuple(specific_object)
+        if not specifics:
+            specifics = set(after)
+        excludes = set(_make_tuple(exclude_object))
+    
+        if any(after[specific] - before[specific] > 0
+               for specific in specifics
+               if specific not in excludes and
+               specific in before):
+            raise TypeError('leaked objects: {}'.format(
+                {specific: after[specific] - before[specific]
+>                for specific in specifics
+                 if specific not in excludes and
+                 after[specific] - before[specific] > 0}))
+E           TypeError: leaked objects: {<class '_weakrefset.WeakSet'>: 1}
+
+tests/helper_leak.py:96: TypeError
+====================== 1 failed, 6 passed in 0.12 seconds ======================

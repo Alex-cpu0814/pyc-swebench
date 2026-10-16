@@ -1,0 +1,13 @@
+diff --git a/psutil/_psutil_windows.c b/psutil/_psutil_windows.c
+index 32f00b67..7ff1fcf3 100644
+--- a/psutil/_psutil_windows.c
++++ b/psutil/_psutil_windows.c
+@@ -3062,7 +3062,7 @@ psutil_net_if_stats(PyObject *self, PyObject *args) {
+         );
+         if (!py_ifc_info)
+             goto error;
+-        if (PyDict_SetItemString(py_retdict, py_nic_name, py_ifc_info))
++        if (PyDict_SetItem(py_retdict, py_nic_name, py_ifc_info))
+             goto error;
+         Py_DECREF(py_nic_name);
+         Py_DECREF(py_ifc_info);

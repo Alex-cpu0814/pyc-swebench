@@ -1,0 +1,8 @@
+{
+  "initial_evidence": "case134-prototype-build",
+  "reason": "Normal native build succeeded, but inherited later-source top-level _iteration_utilities import audit was wrong for this actual Base. Exact setup.py defines iteration_utilities._cfuncs and __init__ imports it. Correct only audit path/import, preserving raw failed attempt and initial Dockerfile.",
+  "actual_native_module": "iteration_utilities._cfuncs",
+  "actual_version": "0.5.2",
+  "product_or_tests_modified": false,
+  "compiler_or_memory_parameters_changed": false
+}

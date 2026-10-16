@@ -1,0 +1,85 @@
+{
+  "source_cases": [
+    "127",
+    "128",
+    "129",
+    "130"
+  ],
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_rows": [
+    [
+      "127",
+      "https://github.com/MSeifert04/iteration_utilities/commit/119cfcffe1885fca178e15710f084b25d387a658",
+      "incorrect result/output",
+      "line 31",
+      "function call",
+      "assignment",
+      "loop",
+      " \n  31(c_allisinstance_3-cfg.dot) (PyIU_AllIsinstance)\n…\n-> 5(c_allisinstance_3-cfg.dot) (PyIU_AllIsinstance)\n -> 76(py_test_allisinstance_34-cfg.dot) (test_allisinstance_failure5)",
+      "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,Py_TYPE,Foreign,Common Object Structures,PyObject_GetIter,Foreign,Object Protocol",
+      "\n Python->C",
+      "\n\nLogic error",
+      "Move initialization into loop body",
+      "assignment statement + foreign function call + loop"
+    ],
+    [
+      "128",
+      "https://github.com/MSeifert04/iteration_utilities/commit/119cfcffe1885fca178e15710f084b25d387a658",
+      "incorrect result/output",
+      "line 31",
+      "function call",
+      "assignment",
+      "loop",
+      " \n  31(c_anyisinstance_4-cfg.dot) (PyIU_AllIsinstance)\n…\n-> 5(c_anyisinstance_4-cfg.dot) (PyIU_AllIsinstance)\n -> 81(py_test_anyisinstance_35-cfg.dot) (test_anyisinstance_failure5)",
+      "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,Py_TYPE,Foreign,Common Object Structures,PyObject_GetIter,Foreign,Object Protocol",
+      "\n Python->C",
+      "\n\nLogic error",
+      "Move initialization into loop body",
+      "assignment statement + foreign function call + loop"
+    ],
+    [
+      "129",
+      "https://github.com/MSeifert04/iteration_utilities/commit/119cfcffe1885fca178e15710f084b25d387a658",
+      "incorrect result/output",
+      "line 72",
+      "function call",
+      "assignment",
+      "True/False branch",
+      " \n  72(c_groupedby_9-cfg.dot) (PyIU_Groupby)\n…\n-> 5(c_groupedby_9-cfg.dot) (PyIU_Groupby)\n -> 159(py_test_groupedby_39-cfg.dot) (test_groupedby_failure10)",
+      "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,Py_TYPE,Foreign,Common Object Structures,PyObject_GetIter,Foreign,Object Protocol",
+      "\n Python->C",
+      "\n\nLogic error",
+      "Move initialization into loop body",
+      "assignment statement + foreign function call + loop"
+    ],
+    [
+      "130",
+      "https://github.com/MSeifert04/iteration_utilities/commit/119cfcffe1885fca178e15710f084b25d387a658",
+      "incorrect result/output",
+      "line 154",
+      "function call",
+      "assignment",
+      "loop",
+      " \n  154(c_grouper_10-cfg.dot) (grouper_next)\n…\n-> 121(c_grouper_10-cfg.dot) (grouper_next)\n -> 216(py_test_grouper_39-cfg.dot) (test_grouper_failure7)",
+      "PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values,Py_TYPE,Foreign,Common Object Structures,PyObject_GetIter,Foreign,Object Protocol,Py_REFCNT,Foreign,Reference Counting",
+      "\n Python->C",
+      "\n\nLogic error",
+      "Move initialization into loop body",
+      "assignment statement + foreign function call + loop"
+    ]
+  ]
+}

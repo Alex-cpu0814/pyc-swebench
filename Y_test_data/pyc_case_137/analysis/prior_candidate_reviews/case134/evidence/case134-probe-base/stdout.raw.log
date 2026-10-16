@@ -1,0 +1,185 @@
+running pytest
+running egg_info
+creating iteration_utilities.egg-info
+writing iteration_utilities.egg-info/PKG-INFO
+writing dependency_links to iteration_utilities.egg-info/dependency_links.txt
+writing top-level names to iteration_utilities.egg-info/top_level.txt
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+running build_ext
+copying build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so -> iteration_utilities
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile: pytest.ini
+collecting ... collected 190 items
+
+tests/test_deepflatten.py::test_deepflatten_failure9 <- tests/helper_leak.py FAILED
+tests/test_deepflatten.py::test_deepflatten_failure10 <- tests/helper_leak.py FAILED
+tests/test_deepflatten.py::test_deepflatten_normal1 <- tests/helper_leak.py PASSED
+tests/test_deepflatten.py::test_deepflatten_types1 <- tests/helper_leak.py PASSED
+tests/test_deepflatten.py::test_deepflatten_ignore1 <- tests/helper_leak.py PASSED
+
+=================================== FAILURES ===================================
+__________________________ test_deepflatten_failure9 ___________________________
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @memory_leak_decorator(collect=True)
+    def test_deepflatten_failure9():
+        # Check that everyting is working even if isinstance fails
+        df = deepflatten(toT([1, 2, 3, 4]), types=FailingIsinstanceClass)
+        with pytest.raises(TypeError) as exc:
+            list(df)
+>       assert 'isinstance failed' in str(exc)
+E       assert 'isinstance failed' in "/testbed/tests/test_deepflatten.py:216: TypeError: 'T' object is not iterable"
+E        +  where "/testbed/tests/test_deepflatten.py:216: TypeError: 'T' object is not iterable" = str(<ExceptionInfo TypeError tblen=1>)
+
+tests/test_deepflatten.py:217: AssertionError
+__________________________ test_deepflatten_failure10 __________________________
+
+cls = <class 'helper_cls.FailingIsinstanceClass'>, instance = T(1)
+
+    def __instancecheck__(cls, instance):
+        """Override for isinstance(instance, cls)."""
+        # Inline the cache checking
+        subclass = instance.__class__
+        if subclass in cls._abc_cache:
+            return True
+        subtype = type(instance)
+        if subtype is subclass:
+            if (cls._abc_negative_cache_version ==
+                ABCMeta._abc_invalidation_counter and
+                subclass in cls._abc_negative_cache):
+                return False
+            # Fall back to the subclass check.
+>           return cls.__subclasscheck__(subclass)
+
+/usr/local/lib/python3.6/abc.py:193: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'helper_cls.FailingIsinstanceClass'>
+subclass = <class 'helper_cls.T'>
+
+    def __subclasscheck__(cls, subclass):
+        """Override for issubclass(subclass, cls)."""
+        # Check cache
+        if subclass in cls._abc_cache:
+            return True
+        # Check negative cache; may have to invalidate
+        if cls._abc_negative_cache_version < ABCMeta._abc_invalidation_counter:
+            # Invalidate the negative cache
+            cls._abc_negative_cache = WeakSet()
+            cls._abc_negative_cache_version = ABCMeta._abc_invalidation_counter
+        elif subclass in cls._abc_negative_cache:
+            return False
+        # Check the subclass hook
+>       ok = cls.__subclasshook__(subclass)
+
+/usr/local/lib/python3.6/abc.py:209: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'helper_cls.FailingIsinstanceClass'>, C = <class 'helper_cls.T'>
+
+>   ???
+E   TypeError: isinstance failed
+
+<string>:5: TypeError
+
+The above exception was the direct cause of the following exception:
+
+cls = <class 'helper_cls.FailingIsinstanceClass'>, instance = T(2)
+
+    def __instancecheck__(cls, instance):
+        """Override for isinstance(instance, cls)."""
+        # Inline the cache checking
+        subclass = instance.__class__
+>       if subclass in cls._abc_cache:
+
+/usr/local/lib/python3.6/abc.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_weakrefset.WeakSet object at 0x797411c6d1d0>
+item = <class 'helper_cls.T'>
+
+    def __contains__(self, item):
+        try:
+>           wr = ref(item)
+E           SystemError: <class 'weakref'> returned a result with an error set
+
+/usr/local/lib/python3.6/_weakrefset.py:72: SystemError
+
+The above exception was the direct cause of the following exception:
+
+cls = <class 'helper_cls.FailingIsinstanceClass'>, instance = T(3)
+
+    def __instancecheck__(cls, instance):
+        """Override for isinstance(instance, cls)."""
+        # Inline the cache checking
+        subclass = instance.__class__
+>       if subclass in cls._abc_cache:
+
+/usr/local/lib/python3.6/abc.py:184: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_weakrefset.WeakSet object at 0x797411c6d1d0>
+item = <class 'helper_cls.T'>
+
+    def __contains__(self, item):
+        try:
+>           wr = ref(item)
+E           SystemError: <class 'weakref'> returned a result with an error set
+
+/usr/local/lib/python3.6/_weakrefset.py:72: SystemError
+
+The above exception was the direct cause of the following exception:
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+>       func()
+
+tests/helper_leak.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_deepflatten.py:225: in test_deepflatten_failure10
+    list(df)
+/usr/local/lib/python3.6/abc.py:184: in __instancecheck__
+    if subclass in cls._abc_cache:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_weakrefset.WeakSet object at 0x797411c6d1d0>
+item = <class 'helper_cls.T'>
+
+    def __contains__(self, item):
+        try:
+>           wr = ref(item)
+E           SystemError: <class 'weakref'> returned a result with an error set
+
+/usr/local/lib/python3.6/_weakrefset.py:72: SystemError
+====================== 2 failed, 3 passed in 0.16 seconds ======================

@@ -1,0 +1,64 @@
+running pytest
+running egg_info
+creating iteration_utilities.egg-info
+writing iteration_utilities.egg-info/PKG-INFO
+writing dependency_links to iteration_utilities.egg-info/dependency_links.txt
+writing top-level names to iteration_utilities.egg-info/top_level.txt
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+running build_ext
+copying build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so -> iteration_utilities
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile: pytest.ini
+collecting ... collected 190 items
+
+tests/test_deepflatten.py::test_deepflatten_failure9 <- tests/helper_leak.py FAILED
+tests/test_deepflatten.py::test_deepflatten_failure10 <- tests/helper_leak.py PASSED
+tests/test_deepflatten.py::test_deepflatten_normal1 <- tests/helper_leak.py PASSED
+tests/test_deepflatten.py::test_deepflatten_types1 <- tests/helper_leak.py PASSED
+tests/test_deepflatten.py::test_deepflatten_ignore1 <- tests/helper_leak.py PASSED
+
+=================================== FAILURES ===================================
+__________________________ test_deepflatten_failure9 ___________________________
+
+    def inner():
+        for i in range(offset):
+            func()
+    
+        # Create Counter before listing the objects otherwise they would
+        # be recognized as leak.
+        before = collections.Counter()
+        after = collections.Counter()
+    
+        # Tracked objects before the function call
+        before.update(map(type, gc.get_objects()))
+    
+        func()
+        if collect:
+            gc.collect()  # Takes care of cyclic references!
+    
+        # Tracked objects after the function call
+        after.update(map(type, gc.get_objects()))
+    
+        specifics = _make_tuple(specific_object)
+        if not specifics:
+            specifics = set(after)
+        excludes = set(_make_tuple(exclude_object))
+    
+        if any(after[specific] - before[specific] > 0
+               for specific in specifics
+               if specific not in excludes and
+               specific in before):
+            raise TypeError('leaked objects: {}'.format(
+                {specific: after[specific] - before[specific]
+>                for specific in specifics
+                 if specific not in excludes and
+                 after[specific] - before[specific] > 0}))
+E           TypeError: leaked objects: {<class '_weakrefset.WeakSet'>: 1}
+
+tests/helper_leak.py:99: TypeError
+====================== 1 failed, 4 passed in 0.14 seconds ======================

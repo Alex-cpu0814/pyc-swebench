@@ -1,0 +1,10 @@
+commit 08c6017fbb2820e7cefed8b0f41f59877969f7f3
+Merge: 36316de3 be08da36
+Author:     Giampaolo Rodola <g.rodola@gmail.com>
+AuthorDate: Sat Oct 31 18:26:37 2015 +0100
+Commit:     Giampaolo Rodola <g.rodola@gmail.com>
+CommitDate: Sat Oct 31 18:26:37 2015 +0100
+
+    Merge pull request #707 from Infinidat/small_fixes
+    
+    Small fixes

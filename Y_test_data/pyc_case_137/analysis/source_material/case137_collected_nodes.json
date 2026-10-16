@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    "tests/test_surface.py::test_surface_get_device_scale",
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format",
+    "tests/test_surface.py::test_surface_set_device_scale"
+  ],
+  "count": 4,
+  "source": "Actual original pytest collection; run order3regressions then native target"
+}

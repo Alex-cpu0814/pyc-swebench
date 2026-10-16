@@ -1,0 +1,82 @@
+diff --git a/docs/CHANGES.rst b/docs/CHANGES.rst
+index 85c0f01..db0f254 100644
+--- a/docs/CHANGES.rst
++++ b/docs/CHANGES.rst
+@@ -13,6 +13,9 @@ Version 0.6.0 (unreleased)
+ 
+ - Added several attributes to classes.
+ 
++- Fixed a Bug in ``deepflatten`` when ``isinstance`` fails for the classes
++  given as ``types`` or ``ignore`` parameter.
++
+ 
+ Version 0.5.2 (2017-03-30)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/src/_itemidxkey.c b/src/_itemidxkey.c
+index 797f33c..067d663 100644
+--- a/src/_itemidxkey.c
++++ b/src/_itemidxkey.c
+@@ -21,8 +21,8 @@ typedef struct {
+ 
+ PyTypeObject PyIUType_ItemIdxKey;
+ 
+-#define PyIU_ItemIdxKey_Check(obj) PyObject_IsInstance(obj, (PyObject*) &PyIUType_ItemIdxKey)
+-#define PyIU_ItemIdxKey_CheckExact(op) (Py_TYPE(op) == &PyIUType_ItemIdxKey)
++#define PyIU_ItemIdxKey_Check(o) PyObject_TypeCheck(o, &PyIUType_ItemIdxKey)
++#define PyIU_ItemIdxKey_CheckExact(o) (Py_TYPE(o) == &PyIUType_ItemIdxKey)
+ 
+ /******************************************************************************
+  * New
+diff --git a/src/_seen.c b/src/_seen.c
+index c8fc4bf..0faf2b5 100644
+--- a/src/_seen.c
++++ b/src/_seen.c
+@@ -31,8 +31,8 @@ typedef struct {
+ 
+ PyTypeObject PyIUType_Seen;
+ 
+-#define PyIUSeen_Check(obj) (PyObject_IsInstance(obj, (PyObject*) &PyIUType_Seen))
+-#define PyIUSeen_CheckExact(op) (Py_TYPE(op) == &PyIUType_Seen)
++#define PyIUSeen_Check(o) (PyObject_TypeCheck(o, &PyIUType_Seen))
++#define PyIUSeen_CheckExact(o) (Py_TYPE(o) == &PyIUType_Seen)
+ 
+ /******************************************************************************
+  * Creates a new PyIUSeen objects with empty seenset and seenlist.
+diff --git a/src/deepflatten.c b/src/deepflatten.c
+index 2caea97..8628c8e 100644
+--- a/src/deepflatten.c
++++ b/src/deepflatten.c
+@@ -118,6 +118,7 @@ static PyObject *
+ deepflatten_next(PyIUObject_DeepFlatten *self)
+ {
+     PyObject *activeiterator, *item, *temp;
++    int ok;
+ 
+     if (self->currentdepth < 0) {
+         return NULL;
+@@ -167,13 +168,22 @@ deepflatten_next(PyIUObject_DeepFlatten *self)
+ 
+         /* First check if the item is an instance of the ignored types, if
+            it is, then simply return it. */
+-        } else if (self->ignore && PyObject_IsInstance(item, self->ignore)) {
+-            return item;
++        } else if (self->ignore &&
++                (ok = PyObject_IsInstance(item, self->ignore))) {
++            if (ok == 1) {
++                return item;
++            }
++            Py_DECREF(item);
++            return NULL;
+ 
+         /* If types is given then check if it's an instance thereof and if
+            so replace activeiterator, otherwise return the item. */
+         } else if (self->types) {
+-            if (PyObject_IsInstance(item, self->types)) {
++            if (ok = PyObject_IsInstance(item, self->types)) {
++                if (ok == -1) {
++                    Py_DECREF(item);
++                    return NULL;
++                }
+                 /* Check if it's a builtin-string-type and if so set
+                    "isstring". Check for the exact type because sub types might
+                    have custom __iter__ methods, better not to interfere with

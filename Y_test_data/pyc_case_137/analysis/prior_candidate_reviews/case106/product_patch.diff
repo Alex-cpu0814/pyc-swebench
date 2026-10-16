@@ -1,0 +1,38 @@
+diff --git a/HISTORY.rst b/HISTORY.rst
+index dc49d65f..35185d62 100644
+--- a/HISTORY.rst
++++ b/HISTORY.rst
+@@ -27,6 +27,8 @@
+   skipping a file which gets deleted while open files are retrieved.
+ - 1029_: [OSX, FreeBSD] Process.connections('unix') on Python 3 doesn't
+   properly handle unicode paths and may raise UnicodeDecodeError.
++- 1033_: [OSX, FreeBSD] memory leak for net_connections() and
++  Process.connections() when retrieving UNIX sockets (kind='unix').
+ 
+ *2017-04-10*
+ 
+diff --git a/psutil/_psutil_osx.c b/psutil/_psutil_osx.c
+index 90391ddc..559ffab9 100644
+--- a/psutil/_psutil_osx.c
++++ b/psutil/_psutil_osx.c
+@@ -1384,6 +1384,8 @@ psutil_proc_connections(PyObject *self, PyObject *args) {
+                 if (PyList_Append(py_retlist, py_tuple))
+                     goto error;
+                 Py_DECREF(py_tuple);
++                Py_DECREF(py_laddr);
++                Py_DECREF(py_raddr);
+             }
+         }
+     }
+diff --git a/psutil/arch/bsd/freebsd_socks.c b/psutil/arch/bsd/freebsd_socks.c
+index b30fa8f8..187a93de 100644
+--- a/psutil/arch/bsd/freebsd_socks.c
++++ b/psutil/arch/bsd/freebsd_socks.c
+@@ -618,6 +618,7 @@ psutil_proc_connections(PyObject *self, PyObject *args) {
+                 if (PyList_Append(py_retlist, py_tuple))
+                     goto error;
+                 Py_DECREF(py_tuple);
++                Py_DECREF(py_laddr);
+                 Py_INCREF(Py_None);
+             }
+         }

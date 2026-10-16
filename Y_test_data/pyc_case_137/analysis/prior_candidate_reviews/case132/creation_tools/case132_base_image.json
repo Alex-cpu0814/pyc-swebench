@@ -1,0 +1,9 @@
+{
+  "public_image": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "image_id": "sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "repo_digests": [
+    "public.ecr.aws/docker/library/python@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e"
+  ],
+  "host_inputs": false,
+  "selection": "Original .travis.yml lists stable CPython3.6; use public pinned CPython3.6.15 and period pytest3.0.7 before attempting case132. No backtracking to case128 or test/order search. All original memory checks preserved."
+}

@@ -1,0 +1,29 @@
+{
+  "case_number": "111",
+  "repo": "giampaolo/psutil",
+  "fix_commit": "5f02dd0c04576633bd0740c756bef3a64efe3ebc",
+  "base_commit": "9f6c61927379aa007d1239240f8225dd97442698",
+  "source_parents": [
+    "9f6c61927379aa007d1239240f8225dd97442698",
+    "b2456eedb469f673e6234410f8c95bf6320920a9"
+  ],
+  "status": "deferred_windows_native_and_wmi_only",
+  "product_files": [
+    "psutil/_psutil_windows.c"
+  ],
+  "test_files": [
+    "test/_windows.py"
+  ],
+  "available_evaluator": "Docker Linux containers",
+  "required_platforms": [
+    "Windows with WMI and real network adapters"
+  ],
+  "runtime_verified": false,
+  "base_gold_tests_run": false,
+  "image_created": false,
+  "publication_performed": false,
+  "reason": "Only product change is Windows _psutil_windows.c net_if_stats replacing PyDict_SetItemString with PyDict_SetItem for a Python object key. Complete added test is in WindowsSpecificTestCase decorated skipUnless(WINDOWS), additionally skipIf(wmi is None), and compares actual native adapter names to WMI Win32_NetworkAdapter. Current standard evaluator is Linux Docker, which cannot compile/execute this Windows native module or WMI assertion. Host Windows availability alone is not a validated matching Windows benchmark image/runtime.",
+  "source_trace": "Original row110 traces psutil_net_if_stats in _psutil_windows.c to test_net_if_stats; retained verbatim.",
+  "future_admission": "Use a real supported Windows evaluator with original WMI dependency/native build and adapter state, preserving complete official test. Do not fake WINDOWS, remove skip guards, mock WMI/native results or claim Linux same-name behavior validates this fix.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case111"
+}

@@ -1,0 +1,513 @@
+diff --git a/docs/CHANGES.rst b/docs/CHANGES.rst
+index 0c95099..a585a61 100644
+--- a/docs/CHANGES.rst
++++ b/docs/CHANGES.rst
+@@ -1,9 +1,13 @@
+ Changelog for "iteration_utilities"
+ -----------------------------------
+ 
+-Version 0.7.0 (unreleased)
++Version 0.6.1 (unreleased)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
++- The ``__next__`` or ``next`` method of the iterator is not cached in the
++  ``iteration_utilities`` iterators anymore. This allows for the (rare) case
++  that this method is reassigned or deleted.
++
+ 
+ Version 0.6.0 (2017-04-08)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/src/accumulate.c b/src/accumulate.c
+index a9b04aa..806c9a5 100644
+--- a/src/accumulate.c
++++ b/src/accumulate.c
+@@ -127,7 +127,7 @@ accumulate_next(PyIUObject_Accumulate *self)
+     PyObject *item, *oldtotal, *newtotal;
+ 
+     /* Get next item from iterator.  */
+-    item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++    item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+     if (item == NULL) {
+         return NULL;
+     }
+diff --git a/src/alldistinct.c b/src/alldistinct.c
+index 7edda24..85f6c00 100644
+--- a/src/alldistinct.c
++++ b/src/alldistinct.c
+@@ -19,7 +19,7 @@ PyIU_AllDistinct(PyObject *m,
+     }
+ 
+     /* Almost identical to unique_everseen so no inline commments. */
+-    while ( (item = (*Py_TYPE(iterator)->tp_iternext)(iterator)) ) {
++    while ( (item = Py_TYPE(iterator)->tp_iternext(iterator)) ) {
+ 
+         /* Check if the item is in seen. */
+         ok = PyIUSeen_ContainsAdd(seen, item);
+diff --git a/src/allequal.c b/src/allequal.c
+index aa02baa..ec2ace7 100644
+--- a/src/allequal.c
++++ b/src/allequal.c
+@@ -14,7 +14,7 @@ PyIU_AllEqual(PyObject *m,
+         goto Fail;
+     }
+ 
+-    while ( (item = (*Py_TYPE(iterator)->tp_iternext)(iterator)) ) {
++    while ( (item = Py_TYPE(iterator)->tp_iternext(iterator)) ) {
+         if (first == NULL) {
+             first = item;
+             continue;
+diff --git a/src/allisinstance.c b/src/allisinstance.c
+index 512157f..e719775 100644
+--- a/src/allisinstance.c
++++ b/src/allisinstance.c
+@@ -12,7 +12,6 @@ PyIU_AllIsinstance(PyObject *m,
+     PyObject *types;
+ 
+     PyObject *iterator;
+-    PyObject *(*iternext)(PyObject *);
+ 
+     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "OO:all_isinstance", kwlist,
+                                      &iterable, &types)) {
+@@ -24,11 +23,9 @@ PyIU_AllIsinstance(PyObject *m,
+         return NULL;
+     }
+ 
+-    iternext = *Py_TYPE(iterator)->tp_iternext;
+-
+     for (;;) {
+         int ok;
+-        PyObject *item = iternext(iterator);
++        PyObject *item = Py_TYPE(iterator)->tp_iternext(iterator);
+         if (item == NULL) {
+             break;
+         }
+diff --git a/src/allmonotone.c b/src/allmonotone.c
+index d963ea7..6610d65 100644
+--- a/src/allmonotone.c
++++ b/src/allmonotone.c
+@@ -22,7 +22,7 @@ PyIU_Monotone(PyObject *m,
+     }
+     op = decreasing ? (strict ? Py_GT : Py_GE) : (strict ? Py_LT : Py_LE);
+ 
+-    while ( (item = (*Py_TYPE(iterator)->tp_iternext)(iterator)) ) {
++    while ( (item = Py_TYPE(iterator)->tp_iternext(iterator)) ) {
+         if (last == NULL) {
+             last = item;
+             continue;
+diff --git a/src/anyisinstance.c b/src/anyisinstance.c
+index f1728d1..91b4687 100644
+--- a/src/anyisinstance.c
++++ b/src/anyisinstance.c
+@@ -12,7 +12,6 @@ PyIU_AnyIsinstance(PyObject *m,
+     PyObject *types;
+ 
+     PyObject *iterator;
+-    PyObject *(*iternext)(PyObject *);
+ 
+     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "OO:any_isinstance", kwlist,
+                                      &iterable, &types)) {
+@@ -24,11 +23,9 @@ PyIU_AnyIsinstance(PyObject *m,
+         return NULL;
+     }
+ 
+-    iternext = *Py_TYPE(iterator)->tp_iternext;
+-
+     for (;;) {
+         int ok;
+-        PyObject *item = iternext(iterator);
++        PyObject *item = Py_TYPE(iterator)->tp_iternext(iterator);
+         if (item == NULL) {
+             break;
+         }
+diff --git a/src/argminmax.c b/src/argminmax.c
+index 588b706..2c21d95 100644
+--- a/src/argminmax.c
++++ b/src/argminmax.c
+@@ -58,7 +58,7 @@ argminmax(PyObject *args,
+         goto Fail;
+     }
+ 
+-    while ( (item=(*Py_TYPE(iterator)->tp_iternext)(iterator)) ) {
++    while ( (item=Py_TYPE(iterator)->tp_iternext(iterator)) ) {
+         idx++;
+ 
+         /* Use the item itself or keyfunc(item). */
+diff --git a/src/clamp.c b/src/clamp.c
+index 83741e4..a36bf5d 100644
+--- a/src/clamp.c
++++ b/src/clamp.c
+@@ -117,7 +117,7 @@ clamp_next(PyIUObject_Clamp *self)
+     PyObject *item;
+     int res;
+ 
+-    while ( (item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+         /* Check if it's smaller than the lower bound. */
+         if (self->low != NULL) {
+             res = PyObject_RichCompareBool(item, self->low,
+diff --git a/src/countitems.c b/src/countitems.c
+index c599804..bbfde3f 100644
+--- a/src/countitems.c
++++ b/src/countitems.c
+@@ -43,7 +43,7 @@ PyIU_Count(PyObject *m,
+         goto Fail;
+     }
+ 
+-    while ((item = (*Py_TYPE(iterator)->tp_iternext)(iterator))) {
++    while ((item = Py_TYPE(iterator)->tp_iternext(iterator))) {
+ 
+         /* No predicate given just set ok == 1 so the element is counted. */
+         if (pred == NULL) {
+diff --git a/src/deepflatten.c b/src/deepflatten.c
+index b300edb..69a2c00 100644
+--- a/src/deepflatten.c
++++ b/src/deepflatten.c
+@@ -144,7 +144,7 @@ deepflatten_next(PyIUObject_DeepFlatten *self)
+     activeiterator = PyList_GET_ITEM(self->iteratorlist, self->currentdepth);
+ 
+     while (self->currentdepth >= 0) {
+-        item = (*Py_TYPE(activeiterator)->tp_iternext)(activeiterator);
++        item = Py_TYPE(activeiterator)->tp_iternext(activeiterator);
+ 
+         /* The active iterator finished, remove it from the list and take
+            up the iterator one level up. */
+diff --git a/src/dotproduct.c b/src/dotproduct.c
+index e6ece2c..e229239 100644
+--- a/src/dotproduct.c
++++ b/src/dotproduct.c
+@@ -26,8 +26,8 @@ PyIU_DotProduct(PyObject *m, PyObject *args)
+         goto Fail;
+     }
+ 
+-    while ( (item1 = (*Py_TYPE(iterator1)->tp_iternext)(iterator1)) &&
+-            (item2 = (*Py_TYPE(iterator2)->tp_iternext)(iterator2))) {
++    while ( (item1 = Py_TYPE(iterator1)->tp_iternext(iterator1)) &&
++            (item2 = Py_TYPE(iterator2)->tp_iternext(iterator2))) {
+         product = PyNumber_Multiply(item1, item2);
+         if (product == NULL) {
+             goto Fail;
+diff --git a/src/duplicates.c b/src/duplicates.c
+index 9c79467..45b57f2 100644
+--- a/src/duplicates.c
++++ b/src/duplicates.c
+@@ -135,7 +135,7 @@ duplicates_next(PyIUObject_Duplicates *self)
+     PyObject *item=NULL, *temp=NULL;
+     int ok;
+ 
+-    while ( (item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+ 
+         /* Use the item if key is not given, otherwise apply the key. */
+         if (self->key == NULL) {
+diff --git a/src/groupedby.c b/src/groupedby.c
+index 27acafe..aa80c84 100644
+--- a/src/groupedby.c
++++ b/src/groupedby.c
+@@ -18,7 +18,6 @@ PyIU_Groupby(PyObject *m,
+     PyObject *resdict = NULL;
+     PyObject *funcargs1 = NULL;
+     PyObject *funcargs2 = NULL;
+-    PyObject *(*iternext)(PyObject *);
+ 
+     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "OO|OOO:groupedby", kwlist,
+                                      &iterable, &keyfunc, &valfunc, &reducefunc,
+@@ -41,8 +40,6 @@ PyIU_Groupby(PyObject *m,
+         goto Fail;
+     }
+ 
+-    iternext = *Py_TYPE(iterator)->tp_iternext;
+-
+     resdict = PyDict_New();
+     if (resdict == NULL) {
+         goto Fail;
+@@ -69,7 +66,7 @@ PyIU_Groupby(PyObject *m,
+         Py_hash_t hash;
+ #endif
+ 
+-        item = iternext(iterator);
++        item = Py_TYPE(iterator)->tp_iternext(iterator);
+ 
+         if (item == NULL) {
+             break;
+diff --git a/src/grouper.c b/src/grouper.c
+index 838ee17..6755454 100644
+--- a/src/grouper.c
++++ b/src/grouper.c
+@@ -122,7 +122,6 @@ static PyObject *
+ grouper_next(PyIUObject_Grouper *self)
+ {
+     PyObject *result = self->result;
+-    PyObject *(*iternext)(PyObject *);
+ 
+     PyObject *newresult, *lastresult, *item, *olditem;
+     Py_ssize_t idx1, idx2;
+@@ -134,8 +133,6 @@ grouper_next(PyIUObject_Grouper *self)
+         self->result = result;
+     }
+ 
+-    iternext = *Py_TYPE(self->iterator)->tp_iternext;
+-
+     /* Recycle old result if the instance is the only one holding a reference,
+        otherwise create a new tuple.
+        */
+@@ -151,7 +148,7 @@ grouper_next(PyIUObject_Grouper *self)
+ 
+     /* Take the next self->times elements from the iterator.  */
+     for (idx1=0 ; idx1<self->times ; idx1++) {
+-        item = iternext(self->iterator);
++        item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+ 
+         if (item == NULL) {
+             if (PyErr_Occurred()) {
+diff --git a/src/intersperse.c b/src/intersperse.c
+index 9dbcca7..78b39c3 100644
+--- a/src/intersperse.c
++++ b/src/intersperse.c
+@@ -103,7 +103,7 @@ static PyObject *
+ intersperse_next(PyIUObject_Intersperse *self)
+ {
+     if (self->nextitem == NULL) {
+-        PyObject *item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++        PyObject *item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+         if (item == NULL) {
+             return NULL;
+         }
+diff --git a/src/merge.c b/src/merge.c
+index 87ace67..ef0f255 100644
+--- a/src/merge.c
++++ b/src/merge.c
+@@ -230,7 +230,7 @@ merge_init_current(PyIUObject_Merge *self)
+ 
+     for (i=0 ; i<self->numactive ; i++) {
+         iterator = PyTuple_GET_ITEM(self->iteratortuple, i);
+-        item = (*Py_TYPE(iterator)->tp_iternext)(iterator);
++        item = Py_TYPE(iterator)->tp_iternext(iterator);
+         if (item != NULL) {
+             /* The idea here is that we can keep stability by also remembering
+                the index of the iterable (which is also useful to remember
+@@ -317,7 +317,7 @@ merge_next(PyIUObject_Merge *self)
+ 
+     /* Get the next value from the iterable where the value was from.  */
+     iterator = PyTuple_GET_ITEM(self->iteratortuple, next->idx);
+-    item = (*Py_TYPE(iterator)->tp_iternext)(iterator);
++    item = Py_TYPE(iterator)->tp_iternext(iterator);
+ 
+     if (item == NULL) {
+         /* No need to keep the extra reference for the ItemIdxKey because there
+diff --git a/src/minmax.c b/src/minmax.c
+index 3a6e86f..acebab9 100644
+--- a/src/minmax.c
++++ b/src/minmax.c
+@@ -51,8 +51,8 @@ PyIU_MinMax(PyObject *m,
+         goto Fail;
+     }
+ 
+-    while ( (item1=(*Py_TYPE(iterator)->tp_iternext)(iterator)) ) {
+-        item2 = (*Py_TYPE(iterator)->tp_iternext)(iterator);
++    while ( (item1=Py_TYPE(iterator)->tp_iternext(iterator)) ) {
++        item2 = Py_TYPE(iterator)->tp_iternext(iterator);
+         /* item2 could be NULL (end of sequence) clear a StopIteration but
+            immediatly fail if it's another exception. It will check for
+            exceptions in the end (again) but make sure it does not process
+diff --git a/src/nth.c b/src/nth.c
+index 482d08d..c91d870 100644
+--- a/src/nth.c
++++ b/src/nth.c
+@@ -96,7 +96,6 @@ nth_call(PyIUObject_Nth *self,
+     static char *kwlist[] = {"iterable", "default", "pred", "truthy",
+                              "retpred", "retidx", NULL};
+ 
+-    PyObject *(*iternext)(PyObject *);
+     PyObject *iterable, *iterator, *item;
+     PyObject *defaultitem=NULL, *func=NULL, *last=NULL, *val=NULL;
+     int ok=0, truthy=1, retpred=0, retidx=0;
+@@ -124,13 +123,12 @@ nth_call(PyIUObject_Nth *self,
+     if (iterator == NULL) {
+         return NULL;
+     }
+-    iternext = *Py_TYPE(iterator)->tp_iternext;
+ 
+     /* The loop variable "idx" is only incremented if a suitable item was
+        found.
+        */
+     for (idx=0 ; idx<=self->index || self->index < 0; ) {
+-        item = iternext(iterator);
++        item = Py_TYPE(iterator)->tp_iternext(iterator);
+ 
+         /* If the iterator terminates also terminate the loop and remove the
+            last found item (except one looks for the last one
+diff --git a/src/one.c b/src/one.c
+index a51e493..39e4bd7 100644
+--- a/src/one.c
++++ b/src/one.c
+@@ -13,7 +13,7 @@ PyIU_One(PyObject *m,
+         return NULL;
+     }
+ 
+-    item1 = (*Py_TYPE(iterator)->tp_iternext)(iterator);
++    item1 = Py_TYPE(iterator)->tp_iternext(iterator);
+     if (item1 == NULL) {
+         Py_DECREF(iterator);
+         if (PyErr_Occurred()) {
+@@ -28,7 +28,7 @@ PyIU_One(PyObject *m,
+         return NULL;
+     }
+ 
+-    item2 = (*Py_TYPE(iterator)->tp_iternext)(iterator);
++    item2 = Py_TYPE(iterator)->tp_iternext(iterator);
+     if (item2 != NULL) {
+         Py_DECREF(iterator);
+         Py_DECREF(item1);
+diff --git a/src/partition.c b/src/partition.c
+index a59fd1a..c6b6335 100644
+--- a/src/partition.c
++++ b/src/partition.c
+@@ -15,7 +15,6 @@ PyIU_Partition(PyObject *m,
+     PyObject *result2 = NULL;
+     PyObject *funcargs = NULL;
+     PyObject *result = NULL;
+-    PyObject *(*iternext)(PyObject *);
+ 
+     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O|O:partition", kwlist,
+                                      &iterable, &func)) {
+@@ -26,7 +25,6 @@ PyIU_Partition(PyObject *m,
+     if (iterator == NULL) {
+         goto Fail;
+     }
+-    iternext = *Py_TYPE(iterator)->tp_iternext;
+ 
+     result1 = PyList_New(0);
+     if (result1 == NULL) {
+@@ -53,7 +51,7 @@ PyIU_Partition(PyObject *m,
+         PyObject *temp;
+         int ok;
+ 
+-        item = iternext(iterator);
++        item = Py_TYPE(iterator)->tp_iternext(iterator);
+         if (item == NULL) {
+             break;
+         }
+diff --git a/src/replicate.c b/src/replicate.c
+index 6334a4d..17a02c5 100644
+--- a/src/replicate.c
++++ b/src/replicate.c
+@@ -112,13 +112,13 @@ replicate_next(PyIUObject_Replicate *self)
+        to fill the current.
+        */
+     if (self->current == NULL) {
+-        self->current = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++        self->current = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+     /* If we had x repeats then we also need to get the next element, and
+        dereference the old one.
+        */
+     } else if (self->repeatcurrent == self->repeattotal) {
+         PyObject *oldcurrent = self->current;
+-        self->current = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++        self->current = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+         Py_DECREF(oldcurrent);
+         self->repeatcurrent = 0;
+     }
+diff --git a/src/roundrobin.c b/src/roundrobin.c
+index bb2c13d..74a6864 100644
+--- a/src/roundrobin.c
++++ b/src/roundrobin.c
+@@ -96,7 +96,7 @@ roundrobin_next(PyIUObject_Roundrobin *self)
+     }
+ 
+     iterator = PyTuple_GET_ITEM(self->iteratortuple, self->active);
+-    while ((item = (*Py_TYPE(iterator)->tp_iternext)(iterator)) == NULL) {
++    while ((item = Py_TYPE(iterator)->tp_iternext(iterator)) == NULL) {
+         if (PyErr_Occurred()) {
+             if (PyErr_ExceptionMatches(PyExc_StopIteration)) {
+                 PyErr_Clear();
+diff --git a/src/sideeffect.c b/src/sideeffect.c
+index 9542dc1..fc867a8 100644
+--- a/src/sideeffect.c
++++ b/src/sideeffect.c
+@@ -133,7 +133,7 @@ sideeffects_next(PyIUObject_Sideeffects *self)
+     PyObject *item, *temp=NULL, *tmptuple=NULL;
+     Py_ssize_t i;
+ 
+-    item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++    item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+     if (item == NULL) {
+         /* We don't expect that the sideeffect function is called when
+            an exception other than StopIteration is raised by the iterator so
+diff --git a/src/split.c b/src/split.c
+index 012f414..c9aa0ec 100644
+--- a/src/split.c
++++ b/src/split.c
+@@ -168,7 +168,7 @@ split_next(PyIUObject_Split *self)
+         }
+     }
+ 
+-    while ( (item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+         /* Compare the value to the delimiter or call the delimiter function on
+            it to determine if we should split here.
+            */
+diff --git a/src/starfilter.c b/src/starfilter.c
+index 64cdfd6..912614a 100644
+--- a/src/starfilter.c
++++ b/src/starfilter.c
+@@ -98,11 +98,9 @@ static PyObject *
+ starfilter_next(PyIUObject_Starfilter *self)
+ {
+     PyObject *item, *val, *newargs;
+-    PyObject *(*iternext)(PyObject *);
+     int ok;
+ 
+-    iternext = *Py_TYPE(self->iterator)->tp_iternext;
+-    while ( (item = iternext(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+         if (!PyTuple_CheckExact(item)) {
+             newargs = PySequence_Tuple(item);
+             if (newargs == NULL) {
+diff --git a/src/successive.c b/src/successive.c
+index 4d5c866..8925171 100644
+--- a/src/successive.c
++++ b/src/successive.c
+@@ -115,7 +115,7 @@ successive_next(PyIUObject_Successive *self)
+         }
+ 
+         for (i=0; i<self->times; i++) {
+-            item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++            item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+             if (item == NULL) {
+                 Py_DECREF(result);
+                 return NULL;
+@@ -128,7 +128,7 @@ successive_next(PyIUObject_Successive *self)
+     }
+ 
+     /* After the first element we can use the normal procedure. */
+-    item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator);
++    item = Py_TYPE(self->iterator)->tp_iternext(self->iterator);
+     if (item == NULL) {
+         return NULL;
+     }
+diff --git a/src/uniqueever.c b/src/uniqueever.c
+index e838649..8c9a9b1 100644
+--- a/src/uniqueever.c
++++ b/src/uniqueever.c
+@@ -134,7 +134,7 @@ uniqueever_next(PyIUObject_UniqueEver *self)
+     PyObject *item=NULL, *temp=NULL;
+     int ok;
+ 
+-    while ( (item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+ 
+         /* Use the item if key is not given, otherwise apply the key. */
+         if (self->key == NULL) {
+diff --git a/src/uniquejust.c b/src/uniquejust.c
+index 064d2f5..c854971 100644
+--- a/src/uniquejust.c
++++ b/src/uniquejust.c
+@@ -120,7 +120,7 @@ uniquejust_next(PyIUObject_UniqueJust *self)
+     PyObject *item, *old, *val=NULL;
+     int ok;
+ 
+-    while ( (item = (*Py_TYPE(self->iterator)->tp_iternext)(self->iterator)) ) {
++    while ( (item = Py_TYPE(self->iterator)->tp_iternext(self->iterator)) ) {
+ 
+         /* Apply keyfunc or use the original */
+         if (self->keyfunc == NULL) {

@@ -1,0 +1,34 @@
+{
+  "source_case": "105",
+  "source_excel_row": 107,
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_values": [
+    "105",
+    "https://github.com/giampaolo/psutil/commit/a759a044123c88a856aedb1e1994e8944981ecdf",
+    "memory leak.",
+    "line 1376",
+    "Cross-Language API callsite ",
+    "assignment",
+    "True/False branch",
+    " \n    1376(c__psutil_osx_24-cfg.dot) (psutil_proc_connections)\n …\n -> 1196(c__psutil_osx_24-cfg.dot) (psutil_proc_connections)\n -> 457(py__psosx_38-cfg.dot) (connections)",
+    "Py_BuildValue,Foreign,Parsing arguments and building values,PyUnicode_DecodeFSDefault,Foreign,Unicode Objects and Codecs,PyList_Append,Foreign,List Objects,Py_DECREF,Foreign,Reference Counting,PyErr_SetFromErrno,Foreign,Exception Handling,PySequence_Contains,Foreign,Sequence Protocol,PyLong_FromLong,Foreign,Integer Objects",
+    "\n Python->C",
+    "\n\nReference count misuse",
+    "Add foreign function to manage reference counting",
+    "After foreign function"
+  ]
+}

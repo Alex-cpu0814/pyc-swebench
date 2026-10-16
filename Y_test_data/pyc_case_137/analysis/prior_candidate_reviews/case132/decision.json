@@ -1,0 +1,59 @@
+{
+  "case_number": "132",
+  "repo": "MSeifert04/iteration_utilities",
+  "fix_commit": "dc5e033ad648e5373ae1f34d4409380bbd4ab8a1",
+  "base_commit": "d12877a91ada393525ad5209edb88da491792646",
+  "source_parents": [
+    "d12877a91ada393525ad5209edb88da491792646",
+    "8b07072f1019bc538e17c312629f5a73b68273c9"
+  ],
+  "status": "deferred_gold_official_memory_check_failure",
+  "product_files": [
+    "docs/CHANGES.rst",
+    "src/accumulate.c",
+    "src/clamp.c",
+    "src/deepflatten.c",
+    "src/grouper.c",
+    "src/intersperse.c",
+    "src/merge.c",
+    "src/replicate.c",
+    "src/roundrobin.c",
+    "src/sideeffect.c",
+    "src/successive.c"
+  ],
+  "test_files": [
+    "tests/helper_cls.py",
+    "tests/test_accumulate.py",
+    "tests/test_clamp.py",
+    "tests/test_grouper.py",
+    "tests/test_intersperse.py",
+    "tests/test_merge.py",
+    "tests/test_replicate.py",
+    "tests/test_roundrobin.py",
+    "tests/test_sideeffects.py",
+    "tests/test_successive.py"
+  ],
+  "runtime_verified": true,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "prototype_image": "pyc-case132-prototype-base:latest",
+  "publication_performed": false,
+  "original_source_cases": [
+    "131",
+    "132"
+  ],
+  "environment": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "python_version": "3.6.15",
+  "pytest_version": "3.0.7",
+  "environment_basis": "Exact original .travis.yml explicitly lists stable CPython3.6. Selected before testing132, not a revision to128 or a search over memory parameters.",
+  "reason": "In the original supported-version environment with all helpers/decorators/pytest.ini intact and one upfront fixed7-node F2P→P2P order, Base4failed3passed versus Gold1failed6passed. Base accumulate targets raise SystemError at the first operator.length_hint check instead of ValueError/OverflowError, and replicate overflow targets raise ValueError instead of OverflowError; subsequent list assertions are not reached on Base. Gold function bodies complete their original length_hint/list assertions, but the first complete decorated target fails the original helper_leak.py post-call count with one added _weakrefset.WeakSet. All other3targets+3regressions pass. Functional correction alone is not a passing complete official method; no admissible all-Gold-pass benchmark is claimed.",
+  "history": [
+    "Native build initially succeeded but an inherited version0.6.0 audit failed; actual exact source version0.5.2 was corrected in authoring metadata, with original Dockerfile/raw logs preserved.",
+    "Buster-compatible tracked-source restoration uses git checkout HEAD -- . inside the disposable public clone only.",
+    "No product/test/body/assertion/helper/offset/loop/tolerance/allocator/compiler flag changes, no extra calls/custom warmup, no regression swapping or order search.",
+    "Actual PR198 opening/merged API timestamps and exact merge identity are preserved; no workbook was made."
+  ],
+  "future_admission": "A supported real environment must pass complete original selected methods including original memory checks. Do not weaken checks or manufacture allocations/warmup. This result does not establish the new environment as fully reliable for retrying128.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case132"
+}

@@ -1,0 +1,9 @@
+tests/test_accumulate.py::test_accumulate_lengthhint_failure1
+tests/test_accumulate.py::test_accumulate_lengthhint_failure2
+tests/test_replicate.py::test_replicate_failure_lengthhint3
+tests/test_replicate.py::test_replicate_failure_lengthhint4
+tests/test_accumulate.py::test_accumulate_lengthhint1
+tests/test_replicate.py::test_replicate_lengthhint1
+tests/test_replicate.py::test_replicate_normal1
+
+no tests ran in 0.05 seconds

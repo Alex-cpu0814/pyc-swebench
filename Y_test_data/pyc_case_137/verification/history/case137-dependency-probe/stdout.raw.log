@@ -1,0 +1,7 @@
+Python 3.6.15
+1.16.0
+gcc	4:8.3.0-1
+git	1:2.20.1-2+deb10u3
+libcairo2:amd64	1.16.0-4+deb10u1
+libcairo2-dev:amd64	1.16.0-4+deb10u1
+pkg-config	0.29-6

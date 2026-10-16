@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_137",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pycairo_device_scale_noninvertible_matrix",
+  "python_version_target": "3.6",
+  "native_requirement": "Public Cairo1.16.0 development/runtime and pkg-config already included in exact public Python3.6-buster base, confirmed by read-only dependency inventory; original headless Cairo image surfaces.",
+  "build_system": "Original setup.py configures Cairo through installed pkg-config metadata, writes normal cairo/config.h and builds cairo._cairo in place. Same ordinary dependency metadata/compile parameters on Base/Gold.",
+  "test_execution": [
+    "Complete original official pytest functions. Target retains prior valid5.0/3.0 scaling call and new original100x100Surface(1,0) expected CairoError. Actual ordinary native exits/logs preserved; no input/assertion/helper/compiler/allocator changes or claim that crash must produce a pytest terminal FAILED line."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_surface.py.",
+    "Ordinary Base completes3 regressions, begins complete official tests/test_surface.py::test_surface_set_device_scale, then native process aborts; Docker process exit134 and original bash Aborted record are preserved. No target terminal FAILED/PASSED line exists, so canonical scorer status is MISSING rather than a fabricated failure line. The upstream issue reports Cairo matrix assertion; this run preserves actual abort but does not invent an assertion message absent from stderr. Gold completes all4 full methods with normal exit0, including exact100x100ARGB32 scale(1,0) raising cairo.Error.",
+    "Three unchanged complete official get_device_scale/get_content/get_format methods pass before the Base abort and on Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "fix_commit": "065a7a7aed9e5523dcbf41568d89e94fc0af44b9",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_surface.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_surface.py::test_surface_set_device_scale"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_surface.py::test_surface_get_device_scale",
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "source_case": "110",
+  "source_excel_row": 112,
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_values": [
+    "110",
+    "https://github.com/giampaolo/psutil/commit/5f02dd0c04576633bd0740c756bef3a64efe3ebc",
+    "warning message (incompatible types)",
+    "line 3065",
+    "Cross-Language API callsite ",
+    "Conditional expression ",
+    null,
+    " \n3065(c__psutil_windows_56-cfg.dot) (psutil_net_if_stats)\n …\n-> 2971(c__psutil_windows_56-cfg.dot) (psutil_net_if_stats)\n-> 316(py__windows_27-cfg.dot) (test_net_if_stats)",
+    "PyDict_SetItemString,Foreign,Dictionary Objects,Py_BuildValue,Foreign,Parsing arguments and building values,Py_INCREF,Foreign,Reference Counting,PyErr_SetString,Foreign,Exception Handling,PyErr_NoMemory,Foreign,Exception Handling,PyDict_New,Foreign,Dictionary Objects",
+    "\n Python->C",
+    "\n\nFunction misuse",
+    "change the misused function call",
+    "conditional expression + foreign function call"
+  ]
+}

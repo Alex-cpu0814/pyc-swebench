@@ -1,0 +1,36 @@
+gcc	4:8.3.0-1
+git	1:2.20.1-2+deb10u3
+libc6:amd64	2.28-10
+libcairo2:amd64	1.16.0-4+deb10u1
+libcairo2-dev:amd64	1.16.0-4+deb10u1
+libfreetype6:amd64	2.9.1-3+deb10u2
+libpixman-1-0:amd64	0.36.0-1
+libpixman-1-dev:amd64	0.36.0-1
+pkg-config	0.29-6
+	linux-vdso.so.1 (0x000076335bb6a000)
+	libcairo.so.2 => /usr/lib/x86_64-linux-gnu/libcairo.so.2 (0x000076335ba0c000)
+	libpython3.6m.so.1.0 => /usr/local/lib/libpython3.6m.so.1.0 (0x000076335b6cd000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x000076335b6ac000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000076335b4eb000)
+	libpixman-1.so.0 => /usr/lib/x86_64-linux-gnu/libpixman-1.so.0 (0x000076335b445000)
+	libfontconfig.so.1 => /usr/lib/x86_64-linux-gnu/libfontconfig.so.1 (0x000076335b3ff000)
+	libfreetype.so.6 => /usr/lib/x86_64-linux-gnu/libfreetype.so.6 (0x000076335b341000)
+	libpng16.so.16 => /usr/lib/x86_64-linux-gnu/libpng16.so.16 (0x000076335b308000)
+	libxcb-shm.so.0 => /usr/lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x000076335b303000)
+	libxcb.so.1 => /usr/lib/x86_64-linux-gnu/libxcb.so.1 (0x000076335b2d9000)
+	libxcb-render.so.0 => /usr/lib/x86_64-linux-gnu/libxcb-render.so.0 (0x000076335b2ca000)
+	libXrender.so.1 => /usr/lib/x86_64-linux-gnu/libXrender.so.1 (0x000076335b0c0000)
+	libX11.so.6 => /usr/lib/x86_64-linux-gnu/libX11.so.6 (0x000076335af7d000)
+	libXext.so.6 => /usr/lib/x86_64-linux-gnu/libXext.so.6 (0x000076335ad6b000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x000076335ab4d000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x000076335ab43000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000076335a9c0000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000076335a9bb000)
+	libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x000076335a9b4000)
+	/lib64/ld-linux-x86-64.so.2 (0x000076335bb6c000)
+	libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x000076335a977000)
+	libuuid.so.1 => /lib/x86_64-linux-gnu/libuuid.so.1 (0x000076335a96e000)
+	libXau.so.6 => /usr/lib/x86_64-linux-gnu/libXau.so.6 (0x000076335a76a000)
+	libXdmcp.so.6 => /usr/lib/x86_64-linux-gnu/libXdmcp.so.6 (0x000076335a564000)
+	libbsd.so.0 => /usr/lib/x86_64-linux-gnu/libbsd.so.0 (0x000076335a548000)
+{"pycairo_version": "1.13.4", "native_extension": "/testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so", "extension_sha256": "4e4939237f2ef71716f8c80e4f6415553f310cc6a917159a3d5b04071b5f1abe", "cairo_headers": [1, 16, 0], "cairo_linked_version": "1.16.0", "cairo_linked_integer": 11600, "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]", "build_packages": {"setuptools": "59.6.0", "wheel": "0.37.1", "pytest": "3.0.7", "py": "1.4.34"}, "assets": {"cairo/surface.c": {"size": 73567, "sha256": "196240c5bf627c0d00a53cdeb45dc02f08f0098b6f46ce6c3ff5b63eae3e581e"}, "cairo/cairomodule.c": {"size": 16143, "sha256": "7295cd6044b92900c7e824abcfe039713a8d4b0d54f34c65d77a3bc96ffff922"}, "cairo/__init__.py": {"size": 41, "sha256": "3d7fc31e167df2c055e154a6e15136144c82ff3c13a4f01f45ccee2f107338c5"}, "cairo/config.h": {"size": 246, "sha256": "966dcebe2844ad01147a4cebde85b5bc9f9525c1346d535a99c86cde2657e38b"}, "setup.py": {"size": 8207, "sha256": "035f6313e2a0aa3d9dc70f73dd7051f76820c4b1b5413f3b1d041e05b2bcc4e0"}}}

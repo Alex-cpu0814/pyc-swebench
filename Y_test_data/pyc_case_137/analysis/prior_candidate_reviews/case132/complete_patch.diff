@@ -1,0 +1,943 @@
+diff --git a/docs/CHANGES.rst b/docs/CHANGES.rst
+index 6a372ff..f784f83 100644
+--- a/docs/CHANGES.rst
++++ b/docs/CHANGES.rst
+@@ -26,6 +26,8 @@ Version 0.6.0 (unreleased)
+ - ``replicate`` now throws an exception if the ``times`` argument is smaller
+   or equal to 1.
+ 
++- corrected handling of exceptions and overflow in ``__length_hint__`` methods.
++
+ 
+ Version 0.5.2 (2017-03-30)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/src/accumulate.c b/src/accumulate.c
+index 3da83c8..a9b04aa 100644
+--- a/src/accumulate.c
++++ b/src/accumulate.c
+@@ -199,7 +199,11 @@ accumulate_reduce(PyIUObject_Accumulate *self)
+ static PyObject *
+ accumulate_lengthhint(PyIUObject_Accumulate *self)
+ {
+-    return PyLong_FromSsize_t(PyObject_LengthHint(self->iterator, 0));
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    return PyLong_FromSsize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/clamp.c b/src/clamp.c
+index 7219b8f..83741e4 100644
+--- a/src/clamp.c
++++ b/src/clamp.c
+@@ -184,6 +184,9 @@ clamp_lengthhint(PyIUObject_Clamp *self)
+        determine the length. */
+     if (!(self->remove) || (self->low == NULL && self->high == NULL)) {
+         len = PyObject_LengthHint(self->iterator, 0);
++        if (len == -1) {
++            return NULL;
++        }
+     }
+     return PyLong_FromSsize_t(len);
+ }
+diff --git a/src/deepflatten.c b/src/deepflatten.c
+index f535332..b300edb 100644
+--- a/src/deepflatten.c
++++ b/src/deepflatten.c
+@@ -192,7 +192,7 @@ deepflatten_next(PyIUObject_DeepFlatten *self)
+         /* If types is given then check if it's an instance thereof and if
+            so replace activeiterator, otherwise return the item. */
+         } else if (self->types) {
+-            if (ok = PyObject_IsInstance(item, self->types)) {
++            if ((ok = PyObject_IsInstance(item, self->types))) {
+                 if (ok == -1) {
+                     Py_DECREF(item);
+                     return NULL;
+diff --git a/src/grouper.c b/src/grouper.c
+index cc46b47..838ee17 100644
+--- a/src/grouper.c
++++ b/src/grouper.c
+@@ -289,12 +289,20 @@ grouper_setstate(PyIUObject_Grouper *self,
+ static PyObject *
+ grouper_lengthhint(PyIUObject_Grouper *self)
+ {
++    Py_ssize_t groups, rem;
+     Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
+-    Py_ssize_t groups = len / self->times;
+-    Py_ssize_t rem = len % self->times;
++    if (len == -1) {
++        return NULL;
++    }
++    groups = len / self->times;
++    rem = len % self->times;
+     if (self->truncate || rem == 0) {
+         return PyLong_FromSsize_t(groups);
+     } else {
++        /* groups + 1 cannot overflow because that could only happen if
++           "times" is 1 and in that case "rem==0". So it would always enter the
++           first branch which does not contain addition.
++           */
+         return PyLong_FromSsize_t(groups + 1);
+     }
+ }
+diff --git a/src/intersperse.c b/src/intersperse.c
+index c4039eb..9dbcca7 100644
+--- a/src/intersperse.c
++++ b/src/intersperse.c
+@@ -213,16 +213,26 @@ static PyObject *
+ intersperse_lengthhint(PyIUObject_Intersperse *self)
+ {
+     Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    /* We need to multiply the length_hint with 2, to make sure this doesn't
++       trigger undefined behaviour we convert it to "size_t" which can always
++       hold the result (because it's maximum value is 2 * max(py_ssize_t) + 1)
++       Also "LengthHint" always returns >= -1 and we already catched the case
++       where it was -1 so it's not-negative (which could be a problem in the
++       signed -> unsigned conversion).
++       */
+     if (self->started == 0) {
+         if (len == 0) {
+-            return  PyLong_FromLong(0);
++            return PyLong_FromLong(0);
+         }
+-        return PyLong_FromSsize_t(len * 2 - 1);
++        return PyLong_FromSize_t((size_t)len * 2 - 1);
+     } else if (self->nextitem == NULL) {
+-        return PyLong_FromSsize_t(len * 2);
++        return PyLong_FromSize_t((size_t)len * 2);
+     } else {
+         /* The iterator is always one step advanced! */
+-        return PyLong_FromSsize_t(len * 2 + 1);
++        return PyLong_FromSize_t((size_t)len * 2 + 1);
+     }
+ }
+ #endif
+diff --git a/src/merge.c b/src/merge.c
+index 53c3437..87ace67 100644
+--- a/src/merge.c
++++ b/src/merge.c
+@@ -638,22 +638,68 @@ merge_setstate(PyIUObject_Merge *self,
+ static PyObject *
+ merge_lengthhint(PyIUObject_Merge *self)
+ {
+-    Py_ssize_t i, len = 0;
++    Py_ssize_t i;
++    size_t len = 0;
++
++    /* TODO: The following cases share a lot of code, maybe the shared lines
++             could be refactored into a helper function....
++       */
++
+     if (self->current == NULL) {
++        /* If we have no current we simply sum the lengths of the iterators.
++           */
+         for (i=0 ; i<PyTuple_GET_SIZE(self->iteratortuple) ; i++) {
+-            len += PyObject_LengthHint(PyTuple_GET_ITEM(self->iteratortuple, i), 0);
++            PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, i);
++            Py_ssize_t len_tmp = PyObject_LengthHint(it, 0);
++
++            if (len_tmp == -1) {
++                return NULL;
++            }
++            len += (size_t)len_tmp;
++            /* adding two py_ssize_t values (even when they are MAX) cannot
++               overflow "size_t" so we can simply check if the new len is
++               above "PY_SSIZE_T_MAX" to find out if we have overflow.
++               */
++            if (len > (size_t)PY_SSIZE_T_MAX) {
++                PyErr_SetString(PyExc_OverflowError,
++                                "cannot fit 'int' into an index-sized "
++                                "integer");
++                return NULL;
++            }
+         }
+     } else {
+-        len += self->numactive;
++        /* Add the number of items in "current" to the length, because these
++           were taken from the iterables already.
++           */
++        len += (size_t)self->numactive;
++
+         for (i=0 ; i<self->numactive ; i++) {
++            Py_ssize_t len_tmp;
++
++            /* We need to avoid the iterators that are already exhausted so
++               just iterate over the "current" and only sum the iterators that
++               are still in the "current".
++               */
+             PyObject *iik = PyTuple_GET_ITEM(self->current, i);
+             Py_ssize_t idx = ((PyIUObject_ItemIdxKey *)iik)->idx;
+             PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, idx);
+-            len += PyObject_LengthHint(it, 0);
++            len_tmp = PyObject_LengthHint(it, 0);
++
++            if (len_tmp == -1) {
++                return NULL;
++            }
++            /* See above for explanation. */
++            len += (size_t)len_tmp;
++            if (len > (size_t)PY_SSIZE_T_MAX) {
++                PyErr_SetString(PyExc_OverflowError,
++                                "cannot fit 'int' into an index-sized "
++                                "integer");
++                return NULL;
++            }
+         }
+     }
+ 
+-    return PyLong_FromSsize_t(len);
++    return PyLong_FromSize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/replicate.c b/src/replicate.c
+index 73cb20e..6334a4d 100644
+--- a/src/replicate.c
++++ b/src/replicate.c
+@@ -216,11 +216,28 @@ replicate_lengthhint(PyIUObject_Replicate *self)
+     if (len == -1) {
+         return NULL;
+     }
+-    /* Not overflow safe ... */
++
++    /* Check if it is safe (no overflow) to multiply it. */
++    if (len > PY_SSIZE_T_MAX / self->repeattotal) {
++        PyErr_SetString(PyExc_OverflowError,
++                        "cannot fit 'int' into an index-sized "
++                        "integer");
++        return NULL;
++    }
+     len *= self->repeattotal;
++
+     if (self->current != NULL) {
+-        /* Not overflow safe ... */
+-        len += self->repeattotal - self->repeatcurrent;
++        /* We need to avoid signed integer overflow so do the operation on
++           size_t instead. "repeattotal" >= "repeatcurrent" so we only
++           deal with positive values here and we're overflow safe when doing
++           the operation on (size_t) because 2*PY_SSIZE_T_MAX is still
++           below SIZE_T_MAX. We also don't need to check for overflow because
++           we can simply return "PyLong_FromSize_t", which will fail when
++           someone else wants it as Py_ssize_t (later).
++           */
++        size_t ulen = (size_t)len;
++        ulen += (size_t)(self->repeattotal - self->repeatcurrent);
++        return PyLong_FromSize_t(ulen);
+     }
+     return PyLong_FromSsize_t(len);
+ }
+diff --git a/src/roundrobin.c b/src/roundrobin.c
+index 06c945f..bb2c13d 100644
+--- a/src/roundrobin.c
++++ b/src/roundrobin.c
+@@ -263,11 +263,29 @@ roundrobin_setstate(PyIUObject_Roundrobin *self,
+ static PyObject *
+ roundrobin_lengthhint(PyIUObject_Roundrobin *self)
+ {
+-    Py_ssize_t i, len = 0;
++    Py_ssize_t i;
++    size_t len = 0;
+ 
+     for (i=0 ; i<self->numactive ; i++) {
+         PyObject *it = PyTuple_GET_ITEM(self->iteratortuple, i);
+-        len += PyObject_LengthHint(it, 0);
++        Py_ssize_t len_tmp = PyObject_LengthHint(it, 0);
++
++        if (len_tmp == -1) {
++            return NULL;
++        }
++
++        /* The logic to avoid overflow is the same as in merge. Basically
++           adding the current length + next iterator length cannot lead to
++           overflow for size_t because we check after each addition if the
++           current length goes above py_ssize_t maximum.
++           */
++        len += (size_t)len_tmp;
++        if (len > (size_t)PY_SSIZE_T_MAX) {
++            PyErr_SetString(PyExc_OverflowError,
++                            "cannot fit 'int' into an index-sized "
++                            "integer");
++            return NULL;
++        }
+     }
+ 
+     return PyLong_FromSsize_t(len);
+diff --git a/src/sideeffect.c b/src/sideeffect.c
+index 7690782..9542dc1 100644
+--- a/src/sideeffect.c
++++ b/src/sideeffect.c
+@@ -405,7 +405,11 @@ sideeffects_setstate(PyIUObject_Sideeffects *self,
+ static PyObject *
+ sideeffects_lengthhint(PyIUObject_Sideeffects *self)
+ {
+-    return PyLong_FromSsize_t(PyObject_LengthHint(self->iterator, 0));
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
++    }
++    return PyLong_FromSsize_t(len);
+ }
+ #endif
+ 
+diff --git a/src/successive.c b/src/successive.c
+index d983b58..4d5c866 100644
+--- a/src/successive.c
++++ b/src/successive.c
+@@ -257,15 +257,23 @@ successive_setstate(PyIUObject_Successive *self,
+ static PyObject *
+ successive_lengthhint(PyIUObject_Successive *self)
+ {
+-    Py_ssize_t len = 0;
+-    if (self->result == NULL) {
+-        len = (PyObject_LengthHint(self->iterator, 0) - self->times) + 1;
+-    } else {
+-        len = PyObject_LengthHint(self->iterator, 0);
++    Py_ssize_t len = PyObject_LengthHint(self->iterator, 0);
++    if (len == -1) {
++        return NULL;
+     }
+-
+-    if (len < 0) {
+-        len = 0;
++    /* If we are already started we will have one result for every remaining
++       item in the iterator. However if we haven't started we have less than
++       that. We need "self->times" objects to fill the first return value, so
++       we need to subtract "self->times - 1" from the length. In case the
++       "times > len" the function won't return anything so we can set the
++       length simply to 0.
++       */
++    if (self->result == NULL) {
++        if (self->times > len) {
++            len = 0;
++        } else {
++            len -= (self->times - 1);
++        }
+     }
+ 
+     return PyLong_FromSsize_t(len);
+diff --git a/tests/helper_cls.py b/tests/helper_cls.py
+index 1cca239..4ad89f1 100644
+--- a/tests/helper_cls.py
++++ b/tests/helper_cls.py
+@@ -3,7 +3,6 @@
+ # Built-ins
+ import itertools
+ import operator
+-import sys
+ 
+ # This module
+ import iteration_utilities
+@@ -113,8 +112,6 @@ class OverflowLengthHint(object):
+     Should be used together with sys.maxsize so it works on 32bit and 64bit
+     builds.
+     """
+-    maxsize = sys.maxsize
+-
+     def __init__(self, it, length_hint):
+         self.it = iter(it)
+         self.lh = length_hint
+diff --git a/tests/test_accumulate.py b/tests/test_accumulate.py
+index 2b3e006..936d4dc 100644
+--- a/tests/test_accumulate.py
++++ b/tests/test_accumulate.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -12,7 +13,8 @@ import pytest
+ import iteration_utilities
+ 
+ # Test helper
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_funcs import iterator_copy
+ from helper_leak import memory_leak_decorator
+ 
+@@ -177,3 +179,31 @@ def test_accumulate_lengthhint1():
+     assert operator.length_hint(it) == 1
+     next(it)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_accumulate_lengthhint_failure1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    acc = accumulate(f_it)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(acc)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(acc)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_accumulate_lengthhint_failure2():
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    acc = accumulate(of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(acc)
++
++    with pytest.raises(OverflowError):
++        list(acc)
+diff --git a/tests/test_clamp.py b/tests/test_clamp.py
+index 5eb56e7..1591b87 100644
+--- a/tests/test_clamp.py
++++ b/tests/test_clamp.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -12,7 +13,8 @@ import pytest
+ import iteration_utilities
+ 
+ # Test helper
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_funcs import iterator_copy
+ from helper_leak import memory_leak_decorator
+ 
+@@ -264,3 +266,31 @@ def test_clamp_lengthhint3():
+     # Only works if "remove=False", otherwise the length-hint simply returns 0.
+     it = clamp(toT(range(5)), low=T(2), high=T(5), remove=True)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_clamp_lengthhint_failure1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = clamp(f_it)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_clamp_lengthhint_failure2():
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = clamp(of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_grouper.py b/tests/test_grouper.py
+index 6ba94b1..b5ea26d 100644
+--- a/tests/test_grouper.py
++++ b/tests/test_grouper.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -13,7 +14,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -268,3 +270,31 @@ def test_grouper_lengthhint1():
+                                         2, fillvalue=None)) == 3
+     assert operator.length_hint(grouper([1, 2, 3, 4, 5, 6],
+                                         2, fillvalue=None)) == 3
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_grouper_lengthhint_failure1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = grouper(f_it, 2)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_grouper_lengthhint_failure2():
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = grouper(of_it, 2)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_intersperse.py b/tests/test_intersperse.py
+index 329e78b..25257a2 100644
+--- a/tests/test_intersperse.py
++++ b/tests/test_intersperse.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -13,7 +14,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -143,3 +145,49 @@ def test_intersperse_lengthhint1():
+     assert operator.length_hint(it) == 1
+     next(it)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_intersperse_lengthhint_failure1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = intersperse(f_it, 2)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_intersperse_lengthhint_failure2():
++    # This is the easy way to overflow the length_hint: If the iterable itself
++    # has a length_hint > sys.maxsize
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = intersperse(of_it, 2)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_intersperse_lengthhint_failure3():
++    # The length_hint method multiplies the length_hint of the iterable with
++    # 2 (and adds/subtracts 1) so it's actually possible to have overflow even
++    # if the length of the iterable doesn't trigger the overflow!
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize)
++    it = intersperse(of_it, 2)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_merge.py b/tests/test_merge.py
+index eb07236..4ffe408 100644
+--- a/tests/test_merge.py
++++ b/tests/test_merge.py
+@@ -5,6 +5,7 @@ from __future__ import absolute_import, division, print_function
+ import itertools
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -14,7 +15,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -431,3 +433,81 @@ def test_merge_lengthhint1():
+     assert operator.length_hint(it) == 1
+     next(it)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_merge_lengthhint_failure1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = merge(f_it)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_merge_lengthhint_failure2():
++    # This is the easy way to overflow the length_hint: If the iterable itself
++    # has a length_hint > sys.maxsize
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = merge(of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_merge_lengthhint_failure3():
++    # Like the test case above but this time we take one item because
++    # internally an unstarted "merge" and started "merge" are treated
++    # differently
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = merge(of_it)
++    next(it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_merge_lengthhint_failure4():
++    # Overflow could also happen when adding length_hints that individually are
++    # below the sys.maxsize
++    # In this case we have 3 + sys.maxsize
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize)
++    it = merge(toT([1, 2, 3]), of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_merge_lengthhint_failure5():
++    # Like the test above but this time with a "started" merge
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize)
++    it = merge(toT([1, 2, 3]), of_it)
++    next(it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_replicate.py b/tests/test_replicate.py
+index 8170548..59bea48 100644
+--- a/tests/test_replicate.py
++++ b/tests/test_replicate.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -155,7 +156,8 @@ def test_replicate_lengthhint1():
+                    reason='length does not work before Python 3.4')
+ @memory_leak_decorator(collect=True)
+ def test_replicate_failure_lengthhint1():
+-    it = replicate(FailLengthHint(toT([1, 2, 3])), 3)
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = replicate(f_it, 3)
+     with pytest.raises(ValueError) as exc:
+         operator.length_hint(it)
+     assert 'length_hint failed' in str(exc)
+@@ -170,7 +172,46 @@ def test_replicate_failure_lengthhint1():
+ @memory_leak_decorator(collect=True)
+ def test_replicate_failure_lengthhint2():
+     # This only checks for overflow if the length_hint is above PY_SSIZE_T_MAX
+-    of_it = OverflowLengthHint(toT([1, 2, 3]), OverflowLengthHint.maxsize + 1)
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
+     it = replicate(of_it, 3)
+     with pytest.raises(OverflowError):
+         operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_replicate_failure_lengthhint3():
++    # It is also possible that the length_hint overflows when the length is
++    # below maxsize but "times * length" is above maxsize.
++    # In this case length = maxsize / 2 but times = 3
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize // 2)
++    it = replicate(of_it, 3)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_replicate_failure_lengthhint4():
++    # There is also the possibility that "length * times" does not overflow
++    # but adding the "times - timescurrent" afterwards will overflow.
++    # That's a bit tricky, but it seems that ((2**x-1) // 10) * 10 + 9 > 2**x-1
++    # is true for x=15, 31, 63 and 127 so it's possible by setting the times to
++    # 10 and the length to sys.maxsize // 10. The 9 are because the first item
++    # is already popped and should be replicated 9 more times.
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize // 10)
++    it = replicate(of_it, 10)
++    next(it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_roundrobin.py b/tests/test_roundrobin.py
+index 931db29..016caa9 100644
+--- a/tests/test_roundrobin.py
++++ b/tests/test_roundrobin.py
+@@ -5,6 +5,7 @@ from __future__ import absolute_import, division, print_function
+ import itertools
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -14,7 +15,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -208,3 +210,48 @@ def test_roundrobin_lengthhint1():
+     assert operator.length_hint(it) == 1
+     next(it)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_roundrobin_failure_lengthhint1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = roundrobin(f_it)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_roundrobin_failure_lengthhint2():
++    # This only checks for overflow if the length_hint is above PY_SSIZE_T_MAX
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = roundrobin(of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_roundrobin_failure_lengthhint3():
++    # Check if by adding the different lengths it could lead to overflow.
++    # We use two iterables both with sys.maxsize length.
++    it1 = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize)
++    it2 = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize)
++    it = roundrobin(it1, it2)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_sideeffects.py b/tests/test_sideeffects.py
+index b55bfed..ae7ce71 100644
+--- a/tests/test_sideeffects.py
++++ b/tests/test_sideeffects.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -13,7 +14,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -304,7 +306,7 @@ def test_sideeffects_pickle6():
+                    reason='length does not work before Python 3.4')
+ @memory_leak_decorator()
+ def test_sideeffects_lengthhint1():
+-    it = sideeffects([1, 2, 3, 4, 5, 6], lambda x: None)
++    it = sideeffects([1, 2, 3, 4, 5, 6], return_None)
+     assert operator.length_hint(it) == 6
+     next(it)
+     assert operator.length_hint(it) == 5
+@@ -318,3 +320,32 @@ def test_sideeffects_lengthhint1():
+     assert operator.length_hint(it) == 1
+     next(it)
+     assert operator.length_hint(it) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_sideeffects_failure_lengthhint1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = sideeffects(f_it, return_None)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_sideeffects_failure_lengthhint2():
++    # This only checks for overflow if the length_hint is above PY_SSIZE_T_MAX
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = sideeffects(of_it, return_None)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)
+diff --git a/tests/test_successive.py b/tests/test_successive.py
+index 9cc91cf..6bf5324 100644
+--- a/tests/test_successive.py
++++ b/tests/test_successive.py
+@@ -4,6 +4,7 @@
+ from __future__ import absolute_import, division, print_function
+ import operator
+ import pickle
++import sys
+ 
+ # 3rd party
+ import pytest
+@@ -13,7 +14,8 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import (
++    T, toT, failingTIterator, FailLengthHint, OverflowLengthHint)
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -172,3 +174,34 @@ def test_successive_lengthhint1():
+ @memory_leak_decorator()
+ def test_successive_lengthhint2():
+     assert operator.length_hint(successive([0]*6, 11)) == 0
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_successive_failure_lengthhint1():
++    f_it = FailLengthHint(toT([1, 2, 3]))
++    it = successive(f_it)
++    with pytest.raises(ValueError) as exc:
++        operator.length_hint(it)
++    assert 'length_hint failed' in str(exc)
++
++    with pytest.raises(ValueError) as exc:
++        list(it)
++    assert 'length_hint failed' in str(exc)
++
++
++@pytest.mark.xfail(not iteration_utilities.GE_PY34,
++                   reason='length does not work before Python 3.4')
++@memory_leak_decorator(collect=True)
++def test_successive_failure_lengthhint2():
++    # This only checks for overflow if the length_hint is above PY_SSIZE_T_MAX.
++    # In theory that would be possible because with times the length would be
++    # shorter but "length_hint" throws the exception so we propagate it.
++    of_it = OverflowLengthHint(toT([1, 2, 3]), sys.maxsize + 1)
++    it = successive(of_it)
++    with pytest.raises(OverflowError):
++        operator.length_hint(it)
++
++    with pytest.raises(OverflowError):
++        list(it)

@@ -1,0 +1,34 @@
+{
+  "source_case": "113",
+  "source_excel_row": 115,
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_values": [
+    "113",
+    "https://github.com/giampaolo/psutil/commit/241c6baeaf2c59c609f47586a0404cd6c619d205",
+    "no description",
+    "line 339,340",
+    "variable declaration",
+    null,
+    null,
+    " \n 340(c__psutil_linux_3-cfg.dot) (psutil_proc_cpu_affinity_get)\n -> 339(c__psutil_linux_3-cfg.dot) (psutil_proc_cpu_affinity_get)\n -> 336(c__psutil_linux_3-cfg.dot) (psutil_proc_cpu_affinity_get)\n -> 332(c__psutil_linux_3-cfg.dot) (psutil_proc_cpu_affinity_get)\n -> 427(py__psbsd_42-cfg.dot) (cpu_affinity_get)",
+    "PyArg_ParseTuple,Foreign,Parsing arguments and building values,PyErr_SetFromErrno,Foreign,Exception Handling,Py_BuildValue,Foreign,Parsing arguments and building values,PyList_New,Foreign,List Objects,PyList_Append,Foreign,List Objects,Py_DECREF,Foreign,Reference Counting",
+    "\n Python->C",
+    "\n\nInitialization error",
+    "give the NULL value to the pointer variable when doing the definition",
+    "assignment statement"
+  ]
+}

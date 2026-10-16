@@ -1,0 +1,16 @@
+{
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+    "-lc",
+    "python --version; pkg-config --modversion cairo; dpkg-query -W libcairo2-dev libcairo2 pkg-config gcc git"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "scope": "Read-only inventory of public upstream-supported CPython3.6 base, not a product/test result."
+}

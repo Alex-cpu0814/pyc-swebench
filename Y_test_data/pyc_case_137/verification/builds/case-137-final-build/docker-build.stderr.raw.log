@@ -1,0 +1,42 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.32kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#4 resolve public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e 0.0s done
+#4 DONE 0.0s
+
+#5 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/pygobject/pycairo.git" && git fetch --depth=1 --no-tags origin "9ebff889d4c68927ab1c152b6ae7c8327283b6ed" && git checkout --detach "9ebff889d4c68927ab1c152b6ae7c8327283b6ed" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "9ebff889d4c68927ab1c152b6ae7c8327283b6ed"
+#5 CACHED
+
+#6 [4/5] WORKDIR /testbed
+#6 CACHED
+
+#7 [2/5] RUN python -m pip install --no-cache-dir pip==21.3.1 setuptools==59.6.0 wheel==0.37.1 pytest==3.0.7 py==1.4.34
+#7 CACHED
+
+#8 [5/5] RUN python setup.py build_ext --inplace --force && python -c "import cairo,cairo._cairo as native; print(cairo.version,cairo.cairo_version_string(),native.__file__); assert cairo.version == '1.13.4'; assert native.__file__.startswith('/testbed/cairo/_cairo.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/cairo/config.h' '/pycairo.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:3f81986b45d0a580ac4f267f25be2779a0432b0928f42a558d27f14b1de3e366 done
+#9 exporting config sha256:5eee8795d807dcf0e32171bba1999cbe03ea7dee2c19503b27c112e7a59c1d4b done
+#9 exporting attestation manifest sha256:0d185acb601e0ba281063f7fef8e16d47715889fc61b4361afcc368615035212
+#9 exporting attestation manifest sha256:0d185acb601e0ba281063f7fef8e16d47715889fc61b4361afcc368615035212 0.0s done
+#9 exporting manifest list sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944 done
+#9 naming to docker.io/yutu0814/pyc-case-137-pycairo:benchmark-v1 done
+#9 unpacking to docker.io/yutu0814/pyc-case-137-pycairo:benchmark-v1 0.0s done
+#9 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/kdf58wpd17dk0edcdftywrtyj

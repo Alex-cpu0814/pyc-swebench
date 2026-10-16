@@ -1,0 +1,155 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "136",
+  "candidate_case": "137",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Complete test_surface_set_device_scale retains existing10x10ARGB32 surface scale(5.0,3.0) call and ret-is-None assertion, then creates exact100x100ARGB32 surface and expects cairo.Error for scale(1,0). Base reaches target execution but abort prevents complete method return; no intermediate terminal completion is claimed. Gold completes all original assertions. Three unchanged complete regressions test get_device_scale tuplefloat values, get_content enum and get_format enum. No full Cairo suite, arbitrary negative/nonfinite input, alternate dimensions/platforms or internal downstream Cairo assertion text absent from raw logs is claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2017-07-11",
+  "created_at_precision": "date",
+  "instance_id": "pygobject__pycairo-065a7a7a",
+  "source_instance_id": "pyc_case_137",
+  "repo": "pygobject/pycairo",
+  "issue_id": "50",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/50",
+  "project_version": "1.13.4",
+  "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "fix_commit": "065a7a7aed9e5523dcbf41568d89e94fc0af44b9",
+  "FAIL_TO_PASS": [
+    "tests/test_surface.py::test_surface_set_device_scale"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_surface.py::test_surface_get_device_scale",
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+    "python_version": "3.6.15",
+    "test_runner_version": "pytest3.0.7 / py1.4.34",
+    "compiler_toolchain": "Unmodified GCC8.3 in exact public Python3.6.15-buster image; normal official setup.py native build, no compiler/allocator/instrumentation changes.",
+    "base_target_status": "native SIGABRT / exit134; no terminal pytest status (MISSING)",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-137-pycairo:benchmark-v1",
+      "id": "sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944",
+      "repo_digests": [
+        "yutu0814/pyc-case-137-pycairo@sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 1
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "pygobject__pycairo-065a7a7a",
+      "base_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-137-final-gold/summary.json",
+      "verification/runs/case-137-final-negative/summary.json",
+      "verification/runs/case-137-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": null,
+  "fix_committed_at": "2017-07-11",
+  "date_semantics": "Actual issue50 opening2017-07-11 and source commit2017-07-11 are distinct timestamps. Associated-PR API returned empty array; no merge date established. Issue closed_at2017-07-11 is not copied to a merged_at field.",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "cairo/surface.c"
+  ],
+  "verified_scope": "Complete test_surface_set_device_scale retains existing10x10ARGB32 surface scale(5.0,3.0) call and ret-is-None assertion, then creates exact100x100ARGB32 surface and expects cairo.Error for scale(1,0). Base reaches target execution but abort prevents complete method return; no intermediate terminal completion is claimed. Gold completes all original assertions. Three unchanged complete regressions test get_device_scale tuplefloat values, get_content enum and get_format enum. No full Cairo suite, arbitrary negative/nonfinite input, alternate dimensions/platforms or internal downstream Cairo assertion text absent from raw logs is claimed.",
+  "source_trace_scope": "Original source136 names native surface_set_device_scale through exact test_surface_set_device_scale; selected target is this complete original method with its existing valid-scale assertions and exact new invalid-scale check. Actual native failure behavior will be reported from logs; no independent coverage of arbitrary nonfinite/negative/matrix inputs is claimed.",
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10",
+    "libcairo2": "1.16.0-4+deb10u1",
+    "libcairo2-dev": "1.16.0-4+deb10u1",
+    "libfreetype6": "2.9.1-3+deb10u2",
+    "libpixman-1-0": "0.36.0-1",
+    "libpixman-1-dev": "0.36.0-1",
+    "pkg-config": "0.29-6"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "native_outcome_contract": {
+    "test_exit_code": 134,
+    "fail_to_pass_terminal": "MISSING",
+    "terminal_nodes_observed": 3,
+    "target_really_started": true,
+    "raw_native_diagnostic": "Aborted",
+    "formal_outer_exit": 1,
+    "gold_normal_exit": 0
+  },
+  "prior_deferred_reviews": "analysis/prior_candidate_reviews/index.json",
+  "product_files": [
+    "cairo/surface.c"
+  ],
+  "test_files": [
+    "tests/test_surface.py"
+  ]
+}

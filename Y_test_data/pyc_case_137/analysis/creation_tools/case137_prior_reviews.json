@@ -1,0 +1,66 @@
+[
+  {
+    "case_number": "106",
+    "status": "deferred_macos_freebsd_native_only",
+    "inner_sha256_count": 17,
+    "archive": "analysis/prior_candidate_reviews/case106",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case106-platform-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "107",
+    "status": "deferred_freebsd_native_only",
+    "inner_sha256_count": 18,
+    "archive": "analysis/prior_candidate_reviews/case107",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case107-platform-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "111",
+    "status": "deferred_windows_native_and_wmi_only",
+    "inner_sha256_count": 15,
+    "archive": "analysis/prior_candidate_reviews/case111",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case111-platform-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "113",
+    "status": "deferred_solaris_native_only",
+    "inner_sha256_count": 17,
+    "archive": "analysis/prior_candidate_reviews/case113",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case113-platform-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "114",
+    "status": "deferred_native_alternative_branch_uncompiled",
+    "inner_sha256_count": 38,
+    "archive": "analysis/prior_candidate_reviews/case114",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case114-platform-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "128",
+    "status": "deferred_gold_official_memory_check_failure",
+    "inner_sha256_count": 123,
+    "archive": "analysis/prior_candidate_reviews/case128",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case128-deferred-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "132",
+    "status": "deferred_gold_official_memory_check_failure",
+    "inner_sha256_count": 73,
+    "archive": "analysis/prior_candidate_reviews/case132",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case132-deferred-review",
+    "all_bytes_preserved": true
+  },
+  {
+    "case_number": "134",
+    "status": "deferred_gold_official_memory_check_failure",
+    "inner_sha256_count": 58,
+    "archive": "analysis/prior_candidate_reviews/case134",
+    "original_source_directory": "E:/CLB_Swe-bench/_work/pyc_batch/case134-deferred-review",
+    "all_bytes_preserved": true
+  }
+]

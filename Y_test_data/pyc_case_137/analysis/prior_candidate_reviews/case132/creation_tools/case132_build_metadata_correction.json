@@ -1,0 +1,8 @@
+{
+  "phase": "infrastructure_authoring",
+  "initial_evidence": "case132-prototype-build",
+  "reason": "Native build succeeded, but inherited later-case0.6.0 version audit correctly failed: this actual Base source is0.5.2. Correct metadata to exact source, not product code. Public Buster git also uses compatible git checkout HEAD -- . for tracked-source restoration.",
+  "actual_version": "0.5.2",
+  "source_or_tests_changed": false,
+  "compiler_or_memory_flags_changed": false
+}

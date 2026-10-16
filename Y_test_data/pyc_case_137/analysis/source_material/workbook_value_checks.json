@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 137 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"136\"],[\"Repository\",\"pygobject/pycairo\"],[\"Fix commit\",\"065a7a7aed9e5523dcbf41568d89e94fc0af44b9\"],[\"Base commit\",\"9ebff889d4c68927ab1c152b6ae7c8327283b6ed\"],[\"Upstream issue / PR\",\"https://github.com/pygobject/pycairo/issues/50\"],[\"Symptom\",\"incorrect result/output.\"],[\"Bug location\",\"line 331\"],[\"Bug location type\",\"function call\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"add a variable and function call\"],[\"Fix location\",\"function call\"],[\"Problem statement\",\"Surface.set_device_scale should reject a noninvertible scale with cairo.Error instead of terminating Python, while valid scaling and ordinary surface properties remain correct.\"],[\"Original source trace\",\"331(c_surface_20-cfg.dot) (surface_set_device_scale) … -> 323(c_surface_20-cfg.dot) (surface_set_device_scale) -> 69(py_test_surface_9-cfg.dot) (test_surface_set_device_scale)\"],[\"Source trace scope\",\"Original source136 names native surface_set_device_scale through exact test_surface_set_device_scale; selected target is this complete original method with its existing valid-scale assertions and exact new invalid-scale check. Actual native failure behavior will be reported from logs; no independent coverage of arbitrary nonfinite/negative/matrix inputs is claimed.\"],[\"Verified Base trace\",\"Ordinary Base completes3 regressions, begins complete official tests/test_surface.py::test_surface_set_device_scale, then native process aborts; Docker process exit134 and original bash Aborted record are preserved. No target terminal FAILED/PASSED line exists, so canonical scorer status is MISSING rather than a fabricated failure line. The upstream issue reports Cairo matrix assertion; this run preserves actual abort but does not invent an assertion message absent from stderr. Gold completes all4 full methods with normal exit0, including exact100x100ARGB32 scale(1,0) raising cairo.Error.\"],[\"Verified official test\",\"tests/test_surface.py::test_surface_set_device_scale\\ntests/test_surface.py::test_surface_get_device_scale\\ntests/test_surface.py::test_surface_get_content\\ntests/test_surface.py::test_surface_get_format\"],[\"Official test scope\",\"Complete test_surface_set_device_scale retains existing10x10ARGB32 surface scale(5.0,3.0) call and ret-is-None assertion, then creates exact100x100ARGB32 surface and expects cairo.Error for scale(1,0). Base reaches target execution but abort prevents complete method return; no intermediate terminal completion is claimed. Gold completes all original assertions. Three unchanged complete regressions test get_device_scale tuplefloat values, get_content enum and get_format enum. No full Cairo suite, arbitrary negative/nonfinite input, alternate dimensions/platforms or internal downstream Cairo assertion text absent from raw logs is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "axpn9l",
+          "target": {
+            "id": "wb/y50ys4",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 137 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygobject__pycairo-065a7a7a\"],[\"Repository\",\"pygobject/pycairo\"],[\"Version\",\"1.13.4\"],[\"Created at\",42927],[\"Base commit\",\"9ebff889d4c68927ab1c152b6ae7c8327283b6ed\"],[\"Fix commit\",\"065a7a7aed9e5523dcbf41568d89e94fc0af44b9\"],[\"Issue / PR\",\"https://github.com/pygobject/pycairo/issues/50\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_surface.py::test_surface_set_device_scale\"],[\"PASS_TO_PASS (1)\",\"tests/test_surface.py::test_surface_get_device_scale\"],[\"PASS_TO_PASS (2)\",\"tests/test_surface.py::test_surface_get_content\"],[\"PASS_TO_PASS (3)\",\"tests/test_surface.py::test_surface_get_format\"],[\"Base / Gold outcome\",\"Base:3 regressions pass, complete official device-scale target starts then native aborts(exit134; no terminal target status). Gold:all4 complete methods pass normally.\"],[\"Docker image\",\"yutu0814/pyc-case-137-pycairo:benchmark-v1\"],[\"Problem statement\",\"Surface.set_device_scale should reject a noninvertible scale with cairo.Error instead of terminating Python, while valid scaling and ordinary surface properties remain correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "ezqudz",
+          "target": {
+            "id": "wb/nnjjec",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

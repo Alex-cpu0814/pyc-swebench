@@ -1,0 +1,15 @@
+{
+  "source": ".travis.yml + setup.cfg at exact Base",
+  "original_command": "coverage run --source=iteration_utilities setup.py test",
+  "selected_nodes": [
+    "tests/test_deepflatten.py::test_deepflatten_failure9",
+    "tests/test_deepflatten.py::test_deepflatten_failure10",
+    "tests/test_deepflatten.py::test_deepflatten_normal1",
+    "tests/test_deepflatten.py::test_deepflatten_types1",
+    "tests/test_deepflatten.py::test_deepflatten_ignore1"
+  ],
+  "pass_subset_via": "pytest-runner --addopts, no test extraction",
+  "extra_unscored_calls": false,
+  "custom_warmup": false,
+  "dependency_version_semantics": "Explicit compatible versions; upstream CI dependencies were unpinned and no exact historical resolution is claimed."
+}

@@ -1,0 +1,10 @@
+{
+  "startedAt": "2026-10-16T03:20:04.684Z",
+  "command": [
+    "build",
+    "--progress=plain",
+    "-t",
+    "pyc-case132-prototype-base:latest",
+    "E:/CLB_Swe-bench/_work/pyc_batch/case132-image-context"
+  ]
+}

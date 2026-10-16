@@ -1,0 +1,31 @@
+{
+  "case_number": "114",
+  "repo": "giampaolo/psutil",
+  "fix_commit": "241c6baeaf2c59c609f47586a0404cd6c619d205",
+  "base_commit": "1a5e238cac236e5cee66ad2004b3b6889340a288",
+  "source_parents": [
+    "1a5e238cac236e5cee66ad2004b3b6889340a288",
+    "730835605135a43ee9742e1d4db0e981719b4a53"
+  ],
+  "status": "deferred_native_alternative_branch_uncompiled",
+  "product_files": [
+    "psutil/_psutil_linux.c",
+    "psutil/_pswindows.py"
+  ],
+  "test_files": [
+    "test/test_psutil.py",
+    "test/_posix.py"
+  ],
+  "available_evaluator": "Docker Linux containers",
+  "required_platforms": [
+    "Linux libc without CPU_ALLOC, plus genuine official error-path discriminator"
+  ],
+  "runtime_verified": false,
+  "base_gold_tests_run": false,
+  "image_created": false,
+  "publication_performed": false,
+  "reason": "Only behavioral native change initializes two pointers in psutil/_psutil_linux.c's #else implementation used when CPU_ALLOC is not defined. Source itself enables _GNU_SOURCE; the standard pinned Bullseye/glibc evaluator exposes CPU_ALLOC, selecting the unchanged primary affinity implementation. Full product patch also contains only Windows Python indentation changes. Official test patch changes test setup, rounding tolerance, CPU topology skip and old-kernel API exclusions, and adds no discriminator for native pointer-allocation error cleanup. Do not claim Linux passing tests validate an uncompiled repair; compiler-branch proof is retained separately.",
+  "source_trace": "Original row113 names Linux psutil_proc_cpu_affinity_get through a _psbsd.cpu_affinity_get trace; exact original row is preserved, not rewritten as an actually tested caller. Genuine merge first parent and complete multi-file patches are preserved.",
+  "future_admission": "A matching real Linux libc/environment lacking CPU_ALLOC and a genuine full official Base/Gold discriminator are required. Do not undefine CPU_ALLOC, change allocator/compiler flags, inject allocation failure, rewrite tests or count unrelated test-harness repairs as native product evidence.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case114"
+}

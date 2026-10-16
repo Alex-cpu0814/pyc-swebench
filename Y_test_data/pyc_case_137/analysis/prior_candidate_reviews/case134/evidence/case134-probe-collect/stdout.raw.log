@@ -1,0 +1,19 @@
+running pytest
+running egg_info
+creating iteration_utilities.egg-info
+writing iteration_utilities.egg-info/PKG-INFO
+writing dependency_links to iteration_utilities.egg-info/dependency_links.txt
+writing top-level names to iteration_utilities.egg-info/top_level.txt
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'iteration_utilities.egg-info/SOURCES.txt'
+running build_ext
+copying build/lib.linux-x86_64-3.6/iteration_utilities/_cfuncs.cpython-36m-x86_64-linux-gnu.so -> iteration_utilities
+tests/test_deepflatten.py::test_deepflatten_failure9
+tests/test_deepflatten.py::test_deepflatten_failure10
+tests/test_deepflatten.py::test_deepflatten_normal1
+tests/test_deepflatten.py::test_deepflatten_types1
+tests/test_deepflatten.py::test_deepflatten_ignore1
+
+no tests ran in 0.05 seconds

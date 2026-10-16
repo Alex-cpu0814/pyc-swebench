@@ -1,0 +1,10 @@
+commit 119cfcffe1885fca178e15710f084b25d387a658
+Merge: 5e2f2df b160cc1
+Author:     Michael Seifert <michaelseifert04@yahoo.de>
+AuthorDate: Sat Apr 15 02:29:44 2017 +0200
+Commit:     GitHub <noreply@github.com>
+CommitDate: Sat Apr 15 02:29:44 2017 +0200
+
+    Merge pull request #200 from MSeifert04/no_iternext_caching
+    
+    No iternext caching

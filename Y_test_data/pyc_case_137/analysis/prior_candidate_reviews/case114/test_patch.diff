@@ -1,0 +1,73 @@
+diff --git a/test/_posix.py b/test/_posix.py
+index 7e3b627c..4439f2c7 100644
+--- a/test/_posix.py
++++ b/test/_posix.py
+@@ -111,11 +111,14 @@ class PosixSpecificTestCase(unittest.TestCase):
+     def test_process_create_time(self):
+         time_ps = ps("ps --no-headers -o start -p %s" % self.pid).split(' ')[0]
+         time_psutil = psutil.Process(self.pid).create_time()
+-        if SUNOS:
+-            time_psutil = round(time_psutil)
+         time_psutil_tstamp = datetime.datetime.fromtimestamp(
+             time_psutil).strftime("%H:%M:%S")
+-        self.assertEqual(time_ps, time_psutil_tstamp)
++        # sometimes ps shows the time rounded up instead of down, so we check
++        # for both possible values
++        round_time_psutil = round(time_psutil)
++        round_time_psutil_tstamp = datetime.datetime.fromtimestamp(
++            round_time_psutil).strftime("%H:%M:%S")
++        self.assertIn(time_ps, [time_psutil_tstamp, round_time_psutil_tstamp])
+ 
+     def test_process_exe(self):
+         ps_pathname = ps("ps --no-headers -o command -p %s" %
+@@ -218,6 +221,8 @@ class PosixSpecificTestCase(unittest.TestCase):
+                          'send_signal', 'wait', 'children', 'as_dict']
+         if LINUX and get_kernel_version() < (2, 6, 36):
+             ignored_names.append('rlimit')
++        if LINUX and get_kernel_version() < (2, 6, 23):
++            ignored_names.append('num_ctx_switches')
+         for name in dir(psutil.Process):
+             if (name.startswith('_') or name in ignored_names):
+                 continue
+diff --git a/test/test_psutil.py b/test/test_psutil.py
+index cdbd61fc..2cc905f8 100644
+--- a/test/test_psutil.py
++++ b/test/test_psutil.py
+@@ -264,12 +264,14 @@ def wait_for_file(fname, timeout=GLOBAL_TIMEOUT, delete_file=True):
+         try:
+             with open(fname, "r") as f:
+                 data = f.read()
++            if not data:
++                continue
+             if delete_file:
+                 os.remove(fname)
+             return data
+         except IOError:
+             time.sleep(0.001)
+-    raise RuntimeError("timed out (couldn't create file)")
++    raise RuntimeError("timed out (couldn't read file)")
+ 
+ 
+ def reap_children(search_all=False):
+@@ -710,6 +712,10 @@ class TestSystemAPIs(unittest.TestCase):
+         self.assertEqual(logical, len(psutil.cpu_times(percpu=True)))
+         self.assertGreaterEqual(logical, 1)
+         #
++        with open("/proc/cpuinfo") as fd:
++            cpuinfo_data = fd.read()
++        if "physical id" not in cpuinfo_data:
++            raise unittest.SkipTest("cpuinfo doesn't include physical id")
+         physical = psutil.cpu_count(logical=False)
+         self.assertGreaterEqual(physical, 1)
+         self.assertGreaterEqual(logical, physical)
+@@ -2495,9 +2501,9 @@ class LimitedUserTestCase(TestProcess):
+ 
+     def setUp(self):
+         safe_remove(TESTFN)
++        TestProcess.setUp(self)
+         os.setegid(1000)
+         os.seteuid(1000)
+-        TestProcess.setUp(self)
+ 
+     def tearDown(self):
+         os.setegid(self.PROCESS_UID)

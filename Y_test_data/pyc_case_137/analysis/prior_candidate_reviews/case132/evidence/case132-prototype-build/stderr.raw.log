@@ -1,0 +1,100 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.41kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#4 resolve public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e 0.0s done
+#4 DONE 0.1s
+
+#5 [2/5] RUN python -m pip install --no-cache-dir pip==21.3.1 setuptools==59.6.0 wheel==0.37.1 pytest==3.0.7 py==1.4.34
+#5 2.012 Collecting pip==21.3.1
+#5 2.313   Downloading pip-21.3.1-py3-none-any.whl (1.7 MB)
+#5 3.561 Collecting setuptools==59.6.0
+#5 3.652   Downloading setuptools-59.6.0-py3-none-any.whl (952 kB)
+#5 4.034 Collecting wheel==0.37.1
+#5 4.124   Downloading wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+#5 5.361 Collecting pytest==3.0.7
+#5 5.443   Downloading pytest-3.0.7-py2.py3-none-any.whl (172 kB)
+#5 5.677 Collecting py==1.4.34
+#5 5.760   Downloading py-1.4.34-py2.py3-none-any.whl (84 kB)
+#5 6.179 Installing collected packages: setuptools, py, wheel, pytest, pip
+#5 6.179   Attempting uninstall: setuptools
+#5 6.179     Found existing installation: setuptools 57.5.0
+#5 6.209     Uninstalling setuptools-57.5.0:
+#5 6.286       Successfully uninstalled setuptools-57.5.0
+#5 6.600   Attempting uninstall: wheel
+#5 6.600     Found existing installation: wheel 0.37.0
+#5 6.606     Uninstalling wheel-0.37.0:
+#5 6.622       Successfully uninstalled wheel-0.37.0
+#5 6.734   Attempting uninstall: pip
+#5 6.734     Found existing installation: pip 21.2.4
+#5 6.821     Uninstalling pip-21.2.4:
+#5 6.969       Successfully uninstalled pip-21.2.4
+#5 7.635 Successfully installed pip-21.3.1 py-1.4.34 pytest-3.0.7 setuptools-59.6.0 wheel-0.37.1
+#5 7.635 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#5 DONE 8.1s
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/MSeifert04/iteration_utilities.git" && git fetch --depth=1 --no-tags origin "d12877a91ada393525ad5209edb88da491792646" && git checkout --detach "d12877a91ada393525ad5209edb88da491792646" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "d12877a91ada393525ad5209edb88da491792646"
+#6 0.275 Initialized empty Git repository in /testbed/.git/
+#6 2.773 From https://github.com/MSeifert04/iteration_utilities
+#6 2.773  * branch            d12877a91ada393525ad5209edb88da491792646 -> FETCH_HEAD
+#6 2.788 HEAD is now at d12877a Merge pull request #197 from MSeifert04/documentation_fixes_adds
+#6 DONE 2.8s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.0s
+
+#8 [5/5] RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git restore --source=HEAD --worktree -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 0.423 running build_ext
+#8 0.426 building '_iteration_utilities' extension
+#8 0.427 creating build
+#8 0.427 creating build/temp.linux-x86_64-3.6
+#8 0.428 creating build/temp.linux-x86_64-3.6/src
+#8 0.428 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.6m -c src/_module.c -o build/temp.linux-x86_64-3.6/src/_module.o
+#8 0.530 In file included from src/_module.c:44:
+#8 0.530 src/deepflatten.c: In function ‘deepflatten_next’:
+#8 0.530 src/deepflatten.c:195:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+#8 0.530              if (ok = PyObject_IsInstance(item, self->types)) {
+#8 0.530                  ^~
+#8 1.962 creating build/lib.linux-x86_64-3.6
+#8 1.962 gcc -pthread -shared build/temp.linux-x86_64-3.6/src/_module.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so
+#8 1.996 copying build/lib.linux-x86_64-3.6/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so -> 
+#8 2.049 Traceback (most recent call last):
+#8 2.049   File "<string>", line 1, in <module>
+#8 2.049 AssertionError
+#8 2.049 0.5.2 /testbed/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so
+#8 ERROR: process "/bin/bash -o pipefail -c python setup.py build_ext --inplace --force && python -c \"import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')\" && git restore --source=HEAD --worktree -- . && printf '%s\\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z \"$(git status --porcelain)\"" did not complete successfully: exit code: 1
+------
+ > [5/5] RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git restore --source=HEAD --worktree -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)":
+0.530 src/deepflatten.c:195:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+0.530              if (ok = PyObject_IsInstance(item, self->types)) {
+0.530                  ^~
+1.962 creating build/lib.linux-x86_64-3.6
+1.962 gcc -pthread -shared build/temp.linux-x86_64-3.6/src/_module.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so
+1.996 copying build/lib.linux-x86_64-3.6/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so -> 
+2.049 Traceback (most recent call last):
+2.049   File "<string>", line 1, in <module>
+2.049 AssertionError
+2.049 0.5.2 /testbed/_iteration_utilities.cpython-36m-x86_64-linux-gnu.so
+------
+Dockerfile:10
+--------------------
+   8 |     RUN git init /testbed && cd /testbed && git remote add origin "${REPO_URL}" && git fetch --depth=1 --no-tags origin "${BASE_COMMIT}" && git checkout --detach "${BASE_COMMIT}" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "${BASE_COMMIT}"
+   9 |     WORKDIR /testbed
+  10 | >>> RUN python setup.py build_ext --inplace --force && python -c "import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')" && git restore --source=HEAD --worktree -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+  11 |     CMD ["/bin/bash"]
+  12 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/bash -o pipefail -c python setup.py build_ext --inplace --force && python -c \"import iteration_utilities,_iteration_utilities; print(iteration_utilities.__version__,_iteration_utilities.__file__); assert iteration_utilities.__version__ == '0.6.0'; assert _iteration_utilities.__file__.startswith('/testbed/_iteration_utilities.')\" && git restore --source=HEAD --worktree -- . && printf '%s\\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/iteration_utilities.egg-info/' >> .git/info/exclude && test -z \"$(git status --porcelain)\"" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ujrvz7ozzunsqoc0axlmitw5p

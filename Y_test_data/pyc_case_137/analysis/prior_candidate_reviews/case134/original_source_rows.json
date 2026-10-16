@@ -1,0 +1,37 @@
+{
+  "source_cases": [
+    "133"
+  ],
+  "columns": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "original_rows": [
+    [
+      "133",
+      "https://github.com/MSeifert04/iteration_utilities/commit/1361a3a3e1c0d75dd4ee2ad2609d2f795bcdfc6f",
+      "no description",
+      "line 170",
+      "Cross-Language API callsite ",
+      "Conditional expression ",
+      null,
+      " \n  170(c_deepflatten_12-cfg.dot) (deepflatten_next)\n …\n -> 117(c_deepflatten_12-cfg.dot) (deepflatten_next)\n -> 216(py_test_deepflatten_43-cfg.dot) (test_deepflatten_failure9)",
+      "Py_DECREF,Foreign,Reference Counting,PyObject_IsInstance,Foreign,Object Protocol,PyList_GET_ITEM,Foreign,List Objects,PyList_SET_ITEM,Foreign,List Objects,PyErr_SetString,Foreign,Exception Handling,PyErr_ExceptionMatches,Foreign,Exception Handling,PyErr_Occurred,Foreign,Exception Handling,Py_TYPE,Foreign,Common Object Structures",
+      "\n Python->C",
+      "\n\nException handling",
+      "Boundary check against value range/limit",
+      "foreign function call + return + if/branching statement"
+    ]
+  ]
+}

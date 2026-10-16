@@ -1,0 +1,13 @@
+{
+  "caseNumber": "113",
+  "sourceCase": "112",
+  "sourceExcelRow": 114,
+  "fixCommit": "08c6017fbb2820e7cefed8b0f41f59877969f7f3",
+  "testFiles": ["test/test_psutil.py"],
+  "platformFiles": ["setup.py", "psutil/__init__.py", "psutil/_pslinux.py"],
+  "status": "deferred_solaris_native_only",
+  "requiredPlatforms": ["Solaris/SunOS"],
+  "reason": "Complete first-parent product patch repairs Solaris _pssunos.net_connections argument agreement with _psutil_sunos.c and Solaris executable-path lookup. The only other product change removes an unused _common.py shebang/comment. Linux setup/import select the unchanged Linux implementation, not Solaris /dev/arp native networking. The sole official test diff adds skipIf(SUNOS) to an unrelated funky-executable-name test; it does not add a discriminating net_connections test on Linux. No Linux product FAIL_TO_PASS is established.",
+  "sourceTrace": "Original row112 traces _psutil_sunos.c psutil_net_connections to _pssunos.net_connections; retained verbatim. Source commit is a two-parent merge and the exact first-parent complete patch is preserved.",
+  "futureAdmission": "Use real Solaris native dependencies and complete official tests for an actual Base/Gold distinction. Do not fake platform selection, invoke Solaris C under Linux, weaken assertions or treat the common shebang deletion as a behavioral fix."
+}

@@ -1,0 +1,9 @@
+tests/test_allisinstance.py::test_allisinstance_failure5
+tests/test_anyisinstance.py::test_anyisinstance_failure5
+tests/test_groupedby.py::test_groupedby_failure10
+tests/test_grouper.py::test_grouper_failure7
+tests/test_allisinstance.py::test_allisinstance_failure3
+tests/test_anyisinstance.py::test_anyisinstance_normal1
+tests/test_groupedby.py::test_groupedby_normal1
+
+7 tests collected in 0.07s

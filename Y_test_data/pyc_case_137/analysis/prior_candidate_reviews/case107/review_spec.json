@@ -1,0 +1,13 @@
+{
+  "caseNumber": "107",
+  "sourceCase": "106",
+  "sourceExcelRow": 108,
+  "fixCommit": "fd2205bad09db0efab8958c359897fc1772dc187",
+  "testFiles": ["psutil/tests/test_contracts.py"],
+  "platformFiles": ["setup.py", "psutil/__init__.py", "psutil/_psbsd.py", "psutil/_pslinux.py"],
+  "status": "deferred_freebsd_native_only",
+  "requiredPlatforms": ["FreeBSD"],
+  "reason": "Native fix changes only psutil/_psutil_bsd.c oncpu storage from unsigned char to int so FreeBSD kernel-process -1 survives, plus history/API documentation. The official contract change explicitly accepts FREEBSD ret==-1; the other list(range(...)) edit is test-side. Linux setup/import use _psutil_linux.c/_pslinux, so Linux cpu_num exercises no repaired native branch and cannot establish product FAIL_TO_PASS.",
+  "sourceTrace": "Original row106 identifies _psutil_bsd.c psutil_proc_oneshot_info through _psbsd.oneshot; preserved verbatim.",
+  "futureAdmission": "Use real FreeBSD kernel/process data and the unchanged full official contract test. Do not fake FREEBSD, mock the C result or transform Linux same-name success into this native bug's verification."
+}

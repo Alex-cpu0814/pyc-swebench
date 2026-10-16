@@ -1,0 +1,154 @@
+diff --git a/docs/CHANGES.rst b/docs/CHANGES.rst
+index 85c0f01..db0f254 100644
+--- a/docs/CHANGES.rst
++++ b/docs/CHANGES.rst
+@@ -13,6 +13,9 @@ Version 0.6.0 (unreleased)
+ 
+ - Added several attributes to classes.
+ 
++- Fixed a Bug in ``deepflatten`` when ``isinstance`` fails for the classes
++  given as ``types`` or ``ignore`` parameter.
++
+ 
+ Version 0.5.2 (2017-03-30)
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+diff --git a/src/_itemidxkey.c b/src/_itemidxkey.c
+index 797f33c..067d663 100644
+--- a/src/_itemidxkey.c
++++ b/src/_itemidxkey.c
+@@ -21,8 +21,8 @@ typedef struct {
+ 
+ PyTypeObject PyIUType_ItemIdxKey;
+ 
+-#define PyIU_ItemIdxKey_Check(obj) PyObject_IsInstance(obj, (PyObject*) &PyIUType_ItemIdxKey)
+-#define PyIU_ItemIdxKey_CheckExact(op) (Py_TYPE(op) == &PyIUType_ItemIdxKey)
++#define PyIU_ItemIdxKey_Check(o) PyObject_TypeCheck(o, &PyIUType_ItemIdxKey)
++#define PyIU_ItemIdxKey_CheckExact(o) (Py_TYPE(o) == &PyIUType_ItemIdxKey)
+ 
+ /******************************************************************************
+  * New
+diff --git a/src/_seen.c b/src/_seen.c
+index c8fc4bf..0faf2b5 100644
+--- a/src/_seen.c
++++ b/src/_seen.c
+@@ -31,8 +31,8 @@ typedef struct {
+ 
+ PyTypeObject PyIUType_Seen;
+ 
+-#define PyIUSeen_Check(obj) (PyObject_IsInstance(obj, (PyObject*) &PyIUType_Seen))
+-#define PyIUSeen_CheckExact(op) (Py_TYPE(op) == &PyIUType_Seen)
++#define PyIUSeen_Check(o) (PyObject_TypeCheck(o, &PyIUType_Seen))
++#define PyIUSeen_CheckExact(o) (Py_TYPE(o) == &PyIUType_Seen)
+ 
+ /******************************************************************************
+  * Creates a new PyIUSeen objects with empty seenset and seenlist.
+diff --git a/src/deepflatten.c b/src/deepflatten.c
+index 2caea97..8628c8e 100644
+--- a/src/deepflatten.c
++++ b/src/deepflatten.c
+@@ -118,6 +118,7 @@ static PyObject *
+ deepflatten_next(PyIUObject_DeepFlatten *self)
+ {
+     PyObject *activeiterator, *item, *temp;
++    int ok;
+ 
+     if (self->currentdepth < 0) {
+         return NULL;
+@@ -167,13 +168,22 @@ deepflatten_next(PyIUObject_DeepFlatten *self)
+ 
+         /* First check if the item is an instance of the ignored types, if
+            it is, then simply return it. */
+-        } else if (self->ignore && PyObject_IsInstance(item, self->ignore)) {
+-            return item;
++        } else if (self->ignore &&
++                (ok = PyObject_IsInstance(item, self->ignore))) {
++            if (ok == 1) {
++                return item;
++            }
++            Py_DECREF(item);
++            return NULL;
+ 
+         /* If types is given then check if it's an instance thereof and if
+            so replace activeiterator, otherwise return the item. */
+         } else if (self->types) {
+-            if (PyObject_IsInstance(item, self->types)) {
++            if (ok = PyObject_IsInstance(item, self->types)) {
++                if (ok == -1) {
++                    Py_DECREF(item);
++                    return NULL;
++                }
+                 /* Check if it's a builtin-string-type and if so set
+                    "isstring". Check for the exact type because sub types might
+                    have custom __iter__ methods, better not to interfere with
+diff --git a/tests/helper_cls.py b/tests/helper_cls.py
+index 54e0081..6b64b54 100644
+--- a/tests/helper_cls.py
++++ b/tests/helper_cls.py
+@@ -1,6 +1,7 @@
+ # Licensed under Apache License Version 2.0 - see LICENSE
+ 
+ # Built-ins
++import abc
+ import operator
+ import itertools
+ 
+@@ -92,3 +93,21 @@ def failingTIterator(offset=0, repeats=1):
+         return itertools.chain([T(1) for _ in range(offset)], it)
+     else:
+         return it
++
++
++if iteration_utilities.EQ_PY2:
++    exec("""
++class FailingIsinstanceClass:
++    __metaclass__ = abc.ABCMeta
++
++    @classmethod
++    def __subclasshook__(cls, C):
++        raise TypeError('isinstance failed')
++""")
++else:
++    exec("""
++class FailingIsinstanceClass(metaclass=abc.ABCMeta):
++    @classmethod
++    def __subclasshook__(cls, C):
++        raise TypeError('isinstance failed')
++""")
+diff --git a/tests/test_deepflatten.py b/tests/test_deepflatten.py
+index 32c2ad7..a3508d5 100644
+--- a/tests/test_deepflatten.py
++++ b/tests/test_deepflatten.py
+@@ -12,7 +12,7 @@ import iteration_utilities
+ 
+ # Test helper
+ import helper_funcs
+-from helper_cls import T, toT, failingTIterator
++from helper_cls import T, toT, failingTIterator, FailingIsinstanceClass
+ from helper_leak import memory_leak_decorator
+ 
+ 
+@@ -208,6 +208,24 @@ def test_deepflatten_failure8():
+     assert next(df, nothing) is nothing
+ 
+ 
++@memory_leak_decorator(collect=True)
++def test_deepflatten_failure9():
++    # Check that everyting is working even if isinstance fails
++    df = deepflatten(toT([1, 2, 3, 4]), types=FailingIsinstanceClass)
++    with pytest.raises(TypeError) as exc:
++        list(df)
++    assert 'isinstance failed' in str(exc)
++
++
++@memory_leak_decorator(collect=True)
++def test_deepflatten_failure10():
++    # Check that everyting is working even if isinstance fails
++    df = deepflatten(toT([1, 2, 3, 4]), ignore=FailingIsinstanceClass)
++    with pytest.raises(TypeError) as exc:
++        list(df)
++    assert 'isinstance failed' in str(exc)
++
++
+ @memory_leak_decorator(collect=True)
+ def test_deepflatten_copy1():
+     helper_funcs.iterator_copy(deepflatten(toT([1, 2, 3, 4])))

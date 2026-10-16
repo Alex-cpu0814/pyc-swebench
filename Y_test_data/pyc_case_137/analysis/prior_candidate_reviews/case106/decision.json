@@ -1,0 +1,32 @@
+{
+  "case_number": "106",
+  "repo": "giampaolo/psutil",
+  "fix_commit": "a759a044123c88a856aedb1e1994e8944981ecdf",
+  "base_commit": "c268d3cea17c51627ad44945d39d7716fd441a63",
+  "source_parents": [
+    "c268d3cea17c51627ad44945d39d7716fd441a63"
+  ],
+  "status": "deferred_macos_freebsd_native_only",
+  "product_files": [
+    "HISTORY.rst",
+    "psutil/_psutil_osx.c",
+    "psutil/arch/bsd/freebsd_socks.c"
+  ],
+  "test_files": [
+    "psutil/tests/test_connections.py",
+    "psutil/tests/test_memory_leaks.py"
+  ],
+  "available_evaluator": "Docker Linux containers",
+  "required_platforms": [
+    "macOS",
+    "FreeBSD"
+  ],
+  "runtime_verified": false,
+  "base_gold_tests_run": false,
+  "image_created": false,
+  "publication_performed": false,
+  "reason": "Only native product changes are Py_DECREF additions in macOS _psutil_osx.c and FreeBSD arch/bsd/freebsd_socks.c, plus HISTORY documentation. setup.py builds _psutil_linux.c on Linux and selects _pslinux in __init__.py, so the changed native code cannot execute in this evaluator. The test_connections edit changes only OSX AccessDenied handling; the memory-leak test edit is a comment. Existing connection-memory method uses Linux pure-Python connection logic (skip_if_linux skips only when LINUX and SKIP_PYTHON_IMPL, the latter tied to TRAVIS); it must not be described as unconditionally skipped or as exercising the repaired macOS/FreeBSD native path.",
+  "source_trace": "Original row105 identifies _psutil_osx.c psutil_proc_connections to _psosx.connections; preserved verbatim.",
+  "future_admission": "Use a real matching macOS/FreeBSD evaluator and complete official tests to establish genuine native Base/Gold distinction. Do not emulate platforms, force conditional branches, alter memory tolerances/loops or manufacture a Linux result.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case106"
+}

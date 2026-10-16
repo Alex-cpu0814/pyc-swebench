@@ -1,0 +1,18 @@
+{
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/case128_test.diff,target=/tmp/test.diff,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case128-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply /tmp/test.diff; python -c 'import sys,importlib,json; sys.path.insert(0,\"tests\"); mods=[\"test_allisinstance\",\"test_anyisinstance\",\"test_groupedby\",\"test_grouper\"]; print(json.dumps({n:{\"file\":importlib.import_module(n).__file__,\"functions\":[k for k in vars(importlib.import_module(n)) if k.startswith(\"test_\")]}for n in mods}))'; python -m pytest -c /dev/null --collect-only -q tests/test_allisinstance.py tests/test_anyisinstance.py tests/test_groupedby.py tests/test_grouper.py"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "scope": "Read-only original module discovery; test source/helper/decorators unchanged."
+}

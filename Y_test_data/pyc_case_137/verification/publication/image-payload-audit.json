@@ -1,0 +1,33 @@
+{
+  "image": "yutu0814/pyc-case-137-pycairo:benchmark-v1",
+  "verified_image_id": "sha256:b4603765359d41448fa3d87f060d41236f069e73bc953b52ab072d8783418944",
+  "source_commit": "9ebff889d4c68927ab1c152b6ae7c8327283b6ed",
+  "tracked_public_source_files": 95,
+  "config_env": [
+    "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+    "PYTHON_VERSION=3.6.15",
+    "PYTHON_PIP_VERSION=21.2.4",
+    "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+    "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py",
+    "PYTHON_GET_PIP_SHA256=c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "PYTHONPATH=/testbed"
+  ],
+  "config_volumes": null,
+  "config_labels": null,
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile/.dockerignore in staged public build context",
+  "payload_scope": "Exact fixed public Python3.6.15-buster image with its public Cairo1.16 runtime/dev libraries, pinned public pip packages and anonymous public pycairo first-parent Base source plus ordinary compiled cairo._cairo. No host attachments, private files, credentials, candidate/Gold/test patches, fix object or evaluator runtime assets copied into image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "fix_commit_absent": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-16T03:40:02.202Z"
+}

@@ -1,0 +1,133 @@
+{
+  "projectName": "iteration_utilities",
+  "repo": "MSeifert04/iteration_utilities",
+  "repoUrl": "https://github.com/MSeifert04/iteration_utilities.git",
+  "sourceRepo": "E:/CLB_Swe-bench/_work/pyc_batch/iteration_utilities",
+  "binaryPatches": false,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.6",
+  "pythonVersionConfig": "3.6",
+  "pythonVersionLabel": "3.6.15",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "pytest3.0.7 / py1.4.34 via pytest-runner2.11.1 setup.py test, coverage4.3.4",
+  "baseImage": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_pytest",
+  "evidenceType": "source_rows_upstream_pr_and_verified_original_pytest",
+  "pytestPathPrefix": "tests/",
+  "compilerToolchain": "Unmodified GCC from fixed public Python3.6.15-buster image; actual version/package audited; normal setup.py native build.",
+  "caseNumber": "134",
+  "sourceCase": "133",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_134",
+  "instanceId": "MSeifert04__iteration_utilities-192",
+  "issueId": "192",
+  "issueUrl": "https://github.com/MSeifert04/iteration_utilities/pull/192",
+  "fixCommit": "1361a3a3e1c0d75dd4ee2ad2609d2f795bcdfc6f",
+  "baseCommit": "479d40e12706983a298386df09d9e2a95e04e158",
+  "baseCommitStatus": "verified_first_parent_of_merge",
+  "createdAt": null,
+  "mergedAt": null,
+  "fixCommittedAt": "2017-04-05",
+  "version": "0.5.2",
+  "image": "yutu0814/pyc-case-134-iteration-utilities:benchmark-v1",
+  "prototypeImage": "pyc-case134-prototype-base:latest",
+  "testFiles": [
+    "tests/helper_cls.py",
+    "tests/test_deepflatten.py"
+  ],
+  "goldPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case134_gold.diff",
+  "testPatchSource": "E:/CLB_Swe-bench/_work/pyc_batch/case134_test.diff",
+  "dockerfileSource": "E:/CLB_Swe-bench/_work/pyc_batch/Dockerfile.iteration134-local",
+  "validationStatus": "pending_base_gold_probe",
+  "expectedBaseExitCode": 1,
+  "environment": "iteration_utilities_original_isinstance_exception_propagation",
+  "testExecution": "Original .travis.yml coverage run --source=iteration_utilities setup.py test entry with original setup.cfg pytest alias. --addopts passes only selected complete original nodes and verbosity. Original decorators/ABC helpers/checks and fixed F2P→P2P order unchanged; no extra calls or custom initialization/warmup. Public CPython3.6 supported by original CI; explicit dependency versions are compatible selections, not a claim that upstream unpinned CI resolved these exact versions.",
+  "nativeAuditCommand": "python -c \"import iteration_utilities,iteration_utilities._cfuncs as native; print(iteration_utilities.__version__,native.__file__); assert iteration_utilities.__version__ == '0.5.2'; assert native.__file__.startswith('/testbed/iteration_utilities/_cfuncs.')\"",
+  "buildCommand": "python setup.py build_ext --inplace --force",
+  "buildSystem": "Official setup.py Extension _iteration_utilities includes all native .c files via src/_module.c; normal force build_ext --inplace and source imports from /testbed.",
+  "testSourceLabel": "Complete original pytest functions with upstream CacheNext and memory_leak_decorator",
+  "testCommand": "bash -c 'coverage run --source=iteration_utilities setup.py test --addopts \"$*\"' -- -vv",
+  "collectCommand": "bash -c 'coverage run --source=iteration_utilities setup.py test --addopts \"$*\"' -- --collect-only -q",
+  "problemStatement": "deepflatten must propagate TypeError from isinstance checks on types and ignore parameters instead of returning a value with an active error or suppressing the original message.",
+  "upstreamDescription": "Full PR192 product diff handles PyObject_IsInstance failure in both deepflatten parameter branches and changes internal Seen/ItemIdxKey checks to PyObject_TypeCheck, plus documentation. Full official test patch adds FailingIsinstanceClass ABC helper and two complete decorated tests.",
+  "sourceTraceNotes": "Original row133 identifies deepflatten_next and exact newly added test_deepflatten_failure9; actual selected targets are complete failure9(types) and failure10(ignore), preserving both original ABC helper and memory decorators. Full product includes internal type-check changes which are retained without claiming separate discriminating coverage.",
+  "nativeRequirement": "Public CPython3.8 native headers/GCC, original public pure-Python package and full official test helpers.",
+  "workbookDateFields": true,
+  "failToPass": [
+    "tests/test_deepflatten.py::test_deepflatten_failure9",
+    "tests/test_deepflatten.py::test_deepflatten_failure10"
+  ],
+  "passToPass": [
+    "tests/test_deepflatten.py::test_deepflatten_normal1",
+    "tests/test_deepflatten.py::test_deepflatten_types1",
+    "tests/test_deepflatten.py::test_deepflatten_ignore1"
+  ],
+  "probeNodes": [
+    "tests/test_deepflatten.py::test_deepflatten_failure9",
+    "tests/test_deepflatten.py::test_deepflatten_failure10",
+    "tests/test_deepflatten.py::test_deepflatten_normal1",
+    "tests/test_deepflatten.py::test_deepflatten_types1",
+    "tests/test_deepflatten.py::test_deepflatten_ignore1"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/MSeifert04/iteration_utilities/commit/1361a3a3e1c0d75dd4ee2ad2609d2f795bcdfc6f",
+    "pr_url": "https://github.com/MSeifert04/iteration_utilities/pull/192",
+    "base_commit": "479d40e12706983a298386df09d9e2a95e04e158",
+    "fix_commit": "1361a3a3e1c0d75dd4ee2ad2609d2f795bcdfc6f",
+    "source_parents": [
+      "479d40e12706983a298386df09d9e2a95e04e158",
+      "bb4e819b97e276d0760bb3989d4fc7f850240bdd"
+    ],
+    "source_commit_timestamp_original_offset": "2017-04-05T16:00:21+02:00",
+    "source_commit_utc_timestamp": "2017-04-05T14:00:21Z",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "product_patch_languages": [
+      "C",
+      "reStructuredText documentation"
+    ],
+    "native_product_files_changed": [
+      "src/_itemidxkey.c",
+      "src/_seen.c",
+      "src/deepflatten.c"
+    ],
+    "native_source_git_blobs": {
+      "src/_module.c": "b2cd8c6438d31c4b626505025c77be6a2730e392",
+      "src/deepflatten.c": "2caea97bbdea4b1ef00dd563095b76db1a0111d9",
+      "src/_seen.c": "c8fc4bfe6ca9d13cee59e6287dbb7708b00e4621",
+      "src/_itemidxkey.c": "797f33cb63d35eccf44f2ca96fff610481489549",
+      "setup.py": "c8cbd8647173a295e5048357e1ec57ad5bb6dca4",
+      "iteration_utilities/__init__.py": "554ef462c492b3632f7dbdc18c02d93b4cb61983",
+      "tests/helper_leak.py": "4b47390b27332a6c5c84dd8cd9b9ea4a74d0d27d",
+      ".travis.yml": "8b96a41675987e5f279437cd2cc4b19298301288",
+      "pytest.ini": "7b10d0b6f628c4339737a4c30190611c0987deab"
+    },
+    "native_package_versions": {},
+    "environment_selection": "Original .travis.yml explicitly supports stable CPython3.6 and executes coverage run --source=iteration_utilities setup.py test (setup.cfg alias test=pytest / pytest-runner). Case134 uses this exact test-launch route from its first run, with compatible fixed public dependencies. No extra unscored calls/warmup/helper edits or test/order search.",
+    "admission_rule": "Complete original decorated targets must fail actual Base and pass full Gold, with all selected regressions passing; no memory-helper edits or further order/selection search."
+  },
+  "probeSuffixes": {},
+  "additionalVerificationAssets": [],
+  "testNodeOrder": [
+    "tests/test_deepflatten.py::test_deepflatten_failure9",
+    "tests/test_deepflatten.py::test_deepflatten_failure10",
+    "tests/test_deepflatten.py::test_deepflatten_normal1",
+    "tests/test_deepflatten.py::test_deepflatten_types1",
+    "tests/test_deepflatten.py::test_deepflatten_ignore1"
+  ]
+}

@@ -1,0 +1,71 @@
+diff --git a/psutil/_common.py b/psutil/_common.py
+index f46422ea..29acfb8d 100644
+--- a/psutil/_common.py
++++ b/psutil/_common.py
+@@ -1,5 +1,3 @@
+-# /usr/bin/env python
+-
+ # Copyright (c) 2009, Giampaolo Rodola'. All rights reserved.
+ # Use of this source code is governed by a BSD-style license that can be
+ # found in the LICENSE file.
+diff --git a/psutil/_pssunos.py b/psutil/_pssunos.py
+index 7323f163..c1574096 100644
+--- a/psutil/_pssunos.py
++++ b/psutil/_pssunos.py
+@@ -213,7 +213,7 @@ def net_connections(kind, _pid=-1):
+         raise ValueError("invalid %r kind argument; choose between %s"
+                          % (kind, ', '.join([repr(x) for x in cmap])))
+     families, types = _common.conn_tmap[kind]
+-    rawlist = cext.net_connections(_pid, families, types)
++    rawlist = cext.net_connections(_pid)
+     ret = set()
+     for item in rawlist:
+         fd, fam, type_, laddr, raddr, status, pid = item
+@@ -286,7 +286,11 @@ class Process(object):
+ 
+     @wrap_exceptions
+     def exe(self):
+-        # Will be guess later from cmdline but we want to explicitly
++        try:
++            return os.readlink("/proc/%s/path/a.out" % self.pid)
++        except OSError:
++            pass    # continue and guess the exe name from the cmdline
++        # Will be guessed later from cmdline but we want to explicitly
+         # invoke cmdline here in order to get an AccessDenied
+         # exception if the user has not enough privileges.
+         self.cmdline()
+diff --git a/psutil/_psutil_sunos.c b/psutil/_psutil_sunos.c
+index 5910eb59..0a235d22 100644
+--- a/psutil/_psutil_sunos.c
++++ b/psutil/_psutil_sunos.c
+@@ -827,17 +827,11 @@ psutil_net_connections(PyObject *self, PyObject *args) {
+     PyObject *py_tuple = NULL;
+     PyObject *py_laddr = NULL;
+     PyObject *py_raddr = NULL;
+-    PyObject *py_af_filter = NULL;
+-    PyObject *py_type_filter = NULL;
+ 
+     if (py_retlist == NULL)
+         return NULL;
+-    if (! PyArg_ParseTuple(args, "lOO", &pid, &py_af_filter, &py_type_filter))
++    if (! PyArg_ParseTuple(args, "l", &pid))
+         goto error;
+-    if (!PySequence_Check(py_af_filter) || !PySequence_Check(py_type_filter)) {
+-        PyErr_SetString(PyExc_TypeError, "arg 2 or 3 is not a sequence");
+-        goto error;
+-    }
+ 
+     sd = open("/dev/arp", O_RDWR);
+     if (sd == -1) {
+diff --git a/test/test_psutil.py b/test/test_psutil.py
+index 62fc5114..e2e595f3 100644
+--- a/test/test_psutil.py
++++ b/test/test_psutil.py
+@@ -1725,6 +1725,7 @@ class TestProcess(unittest.TestCase):
+         pyexe = os.path.basename(os.path.realpath(sys.executable)).lower()
+         assert pyexe.startswith(name), (pyexe, name)
+ 
++    @unittest.skipIf(SUNOS, "doesn't work on Solaris")
+     def test_prog_w_funky_name(self):
+         # Test that name(), exe() and cmdline() correctly handle programs
+         # with funky chars such as spaces and ")", see:

@@ -1,0 +1,13 @@
+diff --git a/tests/test_surface.py b/tests/test_surface.py
+index d5287c2..406498e 100644
+--- a/tests/test_surface.py
++++ b/tests/test_surface.py
+@@ -66,7 +66,7 @@ def test_surface_get_device_scale():
+ 
+ def test_surface_set_device_scale():
+     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 10, 10)
+-    ret = surface.set_device_scale(5.0, 3.0)
++    ret = surface.set_device_scale(6.0, 3.0)  # Protected-test context conflict
+     assert ret is None
+ 
+ 
