@@ -1,0 +1,96 @@
+{
+  "upstream_url": "https://github.com/pygobject/pycairo/commit/42eb8a30f57676e74a194be297d051f457cebf23",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/48",
+  "base_commit": "afee8cfba448e8c6c100afc6015d31c6aa37e172",
+  "fix_commit": "42eb8a30f57676e74a194be297d051f457cebf23",
+  "source_parents": [
+    "afee8cfba448e8c6c100afc6015d31c6aa37e172"
+  ],
+  "source_commit_timestamp_original_offset": "2017-07-21T15:58:34+02:00",
+  "source_commit_utc_timestamp": "2017-07-21T13:58:34Z",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C",
+    "RST",
+    "NEWS text"
+  ],
+  "native_product_files_changed": [
+    "cairo/cairomodule.c",
+    "cairo/pattern.c",
+    "cairo/private.h"
+  ],
+  "native_source_git_blobs": {
+    "cairo/pattern.c": "d53b2615a16da715d4f144d8ba50fd6cde632e6f",
+    "cairo/private.h": "c031555169f560aeb1ad0f71c5486f3728f3d8d0",
+    "cairo/cairomodule.c": "04df650e413a79a91dcea131eaca9c2e4f23679c",
+    "cairo/__init__.py": "dd86f6a5154b349be2d79e6a26387cb361f84cff",
+    "setup.py": "c24ecd5b0041978b52ede470430cce3fac8a0ef7",
+    ".travis.yml": "542bea038b93f28963b5e878e0724c59c391ecc6",
+    "tests/test_pattern.py": "ff538df98f1e1e0db1411a95e4b5bf3fdc6c97b6"
+  },
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10",
+    "libcairo2": "1.16.0-4+deb10u1",
+    "libcairo2-dev": "1.16.0-4+deb10u1",
+    "libfreetype6": "2.9.1-3+deb10u2",
+    "libpixman-1-0": "0.36.0-1",
+    "libpixman-1-dev": "0.36.0-1",
+    "pkg-config": "0.29-6"
+  },
+  "environment_selection": "Original stable CPython3.6 and normal Cairo development dependencies; reuse independently proven pinned public Python3.6.15-buster/Cairo1.16.0 environment. Normal setup.py build, unchanged official pytest methods, no allocator/compiler/instrumentation or input edits.",
+  "admission_rule": "Exact original target must fail on Base and fully pass on Gold; all three selected unchanged regressions must pass on both.",
+  "upstream_created_at_timestamp": "2017-07-10T16:44:10Z",
+  "issue_closed_at_timestamp": "2017-07-21T14:02:56Z",
+  "associated_prs": [],
+  "date_source": "https://api.github.com/repos/pygobject/pycairo/issues/48",
+  "date_semantics": "Actual issue48 opening 2017-07-10T16:44:10Z and source commit 2017-07-21T15:58:34+02:00 are separate facts. Associated-PR API returned empty array; no merge date is established. Issue closure is not used as merge date.",
+  "verified_scope": "Full original test_raster_source constructs a2x2 COLOR pattern, checks instance/subclass identity, tests all4 set/get acquire/release combinations, paints a10x10ARGB32 surface to assert acquire then release ordering, and checks two invalid callback objects raise TypeError. Acquire creates the original requested-size similar image, sets original extents offset and paints red. Base stops at initial missing constructor and never reaches these later assertions; Gold completes every original assertion. Three unchanged methods test pattern equality/inequality, default extend type/value and default filter. No full Cairo suite, historical callback crash, leak/refcount guarantee, arbitrary dimensions or alternative error paths is claimed.",
+  "source_trace_scope": "Original source137 taxonomy says crash and traces PycairoPattern_FromPattern through pycairo_get_source to unchanged test_cmp_hash. Preserve this source trace and include test_cmp_hash as a regression. The admitted distinguishing target is upstream newly added test_raster_source; if Base lacks the API, report that first constructor AttributeError rather than claiming an existing callback crash or a reproduced source-trace crash.",
+  "formal_runtime_audit": {
+    "pycairo_version": "1.14.1",
+    "native_extension": "/testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "1403e9efa88449a3b97d7fbcc94df2744fa763f3d7539f235ed9b7fa7cbdf78d",
+    "cairo_headers": [
+      1,
+      16,
+      0
+    ],
+    "cairo_linked_version": "1.16.0",
+    "cairo_linked_integer": 11600,
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "pytest": "3.0.7",
+      "py": "1.4.34"
+    },
+    "assets": {
+      "cairo/pattern.c": {
+        "size": 33185,
+        "sha256": "ab7a00d3022664562213f5133030ab8cedb1882f04676000d1b95ec0407fd3b7"
+      },
+      "cairo/private.h": {
+        "size": 8265,
+        "sha256": "3c2414a7f5938be62e375c3675bc8a5a41233efb0a9ed3d863ddb188a15c1154"
+      },
+      "cairo/cairomodule.c": {
+        "size": 15992,
+        "sha256": "d9673dee8ee6f75860c45f44b08064e5f16e4b958e689c15d9dfe17fe2767a7d"
+      },
+      "cairo/__init__.py": {
+        "size": 41,
+        "sha256": "3d7fc31e167df2c055e154a6e15136144c82ff3c13a4f01f45ccee2f107338c5"
+      },
+      "cairo/config.h": {
+        "size": 246,
+        "sha256": "e1ab1256bb42073c7a5fd94b324a1a4dfb036122e0fed3d64b081557df9dc010"
+      },
+      "setup.py": {
+        "size": 8402,
+        "sha256": "fb455ebf35220217e34cd6d7f5af2c9258a7af21ab37920e7f9d828a5a177cec"
+      }
+    }
+  }
+}

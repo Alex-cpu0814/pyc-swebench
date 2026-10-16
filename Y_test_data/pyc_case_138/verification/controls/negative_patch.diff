@@ -1,0 +1,10 @@
+diff --git a/README.rst b/README.rst
+index 78f2b01..66acc09 100644
+--- a/README.rst
++++ b/README.rst
+@@ -36,3 +36,5 @@ For more information visit https://pycairo.readthedocs.io
+ 
+ .. image:: https://ci.appveyor.com/api/projects/status/9hurdbb19lg2i9xm/branch/master?svg=true
+     :target: https://ci.appveyor.com/project/lazka/pycairo/branch/master
++
++This evaluator control leaves native raster-source API support unchanged.

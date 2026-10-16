@@ -1,0 +1,13 @@
+# Analysis
+
+Original source137 / Excel row139 maps historical PycairoPattern_FromPattern through pycairo_get_source to unchanged test_cmp_hash. That trace and original crash classification are retained separately from actual measured F2P.
+
+Base fails at the first cairo.RasterSourcePattern(cairo.Content.COLOR,2,2) constructor lookup with AttributeError because this API is absent. No callback call or callback crash is reached on Base. Gold completes the full original test_raster_source and all3 unchanged regressions, normal exit0. Original source taxonomy says crash, but this measured admission establishes missing API support, not reproduction of its historical crash trace.
+
+Full original test_raster_source constructs a2x2 COLOR pattern, checks instance/subclass identity, tests all4 set/get acquire/release combinations, paints a10x10ARGB32 surface to assert acquire then release ordering, and checks two invalid callback objects raise TypeError. Acquire creates the original requested-size similar image, sets original extents offset and paints red. Base stops at initial missing constructor and never reaches these later assertions; Gold completes every original assertion. Three unchanged methods test pattern equality/inequality, default extend type/value and default filter. No full Cairo suite, historical callback crash, leak/refcount guarantee, arbitrary dimensions or alternative error paths is claimed.
+
+Complete upstream6-file diff is preserved:5 product files (NEWS, cairo/cairomodule.c, cairo/pattern.c, cairo/private.h, docs/reference/patterns.rst) and tests/test_pattern.py. Original product documentation and callback signatures are unchanged, including any upstream documentation/code differences. Added API and callback support is the measured fix; selected passing method does not prove all upstream paths.
+
+Actual issue48 opening 2017-07-10T16:44:10Z and source commit 2017-07-21T15:58:34+02:00 are separate facts. Associated-PR API returned empty array; no merge date is established. Issue closure is not used as merge date.
+
+Actual pycairo1.14.1, CPython3.6.15, pytest3.0.7/py1.4.34 and unmodified GCC8.3. Exact public Python3.6.15-buster base already includes Cairo1.16.0 headers/runtime and normal development libraries (libcairo2/libcairo2-dev1.16.0-4+deb10u1). Ordinary upstream setup.py rebuilds cairo._cairo in place on Base and Gold with the same dependency/compiler metadata. Audits preserve exact source blobs, native extension path/hash, generated config.h, pkg-config/dpkg/ldd and actual linked/header versions. No test inputs, assertions, helpers, compiler flags, allocator or instrumentation edits.

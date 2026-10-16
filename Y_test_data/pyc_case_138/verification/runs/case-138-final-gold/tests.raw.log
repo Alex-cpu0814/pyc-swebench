@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile:
+collecting ... collected 44 items
+
+tests/test_pattern.py::test_raster_source PASSED
+tests/test_pattern.py::test_cmp_hash PASSED
+tests/test_pattern.py::test_get_extend PASSED
+tests/test_pattern.py::test_get_filter PASSED
+
+=========================== 4 passed in 0.04 seconds ===========================

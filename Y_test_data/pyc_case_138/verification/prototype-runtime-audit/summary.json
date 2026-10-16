@@ -1,0 +1,76 @@
+{
+  "image": "pyc-case138-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10",
+    "libcairo2": "1.16.0-4+deb10u1",
+    "libcairo2-dev": "1.16.0-4+deb10u1",
+    "libfreetype6": "2.9.1-3+deb10u2",
+    "libpixman-1-0": "0.36.0-1",
+    "libpixman-1-dev": "0.36.0-1",
+    "pkg-config": "0.29-6"
+  },
+  "runtime_audit": {
+    "pycairo_version": "1.14.1",
+    "native_extension": "/testbed/cairo/_cairo.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "1403e9efa88449a3b97d7fbcc94df2744fa763f3d7539f235ed9b7fa7cbdf78d",
+    "cairo_headers": [
+      1,
+      16,
+      0
+    ],
+    "cairo_linked_version": "1.16.0",
+    "cairo_linked_integer": 11600,
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "pytest": "3.0.7",
+      "py": "1.4.34"
+    },
+    "assets": {
+      "cairo/pattern.c": {
+        "size": 33185,
+        "sha256": "ab7a00d3022664562213f5133030ab8cedb1882f04676000d1b95ec0407fd3b7"
+      },
+      "cairo/private.h": {
+        "size": 8265,
+        "sha256": "3c2414a7f5938be62e375c3675bc8a5a41233efb0a9ed3d863ddb188a15c1154"
+      },
+      "cairo/cairomodule.c": {
+        "size": 15992,
+        "sha256": "d9673dee8ee6f75860c45f44b08064e5f16e4b958e689c15d9dfe17fe2767a7d"
+      },
+      "cairo/__init__.py": {
+        "size": 41,
+        "sha256": "3d7fc31e167df2c055e154a6e15136144c82ff3c13a4f01f45ccee2f107338c5"
+      },
+      "cairo/config.h": {
+        "size": 246,
+        "sha256": "e1ab1256bb42073c7a5fd94b324a1a4dfb036122e0fed3d64b081557df9dc010"
+      },
+      "setup.py": {
+        "size": 8402,
+        "sha256": "fb455ebf35220217e34cd6d7f5af2c9258a7af21ab37920e7f9d828a5a177cec"
+      }
+    }
+  },
+  "source_git_identity": {
+    "base_commit": "afee8cfba448e8c6c100afc6015d31c6aa37e172",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case138-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"afee8cfba448e8c6c100afc6015d31c6aa37e172\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object cairo/pattern.c)\" = \"d53b2615a16da715d4f144d8ba50fd6cde632e6f\"; test \"$(git hash-object cairo/private.h)\" = \"c031555169f560aeb1ad0f71c5486f3728f3d8d0\"; test \"$(git hash-object cairo/cairomodule.c)\" = \"04df650e413a79a91dcea131eaca9c2e4f23679c\"; test \"$(git hash-object cairo/__init__.py)\" = \"dd86f6a5154b349be2d79e6a26387cb361f84cff\"; test \"$(git hash-object setup.py)\" = \"c24ecd5b0041978b52ede470430cce3fac8a0ef7\"; test \"$(git hash-object .travis.yml)\" = \"542bea038b93f28963b5e878e0724c59c391ecc6\"; test \"$(git hash-object tests/test_pattern.py)\" = \"ff538df98f1e1e0db1411a95e4b5bf3fdc6c97b6\"; dpkg-query -W libcairo2 libcairo2-dev libpixman-1-0 libpixman-1-dev libfreetype6 libc6 gcc git pkg-config; ldd $(find /testbed/cairo -maxdepth 1 -name '_cairo*.so'); python -c 'import cairo,cairo._cairo as native,json,pathlib,hashlib,sys,pkg_resources,subprocess,re; macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-include\",\"/usr/include/cairo/cairo-version.h\",\"-\"],input=b\"\").decode(); header=[int(re.search(\"#define \"+n+\" ([0-9]+)\",macros).group(1))for n in (\"CAIRO_VERSION_MAJOR\",\"CAIRO_VERSION_MINOR\",\"CAIRO_VERSION_MICRO\")]; files=[\"cairo/pattern.c\",\"cairo/private.h\",\"cairo/cairomodule.c\",\"cairo/__init__.py\",\"cairo/config.h\",\"setup.py\"]; report={\"pycairo_version\":cairo.version,\"native_extension\":native.__file__,\"extension_sha256\":hashlib.sha256(pathlib.Path(native.__file__).read_bytes()).hexdigest(),\"cairo_headers\":header,\"cairo_linked_version\":cairo.cairo_version_string(),\"cairo_linked_integer\":cairo.cairo_version(),\"python_version\":sys.version,\"build_packages\":{n:pkg_resources.get_distribution(n).version for n in (\"setuptools\",\"wheel\",\"pytest\",\"py\")},\"assets\":{f:{\"size\":pathlib.Path(f).stat().st_size,\"sha256\":hashlib.sha256(pathlib.Path(f).read_bytes()).hexdigest()}for f in files}}; assert report[\"pycairo_version\"]==\"1.14.1\"; assert report[\"native_extension\"].startswith(\"/testbed/cairo/_cairo.\"); assert report[\"cairo_headers\"]==[1,16,0]and report[\"cairo_linked_integer\"]==11600; print(json.dumps(report))'"
+  ]
+}

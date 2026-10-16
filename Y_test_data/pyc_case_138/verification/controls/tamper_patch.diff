@@ -1,0 +1,13 @@
+diff --git a/tests/test_pattern.py b/tests/test_pattern.py
+index ff538df..32e7391 100644
+--- a/tests/test_pattern.py
++++ b/tests/test_pattern.py
+@@ -2,7 +2,7 @@ import cairo
+ import pytest
+ 
+ 
+-def test_cmp_hash():
++def test_cmp_hash():  # Protected-test context conflict
+     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 10, 10)
+     context = cairo.Context(surface)
+     pattern = context.get_source()

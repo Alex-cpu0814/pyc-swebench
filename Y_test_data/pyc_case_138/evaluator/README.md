@@ -1,0 +1,9 @@
+# Evaluator
+
+Candidate applies before the full protected official test patch. Native force rebuild uses identical ordinary dependency metadata on each run.
+
+All controls use the one audited formal image and exact original four-node order: test_raster_source, test_cmp_hash, test_get_extend, test_get_filter. Gold4PASS/exit0; README-only negative target FAILED at constructor AttributeError plus3P2P PASS/exit1; protected-test-context tamper rejected as candidate_conflicts_with_test_patch. Parser counts only canonical anchored complete file::function terminal lines. Other44 discovered file items do not mean44 methods executed.
+
+Actual pycairo1.14.1, CPython3.6.15, pytest3.0.7/py1.4.34 and unmodified GCC8.3. Exact public Python3.6.15-buster base already includes Cairo1.16.0 headers/runtime and normal development libraries (libcairo2/libcairo2-dev1.16.0-4+deb10u1). Ordinary upstream setup.py rebuilds cairo._cairo in place on Base and Gold with the same dependency/compiler metadata. Audits preserve exact source blobs, native extension path/hash, generated config.h, pkg-config/dpkg/ldd and actual linked/header versions. No test inputs, assertions, helpers, compiler flags, allocator or instrumentation edits.
+
+Full original test_raster_source constructs a2x2 COLOR pattern, checks instance/subclass identity, tests all4 set/get acquire/release combinations, paints a10x10ARGB32 surface to assert acquire then release ordering, and checks two invalid callback objects raise TypeError. Acquire creates the original requested-size similar image, sets original extents offset and paints red. Base stops at initial missing constructor and never reaches these later assertions; Gold completes every original assertion. Three unchanged methods test pattern equality/inequality, default extend type/value and default filter. No full Cairo suite, historical callback crash, leak/refcount guarantee, arbitrary dimensions or alternative error paths is claimed.

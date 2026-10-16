@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.0.7, py-1.4.34, pluggy-0.4.0 -- /usr/local/bin/python
+cachedir: .cache
+rootdir: /testbed, inifile:
+collecting ... collected 44 items
+
+tests/test_pattern.py::test_raster_source FAILED
+tests/test_pattern.py::test_cmp_hash PASSED
+tests/test_pattern.py::test_get_extend PASSED
+tests/test_pattern.py::test_get_filter PASSED
+
+=================================== FAILURES ===================================
+______________________________ test_raster_source ______________________________
+
+    def test_raster_source():
+>       pattern = cairo.RasterSourcePattern(cairo.Content.COLOR, 2, 2)
+E       AttributeError: module 'cairo' has no attribute 'RasterSourcePattern'
+
+tests/test_pattern.py:6: AttributeError
+====================== 1 failed, 3 passed in 0.09 seconds ======================

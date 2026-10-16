@@ -1,0 +1,6 @@
+tests/test_pattern.py::test_raster_source
+tests/test_pattern.py::test_cmp_hash
+tests/test_pattern.py::test_get_extend
+tests/test_pattern.py::test_get_filter
+
+no tests ran in 0.03 seconds

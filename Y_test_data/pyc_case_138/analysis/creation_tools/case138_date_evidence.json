@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/pygobject/pycairo/issues/48",
+  "created_at": "2017-07-10T16:44:10Z",
+  "closed_at": "2017-07-21T14:02:56Z",
+  "merged_at": null,
+  "associated_prs": [],
+  "source_commit_original_offset": "2017-07-21T15:58:34+02:00",
+  "date_semantics": "Actual issue48 opening 2017-07-10T16:44:10Z and source commit 2017-07-21T15:58:34+02:00 are separate facts. Associated-PR API returned empty array; no merge date is established. Issue closure is not used as merge date."
+}

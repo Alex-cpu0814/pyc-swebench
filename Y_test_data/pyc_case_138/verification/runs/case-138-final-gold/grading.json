@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-138-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "tests/test_pattern.py::test_raster_source": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_pattern.py::test_cmp_hash": "PASSED",
+    "tests/test_pattern.py::test_get_extend": "PASSED",
+    "tests/test_pattern.py::test_get_filter": "PASSED"
+  },
+  "unexpected_failures": []
+}

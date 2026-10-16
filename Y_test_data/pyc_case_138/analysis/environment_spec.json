@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_138",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pycairo_raster_source_pattern_callbacks",
+  "python_version_target": "3.6",
+  "native_requirement": "Public Cairo1.16.0 development/runtime and pkg-config already included in exact public Python3.6-buster base, confirmed by read-only dependency inventory; original headless Cairo image surfaces.",
+  "build_system": "Original setup.py configures Cairo through installed pkg-config metadata, writes normal cairo/config.h and builds cairo._cairo in place. Same ordinary dependency metadata/compile parameters on Base/Gold.",
+  "test_execution": [
+    "Complete original test_raster_source, followed by three unchanged pattern regressions; original constructor/callback inputs and assertions retained."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_pattern.py.",
+    "Base fails at the first cairo.RasterSourcePattern(cairo.Content.COLOR,2,2) constructor lookup with AttributeError because this API is absent. No callback call or callback crash is reached on Base. Gold completes the full original test_raster_source and all3 unchanged regressions, normal exit0. Original source taxonomy says crash, but this measured admission establishes missing API support, not reproduction of its historical crash trace.",
+    "Original test_cmp_hash (source-trace caller), test_get_extend and test_get_filter pass unchanged on Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "afee8cfba448e8c6c100afc6015d31c6aa37e172",
+  "fix_commit": "42eb8a30f57676e74a194be297d051f457cebf23",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_pattern.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_pattern.py::test_raster_source"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_pattern.py::test_cmp_hash",
+    "tests/test_pattern.py::test_get_extend",
+    "tests/test_pattern.py::test_get_filter"
+  ]
+}

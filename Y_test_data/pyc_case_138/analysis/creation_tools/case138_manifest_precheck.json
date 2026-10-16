@@ -1,0 +1,6 @@
+{
+  "initial_result": "All-file refresh correctly rejected generated evaluator/__pycache__ from the host formal CLI; subsequent incomplete provisional24-entry manifest did not cover all evidence and own verifier rejected it.",
+  "correction": "Use the existing narrowly scoped bytecode cleanup helper for this exact case, then regenerate complete coverage before freezing. No original evidence, product, test or control results changed; no control rerun required.",
+  "stage": "authoring_manifest_precheck",
+  "published_or_committed": false
+}

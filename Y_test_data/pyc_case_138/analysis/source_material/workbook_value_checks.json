@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 138 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"137\"],[\"Repository\",\"pygobject/pycairo\"],[\"Fix commit\",\"42eb8a30f57676e74a194be297d051f457cebf23\"],[\"Base commit\",\"afee8cfba448e8c6c100afc6015d31c6aa37e172\"],[\"Upstream issue / PR\",\"https://github.com/pygobject/pycairo/issues/48\"],[\"Symptom\",\"crash.\"],[\"Bug location\",\"line 69\"],[\"Bug location type\",\"assignment + True/False branch\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"add a branch in switch\"],[\"Fix location\",\"assignment statement\"],[\"Problem statement\",\"Expose RasterSourcePattern and its original acquire/release callback bridge so the official raster-source method executes, while unchanged pattern comparison, extend and filter behavior stays correct.\"],[\"Original source trace\",\"69(c_pattern_1-cfg.dot) (PycairoPattern_FromPattern) … -> 40(c_pattern_1-cfg.dot) (PycairoPattern_FromPattern) -> 421(c_context_39-cfg.dot) (pycairo_get_source) -> 422(c_context_39-cfg.dot) (pycairo_get_source) -> 419(c_context_39-cfg.dot) (pycairo_get_source) -> 8(py_test_pattern_1-cfg.dot) (test_cmp_hash)\"],[\"Source trace scope\",\"Original source137 taxonomy says crash and traces PycairoPattern_FromPattern through pycairo_get_source to unchanged test_cmp_hash. Preserve this source trace and include test_cmp_hash as a regression. The admitted distinguishing target is upstream newly added test_raster_source; if Base lacks the API, report that first constructor AttributeError rather than claiming an existing callback crash or a reproduced source-trace crash.\"],[\"Verified Base trace\",\"Base fails at the first cairo.RasterSourcePattern(cairo.Content.COLOR,2,2) constructor lookup with AttributeError because this API is absent. No callback call or callback crash is reached on Base. Gold completes the full original test_raster_source and all3 unchanged regressions, normal exit0. Original source taxonomy says crash, but this measured admission establishes missing API support, not reproduction of its historical crash trace.\"],[\"Verified official test\",\"tests/test_pattern.py::test_raster_source\\ntests/test_pattern.py::test_cmp_hash\\ntests/test_pattern.py::test_get_extend\\ntests/test_pattern.py::test_get_filter\"],[\"Official test scope\",\"Full original test_raster_source constructs a2x2 COLOR pattern, checks instance/subclass identity, tests all4 set/get acquire/release combinations, paints a10x10ARGB32 surface to assert acquire then release ordering, and checks two invalid callback objects raise TypeError. Acquire creates the original requested-size similar image, sets original extents offset and paints red. Base stops at initial missing constructor and never reaches these later assertions; Gold completes every original assertion. Three unchanged methods test pattern equality/inequality, default extend type/value and default filter. No full Cairo suite, historical callback crash, leak/refcount guarantee, arbitrary dimensions or alternative error paths is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "6b8f30",
+          "target": {
+            "id": "wb/hmmtfc",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 138 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygobject__pycairo-42eb8a30\"],[\"Repository\",\"pygobject/pycairo\"],[\"Version\",\"1.14.1\"],[\"Created at\",42926],[\"Base commit\",\"afee8cfba448e8c6c100afc6015d31c6aa37e172\"],[\"Fix commit\",\"42eb8a30f57676e74a194be297d051f457cebf23\"],[\"Issue / PR\",\"https://github.com/pygobject/pycairo/issues/48\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_pattern.py::test_raster_source\"],[\"PASS_TO_PASS (1)\",\"tests/test_pattern.py::test_cmp_hash\"],[\"PASS_TO_PASS (2)\",\"tests/test_pattern.py::test_get_extend\"],[\"PASS_TO_PASS (3)\",\"tests/test_pattern.py::test_get_filter\"],[\"Base / Gold outcome\",\"Base: original raster-source test fails at missing API (AttributeError),3 unchanged regressions pass. Gold: all4 complete original methods pass.\"],[\"Docker image\",\"yutu0814/pyc-case-138-pycairo:benchmark-v1\"],[\"Problem statement\",\"Expose RasterSourcePattern and its original acquire/release callback bridge so the official raster-source method executes, while unchanged pattern comparison, extend and filter behavior stays correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "ix0l68",
+          "target": {
+            "id": "wb/9k3mpz",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

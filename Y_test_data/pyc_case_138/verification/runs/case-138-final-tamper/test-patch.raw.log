@@ -1,0 +1,2 @@
+error: patch failed: tests/test_pattern.py:2
+error: tests/test_pattern.py: patch does not apply
