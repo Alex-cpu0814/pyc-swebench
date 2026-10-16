@@ -1,0 +1,12 @@
+diff --git a/tests/test_surface.py b/tests/test_surface.py
+--- a/tests/test_surface.py
++++ b/tests/test_surface.py
+@@ -10,7 +10,7 @@
+ import pytest
+ 
+ 
+-def test_surface_get_content():
++def test_surface_get_content():  # Protected test-patch context conflict
+     surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 10, 10)
+     assert surface.get_content() == cairo.Content.COLOR_ALPHA
+     assert isinstance(surface.get_content(), cairo.Content)

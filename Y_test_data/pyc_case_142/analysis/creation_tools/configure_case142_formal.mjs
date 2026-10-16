@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+const w='E:/CLB_Swe-bench/_work/pyc_batch',r='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_142',old='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_137',s=JSON.parse(fs.readFileSync(w+'/case142_spec.json','utf8'));
+const prev=fs.readFileSync(old+'/evaluator/evaluate_model_patch.py','utf8'),p=r+'/evaluator/evaluate_model_patch.py',t=fs.readFileSync(p,'utf8'),a=t.indexOf('def parse_test_log(text):'),b=t.indexOf('\ndef expected_report(',a);if(a<0||b<0)throw Error('Parser missing');fs.writeFileSync(p,t.slice(0,a)+prev.slice(prev.indexOf('def parse_test_log(text):'),prev.indexOf('\ndef expected_report('))+t.slice(b));
+fs.writeFileSync(r+'/evaluator/case_adapter.sh','#!/usr/bin/env bash\n\nbuild_project() {\n    '+s.buildCommand+'\n}\n\nrun_project_tests() {\n    '+s.testCommand+' \\\n'+s.probeNodes.map((n,i)=>"        '"+n+"'"+(i<s.probeNodes.length-1?' \\':'')).join('\n')+'\n}\n');
+for(const n of ['refresh_case137.mjs','record_publication137.mjs','verify_committed_case137.mjs','push_case137_image.mjs','commit_case137.mjs','clean_case137_bytecode.ps1','cleanup_case137.ps1'])fs.writeFileSync(w+'/'+n.replaceAll('137','142'),fs.readFileSync(old+'/analysis/creation_tools/'+n,'utf8').replaceAll('137','142'));
+console.log('142 canonical parser and identical P2P→F2P original-method order configured.');

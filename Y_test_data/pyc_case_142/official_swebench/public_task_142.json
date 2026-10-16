@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygobject__pycairo-07ee64b3",
+  "repo": "pygobject/pycairo",
+  "base_commit": "cd6b840aeab1515343a71a997b0a2ce48fce6d82",
+  "problem_statement": "Releasing the last memoryview returned by ImageSurface.get_data must release its reference to the image surface under Python3.",
+  "hints_text": "",
+  "created_at": "2017-05-31",
+  "version": "1.13.3",
+  "issue_id": "41",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/41"
+}

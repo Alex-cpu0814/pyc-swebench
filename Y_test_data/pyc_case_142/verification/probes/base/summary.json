@@ -1,0 +1,39 @@
+{
+  "label": "base",
+  "image": "pyc-case142-prototype-base:latest",
+  "nodes": [
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format",
+    "tests/test_surface.py::test_image_surface_png_obj_roundtrip",
+    "tests/test_surface.py::test_image_surface_get_data_refcount"
+  ],
+  "startedAt": "2026-10-16T08:19:29.223Z",
+  "finishedAt": "2026-10-16T08:19:30.166Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case142_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case142_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py,target=/benchmark/pytest_no_dump.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case142-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python /benchmark/pytest_no_dump.py -vv 'tests/test_surface.py::test_surface_get_content' 'tests/test_surface.py::test_surface_get_format' 'tests/test_surface.py::test_image_surface_png_obj_roundtrip' 'tests/test_surface.py::test_image_surface_get_data_refcount'"
+  ]
+}

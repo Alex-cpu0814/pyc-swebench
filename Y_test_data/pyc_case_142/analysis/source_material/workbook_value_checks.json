@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 142 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"141\"],[\"Repository\",\"pygobject/pycairo\"],[\"Fix commit\",\"07ee64b3fb51a16ded90822a0fb00cb8b180b839\"],[\"Base commit\",\"cd6b840aeab1515343a71a997b0a2ce48fce6d82\"],[\"Upstream issue / PR\",\"https://github.com/pygobject/pycairo/issues/41\"],[\"Symptom\",\"memory leak\"],[\"Bug location\",\"line 783\"],[\"Bug location type\",\"Cross-Language API callsite + return\"],[\"Root cause\",\"Reference count misuse\"],[\"Fixing strategy\",\"add a new function to handle the reference count\"],[\"Fix location\",\"return statement + foreign function\"],[\"Problem statement\",\"Releasing the last memoryview returned by ImageSurface.get_data must release its reference to the image surface under Python3.\"],[\"Original source trace\",\"783(c_surface_16-cfg.dot) (image_surface_get_data) ... -> 765(c_surface_16-cfg.dot) (image_surface_get_data) -> 14(py_test_surface_9-cfg.dot) (test_image_surface_get_data_refcount)\"],[\"Source trace scope\",\"Original source141/Excel143 traces image_surface_get_data to test_image_surface_get_data_refcount, classifies a memory leak and reference count misuse. Preserve original trace and taxonomy separately from actual measured assertion and runtime.\"],[\"Verified Base trace\",\"Base passes3 complete unchanged regressions and the first2 original refcount assertions. After del d, complete original test_image_surface_get_data_refcount fails its final assertion: actual3 versus expected2 (tests/test_surface.py:20), terminalFAILED and process exit1. Gold satisfies the exact original2→3→2 sequence and all3 regressions, process exit0. No substituted counts, offsets, forced garbage collection, extra loops or modified object lifetimes.\"],[\"Verified official test\",\"tests/test_surface.py::test_image_surface_get_data_refcount\\ntests/test_surface.py::test_surface_get_content\\ntests/test_surface.py::test_surface_get_format\\ntests/test_surface.py::test_image_surface_png_obj_roundtrip\"],[\"Official test scope\",\"Complete original7-line test_image_surface_get_data_refcount creates a10x10 ARGB32 ImageSurface, asserts getrefcount2, obtains get_data memoryview and asserts3, deletes that view and asserts2. All original dimensions, local lifetimes and assertions remain exact. Base observes2→3→3 and fails at the final assertion; Gold passes2→3→2. Unchanged complete tests verify surface Content enum, Format enum, and PNG BytesIO roundtrip including exact pixel-data equality. This is the selected surface/view lifetime check, not a general memory-use or full-suite guarantee.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "iw9jwo",
+          "target": {
+            "id": "wb/5ro8ut",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 142 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygobject__pycairo-07ee64b3\"],[\"Repository\",\"pygobject/pycairo\"],[\"Version\",\"1.13.3\"],[\"Created at\",42886],[\"Base commit\",\"cd6b840aeab1515343a71a997b0a2ce48fce6d82\"],[\"Fix commit\",\"07ee64b3fb51a16ded90822a0fb00cb8b180b839\"],[\"Merged at\",42886],[\"Issue / PR\",\"https://github.com/pygobject/pycairo/issues/41\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_surface.py::test_image_surface_get_data_refcount\"],[\"PASS_TO_PASS (1)\",\"tests/test_surface.py::test_surface_get_content\"],[\"PASS_TO_PASS (2)\",\"tests/test_surface.py::test_surface_get_format\"],[\"PASS_TO_PASS (3)\",\"tests/test_surface.py::test_image_surface_png_obj_roundtrip\"],[\"Base / Gold outcome\",\"Base: original get_data refcount target FAILED (3 !=2 after del d),3 regressions PASSED. Gold: all4 complete methods PASSED.\"],[\"Docker image\",\"yutu0814/pyc-case-142-pycairo:benchmark-v1\"],[\"Problem statement\",\"Releasing the last memoryview returned by ImageSurface.get_data must release its reference to the image surface under Python3.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "yhg1e3",
+          "target": {
+            "id": "wb/8hvk3p",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

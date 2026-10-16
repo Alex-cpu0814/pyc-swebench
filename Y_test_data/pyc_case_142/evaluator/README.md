@@ -1,0 +1,9 @@
+# Evaluator
+
+Candidate applies before the full protected official test patch. Native force rebuild uses ordinary identical dependency metadata.
+
+The same audited formal image runs exact full original methods in fixed order: tests/test_surface.py::test_surface_get_content, tests/test_surface.py::test_surface_get_format, tests/test_surface.py::test_image_surface_png_obj_roundtrip, tests/test_surface.py::test_image_surface_get_data_refcount. Gold completes all4 original methods; README-negative retains the actual measured Base behavior; protected-test-context tamper rejects as candidate_conflicts_with_test_patch. Exact raw terminal/process evidence and per-node grading are retained. Only canonical anchored complete node terminal lines are counted. Pytest collection totals do not mean the unselected methods executed.
+
+Actual pycairo1.13.3, CPython3.6.15, pytest3.0.7/py1.4.34 and unmodified GCC8.3. Exact pinned public Python3.6.15-buster base already includes normal Cairo1.16.0 headers/runtime and development libraries. Ordinary upstream setup.py builds cairo._cairo in place on Base/Gold with identical metadata. Source Git blobs, module path/hash, generatedconfig.h, package versions and linked/header versions are audited. No test input/assertion/helper, compiler, allocator or instrumentation changes.
+
+Complete original7-line test_image_surface_get_data_refcount creates a10x10 ARGB32 ImageSurface, asserts getrefcount2, obtains get_data memoryview and asserts3, deletes that view and asserts2. All original dimensions, local lifetimes and assertions remain exact. Base observes2→3→3 and fails at the final assertion; Gold passes2→3→2. Unchanged complete tests verify surface Content enum, Format enum, and PNG BytesIO roundtrip including exact pixel-data equality. This is the selected surface/view lifetime check, not a general memory-use or full-suite guarantee.

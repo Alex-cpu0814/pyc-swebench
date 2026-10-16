@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const r='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_142',s=JSON.parse(fs.readFileSync('E:/CLB_Swe-bench/_work/pyc_batch/case142_spec.json','utf8'));
+const proof=JSON.parse(fs.readFileSync(r+'/verification/publication/image-payload-audit.json','utf8'));
+if(s.image!=='yutu0814/pyc-case-142-pycairo:benchmark-v1'||proof.image!==s.image||!proof.source_tree_clean||!proof.fix_commit_absent||proof.host_copy_or_add||proof.host_bind_during_build)throw Error('Unverified publication target/payload');
+const p=spawnSync('C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe',['push',s.image],{timeout:900000,maxBuffer:16*1024*1024,windowsHide:true});
+fs.writeFileSync(r+'/verification/publication/docker-push.stdout.raw.log',p.stdout??Buffer.alloc(0));fs.writeFileSync(r+'/verification/publication/docker-push.stderr.raw.log',p.stderr??Buffer.alloc(0));
+if(p.status!==0)throw Error('Direct Docker push failed: '+(p.error??p.stderr));
+const digest=Buffer.concat([p.stdout??Buffer.alloc(0),p.stderr??Buffer.alloc(0)]).toString().match(/digest: (sha256:[0-9a-f]{64})/)?.[1];if(!digest)throw Error('Push omitted digest');
+console.log(JSON.stringify({image:s.image,digest,status:'direct_push_succeeded'}));

@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_142",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "141",
+  "duplicate_source_cases": [],
+  "deduplication_key": "07ee64b3fb51a16ded90822a0fb00cb8b180b839",
+  "language_pair": "Python-C",
+  "repo": "pygobject/pycairo",
+  "issue_id": "41",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/41",
+  "commit": "07ee64b3fb51a16ded90822a0fb00cb8b180b839",
+  "base_commit": "cd6b840aeab1515343a71a997b0a2ce48fce6d82",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "07ee64b3fb51a16ded90822a0fb00cb8b180b839",
+  "commit_url": "https://github.com/pygobject/pycairo/commit/07ee64b3fb51a16ded90822a0fb00cb8b180b839",
+  "problem_statement": "Releasing the last memoryview returned by ImageSurface.get_data must release its reference to the image surface under Python3.",
+  "symptom": "memory leak",
+  "bug_location": "line 783",
+  "bug_location_type": "Cross-Language API callsite + return",
+  "bug_path": "783(c_surface_16-cfg.dot) (image_surface_get_data) ... -> 765(c_surface_16-cfg.dot) (image_surface_get_data) -> 14(py_test_surface_9-cfg.dot) (test_image_surface_get_data_refcount)",
+  "cross_language_type": "PyBuffer_FillInfo,Foreign,Buffer Protocol,PyMemoryView_FromBuffer ,Foreign,MemoryView objects",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Reference count misuse",
+  "fixing_strategy": "add a new function to handle the reference count",
+  "fix_location": "return statement + foreign function",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/pygobject/pycairo/issues/41",
+    "upstream_description": "Complete5-file native/build product change introduces a bufferproxy object holding the surface exporter and uses it to produce memoryviews. The exact original test patch imports sys and adds the complete7-line refcount method with10x10 surface and exact2→3→2 counts.",
+    "verified_error": "Base passes3 complete unchanged regressions and the first2 original refcount assertions. After del d, complete original test_image_surface_get_data_refcount fails its final assertion: actual3 versus expected2 (tests/test_surface.py:20), terminalFAILED and process exit1. Gold satisfies the exact original2→3→2 sequence and all3 regressions, process exit0. No substituted counts, offsets, forced garbage collection, extra loops or modified object lifetimes.",
+    "verified_test": "tests/test_surface.py::test_image_surface_get_data_refcount and tests/test_surface.py::test_surface_get_content and tests/test_surface.py::test_surface_get_format and tests/test_surface.py::test_image_surface_png_obj_roundtrip"
+  },
+  "evidence_type": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "official_test_scope": "Complete original7-line test_image_surface_get_data_refcount creates a10x10 ARGB32 ImageSurface, asserts getrefcount2, obtains get_data memoryview and asserts3, deletes that view and asserts2. All original dimensions, local lifetimes and assertions remain exact. Base observes2→3→3 and fails at the final assertion; Gold passes2→3→2. Unchanged complete tests verify surface Content enum, Format enum, and PNG BytesIO roundtrip including exact pixel-data equality. This is the selected surface/view lifetime check, not a general memory-use or full-suite guarantee.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "tests/test_surface.py::test_image_surface_get_data_refcount"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_surface.py::test_surface_get_content",
+    "tests/test_surface.py::test_surface_get_format",
+    "tests/test_surface.py::test_image_surface_png_obj_roundtrip"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

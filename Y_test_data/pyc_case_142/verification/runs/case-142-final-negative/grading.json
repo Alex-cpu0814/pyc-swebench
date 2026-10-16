@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-142-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "tests/test_surface.py::test_image_surface_get_data_refcount": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "tests/test_surface.py::test_surface_get_content": "PASSED",
+    "tests/test_surface.py::test_surface_get_format": "PASSED",
+    "tests/test_surface.py::test_image_surface_png_obj_roundtrip": "PASSED"
+  },
+  "unexpected_failures": [
+    "tests/test_surface.py::test_image_surface_get_data_refcount"
+  ]
+}

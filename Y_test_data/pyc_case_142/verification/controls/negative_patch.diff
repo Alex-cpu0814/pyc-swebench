@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -35,3 +35,5 @@
+ 
+ .. image:: https://ci.appveyor.com/api/projects/status/9hurdbb19lg2i9xm/branch/master?svg=true
+     :target: https://ci.appveyor.com/project/lazka/pycairo/branch/master
++
++This control leaves the native surface buffer reference unchanged.

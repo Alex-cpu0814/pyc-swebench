@@ -50,6 +50,7 @@ SWE-bench-compatible layout.
 | `pyc_case_138` | `pygobject/pycairo` | Issue / PR #48 / commit `42eb8a30` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_139` | `pygobject/pycairo` | Issue / PR #57 / commit `65aea3df` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_141` | `pygobject/pycairo` | Issue / PR #8 / commit `e2154f11` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_142` | `pygobject/pycairo` | Issue / PR #41 / commit `07ee64b3` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.
