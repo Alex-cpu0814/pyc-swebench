@@ -1,0 +1,8 @@
+import json,pathlib
+w=pathlib.Path('E:/CLB_Swe-bench/_work/pyc_batch');r=pathlib.Path('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_156')
+assert json.loads((r/'verification/runs/case-156-final-tamper/summary.json').read_text(encoding='utf-8'))['reason']=='candidate_conflicts_with_test_patch'
+values=json.loads((w/'source_values.json').read_text(encoding='utf-8'));row=next(v for v in values['values'][1:]if str(v[0])=='155')
+(r/'analysis/source_material/original_source_row_155.json').write_bytes((json.dumps({'sheet':values['sheet'],'excel_row':157,'headers':values['values'][0],'row':row},ensure_ascii=False,indent=2)+'\n').encode())
+history=r/'verification/history';history.mkdir(exist_ok=True)
+(history/'runtime-audit-correction.json').write_bytes((json.dumps({'initial_observation':'Initial read-only runtime audit had a shell syntax error from the helper quoting; it did not audit the container. Exact original stdout/stderr/summary and original helper retained in case156-initial-runtime-audit.','correction':'Apply normal shell quoting to embedded Python source, rerun only the read-only audit. Corrected prototype/formal native/source audits passed. Product code, tests, dependencies, build flags and image unchanged.','unused_image_query':'Public ECR python:2.7.18-buster tag returned not found; used existing pinned public Ubuntu18.04 base with original CI-supported Python2.7. A later combined read-only metadata request had automatic-review deadline timeout; one narrowed read-only inventory retry succeeded without mutations.'},indent=2)+'\n').encode())
+print('156 exact source row, real tamper rejection and original audit failure preserved.')

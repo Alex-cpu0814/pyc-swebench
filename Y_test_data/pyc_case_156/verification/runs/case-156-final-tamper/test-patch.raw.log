@@ -1,0 +1,2 @@
+error: patch failed: lib/test/hooks.py:152
+error: lib/test/hooks.py: patch does not apply

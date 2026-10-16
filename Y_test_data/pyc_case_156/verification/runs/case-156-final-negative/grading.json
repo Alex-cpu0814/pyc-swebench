@@ -1,0 +1,18 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-156-final-negative",
+  "tests_observed": 5,
+  "FAIL_TO_PASS": {
+    "lib/test/hooks.py::LimitTests::CheckGetLimit": "ERROR",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit": "ERROR"
+  },
+  "PASS_TO_PASS": {
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable": "PASSED",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed": "PASSED",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation": "PASSED"
+  },
+  "unexpected_failures": [
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ]
+}

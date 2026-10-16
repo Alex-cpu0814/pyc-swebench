@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation",
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ],
+  "count": 5,
+  "runner": "original standard unittest cases with Check prefix"
+}

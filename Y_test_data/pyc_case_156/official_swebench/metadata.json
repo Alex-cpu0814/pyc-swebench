@@ -1,0 +1,149 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "155",
+  "candidate_case": "156",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Complete original CheckGetLimit opens an in-memory connection, queries SQLITE_LIMIT_VARIABLE_NUMBER and requires a positive value. CheckSetLimit opens its own connection, reads the original limit, sets oldval-1 and requires the next read to equal oldval-1. Base stops at the first get_limit in each method; Gold completes both. Three unchanged complete regressions require a callable collation callback, record progress callback invocation, and verify nonzero progress return cancels execution with OperationalError. Original fixtures, assertions, SQL and inputs remain unchanged; no external datastore caller, full suite, invalid-ID or set_limit return-value check is claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_unittest",
+  "created_at": "2013-10-14",
+  "created_at_precision": "date",
+  "instance_id": "ghaering__pysqlite-9b23d8d2",
+  "source_instance_id": "pyc_case_156",
+  "repo": "ghaering/pysqlite",
+  "issue_id": "33",
+  "issue_url": "https://github.com/ghaering/pysqlite/issues/33",
+  "project_version": "2.6.3",
+  "base_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320",
+  "fix_commit": "9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "FAIL_TO_PASS": [
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ],
+  "PASS_TO_PASS": [
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b",
+    "python_version": "2.7.17",
+    "test_runner_version": "CPython2.7 standard unittest; original Check methods",
+    "compiler_toolchain": "Normal Ubuntu18.04 build-essential/python2.7-dev/libsqlite3-dev with original distutils build; no compiler or allocator changes.",
+    "base_target_status": "2 original unittest ERROR statuses: Connection has no attribute get_limit",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "2 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-156-pysqlite:benchmark-v1",
+      "id": "sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0",
+      "repo_digests": [
+        "yutu0814/pyc-case-156-pysqlite@sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 5,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 5,
+          "FAIL_TO_PASS": {
+            "expected": 2,
+            "passed": 0,
+            "failed": 2,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 2
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "ghaering__pysqlite-9b23d8d2",
+      "base_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-156-final-gold/summary.json",
+      "verification/runs/case-156-final-negative/summary.json",
+      "verification/runs/case-156-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": null,
+  "fix_committed_at": "2015-08-02",
+  "date_semantics": "Created at is actual issue33 opening 2013-10-14T14:31:11Z; associated-PR API returned[]. No PR merge date established, so merged_at remains absent. Issue close 2015-08-01T22:23:52Z and source Git timestamp 2015-08-02T00:21:37+02:00 are distinct and are not substituted for a merge date.",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C",
+    "reStructuredText documentation"
+  ],
+  "native_product_files_changed": [
+    "doc/sphinx/sqlite3.rst",
+    "src/connection.c"
+  ],
+  "verified_scope": "Complete original CheckGetLimit opens an in-memory connection, queries SQLITE_LIMIT_VARIABLE_NUMBER and requires a positive value. CheckSetLimit opens its own connection, reads the original limit, sets oldval-1 and requires the next read to equal oldval-1. Base stops at the first get_limit in each method; Gold completes both. Three unchanged complete regressions require a callable collation callback, record progress callback invocation, and verify nonzero progress return cancels execution with OperationalError. Original fixtures, assertions, SQL and inputs remain unchanged; no external datastore caller, full suite, invalid-ID or set_limit return-value check is claimed.",
+  "source_trace_scope": "Original source155/Excel157 records missing functionality and traces pysqlite_connection_set_limit to external datastore csp_crc32_verify. That external caller is not in this repository. Preserve it separately from the actually executed original hooks LimitTests.",
+  "native_package_versions": {
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6": "2.27-3ubuntu1.6",
+    "libpython2.7": "2.7.17-1~18.04ubuntu1.11",
+    "libsqlite3-0": "3.22.0-1ubuntu0.7",
+    "libsqlite3-dev": "3.22.0-1ubuntu0.7",
+    "pkg-config": "0.29.1-0ubuntu2",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "doc/sphinx/sqlite3.rst",
+    "src/connection.c"
+  ],
+  "test_files": [
+    "lib/test/hooks.py"
+  ]
+}

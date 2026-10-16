@@ -1,0 +1,48 @@
+{
+  "instance_id": "pyc_case_156",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "155",
+  "duplicate_source_cases": [],
+  "deduplication_key": "9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "language_pair": "Python-C",
+  "repo": "ghaering/pysqlite",
+  "issue_id": "33",
+  "issue_url": "https://github.com/ghaering/pysqlite/issues/33",
+  "commit": "9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "base_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "commit_url": "https://github.com/ghaering/pysqlite/commit/9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "problem_statement": "Expose SQLite connection limit queries and updates through get_limit and set_limit so Python callers can inspect and change SQLite limits.",
+  "symptom": "no description",
+  "bug_location": "line 1042",
+  "bug_location_type": "function declaration",
+  "bug_path": "1042(c_connection_1-cfg.dot) (pysqlite_connection_set_limit) -> 1564(py_datastore_sqlite_stub_3-cfg.dot) (csp_crc32_verify)",
+  "cross_language_type": "PyInt_FromLong,Foreign,Integer Objects,PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Functionality missing",
+  "fixing_strategy": "add a new function",
+  "fix_location": "function definition",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/ghaering/pysqlite/issues/33",
+    "upstream_description": "Complete upstream product patch adds the get_limit/set_limit C methods and documents them; exact official test patch adds complete LimitTests.CheckGetLimit/CheckSetLimit and adds that class to the original suite.",
+    "verified_error": "Base passes3 complete original regressions. Both complete new LimitTests methods emit unittestERROR because the first con.get_limit call raises AttributeError: Connection has no attribute get_limit, at built original hooks.py lines161 and169; actual process exit1. CheckSetLimit never reaches set_limit on Base. Gold completes both original limit methods and all3 regressions,5PASSED/exit0. Original unittestERROR remains ERROR in raw canonical statuses and grading, never relabeled as an assertionFAILED.",
+    "verified_test": "lib/test/hooks.py::LimitTests::CheckGetLimit and lib/test/hooks.py::LimitTests::CheckSetLimit and lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable and lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed and lib/test/hooks.py::ProgressTests::CheckCancelOperation"
+  },
+  "evidence_type": "source_row_upstream_issues_and_original_unittest",
+  "official_test_scope": "Complete original CheckGetLimit opens an in-memory connection, queries SQLITE_LIMIT_VARIABLE_NUMBER and requires a positive value. CheckSetLimit opens its own connection, reads the original limit, sets oldval-1 and requires the next read to equal oldval-1. Base stops at the first get_limit in each method; Gold completes both. Three unchanged complete regressions require a callable collation callback, record progress callback invocation, and verify nonzero progress return cancels execution with OperationalError. Original fixtures, assertions, SQL and inputs remain unchanged; no external datastore caller, full suite, invalid-ID or set_limit return-value check is claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ],
+  "PASS_TO_PASS": [
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

@@ -1,0 +1,36 @@
+running build_ext
+building 'pysqlite2._sqlite' extension
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/module.c -o build/temp.linux-x86_64-2.7/src/module.o
+In file included from src/module.c:269:0:
+src/sqlite_constants.h:743:19: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ {"SQLITE_STATIC", SQLITE_STATIC},
+                   ^~~~~~~~~~~~~
+src/sqlite_constants.h:743:19: note: (near initialization for ‘_int_constants[249].constant_value’)
+src/sqlite_constants.h:746:22: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+ {"SQLITE_TRANSIENT", SQLITE_TRANSIENT},
+                      ^~~~~~~~~~~~~~~~
+src/sqlite_constants.h:746:22: note: (near initialization for ‘_int_constants[250].constant_value’)
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/connection.c -o build/temp.linux-x86_64-2.7/src/connection.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/cursor.c -o build/temp.linux-x86_64-2.7/src/cursor.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/cache.c -o build/temp.linux-x86_64-2.7/src/cache.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/microprotocols.c -o build/temp.linux-x86_64-2.7/src/microprotocols.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/prepare_protocol.c -o build/temp.linux-x86_64-2.7/src/prepare_protocol.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/statement.c -o build/temp.linux-x86_64-2.7/src/statement.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/util.c -o build/temp.linux-x86_64-2.7/src/util.o
+x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -DMODULE_NAME="pysqlite2.dbapi2" -I/usr/include/python2.7 -c src/row.c -o build/temp.linux-x86_64-2.7/src/row.o
+x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/src/module.o build/temp.linux-x86_64-2.7/src/connection.o build/temp.linux-x86_64-2.7/src/cursor.o build/temp.linux-x86_64-2.7/src/cache.o build/temp.linux-x86_64-2.7/src/microprotocols.o build/temp.linux-x86_64-2.7/src/prepare_protocol.o build/temp.linux-x86_64-2.7/src/statement.o build/temp.linux-x86_64-2.7/src/util.o build/temp.linux-x86_64-2.7/src/row.o -lsqlite3 -o build/lib.linux-x86_64-2.7/pysqlite2/_sqlite.so
+running build_py
+copying lib/dbapi2.py -> build/lib.linux-x86_64-2.7/pysqlite2
+copying lib/dump.py -> build/lib.linux-x86_64-2.7/pysqlite2
+copying lib/__init__.py -> build/lib.linux-x86_64-2.7/pysqlite2
+copying lib/test/hooks.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/factory.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/transactions.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/dbapi.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/types.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/regression.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/dump.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/userfunctions.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/__init__.py -> build/lib.linux-x86_64-2.7/pysqlite2/test
+copying lib/test/py25/py25tests.py -> build/lib.linux-x86_64-2.7/pysqlite2/test/py25
+copying lib/test/py25/__init__.py -> build/lib.linux-x86_64-2.7/pysqlite2/test/py25

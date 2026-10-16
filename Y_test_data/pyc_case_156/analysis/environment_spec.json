@@ -1,0 +1,34 @@
+{
+  "instance_id": "pyc_case_156",
+  "task_level": "integration",
+  "validation_type": "official_unittest",
+  "environment": "pysqlite_sqlite_connection_limits",
+  "python_version_target": "2.7",
+  "native_requirement": "Upstream CI explicitly supports Python2.6/2.7. Public Ubuntu18.04 Python2.7 development files and system SQLite development/runtime libraries.",
+  "build_system": "Original python2.7 setup.py build_ext --force build_py --force builds pysqlite2._sqlite and copies original lib package into build/lib.linux-x86_64-2.7.",
+  "test_execution": [
+    "Complete original unittest Check methods,3 original regressions followed by2 new original limit methods."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in lib/test/hooks.py.",
+    "Base passes3 complete original regressions. Both complete new LimitTests methods emit unittestERROR because the first con.get_limit call raises AttributeError: Connection has no attribute get_limit, at built original hooks.py lines161 and169; actual process exit1. CheckSetLimit never reaches set_limit on Base. Gold completes both original limit methods and all3 regressions,5PASSED/exit0. Original unittestERROR remains ERROR in raw canonical statuses and grading, never relabeled as an assertionFAILED.",
+    "Complete unchanged CollationTests.CheckCreateCollationNotCallable, ProgressTests.CheckProgressHandlerUsed and ProgressTests.CheckCancelOperation pass on Base/Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320",
+  "fix_commit": "9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "lib/test/hooks.py"
+  ],
+  "FAIL_TO_PASS": [
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ],
+  "PASS_TO_PASS": [
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation"
+  ]
+}

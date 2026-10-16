@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 157,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "155",
+    "https://github.com/ghaering/pysqlite/commit/9b23d8d2863715e3654a8bb4a33483aa5adf40fd",
+    "no description",
+    "line 1042",
+    "function declaration",
+    null,
+    null,
+    " \n 1042(c_connection_1-cfg.dot) (pysqlite_connection_set_limit)\n -> 1564(py_datastore_sqlite_stub_3-cfg.dot) (csp_crc32_verify)",
+    "PyInt_FromLong,Foreign,Integer Objects,PyArg_ParseTupleAndKeywords,Foreign,Parsing arguments and building values",
+    "\n Python->C",
+    "\n\nFunctionality missing",
+    "add a new function",
+    "function definition"
+  ]
+}

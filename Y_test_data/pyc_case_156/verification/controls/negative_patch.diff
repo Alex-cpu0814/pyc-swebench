@@ -1,0 +1,9 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -4,3 +4,5 @@
+ Python DB-API module for SQLite 3.
+ 
+ Online documentation can be found [here] (https://pysqlite.readthedocs.org/en/latest/sqlite3.html).
++
++This control leaves the native SQLite limit methods absent.

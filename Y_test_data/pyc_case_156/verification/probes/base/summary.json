@@ -1,0 +1,40 @@
+{
+  "label": "base",
+  "image": "pyc-case156-prototype-base:latest",
+  "nodes": [
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation",
+    "lib/test/hooks.py::LimitTests::CheckGetLimit",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit"
+  ],
+  "startedAt": "2026-10-16T08:36:39.509Z",
+  "finishedAt": "2026-10-16T08:36:40.938Z",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case156_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case156_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\pysqlite_unittest_nodes.py,target=/benchmark/pysqlite_unittest_nodes.py,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case156-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; python2.7 setup.py build_ext --force build_py --force >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python2.7 /benchmark/pysqlite_unittest_nodes.py 'lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable' 'lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed' 'lib/test/hooks.py::ProgressTests::CheckCancelOperation' 'lib/test/hooks.py::LimitTests::CheckGetLimit' 'lib/test/hooks.py::LimitTests::CheckSetLimit'"
+  ]
+}

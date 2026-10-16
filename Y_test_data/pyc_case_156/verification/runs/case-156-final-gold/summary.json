@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-156-final-gold",
+  "label": "gold",
+  "instance_id": "ghaering__pysqlite-9b23d8d2",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-16T08:41:37.286Z",
+  "finished_at": "2026-10-16T08:41:39.278Z",
+  "duration_ms": 2000,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "8e72ce62930e1c9efcd8df6cb94d294bd2dfa7eab1cff249cf32c8f3482f10a0",
+  "test_patch_sha256": "028fb4dd8e1ac574de2e30c7edc9228d2ea207e783df62a23d3d8ed528b8d346",
+  "image": {
+    "name": "yutu0814/pyc-case-156-pysqlite:benchmark-v1",
+    "id": "sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0",
+    "repo_digests": [
+      "yutu0814/pyc-case-156-pysqlite@sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "ghaering__pysqlite-9b23d8d2"
+  },
+  "grading": {
+    "tests_observed": 5,
+    "FAIL_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

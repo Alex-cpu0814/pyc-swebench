@@ -1,0 +1,12 @@
+diff --git a/lib/test/hooks.py b/lib/test/hooks.py
+--- a/lib/test/hooks.py
++++ b/lib/test/hooks.py
+@@ -152,7 +152,7 @@
+         con.execute("select 1 union select 2 union select 3").fetchall()
+         self.assertEqual(action, 0, "progress handler was not cleared")
+ 
+-def suite():
++def suite():  # Protected official hunk context conflict
+     collation_suite = unittest.makeSuite(CollationTests, "Check")
+     progress_suite = unittest.makeSuite(ProgressTests, "Check")
+     return unittest.TestSuite((collation_suite, progress_suite))

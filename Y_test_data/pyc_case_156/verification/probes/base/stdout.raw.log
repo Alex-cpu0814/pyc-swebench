@@ -1,0 +1,31 @@
+CheckCreateCollationNotCallable (pysqlite2.test.hooks.CollationTests) ... ok
+lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable PASSED
+CheckProgressHandlerUsed (pysqlite2.test.hooks.ProgressTests) ... ok
+lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed PASSED
+CheckCancelOperation (pysqlite2.test.hooks.ProgressTests) ... ok
+lib/test/hooks.py::ProgressTests::CheckCancelOperation PASSED
+CheckGetLimit (pysqlite2.test.hooks.LimitTests) ... ERROR
+lib/test/hooks.py::LimitTests::CheckGetLimit ERROR
+CheckSetLimit (pysqlite2.test.hooks.LimitTests) ... ERROR
+lib/test/hooks.py::LimitTests::CheckSetLimit ERROR
+
+======================================================================
+ERROR: CheckGetLimit (pysqlite2.test.hooks.LimitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/lib.linux-x86_64-2.7/pysqlite2/test/hooks.py", line 161, in CheckGetLimit
+    val = con.get_limit(sqlite.SQLITE_LIMIT_VARIABLE_NUMBER)
+AttributeError: 'pysqlite2.dbapi2.Connection' object has no attribute 'get_limit'
+
+======================================================================
+ERROR: CheckSetLimit (pysqlite2.test.hooks.LimitTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/build/lib.linux-x86_64-2.7/pysqlite2/test/hooks.py", line 169, in CheckSetLimit
+    oldval = con.get_limit(sqlite.SQLITE_LIMIT_VARIABLE_NUMBER)
+AttributeError: 'pysqlite2.dbapi2.Connection' object has no attribute 'get_limit'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+FAILED (errors=2)

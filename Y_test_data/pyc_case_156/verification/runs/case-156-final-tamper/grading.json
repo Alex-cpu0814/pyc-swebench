@@ -1,0 +1,15 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-156-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "lib/test/hooks.py::LimitTests::CheckGetLimit": "MISSING",
+    "lib/test/hooks.py::LimitTests::CheckSetLimit": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable": "MISSING",
+    "lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed": "MISSING",
+    "lib/test/hooks.py::ProgressTests::CheckCancelOperation": "MISSING"
+  },
+  "unexpected_failures": []
+}

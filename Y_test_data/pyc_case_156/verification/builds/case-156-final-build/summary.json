@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-156-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-16T08:40:19.889Z",
+  "finished_at": "2026-10-16T08:40:21.825Z",
+  "duration_ms": 1936,
+  "source": {
+    "repo": "https://github.com/ghaering/pysqlite.git",
+    "base_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-156-pysqlite:benchmark-v1",
+    "id": "sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0",
+    "repo_digests": [
+      "yutu0814/pyc-case-156-pysqlite@sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

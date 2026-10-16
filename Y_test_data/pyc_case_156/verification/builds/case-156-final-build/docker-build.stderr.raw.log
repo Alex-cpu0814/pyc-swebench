@@ -1,0 +1,40 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.43kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b 0.0s done
+#4 DONE 0.0s
+
+#5 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/ghaering/pysqlite.git" && git fetch --depth=1 --no-tags origin "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320" && git checkout --detach "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320"
+#5 CACHED
+
+#6 [4/5] WORKDIR /testbed
+#6 CACHED
+
+#7 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git pkg-config python-minimal python2.7 python2.7-dev libsqlite3-dev && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [5/5] RUN python2.7 setup.py build_ext --force build_py --force && python2.7 -c "import pysqlite2.dbapi2 as db,pysqlite2._sqlite as native; print(db.version,db.sqlite_version,native.__file__); assert db.version == '2.6.3'; assert native.__file__.startswith('/testbed/build/lib.linux-x86_64-2.7/pysqlite2/_sqlite')" && git checkout HEAD -- . && printf '%s\n' '/build/' '*.pyc' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:f5b03b7a823583a2b3160b8b152094e83031756fbf7e2875d4bda3ed58f4fe34 done
+#9 exporting config sha256:48b4b95ebc35bbab4e6cc7a1929932c5bf867be82a51a1654bf06597b739db42 done
+#9 exporting attestation manifest sha256:4c9e2192728b904b92589f83d770bd37110f11d7fbe37218de20f8cf5afdd5cf 0.0s done
+#9 exporting manifest list sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0 0.0s done
+#9 naming to docker.io/yutu0814/pyc-case-156-pysqlite:benchmark-v1 done
+#9 unpacking to docker.io/yutu0814/pyc-case-156-pysqlite:benchmark-v1 done
+#9 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/r46kgnin0ye91ri7rot8vrouy

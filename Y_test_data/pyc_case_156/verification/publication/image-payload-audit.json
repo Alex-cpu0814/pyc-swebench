@@ -1,0 +1,30 @@
+{
+  "image": "yutu0814/pyc-case-156-pysqlite:benchmark-v1",
+  "verified_image_id": "sha256:b50c96b41175954a45f6372c0271846b3ebe4c3c74422ad91b0d025f38b82ac0",
+  "source_commit": "d7c44a6b62ccf27ae2a006d32dc25cd49ca45320",
+  "tracked_public_source_files": 101,
+  "config_env": [
+    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "LANG=C.UTF-8",
+    "PYTHONPATH=/testbed/build/lib.linux-x86_64-2.7"
+  ],
+  "config_volumes": null,
+  "config_labels": {
+    "org.opencontainers.image.ref.name": "ubuntu",
+    "org.opencontainers.image.version": "18.04"
+  },
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile/.dockerignore in staged public build context",
+  "payload_scope": "Exact pinned public Ubuntu18.04 base with standard public Python2.7 development/runtime, GCC and SQLite development/runtime packages, plus anonymous public pysqlite first-parent Base source and ordinary compiled pysqlite2._sqlite. No host attachments, private files, credentials, candidate/Gold/test patches, fix object or evaluator runtime assets copied into image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "fix_commit_absent": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-16T08:43:40.937Z"
+}

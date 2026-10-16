@@ -1,0 +1,15 @@
+CheckCreateCollationNotCallable (pysqlite2.test.hooks.CollationTests) ... ok
+lib/test/hooks.py::CollationTests::CheckCreateCollationNotCallable PASSED
+CheckProgressHandlerUsed (pysqlite2.test.hooks.ProgressTests) ... ok
+lib/test/hooks.py::ProgressTests::CheckProgressHandlerUsed PASSED
+CheckCancelOperation (pysqlite2.test.hooks.ProgressTests) ... ok
+lib/test/hooks.py::ProgressTests::CheckCancelOperation PASSED
+CheckGetLimit (pysqlite2.test.hooks.LimitTests) ... ok
+lib/test/hooks.py::LimitTests::CheckGetLimit PASSED
+CheckSetLimit (pysqlite2.test.hooks.LimitTests) ... ok
+lib/test/hooks.py::LimitTests::CheckSetLimit PASSED
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.041s
+
+OK
