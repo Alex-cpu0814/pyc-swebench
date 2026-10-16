@@ -53,6 +53,7 @@ SWE-bench-compatible layout.
 | `pyc_case_142` | `pygobject/pycairo` | Issue / PR #41 / commit `07ee64b3` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_156` | `ghaering/pysqlite` | Issue / PR #33 / commit `9b23d8d2` | Base: 2 target failures; Gold: 2 targets and 3 regressions pass |
 | `pyc_case_159` | `astrofrog/fast-histogram` | Issue / PR #52 / commit `82f140be` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_160` | `astrofrog/fast-histogram` | Issue / PR #21 / commit `e384cdf1` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

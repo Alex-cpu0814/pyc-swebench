@@ -1,0 +1,17 @@
+import json,pathlib,re,shutil
+w=pathlib.Path('E:/CLB_Swe-bench/_work/pyc_batch');r=pathlib.Path('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_160');s=json.loads((w/'case160_spec.json').read_text(encoding='utf-8'))
+values=json.loads((w/'source_values.json').read_text(encoding='utf-8'));row=next(v for v in values['values'][1:]if str(v[0])=='159');(r/'analysis/source_material/original_source_row_159.json').write_bytes((json.dumps({'sheet':values['sheet'],'excel_row':161,'headers':values['values'][0],'row':row},ensure_ascii=False,indent=2)+'\n').encode())
+samples={}
+for label,d,filename in [('prototype_base',w/'case160-probe-base','stdout.raw.log'),('prototype_gold',w/'case160-probe-gold','stdout.raw.log'),('formal_gold',r/'verification/runs/case-160-final-gold','tests.raw.log'),('formal_negative',r/'verification/runs/case-160-final-negative','tests.raw.log')]:
+ raw=(d/filename).read_text(encoding='utf-8');stats={}
+ for node in s['passToPass']:
+  match=re.search(r'^'+re.escape(node)+r':\n\n  - (\d+) passing examples, (\d+) failing examples, (\d+) invalid examples',raw,re.M);assert match,node
+  passed,failed,invalid=map(int,match.groups());assert passed==5000 and failed==0;stats[node]={'passing_examples':passed,'failing_examples':failed,'invalid_examples':invalid}
+ assert raw.count('Stopped because settings.max_examples=5000')==2
+ samples[label]=stats
+assert json.loads((r/'verification/runs/case-160-final-gold/summary.json').read_text(encoding='utf-8'))['status']=='resolved'
+assert json.loads((r/'verification/runs/case-160-final-negative/summary.json').read_text(encoding='utf-8'))['status']=='unresolved'
+assert json.loads((r/'verification/runs/case-160-final-tamper/summary.json').read_text(encoding='utf-8'))['reason']=='candidate_conflicts_with_test_patch'
+(r/'analysis/source_material/original_property_statistics.json').write_bytes((json.dumps({'semantics':'Original5000 max_examples, explicit examples, use_coverage=True, assume checks and internal.example calls preserved. Every observed complete property method stopped due original max_examples5000; invalid counts vary naturally and are not failures. Counts are per complete method, not additional expected node IDs.','observations':samples},indent=2)+'\n').encode())
+(r/'analysis/native_boundary_scope.json').write_bytes((json.dumps({'source_classification':'Python-C (original taxonomy)','changed_product_files':['CHANGES.rst','fast_histogram/histogram.py'],'changed_product_languages':['reStructuredText','Python'],'native_c_source_changed':False,'native_extension_actually_compiled_and_invoked':True,'measured_target':'Complete original test_nd_arrays,1d and2d reshape comparisons','source_scope':'Python wrapper ravel fixes its input-shape contract with unchanged original C histogram implementation. No claim that this source commit edits C product code.','initial_framework_failure':'Initial Hypothesis3.66.32 auto-resolved coverage6.2 failed internal Collector construction. Pin compatible coverage4.5.1 without disabling coverage or changing tests; full original methods then passed. Initial source/context/build/runtime/test evidence retained.','native_requirement':s['nativeRequirement']},indent=2)+'\n').encode())
+(r/'analysis/creation_tools').mkdir(exist_ok=True);shutil.copy2(w/'independent_case_review.py',r/'analysis/creation_tools/independent_case_review.py');print('160 source scope and all4 observed run groups x2 full5000-example method statistics verified.')

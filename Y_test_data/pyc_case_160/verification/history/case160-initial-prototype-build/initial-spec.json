@@ -1,0 +1,124 @@
+{
+  "projectName": "fast-histogram",
+  "repo": "astrofrog/fast-histogram",
+  "repoUrl": "https://github.com/astrofrog/fast-histogram.git",
+  "sourceRepo": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\fast-histogram",
+  "binaryPatches": false,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.6",
+  "pythonVersionConfig": "3.6",
+  "pythonVersionLabel": "3.6.15",
+  "numpyVersion": "1.14.5",
+  "testRunnerVersion": "pytest3.6.3 / hypothesis3.66.32 / NumPy1.14.5",
+  "baseImage": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:/CLB_Swe-bench/_work/pyc_batch/pytest_no_dump.py",
+      "source": "evaluator/pytest_no_dump.py",
+      "target": "/benchmark/pytest_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_pytest",
+  "evidenceType": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "pytestPathPrefix": "fast_histogram/",
+  "compilerToolchain": "Unmodified GCC8.3 in pinned public Python3.6.15-buster. Ordinary original setup.py build_ext --inplace --force with NumPy1.14.5 headers; no flags/source/allocator changes.",
+  "caseNumber": "160",
+  "sourceCase": "159",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_160",
+  "instanceId": "astrofrog__fast-histogram-e384cdf1",
+  "issueId": "21",
+  "issueUrl": "https://github.com/astrofrog/fast-histogram/pull/21",
+  "fixCommit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "baseCommit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": null,
+  "mergedAt": null,
+  "fixCommittedAt": "2018-07-16",
+  "version": "0.5.dev0",
+  "image": "yutu0814/pyc-case-160-fast-histogram:benchmark-v1",
+  "prototypeImage": "pyc-case160-prototype-base:latest",
+  "testFiles": [
+    "fast_histogram/tests/test_histogram.py"
+  ],
+  "testFile": "fast_histogram/tests/test_histogram.py",
+  "goldPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case160_gold.diff",
+  "testPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case160_test.diff",
+  "dockerfileSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.fast-histogram160-local",
+  "validationStatus": "pending_gold_original_methods_gate",
+  "expectedBaseExitCode": null,
+  "environment": "fast_histogram_python_wrapper_nd_array_shape",
+  "testExecution": "Complete new original test_nd_arrays plus both complete original Hypothesis regression methods, preserving their5000 max_examples decorators and explicit examples. Gold gate first; no method-body extraction, sample/seed/health-check changes.",
+  "nativeAuditCommand": "python -c \"import fast_histogram as pkg,fast_histogram._histogram_core as native,numpy; print(pkg.__version__,numpy.__version__,native.__file__); assert pkg.__version__ == '0.5.dev0'; assert numpy.__version__ == '1.14.5'; assert native.__file__.startswith('/testbed/fast_histogram/_histogram_core.')\"",
+  "buildCommand": "python setup.py build_ext --inplace --force",
+  "buildSystem": "Original static-version setup.py build_ext --inplace --force, native NumPy include path via original build_ext_with_numpy. Actual source __version__0.5.dev0; no SCM override.",
+  "testSourceLabel": "Complete original official pytest functions",
+  "testCommand": "python /benchmark/pytest_no_dump.py -vv -p no:warnings --hypothesis-show-statistics",
+  "collectCommand": "python /benchmark/pytest_no_dump.py --collect-only -q -p no:warnings",
+  "problemStatement": "Flatten multidimensional input arrays before the Python wrapper calls the existing native histogram functions so reshaped data yields the same histogram.",
+  "upstreamDescription": "Full upstream product patch changes CHANGES.rst and Python histogram1d/histogram2d wrappers to ravel multidimensional x/y. Native C extension remains unchanged. Exact18-line official test addition compares1000-element1d arrays with10x10x10 reshapes for both1d and2d histograms.",
+  "sourceTraceNotes": "Original source159/Excel161 traces Python histogram1d to C _histogram1d and classifies Specail case handling (original spelling preserved). Actual new complete target is test_nd_arrays. Product changes are Python wrapper and changelog; native C module is compiled from unchanged original source and actually invoked.",
+  "nativeRequirement": "Original Travis includes Linux Python3.6 with NumPy/pytest and hypothesis[numpy]. Use compatible2018-generation NumPy1.14.5/pytest3.6.3/Hypothesis3.66.32; original5000 examples and explicit2d examples remain enabled.",
+  "workbookDateFields": true,
+  "passToPass": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy"
+  ],
+  "probeNodes": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "testNodeOrder": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/astrofrog/fast-histogram/pull/21",
+    "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+    "fix_commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+    "source_parents": [
+      "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+      "4a1c18874e972e027d39f316a79dc19a42c1f427"
+    ],
+    "source_commit_timestamp_original_offset": "2018-07-16T22:20:04+01:00",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "product_patch_languages": [
+      "Python",
+      "reStructuredText changelog"
+    ],
+    "native_product_files_changed": [],
+    "python_product_files_changed": [
+      "fast_histogram/histogram.py"
+    ],
+    "native_source_git_blobs": {
+      "fast_histogram/_histogram_core.c": "a2c3634d5ec947cbbaeb1f00b7f866de5b8364de",
+      "fast_histogram/histogram.py": "afde42e26edc33f3d172810811050395edb65e8a",
+      "fast_histogram/__init__.py": "ae651468e4c196e3c00ff37061d098fb979c700d",
+      "fast_histogram/tests/test_histogram.py": "2215f02120a6127535e47ebe6186c990a9d70f17",
+      "setup.py": "932079372268b0235ca3b6c6de2cf0b290c35b8f",
+      ".travis.yml": "79850b7d2d59afea04fc6887a354c40ee958c2ca",
+      "appveyor.yml": "32405a5a671a8323af5ba1eaf7eb65ee379bcefb"
+    },
+    "native_package_versions": {
+      "gcc": "4:8.3.0-1",
+      "git": "1:2.20.1-2+deb10u3",
+      "libc6": "2.28-10"
+    },
+    "environment_selection": "Original Travis Linux Python3.6 matrix. Compatible NumPy1.14.5/pytest3.6.3/Hypothesis3.66.32 dependencies with full original5000 max_examples and explicit examples, fixed upfront3-node selection. Compatible dependency pins are not exact historical resolver reproduction. No environment seed, sample reduction, input/assertion/fixture/compiler changes."
+  },
+  "failToPass": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "probeTimeout": 1800000
+}

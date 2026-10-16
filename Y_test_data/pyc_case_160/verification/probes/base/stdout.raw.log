@@ -1,0 +1,46 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.6.3, py-1.5.4, pluggy-0.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, inifile:
+plugins: hypothesis-3.66.32
+collecting ... collected 3 items
+
+fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy PASSED [ 33%]
+fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy PASSED [ 66%]
+fast_histogram/tests/test_histogram.py::test_nd_arrays FAILED            [100%]
+
+=================================== FAILURES ===================================
+________________________________ test_nd_arrays ________________________________
+
+    def test_nd_arrays():
+    
+        x = np.random.random(1000)
+    
+        result_1d = histogram1d(x, bins=10, range=(0, 1))
+        result_3d = histogram1d(x.reshape((10, 10, 10)), bins=10, range=(0, 1))
+    
+>       np.testing.assert_equal(result_1d, result_3d)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       (mismatch 100.0%)
+E        x: array([ 88.,  93., 101.,  83., 110., 112.,  91., 102., 108., 112.])
+E        y: array([0., 1., 1., 1., 1., 0., 2., 3., 0., 1.])
+
+fast_histogram/tests/test_histogram.py:97: AssertionError
+============================ Hypothesis Statistics =============================
+fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy:
+
+  - 5000 passing examples, 0 failing examples, 0 invalid examples
+  - Typical runtimes: 0-12 ms
+  - Fraction of time spent in data generation: ~ 8%
+  - Stopped because settings.max_examples=5000
+
+fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy:
+
+  - 5000 passing examples, 0 failing examples, 34 invalid examples
+  - Typical runtimes: 0-12 ms
+  - Fraction of time spent in data generation: ~ 17%
+  - Stopped because settings.max_examples=5000
+
+===================== 1 failed, 2 passed in 66.07 seconds ======================

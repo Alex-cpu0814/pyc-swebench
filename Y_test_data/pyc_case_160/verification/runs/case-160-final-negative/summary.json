@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-160-final-negative",
+  "label": "negative",
+  "instance_id": "astrofrog__fast-histogram-e384cdf1",
+  "status": "unresolved",
+  "reason": "expected_test_failed_skipped_or_missing",
+  "started_at": "2026-10-16T09:38:59.040Z",
+  "finished_at": "2026-10-16T09:40:06.866Z",
+  "duration_ms": 67828,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "55e1fbd49db9bb53c72ba08e8581580c66d76b0e95620497efd566e9a5ca4bc2",
+  "test_patch_sha256": "d75a4d26d1a44c8a94fd843829aafb2e1146cf665b9cfcb214c93d57f3e8d51f",
+  "image": {
+    "name": "yutu0814/pyc-case-160-fast-histogram:benchmark-v1",
+    "id": "sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e",
+    "repo_digests": [
+      "yutu0814/pyc-case-160-fast-histogram@sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 1,
+    "instance_id": "astrofrog__fast-histogram-e384cdf1"
+  },
+  "grading": {
+    "tests_observed": 3,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 1
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-160-final-tamper",
+  "label": "tamper",
+  "instance_id": "astrofrog__fast-histogram-e384cdf1",
+  "status": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "started_at": "2026-10-16T09:37:46.725Z",
+  "finished_at": "2026-10-16T09:37:47.550Z",
+  "duration_ms": 827,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "c6b782bdb06bdab1cd6d0d6919cfa9b6c03b4c3d93ff86b59b844b71fd0fcbc9",
+  "test_patch_sha256": "d75a4d26d1a44c8a94fd843829aafb2e1146cf665b9cfcb214c93d57f3e8d51f",
+  "image": {
+    "name": "yutu0814/pyc-case-160-fast-histogram:benchmark-v1",
+    "id": "sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e",
+    "repo_digests": [
+      "yutu0814/pyc-case-160-fast-histogram@sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "test_patch",
+    "outcome": "unresolved",
+    "reason": "candidate_conflicts_with_test_patch",
+    "test_exit_code": null,
+    "instance_id": "astrofrog__fast-histogram-e384cdf1"
+  },
+  "grading": {
+    "tests_observed": 0,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 1
+    },
+    "PASS_TO_PASS": {
+      "expected": 2,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 2
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": null,
+    "tests": null,
+    "grading": "grading.json"
+  }
+}

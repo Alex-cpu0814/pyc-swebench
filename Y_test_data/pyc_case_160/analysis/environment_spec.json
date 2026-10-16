@@ -1,0 +1,32 @@
+{
+  "instance_id": "pyc_case_160",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "fast_histogram_python_wrapper_nd_array_shape",
+  "python_version_target": "3.6",
+  "native_requirement": "Original Travis includes Linux Python3.6 with NumPy/pytest and hypothesis[numpy]. Use compatible2018-generation NumPy1.14.5/pytest3.6.3/Hypothesis3.66.32; original5000 examples and explicit2d examples remain enabled.",
+  "build_system": "Original static-version setup.py build_ext --inplace --force, native NumPy include path via original build_ext_with_numpy. Actual source __version__0.5.dev0; no SCM override.",
+  "test_execution": [
+    "Complete new original test_nd_arrays plus both complete original Hypothesis regression methods, preserving their5000 max_examples decorators and explicit examples. Gold gate first; no method-body extraction, sample/seed/health-check changes."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in fast_histogram/tests/test_histogram.py.",
+    "With compatible coverage4.5.1 and original checks enabled, Base completes both original property methods, each recording5000 passing examples. It then fails the first exact array comparison in complete test_nd_arrays at line97: histogram1d of the1000-element vector differs from its10x10x10 reshape. The observed result bins sum to1000 versus10. Base terminalFAILED/exit1; its later2d target comparison is not reached. Gold completes both original property methods with5000 passing examples each plus the complete1d/2d target,3PASSED/exit0. Original random arrays,5000 settings, explicit examples, coverage and assertions are unchanged.",
+    "Complete original test_1d_compare_with_numpy and test_2d_compare_with_numpy each record5000 passing examples on Base/Gold, retaining original settings and explicit examples."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "fix_commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "fast_histogram/tests/test_histogram.py"
+  ],
+  "FAIL_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "PASS_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy"
+  ]
+}

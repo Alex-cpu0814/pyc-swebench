@@ -1,0 +1,166 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.6.3, py-1.5.4, pluggy-0.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, inifile:
+plugins: hypothesis-3.66.32
+collecting ... collected 3 items
+
+fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy FAILED [ 33%]
+fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy FAILED [ 66%]
+fast_histogram/tests/test_histogram.py::test_nd_arrays PASSED            [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_1d_compare_with_numpy __________________________
+
+    @given(size=st.integers(0, 100),
+>          nx=st.integers(1, 10),
+           xmin=st.floats(-1e10, 1e10), xmax=st.floats(-1e10, 1e10),
+           weights=st.booleans())
+    @settings(max_examples=5000)
+    def test_1d_compare_with_numpy(size, nx, xmin, xmax, weights):
+
+fast_histogram/tests/test_histogram.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <hypothesis.core.StateForActualGivenExecution object at 0x73653b906be0>
+test_runner = <function default_new_style_executor at 0x73653e3bbd90>
+search_strategy = tuples(just(()), fixed_dictionaries({'nx': integers(min_value=1, max_value=10),
+ 'size': integers(min_value=0, max_val...000000.0),
+ 'xmin': floats(min_value=-10000000000.0, max_value=10000000000.0)}).map(lambda args: dict(args, **kwargs)))
+test = <function test_1d_compare_with_numpy at 0x73653b8f1950>
+settings = settings(buffer_size=8192, database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples'), deadline=not_set, ...INFER: 1>, stateful_step_count=50, suppress_health_check=(), timeout=60, use_coverage=True, verbosity=Verbosity.normal)
+random = <random.Random object at 0x615cb9dd77c8>, had_seed = None
+
+    def __init__(
+        self, test_runner, search_strategy, test, settings, random, had_seed
+    ):
+        self.test_runner = test_runner
+        self.search_strategy = search_strategy
+        self.settings = settings
+        self.last_exception = None
+        self.falsifying_examples = ()
+        self.__was_flaky = False
+        self.random = random
+        self.__warned_deadline = False
+        self.__existing_collector = None
+        self.__test_runtime = None
+        self.__had_seed = had_seed
+    
+        self.test = test
+    
+        self.coverage_data = CoverageData()
+        self.files_to_propagate = set()
+        self.failed_normally = False
+    
+        self.used_examples_from_database = False
+    
+        if settings.use_coverage and not IN_COVERAGE_TESTS:  # pragma: no cover
+            if Collector._collectors:
+                parent = Collector._collectors[-1]
+    
+                # We include any files the collector has already decided to
+                # trace whether or not on re-investigation we still think it
+                # wants to trace them. The reason for this is that in some
+                # cases coverage gets the wrong answer when we run it
+                # ourselves due to reasons that are our fault but are hard to
+                # fix (we lie about where certain functions come from).
+                # This causes us to not record the actual test bodies as
+                # covered. But if we intended to trace test bodies then the
+                # file must already have been traced when getting to this point
+                # and so will already be in the collector's data. Hence we can
+                # use that information to get the correct answer here.
+                # See issue 997 for more context.
+                self.files_to_propagate = set(parent.data)
+                self.hijack_collector(parent)
+    
+            self.collector = Collector(
+                branch=True,
+                timid=FORCE_PURE_TRACER,
+                should_trace=self.should_trace,
+                check_include=hypothesis_check_include,
+                concurrency='thread',
+>               warn=escalate_warning,
+            )
+E           TypeError: __init__() missing 2 required positional arguments: 'should_start_context' and 'file_mapper'
+
+/usr/local/lib/python3.6/site-packages/hypothesis/core.py:522: TypeError
+__________________________ test_2d_compare_with_numpy __________________________
+
+    @given(size=st.integers(0, 100),
+>          nx=st.integers(1, 10),
+           xmin=st.floats(-1e10, 1e10), xmax=st.floats(-1e10, 1e10),
+           ny=st.integers(1, 10),
+           ymin=st.floats(-1e10, 1e10), ymax=st.floats(-1e10, 1e10),
+           weights=st.booleans())
+    @settings(max_examples=5000)
+    @example(size=5, nx=1, xmin=0.0, xmax=84.17833763374462, ny=1, ymin=-999999999.9999989, ymax=0.0, weights=False)
+    @example(size=1, nx=1, xmin=-2.2204460492503135e-06, xmax=0.0, ny=1, ymin=0.0, ymax=1.1102230246251567e-05, weights=False)
+    def test_2d_compare_with_numpy(size, nx, xmin, xmax, ny, ymin, ymax, weights):
+
+fast_histogram/tests/test_histogram.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <hypothesis.core.StateForActualGivenExecution object at 0x73653b9adcc0>
+test_runner = <function default_new_style_executor at 0x73653e3bbd90>
+search_strategy = tuples(just(()), fixed_dictionaries({'nx': integers(min_value=1, max_value=10),
+ 'ny': integers(min_value=1, max_value...000000.0),
+ 'ymin': floats(min_value=-10000000000.0, max_value=10000000000.0)}).map(lambda args: dict(args, **kwargs)))
+test = <function test_2d_compare_with_numpy at 0x73653b8d7620>
+settings = settings(buffer_size=8192, database=DirectoryBasedExampleDatabase('/testbed/.hypothesis/examples'), deadline=not_set, ...INFER: 1>, stateful_step_count=50, suppress_health_check=(), timeout=60, use_coverage=True, verbosity=Verbosity.normal)
+random = <random.Random object at 0x615cb9d77298>, had_seed = None
+
+    def __init__(
+        self, test_runner, search_strategy, test, settings, random, had_seed
+    ):
+        self.test_runner = test_runner
+        self.search_strategy = search_strategy
+        self.settings = settings
+        self.last_exception = None
+        self.falsifying_examples = ()
+        self.__was_flaky = False
+        self.random = random
+        self.__warned_deadline = False
+        self.__existing_collector = None
+        self.__test_runtime = None
+        self.__had_seed = had_seed
+    
+        self.test = test
+    
+        self.coverage_data = CoverageData()
+        self.files_to_propagate = set()
+        self.failed_normally = False
+    
+        self.used_examples_from_database = False
+    
+        if settings.use_coverage and not IN_COVERAGE_TESTS:  # pragma: no cover
+            if Collector._collectors:
+                parent = Collector._collectors[-1]
+    
+                # We include any files the collector has already decided to
+                # trace whether or not on re-investigation we still think it
+                # wants to trace them. The reason for this is that in some
+                # cases coverage gets the wrong answer when we run it
+                # ourselves due to reasons that are our fault but are hard to
+                # fix (we lie about where certain functions come from).
+                # This causes us to not record the actual test bodies as
+                # covered. But if we intended to trace test bodies then the
+                # file must already have been traced when getting to this point
+                # and so will already be in the collector's data. Hence we can
+                # use that information to get the correct answer here.
+                # See issue 997 for more context.
+                self.files_to_propagate = set(parent.data)
+                self.hijack_collector(parent)
+    
+            self.collector = Collector(
+                branch=True,
+                timid=FORCE_PURE_TRACER,
+                should_trace=self.should_trace,
+                check_include=hypothesis_check_include,
+                concurrency='thread',
+>               warn=escalate_warning,
+            )
+E           TypeError: __init__() missing 2 required positional arguments: 'should_start_context' and 'file_mapper'
+
+/usr/local/lib/python3.6/site-packages/hypothesis/core.py:522: TypeError
+============================ Hypothesis Statistics =============================
+====================== 2 failed, 1 passed in 0.11 seconds ======================

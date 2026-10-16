@@ -1,0 +1,22 @@
+{
+  "current_user_instruction": "然后后面你自行制作即可 按顺序 不用问我",
+  "original_user_authorization_source": "C:/Users/玉兔/.codex/attachments/02b64497-1440-4f22-a298-b461a4e86455/已粘贴的文本.txt lines569/609",
+  "actual_read_only_recheck_performed": true,
+  "user_quotes": [
+    "允许 然后发布后清除掉无关镜像和文件",
+    "继续下一条 后面的都按照此步骤 我们批量进行"
+  ],
+  "verified_git_remote": "https://github.com/Alex-cpu0814/pyc-swebench.git",
+  "git_branch": "main",
+  "exact_image": "yutu0814/pyc-case-160-fast-histogram:benchmark-v1",
+  "verified_image_id": "sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e",
+  "public_payload_proof": "verification/publication/image-payload-audit.json",
+  "proposed_git_scope": [
+    "README.md",
+    "Y_test_data/pyc_case_160/"
+  ],
+  "status": "direct_image_publication_approved_and_successful",
+  "initial_request_approved": true,
+  "approval_retry_required": false,
+  "registry_digest": "sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e"
+}

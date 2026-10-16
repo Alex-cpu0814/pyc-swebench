@@ -1,0 +1,13 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-160-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy": "MISSING",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy": "MISSING"
+  },
+  "unexpected_failures": []
+}

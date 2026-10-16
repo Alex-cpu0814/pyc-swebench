@@ -1,0 +1,11 @@
+{
+  "instance_id": "astrofrog__fast-histogram-e384cdf1",
+  "repo": "astrofrog/fast-histogram",
+  "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "problem_statement": "Flatten multidimensional input arrays before the Python wrapper calls the existing native histogram functions so reshaped data yields the same histogram.",
+  "hints_text": "",
+  "created_at": "2018-07-16",
+  "version": "0.5.dev0",
+  "issue_id": "21",
+  "issue_url": "https://github.com/astrofrog/fast-histogram/pull/21"
+}

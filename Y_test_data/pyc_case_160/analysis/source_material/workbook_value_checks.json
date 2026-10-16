@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 160 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"159\"],[\"Repository\",\"astrofrog/fast-histogram\"],[\"Fix commit\",\"e384cdf1fec4ee65a594ca4e91478eb3c98b2d18\"],[\"Base commit\",\"76b6f57a27f31cdefc23444f91611a00c9b4332d\"],[\"Upstream issue / PR\",\"https://github.com/astrofrog/fast-histogram/pull/21\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 54\"],[\"Bug location type\",\"function call + return\"],[\"Root cause\",\"Specail case handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"if/branching statement + assignment statement\"],[\"Problem statement\",\"Flatten multidimensional input arrays before the Python wrapper calls the existing native histogram functions so reshaped data yields the same histogram.\"],[\"Original source trace\",\"54(py_histogram_6-cfg.dot) (histogram1d) -> 56(c__histogram_core_9-cfg.dot) (_histogram1d)\"],[\"Source trace scope\",\"Original source159/Excel161 traces Python histogram1d to C _histogram1d and classifies Specail case handling (original spelling preserved). Actual new complete target is test_nd_arrays. Product changes are Python wrapper and changelog; native C module is compiled from unchanged original source and actually invoked.\"],[\"Verified Base trace\",\"With compatible coverage4.5.1 and original checks enabled, Base completes both original property methods, each recording5000 passing examples. It then fails the first exact array comparison in complete test_nd_arrays at line97: histogram1d of the1000-element vector differs from its10x10x10 reshape. The observed result bins sum to1000 versus10. Base terminalFAILED/exit1; its later2d target comparison is not reached. Gold completes both original property methods with5000 passing examples each plus the complete1d/2d target,3PASSED/exit0. Original random arrays,5000 settings, explicit examples, coverage and assertions are unchanged.\"],[\"Verified official test\",\"fast_histogram/tests/test_histogram.py::test_nd_arrays\\nfast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy\\nfast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy\"],[\"Official test scope\",\"Complete original test_nd_arrays constructs1000 random x values, compares histogram1d(x) with histogram1d(x.reshape(10,10,10)), then constructs1000 y values and compares1d-input and reshaped-input histogram2d results. Base stops at the first1d comparison; Gold reaches both. Both unchanged complete Hypothesis methods retain max_examples5000, all internal array.example calls, assume checks and the two explicit2d examples; prototype Base/Gold each recorded5000 passing examples per method. Invalid-generation counts are preserved per run rather than forced equal. Original use_coverage=True remains enabled. Product fix is Python wrapper ravel plus changelog, with unchanged original native C source compiled and invoked. No new weighted-nd, overflow, memory-use or full floating-point coverage guarantee is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "fkgf6z",
+          "target": {
+            "id": "wb/4o7mcu",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 160 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"astrofrog__fast-histogram-e384cdf1\"],[\"Repository\",\"astrofrog/fast-histogram\"],[\"Version\",\"0.5.dev0\"],[\"Created at\",43297],[\"Base commit\",\"76b6f57a27f31cdefc23444f91611a00c9b4332d\"],[\"Fix commit\",\"e384cdf1fec4ee65a594ca4e91478eb3c98b2d18\"],[\"Merged at\",43297],[\"Issue / PR\",\"https://github.com/astrofrog/fast-histogram/pull/21\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"fast_histogram/tests/test_histogram.py::test_nd_arrays\"],[\"PASS_TO_PASS (1)\",\"fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy\"],[\"PASS_TO_PASS (2)\",\"fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy\"],[\"Base / Gold outcome\",\"Base: complete nd_arrays target FAILED at1d reshape comparison;2 original5000-example methods PASSED. Gold: all3 complete methods PASSED.\"],[\"Docker image\",\"yutu0814/pyc-case-160-fast-histogram:benchmark-v1\"],[\"Problem statement\",\"Flatten multidimensional input arrays before the Python wrapper calls the existing native histogram functions so reshaped data yields the same histogram.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "4prooi",
+          "target": {
+            "id": "wb/29r7in",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

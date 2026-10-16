@@ -1,0 +1,138 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "159",
+  "candidate_case": "160",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "Complete original test_nd_arrays constructs1000 random x values, compares histogram1d(x) with histogram1d(x.reshape(10,10,10)), then constructs1000 y values and compares1d-input and reshaped-input histogram2d results. Base stops at the first1d comparison; Gold reaches both. Both unchanged complete Hypothesis methods retain max_examples5000, all internal array.example calls, assume checks and the two explicit2d examples; prototype Base/Gold each recorded5000 passing examples per method. Invalid-generation counts are preserved per run rather than forced equal. Original use_coverage=True remains enabled. Product fix is Python wrapper ravel plus changelog, with unchanged original native C source compiled and invoked. No new weighted-nd, overflow, memory-use or full floating-point coverage guarantee is claimed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_pytest",
+  "created_at": "2018-07-16",
+  "created_at_precision": "date",
+  "instance_id": "astrofrog__fast-histogram-e384cdf1",
+  "source_instance_id": "pyc_case_160",
+  "repo": "astrofrog/fast-histogram",
+  "issue_id": "21",
+  "issue_url": "https://github.com/astrofrog/fast-histogram/pull/21",
+  "project_version": "0.5.dev0",
+  "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "fix_commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "FAIL_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "PASS_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e",
+    "python_version": "3.6.15",
+    "test_runner_version": "pytest3.6.3 / hypothesis3.66.32 / NumPy1.14.5 / coverage4.5.1",
+    "compiler_toolchain": "Unmodified GCC8.3 in pinned public Python3.6.15-buster. Ordinary original setup.py build_ext --inplace --force with NumPy1.14.5 headers; no flags/source/allocator changes.",
+    "base_target_status": "FAILED: original1d versus3d reshaped histogram comparison",
+    "base_regression_status": "2 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "2 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-160-fast-histogram:benchmark-v1",
+      "id": "sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e",
+      "repo_digests": [
+        "yutu0814/pyc-case-160-fast-histogram@sha256:137667158630a877c17512394db970de833e35f35720c82c792bda08c712a10e"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 1
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "astrofrog__fast-histogram-e384cdf1",
+      "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-160-final-gold/summary.json",
+      "verification/runs/case-160-final-negative/summary.json",
+      "verification/runs/case-160-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2018-07-16",
+  "fix_committed_at": "2018-07-16",
+  "date_semantics": "Created at is actual PR21 opening 2018-07-16T20:05:40Z; merged at is actual PR21 merge 2018-07-16T21:20:05Z. Source commit time 2018-07-16T22:20:04+01:00 is separate provenance.",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "Python",
+    "reStructuredText changelog"
+  ],
+  "native_product_files_changed": [],
+  "verified_scope": "Complete original test_nd_arrays constructs1000 random x values, compares histogram1d(x) with histogram1d(x.reshape(10,10,10)), then constructs1000 y values and compares1d-input and reshaped-input histogram2d results. Base stops at the first1d comparison; Gold reaches both. Both unchanged complete Hypothesis methods retain max_examples5000, all internal array.example calls, assume checks and the two explicit2d examples; prototype Base/Gold each recorded5000 passing examples per method. Invalid-generation counts are preserved per run rather than forced equal. Original use_coverage=True remains enabled. Product fix is Python wrapper ravel plus changelog, with unchanged original native C source compiled and invoked. No new weighted-nd, overflow, memory-use or full floating-point coverage guarantee is claimed.",
+  "source_trace_scope": "Original source159/Excel161 traces Python histogram1d to C _histogram1d and classifies Specail case handling (original spelling preserved). Actual new complete target is test_nd_arrays. Product changes are Python wrapper and changelog; native C module is compiled from unchanged original source and actually invoked.",
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "CHANGES.rst",
+    "fast_histogram/histogram.py"
+  ],
+  "test_files": [
+    "fast_histogram/tests/test_histogram.py"
+  ]
+}

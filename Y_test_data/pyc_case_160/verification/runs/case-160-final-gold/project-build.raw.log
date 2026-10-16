@@ -1,0 +1,12 @@
+running build_ext
+building 'fast_histogram._histogram_core' extension
+gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.6m -I/usr/local/lib/python3.6/site-packages/numpy/core/include -c fast_histogram/_histogram_core.c -o build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o
+In file included from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1816,
+                 from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+                 from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from fast_histogram/_histogram_core.c:2:
+/usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by " \
+  ^~~~~~~
+gcc -pthread -shared build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so -> fast_histogram

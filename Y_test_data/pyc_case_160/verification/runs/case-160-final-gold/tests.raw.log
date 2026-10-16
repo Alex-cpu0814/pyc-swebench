@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.15, pytest-3.6.3, py-1.5.4, pluggy-0.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, inifile:
+plugins: hypothesis-3.66.32
+collecting ... collected 3 items
+
+fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy PASSED [ 33%]
+fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy PASSED [ 66%]
+fast_histogram/tests/test_histogram.py::test_nd_arrays PASSED            [100%]
+============================ Hypothesis Statistics =============================
+
+fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy:
+
+  - 5000 passing examples, 0 failing examples, 0 invalid examples
+  - Typical runtimes: 0-12 ms
+  - Fraction of time spent in data generation: ~ 8%
+  - Stopped because settings.max_examples=5000
+
+fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy:
+
+  - 5000 passing examples, 0 failing examples, 45 invalid examples
+  - Typical runtimes: 0-12 ms
+  - Fraction of time spent in data generation: ~ 18%
+  - Stopped because settings.max_examples=5000
+
+========================== 3 passed in 65.60 seconds ===========================

@@ -1,0 +1,110 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.55kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e
+#4 resolve public.ecr.aws/docker/library/python:3.6.15-buster@sha256:56ba32a1c5aa030914cc957f1c9fe58d9d462bdf89a1e5f2b4dbdda68085327e 0.0s done
+#4 CACHED
+
+#5 [2/5] RUN python -m pip install --no-cache-dir pip==21.3.1 setuptools==59.6.0 wheel==0.37.1 numpy==1.14.5 pytest==3.6.3 hypothesis==3.66.32 attrs==19.3.0 py==1.5.4 pluggy==0.6.0 atomicwrites==1.1.5 more-itertools==4.2.0 six==1.11.0 sortedcontainers==2.1.0
+#5 2.056 Collecting pip==21.3.1
+#5 2.601   Downloading pip-21.3.1-py3-none-any.whl (1.7 MB)
+#5 4.916 Collecting setuptools==59.6.0
+#5 5.070   Downloading setuptools-59.6.0-py3-none-any.whl (952 kB)
+#5 5.998 Collecting wheel==0.37.1
+#5 6.169   Downloading wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+#5 7.787 Collecting numpy==1.14.5
+#5 7.999   Downloading numpy-1.14.5-cp36-cp36m-manylinux1_x86_64.whl (12.2 MB)
+#5 14.23 Collecting pytest==3.6.3
+#5 14.38   Downloading pytest-3.6.3-py2.py3-none-any.whl (195 kB)
+#5 16.48 Collecting hypothesis==3.66.32
+#5 16.85   Downloading hypothesis-3.66.32-py3-none-any.whl (225 kB)
+#5 17.05 Collecting attrs==19.3.0
+#5 17.16   Downloading attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+#5 17.34 Collecting py==1.5.4
+#5 17.43   Downloading py-1.5.4-py2.py3-none-any.whl (83 kB)
+#5 17.63 Collecting pluggy==0.6.0
+#5 17.73   Downloading pluggy-0.6.0-py3-none-any.whl (13 kB)
+#5 17.92 Collecting atomicwrites==1.1.5
+#5 18.05   Downloading atomicwrites-1.1.5-py2.py3-none-any.whl (7.5 kB)
+#5 18.23 Collecting more-itertools==4.2.0
+#5 18.31   Downloading more_itertools-4.2.0-py3-none-any.whl (45 kB)
+#5 18.45 Collecting six==1.11.0
+#5 18.53   Downloading six-1.11.0-py2.py3-none-any.whl (10 kB)
+#5 18.72 Collecting sortedcontainers==2.1.0
+#5 18.85   Downloading sortedcontainers-2.1.0-py2.py3-none-any.whl (28 kB)
+#5 21.18 Collecting coverage>=4.0
+#5 21.28   Downloading coverage-6.2-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (212 kB)
+#5 21.55 Installing collected packages: six, setuptools, py, pluggy, more-itertools, coverage, attrs, atomicwrites, wheel, sortedcontainers, pytest, pip, numpy, hypothesis
+#5 21.56   Attempting uninstall: setuptools
+#5 21.56     Found existing installation: setuptools 57.5.0
+#5 21.59     Uninstalling setuptools-57.5.0:
+#5 21.67       Successfully uninstalled setuptools-57.5.0
+#5 22.12   Attempting uninstall: wheel
+#5 22.12     Found existing installation: wheel 0.37.0
+#5 22.12     Uninstalling wheel-0.37.0:
+#5 22.14       Successfully uninstalled wheel-0.37.0
+#5 22.28   Attempting uninstall: pip
+#5 22.28     Found existing installation: pip 21.2.4
+#5 22.38     Uninstalling pip-21.2.4:
+#5 22.53       Successfully uninstalled pip-21.2.4
+#5 24.20 Successfully installed atomicwrites-1.1.5 attrs-19.3.0 coverage-6.2 hypothesis-3.66.32 more-itertools-4.2.0 numpy-1.14.5 pip-21.3.1 pluggy-0.6.0 py-1.5.4 pytest-3.6.3 setuptools-59.6.0 six-1.11.0 sortedcontainers-2.1.0 wheel-0.37.1
+#5 24.20 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#5 DONE 24.9s
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/astrofrog/fast-histogram.git" && git fetch --depth=1 --no-tags origin "76b6f57a27f31cdefc23444f91611a00c9b4332d" && git checkout --detach "76b6f57a27f31cdefc23444f91611a00c9b4332d" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "76b6f57a27f31cdefc23444f91611a00c9b4332d"
+#6 0.261 Initialized empty Git repository in /testbed/.git/
+#6 2.308 From https://github.com/astrofrog/fast-histogram
+#6 2.308  * branch            76b6f57a27f31cdefc23444f91611a00c9b4332d -> FETCH_HEAD
+#6 2.330 HEAD is now at 76b6f57 Back to development: v0.5
+#6 DONE 2.4s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.0s
+
+#8 [5/5] RUN python setup.py build_ext --inplace --force && python -c "import fast_histogram as pkg,fast_histogram._histogram_core as native,numpy; print(pkg.__version__,numpy.__version__,native.__file__); assert pkg.__version__ == '0.5.dev0'; assert numpy.__version__ == '1.14.5'; assert native.__file__.startswith('/testbed/fast_histogram/_histogram_core.')" && git checkout HEAD -- . && printf '%s\n' '/build/' '**/__pycache__/' '*.pyc' '*.so' '/fast_histogram.egg-info/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 0.447 running build_ext
+#8 0.585 building 'fast_histogram._histogram_core' extension
+#8 0.585 creating build
+#8 0.585 creating build/temp.linux-x86_64-3.6
+#8 0.586 creating build/temp.linux-x86_64-3.6/fast_histogram
+#8 0.586 gcc -pthread -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -fPIC -I/usr/local/include/python3.6m -I/usr/local/lib/python3.6/site-packages/numpy/core/include -c fast_histogram/_histogram_core.c -o build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o
+#8 0.637 In file included from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/ndarraytypes.h:1816,
+#8 0.637                  from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/ndarrayobject.h:18,
+#8 0.637                  from /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+#8 0.637                  from fast_histogram/_histogram_core.c:2:
+#8 0.637 /usr/local/lib/python3.6/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:15:2: warning: #warning "Using deprecated NumPy API, disable it by " "#defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+#8 0.637  #warning "Using deprecated NumPy API, disable it by " \
+#8 0.637   ^~~~~~~
+#8 0.744 creating build/lib.linux-x86_64-3.6
+#8 0.744 creating build/lib.linux-x86_64-3.6/fast_histogram
+#8 0.745 gcc -pthread -shared build/temp.linux-x86_64-3.6/fast_histogram/_histogram_core.o -L/usr/local/lib -lpython3.6m -o build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so
+#8 0.770 copying build/lib.linux-x86_64-3.6/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so -> fast_histogram
+#8 0.925 0.5.dev0 1.14.5 /testbed/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so
+#8 DONE 1.0s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 2.5s done
+#9 exporting manifest sha256:35fd93732069435275c8f674d8995564290883fd6fa4c59a981ada830b9a2bc8 done
+#9 exporting config sha256:2c5421db8ee42129791ca12929e51e830da755f4b6dbc39e209362c94ec79dd1 done
+#9 exporting attestation manifest sha256:16e1be692f24f73051f4eaeb94a46178e630cc0d7feea26476c632066f57dd5b 0.0s done
+#9 exporting manifest list sha256:1fd11b958c83f21732cdcf6c6302e48895aa27d3479cf588a51cb7550784c2dd done
+#9 naming to docker.io/library/pyc-case160-prototype-base:latest done
+#9 unpacking to docker.io/library/pyc-case160-prototype-base:latest
+#9 unpacking to docker.io/library/pyc-case160-prototype-base:latest 0.6s done
+#9 DONE 3.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/r9icgeywnsuq3muvi8atcn6j4

@@ -1,0 +1,53 @@
+{
+  "semantics": "Original5000 max_examples, explicit examples, use_coverage=True, assume checks and internal.example calls preserved. Every observed complete property method stopped due original max_examples5000; invalid counts vary naturally and are not failures. Counts are per complete method, not additional expected node IDs.",
+  "observations": {
+    "prototype_base": {
+      "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 0
+      },
+      "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 34
+      }
+    },
+    "prototype_gold": {
+      "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 0
+      },
+      "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 26
+      }
+    },
+    "formal_gold": {
+      "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 0
+      },
+      "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 45
+      }
+    },
+    "formal_negative": {
+      "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 0
+      },
+      "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy": {
+        "passing_examples": 5000,
+        "failing_examples": 0,
+        "invalid_examples": 34
+      }
+    }
+  }
+}

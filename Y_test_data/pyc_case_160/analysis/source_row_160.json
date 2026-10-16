@@ -1,0 +1,46 @@
+{
+  "instance_id": "pyc_case_160",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "159",
+  "duplicate_source_cases": [],
+  "deduplication_key": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "language_pair": "Python-C",
+  "repo": "astrofrog/fast-histogram",
+  "issue_id": "21",
+  "issue_url": "https://github.com/astrofrog/fast-histogram/pull/21",
+  "commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "commit_url": "https://github.com/astrofrog/fast-histogram/commit/e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "problem_statement": "Flatten multidimensional input arrays before the Python wrapper calls the existing native histogram functions so reshaped data yields the same histogram.",
+  "symptom": "incorrect result/output",
+  "bug_location": "line 54",
+  "bug_location_type": "function call + return",
+  "bug_path": "54(py_histogram_6-cfg.dot) (histogram1d) -> 56(c__histogram_core_9-cfg.dot) (_histogram1d)",
+  "cross_language_type": "PyErr_SetString,Foreign,Exception Handling,PyArg_ParseTuple,Foreign,Parsing arguments and building values,Py_XDECREF,Foreign,Reference Counting",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Specail case handling",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement + assignment statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/astrofrog/fast-histogram/pull/21",
+    "upstream_description": "Full upstream product patch changes CHANGES.rst and Python histogram1d/histogram2d wrappers to ravel multidimensional x/y. Native C extension remains unchanged. Exact18-line official test addition compares1000-element1d arrays with10x10x10 reshapes for both1d and2d histograms.",
+    "verified_error": "With compatible coverage4.5.1 and original checks enabled, Base completes both original property methods, each recording5000 passing examples. It then fails the first exact array comparison in complete test_nd_arrays at line97: histogram1d of the1000-element vector differs from its10x10x10 reshape. The observed result bins sum to1000 versus10. Base terminalFAILED/exit1; its later2d target comparison is not reached. Gold completes both original property methods with5000 passing examples each plus the complete1d/2d target,3PASSED/exit0. Original random arrays,5000 settings, explicit examples, coverage and assertions are unchanged.",
+    "verified_test": "fast_histogram/tests/test_histogram.py::test_nd_arrays and fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy and fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy"
+  },
+  "evidence_type": "source_row_upstream_issue_and_original_pytest_native_trace",
+  "official_test_scope": "Complete original test_nd_arrays constructs1000 random x values, compares histogram1d(x) with histogram1d(x.reshape(10,10,10)), then constructs1000 y values and compares1d-input and reshaped-input histogram2d results. Base stops at the first1d comparison; Gold reaches both. Both unchanged complete Hypothesis methods retain max_examples5000, all internal array.example calls, assume checks and the two explicit2d examples; prototype Base/Gold each recorded5000 passing examples per method. Invalid-generation counts are preserved per run rather than forced equal. Original use_coverage=True remains enabled. Product fix is Python wrapper ravel plus changelog, with unchanged original native C source compiled and invoked. No new weighted-nd, overflow, memory-use or full floating-point coverage guarantee is claimed.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_nd_arrays"
+  ],
+  "PASS_TO_PASS": [
+    "fast_histogram/tests/test_histogram.py::test_1d_compare_with_numpy",
+    "fast_histogram/tests/test_histogram.py::test_2d_compare_with_numpy"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}

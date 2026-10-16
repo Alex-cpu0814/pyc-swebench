@@ -1,0 +1,2 @@
+error: patch failed: fast_histogram/tests/test_histogram.py:85
+error: fast_histogram/tests/test_histogram.py: patch does not apply

@@ -1,0 +1,9 @@
+diff --git a/fast_histogram/tests/test_histogram.py b/fast_histogram/tests/test_histogram.py
+--- a/fast_histogram/tests/test_histogram.py
++++ b/fast_histogram/tests/test_histogram.py
+@@ -84,4 +84,4 @@
+     fast = histogram2d(x, y, bins=(nx, ny), weights=w,
+                        range=((xmin, xmax), (ymin, ymax)))
+ 
+-    np.testing.assert_equal(fast, reference)
++    np.testing.assert_equal(fast, reference)  # Protected official hunk context conflict

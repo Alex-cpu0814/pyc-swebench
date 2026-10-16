@@ -1,0 +1,93 @@
+{
+  "upstream_url": "https://github.com/astrofrog/fast-histogram/pull/21",
+  "base_commit": "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+  "fix_commit": "e384cdf1fec4ee65a594ca4e91478eb3c98b2d18",
+  "source_parents": [
+    "76b6f57a27f31cdefc23444f91611a00c9b4332d",
+    "4a1c18874e972e027d39f316a79dc19a42c1f427"
+  ],
+  "source_commit_timestamp_original_offset": "2018-07-16T22:20:04+01:00",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "Python",
+    "reStructuredText changelog"
+  ],
+  "native_product_files_changed": [],
+  "python_product_files_changed": [
+    "fast_histogram/histogram.py"
+  ],
+  "native_source_git_blobs": {
+    "fast_histogram/_histogram_core.c": "a2c3634d5ec947cbbaeb1f00b7f866de5b8364de",
+    "fast_histogram/histogram.py": "afde42e26edc33f3d172810811050395edb65e8a",
+    "fast_histogram/__init__.py": "ae651468e4c196e3c00ff37061d098fb979c700d",
+    "fast_histogram/tests/test_histogram.py": "2215f02120a6127535e47ebe6186c990a9d70f17",
+    "setup.py": "932079372268b0235ca3b6c6de2cf0b290c35b8f",
+    ".travis.yml": "79850b7d2d59afea04fc6887a354c40ee958c2ca",
+    "appveyor.yml": "32405a5a671a8323af5ba1eaf7eb65ee379bcefb"
+  },
+  "native_package_versions": {
+    "gcc": "4:8.3.0-1",
+    "git": "1:2.20.1-2+deb10u3",
+    "libc6": "2.28-10"
+  },
+  "environment_selection": "Original Travis Linux Python3.6 matrix. Compatible NumPy1.14.5/pytest3.6.3/Hypothesis3.66.32 dependencies with full original5000 max_examples and explicit examples, fixed upfront3-node selection. Compatible dependency pins are not exact historical resolver reproduction. No environment seed, sample reduction, input/assertion/fixture/compiler changes. Original Hypothesis3.66.32 unpinned coverage dependency resolved to6.2 and failed its internal Collector constructor before property examples; pin compatible period coverage4.5.1. Keep original use_coverage=True, max_examples5000, explicit examples and all test assertions unchanged. Initial full logs retained.",
+  "upstream_created_at_timestamp": "2018-07-16T20:05:40Z",
+  "upstream_merged_at_timestamp": "2018-07-16T21:20:05Z",
+  "date_source": "https://api.github.com/repos/astrofrog/fast-histogram/pulls/21",
+  "date_semantics": "Created at is actual PR21 opening 2018-07-16T20:05:40Z; merged at is actual PR21 merge 2018-07-16T21:20:05Z. Source commit time 2018-07-16T22:20:04+01:00 is separate provenance.",
+  "verified_scope": "Complete original test_nd_arrays constructs1000 random x values, compares histogram1d(x) with histogram1d(x.reshape(10,10,10)), then constructs1000 y values and compares1d-input and reshaped-input histogram2d results. Base stops at the first1d comparison; Gold reaches both. Both unchanged complete Hypothesis methods retain max_examples5000, all internal array.example calls, assume checks and the two explicit2d examples; prototype Base/Gold each recorded5000 passing examples per method. Invalid-generation counts are preserved per run rather than forced equal. Original use_coverage=True remains enabled. Product fix is Python wrapper ravel plus changelog, with unchanged original native C source compiled and invoked. No new weighted-nd, overflow, memory-use or full floating-point coverage guarantee is claimed.",
+  "source_trace_scope": "Original source159/Excel161 traces Python histogram1d to C _histogram1d and classifies Specail case handling (original spelling preserved). Actual new complete target is test_nd_arrays. Product changes are Python wrapper and changelog; native C module is compiled from unchanged original source and actually invoked.",
+  "formal_runtime_audit": {
+    "package_version": "0.5.dev0",
+    "numpy_version": "1.14.5",
+    "numpy_include": "/usr/local/lib/python3.6/site-packages/numpy/core/include",
+    "numpy_header_abi": "0x01000009",
+    "numpy_linked_abi": 16777225,
+    "numpy_config_sha256": "1e1649e8ecd65a51a966aa3e89c1ed573588590dd447598cdf535e4b6bd8c747",
+    "native_extension": "/testbed/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so",
+    "extension_sha256": "b067e0a21ba11511a828cabf179d44da1196f9959e1a134f4f82f70715ab921b",
+    "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]",
+    "build_packages": {
+      "setuptools": "59.6.0",
+      "wheel": "0.37.1",
+      "numpy": "1.14.5",
+      "pytest": "3.6.3",
+      "hypothesis": "3.66.32",
+      "coverage": "4.5.1",
+      "attrs": "19.3.0",
+      "sortedcontainers": "2.1.0",
+      "py": "1.5.4",
+      "pluggy": "0.6.0",
+      "more-itertools": "4.2.0",
+      "atomicwrites": "1.1.5",
+      "six": "1.11.0"
+    },
+    "compiler": "gcc (Debian 8.3.0-6) 8.3.0",
+    "assets": {
+      "fast_histogram/_histogram_core.c": {
+        "size": 10655,
+        "sha256": "00187ff8799aa2312da3fb7fb7ed14435b61ac4404ce86889b479b09bbedfad8"
+      },
+      "fast_histogram/histogram.py": {
+        "size": 3250,
+        "sha256": "b85802658b7e3f905f3c84c1cad557b01d6f62d062f14735ef48d46a87909b61"
+      },
+      "fast_histogram/__init__.py": {
+        "size": 51,
+        "sha256": "eeb28940e741da9557a41838561b3ef5c445cb2b9d5380ea9d853aea490e4b38"
+      },
+      "setup.py": {
+        "size": 1077,
+        "sha256": "dc2f8589a9ab13f39f4b74e23794adf18fdc00f8e30c0e18317011e3a041ea06"
+      },
+      ".travis.yml": {
+        "size": 646,
+        "sha256": "285755ae402d7d61aa0a0cfc161ac8cd1df4535493e4be35f5b419b5364f0529"
+      },
+      "appveyor.yml": {
+        "size": 956,
+        "sha256": "190d3b7c5968797a73e05d56b3f7c7c4505c87d04ee05ffe358f5b96adbd1047"
+      }
+    }
+  }
+}

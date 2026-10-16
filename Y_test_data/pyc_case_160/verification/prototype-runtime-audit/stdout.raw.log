@@ -1,0 +1,12 @@
+gcc	4:8.3.0-1
+git	1:2.20.1-2+deb10u3
+libc6:amd64	2.28-10
+	linux-vdso.so.1 (0x000075d1d2cd6000)
+	libpython3.6m.so.1.0 => /usr/local/lib/libpython3.6m.so.1.0 (0x000075d1d2980000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x000075d1d295f000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000075d1d279e000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000075d1d2799000)
+	libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x000075d1d2794000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000075d1d2611000)
+	/lib64/ld-linux-x86-64.so.2 (0x000075d1d2cd8000)
+{"package_version": "0.5.dev0", "numpy_version": "1.14.5", "numpy_include": "/usr/local/lib/python3.6/site-packages/numpy/core/include", "numpy_header_abi": "0x01000009", "numpy_linked_abi": 16777225, "numpy_config_sha256": "1e1649e8ecd65a51a966aa3e89c1ed573588590dd447598cdf535e4b6bd8c747", "native_extension": "/testbed/fast_histogram/_histogram_core.cpython-36m-x86_64-linux-gnu.so", "extension_sha256": "b067e0a21ba11511a828cabf179d44da1196f9959e1a134f4f82f70715ab921b", "python_version": "3.6.15 (default, Dec 21 2021, 12:20:05) \n[GCC 8.3.0]", "build_packages": {"setuptools": "59.6.0", "wheel": "0.37.1", "numpy": "1.14.5", "pytest": "3.6.3", "hypothesis": "3.66.32", "coverage": "4.5.1", "attrs": "19.3.0", "sortedcontainers": "2.1.0", "py": "1.5.4", "pluggy": "0.6.0", "more-itertools": "4.2.0", "atomicwrites": "1.1.5", "six": "1.11.0"}, "compiler": "gcc (Debian 8.3.0-6) 8.3.0", "assets": {"fast_histogram/_histogram_core.c": {"size": 10655, "sha256": "00187ff8799aa2312da3fb7fb7ed14435b61ac4404ce86889b479b09bbedfad8"}, "fast_histogram/histogram.py": {"size": 3250, "sha256": "b85802658b7e3f905f3c84c1cad557b01d6f62d062f14735ef48d46a87909b61"}, "fast_histogram/__init__.py": {"size": 51, "sha256": "eeb28940e741da9557a41838561b3ef5c445cb2b9d5380ea9d853aea490e4b38"}, "setup.py": {"size": 1077, "sha256": "dc2f8589a9ab13f39f4b74e23794adf18fdc00f8e30c0e18317011e3a041ea06"}, ".travis.yml": {"size": 646, "sha256": "285755ae402d7d61aa0a0cfc161ac8cd1df4535493e4be35f5b419b5364f0529"}, "appveyor.yml": {"size": 956, "sha256": "190d3b7c5968797a73e05d56b3f7c7c4505c87d04ee05ffe358f5b96adbd1047"}}}

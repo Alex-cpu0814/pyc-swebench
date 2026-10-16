@@ -1,0 +1,9 @@
+diff --git a/README.rst b/README.rst
+--- a/README.rst
++++ b/README.rst
+@@ -158,3 +158,5 @@
+ 
+ .. |AppVeyor Status| image:: https://ci.appveyor.com/api/projects/status/ek63g9haku5on0q2/branch/master?svg=true
+    :target: https://ci.appveyor.com/project/astrofrog/fast-histogram
++
++This control leaves multidimensional wrapper inputs unchanged.

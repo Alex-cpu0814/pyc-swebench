@@ -1,0 +1,4 @@
+import pathlib
+w=pathlib.Path('E:/CLB_Swe-bench/_work/pyc_batch');old=pathlib.Path('E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_159/analysis/creation_tools')
+text=(old/'audit_case159.mjs').read_text(encoding='utf-8').replace('159','160').replace('"0.8"','"0.5.dev0"').replace('"1.15.4"','"1.14.5"').replace('"fast_histogram/version.py"','"fast_histogram/__init__.py"').replace('"setup.cfg","azure-pipelines.yml"','".travis.yml","appveyor.yml"').replace('"setuptools_scm",','').replace('"packaging","pyparsing",','').replace('"wcwidth","importlib-metadata","zipp",','"atomicwrites",').replace('test "$(git rev-parse v0.8^{commit})" = "${s.baseCommit}"; ','')
+(w/'audit_case160.mjs').write_bytes(text.encode());print('160 audit prepared for actual static0.5.dev0 and NumPy1.14.5 environment; no SCM tag assumption.')
