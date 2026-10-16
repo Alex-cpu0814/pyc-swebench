@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_139",
+  "task_level": "integration",
+  "validation_type": "official_pytest",
+  "environment": "pycairo_surface_device_reference",
+  "python_version_target": "3.6",
+  "native_requirement": "Public Cairo1.16.0 development/runtime and pkg-config already included in exact public Python3.6-buster base, confirmed by read-only dependency inventory; original headless Cairo image surfaces.",
+  "build_system": "Original setup.py configures Cairo through installed pkg-config metadata, writes normal cairo/config.h and builds cairo._cairo in place. Same ordinary dependency metadata/compile parameters on Base/Gold.",
+  "test_execution": [
+    "Three complete unchanged regressions, then complete original test_script_device_device_ref: BytesIO/ScriptDevice/42x10 ScriptSurface, del dev and original10 calls. No added return assertions, reference-count probes or iterations."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in tests/test_surface.py.",
+    "Base completes3 original regressions, then the unchanged original test_script_device_device_ref fails during its10-call surface.get_device loop with cairo.Error: <unknown error status>; actual process exit1 and terminal FAILED are preserved. No native abort happened in this measured run, and the failing iteration index is not observed. Gold completes the full original10-call method and all3 regressions normally/exit0. No added return-value/refcount observations or forced crash are claimed.",
+    "Unchanged original test_get_device, test_script_surface and test_script_surface_create_for_target pass on Base and Gold."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "b780969870a9dd8b42b88c8317679e125b5e2aae",
+  "fix_commit": "65aea3dfdc5b131bc39a69ba00062f799fd72489",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "tests/test_surface.py"
+  ],
+  "FAIL_TO_PASS": [
+    "tests/test_surface.py::test_script_device_device_ref"
+  ],
+  "PASS_TO_PASS": [
+    "tests/test_device.py::test_get_device",
+    "tests/test_surface.py::test_script_surface",
+    "tests/test_surface.py::test_script_surface_create_for_target"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-139-final-gold",
+  "label": "gold",
+  "instance_id": "pygobject__pycairo-65aea3df",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-16T05:15:22.631Z",
+  "finished_at": "2026-10-16T05:15:25.953Z",
+  "duration_ms": 3328,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "7d7f67df2feb5734fa48a048da36b1e72a4620e67bf3d0540630972c6f81b226",
+  "test_patch_sha256": "7add762871f5c59fb10d8cbe1f39ec1246b1853e0134f35e97fc3feff80eaeb4",
+  "image": {
+    "name": "yutu0814/pyc-case-139-pycairo:benchmark-v1",
+    "id": "sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a",
+    "repo_digests": [
+      "yutu0814/pyc-case-139-pycairo@sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "pygobject__pycairo-65aea3df"
+  },
+  "grading": {
+    "tests_observed": 4,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

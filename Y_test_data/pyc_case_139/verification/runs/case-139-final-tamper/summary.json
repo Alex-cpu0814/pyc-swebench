@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-139-final-tamper",
+  "label": "tamper",
+  "instance_id": "pygobject__pycairo-65aea3df",
+  "status": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "started_at": "2026-10-16T05:15:24.469Z",
+  "finished_at": "2026-10-16T05:15:25.300Z",
+  "duration_ms": 827,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "608c978da5e48d783b49e8959c73a852425ed9dadb4a6a4c5f5d744674486eec",
+  "test_patch_sha256": "7add762871f5c59fb10d8cbe1f39ec1246b1853e0134f35e97fc3feff80eaeb4",
+  "image": {
+    "name": "yutu0814/pyc-case-139-pycairo:benchmark-v1",
+    "id": "sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a",
+    "repo_digests": [
+      "yutu0814/pyc-case-139-pycairo@sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "test_patch",
+    "outcome": "unresolved",
+    "reason": "candidate_conflicts_with_test_patch",
+    "test_exit_code": null,
+    "instance_id": "pygobject__pycairo-65aea3df"
+  },
+  "grading": {
+    "tests_observed": 0,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 1
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 3
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": null,
+    "tests": null,
+    "grading": "grading.json"
+  }
+}

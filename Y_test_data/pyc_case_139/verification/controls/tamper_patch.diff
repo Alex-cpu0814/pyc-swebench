@@ -1,0 +1,13 @@
+diff --git a/tests/test_surface.py b/tests/test_surface.py
+index 7f69f96..6a1797f 100644
+--- a/tests/test_surface.py
++++ b/tests/test_surface.py
+@@ -242,7 +242,7 @@ def test_script_surface():
+     assert b"paint" in f.getvalue()
+ 
+ 
+-def test_script_surface_create_for_target():
++def test_script_surface_create_for_target():  # Protected-test context conflict
+     # paint the script proxy
+     f = io.BytesIO()
+     dev = cairo.ScriptDevice(f)

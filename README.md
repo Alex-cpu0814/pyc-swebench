@@ -48,6 +48,7 @@ SWE-bench-compatible layout.
 | `pyc_case_094` | `pygame/pygame` | Issue / PR #93 / commit `c7ec1528` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_137` | `pygobject/pycairo` | Issue / PR #50 / commit `065a7a7a` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_138` | `pygobject/pycairo` | Issue / PR #48 / commit `42eb8a30` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_139` | `pygobject/pycairo` | Issue / PR #57 / commit `65aea3df` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

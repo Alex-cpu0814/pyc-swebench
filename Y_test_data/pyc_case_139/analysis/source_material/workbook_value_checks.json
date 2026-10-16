@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 139 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"138\"],[\"Repository\",\"pygobject/pycairo\"],[\"Fix commit\",\"65aea3dfdc5b131bc39a69ba00062f799fd72489\"],[\"Base commit\",\"b780969870a9dd8b42b88c8317679e125b5e2aae\"],[\"Upstream issue / PR\",\"https://github.com/pygobject/pycairo/issues/57\"],[\"Symptom\",\"crash.\"],[\"Bug location\",\"line 297\"],[\"Bug location type\",\"Cross-Language API callsite + return\"],[\"Root cause\",\"Data reference error\"],[\"Fixing strategy\",\"add a function call to get the reference of variable\"],[\"Fix location\",\"return statement + NAX function\"],[\"Problem statement\",\"Surface.get_device should keep the borrowed native device alive for the returned Python wrapper, allowing the original ten-call ScriptSurface test to finish normally while ordinary device/surface behavior remains correct.\"],[\"Original source trace\",\"297(c_surface_16-cfg.dot) (surface_get_device) ... -> 292(c_surface_16-cfg.dot) (surface_get_device) -> 10(py_test_device_1-cfg.dot) (test_get_device)\"],[\"Source trace scope\",\"Original source138 traces surface_get_device through unchanged test_get_device; that caller exercises the None-device ImageSurface path and is retained as a P2P. The actual distinguishing F2P is original test_script_device_device_ref on a ScriptSurface; actual native outcome must be reported without claiming return-value/refcount assertions absent from this method.\"],[\"Verified Base trace\",\"Base completes3 original regressions, then the unchanged original test_script_device_device_ref fails during its10-call surface.get_device loop with cairo.Error: <unknown error status>; actual process exit1 and terminal FAILED are preserved. No native abort happened in this measured run, and the failing iteration index is not observed. Gold completes the full original10-call method and all3 regressions normally/exit0. No added return-value/refcount observations or forced crash are claimed.\"],[\"Verified official test\",\"tests/test_surface.py::test_script_device_device_ref\\ntests/test_device.py::test_get_device\\ntests/test_surface.py::test_script_surface\\ntests/test_surface.py::test_script_surface_create_for_target\"],[\"Official test scope\",\"Full original9-line test_script_device_device_ref constructs BytesIO, ScriptDevice and42x10 COLOR_ALPHA ScriptSurface, deletes the dev variable, then calls surface.get_device exactly10times. It has no explicit result/refcount assertion; normal completion is the regression condition. Base fails within this original loop, with no evidence of which iteration; Gold completes the method. Three unchanged regressions retain ImageSurface.get_device is None (source-trace caller), ScriptSurface paint/flush serialized42/paint checks, and create_for_target paint with exact pixel-data equality. No full Cairo suite, measured refcount/leak guarantee, forced crash, alternative dimensions or extra iterations is claimed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "fwzz8z",
+          "target": {
+            "id": "wb/n7xe17",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 139 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"pygobject__pycairo-65aea3df\"],[\"Repository\",\"pygobject/pycairo\"],[\"Version\",\"1.14.1\"],[\"Created at\",42930],[\"Base commit\",\"b780969870a9dd8b42b88c8317679e125b5e2aae\"],[\"Fix commit\",\"65aea3dfdc5b131bc39a69ba00062f799fd72489\"],[\"Issue / PR\",\"https://github.com/pygobject/pycairo/issues/57\"],[\"Test source\",\"Complete original official pytest functions\"],[\"FAIL_TO_PASS (1)\",\"tests/test_surface.py::test_script_device_device_ref\"],[\"PASS_TO_PASS (1)\",\"tests/test_device.py::test_get_device\"],[\"PASS_TO_PASS (2)\",\"tests/test_surface.py::test_script_surface\"],[\"PASS_TO_PASS (3)\",\"tests/test_surface.py::test_script_surface_create_for_target\"],[\"Base / Gold outcome\",\"Base: original device-reference target fails with cairo.Error during its10-call loop;3 unchanged regressions pass. Gold: all4 complete methods pass.\"],[\"Docker image\",\"yutu0814/pyc-case-139-pycairo:benchmark-v1\"],[\"Problem statement\",\"Surface.get_device should keep the borrowed native device alive for the returned Python wrapper, allowing the original ten-call ScriptSurface test to finish normally while ordinary device/surface behavior remains correct.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "37x6v3",
+          "target": {
+            "id": "wb/c1sc1p",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-139-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-16T05:15:05.633Z",
+  "finished_at": "2026-10-16T05:15:07.455Z",
+  "duration_ms": 1828,
+  "source": {
+    "repo": "https://github.com/pygobject/pycairo.git",
+    "base_commit": "b780969870a9dd8b42b88c8317679e125b5e2aae"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-139-pycairo:benchmark-v1",
+    "id": "sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a",
+    "repo_digests": [
+      "yutu0814/pyc-case-139-pycairo@sha256:3ca1ea28317ca091b21d56022d7a8a3e5a08a2950640a83e4449595bd032c86a"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

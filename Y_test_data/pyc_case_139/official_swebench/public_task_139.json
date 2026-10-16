@@ -1,0 +1,11 @@
+{
+  "instance_id": "pygobject__pycairo-65aea3df",
+  "repo": "pygobject/pycairo",
+  "base_commit": "b780969870a9dd8b42b88c8317679e125b5e2aae",
+  "problem_statement": "Surface.get_device should keep the borrowed native device alive for the returned Python wrapper, allowing the original ten-call ScriptSurface test to finish normally while ordinary device/surface behavior remains correct.",
+  "hints_text": "",
+  "created_at": "2017-07-14",
+  "version": "1.14.1",
+  "issue_id": "57",
+  "issue_url": "https://github.com/pygobject/pycairo/issues/57"
+}

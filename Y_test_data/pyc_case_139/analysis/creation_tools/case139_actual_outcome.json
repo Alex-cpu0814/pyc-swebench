@@ -1,0 +1,6 @@
+{
+  "expected_before_probe": "Native abort possible; record actual outcome without forcing status",
+  "observed": "Original loop raises cairo.Error: <unknown error status>, exit1, terminalFAILED; no abort and no observed iteration index",
+  "gold": "Full original10-call method and3regressions PASS/exit0",
+  "no_test_or_compiler_changes": true
+}
