@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-176-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-18T11:37:21.284Z",
+  "finished_at": "2026-10-18T11:37:25.220Z",
+  "duration_ms": 3937,
+  "source": {
+    "repo": "https://github.com/bcdev/jpy.git",
+    "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-176-jpy:benchmark-v1",
+    "id": "sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221",
+    "repo_digests": [
+      "yutu0814/pyc-case-176-jpy@sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

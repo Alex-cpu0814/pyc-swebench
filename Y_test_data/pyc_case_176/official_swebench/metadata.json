@@ -1,0 +1,144 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "175",
+  "candidate_case": "176",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The complete original test_array_item_del creates an Integer Java array of length 3 and executes del a[1]. Its original try/except checks the exact message only if RuntimeError is caught; it does not assert that an exception must be raised. This limited original oracle is retained unchanged. Three complete existing methods cover int arrays, Java object arrays and int memoryview buffers, including their original helper calls and assertions. Tests run Python2.7 through the actual compiled C/JNI module and OpenJDK8 JVM with original 512M JVM initialization.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_python_unittest_native_bridge",
+  "created_at": "2015-07-10",
+  "created_at_precision": "date",
+  "instance_id": "bcdev__jpy-81bfc112",
+  "source_instance_id": "pyc_case_176",
+  "repo": "bcdev/jpy",
+  "issue_id": "52",
+  "issue_url": "https://github.com/bcdev/jpy/issues/52",
+  "project_version": "0.8-SNAPSHOT",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "fix_commit": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "FAIL_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del"
+  ],
+  "PASS_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b",
+    "python_version": "2.7.17",
+    "test_runner_version": "Python2.7 bundled unittest via transparent original-method runner",
+    "compiler_toolchain": "Ordinary Ubuntu18.04 GCC with original setup.py flags; no source/test/compiler-macro/allocator changes.",
+    "base_target_status": "MISSING terminal status after native SIGABRT, exit134",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-176-jpy:benchmark-v1",
+      "id": "sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221",
+      "repo_digests": [
+        "yutu0814/pyc-case-176-jpy@sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 1
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "bcdev__jpy-81bfc112",
+      "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-176-final-gold/summary.json",
+      "verification/runs/case-176-final-negative/summary.json",
+      "verification/runs/case-176-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": null,
+  "fix_committed_at": "2015-09-06",
+  "date_semantics": "Created at is issue52 opening 2015-07-10T13:10:42Z. No associated merge PR is reported for this direct source commit. Merged at is unknown and left absent; issue closure is not used as a merge date. The exact Git commit timestamp is retained separately.",
+  "source_classification": "Python-C (original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/main/c/jpy_jobj.c"
+  ],
+  "verified_scope": "The complete original test_array_item_del creates an Integer Java array of length 3 and executes del a[1]. Its original try/except checks the exact message only if RuntimeError is caught; it does not assert that an exception must be raised. This limited original oracle is retained unchanged. Three complete existing methods cover int arrays, Java object arrays and int memoryview buffers, including their original helper calls and assertions. Tests run Python2.7 through the actual compiled C/JNI module and OpenJDK8 JVM with original 512M JVM initialization.",
+  "source_trace_scope": "Preserve the original Python-C taxonomy and source-row Python/C trace. The measured original Python unittest enters the actual jpy C extension and Java JVM; Java is an additional runtime, not a relabeling of the source dataset.",
+  "native_package_versions": {
+    "g++": "4:7.4.0-1ubuntu2.3",
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6": "2.27-3ubuntu1.6",
+    "openjdk-8-jdk-headless": "8u372-ga~us1-0ubuntu1~18.04",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "CHANGES.txt",
+    "src/main/c/jpy_jobj.c"
+  ],
+  "test_files": [
+    "src/test/python/jpy_array_test.py"
+  ]
+}

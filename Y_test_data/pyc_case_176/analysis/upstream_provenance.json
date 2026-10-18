@@ -1,0 +1,120 @@
+{
+  "upstream_url": "https://github.com/bcdev/jpy/issues/52",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "fix_commit": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "source_parents": [
+    "20cdbb714300bdb2502d9ac44740c85c64cce691"
+  ],
+  "source_commit_timestamp_original_offset": "2015-09-06T12:47:46+02:00",
+  "source_classification": "Python-C (original taxonomy)",
+  "measured_test_language": "Python unittest -> actual C/JNI extension -> OpenJDK8 JVM",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/main/c/jpy_jobj.c"
+  ],
+  "native_source_git_blobs": {
+    "src/main/c/jpy_jobj.c": "198d0c5d92ba4baeea39db1b7f9b4750e235b774",
+    "setup.py": "a8f15a698e053abfb244684b37964bde16b0d403",
+    "README.md": "c2bcd8371b3dae578a1a3b0fd5976f59e2fa2aba",
+    "src/test/python/jpy_array_test.py": "85f159e9a14217c86654bdc391ad7f2dbedd58ad"
+  },
+  "native_package_versions": {
+    "g++": "4:7.4.0-1ubuntu2.3",
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6": "2.27-3ubuntu1.6",
+    "openjdk-8-jdk-headless": "8u372-ga~us1-0ubuntu1~18.04",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "resource_guard": "Transparent child process metadata sets RLIMIT_CORE0 and PR_SET_DUMPABLE0. No source/signal handler/allocator/JVM options changed. JVM fatal reports, when emitted, are captured verbatim into raw stdout.",
+  "upstream_created_at_timestamp": "2015-07-10T13:10:42Z",
+  "upstream_issue_closed_at_timestamp": "2015-09-06T10:49:50Z",
+  "associated_prs": [],
+  "date_source": "https://api.github.com/repos/bcdev/jpy/issues/52",
+  "date_semantics": "Created at is issue52 opening 2015-07-10T13:10:42Z. No associated merge PR is reported for this direct source commit. Merged at is unknown and left absent; issue closure is not used as a merge date. The exact Git commit timestamp is retained separately.",
+  "verified_scope": "The complete original test_array_item_del creates an Integer Java array of length 3 and executes del a[1]. Its original try/except checks the exact message only if RuntimeError is caught; it does not assert that an exception must be raised. This limited original oracle is retained unchanged. Three complete existing methods cover int arrays, Java object arrays and int memoryview buffers, including their original helper calls and assertions. Tests run Python2.7 through the actual compiled C/JNI module and OpenJDK8 JVM with original 512M JVM initialization.",
+  "source_trace_scope": "Preserve the original Python-C taxonomy and source-row Python/C trace. The measured original Python unittest enters the actual jpy C extension and Java JVM; Java is an additional runtime, not a relabeling of the source dataset.",
+  "formal_runtime_audit": {
+    "version_source": "exact upstream setup.py",
+    "measured_language_path": "original Python unittest -> compiled C/JNI extension -> OpenJDK8 JVM",
+    "assets": {
+      "target/test-classes/org/jpy/fixtures/FieldTestFixture.class": {
+        "sha256": "47e8b7716106ebb47617c25126e09f0e278caa7852e97f8da6cdf73c8a2ef499",
+        "size": 1398
+      },
+      "target/test-classes/org/jpy/fixtures/TypeResolutionTestFixture.class": {
+        "sha256": "0a55d95bfed02e2a2290b0900ed9f616e565b1b02ec22c04039a4a36f467b5d8",
+        "size": 488
+      },
+      "target/test-classes/org/jpy/fixtures/Processor.class": {
+        "sha256": "459c2ed394e179a3b2e7d006c6acd8740fde2dcef21c4d1515eb445a08da8054",
+        "size": 227
+      },
+      "target/test-classes/org/jpy/fixtures/ModifyAndReturnParametersTestFixture.class": {
+        "sha256": "a29d76b1b0010a37a0e35f13c0982e36a9b810b145b8c2c8d5c35e8248841474",
+        "size": 1403
+      },
+      "src/main/c/jpy_jobj.c": {
+        "sha256": "d9442fa4d18eab1af4655986cf6068be9969ca68c6bb8c34f098427e015af331",
+        "size": 28396
+      },
+      "src/test/python/jpy_array_test.py": {
+        "sha256": "b1edea8f973a2c0982b5e64c926422050a9080e5e11d3158a827113e6dfcef5c",
+        "size": 7463
+      },
+      "target/test-classes/org/jpy/fixtures/Thing.class": {
+        "sha256": "d9b66b63e9d420e5f21c069bce2a9ed87edcc84420704a9ed13d5aae5512c1a7",
+        "size": 958
+      },
+      "target/test-classes/org/jpy/fixtures/TypeResolutionTestFixture$SuperThing.class": {
+        "sha256": "e4c04fa1c318412a0a0747b39676bab4c6c720539bd934229778451b1d067219",
+        "size": 463
+      },
+      "target/test-classes/org/jpy/fixtures/MethodReturnValueTestFixture.class": {
+        "sha256": "c125889791b7baf69b0d3ffdc9165b96ab81ac184fcddced5aaa32370ab51667",
+        "size": 2218
+      },
+      "README.md": {
+        "sha256": "a8399399f26ac09f6de9f4b336ac53892a6a5d3699006d404c190c9d55036751",
+        "size": 1646
+      },
+      "target/test-classes/org/jpy/fixtures/MethodOverloadTestFixture.class": {
+        "sha256": "a871641007c44830030446a96b458f7045042913a3cee155694d4f8f5f507e91",
+        "size": 2983
+      },
+      "target/test-classes/org/jpy/fixtures/MethodOverloadTestFixture$MethodOverloadTestFixture2.class": {
+        "sha256": "06be05dd42eed88b1513cd4e2ef4858ad4077da5045499d5fddc7278a7b2c33e",
+        "size": 609
+      },
+      "target/test-classes/org/jpy/fixtures/TypeConversionTestFixture.class": {
+        "sha256": "5cc1148ba2eb5232f6ce762058ba3b2bbfd003d6f6828ab51ac97e8495c09815",
+        "size": 761
+      },
+      "setup.py": {
+        "sha256": "b2dfa3348ea4ff827e24112f2e34a1b66eaac8126cd89c81d8807ebedfc88b60",
+        "size": 13545
+      },
+      "target/test-classes/org/jpy/fixtures/ExceptionTestFixture.class": {
+        "sha256": "fc5b9bc623f8e69b35eb2a6d595fec67837848890c6430fa2635f91f9edca198",
+        "size": 790
+      },
+      "target/test-classes/org/jpy/fixtures/ConstructorOverloadTestFixture.class": {
+        "sha256": "0b8e81f603a719cd991a89821e846553d335240c37fd49d2e23a08186e09c905",
+        "size": 1197
+      },
+      "/testbed/src/main/python/jpy.so": {
+        "sha256": "4fe94de1fca01afe9249e5dd4177a20d2f80a006339981d33d269d8f1aa8bf8c",
+        "size": 408216
+      }
+    },
+    "python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]",
+    "java_version": "openjdk version \"1.8.0_362\"\nOpenJDK Runtime Environment (build 1.8.0_362-8u372-ga~us1-0ubuntu1~18.04-b09)\nOpenJDK 64-Bit Server VM (build 25.362-b09, mixed mode)\n",
+    "module_path": "/testbed/src/main/python/jpy.so",
+    "package_version": "0.8-SNAPSHOT",
+    "has_jvm": true,
+    "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+  }
+}

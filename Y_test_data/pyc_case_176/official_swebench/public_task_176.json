@@ -1,0 +1,11 @@
+{
+  "instance_id": "bcdev__jpy-81bfc112",
+  "repo": "bcdev/jpy",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "problem_statement": "Deleting an element of a Java array must raise RuntimeError instead of dereferencing a null Python item in the native sequence assignment slot.",
+  "hints_text": "",
+  "created_at": "2015-07-10",
+  "version": "0.8-SNAPSHOT",
+  "issue_id": "52",
+  "issue_url": "https://github.com/bcdev/jpy/issues/52"
+}

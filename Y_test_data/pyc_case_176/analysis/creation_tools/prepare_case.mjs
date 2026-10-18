@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {spawnSync}from'node:child_process';
+const [specPath,sourceRepo]=process.argv.slice(2);
+const spec=JSON.parse(fs.readFileSync(specPath,'utf8'));
+const git=args=>{const r=spawnSync('git',['-C',sourceRepo,...args],{encoding:'utf8'});if(r.status!==0)throw new Error(r.stderr);return r.stdout;};
+const parents=git(['show','-s','--format=%P',spec.fixCommit]).trim().split(' ');
+if(parents[0]!==spec.baseCommit)throw new Error('First parent mismatch');
+const changed=git(['diff','--name-only',spec.baseCommit,spec.fixCommit]).trim().split('\n');
+for(const [name,files]of[['test',spec.testFiles],['gold',changed.filter(p=>!spec.testFiles.includes(p))]])fs.writeFileSync(spec[`${name}PatchSource`],git(['diff',...(spec.binaryPatches?['--binary']:[]),spec.baseCommit,spec.fixCommit,'--',...files]));
+console.log(`Case ${spec.caseNumber}: exact patches split; ${changed.length} upstream files.`);

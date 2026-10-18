@@ -1,0 +1,42 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.50kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.1s
+
+#4 [1/5] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git python2.7 python2.7-dev openjdk-8-jdk-headless && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/bcdev/jpy.git" && git fetch --depth=1 --no-tags origin "20cdbb714300bdb2502d9ac44740c85c64cce691" && git checkout --detach "20cdbb714300bdb2502d9ac44740c85c64cce691" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "20cdbb714300bdb2502d9ac44740c85c64cce691"
+#6 CACHED
+
+#7 [4/5] WORKDIR /testbed
+#7 CACHED
+
+#8 [5/5] RUN python2.7 setup.py clean build_ext --inplace --force && mkdir -p target/test-classes && javac -d target/test-classes src/main/java/org/jpy/annotations/*.java src/test/java/org/jpy/fixtures/*.java && python2.7 -c "import jpy,jpyutil; print(jpy.__file__); assert jpy.__file__.startswith('/testbed/'); jpyutil.init_jvm(); assert jpy.has_jvm()" && printf '%s\n' '/build/' '/target/' '/src/main/python/*.so' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:95edf198b7d9871130f6910778ed64db664742c826e2176431f448320c535064 done
+#9 exporting config sha256:0119faff54bc2ae2a556da6bef6aebb08aa30c805e2b21c15be17e67f94a4be8 done
+#9 exporting attestation manifest sha256:9fb5f1f91c993581a4ed7a5eccbcb3e1adb1e316c575cc3d46d5de808e52d4f7 0.0s done
+#9 exporting manifest list sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221
+#9 exporting manifest list sha256:b71d6af3399f5af04eeda403e5f39f855e644d8e8574e9b7279a0d3e71dcd221 0.1s done
+#9 naming to docker.io/yutu0814/pyc-case-176-jpy:benchmark-v1 done
+#9 unpacking to docker.io/yutu0814/pyc-case-176-jpy:benchmark-v1 0.0s done
+#9 DONE 0.2s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/hjnkpbzbxlqwtswuzqspgw8be

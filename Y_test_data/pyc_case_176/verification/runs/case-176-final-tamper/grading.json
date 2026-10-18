@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-176-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int": "MISSING",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object": "MISSING",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int": "MISSING"
+  },
+  "unexpected_failures": []
+}

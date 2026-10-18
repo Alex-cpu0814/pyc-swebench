@@ -1,0 +1,21 @@
+{
+  "repo": "bcdev/jpy",
+  "instance_id": "bcdev__jpy-81bfc112",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "patch": "diff --git a/CHANGES.txt b/CHANGES.txt\nindex 5e1b719..032de73 100644\n--- a/CHANGES.txt\n+++ b/CHANGES.txt\n@@ -6,6 +6,7 @@ jpy Changelog\n Version 0.8 (SNAPSHOT)\n ======================\n \n+* Fixed problem where a Python interpreter crash occurred when executing del statement on Java arrays (issue #52)\n * Fixed problem where loading of jpy DLL fails for user-specific Python installations on Windows (issue #58)\n * Fixed problem where Java interface types didn't expose java.lang.Object methods (issue #57)\n * Fixed problem where a Java 1-arg static method was confused with a zero-arg non-static method (issue #54)\ndiff --git a/src/main/c/jpy_jobj.c b/src/main/c/jpy_jobj.c\nindex 198d0c5..6573c06 100644\n--- a/src/main/c/jpy_jobj.c\n+++ b/src/main/c/jpy_jobj.c\n@@ -594,7 +594,13 @@ int JObj_sq_ass_item(JPy_JObj* self, Py_ssize_t index, PyObject* pyItem)\n     type = (JPy_JType*) Py_TYPE(self);\n     componentType = type->componentType;\n     if (type->componentType == NULL) {\n-        PyErr_SetString(PyExc_RuntimeError, \"internal error: object is not an array\");\n+        PyErr_SetString(PyExc_RuntimeError, \"object is not a Java array\");\n+        return -1;\n+    }\n+\n+    // fixes https://github.com/bcdev/jpy/issues/52\n+    if (pyItem == NULL) {\n+        PyErr_SetString(PyExc_RuntimeError, \"cannot delete items of Java arrays\");\n         return -1;\n     }\n \n",
+  "test_patch": "diff --git a/src/test/python/jpy_array_test.py b/src/test/python/jpy_array_test.py\nindex 85f159e..431011e 100644\n--- a/src/test/python/jpy_array_test.py\n+++ b/src/test/python/jpy_array_test.py\n@@ -98,6 +98,16 @@ class TestJavaArrays(unittest.TestCase):\n         self.do_test_array_protocol('java.lang.Object', [None, None, None], [File('A'), 'B', 3])\n \n \n+    # see https://github.com/bcdev/jpy/issues/52\n+    def test_array_item_del(self):\n+        Integer = jpy.get_type('java.lang.Integer')\n+        a = jpy.array(Integer, 3)\n+        try:\n+            del a[1]\n+        except RuntimeError as err:\n+            self.assertEqual(err.args[0], 'cannot delete items of Java arrays')\n+\n+\n     def do_test_basic_buffer_protocol(self, type, itemsize, values):\n \n         a = jpy.array(type, 4)\n",
+  "problem_statement": "Deleting an element of a Java array must raise RuntimeError instead of dereferencing a null Python item in the native sequence assignment slot.",
+  "hints_text": "",
+  "created_at": "2015-07-10",
+  "version": "0.8-SNAPSHOT",
+  "issue_id": "52",
+  "issue_url": "https://github.com/bcdev/jpy/issues/52",
+  "FAIL_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del"
+  ],
+  "PASS_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int"
+  ]
+}

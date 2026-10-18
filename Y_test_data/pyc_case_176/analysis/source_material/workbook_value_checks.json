@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 176 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"175\"],[\"Repository\",\"bcdev/jpy\"],[\"Fix commit\",\"81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04\"],[\"Base commit\",\"20cdbb714300bdb2502d9ac44740c85c64cce691\"],[\"Upstream issue / PR\",\"https://github.com/bcdev/jpy/issues/52\"],[\"Symptom\",\"crash\"],[\"Bug location\",\"line 597\"],[\"Bug location type\",\"Cross-Language API callsite\"],[\"Root cause\",\"Exception handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Deleting an element of a Java array must raise RuntimeError instead of dereferencing a null Python item in the native sequence assignment slot.\"],[\"Original source trace\",\"597(c_jpy_jobj_6-cfg.dot) (JObj_sq_ass_item) … -> 586(c_jpy_jobj_6-cfg.dot) (JObj_sq_ass_item) -> 718(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) … -> 669(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) -> 186(c_jpy_jtype_9-cfg.dot) (JType_GetType) … -> 133(c_jpy_jtype_9-cfg.dot) (JType_GetType) -> 127(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) … -> 65(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) -> 596(c_jpy_module_7-cfg.dot) (JPy_array) … -> 579(c_jpy_module_7-cfg.dot) (JPy_array) -> 104(py_jpy_array_test_23-cfg.dot) (test_array_item_del)\"],[\"Source trace scope\",\"Preserve the original Python-C taxonomy and source-row Python/C trace. The measured original Python unittest enters the actual jpy C extension and Java JVM; Java is an additional runtime, not a relabeling of the source dataset.\"],[\"Verified Base trace\",\"Base passes all three complete original regressions, starts the complete Java-array deletion method and terminates with SIGABRT (native returncode -6, shell exit134), without a terminal result for that target. Full exact upstream Gold completes all four methods with PASSED and exit0. The absent target terminal is recorded as MISSING.\"],[\"Verified official test\",\"src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del\\nsrc/test/python/jpy_array_test.py::TestJavaArrays::test_array_int\\nsrc/test/python/jpy_array_test.py::TestJavaArrays::test_array_object\\nsrc/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int\"],[\"Official test scope\",\"The complete original test_array_item_del creates an Integer Java array of length 3 and executes del a[1]. Its original try/except checks the exact message only if RuntimeError is caught; it does not assert that an exception must be raised. This limited original oracle is retained unchanged. Three complete existing methods cover int arrays, Java object arrays and int memoryview buffers, including their original helper calls and assertions. Tests run Python2.7 through the actual compiled C/JNI module and OpenJDK8 JVM with original 512M JVM initialization.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "cab7ug",
+          "target": {
+            "id": "wb/vuf57y",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 176 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"bcdev__jpy-81bfc112\"],[\"Repository\",\"bcdev/jpy\"],[\"Version\",\"0.8-SNAPSHOT\"],[\"Created at\",42195],[\"Base commit\",\"20cdbb714300bdb2502d9ac44740c85c64cce691\"],[\"Fix commit\",\"81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04\"],[\"Issue / PR\",\"https://github.com/bcdev/jpy/issues/52\"],[\"Test source\",\"Complete original Python unittest methods using the native C/JNI bridge\"],[\"FAIL_TO_PASS (1)\",\"src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del\"],[\"PASS_TO_PASS (1)\",\"src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int\"],[\"PASS_TO_PASS (2)\",\"src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object\"],[\"PASS_TO_PASS (3)\",\"src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int\"],[\"Base / Gold outcome\",\"Base: 3 regressions PASSED, deletion target starts then SIGABRT without terminal status (MISSING), exit134. Gold: all 4 complete original methods PASSED, exit0.\"],[\"Docker image\",\"yutu0814/pyc-case-176-jpy:benchmark-v1\"],[\"Problem statement\",\"Deleting an element of a Java array must raise RuntimeError instead of dereferencing a null Python item in the native sequence assignment slot.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "lkix4u",
+          "target": {
+            "id": "wb/r4fw2h",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del"
+  ],
+  "count": 4
+}

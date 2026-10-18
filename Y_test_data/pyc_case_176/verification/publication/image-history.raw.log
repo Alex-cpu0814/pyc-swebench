@@ -1,0 +1,17 @@
+CMD ["/bin/bash"]
+RUN |4 DEBIAN_FRONTEND=noninteractive REPO_URL=https://github.com/bcdev/jpy.git BASE_COMMIT=20cdbb714300bdb2502d9ac44740c85c64cce691 INSTANCE_ID=bcdev__jpy-81bfc112 /bin/bash -o pipefail -c python2.7 setup.py clean build_ext --inplace --force && mkdir -p target/test-classes && javac -d target/test-classes src/main/java/org/jpy/annotations/*.java src/test/java/org/jpy/fixtures/*.java && python2.7 -c "import jpy,jpyutil; print(jpy.__file__); assert jpy.__file__.startswith('/testbed/'); jpyutil.init_jvm(); assert jpy.has_jvm()" && printf '%s\n' '/build/' '/target/' '/src/main/python/*.so' >> .git/info/exclude && test -z "$(git status --porcelain)" # buildkit
+WORKDIR /testbed
+RUN |4 DEBIAN_FRONTEND=noninteractive REPO_URL=https://github.com/bcdev/jpy.git BASE_COMMIT=20cdbb714300bdb2502d9ac44740c85c64cce691 INSTANCE_ID=bcdev__jpy-81bfc112 /bin/bash -o pipefail -c git init /testbed && cd /testbed && git remote add origin "${REPO_URL}" && git fetch --depth=1 --no-tags origin "${BASE_COMMIT}" && git checkout --detach "${BASE_COMMIT}" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "${BASE_COMMIT}" # buildkit
+ARG INSTANCE_ID=bcdev__jpy-81bfc112
+ARG BASE_COMMIT=20cdbb714300bdb2502d9ac44740c85c64cce691
+ARG REPO_URL=https://github.com/bcdev/jpy.git
+ENV PYTHONUNBUFFERED=1 LC_ALL=C.UTF-8 LANG=C.UTF-8 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 PYTHONPATH=/testbed:/testbed/src/main/python PYTHONDONTWRITEBYTECODE=1
+RUN |1 DEBIAN_FRONTEND=noninteractive /bin/bash -o pipefail -c apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git python2.7 python2.7-dev openjdk-8-jdk-headless && rm -rf /var/lib/apt/lists/* # buildkit
+SHELL [/bin/bash -o pipefail -c]
+ARG DEBIAN_FRONTEND=noninteractive
+/bin/sh -c #(nop)  CMD ["/bin/bash"]
+/bin/sh -c #(nop) ADD file:3c74e7e08cbf9a87694ce6fa541af617599680fa54d9e48556fc0fbc120b4a83 in / 
+/bin/sh -c #(nop)  LABEL org.opencontainers.image.version=18.04
+/bin/sh -c #(nop)  LABEL org.opencontainers.image.ref.name=ubuntu
+/bin/sh -c #(nop)  ARG LAUNCHPAD_BUILD_ARCH
+/bin/sh -c #(nop)  ARG RELEASE

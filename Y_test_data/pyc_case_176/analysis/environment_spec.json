@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_176",
+  "task_level": "integration",
+  "validation_type": "official_python_unittest_native_bridge",
+  "environment": "original_python27_java8_c_jni_bridge",
+  "python_version_target": "2.7",
+  "native_requirement": "Upstream README explicitly supports Python2.7 and Java7/8. Ubuntu18.04 Python2.7 headers, ordinary GCC and OpenJDK8 JDK/JNI headers.",
+  "build_system": "Original setup.py clean build_ext --inplace --force, then ordinary javac compiles unchanged annotations and fixture classes. The original clean command makes setup.py skip its unconditional custom packaging/post-build suite; all selected complete official methods are executed separately by the evaluator. No source, assertion, compiler flags or product macros are changed.",
+  "test_execution": [
+    "Complete original unittest methods call the actual compiled Python C extension and OpenJDK8 JVM."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in src/test/python/jpy_array_test.py.",
+    "Base passes all three complete original regressions, starts the complete Java-array deletion method and terminates with SIGABRT (native returncode -6, shell exit134), without a terminal result for that target. Full exact upstream Gold completes all four methods with PASSED and exit0. The absent target terminal is recorded as MISSING.",
+    "Three complete original Python unittest methods pass on both Base and Gold with the same original build and JVM initialization."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "fix_commit": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "src/test/python/jpy_array_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del"
+  ],
+  "PASS_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int"
+  ]
+}

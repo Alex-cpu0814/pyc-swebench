@@ -1,0 +1,2 @@
+mesg: ttyname failed: Inappropriate ioctl for device
+/bin/bash: line 13: python: command not found

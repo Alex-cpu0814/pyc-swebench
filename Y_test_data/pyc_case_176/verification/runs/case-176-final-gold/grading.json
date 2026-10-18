@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-176-final-gold",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del": "PASSED"
+  },
+  "PASS_TO_PASS": {
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int": "PASSED",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object": "PASSED",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int": "PASSED"
+  },
+  "unexpected_failures": []
+}

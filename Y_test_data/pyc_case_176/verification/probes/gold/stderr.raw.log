@@ -1,0 +1,9 @@
+mesg: ttyname failed: Inappropriate ioctl for device
+/testbed/src/main/c/jni/org_jpy_PyLib.c: In function ‘dumpDict’:
+/testbed/src/main/c/jni/org_jpy_PyLib.c:323:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘Py_ssize_t {aka long int}’ [-Wformat=]
+     printf(">>>>>>>> %s.size = %d\n", dictName, size);
+                                ~^
+                                %ld
+/testbed/src/main/c/jni/org_jpy_PyLib.c:326:14: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         name = JPy_AS_UTF8(key);
+              ^

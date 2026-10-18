@@ -1,0 +1,47 @@
+{
+  "instance_id": "pyc_case_176",
+  "source_project": "Dissecting Real-World Cross-Language Bugs",
+  "source_case": "175",
+  "duplicate_source_cases": [],
+  "deduplication_key": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "language_pair": "Python-C",
+  "repo": "bcdev/jpy",
+  "issue_id": "52",
+  "issue_url": "https://github.com/bcdev/jpy/issues/52",
+  "commit": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "base_commit": "20cdbb714300bdb2502d9ac44740c85c64cce691",
+  "base_commit_status": "verified_first_parent_of_source_commit",
+  "fix_commit": "81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "commit_url": "https://github.com/bcdev/jpy/commit/81bfc112257504a3ab2cc3de3ae38ca6fa4bbf04",
+  "problem_statement": "Deleting an element of a Java array must raise RuntimeError instead of dereferencing a null Python item in the native sequence assignment slot.",
+  "symptom": "crash",
+  "bug_location": "line 597",
+  "bug_location_type": "Cross-Language API callsite",
+  "bug_path": "597(c_jpy_jobj_6-cfg.dot) (JObj_sq_ass_item) … -> 586(c_jpy_jobj_6-cfg.dot) (JObj_sq_ass_item) -> 718(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) … -> 669(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) -> 186(c_jpy_jtype_9-cfg.dot) (JType_GetType) … -> 133(c_jpy_jtype_9-cfg.dot) (JType_GetType) -> 127(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) … -> 65(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) -> 596(c_jpy_module_7-cfg.dot) (JPy_array) … -> 579(c_jpy_module_7-cfg.dot) (JPy_array) -> 104(py_jpy_array_test_23-cfg.dot) (test_array_item_del)",
+  "cross_language_type": "PyArg_ParseTuple,Foreign,Parsing arguments and building values,JPy_IS_STR,NAX,String API,PyErr_SetString,Foreign,Exception Handling,JPy_IS_CLONG,NAX,Int API",
+  "data_control_flow_direction": "Python->C",
+  "root_cause": "Exception handling",
+  "fixing_strategy": "Boundary check against value range/limit",
+  "fix_location": "if/branching statement",
+  "trace": {
+    "available": true,
+    "upstream_source": "https://github.com/bcdev/jpy/issues/52",
+    "upstream_description": "Complete upstream change: CHANGES.txt, src/main/c/jpy_jobj.c, src/test/python/jpy_array_test.py",
+    "verified_error": "Base passes all three complete original regressions, starts the complete Java-array deletion method and terminates with SIGABRT (native returncode -6, shell exit134), without a terminal result for that target. Full exact upstream Gold completes all four methods with PASSED and exit0. The absent target terminal is recorded as MISSING.",
+    "verified_test": "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del and src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int and src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object and src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int"
+  },
+  "evidence_type": "source_row_upstream_issue_and_complete_original_unittest",
+  "official_test_scope": "The complete original test_array_item_del creates an Integer Java array of length 3 and executes del a[1]. Its original try/except checks the exact message only if RuntimeError is caught; it does not assert that an exception must be raised. This limited original oracle is retained unchanged. Three complete existing methods cover int arrays, Java object arrays and int memoryview buffers, including their original helper calls and assertions. Tests run Python2.7 through the actual compiled C/JNI module and OpenJDK8 JVM with original 512M JVM initialization.",
+  "runtime_verified": true,
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "FAIL_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_item_del"
+  ],
+  "PASS_TO_PASS": [
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_int",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_array_object",
+    "src/test/python/jpy_array_test.py::TestJavaArrays::test_buffer_int"
+  ],
+  "gold_patch": "see patches/gold_patch.diff",
+  "test_patch": "see patches/test_patch.diff"
+}
