@@ -1,0 +1,71 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.50kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#2 DONE 2.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git python2.7 python2.7-dev openjdk-8-jdk-headless && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/5] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/bcdev/jpy.git" && git fetch --depth=1 --no-tags origin "7e58cea7c2551d0b590eff3959341ee823ec43c1" && git checkout --detach "7e58cea7c2551d0b590eff3959341ee823ec43c1" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "7e58cea7c2551d0b590eff3959341ee823ec43c1"
+#6 0.241 Initialized empty Git repository in /testbed/.git/
+#6 1.778 From https://github.com/bcdev/jpy
+#6 1.778  * branch            7e58cea7c2551d0b590eff3959341ee823ec43c1 -> FETCH_HEAD
+#6 1.810 HEAD is now at 7e58cea updated tolatest VS version 14
+#6 DONE 1.8s
+
+#7 [4/5] WORKDIR /testbed
+#7 DONE 0.0s
+
+#8 [5/5] RUN python2.7 setup.py clean build_ext --inplace --force && mkdir -p target/test-classes && javac -d target/test-classes src/main/java/org/jpy/annotations/*.java src/test/java/org/jpy/fixtures/*.java && python2.7 -c "import jpy,jpyutil; print(jpy.__file__); assert jpy.__file__.startswith('/testbed/'); jpyutil.init_jvm(); assert jpy.has_jvm()" && printf '%s\n' '/build/' '/target/' '/src/main/python/*.so' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#8 0.276 Using /testbed/src/main/python/jpyutil.py
+#8 0.276 Note that you can use non-standard global option [--maven] to force a Java Maven build for jpy Java API
+#8 0.282 running clean
+#8 0.282 running build_ext
+#8 0.284 building 'jpy' extension
+#8 0.284 creating build
+#8 0.285 creating build/temp.linux-x86_64-2.7
+#8 0.285 creating build/temp.linux-x86_64-2.7/testbed
+#8 0.285 creating build/temp.linux-x86_64-2.7/testbed/src
+#8 0.286 creating build/temp.linux-x86_64-2.7/testbed/src/main
+#8 0.286 creating build/temp.linux-x86_64-2.7/testbed/src/main/c
+#8 0.286 creating build/temp.linux-x86_64-2.7/testbed/src/main/c/jni
+#8 0.286 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_module.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_module.o
+#8 0.383 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_diag.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_diag.o
+#8 0.431 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_conv.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_conv.o
+#8 0.489 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_compat.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_compat.o
+#8 0.534 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_jtype.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jtype.o
+#8 0.657 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_jarray.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jarray.o
+#8 0.715 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_jobj.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jobj.o
+#8 0.804 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_jmethod.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jmethod.o
+#8 0.881 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jpy_jfield.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jfield.o
+#8 0.928 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jni/org_jpy_PyLib.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jni/org_jpy_PyLib.o
+#8 1.017 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_module.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_diag.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_conv.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_compat.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jtype.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jarray.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jobj.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jmethod.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jpy_jfield.o build/temp.linux-x86_64-2.7/testbed/src/main/c/jni/org_jpy_PyLib.o -L/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server -ljvm -ldl -o /testbed/src/main/python/jpy.so -Xlinker -rpath /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server
+#8 1.051 building 'jdl' extension
+#8 1.051 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/testbed/src/main/c -I/usr/lib/jvm/java-8-openjdk-amd64/include -I/usr/lib/jvm/java-8-openjdk-amd64/include/linux -I/usr/include/python2.7 -c /testbed/src/main/c/jni/org_jpy_DL.c -o build/temp.linux-x86_64-2.7/testbed/src/main/c/jni/org_jpy_DL.o
+#8 1.079 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/testbed/src/main/c/jni/org_jpy_DL.o -L/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server -ljvm -ldl -o /testbed/src/main/python/jdl.so -Xlinker -rpath /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server
+#8 1.539 /testbed/src/main/python/jpy.so
+#8 DONE 1.6s
+
+#9 exporting to image
+#9 exporting layers 0.1s done
+#9 exporting manifest sha256:84b95893be598dce1efa5ec4142caa6bdda0cb4044662862f1463282efd8ea3e done
+#9 exporting config sha256:1d449e925299dbe5f75b8d25d12e0d4c92aaa49a058a15520d610ac909d1d69b 0.0s done
+#9 exporting attestation manifest sha256:85897e649a1e4b65ec06d8b50da9bae9aa7a97324dc77c1e33a7927696b21ffa 0.0s done
+#9 exporting manifest list sha256:8f69ee54c4064dba360e3402c78ab3d268f19829490fe9964a7b6cc45e5afe77 done
+#9 naming to docker.io/library/pyc-case177-prototype-base:latest done
+#9 unpacking to docker.io/library/pyc-case177-prototype-base:latest 0.1s done
+#9 DONE 0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xali4srdz7w1hle9rv93ulfps

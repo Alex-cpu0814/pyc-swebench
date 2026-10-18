@@ -1,0 +1,32 @@
+{
+  "image": "yutu0814/pyc-case-177-jpy:benchmark-v1",
+  "verified_image_id": "sha256:ab2807d63d39277830ff04f241fbbfd256dfcac53b6445f4cfa0b1b0dd61e737",
+  "source_commit": "7e58cea7c2551d0b590eff3959341ee823ec43c1",
+  "tracked_public_source_files": 129,
+  "config_env": [
+    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "PYTHONUNBUFFERED=1",
+    "LC_ALL=C.UTF-8",
+    "LANG=C.UTF-8",
+    "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64",
+    "PYTHONPATH=/testbed:/testbed/src/main/python",
+    "PYTHONDONTWRITEBYTECODE=1"
+  ],
+  "config_volumes": null,
+  "config_labels": {
+    "org.opencontainers.image.ref.name": "ubuntu",
+    "org.opencontainers.image.version": "18.04"
+  },
+  "host_copy_or_add": false,
+  "host_bind_during_build": false,
+  "context_whitelist": "Only Dockerfile/.dockerignore in staged public build context",
+  "payload_scope": "Pinned public Ubuntu18.04, Python2.7 and OpenJDK8 packages, exact public jpy first-parent Base source with ordinary original setup.py C/JNI compilation and javac fixtures. No host attachments, private files, credentials, candidate/Gold/test patches, fix object or evaluator runtime assets copied into image.",
+  "source_tree_clean": true,
+  "git_remotes_empty": true,
+  "fix_commit_absent": true,
+  "inputs_absent": true,
+  "benchmark_absent": true,
+  "root_docker_credentials_absent": true,
+  "root_ssh_credentials_absent": true,
+  "created_at": "2026-10-18T11:49:04.037Z"
+}

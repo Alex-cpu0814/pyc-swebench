@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass",
+    "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"
+  ],
+  "count": 4
+}

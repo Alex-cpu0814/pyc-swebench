@@ -1,0 +1,12 @@
+diff --git a/src/test/python/jpy_overload_test.py b/src/test/python/jpy_overload_test.py
+--- a/src/test/python/jpy_overload_test.py
++++ b/src/test/python/jpy_overload_test.py
+@@ -96,7 +96,7 @@
+ 
+     # see https://github.com/bcdev/jpy/issues/54
+     def test_staticMethodIsFoundOverNonStatic(self):
+-        String = jpy.get_type('java.lang.String')
++        String = jpy.get_type('java.lang.String') # Protected official test context conflict
+         Arrays = jpy.get_type('java.util.Arrays')
+         a = jpy.array(String, ['A', 'B', 'C'])
+         s = Arrays.toString(a)

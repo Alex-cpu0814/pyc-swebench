@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 177 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"176\"],[\"Repository\",\"bcdev/jpy\"],[\"Fix commit\",\"58f81d92b6fdf4bf2623b88a1414ba64bfc18788\"],[\"Base commit\",\"7e58cea7c2551d0b590eff3959341ee823ec43c1\"],[\"Upstream issue / PR\",\"https://github.com/bcdev/jpy/issues/54\"],[\"Symptom\",\"incorrect result/output\"],[\"Bug location\",\"line 114\"],[\"Bug location type\",\"Conditional expression\"],[\"Root cause\",\"Special case handling\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Static Arrays.toString(String[]) must resolve the applicable static overload instead of confusing it with zero-argument Object.toString().\"],[\"Original source trace\",\"114(c_jpy_jmethod_5-cfg.dot) (JMethod_MatchPyArgs) … -> 81(c_jpy_jmethod_5-cfg.dot) (JMethod_MatchPyArgs) -> 638(c_jpy_jmethod_5-cfg.dot) (JOverloadedMethod_FindMethod0) … -> 607(c_jpy_jmethod_5-cfg.dot) (JOverloadedMethod_FindMethod0) -> 696(c_jpy_jmethod_5-cfg.dot) (JOverloadedMethod_FindMethod) … -> 670(c_jpy_jmethod_5-cfg.dot) (JOverloadedMethod_FindMethod) -> 770(c_jpy_jobj_6-cfg.dot) (JObj_init) … -> 92(c_jpy_jobj_6-cfg.dot) (JObj_init) -> 718(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) … -> 693(c_jpy_jobj_6-cfg.dot) (JType_InitSlots) -> 186(c_jpy_jtype_9-cfg.dot) (JType_GetType) … -> 133(c_jpy_jtype_9-cfg.dot) (JType_GetType) -> 127(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) … -> 65(c_jpy_jtype_9-cfg.dot) (JType_GetTypeForName) -> 532(c_jpy_module_7-cfg.dot) (JPy_get_type) … -> 518(c_jpy_module_7-cfg.dot) (JPy_get_type) -> 99(py_jpy_array_test_23-cfg.dot) (test_staticMethodIsFoundOverNonStatic)\"],[\"Source trace scope\",\"Preserve the original Python-C taxonomy and source-row Python/C trace. The measured original Python unittest enters the actual jpy C extension and Java JVM; Java is an additional runtime, not a relabeling of the source dataset.\"],[\"Verified Base trace\",\"Base returns a Java String-array identity string from Object.toString instead of the expected '[A, B, C]', failing the original equality assertion. The full exact Gold returns '[A, B, C]'. Base preserves 3 complete original regression passes; target status FAILED, process exit1. Gold completes all 4 complete original methods with PASSED and exit0.\"],[\"Verified official test\",\"src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic\\nsrc/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes\\nsrc/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads\\nsrc/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass\"],[\"Official test scope\",\"The complete original test_staticMethodIsFoundOverNonStatic constructs the original Java String array [A,B,C], calls java.util.Arrays.toString, and asserts the full original corrected result [A, B, C]. The complete upstream test edit, including its whitespace correction and commented diagnostic lines, is preserved. Three complete existing overload methods retain all original arguments, results and exception checks for two-argument, variable-argument and inherited overloads.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "mm2rw9",
+          "target": {
+            "id": "wb/2ljt6s",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B17\",\"rows\":17,\"cols\":2,\"values\":[[\"Python-C Case 177 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"bcdev__jpy-58f81d92\"],[\"Repository\",\"bcdev/jpy\"],[\"Version\",\"0.8-SNAPSHOT\"],[\"Created at\",42229],[\"Base commit\",\"7e58cea7c2551d0b590eff3959341ee823ec43c1\"],[\"Fix commit\",\"58f81d92b6fdf4bf2623b88a1414ba64bfc18788\"],[\"Issue / PR\",\"https://github.com/bcdev/jpy/issues/54\"],[\"Test source\",\"Complete original Python unittest methods using the native C/JNI bridge\"],[\"FAIL_TO_PASS (1)\",\"src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic\"],[\"PASS_TO_PASS (1)\",\"src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes\"],[\"PASS_TO_PASS (2)\",\"src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads\"],[\"PASS_TO_PASS (3)\",\"src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass\"],[\"Base / Gold outcome\",\"Base: target FAILED, 3 regressions PASSED, exit1. Gold: all 4 complete original methods PASSED, exit0.\"],[\"Docker image\",\"yutu0814/pyc-case-177-jpy:benchmark-v1\"],[\"Problem statement\",\"Static Arrays.toString(String[]) must resolve the applicable static overload instead of confusing it with zero-argument Object.toString().\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "s219w7",
+          "target": {
+            "id": "wb/ex0d48",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

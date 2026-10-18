@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_177",
+  "task_level": "integration",
+  "validation_type": "official_python_unittest_native_bridge",
+  "environment": "original_python27_java8_c_jni_bridge",
+  "python_version_target": "2.7",
+  "native_requirement": "Upstream README explicitly supports Python2.7 and Java7/8. Ubuntu18.04 Python2.7 headers, ordinary GCC and OpenJDK8 JDK/JNI headers.",
+  "build_system": "Original setup.py clean build_ext --inplace --force, then ordinary javac compiles unchanged annotations and fixture classes. The original clean command makes setup.py skip its unconditional custom packaging/post-build suite; all selected complete official methods are executed separately by the evaluator. No source, assertion, compiler flags or product macros are changed.",
+  "test_execution": [
+    "Complete original unittest methods call the actual compiled Python C extension and OpenJDK8 JVM."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in src/test/python/jpy_overload_test.py.",
+    "Base returns a Java String-array identity string from Object.toString instead of the expected '[A, B, C]', failing the original equality assertion. The full exact Gold returns '[A, B, C]'. Base preserves 3 complete original regression passes; target status FAILED, process exit1. Gold completes all 4 complete original methods with PASSED and exit0.",
+    "3 complete original unittest methods pass on both Base and Gold with identical original builds and JVM initialization."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "7e58cea7c2551d0b590eff3959341ee823ec43c1",
+  "fix_commit": "58f81d92b6fdf4bf2623b88a1414ba64bfc18788",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "src/test/python/jpy_overload_test.py"
+  ],
+  "FAIL_TO_PASS": [
+    "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"
+  ],
+  "PASS_TO_PASS": [
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-177-final-negative",
+  "label": "negative",
+  "instance_id": "bcdev__jpy-58f81d92",
+  "status": "unresolved",
+  "reason": "expected_test_failed_skipped_or_missing",
+  "started_at": "2026-10-18T11:48:23.149Z",
+  "finished_at": "2026-10-18T11:48:25.689Z",
+  "duration_ms": 2546,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "2d590eb3f33954561c7ce572b73de371f252ec5fa4032fabae81e566b81a34d1",
+  "test_patch_sha256": "6de7ebaff782334ecc4c6fde711df221d58bc56240ead8a88471658808f3fe24",
+  "image": {
+    "name": "yutu0814/pyc-case-177-jpy:benchmark-v1",
+    "id": "sha256:ab2807d63d39277830ff04f241fbbfd256dfcac53b6445f4cfa0b1b0dd61e737",
+    "repo_digests": [
+      "yutu0814/pyc-case-177-jpy@sha256:ab2807d63d39277830ff04f241fbbfd256dfcac53b6445f4cfa0b1b0dd61e737"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 1,
+    "instance_id": "bcdev__jpy-58f81d92"
+  },
+  "grading": {
+    "tests_observed": 4,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 1
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

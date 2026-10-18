@@ -1,0 +1,7 @@
+import datetime,json,pathlib,sys
+w=pathlib.Path('E:/CLB_Swe-bench/_work/pyc_batch');n=sys.argv[1];cleanup=json.loads((w/f'case{n}_cleanup.json').read_text(encoding='utf-8'));assert cleanup['status']=='published_cleaned'
+state=json.loads((w/'batch_state.json').read_text(encoding='utf-8'));c=next(c for c in state['candidates']if c['caseNumber']==n);c.update(status='published_cleaned',publishedCommit=cleanup['publishedCommit'],imageDigest=cleanup['imageDigest'],updatedAt=datetime.datetime.now(datetime.timezone.utc).isoformat())
+pending=[c['caseNumber']for c in state['candidates']if c['status']=='pending'];nextcase=pending[0]if pending else'none'
+(w/'batch_state.json').write_bytes((json.dumps(state,ensure_ascii=False,indent=2)+'\n').encode())
+text=f"\n## Latest{n} published and cleaned; next{nextcase}\n\nCommit {cleanup['publishedCommit']}; image {cleanup['image']}; digest {cleanup['imageDigest']}. Complete original Base/Gold methods, all formal controls, two-sheet numeric-date workbook, all local/actual committedfile SHA and remote main verified. Successful direct public image push with matching local digest; independent registry query unavailable due timeout. Exact archived scratch/prototype cleaned. Formal images/shared caches retained. Root directly continues all remaining candidates serially.\n"
+(w/f'case{n}_progress.md').write_bytes(text.encode());p=w/'CONTINUATION.md';p.write_bytes((p.read_text(encoding='utf-8')+text).encode());print(json.dumps({'completed':n,'next':nextcase,'remaining':len(pending)}))

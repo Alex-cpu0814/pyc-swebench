@@ -1,0 +1,25 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const work='E:/CLB_Swe-bench/_work/pyc_batch',root='E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_177',dir=root+'/verification/publication',s=JSON.parse(fs.readFileSync(work+'/case177_spec.json','utf8'));
+const docker='C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe';
+const output=fs.readFileSync(dir+'/docker-push.stdout.raw.log','utf8')+'\n'+fs.readFileSync(dir+'/docker-push.stderr.raw.log','utf8');
+const digest=output.match(/digest: (sha256:[0-9a-f]{64})/)?.[1];
+if(!digest)throw new Error('Push digest missing');
+const inspect=spawnSync(docker,['image','inspect',s.image],{encoding:'utf8',timeout:15000});if(inspect.status!==0)throw new Error(inspect.stderr);
+const local=JSON.parse(inspect.stdout)[0];
+const gold=JSON.parse(fs.readFileSync(root+'/verification/runs/case-177-final-gold/summary.json','utf8')); if(local.Id!==gold.image.id||!local.RepoDigests.includes(s.image.split(':')[0]+'@'+digest))throw new Error('Published image changed'); if(local.Descriptor?.digest && local.Descriptor.digest!==digest)throw new Error('OCI descriptor mismatch');
+const remote=spawnSync(docker,['buildx','imagetools','inspect','docker.io/'+s.image],{encoding:'utf8',timeout:45000,maxBuffer:5*1024*1024,windowsHide:true});
+fs.writeFileSync(dir+'/registry-inspect.stdout.raw.log',remote.stdout??'');fs.writeFileSync(dir+'/registry-inspect.stderr.raw.log',remote.stderr??'');
+const remoteDigest=(remote.stdout??'').match(/^Digest:\s+(sha256:[0-9a-f]{64})/m)?.[1];
+if(remote.status===0&&remoteDigest&&remoteDigest!==digest)throw new Error('Independent registry mismatch');
+const record={published_at:new Date().toISOString(),image:s.image,verified_image_id:local.Id,registry_digest:digest,local_descriptor:local.Descriptor??null,evidence:'Successful explicit direct Docker push approved on first request after actual read-only user batch authorization and public-only image payload audits; fixed verified image matches local RepoDigest and OCI descriptor',registry_independent_recheck:remote.status===0&&remoteDigest?'verified matching registry manifest/index digest':'unavailable: '+(remote.error?.message??remote.stderr?.trim()??'remote digest missing')};
+if(remoteDigest)record.remote_digest=remoteDigest;
+fs.writeFileSync(dir+'/publication.json',JSON.stringify(record,null,2)+'\n');
+const authorization=JSON.parse(fs.readFileSync(dir+'/authorization_evidence.json','utf8'));
+Object.assign(authorization,{status:'direct_image_publication_approved_and_successful',initial_request_approved:true,approval_retry_required:false,registry_digest:digest});
+fs.writeFileSync(dir+'/authorization_evidence.json',JSON.stringify(authorization,null,2)+'\n');
+for(const name of fs.readdirSync(dir))s.additionalVerificationAssets.push('verification/publication/'+name);
+for(const name of ['audit_publication177.mjs','record_publication177.mjs','document_native_case.mjs']){fs.copyFileSync(work+'/'+name,root+'/analysis/creation_tools/'+name);s.additionalVerificationAssets.push('analysis/creation_tools/'+name);}
+s.additionalVerificationAssets=[...new Set(s.additionalVerificationAssets)];
+fs.writeFileSync(work+'/case177_spec.json',JSON.stringify(s,null,2)+'\n');fs.copyFileSync(work+'/case177_spec.json',root+'/analysis/creation_tools/case177_spec.json');
+console.log(JSON.stringify(record));

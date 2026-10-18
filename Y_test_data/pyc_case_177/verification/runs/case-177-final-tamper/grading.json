@@ -1,0 +1,14 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-177-final-tamper",
+  "tests_observed": 0,
+  "FAIL_TO_PASS": {
+    "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic": "MISSING"
+  },
+  "PASS_TO_PASS": {
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes": "MISSING",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads": "MISSING",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass": "MISSING"
+  },
+  "unexpected_failures": []
+}

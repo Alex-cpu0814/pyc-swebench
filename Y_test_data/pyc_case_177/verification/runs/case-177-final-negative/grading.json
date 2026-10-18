@@ -1,0 +1,16 @@
+{
+  "schema_version": "3.0",
+  "run_id": "case-177-final-negative",
+  "tests_observed": 4,
+  "FAIL_TO_PASS": {
+    "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic": "FAILED"
+  },
+  "PASS_TO_PASS": {
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes": "PASSED",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads": "PASSED",
+    "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass": "PASSED"
+  },
+  "unexpected_failures": [
+    "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"
+  ]
+}

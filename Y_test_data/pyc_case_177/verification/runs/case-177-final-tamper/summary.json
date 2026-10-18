@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-177-final-tamper",
+  "label": "tamper",
+  "instance_id": "bcdev__jpy-58f81d92",
+  "status": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "started_at": "2026-10-18T11:48:25.888Z",
+  "finished_at": "2026-10-18T11:48:26.900Z",
+  "duration_ms": 1000,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "680cab04a085d35e9c98f0492c7202ead23698e8fad4ca841dfaf083d937a2b4",
+  "test_patch_sha256": "6de7ebaff782334ecc4c6fde711df221d58bc56240ead8a88471658808f3fe24",
+  "image": {
+    "name": "yutu0814/pyc-case-177-jpy:benchmark-v1",
+    "id": "sha256:ab2807d63d39277830ff04f241fbbfd256dfcac53b6445f4cfa0b1b0dd61e737",
+    "repo_digests": [
+      "yutu0814/pyc-case-177-jpy@sha256:ab2807d63d39277830ff04f241fbbfd256dfcac53b6445f4cfa0b1b0dd61e737"
+    ]
+  },
+  "container_exit_code": 1,
+  "phase": {
+    "phase": "test_patch",
+    "outcome": "unresolved",
+    "reason": "candidate_conflicts_with_test_patch",
+    "test_exit_code": null,
+    "instance_id": "bcdev__jpy-58f81d92"
+  },
+  "grading": {
+    "tests_observed": 0,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 1
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 3
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": null,
+    "tests": null,
+    "grading": "grading.json"
+  }
+}

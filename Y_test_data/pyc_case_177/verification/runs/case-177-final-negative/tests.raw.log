@@ -1,0 +1,26 @@
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes STARTED
+test_2ArgOverloadsWithVaryingTypes (jpy_overload_test.TestMethodOverloads) ... ok
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes PASSED
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads STARTED
+test_nArgOverloads (jpy_overload_test.TestMethodOverloads) ... ok
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads PASSED
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass STARTED
+test_nArgOverloadsAreFoundInBaseClass (jpy_overload_test.TestMethodOverloads) ... ok
+src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass PASSED
+src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic STARTED
+test_staticMethodIsFoundOverNonStatic (jpy_overload_test.TestStaticMethodOverloads) ... FAIL
+src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic FAILED
+
+======================================================================
+FAIL: test_staticMethodIsFoundOverNonStatic (jpy_overload_test.TestStaticMethodOverloads)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/src/test/python/jpy_overload_test.py", line 105, in test_staticMethodIsFoundOverNonStatic
+    self.assertEqual(str(s), '[A, B, C]')
+AssertionError: '[Ljava.lang.String;@1b6d3586' != '[A, B, C]'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+FAILED (failures=1)
+__NATIVE_PROCESS_RESULT__ {"shell_exit_code": 1, "requested_nodes": ["src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass", "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"], "observed_starts": ["src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass", "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"], "command": ["/usr/bin/python2.7", "/benchmark/unittest_native_runner.py", "--child", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass", "src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic"], "returncode": 1, "executed": true, "signal": null, "terminal_statuses": {"src/test/python/jpy_overload_test.py::TestStaticMethodOverloads::test_staticMethodIsFoundOverNonStatic": "FAILED", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloadsAreFoundInBaseClass": "PASSED", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_nArgOverloads": "PASSED", "src/test/python/jpy_overload_test.py::TestMethodOverloads::test_2ArgOverloadsWithVaryingTypes": "PASSED"}}

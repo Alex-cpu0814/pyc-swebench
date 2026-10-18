@@ -57,6 +57,7 @@ SWE-bench-compatible layout.
 | `pyc_case_174` | `spglib/spglib` | Issue / PR #195 / commit `9218fa14` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
 | `pyc_case_175` | `spglib/spglib` | Issue / PR #187 / commit `c571f29d` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
 | `pyc_case_176` | `bcdev/jpy` | Issue / PR #52 / commit `81bfc112` | Base: JVM fatal SIGSEGV, process SIGABRT / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_177` | `bcdev/jpy` | Issue / PR #54 / commit `58f81d92` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

@@ -1,0 +1,117 @@
+{
+  "image": "yutu0814/pyc-case-177-jpy:benchmark-v1",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "g++": "4:7.4.0-1ubuntu2.3",
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6": "2.27-3ubuntu1.6",
+    "openjdk-8-jdk-headless": "8u372-ga~us1-0ubuntu1~18.04",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "runtime_audit": {
+    "version_source": "exact upstream setup.py",
+    "measured_language_path": "original Python unittest -> compiled C/JNI extension -> OpenJDK8 JVM",
+    "assets": {
+      "target/test-classes/org/jpy/fixtures/FieldTestFixture.class": {
+        "sha256": "47e8b7716106ebb47617c25126e09f0e278caa7852e97f8da6cdf73c8a2ef499",
+        "size": 1398
+      },
+      "target/test-classes/org/jpy/fixtures/ExceptionTestFixture.class": {
+        "sha256": "fc5b9bc623f8e69b35eb2a6d595fec67837848890c6430fa2635f91f9edca198",
+        "size": 790
+      },
+      "target/test-classes/org/jpy/fixtures/TypeResolutionTestFixture.class": {
+        "sha256": "0a55d95bfed02e2a2290b0900ed9f616e565b1b02ec22c04039a4a36f467b5d8",
+        "size": 488
+      },
+      "target/test-classes/org/jpy/fixtures/Processor.class": {
+        "sha256": "459c2ed394e179a3b2e7d006c6acd8740fde2dcef21c4d1515eb445a08da8054",
+        "size": 227
+      },
+      "target/test-classes/org/jpy/fixtures/MethodOverloadTestFixture$MethodOverloadTestFixture2.class": {
+        "sha256": "06be05dd42eed88b1513cd4e2ef4858ad4077da5045499d5fddc7278a7b2c33e",
+        "size": 609
+      },
+      "target/test-classes/org/jpy/fixtures/MethodReturnValueTestFixture.class": {
+        "sha256": "c125889791b7baf69b0d3ffdc9165b96ab81ac184fcddced5aaa32370ab51667",
+        "size": 2218
+      },
+      "target/test-classes/org/jpy/fixtures/Thing.class": {
+        "sha256": "d9b66b63e9d420e5f21c069bce2a9ed87edcc84420704a9ed13d5aae5512c1a7",
+        "size": 958
+      },
+      "target/test-classes/org/jpy/fixtures/ModifyAndReturnParametersTestFixture.class": {
+        "sha256": "a29d76b1b0010a37a0e35f13c0982e36a9b810b145b8c2c8d5c35e8248841474",
+        "size": 1403
+      },
+      "target/test-classes/org/jpy/fixtures/TypeResolutionTestFixture$SuperThing.class": {
+        "sha256": "e4c04fa1c318412a0a0747b39676bab4c6c720539bd934229778451b1d067219",
+        "size": 463
+      },
+      "src/main/c/jpy_jtype.c": {
+        "sha256": "c2463b91de51f6aec2115fd0ac7b9904fd131fb20810caee1ec874dac947f7b9",
+        "size": 75561
+      },
+      "target/test-classes/org/jpy/fixtures/TypeConversionTestFixture.class": {
+        "sha256": "5cc1148ba2eb5232f6ce762058ba3b2bbfd003d6f6828ab51ac97e8495c09815",
+        "size": 761
+      },
+      "target/test-classes/org/jpy/fixtures/ConstructorOverloadTestFixture.class": {
+        "sha256": "0b8e81f603a719cd991a89821e846553d335240c37fd49d2e23a08186e09c905",
+        "size": 1197
+      },
+      "target/test-classes/org/jpy/fixtures/MethodOverloadTestFixture.class": {
+        "sha256": "a871641007c44830030446a96b458f7045042913a3cee155694d4f8f5f507e91",
+        "size": 2983
+      },
+      "src/main/c/jpy_jmethod.c": {
+        "sha256": "e4fc3e655b9da28e2a019c9761fa20f9cf10c639afe18c2d9a8da0961e53dc62",
+        "size": 31294
+      },
+      "src/main/c/jpy_jtype.h": {
+        "sha256": "ddc957f9f4507109aa28a417b661a4cdcfacd8d7842663a29a893a60b7ad71b7",
+        "size": 4083
+      },
+      "setup.py": {
+        "sha256": "359c593421aa6d7f1a01615200b44c1eaa7af469cf8a16e0225a6daa43e74834",
+        "size": 13546
+      },
+      "src/test/python/jpy_overload_test.py": {
+        "sha256": "efc71f9ccfb7e673264b471e5302ed9dfd10f67c9d561fd139bc885bf6328a6b",
+        "size": 4239
+      },
+      "README.md": {
+        "sha256": "a8399399f26ac09f6de9f4b336ac53892a6a5d3699006d404c190c9d55036751",
+        "size": 1646
+      },
+      "/testbed/src/main/python/jpy.so": {
+        "sha256": "3998a2b1d4e64f74cdc4c7d02c35932990188bc2548840462f57556744d4d998",
+        "size": 406328
+      }
+    },
+    "python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]",
+    "java_version": "openjdk version \"1.8.0_362\"\nOpenJDK Runtime Environment (build 1.8.0_362-8u372-ga~us1-0ubuntu1~18.04-b09)\nOpenJDK 64-Bit Server VM (build 25.362-b09, mixed mode)\n",
+    "module_path": "/testbed/src/main/python/jpy.so",
+    "package_version": "0.8-SNAPSHOT",
+    "has_jvm": true,
+    "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+  },
+  "source_git_identity": {
+    "base_commit": "7e58cea7c2551d0b590eff3959341ee823ec43c1",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "yutu0814/pyc-case-177-jpy:benchmark-v1",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"7e58cea7c2551d0b590eff3959341ee823ec43c1\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src/main/c/jpy_jmethod.c)\" = \"b7cbf030ae8860ddfa253fcdae9cf8f3d252cc85\"; test \"$(git hash-object src/main/c/jpy_jtype.c)\" = \"a2c1e46a2816f84f532f6a133c409ea053dc652b\"; test \"$(git hash-object src/main/c/jpy_jtype.h)\" = \"2bb00a8ceae38ce6380a983a9a8e4b0defd24b03\"; test \"$(git hash-object setup.py)\" = \"134c34b434cbfc5dbacaddb986889ad004209c6c\"; test \"$(git hash-object README.md)\" = \"c2bcd8371b3dae578a1a3b0fd5976f59e2fa2aba\"; test \"$(git hash-object src/test/python/jpy_overload_test.py)\" = \"5df06e9d90f68f198ef414e6a2866d27ebf0f2dc\"; dpkg-query -W libc6 gcc g++ git python2.7 python2.7-dev openjdk-8-jdk-headless; ldd /testbed/src/main/python/jpy.so; python2.7 -c 'from __future__ import print_function\nimport glob,hashlib,json,os,re,subprocess,sys\nimport jpy,jpyutil\nassert sys.version_info[:2]==(2,7)\nassert os.path.realpath(jpy.__file__).startswith('\\''/testbed/'\\'') and jpy.__file__.endswith('\\''.so'\\'')\njpyutil.init_jvm();assert jpy.has_jvm()\nfiles=['\\''src/main/c/jpy_jmethod.c'\\'', '\\''src/main/c/jpy_jtype.c'\\'', '\\''src/main/c/jpy_jtype.h'\\'', '\\''setup.py'\\'', '\\''README.md'\\'', '\\''src/test/python/jpy_overload_test.py'\\'']+[jpy.__file__]+sorted(glob.glob('\\''target/test-classes/org/jpy/fixtures/*.class'\\''))\nversion=re.search('\\''__version__ = \"([^\"]+)\"'\\'',open('\\''setup.py'\\'').read()).group(1);assert version=='\\''0.8-SNAPSHOT'\\''\nreport={'\\''package_version'\\'':version,'\\''version_source'\\'':'\\''exact upstream setup.py'\\'','\\''python_version'\\'':sys.version,'\\''module_path'\\'':jpy.__file__,'\\''has_jvm'\\'':jpy.has_jvm(),'\\''java_version'\\'':subprocess.check_output(['\\''java'\\'','\\''-version'\\''],stderr=subprocess.STDOUT),'\\''compiler'\\'':subprocess.check_output(['\\''gcc'\\'','\\''--version'\\'']).splitlines()[0],'\\''measured_language_path'\\'':'\\''original Python unittest -> compiled C/JNI extension -> OpenJDK8 JVM'\\'','\\''assets'\\'':{f:{'\\''size'\\'':os.path.getsize(f),'\\''sha256'\\'':hashlib.sha256(open(f,'\\''rb'\\'').read()).hexdigest()}for f in files}}\nassert '\\''1.8.0'\\'' in report['\\''java_version'\\''];assert len(files)>5\nprint(json.dumps(report))'"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-10-18T11:46:07.384Z",
+  "finishedAt": "2026-10-18T11:46:14.588Z",
+  "image": "pyc-case177-prototype-base:latest",
+  "exitCode": 0,
+  "command": [
+    "build",
+    "--progress=plain",
+    "-t",
+    "pyc-case177-prototype-base:latest",
+    "E:/CLB_Swe-bench/_work/pyc_batch/case177-image-context"
+  ]
+}
