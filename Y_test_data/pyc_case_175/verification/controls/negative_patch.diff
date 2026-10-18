@@ -1,0 +1,9 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -57,3 +57,5 @@
+ 
+ Usual spglib questions should be sent to spglib mailing list
+ (https://sourceforge.net/p/spglib/mailman/).
++
++Benchmark documentation-only control.

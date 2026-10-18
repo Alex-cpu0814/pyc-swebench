@@ -1,0 +1,2 @@
+error: patch failed: test/test_magnetic_symmetry.cpp:300
+error: test/test_magnetic_symmetry.cpp: patch does not apply

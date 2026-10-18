@@ -1,0 +1,13 @@
+{
+  "published_at": "2026-10-18T07:52:41.085Z",
+  "image": "yutu0814/pyc-case-175-spglib:benchmark-v1",
+  "verified_image_id": "sha256:06d09d8c8172c328860448ed7055be235f954a2331396cb29766080771363983",
+  "registry_digest": "sha256:06d09d8c8172c328860448ed7055be235f954a2331396cb29766080771363983",
+  "local_descriptor": {
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "digest": "sha256:06d09d8c8172c328860448ed7055be235f954a2331396cb29766080771363983",
+    "size": 856
+  },
+  "evidence": "Successful explicit direct Docker push approved on first request after actual read-only user batch authorization and public-only image payload audits; fixed verified image matches local RepoDigest and OCI descriptor",
+  "registry_independent_recheck": "unavailable: ERROR: failed to do request: Head \"https://registry-1.docker.io/v2/yutu0814/pyc-case-175-spglib/manifests/benchmark-v1\": dial tcp 31.13.86.21:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+}

@@ -1,0 +1,93 @@
+{
+  "upstream_url": "https://github.com/spglib/spglib/pull/187",
+  "base_commit": "4afa84322f83b368dada7e3c6f64c3a17114aaa0",
+  "fix_commit": "c571f29d57d51ed5d8efa1eb78e42e7f48082897",
+  "source_parents": [
+    "4afa84322f83b368dada7e3c6f64c3a17114aaa0",
+    "a6358a68218797a3cd3d94a01ced0d8a52fef615"
+  ],
+  "source_commit_timestamp_original_offset": "2022-08-31T10:47:26+08:00",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "measured_test_language": "C++ GoogleTest -> C API; Python binding not executed",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/magnetic_spacegroup.c",
+    "src/spin.c"
+  ],
+  "native_source_git_blobs": {
+    "src/magnetic_spacegroup.c": "fd063c9aca2983908832435a7a72843a4ed298f3",
+    "src/spin.c": "a26035af20571344e4e04402b94b928d54981ffa",
+    "src/version.h": "d3f826ee051e4a874cc51b98e4ef45c325490c30",
+    "test/CMakeLists.txt": "fcb819a591e1ef7424438b2311d9401842e44c9d",
+    "test/test_magnetic_symmetry.cpp": "39a972f10956aa7a93dd0643c161185432cd9e26"
+  },
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "git": "1:2.30.2-1+deb11u3",
+    "libc6": "2.31-13+deb11u11"
+  },
+  "environment_selection": "Original standalone test/CMakeLists.txt default Release, C++11, exact original GoogleTest release-1.12.1. Ordinary CMake/GCC on public Debian bullseye. No sanitizer or additional compiler flags.",
+  "resource_guard": "Runtime-only loader constructor sets RLIMIT_CORE=0 and PR_SET_DUMPABLE=0 for native child to avoid WSL piped core handler. No interposition, allocator/signal handlers, source or assertion changes; same Base/Gold.",
+  "tool_dependency_selection": "Reuse public pinned cmake3.22.6 wheel after case173 Debian package404; original standalone CMake/default Release settings retained.",
+  "upstream_created_at_timestamp": "2022-08-31T02:02:25Z",
+  "upstream_merged_at_timestamp": "2022-08-31T02:47:26Z",
+  "date_source": "https://api.github.com/repos/spglib/spglib/pulls/187",
+  "date_semantics": "Created at is actual PR187 opening 2022-08-31T02:02:25Z; merged at is actual PR187 merge 2022-08-31T02:47:26Z. Exact source commit timestamp is retained separately.",
+  "verified_scope": "The complete original C++ GoogleTest uses the original three-atom lattice, tensors [0.005,0.002,0.002], and symprec=mag_symprec=1e-2. It calls spg_get_symmetry and spgms_get_symmetry_with_site_tensors, asserts size==4 after each, prints the original operations and frees all original arrays. Base starts this target and receives SIGSEGV without a terminal status. Gold completes both assertions and all cleanup. Three complete existing native methods cover database operations, spacegroup type and type4 dataset. The actual C API is executed; Python binding and the full source-row trace are not executed.",
+  "source_trace_scope": "Original Python-C taxonomy and source-row trace are retained verbatim. The source trace ends at Python get_symmetry_dataset; the measured complete official regression uses native C++ GoogleTest directly calling the C API. No Python binding or full original source trace is executed by this test.",
+  "formal_runtime_audit": {
+    "package_version": "2.0.0",
+    "measured_language_path": "original C++ GoogleTest -> C API; Python binding not executed",
+    "python_orchestrator_version": "3.8.20 (default, Sep 27 2024, 06:04:53) \n[GCC 10.2.1 20210110]",
+    "compiler": "gcc (Debian 10.2.1-6) 10.2.1 20210110",
+    "cmake": "cmake version 3.22.6",
+    "googletest_commit": "58d77fa8070e8cec2dc1ed015d66b454c8d78850",
+    "assets": {
+      "src/spglib.c": {
+        "size": 84194,
+        "sha256": "c2bec3c777e4811a95eb233afbe44c0257ec9b4aa1322ffd1b676f6bef9a0384"
+      },
+      "src/spin.c": {
+        "size": 31368,
+        "sha256": "c757d7d72cf038d2f87470a7e1eb19c42d0f314fb573578b4ad3de3694d3fbd0"
+      },
+      "src/version.h": {
+        "size": 1828,
+        "sha256": "79a36ee783f6eb8a68ef993e6e4a99fbca344b2104860186a622336e234a2c7c"
+      },
+      "test/CMakeLists.txt": {
+        "size": 2396,
+        "sha256": "ccbeb22178b2913b6d0b39eb587cef422e468d66dfff79484577fc5508b1301c"
+      },
+      "test/test_magnetic_symmetry.cpp": {
+        "size": 13634,
+        "sha256": "070dc7756f14f41d9ffc6605601772fc2d16aa92ea9037ea02576a6122510879"
+      },
+      "build/libsymspg.a": {
+        "size": 1971906,
+        "sha256": "7aa049560bff26147fe0bd115a76230fc8816fb0c7efc25aa2b1c3304175c604"
+      },
+      "build/test_magnetic_symmetry": {
+        "size": 2386464,
+        "sha256": "8bc0c74b1f00913191d9538274619857e5fb816a04bfa319dd03bbf606e82ef4"
+      },
+      "build/CMakeCache.txt": {
+        "size": 20868,
+        "sha256": "962c2f57bad2e1745e55470e12a8795d897d595964f081bc762a86682abbe3a9"
+      },
+      "build/CMakeFiles/symspg.dir/flags.make": {
+        "size": 220,
+        "sha256": "5f3515945fccbb68af8601b1820a0a1b7c3a2568c1e622a397f30c1cbabec8ed"
+      },
+      "build/CMakeFiles/test_magnetic_symmetry.dir/flags.make": {
+        "size": 540,
+        "sha256": "0c7ce4826506c23783eb74f9e4a672582a139fb04a29d4e95b592f2c8e19f9c5"
+      }
+    },
+    "native_compile_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.22\n\n# compile C with /usr/bin/cc\nC_DEFINES = \n\nC_INCLUDES = -I/testbed/test/../src -I/testbed/test\n\nC_FLAGS = -O3 -DNDEBUG\n\n",
+    "cpp_compile_flags": "# CMAKE generated file: DO NOT EDIT!\n# Generated by \"Unix Makefiles\" Generator, CMake Version 3.22\n\n# compile C with /usr/bin/cc\n# compile CXX with /usr/bin/c++\nC_DEFINES = \n\nC_INCLUDES = -I/testbed/test/../src -I/testbed/test -isystem /opt/googletest/googletest/include -isystem /opt/googletest/googletest\n\nC_FLAGS = -O3 -DNDEBUG -pthread\n\nCXX_DEFINES = \n\nCXX_INCLUDES = -I/testbed/test/../src -I/testbed/test -isystem /opt/googletest/googletest/include -isystem /opt/googletest/googletest\n\nCXX_FLAGS = -O3 -DNDEBUG -pthread -std=gnu++11\n\n"
+  }
+}

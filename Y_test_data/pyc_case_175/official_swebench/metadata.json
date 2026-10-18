@@ -1,0 +1,143 @@
+{
+  "dataset_schema_version": "1.0",
+  "source_case": "174",
+  "candidate_case": "175",
+  "duplicate_source_cases_removed": [],
+  "official_test_scope": "The complete original C++ GoogleTest uses the original three-atom lattice, tensors [0.005,0.002,0.002], and symprec=mag_symprec=1e-2. It calls spg_get_symmetry and spgms_get_symmetry_with_site_tensors, asserts size==4 after each, prints the original operations and frees all original arrays. Base starts this target and receives SIGSEGV without a terminal status. Gold completes both assertions and all cleanup. Three complete existing native methods cover database operations, spacegroup type and type4 dataset. The actual C API is executed; Python binding and the full source-row trace are not executed.",
+  "dataset_variant": "SWE-bench-compatible custom record",
+  "test_source": "official_project_tests",
+  "validation_type": "official_cpp_googletest",
+  "created_at": "2022-08-31",
+  "created_at_precision": "date",
+  "instance_id": "spglib__spglib-c571f29d",
+  "source_instance_id": "pyc_case_175",
+  "repo": "spglib/spglib",
+  "issue_id": "187",
+  "issue_url": "https://github.com/spglib/spglib/pull/187",
+  "project_version": "2.0.0",
+  "base_commit": "4afa84322f83b368dada7e3c6f64c3a17114aaa0",
+  "fix_commit": "c571f29d57d51ed5d8efa1eb78e42e7f48082897",
+  "FAIL_TO_PASS": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec"
+  ],
+  "PASS_TO_PASS": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4"
+  ],
+  "verification": {
+    "container_engine": "Docker Desktop Linux containers",
+    "architecture": "linux/amd64",
+    "base_image": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+    "python_version": "3.8.20 (evaluator orchestration only)",
+    "test_runner_version": "GoogleTest release-1.12.1 (58d77fa8070e8cec2dc1ed015d66b454c8d78850)",
+    "compiler_toolchain": "Ordinary public Python3.8.20-bullseye GCC/G++10.2 and CMake3.22.6, original default Release flags. No product/test/allocator/compiler-macro changes.",
+    "base_target_status": "MISSING terminal status after native SIGSEGV, exit139",
+    "base_regression_status": "3 passed",
+    "gold_target_status": "1 passed",
+    "gold_regression_status": "3 passed",
+    "result": "verified_base_fail_gold_pass_docker",
+    "image": {
+      "name": "yutu0814/pyc-case-175-spglib:benchmark-v1",
+      "id": "sha256:06d09d8c8172c328860448ed7055be235f954a2331396cb29766080771363983",
+      "repo_digests": [
+        "yutu0814/pyc-case-175-spglib@sha256:06d09d8c8172c328860448ed7055be235f954a2331396cb29766080771363983"
+      ]
+    },
+    "controls": {
+      "gold": {
+        "status": "resolved",
+        "reason": "all_expected_tests_passed",
+        "grading": {
+          "tests_observed": 4,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "negative": {
+        "status": "unresolved",
+        "reason": "expected_test_failed_skipped_or_missing",
+        "grading": {
+          "tests_observed": 3,
+          "FAIL_TO_PASS": {
+            "expected": 1,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 1
+          },
+          "PASS_TO_PASS": {
+            "expected": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "missing": 0
+          },
+          "unexpected_failures": 0
+        }
+      },
+      "tamper": {
+        "status": "unresolved",
+        "reason": "candidate_conflicts_with_test_patch"
+      }
+    },
+    "image_audit": {
+      "schema_version": "3.0",
+      "instance_id": "spglib__spglib-c571f29d",
+      "base_commit": "4afa84322f83b368dada7e3c6f64c3a17114aaa0",
+      "working_tree_clean": true,
+      "fix_commit_present": false,
+      "model_patch_present": false,
+      "test_patch_present": false,
+      "gold_patch_present": false,
+      "evaluation_assets_injected_at_runtime": true,
+      "network_disabled_during_audit": true
+    },
+    "formal_runs": [
+      "verification/runs/case-175-final-gold/summary.json",
+      "verification/runs/case-175-final-negative/summary.json",
+      "verification/runs/case-175-final-tamper/summary.json"
+    ]
+  },
+  "merged_at": "2022-08-31",
+  "fix_committed_at": "2022-08-31",
+  "date_semantics": "Created at is actual PR187 opening 2022-08-31T02:02:25Z; merged at is actual PR187 merge 2022-08-31T02:47:26Z. Exact source commit timestamp is retained separately.",
+  "source_classification": "Python-C (preserved original taxonomy)",
+  "product_patch_languages": [
+    "C"
+  ],
+  "native_product_files_changed": [
+    "src/magnetic_spacegroup.c",
+    "src/spin.c"
+  ],
+  "verified_scope": "The complete original C++ GoogleTest uses the original three-atom lattice, tensors [0.005,0.002,0.002], and symprec=mag_symprec=1e-2. It calls spg_get_symmetry and spgms_get_symmetry_with_site_tensors, asserts size==4 after each, prints the original operations and frees all original arrays. Base starts this target and receives SIGSEGV without a terminal status. Gold completes both assertions and all cleanup. Three complete existing native methods cover database operations, spacegroup type and type4 dataset. The actual C API is executed; Python binding and the full source-row trace are not executed.",
+  "source_trace_scope": "Original Python-C taxonomy and source-row trace are retained verbatim. The source trace ends at Python get_symmetry_dataset; the measured complete official regression uses native C++ GoogleTest directly calling the C API. No Python binding or full original source trace is executed by this test.",
+  "native_package_versions": {
+    "g++": "4:10.2.1-1",
+    "gcc": "4:10.2.1-1",
+    "git": "1:2.30.2-1+deb11u3",
+    "libc6": "2.31-13+deb11u11"
+  },
+  "runtime_audit": "verification/runtime-audit/summary.json",
+  "product_files": [
+    "src/magnetic_spacegroup.c",
+    "src/spin.c",
+    "test/README.md"
+  ],
+  "test_files": [
+    "test/test_magnetic_symmetry.cpp"
+  ]
+}

@@ -1,0 +1,12 @@
+diff --git a/test/test_magnetic_symmetry.cpp b/test/test_magnetic_symmetry.cpp
+--- a/test/test_magnetic_symmetry.cpp
++++ b/test/test_magnetic_symmetry.cpp
+@@ -301,7 +301,7 @@
+ }
+ 
+ // ****************************************************************************
+-// Local functions
++// Protected official patch context conflict
+ // ****************************************************************************
+ 
+ static void show_magnetic_symmetry_operations(SPGCONST int (*rotations)[3][3], const double (*translations)[3], const int *time_reversals, const int size) {

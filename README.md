@@ -55,6 +55,7 @@ SWE-bench-compatible layout.
 | `pyc_case_159` | `astrofrog/fast-histogram` | Issue / PR #52 / commit `82f140be` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_160` | `astrofrog/fast-histogram` | Issue / PR #21 / commit `e384cdf1` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_174` | `spglib/spglib` | Issue / PR #195 / commit `9218fa14` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_175` | `spglib/spglib` | Issue / PR #187 / commit `c571f29d` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
 
 Source Cases 2 and 38 refer to the same commit. Only Case 2 is materialized.
 Source Cases 15 and 16 refer to the same full fix commit. Only Case 15 is materialized.

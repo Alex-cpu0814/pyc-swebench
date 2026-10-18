@@ -1,0 +1,200 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /testbed/build
+__NATIVE_GTEST_WRAPPER__ {"guard_source_sha256": "5b32083c29114a8e2d37a40885115aefd5df200de00e6dcfd6a8df426e2d630d", "guard_scope": "Process dumpability/resource metadata only; no interposed functions, allocator, signal handler or test modification", "core_pattern": "|/wsl-capture-crash %t %E %p %s"}
+Running main() from /opt/googletest/googletest/src/gtest_main.cc
+Note: Google Test filter = test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database:test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type:test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4:test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from test_magnetic_symmetry
+[ RUN      ] test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database STARTED
+--- 1 ---
+ 1  0  0
+ 0  1  0
+ 0  0  1
+0.000000 0.000000 0.000000
+ 0
+--- 2 ---
+ 0  0  1
+ 1  0  0
+ 0  1  0
+0.000000 0.000000 0.000000
+ 0
+--- 3 ---
+ 0  0  1
+ 1  0  0
+ 0  1  0
+0.500000 0.500000 0.500000
+ 1
+--- 4 ---
+ 0  1  0
+ 0  0  1
+ 1  0  0
+0.000000 0.000000 0.000000
+ 0
+--- 5 ---
+ 1  0  0
+ 0  1  0
+ 0  0  1
+0.500000 0.500000 0.500000
+ 1
+--- 6 ---
+ 0  1  0
+ 0  0  1
+ 1  0  0
+0.500000 0.500000 0.500000
+ 1
+[       OK ] test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database (0 ms)
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database PASSED
+[ RUN      ] test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type STARTED
+UNI Number:    1279
+Litvin Number: 1279
+BNS Number:    156.49
+OG Number:     156.1.1279
+Number:        156
+Type:          1
+[       OK ] test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type (0 ms)
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type PASSED
+[ RUN      ] test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4 STARTED
+UNI number: 932
+Type: 4
+Hall number: 390
+
+Symmetry operations
+--- 1 ---
+ 1  0  0
+ 0  1  0
+ 0  0  1
+0.000000 0.000000 0.000000
+0
+--- 2 ---
+ 0  1  0
+-1  0  0
+ 0  0 -1
+0.500000 0.500001 0.250000
+0
+--- 3 ---
+-1  0  0
+ 0 -1  0
+ 0  0  1
+0.000001 0.000001 0.000000
+0
+--- 4 ---
+ 0 -1  0
+ 1  0  0
+ 0  0 -1
+0.500001 0.500000 0.250000
+0
+--- 5 ---
+ 1  0  0
+ 0 -1  0
+ 0  0 -1
+0.500000 0.500001 0.250000
+0
+--- 6 ---
+ 0  1  0
+ 1  0  0
+ 0  0  1
+0.000000 0.000000 0.000000
+0
+--- 7 ---
+-1  0  0
+ 0  1  0
+ 0  0 -1
+0.500001 0.500000 0.250000
+0
+--- 8 ---
+ 0 -1  0
+-1  0  0
+ 0  0  1
+0.000001 0.000001 0.000000
+0
+--- 9 ---
+ 1  0  0
+ 0  1  0
+ 0  0  1
+0.000000 0.000000 0.500000
+1
+--- 10 ---
+ 0  1  0
+-1  0  0
+ 0  0 -1
+0.500000 0.500001 0.750000
+1
+--- 11 ---
+-1  0  0
+ 0 -1  0
+ 0  0  1
+0.000001 0.000001 0.500000
+1
+--- 12 ---
+ 0 -1  0
+ 1  0  0
+ 0  0 -1
+0.500001 0.500000 0.750000
+1
+--- 13 ---
+ 1  0  0
+ 0 -1  0
+ 0  0 -1
+0.500000 0.500001 0.750000
+1
+--- 14 ---
+ 0  1  0
+ 1  0  0
+ 0  0  1
+0.000000 0.000000 0.500000
+1
+--- 15 ---
+-1  0  0
+ 0  1  0
+ 0  0 -1
+0.500001 0.500000 0.750000
+1
+--- 16 ---
+ 0 -1  0
+-1  0  0
+ 0  0  1
+0.000001 0.000001 0.500000
+1
+
+Equivalent atoms:
+ 0 0 2 2 2 2 0 0 2 2 2 2
+
+Transformation matrix:
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+Origin shift:
+0.500000 1.000000 0.875000
+
+Standardization
+Rigid rotation
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 0.000000 1.000000
+Lattice
+5.000000 0.000000 0.000000
+0.000000 5.000000 0.000000
+0.000000 0.000000 6.000000
+Positions, types, site tensors 
+[0.500000 0.000000 0.875000], types=1, 0.300000
+[0.000000 0.500000 0.125000], types=1, 0.300000
+[0.800000 0.300000 0.875000], types=2, 0.000000
+[0.200000 0.700000 0.875000], types=2, 0.000000
+[0.700000 0.800000 0.125000], types=2, 0.000000
+[0.300000 0.200000 0.125000], types=2, 0.000000
+[0.500000 0.000000 0.375000], types=1, -0.300000
+[0.000000 0.500000 0.625000], types=1, -0.300000
+[0.800000 0.300000 0.375000], types=2, 0.000000
+[0.200000 0.700000 0.375000], types=2, 0.000000
+[0.700000 0.800000 0.625000], types=2, 0.000000
+[0.300000 0.200000 0.625000], types=2, 0.000000
+[       OK ] test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4 (2 ms)
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4 PASSED
+[ RUN      ] test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec STARTED
+__NATIVE_PROCESS_RESULT__ {"command": ["/testbed/build/test_magnetic_symmetry", "--gtest_color=no", "--gtest_filter=test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database:test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type:test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4:test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec"], "requested_nodes": ["test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec"], "observed_starts": ["test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec"], "terminal_statuses": {"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database": "PASSED", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type": "PASSED", "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4": "PASSED"}, "returncode": -11, "signal": "SIGSEGV", "shell_exit_code": 139, "executed": true}

@@ -1,0 +1,146 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.60kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B 0.0s done
+#3 DONE 0.1s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 DONE 0.1s
+
+#5 [2/6] RUN python -m pip install --no-cache-dir cmake==3.22.6
+#5 CACHED
+
+#6 [3/6] RUN git init /opt/googletest && cd /opt/googletest && git remote add origin https://github.com/google/googletest.git && git fetch --depth=1 --no-tags origin 58d77fa8070e8cec2dc1ed015d66b454c8d78850 && git checkout --detach FETCH_HEAD && git remote remove origin && test "$(git rev-parse HEAD)" = 58d77fa8070e8cec2dc1ed015d66b454c8d78850
+#6 CACHED
+
+#7 [4/6] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/spglib/spglib.git" && git fetch --depth=1 --no-tags origin "4afa84322f83b368dada7e3c6f64c3a17114aaa0" && git checkout --detach "4afa84322f83b368dada7e3c6f64c3a17114aaa0" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "4afa84322f83b368dada7e3c6f64c3a17114aaa0"
+#7 0.246 hint: Using 'master' as the name for the initial branch. This default branch name
+#7 0.246 hint: is subject to change. To configure the initial branch name to use in all
+#7 0.246 hint: of your new repositories, which will suppress this warning, call:
+#7 0.246 hint: 
+#7 0.246 hint: 	git config --global init.defaultBranch <name>
+#7 0.246 hint: 
+#7 0.246 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#7 0.246 hint: 'development'. The just-created branch can be renamed via this command:
+#7 0.246 hint: 
+#7 0.246 hint: 	git branch -m <name>
+#7 0.247 Initialized empty Git repository in /testbed/.git/
+#7 1.951 From https://github.com/spglib/spglib
+#7 1.951  * branch            4afa84322f83b368dada7e3c6f64c3a17114aaa0 -> FETCH_HEAD
+#7 2.063 HEAD is now at 4afa843 Merge pull request #184 from spglib/doc-fix
+#7 DONE 2.1s
+
+#8 [5/6] WORKDIR /testbed
+#8 DONE 0.1s
+
+#9 [6/6] RUN cmake -S test -B build -DFETCHCONTENT_SOURCE_DIR_GOOGLETEST=/opt/googletest && cmake --build build --target test_magnetic_symmetry --parallel 2 && test -x /testbed/build/test_magnetic_symmetry && test "$(git -C /opt/googletest rev-parse HEAD)" = 58d77fa8070e8cec2dc1ed015d66b454c8d78850 && /testbed/build/test_magnetic_symmetry --gtest_list_tests && printf '%s\n' '/build/' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#9 0.464 -- The CXX compiler identification is GNU 10.2.1
+#9 0.535 -- The C compiler identification is GNU 10.2.1
+#9 0.547 -- Detecting CXX compiler ABI info
+#9 0.605 -- Detecting CXX compiler ABI info - done
+#9 0.612 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#9 0.613 -- Detecting CXX compile features
+#9 0.614 -- Detecting CXX compile features - done
+#9 0.618 -- Detecting C compiler ABI info
+#9 0.663 -- Detecting C compiler ABI info - done
+#9 0.670 -- Check for working C compiler: /usr/bin/cc - skipped
+#9 0.670 -- Detecting C compile features
+#9 0.671 -- Detecting C compile features - done
+#9 0.674 -- Looking for pthread.h
+#9 0.725 -- Looking for pthread.h - found
+#9 0.725 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#9 0.769 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#9 0.770 -- Check if compiler accepts -pthread
+#9 0.817 -- Check if compiler accepts -pthread - yes
+#9 0.819 -- Found Threads: TRUE  
+#9 0.961 -- Found Python: /usr/bin/python3.9 (found version "3.9.2") found components: Interpreter 
+#9 0.973 -- Configuring done
+#9 1.003 -- Generating done
+#9 1.005 -- Build files have been written to: /testbed/build
+#9 1.057 [  3%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+#9 1.057 [  6%] Building C object CMakeFiles/symspg.dir/testbed/src/arithmetic.c.o
+#9 1.085 [  9%] Building C object CMakeFiles/symspg.dir/testbed/src/cell.c.o
+#9 1.272 [ 12%] Building C object CMakeFiles/symspg.dir/testbed/src/debug.c.o
+#9 1.285 [ 15%] Building C object CMakeFiles/symspg.dir/testbed/src/delaunay.c.o
+#9 1.415 [ 18%] Building C object CMakeFiles/symspg.dir/testbed/src/determination.c.o
+#9 1.447 [ 21%] Building C object CMakeFiles/symspg.dir/testbed/src/hall_symbol.c.o
+#9 1.588 [ 25%] Building C object CMakeFiles/symspg.dir/testbed/src/kgrid.c.o
+#9 1.629 [ 28%] Building C object CMakeFiles/symspg.dir/testbed/src/kpoint.c.o
+#9 1.781 [ 31%] Building C object CMakeFiles/symspg.dir/testbed/src/magnetic_spacegroup.c.o
+#9 1.879 In function ‘get_reference_space_group’,
+#9 1.879     inlined from ‘msg_identify_magnetic_space_group_type’ at /testbed/src/magnetic_spacegroup.c:115:12:
+#9 1.879 /testbed/src/magnetic_spacegroup.c:500:9: warning: attempt to free a non-heap object ‘ref_sg’ [-Wfree-nonheap-object]
+#9 1.879   500 |         free(ref_sg);
+#9 1.879       |         ^~~~~~~~~~~~
+#9 1.950 [ 34%] Building C object CMakeFiles/symspg.dir/testbed/src/mathfunc.c.o
+#9 2.092 [ 37%] Building C object CMakeFiles/symspg.dir/testbed/src/msg_database.c.o
+#9 2.241 [ 40%] Building C object CMakeFiles/symspg.dir/testbed/src/niggli.c.o
+#9 2.357 [ 43%] Building C object CMakeFiles/symspg.dir/testbed/src/overlap.c.o
+#9 2.501 [ 46%] Building C object CMakeFiles/symspg.dir/testbed/src/pointgroup.c.o
+#9 2.692 [ 50%] Building C object CMakeFiles/symspg.dir/testbed/src/primitive.c.o
+#9 2.814 [ 53%] Building C object CMakeFiles/symspg.dir/testbed/src/refinement.c.o
+#9 3.078 [ 56%] Building C object CMakeFiles/symspg.dir/testbed/src/site_symmetry.c.o
+#9 3.223 [ 59%] Building C object CMakeFiles/symspg.dir/testbed/src/sitesym_database.c.o
+#9 3.265 [ 62%] Building C object CMakeFiles/symspg.dir/testbed/src/spacegroup.c.o
+#9 3.523 [ 65%] Building C object CMakeFiles/symspg.dir/testbed/src/spg_database.c.o
+#9 3.622 [ 68%] Building C object CMakeFiles/symspg.dir/testbed/src/spglib.c.o
+#9 3.925 [ 71%] Building C object CMakeFiles/symspg.dir/testbed/src/spglib_f.c.o
+#9 3.940 /testbed/src/spglib_f.c: In function ‘spg_get_international_’:
+#9 3.940 /testbed/src/spglib_f.c:86:9: warning: ‘strncpy’ specified bound depends on the length of the source argument [-Wstringop-overflow=]
+#9 3.940    86 |         strncpy(symbol, symbol_c, length);
+#9 3.940       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 3.940 /testbed/src/spglib_f.c:85:18: note: length computed here
+#9 3.940    85 |         length = strlen(symbol_c);
+#9 3.940       |                  ^~~~~~~~~~~~~~~~
+#9 3.947 /testbed/src/spglib_f.c: In function ‘spg_get_schoenflies_’:
+#9 3.947 /testbed/src/spglib_f.c:115:9: warning: ‘strncpy’ specified bound depends on the length of the source argument [-Wstringop-overflow=]
+#9 3.947   115 |         strncpy(symbol, symbol_c, length);
+#9 3.947       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 3.947 /testbed/src/spglib_f.c:114:18: note: length computed here
+#9 3.947   114 |         length = strlen(symbol_c);
+#9 3.947       |                  ^~~~~~~~~~~~~~~~
+#9 3.964 [ 75%] Building C object CMakeFiles/symspg.dir/testbed/src/spin.c.o
+#9 4.141 [ 78%] Building C object CMakeFiles/symspg.dir/testbed/src/symmetry.c.o
+#9 4.344 [ 81%] Linking C static library libsymspg.a
+#9 4.367 [ 81%] Built target symspg
+#9 8.157 [ 84%] Linking CXX static library ../../../lib/libgtest.a
+#9 8.174 [ 84%] Built target gtest
+#9 8.182 [ 87%] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+#9 8.707 [ 90%] Linking CXX static library ../../../lib/libgtest_main.a
+#9 8.720 [ 90%] Built target gtest_main
+#9 8.729 [ 93%] Building CXX object CMakeFiles/test_magnetic_symmetry.dir/test_magnetic_symmetry.cpp.o
+#9 8.729 [ 96%] Building C object CMakeFiles/test_magnetic_symmetry.dir/utils.c.o
+#9 9.538 [100%] Linking CXX executable test_magnetic_symmetry
+#9 9.617 [100%] Built target test_magnetic_symmetry
+#9 9.628 Running main() from /opt/googletest/googletest/src/gtest_main.cc
+#9 9.628 test_magnetic_symmetry.
+#9 9.628   test_spg_get_magnetic_symmetry_from_database
+#9 9.628   test_spg_get_symmetry_with_collinear_spin
+#9 9.628   test_spg_get_symmetry_with_site_tensors
+#9 9.628   test_spg_get_magnetic_spacegroup_type
+#9 9.628   test_spg_get_magnetic_dataset
+#9 9.628   test_spg_get_magnetic_dataset_type4
+#9 DONE 9.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.8s done
+#10 exporting manifest sha256:bc481db9c4d28ef5e349795551419c12c83b04ca34657251764dee7474979e77 0.0s done
+#10 exporting config sha256:e854d3e31a606ee3a882f9980046af73a2f3eebb36488964174e61c2462af59b 0.0s done
+#10 exporting attestation manifest sha256:5d6331635d3433e32d9fe693ab28eafe5eb1e04f58b38d55683eb938e0bb4b60 0.0s done
+#10 exporting manifest list sha256:28be391b2aab0843a5fe13e7d056f852dd7dca4acca928594f79d55b98ce7fb8
+#10 exporting manifest list sha256:28be391b2aab0843a5fe13e7d056f852dd7dca4acca928594f79d55b98ce7fb8 0.0s done
+#10 naming to docker.io/library/pyc-case175-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case175-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case175-prototype-base:latest 0.4s done
+#10 DONE 1.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/v992lazvgizwmwdq05vloagjk

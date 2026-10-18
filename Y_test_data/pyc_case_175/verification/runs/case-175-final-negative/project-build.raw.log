@@ -1,0 +1,13 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /testbed/build
+Consolidate compiler generated dependencies of target gtest
+Consolidate compiler generated dependencies of target symspg
+[  6%] Built target gtest
+[ 84%] Built target symspg
+Consolidate compiler generated dependencies of target gtest_main
+[ 90%] Built target gtest_main
+Consolidate compiler generated dependencies of target test_magnetic_symmetry
+[ 93%] Building CXX object CMakeFiles/test_magnetic_symmetry.dir/test_magnetic_symmetry.cpp.o
+[ 96%] Linking CXX executable test_magnetic_symmetry
+[100%] Built target test_magnetic_symmetry

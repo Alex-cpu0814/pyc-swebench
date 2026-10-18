@@ -1,0 +1,14 @@
+*.diff text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.xlsx binary
+*.raw.log -text -whitespace
+*.txt -text -whitespace
+*.ndjson -text
+*.raw.html -text -whitespace
+*.diff -text -whitespace
+"analysis/source_material/case175_pr187.raw.html" -text

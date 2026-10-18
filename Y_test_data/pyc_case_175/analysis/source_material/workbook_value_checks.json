@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "sheet": "Source Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"Source Record\",\"address\":\"A1:B19\",\"rows\":19,\"cols\":2,\"values\":[[\"Python-C Case 175 — Source and Trace Evidence\",\"\"],[\"Field\",\"Value\"],[\"Source case\",\"174\"],[\"Repository\",\"spglib/spglib\"],[\"Fix commit\",\"c571f29d57d51ed5d8efa1eb78e42e7f48082897\"],[\"Base commit\",\"4afa84322f83b368dada7e3c6f64c3a17114aaa0\"],[\"Upstream issue / PR\",\"https://github.com/spglib/spglib/pull/187\"],[\"Symptom\",\"segment fault (crash)\"],[\"Bug location\",\"line 439\"],[\"Bug location type\",\"function call + assignment\"],[\"Root cause\",\"Logic error\"],[\"Fixing strategy\",\"Boundary check against value range/limit\"],[\"Fix location\",\"if/branching statement\"],[\"Problem statement\",\"Handle magnetic dataset failure paths without segmentation faults.\"],[\"Original source trace\",\"418(c_spin_37-cfg.dot) (get_operations) … -> 347(c_spin_37-cfg.dot) (get_operations) -> 239(c_symmetry_18-cfg.dot) (sym_get_operation) … -> 235(c_symmetry_18-cfg.dot) (sym_get_operation) -> 493(c_spacegroup_15-cfg.dot) (spa_search_spacegroup) … -> 481(c_spacegroup_15-cfg.dot) (spa_search_spacegroup) -> 143(c_determination_21-cfg.dot) (get_spacegroup_and_primitive) … -> 112(c_determination_21-cfg.dot) (get_spacegroup_and_primitive) -> 71(c_determination_21-cfg.dot) (det_determine_all) … -> 56(c_determination_21-cfg.dot) (det_determine_all) -> 1076(c_spglib_21-cfg.dot) (get_dataset) … -> 1044(c_spglib_21-cfg.dot) (get_dataset) -> 316(c_spglib_21-cfg.dot) (spgat_get_dataset_with_hall_number) … -> 312(c_spglib_21-cfg.dot) (spgat_get_dataset_with_hall_number) -> 420(c__spglib_29-cfg.dot) (py_get_dataset) … -> 396(c__spglib_29-cfg.dot) (py_get_dataset) -> 404(py_spglib_35-cfg.dot) (get_symmetry_dataset)\"],[\"Source trace scope\",\"Original Python-C taxonomy and source-row trace are retained verbatim. The source trace ends at Python get_symmetry_dataset; the measured complete official regression uses native C++ GoogleTest directly calling the C API. No Python binding or full original source trace is executed by this test.\"],[\"Verified Base trace\",\"Base passes three complete original native regressions, starts the complete rough-symprec target, then its native GoogleTest child exits on SIGSEGV (returncode -11, shell exit139). The target has no terminal test result and is graded MISSING. Full exact upstream Gold completes all four methods with PASSED and exit0. No FAILED terminal line is invented.\"],[\"Verified official test\",\"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec\\ntest/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database\\ntest/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type\\ntest/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4\"],[\"Official test scope\",\"The complete original C++ GoogleTest uses the original three-atom lattice, tensors [0.005,0.002,0.002], and symprec=mag_symprec=1e-2. It calls spg_get_symmetry and spgms_get_symmetry_with_site_tensors, asserts size==4 after each, prints the original operations and frees all original arrays. Base starts this target and receives SIGSEGV without a terminal status. Gold completes both assertions and all cleanup. Three complete existing native methods cover database operations, spacegroup type and type4 dataset. The actual C API is executed; Python binding and the full source-row trace are not executed.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "3ah8qa",
+          "target": {
+            "id": "wb/td020w",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    },
+    {
+      "sheet": "SWE-bench Record",
+      "ndjson": "{\"kind\":\"table\",\"sheet\":\"SWE-bench Record\",\"address\":\"A1:B18\",\"rows\":18,\"cols\":2,\"values\":[[\"Python-C Case 175 — SWE-bench-compatible Record\",\"\"],[\"Field\",\"Value\"],[\"Instance ID\",\"spglib__spglib-c571f29d\"],[\"Repository\",\"spglib/spglib\"],[\"Version\",\"2.0.0\"],[\"Created at\",44804],[\"Base commit\",\"4afa84322f83b368dada7e3c6f64c3a17114aaa0\"],[\"Fix commit\",\"c571f29d57d51ed5d8efa1eb78e42e7f48082897\"],[\"Merged at\",44804],[\"Issue / PR\",\"https://github.com/spglib/spglib/pull/187\"],[\"Test source\",\"Complete original native C++ GoogleTest cases\"],[\"FAIL_TO_PASS (1)\",\"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_symprec\"],[\"PASS_TO_PASS (1)\",\"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database\"],[\"PASS_TO_PASS (2)\",\"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type\"],[\"PASS_TO_PASS (3)\",\"test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4\"],[\"Base / Gold outcome\",\"Base: 3 regressions PASSED, target starts then SIGSEGV with no terminal status (MISSING), exit139. Gold: 4 complete original methods PASSED, exit0.\"],[\"Docker image\",\"yutu0814/pyc-case-175-spglib:benchmark-v1\"],[\"Problem statement\",\"Handle magnetic dataset failure paths without segmentation faults.\"]]}",
+      "inspection": {
+        "recordCount": 1,
+        "truncated": false,
+        "metadata": {
+          "revision": "8hcg1k",
+          "target": {
+            "id": "wb/4vvbxk",
+            "beforeLines": 0,
+            "afterLines": 0
+          },
+          "kind": {
+            "requested": "table",
+            "tokens": [
+              "table"
+            ]
+          },
+          "include": {
+            "requested": "values,formulas",
+            "tokens": [
+              "values",
+              "formulas"
+            ]
+          },
+          "exclude": {
+            "tokens": []
+          },
+          "notices": []
+        }
+      }
+    }
+  ],
+  "errorScanNdjson": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}
