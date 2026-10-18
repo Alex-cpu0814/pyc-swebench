@@ -33,26 +33,26 @@ SWE-bench-compatible layout.
 | `pyc_case_057` | `python-pillow/Pillow` | Issue / PR #5613 / commit `5f39e8e6` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_058` | `python-pillow/Pillow` | Issue / PR #5408 / commit `d3a3b6dd` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_060` | `python-pillow/Pillow` | Issue / PR #5274 / commit `9a683db3` | Base: 2 target failures; Gold: 2 targets and 2 regressions pass |
-| `pyc_case_066` | `python-pillow/Pillow` | Issue / PR #2634 / commit `e71757aa` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_066` | `python-pillow/Pillow` | Issue / PR #2634 / commit `e71757aa` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_068` | `python-pillow/Pillow` | Issue / PR #574 / commit `6e2075e2` | Base: 5 target failures; Gold: 5 targets and 3 regressions pass |
-| `pyc_case_070` | `ultrajson/ultrajson` | Issue / PR #426 / commit `335ac83c` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_070` | `ultrajson/ultrajson` | Issue / PR #426 / commit `335ac83c` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_071` | `ultrajson/ultrajson` | Issue / PR #441 / commit `a920bfa9` | Base: 4 target failures; Gold: 4 targets and 4 regressions pass |
-| `pyc_case_075` | `pygame/pygame` | Issue / PR #2398 / commit `f3ac656d` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_077` | `pygame/pygame` | Issue / PR #2927 / commit `ef30264c` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_081` | `pygame/pygame` | Issue / PR #702 / commit `1aeecd40` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_075` | `pygame/pygame` | Issue / PR #2398 / commit `f3ac656d` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_077` | `pygame/pygame` | Issue / PR #2927 / commit `ef30264c` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_081` | `pygame/pygame` | Issue / PR #702 / commit `1aeecd40` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_082` | `pygame/pygame` | Issue / PR #804 / commit `20ff3f8e` | Base: 2 target failures; Gold: 2 targets and 2 regressions pass |
 | `pyc_case_086` | `pygame/pygame` | Issue / PR #515 / commit `d33b702d` | Base: 2 target failures; Gold: 2 targets and 2 regressions pass |
-| `pyc_case_088` | `pygame/pygame` | Issue / PR #180 / commit `0e7f7b83` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_090` | `pygame/pygame` | Issue / PR #242 / commit `4c23a6ce` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_091` | `pygame/pygame` | Issue / PR #243 / commit `95bf5012` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_094` | `pygame/pygame` | Issue / PR #93 / commit `c7ec1528` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_137` | `pygobject/pycairo` | Issue / PR #50 / commit `065a7a7a` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_138` | `pygobject/pycairo` | Issue / PR #48 / commit `42eb8a30` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_139` | `pygobject/pycairo` | Issue / PR #57 / commit `65aea3df` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_141` | `pygobject/pycairo` | Issue / PR #8 / commit `e2154f11` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
-| `pyc_case_142` | `pygobject/pycairo` | Issue / PR #41 / commit `07ee64b3` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_088` | `pygame/pygame` | Issue / PR #180 / commit `0e7f7b83` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_090` | `pygame/pygame` | Issue / PR #242 / commit `4c23a6ce` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_091` | `pygame/pygame` | Issue / PR #243 / commit `95bf5012` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_094` | `pygame/pygame` | Issue / PR #93 / commit `c7ec1528` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_137` | `pygobject/pycairo` | Issue / PR #50 / commit `065a7a7a` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_138` | `pygobject/pycairo` | Issue / PR #48 / commit `42eb8a30` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_139` | `pygobject/pycairo` | Issue / PR #57 / commit `65aea3df` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_141` | `pygobject/pycairo` | Issue / PR #8 / commit `e2154f11` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
+| `pyc_case_142` | `pygobject/pycairo` | Issue / PR #41 / commit `07ee64b3` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_156` | `ghaering/pysqlite` | Issue / PR #33 / commit `9b23d8d2` | Base: 2 target failures; Gold: 2 targets and 3 regressions pass |
-| `pyc_case_159` | `astrofrog/fast-histogram` | Issue / PR #52 / commit `82f140be` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
+| `pyc_case_159` | `astrofrog/fast-histogram` | Issue / PR #52 / commit `82f140be` | Base: 1 target failures; Gold: 1 targets and 3 regressions pass |
 | `pyc_case_160` | `astrofrog/fast-histogram` | Issue / PR #21 / commit `e384cdf1` | Base: 1 target failures; Gold: 1 targets and 2 regressions pass |
 | `pyc_case_174` | `spglib/spglib` | Issue / PR #195 / commit `9218fa14` | Base: target SIGSEGV / terminal MISSING, 3 regressions pass; Gold: all 4 pass |
 
