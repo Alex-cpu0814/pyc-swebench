@@ -1,0 +1,42 @@
+{
+  "case_number": "163",
+  "repo": "bastibe/lunatic-python",
+  "fix_commit": "bf894ed520b97645298e4e6eae377b028fc04cab",
+  "base_commit": "d9033bcf19b5f8404c7ee61f35e001fcfd603614",
+  "product_files": [
+    "setup.py",
+    "src/luainpython.c",
+    "src/pythoninlua.c"
+  ],
+  "test_files": [
+    "test.py"
+  ],
+  "status": "deferred_no_official_script_failure_on_lua51",
+  "runtime_verified": true,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "publication_performed": false,
+  "prototype_image": "pyc-case163-prototype-base:latest",
+  "reason": "In the original README-supported common Python2.7/Lua5.1 environment, both unmodified Base and full exact Gold compile and execute the complete protected original test.py with process exit0. Both complete global table prints/traversal and catch the missing foo require exception. No source-reported crash, failing test assertion or FAIL_TO_PASS was reproduced. Official script mostly prints and has no new result assertions; preserve its limited completion oracle instead of adding tests.",
+  "environment": "Pinned public Ubuntu18.04, Python2.7.17, normalGCC7.5, Lua5.1.5 development/runtime. Standard lua.pc symlink to installed official lua5.1.pc used identically on Base/Gold; original build flags and C/test sources unchanged.",
+  "observed_process_exits": {
+    "base": 0,
+    "gold": 0
+  },
+  "scope": "Complete original9-line test addition through standard runpy __main__, original argv and no method-body extraction/new assertions. Shared Lua5.1 runtime only, no Lua5.2 execution/compatibility claim.",
+  "initial_helper_failure": "Initial native compile/import succeeded but audit helper wrongly required raw Python2 relative lua.so path to be absolute. Normalize with realpath and still require exact physical/testbed/lua.so. Initial failure/context/spec/logs retained; no product/test/compiler changes.",
+  "pr_context_identity": {
+    "url": "https://github.com/bastibe/lunatic-python/pull/5",
+    "created_at": "2013-02-19T21:07:58Z",
+    "merged_at": "2013-02-21T10:18:30Z",
+    "reported_merge_commit": "6568b57f7857fa25e81fedb7b7eeca848a585e7d",
+    "source_merge_commit": "bf894ed520b97645298e4e6eae377b028fc04cab",
+    "base_parent_matches": true,
+    "head_parent_matches": true,
+    "exact_merge_sha_matches": false,
+    "limitation": "Current PR5 API reports a different merge object; its head/base match exact source parents. Preserve both identities and PR dates as context, without claiming current reported merge SHA equals dataset source fix. Associated-PR API for exact source returned[]."
+  },
+  "future_admission": "Require a genuine common environment with complete original script Base failure and full Gold success. Do not fabricate PASSED/FAILED node lines, add assertions/input changes, or inject source/compiler compatibility shims to produce distinction.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case163"
+}

@@ -1,0 +1,42 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+
+const n = process.argv[2];
+if (!/^\d{3}$/.test(n)) throw new Error("three-digit case number required");
+const root = `E:/CLB_Swe-bench/pyc-swebench/Y_test_data/pyc_case_${n}`;
+const read = (p) => fs.readFileSync(path.join(root, p), "utf8");
+const json = (p) => JSON.parse(read(p));
+const norm = (s) => s.replace(/\r\n/g, "\n");
+const check = (ok, msg) => { if (!ok) throw new Error(msg); };
+const instance = json(`official_swebench/instance_${n}.json`);
+const jsonl = JSON.parse(read(`official_swebench/instance_${n}.jsonl`).trim());
+const standard = json(`analysis/source_material/single_pyc_swebench_standard_case_${n}.json`);
+const source = json(`analysis/source_row_${n}.json`);
+const config = json("evaluator/case_config.json");
+const metadata = json("official_swebench/metadata.json");
+const publicTask = json(`official_swebench/public_task_${n}.json`);
+check(JSON.stringify(instance) === JSON.stringify(jsonl), "JSONL mismatch");
+check(JSON.stringify(instance) === JSON.stringify(standard), "standard record mismatch");
+check(norm(instance.patch) === norm(read("patches/gold_patch.diff")), "gold patch mismatch");
+check(norm(instance.test_patch) === norm(read("patches/test_patch.diff")), "test patch mismatch");
+check(instance.base_commit === source.base_commit && instance.base_commit === config.base_commit, "base mismatch");
+check(source.fix_commit === config.fix_commit && source.fix_commit === metadata.fix_commit, "fix mismatch");
+check(instance.instance_id === config.instance_id && instance.instance_id === metadata.instance_id, "instance mismatch");
+check(JSON.stringify(instance.FAIL_TO_PASS) === JSON.stringify(source.FAIL_TO_PASS), "F2P mismatch");
+check(JSON.stringify(instance.PASS_TO_PASS) === JSON.stringify(source.PASS_TO_PASS), "P2P mismatch");
+check(!("patch" in publicTask) && !("test_patch" in publicTask), "public task leaks patches");
+for (const line of read("official_swebench/SHA256SUMS.txt").trim().split(/\r?\n/)) {
+  const [expected, rel] = line.split(/\s{2}/);
+  const actual = crypto.createHash("sha256").update(fs.readFileSync(path.join(root, rel))).digest("hex");
+  check(expected === actual, `checksum mismatch: ${rel}`);
+}
+const gold = json(`verification/runs/case-${n}-final-gold/summary.json`);
+const negative = json(`verification/runs/case-${n}-final-negative/summary.json`);
+const tamper = json(`verification/runs/case-${n}-final-tamper/summary.json`);
+const audit = json(`verification/builds/case-${n}-final-build/image-audit.json`);
+check(gold.status === "resolved", "gold not resolved");
+check(negative.status === "unresolved", "negative resolved unexpectedly");
+check(tamper.reason === "candidate_conflicts_with_test_patch", "tamper not rejected");
+check(audit.working_tree_clean && !audit.fix_commit_present && !audit.test_patch_present, "image audit mismatch");
+console.log(`case ${n}: consistency OK`);

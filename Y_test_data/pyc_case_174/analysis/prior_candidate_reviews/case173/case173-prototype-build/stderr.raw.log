@@ -1,0 +1,73 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.65kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#2 DONE 2.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337
+#4 resolve public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337 0.0s done
+#4 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends cmake && rm -rf /var/lib/apt/lists/*
+#5 0.588 Get:1 http://deb.debian.org/debian bullseye InRelease [75.1 kB]
+#5 0.834 Get:2 http://deb.debian.org/debian-security bullseye-security InRelease [27.1 kB]
+#5 1.066 Get:3 http://deb.debian.org/debian bullseye-updates InRelease [44.0 kB]
+#5 2.422 Get:4 http://deb.debian.org/debian bullseye/main amd64 Packages [8066 kB]
+#5 3.157 Get:5 http://deb.debian.org/debian-security bullseye-security/main amd64 Packages [475 kB]
+#5 3.306 Get:6 http://deb.debian.org/debian bullseye-updates/main amd64 Packages [18.8 kB]
+#5 3.650 Fetched 8706 kB in 3s (2663 kB/s)
+#5 3.650 Reading package lists...
+#5 4.104 Reading package lists...
+#5 4.544 Building dependency tree...
+#5 4.652 Reading state information...
+#5 4.751 The following additional packages will be installed:
+#5 4.752   cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#5 4.754 Suggested packages:
+#5 4.754   cmake-doc ninja-build lrzip
+#5 4.795 The following NEW packages will be installed:
+#5 4.795   cmake cmake-data libarchive13 libjsoncpp24 librhash0 libuv1
+#5 5.241 0 upgraded, 6 newly installed, 0 to remove and 138 not upgraded.
+#5 5.241 Need to get 8001 kB of archives.
+#5 5.241 After this operation, 34.3 MB of additional disk space will be used.
+#5 5.241 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+#5 5.426 Err:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u5
+#5 5.426   404  Not Found [IP: 151.101.78.132 80]
+#5 5.681 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+#5 5.937 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+#5 6.228 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+#5 6.674 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+#5 6.879 Fetched 7657 kB in 2s (3688 kB/s)
+#5 6.879 E: Failed to fetch http://deb.debian.org/debian-security/pool/updates/main/liba/libarchive/libarchive13_3.4.3-2%2bdeb11u5_amd64.deb  404  Not Found [IP: 151.101.78.132 80]
+#5 6.879 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+#5 ERROR: process "/bin/bash -o pipefail -c apt-get update && apt-get install -y --no-install-recommends cmake && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+------
+ > [2/6] RUN apt-get update && apt-get install -y --no-install-recommends cmake && rm -rf /var/lib/apt/lists/*:
+5.241 Get:1 http://deb.debian.org/debian bullseye/main amd64 cmake-data all 3.18.4-2+deb11u1 [1725 kB]
+5.426 Err:2 http://deb.debian.org/debian-security bullseye-security/main amd64 libarchive13 amd64 3.4.3-2+deb11u5
+5.426   404  Not Found [IP: 151.101.78.132 80]
+5.681 Get:3 http://deb.debian.org/debian bullseye/main amd64 libjsoncpp24 amd64 1.9.4-4 [78.9 kB]
+5.937 Get:4 http://deb.debian.org/debian bullseye/main amd64 librhash0 amd64 1.4.1-2 [129 kB]
+6.228 Get:5 http://deb.debian.org/debian bullseye/main amd64 libuv1 amd64 1.40.0-2+deb11u1 [132 kB]
+6.674 Get:6 http://deb.debian.org/debian bullseye/main amd64 cmake amd64 3.18.4-2+deb11u1 [5593 kB]
+6.879 Fetched 7657 kB in 2s (3688 kB/s)
+6.879 E: Failed to fetch http://deb.debian.org/debian-security/pool/updates/main/liba/libarchive/libarchive13_3.4.3-2%2bdeb11u5_amd64.deb  404  Not Found [IP: 151.101.78.132 80]
+6.879 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+------
+Dockerfile:4
+--------------------
+   2 |     ARG DEBIAN_FRONTEND=noninteractive
+   3 |     SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+   4 | >>> RUN apt-get update && apt-get install -y --no-install-recommends cmake && rm -rf /var/lib/apt/lists/*
+   5 |     ENV PYTHONUNBUFFERED=1 LC_ALL=C.UTF-8 LANG=C.UTF-8
+   6 |     RUN git init /opt/googletest && cd /opt/googletest && git remote add origin https://github.com/google/googletest.git && git fetch --depth=1 --no-tags origin 58d77fa8070e8cec2dc1ed015d66b454c8d78850 && git checkout --detach FETCH_HEAD && git remote remove origin && test "$(git rev-parse HEAD)" = 58d77fa8070e8cec2dc1ed015d66b454c8d78850
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/bash -o pipefail -c apt-get update && apt-get install -y --no-install-recommends cmake && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/i40d4csao46zwwaqd17xjt5sz

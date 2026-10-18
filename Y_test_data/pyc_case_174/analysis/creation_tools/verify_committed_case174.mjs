@@ -1,0 +1,5 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {spawnSync}from'node:child_process';
+const repo='E:/CLB_Swe-bench/pyc-swebench',prefix='Y_test_data/pyc_case_174/',root=repo+'/'+prefix;
+const raw=fs.readFileSync(root+'official_swebench/SHA256SUMS.txt');if(raw.includes(Buffer.from('\\n'))||raw.includes(13))throw Error('Checksum list contains literal escapes or CR');const lines=raw.toString('utf8').trimEnd().split('\n');if(lines.length!==new Set(lines).size)throw Error('Duplicate checksums');
+for(const line of lines){const[expected,rel]=line.split('  '),r=spawnSync('git',['-C',repo,'show','HEAD:'+prefix+rel],{maxBuffer:32*1024*1024});if(r.status!==0)throw Error(r.stderr?.toString());if(crypto.createHash('sha256').update(r.stdout).digest('hex')!==expected)throw Error('Committed blob mismatch: '+rel);}
+const head=spawnSync('git',['-C',repo,'rev-parse','HEAD'],{encoding:'utf8'}).stdout.trim();console.log(JSON.stringify({commit:head,committed_blob_checks:lines.length,status:'all_committed_blobs_match_actual_LF_checksum_manifest'}));

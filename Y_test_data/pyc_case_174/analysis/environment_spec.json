@@ -1,0 +1,33 @@
+{
+  "instance_id": "pyc_case_174",
+  "task_level": "integration",
+  "validation_type": "official_cpp_googletest",
+  "environment": "spglib_original_cpp_gtest_c_api",
+  "python_version_target": "3.8",
+  "native_requirement": "Original standalone test/CMakeLists.txt default Release, C++11, exact original GoogleTest release-1.12.1. Ordinary CMake/GCC on public Debian bullseye. No sanitizer or additional compiler flags.",
+  "build_system": "Original standalone test/CMakeLists.txt with default Release; only standard FETCHCONTENT_SOURCE_DIR_GOOGLETEST selects preinstalled exact release-1.12.1 public dependency for offline evaluation.",
+  "test_execution": [
+    "Complete original GoogleTest bodies from exact upstream C++ test patch. Actual C API calls, original lattice/tensors/tolerances/assertions; no extracted body or additional oracle."
+  ],
+  "runtime_verified": true,
+  "notes": [
+    "The protected test patch is the exact upstream change in test/test_magnetic_symmetry.cpp.",
+    "Base passes three complete original native regressions, starts the complete rough-mag-symprec target, then its native GoogleTest child exits on SIGSEGV (returncode -11, shell exit139). The target has no terminal test result and is graded MISSING. Full exact upstream Gold completes all four methods with PASSED and exit0. No FAILED terminal line is invented.",
+    "Three complete original native GoogleTest methods pass on Base and Gold in the same default Release build."
+  ],
+  "reproduction_status": "verified_base_fail_gold_pass_docker",
+  "base_commit": "9458171a2eb9bea9036632a408da7b269ea07bbb",
+  "fix_commit": "9218fa14771d967a20f00764b335bc2a265790a1",
+  "test_source": "official_project_tests",
+  "test_files": [
+    "test/test_magnetic_symmetry.cpp"
+  ],
+  "FAIL_TO_PASS": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_mag_symprec"
+  ],
+  "PASS_TO_PASS": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4"
+  ]
+}

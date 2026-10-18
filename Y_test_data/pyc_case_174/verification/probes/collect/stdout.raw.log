@@ -1,0 +1,8 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /testbed/build
+__NATIVE_DISCOVERY__ {"command": ["/testbed/build/test_magnetic_symmetry", "--gtest_color=no", "--gtest_filter=test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database:test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type:test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4:test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_mag_symprec", "--gtest_list_tests"], "returncode": 0, "stdout": "Running main() from /opt/googletest/googletest/src/gtest_main.cc\ntest_magnetic_symmetry.\n  test_spg_get_magnetic_symmetry_from_database\n  test_spg_get_magnetic_spacegroup_type\n  test_spg_get_magnetic_dataset_type4\n  test_spg_get_symmetry_with_tensors_rough_mag_symprec\n", "stderr": ""}
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4
+test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_mag_symprec

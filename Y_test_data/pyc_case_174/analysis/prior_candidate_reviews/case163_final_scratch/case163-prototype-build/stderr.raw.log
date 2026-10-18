@@ -1,0 +1,58 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.61kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b
+#4 resolve public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] RUN apt-get update && apt-get install -y --no-install-recommends build-essential ca-certificates git pkg-config python-minimal python2.7 python2.7-dev lua5.1 liblua5.1-0-dev && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/6] RUN mkdir -p /usr/local/lib/pkgconfig && ln -s "$(pkg-config --variable=pcfiledir lua5.1)/lua5.1.pc" /usr/local/lib/pkgconfig/lua.pc && pkg-config --modversion lua && pkg-config --libs --cflags lua
+#6 CACHED
+
+#7 [4/6] RUN git init /testbed && cd /testbed && git remote add origin "https://github.com/bastibe/lunatic-python.git" && git fetch --depth=1 --no-tags origin "d9033bcf19b5f8404c7ee61f35e001fcfd603614" && git checkout --detach "d9033bcf19b5f8404c7ee61f35e001fcfd603614" && git remote remove origin && git config core.autocrlf false && test "$(git rev-parse HEAD)" = "d9033bcf19b5f8404c7ee61f35e001fcfd603614"
+#7 CACHED
+
+#8 [5/6] WORKDIR /testbed
+#8 CACHED
+
+#9 [6/6] RUN python2.7 setup.py build_ext --inplace --force && python2.7 -c "import lua,os; print(os.path.realpath(lua.__file__),lua.eval('_VERSION')); assert os.path.realpath(lua.__file__) == '/testbed/lua.so'; assert lua.eval('_VERSION') == 'Lua 5.1'" && git checkout HEAD -- . && printf '%s\n' '/build/' '*.pyc' '*.so' >> .git/info/exclude && test -z "$(git status --porcelain)"
+#9 0.315 running build_ext
+#9 0.318 building 'lua-python' extension
+#9 0.318 creating build
+#9 0.319 creating build/temp.linux-x86_64-2.7
+#9 0.319 creating build/temp.linux-x86_64-2.7/src
+#9 0.319 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/usr/include/lua5.1 -I/usr/include/python2.7 -c src/pythoninlua.c -o build/temp.linux-x86_64-2.7/src/pythoninlua.o
+#9 0.475 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/usr/include/lua5.1 -I/usr/include/python2.7 -c src/luainpython.c -o build/temp.linux-x86_64-2.7/src/luainpython.o
+#9 0.546 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/src/pythoninlua.o build/temp.linux-x86_64-2.7/src/luainpython.o -llua5.1 -o /testbed/lua-python.so
+#9 0.568 building 'lua' extension
+#9 0.568 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/usr/include/lua5.1 -I/usr/include/python2.7 -c src/pythoninlua.c -o build/temp.linux-x86_64-2.7/src/pythoninlua.o
+#9 0.633 x86_64-linux-gnu-gcc -pthread -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -I/usr/include/lua5.1 -I/usr/include/python2.7 -c src/luainpython.c -o build/temp.linux-x86_64-2.7/src/luainpython.o
+#9 0.688 x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-Bsymbolic-functions -Wl,-z,relro -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC build/temp.linux-x86_64-2.7/src/pythoninlua.o build/temp.linux-x86_64-2.7/src/luainpython.o -llua5.1 -o /testbed/lua.so
+#9 0.712 ('/testbed/lua.so', 'Lua 5.1')
+#9 DONE 0.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 12.0s done
+#10 exporting manifest sha256:3e5e68d1495aa41eb339edb7d9ead0eaecfcfdc75a96ca4ebff35c4e7024f199 done
+#10 exporting config sha256:6d28d7c1b35e0ad9f03301105dadb4500051acf4e0a9c87d19ab5bc87f5d80df done
+#10 exporting attestation manifest sha256:f763fd8bf549666e22a68855d5d0086642335b7b88633392f0e40672c0e8301c 0.0s done
+#10 exporting manifest list sha256:f537bd4bfe2e02a5e37b437e92db22a6149481b72e56fa5070c7aa5da26742ec done
+#10 naming to docker.io/library/pyc-case163-prototype-base:latest done
+#10 unpacking to docker.io/library/pyc-case163-prototype-base:latest
+#10 unpacking to docker.io/library/pyc-case163-prototype-base:latest 2.0s done
+#10 DONE 14.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/t4pwd4ijrqfnhcofyciis1ztz

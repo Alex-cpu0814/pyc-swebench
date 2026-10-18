@@ -1,0 +1,4 @@
+{
+  "initial_observation": "Original native compilation/import and Lua5.1 version check succeeded; Python2 reported lua.__file__ as relative lua.so. The helper mistakenly required the raw string to equal an absolute path, so image build stopped on helper AssertionError before any script test.",
+  "correction": "Normalize the reported file with os.path.realpath and continue to require exact physical /testbed/lua.so. Record both reported and physical paths in audit. No source, native compile parameters, test script or assertion semantics changed. Initial logs/context/spec retained."
+}

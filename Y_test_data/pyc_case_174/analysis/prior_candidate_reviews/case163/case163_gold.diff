@@ -1,0 +1,185 @@
+diff --git a/setup.py b/setup.py
+index 162a78c..e422501 100755
+--- a/setup.py
++++ b/setup.py
+@@ -1,54 +1,70 @@
+ #!/usr/bin/python
++
++import sys
++import os
++import commands
++
+ from distutils.core import setup, Extension
+ from distutils.sysconfig import get_python_lib, get_python_version
+-import commands
+-import os
+ 
+ if os.path.isfile("MANIFEST"):
+     os.unlink("MANIFEST")
+ 
+ # You may have to change these
+-PYLIBS = ["python"+get_python_version(), "pthread", "util"]
+-PYLIBDIR = [get_python_lib(standard_lib=True)+"/config"]
+-LUALIBS = ["lua5.1"]
++LUAVERSION = "5.2"
++PYLIBS = ["python" + get_python_version(), "pthread", "util"]
++PYLIBDIR = [get_python_lib(standard_lib=True) + "/config"]
++LUALIBS = ["lua" + LUAVERSION]
+ LUALIBDIR = []
+ 
+-def pkgconfig(*packages, **kwargs):
++
++def pkgconfig(*packages):
++    # map pkg-config output to kwargs for distutils.core.Extension
+     flag_map = {'-I': 'include_dirs', '-L': 'library_dirs', '-l': 'libraries'}
+ 
+-    for token in commands.getoutput("pkg-config --libs --cflags %s" % ' '.join(packages)).split():
+-        if flag_map.has_key(token[:2]):
++    for package in packages:
++        (pcstatus, pcoutput) = commands.getstatusoutput(
++            "pkg-config --libs --cflags %s" % package)
++        if pcstatus == 0:
++            break
++    else:
++        sys.exit("pkg-config failed for %s; "
++                 "most recent output was:\n%s" %
++                 (", ".join(packages), pcoutput))
++
++    kwargs = {}
++    for token in pcoutput.split():
++        if token[:2] in flag_map:
+             kwargs.setdefault(flag_map.get(token[:2]), []).append(token[2:])
+-        else: # throw others to extra_link_args
++        else:                           # throw others to extra_link_args
+             kwargs.setdefault('extra_link_args', []).append(token)
+ 
+-    for k, v in kwargs.iteritems(): # remove duplicated
++    for k, v in kwargs.iteritems():     # remove duplicated
+         kwargs[k] = list(set(v))
+ 
+     return kwargs
+ 
++lua_pkgconfig = pkgconfig('lua', 'lua' + LUAVERSION)
++
+ setup(name="lunatic-python",
+-      version = "1.0",
+-      description = "Two-way bridge between Python and Lua",
+-      author = "Gustavo Niemeyer",
+-      author_email = "gustavo@niemeyer.net",
+-      url = "http://labix.org/lunatic-python",
+-      license = "LGPL",
+-      long_description =
+-"""\
++      version="1.0",
++      description="Two-way bridge between Python and Lua",
++      author="Gustavo Niemeyer",
++      author_email="gustavo@niemeyer.net",
++      url="http://labix.org/lunatic-python",
++      license="LGPL",
++      long_description="""\
+ Lunatic Python is a two-way bridge between Python and Lua, allowing these
+ languages to intercommunicate. Being two-way means that it allows Lua inside
+ Python, Python inside Lua, Lua inside Python inside Lua, Python inside Lua
+ inside Python, and so on.
+ """,
+-      ext_modules = [
+-                     Extension("lua-python",
+-                               ["src/pythoninlua.c", "src/luainpython.c"],
+-                               **pkgconfig('lua')
+-                     ),
+-                     Extension("lua",
+-                               ["src/pythoninlua.c", "src/luainpython.c"],
+-                               **pkgconfig('lua')
+-                     )
+-                    ],
++      ext_modules=[
++        Extension("lua-python",
++                  ["src/pythoninlua.c", "src/luainpython.c"],
++                  **lua_pkgconfig),
++        Extension("lua",
++                  ["src/pythoninlua.c", "src/luainpython.c"],
++                  **lua_pkgconfig),
++        ],
+       )
+diff --git a/src/luainpython.c b/src/luainpython.c
+index b25ebcd..d5d8b18 100644
+--- a/src/luainpython.c
++++ b/src/luainpython.c
+@@ -22,7 +22,11 @@
+ */
+ #include <Python.h>
+ 
++/* need this to build with Lua 5.2: enables lua_strlen() macro */
++#define LUA_COMPAT_ALL
++
+ #include <lua.h>
++#include <luaconf.h>
+ #include <lauxlib.h>
+ #include <lualib.h>
+ 
+@@ -446,8 +450,7 @@ PyObject *Lua_eval(PyObject *self, PyObject *args)
+ PyObject *Lua_globals(PyObject *self, PyObject *args)
+ {
+     PyObject *ret = NULL;
+-    lua_pushliteral(LuaState, "_G");
+-    lua_rawget(LuaState, LUA_GLOBALSINDEX);
++    lua_getglobal(LuaState, "_G");
+     if (lua_isnil(LuaState, -1)) {
+         PyErr_SetString(PyExc_RuntimeError,
+                 "lost globals reference");
+@@ -464,8 +467,7 @@ PyObject *Lua_globals(PyObject *self, PyObject *args)
+ 
+ static PyObject *Lua_require(PyObject *self, PyObject *args)
+ {
+-    lua_pushliteral(LuaState, "require");
+-    lua_rawget(LuaState, LUA_GLOBALSINDEX);
++    lua_getglobal(LuaState, "require");
+     if (lua_isnil(LuaState, -1)) {
+         lua_pop(LuaState, 1);
+         PyErr_SetString(PyExc_RuntimeError, "require is not defined");
+diff --git a/src/pythoninlua.c b/src/pythoninlua.c
+index 62e7d46..b4995df 100644
+--- a/src/pythoninlua.c
++++ b/src/pythoninlua.c
+@@ -22,6 +22,9 @@
+ */
+ #include <Python.h>
+ 
++/* need this to build with Lua 5.2: defines luaL_register() macro */
++#define LUA_COMPAT_MODULE
++
+ #include <lua.h>
+ #include <lauxlib.h>
+ 
+@@ -340,7 +343,7 @@ static int py_object_tostring(lua_State *L)
+ 	return 1;
+ }
+ 
+-static const luaL_reg py_object_lib[] = {
++static const luaL_Reg py_object_lib[] = {
+ 	{"__call",	py_object_call},
+ 	{"__index",	py_object_index},
+ 	{"__newindex",	py_object_newindex},
+@@ -542,7 +545,7 @@ static int py_import(lua_State *L)
+ 	return ret;
+ }
+ 
+-static const luaL_reg py_lib[] = {
++static const luaL_Reg py_lib[] = {
+ 	{"execute",	py_execute},
+ 	{"eval",	py_eval},
+ 	{"asindx",	py_asindx},
+@@ -560,11 +563,11 @@ LUA_API int luaopen_python(lua_State *L)
+ 	int rc;
+ 
+ 	/* Register module */
+-	luaL_openlib(L, "python", py_lib, 0);
++	luaL_register(L, "python", py_lib);
+ 
+ 	/* Register python object metatable */
+ 	luaL_newmetatable(L, POBJECT);
+-	luaL_openlib(L, NULL, py_object_lib, 0);
++	luaL_register(L, NULL, py_object_lib);
+ 	lua_pop(L, 1);
+ 
+ 	/* Initialize Lua state in Python territory */

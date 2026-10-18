@@ -1,0 +1,41 @@
+{
+  "label": "base",
+  "image": "pyc-case174-prototype-base:latest",
+  "nodes": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_mag_symprec"
+  ],
+  "startedAt": "2026-10-18T06:57:11.045Z",
+  "finishedAt": "2026-10-18T06:57:13.372Z",
+  "exitCode": 139,
+  "signal": null,
+  "error": null,
+  "command": [
+    "C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case174_gold.diff,target=/tmp/gold.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\case174_test.diff,target=/tmp/test.diff,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\native_gtest_runner.py,target=/benchmark/native_gtest_runner.py,readonly",
+    "--mount",
+    "type=bind,source=E:\\CLB_Swe-bench\\_work\\pyc_batch\\native_no_core.c,target=/benchmark/native_no_core.c,readonly",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case174-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; git apply --check /tmp/gold.diff; git apply --check /tmp/test.diff; git apply /tmp/test.diff; cmake -S test -B build -DFETCHCONTENT_SOURCE_DIR_GOOGLETEST=/opt/googletest && cmake --build build --target test_magnetic_symmetry --parallel 2 >/tmp/build.log 2>&1 || { tail -80 /tmp/build.log; exit 2; }; python /benchmark/native_gtest_runner.py --binary /testbed/build/test_magnetic_symmetry 'test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database' 'test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type' 'test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4' 'test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_symmetry_with_tensors_rough_mag_symprec'"
+  ]
+}

@@ -1,0 +1,247 @@
+[
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\audit_case163.mjs",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\audit_case163.mjs",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\build_case163_prototype.mjs",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\build_case163_prototype.mjs",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-deferred-review",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163",
+    "files": 50
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-image-context",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-image-context",
+    "files": 2
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-initial-image-context",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-initial-image-context",
+    "files": 2
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-initial-prototype-build",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-initial-prototype-build",
+    "files": 6
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-native-path-correction.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-native-path-correction.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-probe-base",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-probe-base",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-probe-gold",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-probe-gold",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-prototype-build",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-prototype-build",
+    "files": 4
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163-runtime-audit",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163-runtime-audit",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_gold.diff",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_gold.diff",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_pr5.raw.html",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_pr5.raw.html",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_pr5_api.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_pr5_api.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_spec.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_spec.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_test.diff",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_test.diff",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_upstream_associated_prs.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_upstream_associated_prs.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_upstream_commit_api.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\case163_upstream_commit_api.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\correct_case163_native_path.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\correct_case163_native_path.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\defer_case163.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\defer_case163.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.lunatic-python163-local",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\Dockerfile.lunatic-python163-local",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\fetch_case163_sources.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\fetch_case163_sources.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\initialize_case163.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\initialize_case163.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\probe_script_case163.mjs",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case163_final_scratch\\probe_script_case163.mjs",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case170-source-review",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case170",
+    "files": 9
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\review_case170_fixture.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case170_final_scratch\\review_case170_fixture.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\audit_case173.mjs",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\audit_case173.mjs",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\build_case173_prototype.mjs",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\build_case173_prototype.mjs",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-deferred-review",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173",
+    "files": 53
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-https.Dockerfile",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-https.Dockerfile",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-image-context",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-image-context",
+    "files": 2
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-initial.Dockerfile",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-initial.Dockerfile",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-probe-base",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-probe-base",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-probe-collect",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-probe-collect",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-probe-gold",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-probe-gold",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-prototype-build",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-prototype-build",
+    "files": 4
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-prototype-build-v2",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-prototype-build-v2",
+    "files": 4
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-prototype-build-v3",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-prototype-build-v3",
+    "files": 4
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173-runtime-audit",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173-runtime-audit",
+    "files": 3
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_gold.diff",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_gold.diff",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_pr196.raw.html",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_pr196.raw.html",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_pr196_api.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_pr196_api.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_spec.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_spec.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_test.diff",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_test.diff",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_upstream_associated_prs.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_upstream_associated_prs.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_upstream_commit_api.json",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\case173_upstream_commit_api.json",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.spglib173-local",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\Dockerfile.spglib173-local",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\fetch_case173_sources.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\fetch_case173_sources.py",
+    "files": 1
+  },
+  {
+    "source": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\initialize_case173.py",
+    "archive": "E:\\CLB_Swe-bench\\pyc-swebench\\Y_test_data\\pyc_case_174\\analysis\\prior_candidate_reviews\\case173_final_scratch\\initialize_case173.py",
+    "files": 1
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 171,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "169",
+    "https://github.com/spglib/spglib/commit/1945d46d7ccf569046f24087e96f58392ded260f",
+    "incorrect result/output",
+    "line 439",
+    "function call",
+    "assignment",
+    null,
+    " \n 439(c_magnetic_spacegroup_12-cfg.dot) (get_reference_space_group)\n…\n -> 409(c_magnetic_spacegroup_12-cfg.dot) (get_reference_space_group)\n -> 115(c_magnetic_spacegroup_12-cfg.dot) (msg_identify_magnetic_space_group_type)\n…\n -> 92(c_magnetic_spacegroup_12-cfg.dot) (msg_identify_magnetic_space_group_type)\n -> 1252(c_spglib_21-cfg.dot) (get_magnetic_dataset)\n…\n -> 1195(c_spglib_21-cfg.dot) (get_magnetic_dataset)\n -> 289(c_spglib_21-cfg.dot) (spgms_get_magnetic_dataset)\n…\n -> 284(c_spglib_21-cfg.dot) (spgms_get_magnetic_dataset)\n -> 518(c__spglib_29-cfg.dot) (py_get_magnetic_dataset)\n…\n -> 488(c__spglib_29-cfg.dot) (py_get_magnetic_dataset)\n -> 624(py_spglib_35-cfg.dot) (get_magnetic_symmetry_dataset)",
+    "PyArg_ParseTuple,Foreign,Parsing arguments and building values,PyArray_DIMS,NAX,Array API,PyArray_DATA,NAX,Array API",
+    "\n Python->C",
+    "\n\nSpecial case handling",
+    "Boundary check against value range/limit",
+    "if/branching statement"
+  ]
+}

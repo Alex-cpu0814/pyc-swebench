@@ -1,0 +1,68 @@
+{
+  "image": "pyc-case163-prototype-base:latest",
+  "exitCode": 0,
+  "error": null,
+  "native_package_versions": {
+    "gcc": "4:7.4.0-1ubuntu2.3",
+    "git": "1:2.17.1-1ubuntu0.18",
+    "libc6": "2.27-3ubuntu1.6",
+    "liblua5.1-0": "5.1.5-8.1build2",
+    "liblua5.1-0-dev": "5.1.5-8.1build2",
+    "libpython2.7": "2.7.17-1~18.04ubuntu1.11",
+    "lua5.1": "5.1.5-8.1build2",
+    "pkg-config": "0.29.1-0ubuntu2",
+    "python2.7": "2.7.17-1~18.04ubuntu1.11",
+    "python2.7-dev": "2.7.17-1~18.04ubuntu1.11"
+  },
+  "runtime_audit": {
+    "python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]",
+    "pkgconfig_alias_realpath": "/usr/lib/x86_64-linux-gnu/pkgconfig/lua5.1.pc",
+    "lua_pkgconfig_version": "5.1.5",
+    "native_extension_reported": "lua.so",
+    "lua_header_release": "Lua 5.1.5",
+    "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0",
+    "native_extension": "/testbed/lua.so",
+    "assets": {
+      "test.py": {
+        "sha256": "774b59719e2f1b98546108a323562a4fd60decba4b11f5b512a6222b23e8708e"
+      },
+      "setup.cfg": {
+        "sha256": "edec24d3556d7963c9dea9647f52a6a3cf986d10a7d23091fe6e6700408c727f"
+      },
+      "PKG-INFO": {
+        "sha256": "8c9f5ced6deeac16a8bdb82642f76190fefbf5da1099819368f29da533eb5de7"
+      },
+      "src/pythoninlua.c": {
+        "sha256": "6731f2e233acd373521d876b6069b77e1093541872ca22e0713871e1c3196876"
+      },
+      "src/luainpython.c": {
+        "sha256": "bea1fed539c48d2728e2af1a929128bf41ea9887217c8fe80efc1219bf3cca8f"
+      },
+      "setup.py": {
+        "sha256": "9c4bc01d1482221e253ab630d72007e13fcb94a777cc46c7e063f4cd5ec152c5"
+      },
+      "README.md": {
+        "sha256": "b39e0fc3d6a570379d92d59b61207831ed45515ac65ac0d92cffd89948e87855"
+      }
+    },
+    "lua_python_library_sha256": "e504f8f250421b8115f047b928769281c793597187a2ec0a7b170000bdbe0ad6",
+    "lua_runtime_family": "Lua 5.1",
+    "source_declared_version": "1.0",
+    "extension_sha256": "e504f8f250421b8115f047b928769281c793597187a2ec0a7b170000bdbe0ad6"
+  },
+  "source_git_identity": {
+    "base_commit": "d9033bcf19b5f8404c7ee61f35e001fcfd603614",
+    "remotes_removed": true
+  },
+  "command": [
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--entrypoint",
+    "/bin/bash",
+    "pyc-case163-prototype-base:latest",
+    "-lc",
+    "set -euo pipefail; test \"$(git rev-parse HEAD)\" = \"d9033bcf19b5f8404c7ee61f35e001fcfd603614\"; test -z \"$(git status --porcelain)\"; test -z \"$(git remote)\"; test \"$(git hash-object src/luainpython.c)\" = \"b25ebcd90a6eae9eab5e944c0a02b15d68121c2e\"; test \"$(git hash-object src/pythoninlua.c)\" = \"62e7d4644e5b3b0da7596dc847226da3b3b91f01\"; test \"$(git hash-object setup.py)\" = \"162a78cd9966ea4b49da0cb1ab40d532e22bf22a\"; test \"$(git hash-object setup.cfg)\" = \"bd5b5ed8e4722c19df057403ed2c970fe13975f1\"; test \"$(git hash-object README.md)\" = \"ce6656141ea81cd24df8d75ad1e9b0dd04d1fbb6\"; test \"$(git hash-object PKG-INFO)\" = \"529266a8e9ceff91256544f42922a645e397c839\"; test \"$(git hash-object test.py)\" = \"76039f2a44b4f9eeae157b2936fffe561a724e8d\"; test \"$(git hash-object python.lua)\" = \"0f1654a9f3240a664dd5719e539c6b6c48b8cd46\"; dpkg-query -W python2.7 python2.7-dev libpython2.7 lua5.1 liblua5.1-0 liblua5.1-0-dev libc6 gcc git pkg-config; ldd /testbed/lua.so /testbed/lua-python.so; python2.7 -c 'import lua,json,hashlib,sys,subprocess,re,os; config=subprocess.check_output([\"pkg-config\",\"--modversion\",\"lua\"]).decode().strip(); macros=subprocess.check_output([\"gcc\",\"-E\",\"-dM\",\"-I/usr/include/lua5.1\",\"-include\",\"lua.h\",\"-\"],stdin=open(\"/dev/null\")).decode(); release=re.search(r'\\''^#define LUA_RELEASE \"([^\"]+)\"'\\'',macros,re.M).group(1); info=open(\"PKG-INFO\",\"rb\").read().decode(); declared=next(l.split(\": \",1)[1]for l in info.splitlines()if l.startswith(\"Version: \")); files=[\"src/luainpython.c\",\"src/pythoninlua.c\",\"setup.py\",\"setup.cfg\",\"README.md\",\"PKG-INFO\",\"test.py\"]; report={\"source_declared_version\":declared,\"python_version\":sys.version,\"lua_runtime_family\":lua.eval(\"_VERSION\"),\"lua_header_release\":release,\"lua_pkgconfig_version\":config,\"pkgconfig_alias_realpath\":os.path.realpath(\"/usr/local/lib/pkgconfig/lua.pc\"),\"native_extension_reported\":lua.__file__,\"native_extension\":os.path.realpath(lua.__file__),\"extension_sha256\":hashlib.sha256(open(lua.__file__,\"rb\").read()).hexdigest(),\"lua_python_library_sha256\":hashlib.sha256(open(\"lua-python.so\",\"rb\").read()).hexdigest(),\"compiler\":subprocess.check_output([\"gcc\",\"--version\"]).decode().splitlines()[0],\"assets\":dict((f,{\"sha256\":hashlib.sha256(open(f,\"rb\").read()).hexdigest()})for f in files)}; assert declared==\"1.0\"; assert sys.version_info[:2]==(2,7); assert report[\"lua_runtime_family\"]==\"Lua 5.1\"; assert report[\"lua_header_release\"]==\"Lua \"+config; assert report[\"native_extension\"]==\"/testbed/lua.so\"; print(json.dumps(report))'"
+  ]
+}

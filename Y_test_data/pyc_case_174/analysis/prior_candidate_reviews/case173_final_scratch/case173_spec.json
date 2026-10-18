@@ -1,0 +1,134 @@
+{
+  "projectName": "spglib",
+  "repo": "spglib/spglib",
+  "repoUrl": "https://github.com/spglib/spglib.git",
+  "sourceRepo": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\spglib",
+  "binaryPatches": false,
+  "pythonExecutable": "python",
+  "pythonVersionTarget": "3.8",
+  "pythonVersionConfig": "3.8",
+  "pythonVersionLabel": "3.8.20 (evaluator orchestration only)",
+  "testRunnerVersion": "GoogleTest release-1.12.1 (58d77fa8070e8cec2dc1ed015d66b454c8d78850)",
+  "baseImage": "public.ecr.aws/docker/library/python:3.8.20-bullseye@sha256:11da1db2f485e2560be9817f92932a29f68fefc332b0167e8c51ae308ee23337",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\native_gtest_runner.py",
+      "source": "evaluator/native_gtest_runner.py",
+      "target": "/benchmark/native_gtest_runner.py"
+    },
+    {
+      "sourcePath": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\native_no_core.c",
+      "source": "evaluator/native_no_core.c",
+      "target": "/benchmark/native_no_core.c"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_cpp_googletest",
+  "evidenceType": "source_row_upstream_pr_and_complete_original_native_gtest",
+  "pytestPathPrefix": "test/",
+  "compilerToolchain": "Ordinary public Python3.8.20-bullseye GCC/G++10.2 and CMake3.22.6, original default Release flags. No product/test/allocator/compiler-macro changes.",
+  "caseNumber": "173",
+  "sourceCase": "172",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_173",
+  "instanceId": "spglib__spglib-36d570bc",
+  "issueId": "196",
+  "issueUrl": "https://github.com/spglib/spglib/pull/196",
+  "fixCommit": "36d570bc3fbeda20903bfbbb7db05e40d284a319",
+  "baseCommit": "9218fa14771d967a20f00764b335bc2a265790a1",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": null,
+  "mergedAt": null,
+  "fixCommittedAt": "2022-10-31",
+  "version": "2.0.1",
+  "image": "yutu0814/pyc-case-173-spglib:benchmark-v1",
+  "prototypeImage": "pyc-case173-prototype-base:latest",
+  "testFiles": [
+    "test/test_magnetic_symmetry.cpp"
+  ],
+  "testFile": "test/test_magnetic_symmetry.cpp",
+  "goldPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_gold.diff",
+  "testPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case173_test.diff",
+  "dockerfileSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.spglib173-local",
+  "validationStatus": "deferred_all_original_native_tests_pass_on_base_and_gold",
+  "expectedBaseExitCode": 0,
+  "environment": "spglib_original_cpp_gtest_c_api",
+  "testExecution": "Complete original GoogleTest bodies from exact upstream C++ test patch. Actual C API calls, original lattice/tensors/tolerances/assertions; no extracted body or additional oracle.",
+  "nativeAuditCommand": "test -x /testbed/build/test_magnetic_symmetry && test \"$(git -C /opt/googletest rev-parse HEAD)\" = 58d77fa8070e8cec2dc1ed015d66b454c8d78850 && /testbed/build/test_magnetic_symmetry --gtest_list_tests",
+  "buildCommand": "cmake -S test -B build -DFETCHCONTENT_SOURCE_DIR_GOOGLETEST=/opt/googletest && cmake --build build --target test_magnetic_symmetry --parallel 2",
+  "buildSystem": "Original standalone test/CMakeLists.txt with default Release; only standard FETCHCONTENT_SOURCE_DIR_GOOGLETEST selects preinstalled exact release-1.12.1 public dependency for offline evaluation.",
+  "testSourceLabel": "Complete original native C++ GoogleTest cases",
+  "testCommand": "python /benchmark/native_gtest_runner.py --binary /testbed/build/test_magnetic_symmetry",
+  "collectCommand": "python /benchmark/native_gtest_runner.py --binary /testbed/build/test_magnetic_symmetry --collect-only",
+  "problemStatement": "Handle inconsistent magnetic symmetry operations by returning failure without dereferencing a missing operation set or leaking a partially constructed magnetic dataset.",
+  "upstreamDescription": "Full3-file merge changes src/spglib.c and src/spin.c plus the complete original broken-symmetry C++ test.",
+  "sourceTraceNotes": "Preserve original Python-C taxonomy and Python get_magnetic_symmetry_dataset trace separately. Actual official regression uses native C++ GoogleTest directly calling C API; Python binding path is not executed.",
+  "nativeRequirement": "Original standalone test/CMakeLists.txt default Release, C++11, exact original GoogleTest release-1.12.1. Ordinary CMake/GCC on public Debian bullseye. No sanitizer or additional compiler flags.",
+  "workbookDateFields": true,
+  "passToPass": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4"
+  ],
+  "probeNodes": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+  ],
+  "testNodeOrder": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/spglib/spglib/pull/196",
+    "base_commit": "9218fa14771d967a20f00764b335bc2a265790a1",
+    "fix_commit": "36d570bc3fbeda20903bfbbb7db05e40d284a319",
+    "source_parents": [
+      "9218fa14771d967a20f00764b335bc2a265790a1",
+      "4e8bf3872b4c2c113d687bf43ec93e25bccd629c"
+    ],
+    "source_commit_timestamp_original_offset": "2022-10-31T12:31:13+09:00",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "measured_test_language": "C++ GoogleTest -> C API; Python binding not executed",
+    "product_patch_languages": [
+      "C"
+    ],
+    "native_product_files_changed": [
+      "src/spglib.c",
+      "src/spin.c"
+    ],
+    "native_source_git_blobs": {
+      "src/spglib.c": "de3a78eb7e839ea7775f5c6106c3d78e413fd870",
+      "src/spin.c": "c19240b149cd7110219657999891cf99b1a5e54a",
+      "src/version.h": "be19feb9bf6ba1330b13d2a4e22c47962764566e",
+      "test/CMakeLists.txt": "fcb819a591e1ef7424438b2311d9401842e44c9d",
+      "test/test_magnetic_symmetry.cpp": "2355a1d3b91feacb8c92549209453b39aa6ba1c6"
+    },
+    "native_package_versions": {
+      "g++": "4:10.2.1-1",
+      "gcc": "4:10.2.1-1",
+      "git": "1:2.30.2-1+deb11u3",
+      "libc6": "2.31-13+deb11u11"
+    },
+    "environment_selection": "Original standalone test/CMakeLists.txt default Release, C++11, exact original GoogleTest release-1.12.1. Ordinary CMake/GCC on public Debian bullseye. No sanitizer or additional compiler flags.",
+    "resource_guard": "Runtime-only loader constructor sets RLIMIT_CORE=0 and PR_SET_DUMPABLE=0 for native child to avoid WSL piped core handler. No interposition, allocator/signal handlers, source or assertion changes; same Base/Gold.",
+    "tool_dependency_selection": "Debian security libarchive13 download returned404 with HTTP and HTTPS before compilation; retain both initial builds. Use public pinned cmake3.22.6 Python wheel with original CMake sources/default Release flags."
+  },
+  "probeTimeout": 600000,
+  "nativeProcessRecordMarker": "__NATIVE_PROCESS_RESULT__",
+  "candidateFailToPass": [
+    "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+  ],
+  "failToPass": []
+}

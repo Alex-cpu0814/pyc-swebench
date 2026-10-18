@@ -1,0 +1,16 @@
+*.diff text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.xlsx binary
+*.raw.log -text -whitespace
+*.txt -text -whitespace
+*.ndjson -text
+*.raw.html -text -whitespace
+*.diff -text -whitespace
+"analysis/prior_candidate_reviews/case163/case163-initial-prototype-build/stderr.raw.log" -text
+"analysis/source_material/case174_pr195.raw.html" -text
+"analysis/prior_candidate_reviews/case163_final_scratch/case163-initial-prototype-build/stderr.raw.log" -text

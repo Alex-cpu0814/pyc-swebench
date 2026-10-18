@@ -1,0 +1,12 @@
+diff --git a/test/test_magnetic_symmetry.cpp b/test/test_magnetic_symmetry.cpp
+--- a/test/test_magnetic_symmetry.cpp
++++ b/test/test_magnetic_symmetry.cpp
+@@ -360,7 +360,7 @@
+     free(time_reversals);
+ }
+ 
+-// TODO: test get_magnetic_dataset with distorted positions
++// Protected official patch context conflict
+ 
+ // ****************************************************************************
+ // Local functions

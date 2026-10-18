@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 174,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "172",
+    "https://github.com/spglib/spglib/commit/36d570bc3fbeda20903bfbbb7db05e40d284a319",
+    "segment fault (crash)",
+    "line 1782",
+    "function call",
+    "assignment",
+    null,
+    " \n 1782(c_spglib_21-cfg.dot) (get_symmetry_with_site_tensors)\n…\n -> 1747(c_spglib_21-cfg.dot) (get_symmetry_with_site_tensors)\n -> 1233(c_spglib_21-cfg.dot) (get_magnetic_dataset)\n…\n -> 1195(c_spglib_21-cfg.dot) (get_magnetic_dataset)\n -> 289(c_spglib_21-cfg.dot) (spgms_get_magnetic_dataset)\n…\n -> 284(c_spglib_21-cfg.dot) (spgms_get_magnetic_dataset)\n -> 518(c__spglib_29-cfg.dot) (py_get_magnetic_dataset)\n…\n -> 488(c__spglib_29-cfg.dot) (py_get_magnetic_dataset)\n -> 624(py_spglib_35-cfg.dot) (get_magnetic_symmetry_dataset)",
+    "PyArg_ParseTuple,Foreign,Parsing arguments and building values,PyArray_DIMS,NAX,Array API,PyArray_DATA,NAX,Array API",
+    "\n Python->C",
+    "\n\nException handling",
+    "Boundary check against value range/limit",
+    "if/branching statement"
+  ]
+}

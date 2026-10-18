@@ -1,0 +1,27 @@
+gcc	4:7.4.0-1ubuntu2.3
+git	1:2.17.1-1ubuntu0.18
+libc6:amd64	2.27-3ubuntu1.6
+liblua5.1-0:amd64	5.1.5-8.1build2
+liblua5.1-0-dev:amd64	5.1.5-8.1build2
+libpython2.7:amd64	2.7.17-1~18.04ubuntu1.11
+lua5.1	5.1.5-8.1build2
+pkg-config	0.29.1-0ubuntu2
+python2.7	2.7.17-1~18.04ubuntu1.11
+python2.7-dev	2.7.17-1~18.04ubuntu1.11
+/testbed/lua.so:
+	linux-vdso.so.1 (0x0000759b13bae000)
+	liblua5.1.so.0 => /usr/lib/x86_64-linux-gnu/liblua5.1.so.0 (0x0000759b133cb000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000759b131ac000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000759b12dbb000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000759b12a1d000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000759b12819000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000759b13800000)
+/testbed/lua-python.so:
+	linux-vdso.so.1 (0x00007e4ea544a000)
+	liblua5.1.so.0 => /usr/lib/x86_64-linux-gnu/liblua5.1.so.0 (0x00007e4ea4dcb000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007e4ea4bac000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e4ea47bb000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007e4ea441d000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007e4ea4219000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007e4ea5200000)
+{"python_version": "2.7.17 (default, Mar  8 2023, 18:40:28) \n[GCC 7.5.0]", "pkgconfig_alias_realpath": "/usr/lib/x86_64-linux-gnu/pkgconfig/lua5.1.pc", "lua_pkgconfig_version": "5.1.5", "native_extension_reported": "lua.so", "lua_header_release": "Lua 5.1.5", "compiler": "gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0", "native_extension": "/testbed/lua.so", "assets": {"test.py": {"sha256": "774b59719e2f1b98546108a323562a4fd60decba4b11f5b512a6222b23e8708e"}, "setup.cfg": {"sha256": "edec24d3556d7963c9dea9647f52a6a3cf986d10a7d23091fe6e6700408c727f"}, "PKG-INFO": {"sha256": "8c9f5ced6deeac16a8bdb82642f76190fefbf5da1099819368f29da533eb5de7"}, "src/pythoninlua.c": {"sha256": "6731f2e233acd373521d876b6069b77e1093541872ca22e0713871e1c3196876"}, "src/luainpython.c": {"sha256": "bea1fed539c48d2728e2af1a929128bf41ea9887217c8fe80efc1219bf3cca8f"}, "setup.py": {"sha256": "9c4bc01d1482221e253ab630d72007e13fcb94a777cc46c7e063f4cd5ec152c5"}, "README.md": {"sha256": "b39e0fc3d6a570379d92d59b61207831ed45515ac65ac0d92cffd89948e87855"}}, "lua_python_library_sha256": "e504f8f250421b8115f047b928769281c793597187a2ec0a7b170000bdbe0ad6", "lua_runtime_family": "Lua 5.1", "source_declared_version": "1.0", "extension_sha256": "e504f8f250421b8115f047b928769281c793597187a2ec0a7b170000bdbe0ad6"}

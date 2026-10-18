@@ -1,0 +1,16 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /testbed/build
+Consolidate compiler generated dependencies of target gtest
+Consolidate compiler generated dependencies of target symspg
+[  3%] Building C object CMakeFiles/symspg.dir/testbed/src/overlap.c.o
+[  9%] Built target gtest
+Consolidate compiler generated dependencies of target gtest_main
+[ 15%] Built target gtest_main
+[ 18%] Building C object CMakeFiles/symspg.dir/testbed/src/spin.c.o
+[ 21%] Linking C static library libsymspg.a
+[ 90%] Built target symspg
+Consolidate compiler generated dependencies of target test_magnetic_symmetry
+[ 93%] Building CXX object CMakeFiles/test_magnetic_symmetry.dir/test_magnetic_symmetry.cpp.o
+[ 96%] Linking CXX executable test_magnetic_symmetry
+[100%] Built target test_magnetic_symmetry

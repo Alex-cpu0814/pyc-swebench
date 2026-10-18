@@ -1,0 +1,28 @@
+{
+  "original_test_name": "test_magnetic_symmetry.test_spgms_get_magnetic_dataset_high_mag_symprec",
+  "declared_equivalent_atoms_capacity": 3,
+  "num_atoms_passed": 6,
+  "required_success_assertion": "ASSERT_TRUE(size > 0)",
+  "test_declaration_line": [
+    331,
+    397
+  ],
+  "test_num_atoms_lines": [
+    389
+  ],
+  "wrapper_call_lines": [
+    472
+  ],
+  "wrapper_cell_allocation_lines": [
+    488,
+    1212
+  ],
+  "cell_size_assignment_lines": [
+    84
+  ],
+  "copy_assignment_lines": [
+    1794
+  ],
+  "reasoning": "The wrapper allocates Cell with num_atom6. cel_alloc_cell stores size6. On the success path required by the original first assertion, get_symmetry_with_site_tensors copies equivalent_atoms[i] for i0..5 into the caller buffer whose capacity is3. The original test therefore writes beyond its own output buffer before testing get_magnetic_dataset. These wrapper/allocation files are byte-identical on Base/Gold; the three-line magnetic_spacegroup product fix does not repair this independent test fixture defect.",
+  "verification": "Static exact-source/call-chain proof only; no compiler, sanitizer, Base/Gold process, crash or test pass/fail was run or claimed."
+}

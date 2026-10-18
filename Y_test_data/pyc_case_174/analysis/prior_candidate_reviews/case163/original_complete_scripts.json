@@ -1,0 +1,14 @@
+{
+  "base": {
+    "git_blob": "76039f2a44b4f9eeae157b2936fffe561a724e8d",
+    "sha256": "774b59719e2f1b98546108a323562a4fd60decba4b11f5b512a6222b23e8708e",
+    "encoding": "utf-8",
+    "content": "print \"----- import lua -----\"\nimport lua\nprint \"----- lg = lua.globals() -----\"\nlg = lua.globals()\nprint \"----- lg.foo = \\\"bar\\\" -----\"\nlg.foo = 'bar'\nprint \"----- lg.tmp = [] -----\"\nlg.tmp = []\nprint \"----- print lg.tmp -----\"\nprint lg.tmp\nprint \"----- lua.execute(\\\"xxx = {1,2,3,foo={4,5}}\\\") -----\"\nlua.execute(\"xxx = {1,2,3,foo={4,5}}\")\nprint \"----- print lg.xxx[1] -----\"\nprint lg.xxx[1]\nprint \"----- print lg.xxx[2] -----\"\nprint lg.xxx[2]\nprint \"----- print lg.xxx[3] -----\"\nprint lg.xxx[3]\nprint \"----- print lg.xxx['foo'][1] -----\"\nprint lg.xxx['foo'][1]\n"
+  },
+  "fixed": {
+    "git_blob": "354b010dd52a8d836d265cc10035438bb7acf7bb",
+    "sha256": "f8f21f3f757e1d4bdffc504ff29f3748aa4178f65973777a35e63131a57c4744",
+    "encoding": "utf-8",
+    "content": "print \"----- import lua -----\"\nimport lua\nprint \"----- lg = lua.globals() -----\"\nlg = lua.globals()\nprint \"lg:\", lg\nprint \"lg._G:\", lg._G\nprint \"lg['_G']:\", lg['_G']\nprint \"----- lg.foo = \\\"bar\\\" -----\"\nlg.foo = 'bar'\nprint \"----- lg.tmp = [] -----\"\nlg.tmp = []\nprint \"----- print lg.tmp -----\"\nprint lg.tmp\nprint \"----- lua.execute(\\\"xxx = {1,2,3,foo={4,5}}\\\") -----\"\nlua.execute(\"xxx = {1,2,3,foo={4,5}}\")\nprint \"----- print lg.xxx[1] -----\"\nprint lg.xxx[1]\nprint \"----- print lg.xxx[2] -----\"\nprint lg.xxx[2]\nprint \"----- print lg.xxx[3] -----\"\nprint lg.xxx[3]\nprint \"----- print lg.xxx['foo'][1] -----\"\nprint lg.xxx['foo'][1]\nprint \"lua.require =\", lua.require\ntry:\n    lua.require(\"foo\")\nexcept:\n    print \"lua.require('foo') raised an exception\"\n\n"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-174-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-10-18T07:02:04.681Z",
+  "finished_at": "2026-10-18T07:02:07.209Z",
+  "duration_ms": 2516,
+  "source": {
+    "repo": "https://github.com/spglib/spglib.git",
+    "base_commit": "9458171a2eb9bea9036632a408da7b269ea07bbb"
+  },
+  "image": {
+    "name": "yutu0814/pyc-case-174-spglib:benchmark-v1",
+    "id": "sha256:370afac41f58090a6e2e5b252836e1f5aedc8a31127910c403ce5782eb0c89a1",
+    "repo_digests": [
+      "yutu0814/pyc-case-174-spglib@sha256:370afac41f58090a6e2e5b252836e1f5aedc8a31127910c403ce5782eb0c89a1"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

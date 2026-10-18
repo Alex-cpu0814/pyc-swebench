@@ -1,0 +1,34 @@
+{
+  "sheet": "analysis result",
+  "excel_row": 164,
+  "headers": [
+    "Case",
+    "Link",
+    "Symptom",
+    "Bug Location",
+    null,
+    null,
+    null,
+    "Bug Path",
+    "type",
+    "Data/Control Flow Direction",
+    "Root Cause",
+    "Strategy",
+    "Fixing Location"
+  ],
+  "row": [
+    "162",
+    "https://github.com/bastibe/lunatic-python/commit/bf894ed520b97645298e4e6eae377b028fc04cab",
+    "crash",
+    "line 467",
+    "function call",
+    null,
+    null,
+    " \n467(c_luainpython_6-cfg.dot) (Lua_require)\n…\n -> 446(c_luainpython_6-cfg.dot) (Lua_require)\n -> 24(py_test_lua_4-cfg.dot) (__main__)",
+    "PyCallable_Check,Foreign,Call Protocol,PyTuple_SetItem,Foreign,Tuple Objects,PyTuple_New,Foreign,Tuple Objects,PyErr_Print,Foreign,Exception Handling,Py_DECREF,Foreign,Reference Counting,PyObject_DelItem,Foreign,Tuple Objects",
+    "\n Python->C",
+    "\n\nfunction misuse",
+    "change the function",
+    "function call"
+  ]
+}

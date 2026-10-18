@@ -1,0 +1,20 @@
+----- import lua -----
+----- lg = lua.globals() -----
+lg: <Lua table at 0x59ab79613100>
+lg._G: <Lua table at 0x59ab79613100>
+lg['_G']: <Lua table at 0x59ab79613100>
+----- lg.foo = "bar" -----
+----- lg.tmp = [] -----
+----- print lg.tmp -----
+[]
+----- lua.execute("xxx = {1,2,3,foo={4,5}}") -----
+----- print lg.xxx[1] -----
+1
+----- print lg.xxx[2] -----
+2
+----- print lg.xxx[3] -----
+3
+----- print lg.xxx['foo'][1] -----
+4
+lua.require = <built-in function require>
+lua.require('foo') raised an exception

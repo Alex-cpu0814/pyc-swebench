@@ -1,0 +1,62 @@
+{
+  "schema_version": "3.0",
+  "kind": "patch_evaluation",
+  "run_id": "case-174-final-gold",
+  "label": "gold",
+  "instance_id": "spglib__spglib-9218fa14",
+  "status": "resolved",
+  "reason": "all_expected_tests_passed",
+  "started_at": "2026-10-18T07:02:23.216Z",
+  "finished_at": "2026-10-18T07:02:26.743Z",
+  "duration_ms": 3515,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "model_patch_sha256": "f7440984491cbd6dc29b12424b2e404f7756a774d6b1f2b5712682fab5e38cfe",
+  "test_patch_sha256": "ea7efff73435dfe28aff80c47b4ece44b6ab4b77f9ffa58edd26dc2cbe8a1f5f",
+  "image": {
+    "name": "yutu0814/pyc-case-174-spglib:benchmark-v1",
+    "id": "sha256:370afac41f58090a6e2e5b252836e1f5aedc8a31127910c403ce5782eb0c89a1",
+    "repo_digests": [
+      "yutu0814/pyc-case-174-spglib@sha256:370afac41f58090a6e2e5b252836e1f5aedc8a31127910c403ce5782eb0c89a1"
+    ]
+  },
+  "container_exit_code": 0,
+  "phase": {
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed",
+    "test_exit_code": 0,
+    "instance_id": "spglib__spglib-9218fa14"
+  },
+  "grading": {
+    "tests_observed": 4,
+    "FAIL_TO_PASS": {
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "PASS_TO_PASS": {
+      "expected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "missing": 0
+    },
+    "unexpected_failures": 0
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "model_patch": "model-patch.raw.log",
+    "test_patch": "test-patch.raw.log",
+    "project_build": "project-build.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json"
+  }
+}

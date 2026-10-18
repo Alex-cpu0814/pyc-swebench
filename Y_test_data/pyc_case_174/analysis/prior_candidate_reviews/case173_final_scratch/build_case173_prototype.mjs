@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import {spawn} from 'node:child_process';
+const work='E:/CLB_Swe-bench/_work/pyc_batch',s=JSON.parse(fs.readFileSync(work+'/case173_spec.json','utf8'));
+const context=work+'/case173-image-context',out=work+'/case173-prototype-build'+(process.argv[2]??'');
+fs.mkdirSync(context,{recursive:true});fs.mkdirSync(out);
+fs.copyFileSync(s.dockerfileSource,context+'/Dockerfile');fs.writeFileSync(context+'/.dockerignore','*\n!Dockerfile\n');
+const cmd=['build','--progress=plain','-t',s.prototypeImage,context],startedAt=new Date().toISOString();
+fs.writeFileSync(out+'/started.json',JSON.stringify({startedAt,command:cmd},null,2));
+const child=spawn('C:/Users/玉兔/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe',cmd,{windowsHide:true});
+const stdout=fs.createWriteStream(out+'/stdout.raw.log'),stderr=fs.createWriteStream(out+'/stderr.raw.log');child.stdout.pipe(stdout);child.stderr.pipe(stderr);
+const timer=setTimeout(()=>child.kill(),1200000);
+const exitCode=await new Promise((resolve,reject)=>{child.on('error',reject);child.on('close',resolve)});clearTimeout(timer);
+fs.writeFileSync(out+'/summary.json',JSON.stringify({startedAt,finishedAt:new Date().toISOString(),image:s.prototypeImage,exitCode,command:cmd},null,2)+'\n');
+console.log(JSON.stringify({image:s.prototypeImage,exitCode}));process.exitCode=exitCode;

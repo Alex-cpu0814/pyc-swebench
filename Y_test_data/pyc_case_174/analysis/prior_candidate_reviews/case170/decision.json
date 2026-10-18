@@ -1,0 +1,30 @@
+{
+  "case_number": "170",
+  "repo": "spglib/spglib",
+  "fix_commit": "1945d46d7ccf569046f24087e96f58392ded260f",
+  "base_commit": "3681a8a57353158882e59abf6ecb3cc054c7abf5",
+  "source_parents": [
+    "3681a8a57353158882e59abf6ecb3cc054c7abf5",
+    "b67fcc7625a2c89e669a1129e74e0d5dc28cbc05"
+  ],
+  "product_files": [
+    "doc/python-spglib.md",
+    "src/magnetic_spacegroup.c",
+    "test/README.md"
+  ],
+  "test_files": [
+    "test/test_magnetic_symmetry.cpp"
+  ],
+  "status": "deferred_official_test_output_buffer_too_small",
+  "runtime_verified": false,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "publication_performed": false,
+  "reason": "The wrapper allocates Cell with num_atom6. cel_alloc_cell stores size6. On the success path required by the original first assertion, get_symmetry_with_site_tensors copies equivalent_atoms[i] for i0..5 into the caller buffer whose capacity is3. The original test therefore writes beyond its own output buffer before testing get_magnetic_dataset. These wrapper/allocation files are byte-identical on Base/Gold; the three-line magnetic_spacegroup product fix does not repair this independent test fixture defect.",
+  "scope": "Original new official native GoogleTest C++ method and complete upstream4-file patch; source Python-C taxonomy/trace preserved separately. No runtime outcome or Python binding validation claimed.",
+  "no_original_test_modification": true,
+  "no_sanitizer_or_compiler_change": true,
+  "future_admission": "Require a valid original upstream fixture or separately reviewed source record. Do not silently resize the official array, change num_atoms, edit assertions or use observed undefined behavior as reliable product FAIL_TO_PASS.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case170"
+}

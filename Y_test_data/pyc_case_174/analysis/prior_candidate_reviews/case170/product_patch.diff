@@ -1,0 +1,46 @@
+diff --git a/doc/python-spglib.md b/doc/python-spglib.md
+index 694801e..2c0ae02 100644
+--- a/doc/python-spglib.md
++++ b/doc/python-spglib.md
+@@ -595,8 +595,9 @@ Arguments
+ - `mag_symprec`: See {ref}`py_get_magnetic_symmetry`
+ - `is_axial`: See {ref}`py_get_magnetic_symmetry`
+ 
+-Returned `dataset` is a dictionary.
++If successful, returned `dataset` is a dictionary.
+ The description of its keys is given at {ref}`magnetic_spglib_dataset`.
++If the magnetic symmetry search failed, `dataset` is `None`.
+ 
+ ### `get_magnetic_spacegroup_type`
+ 
+diff --git a/src/magnetic_spacegroup.c b/src/magnetic_spacegroup.c
+index ab517b3..eac710d 100644
+--- a/src/magnetic_spacegroup.c
++++ b/src/magnetic_spacegroup.c
+@@ -439,6 +439,9 @@ static int get_reference_space_group(Spacegroup **ref_sg,
+     type = get_magnetic_space_group_type(&representatives, magnetic_symmetry,
+                                          sym_fsg->size, sym_xsg->size);
+     debug_print("type=%d\n", type);
++    if (type == 0) {
++        goto err;
++    }
+ 
+     /* Choose reference setting */
+     /* For type-IV, use setting from Hall symbol of XSG. */
+diff --git a/test/README.md b/test/README.md
+index 22423a8..9d2f68e 100644
+--- a/test/README.md
++++ b/test/README.md
+@@ -12,9 +12,11 @@ For example, to run `test_symmetry_search.test_spg_get_symmetry`
+ 
+ ```shell
+ # at build/test
+-./CTests --gtest_filter=test_spg_get_symmetry
++./CTests --gtest_filter=test_symmetry_search.test_spg_get_symmetry
+ ```
+ 
++If you use debuggers like gdb or lldb, recompile with `CMAKE_BUILD_TYPE=Debug`.
++
+ ## How to add a new test file
+ 
+ 1. Create `<your_test_suite_name>.cpp`

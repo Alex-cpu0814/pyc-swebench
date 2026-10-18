@@ -1,0 +1,84 @@
+{
+  "case_number": "173",
+  "repo": "spglib/spglib",
+  "fix_commit": "36d570bc3fbeda20903bfbbb7db05e40d284a319",
+  "base_commit": "9218fa14771d967a20f00764b335bc2a265790a1",
+  "product_files": [
+    "src/spglib.c",
+    "src/spin.c"
+  ],
+  "test_files": [
+    "test/test_magnetic_symmetry.cpp"
+  ],
+  "status": "deferred_all_original_native_tests_pass_on_base_and_gold",
+  "runtime_verified": true,
+  "formal_benchmark_created": false,
+  "formal_workbook_created": false,
+  "formal_image_published": false,
+  "publication_performed": false,
+  "prototype_image": "pyc-case173-prototype-base:latest",
+  "reason": "Complete exact official native C++ GoogleTest target and three complete original regressions all pass on both unmodified Base and full exact Gold, process exit0. No FAIL_TO_PASS or reported crash reproduced in the ordinary shared default Release environment. Preserve real status without adding assertions, modifying inputs, compiler options, allocator behavior or signal handlers to manufacture a distinction.",
+  "observed_native_process_results": {
+    "base": {
+      "command": [
+        "/testbed/build/test_magnetic_symmetry",
+        "--gtest_color=no",
+        "--gtest_filter=test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database:test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type:test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4:test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "requested_nodes": [
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "observed_starts": [
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "terminal_statuses": {
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry": "PASSED"
+      },
+      "returncode": 0,
+      "signal": null,
+      "shell_exit_code": 0,
+      "executed": true
+    },
+    "gold": {
+      "command": [
+        "/testbed/build/test_magnetic_symmetry",
+        "--gtest_color=no",
+        "--gtest_filter=test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database:test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type:test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4:test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "requested_nodes": [
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "observed_starts": [
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry"
+      ],
+      "terminal_statuses": {
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_symmetry_from_database": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_spacegroup_type": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_spg_get_magnetic_dataset_type4": "PASSED",
+        "test/test_magnetic_symmetry.cpp::test_magnetic_symmetry.test_with_broken_symmetry": "PASSED"
+      },
+      "returncode": 0,
+      "signal": null,
+      "shell_exit_code": 0,
+      "executed": true
+    }
+  },
+  "scope": "Preserve original Python-C taxonomy and Python get_magnetic_symmetry_dataset trace separately. Actual official regression uses native C++ GoogleTest directly calling C API; Python binding path is not executed.",
+  "resource_guard": "Runtime-only loader constructor sets RLIMIT_CORE=0 and PR_SET_DUMPABLE=0 for native child to avoid WSL piped core handler. No interposition, allocator/signal handlers, source or assertion changes; same Base/Gold.",
+  "archive_destination": "Next suitable formal case under analysis/prior_candidate_reviews/case173"
+}

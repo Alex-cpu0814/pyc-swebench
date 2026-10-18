@@ -1,0 +1,10 @@
+Python 3.8.20
+Running main() from /opt/googletest/googletest/src/gtest_main.cc
+test_magnetic_symmetry.
+  test_spg_get_magnetic_symmetry_from_database
+  test_spg_get_symmetry_with_collinear_spin
+  test_spg_get_symmetry_with_site_tensors
+  test_spg_get_magnetic_spacegroup_type
+  test_spg_get_magnetic_dataset
+  test_spg_get_magnetic_dataset_type4
+  test_spg_get_symmetry_with_tensors_rough_symprec

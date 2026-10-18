@@ -1,0 +1,113 @@
+{
+  "projectName": "lunatic-python",
+  "repo": "bastibe/lunatic-python",
+  "repoUrl": "https://github.com/bastibe/lunatic-python.git",
+  "sourceRepo": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\lunatic-python",
+  "binaryPatches": false,
+  "pythonExecutable": "python2.7",
+  "pythonVersionTarget": "2.7",
+  "pythonVersionConfig": "2.7",
+  "pythonVersionLabel": "2.7.17",
+  "numpyVersion": "not required",
+  "testRunnerVersion": "Complete original Python2 script via standard runpy __main__",
+  "baseImage": "public.ecr.aws/ubuntu/ubuntu:18.04@sha256:975b418c2c6c72bdfb978ac631c3fae2f42b752f5ab29dec706a01f3f6acc14b",
+  "dockerRunArgs": [
+    "--memory",
+    "2g",
+    "--cpus",
+    "4",
+    "--ulimit",
+    "core=0:0"
+  ],
+  "additionalRuntimeAssets": [
+    {
+      "sourcePath": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\run_original_script_no_dump.py",
+      "source": "evaluator/run_original_script_no_dump.py",
+      "target": "/benchmark/run_original_script_no_dump.py"
+    }
+  ],
+  "probeEvidenceRoot": "E:/CLB_Swe-bench/_work/pyc_batch",
+  "validationType": "official_python_script",
+  "evidenceType": "source_row_upstream_pr_and_complete_original_script_process",
+  "compilerToolchain": "Ordinary Ubuntu18.04 GCC7.5/Python2.7-dev/liblua5.1-0-dev with original distutils flags. Same standard pkg-config alias on Base/Gold, no product compatibility shim or compiler macro edits.",
+  "caseNumber": "163",
+  "sourceCase": "162",
+  "duplicateSourceCases": [],
+  "sourceInstanceId": "pyc_case_163",
+  "instanceId": "bastibe__lunatic-python-bf894ed5",
+  "issueId": "5",
+  "issueUrl": "https://github.com/bastibe/lunatic-python/pull/5",
+  "fixCommit": "bf894ed520b97645298e4e6eae377b028fc04cab",
+  "baseCommit": "d9033bcf19b5f8404c7ee61f35e001fcfd603614",
+  "baseCommitStatus": "verified_first_parent_of_source_commit",
+  "createdAt": null,
+  "mergedAt": null,
+  "fixCommittedAt": "2013-02-21",
+  "version": "1.0",
+  "image": "yutu0814/pyc-case-163-lunatic-python:benchmark-v1",
+  "prototypeImage": "pyc-case163-prototype-base:latest",
+  "testFiles": [
+    "test.py"
+  ],
+  "testFile": "test.py",
+  "goldPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_gold.diff",
+  "testPatchSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\case163_test.diff",
+  "dockerfileSource": "E:\\CLB_Swe-bench\\_work\\pyc_batch\\Dockerfile.lunatic-python163-local",
+  "validationStatus": "pending_original_script_probe",
+  "expectedBaseExitCode": null,
+  "environment": "lunatic_python_original_full_script_lua51",
+  "testExecution": "Run complete exact official protected test.py as Python2 __main__ through standard runpy, no body extraction, result assertions or added calls. Preserve actual script stdout/stderr/process exit.",
+  "nativeAuditCommand": "python2.7 -c \"import lua; print(lua.__file__,lua.eval('_VERSION')); assert lua.__file__ == '/testbed/lua.so'; assert lua.eval('_VERSION') == 'Lua 5.1'\"",
+  "buildCommand": "python2.7 setup.py build_ext --inplace --force",
+  "buildSystem": "Original python2.7 setup.py build_ext --inplace --force builds both lua.so and lua-python.so. Unmodified source uses standard installed Lua5.1 pkg-config metadata alias lua.",
+  "testSourceLabel": "Complete original standard unittest Check methods",
+  "testCommand": "python2.7 /benchmark/run_original_script_no_dump.py /testbed/test.py",
+  "problemStatement": "Update the Python/Lua bridge setup and native global/module APIs for Lua5.2 compatibility while retaining original script behavior.",
+  "upstreamDescription": "Full4-file upstream merge changes setup.py, src/luainpython.c and src/pythoninlua.c plus9 original test.py added lines (global table prints and caught missing-module require). Original test is a complete Python2 script, not pytest/unittest methods.",
+  "sourceTraceNotes": "Original source162/Excel164 classifies crash and traces Lua_require to a recorded __main__ caller at line24. Preserve that report separately from measured complete official test.py runtime. README explicitly describes Python2.7/Lua5.1/Ubuntu; a shared Lua5.1 environment will be measured without pretending to execute the new Lua5.2 port branch.",
+  "nativeRequirement": "Original README-supported Python2.7/Lua5.1 on public Ubuntu18.04 development/runtime packages. Standard pkg-config alias lua points to installed official lua5.1 metadata identically on Base/Gold.",
+  "workbookDateFields": true,
+  "passToPass": [],
+  "probeNodes": [
+    "test.py::__main__"
+  ],
+  "testNodeOrder": [
+    "test.py::__main__"
+  ],
+  "provenance": {
+    "upstream_url": "https://github.com/bastibe/lunatic-python/pull/5",
+    "base_commit": "d9033bcf19b5f8404c7ee61f35e001fcfd603614",
+    "fix_commit": "bf894ed520b97645298e4e6eae377b028fc04cab",
+    "source_parents": [
+      "d9033bcf19b5f8404c7ee61f35e001fcfd603614",
+      "89f2b841a145c218b70d224f6e6197071c88898c"
+    ],
+    "source_commit_timestamp_original_offset": "2013-02-21T02:18:29-08:00",
+    "source_classification": "Python-C (preserved original taxonomy)",
+    "additional_runtime_language": "Lua",
+    "product_patch_languages": [
+      "C",
+      "Python build configuration"
+    ],
+    "native_product_files_changed": [
+      "src/luainpython.c",
+      "src/pythoninlua.c",
+      "setup.py"
+    ],
+    "native_source_git_blobs": {
+      "src/luainpython.c": "b25ebcd90a6eae9eab5e944c0a02b15d68121c2e",
+      "src/pythoninlua.c": "62e7d4644e5b3b0da7596dc847226da3b3b91f01",
+      "setup.py": "162a78cd9966ea4b49da0cb1ab40d532e22bf22a",
+      "setup.cfg": "bd5b5ed8e4722c19df057403ed2c970fe13975f1",
+      "README.md": "ce6656141ea81cd24df8d75ad1e9b0dd04d1fbb6",
+      "PKG-INFO": "529266a8e9ceff91256544f42922a645e397c839",
+      "test.py": "76039f2a44b4f9eeae157b2936fffe561a724e8d",
+      "python.lua": "0f1654a9f3240a664dd5719e539c6b6c48b8cd46"
+    },
+    "native_package_versions": {},
+    "environment_selection": "Original README explicitly Python2.7/Lua5.1/Ubuntu. Same public pinned Ubuntu18.04, normal Python2.7/GCC/Lua5.1 packages and standard lua.pc alias on Base/Gold. This common-environment test does not claim Lua5.2 runtime coverage. No source/test/compiler/allocator changes."
+  },
+  "failToPass": [
+    "test.py::__main__"
+  ]
+}
