@@ -4,6 +4,16 @@ This repository contains deduplicated Python-C cross-language bug records that
 have official upstream regression tests and have been converted to a
 SWE-bench-compatible layout.
 
+## LLM repair experiments
+
+Read the [LLM 修复实验指南与记录规范](docs/LLM_REPAIR_PROTOCOL.md)
+for the complete workflow: public task, fixed Base source, model input,
+candidate patch, Docker evaluation, and result reporting.
+
+The guide defines a provided-source-context protocol with separate first-round
+and feedback-assisted results. The verification table below reports Base/Gold
+dataset validation, not LLM repair scores.
+
 ## Completed cases
 
 | Case | Repository | Upstream record | Verification |
