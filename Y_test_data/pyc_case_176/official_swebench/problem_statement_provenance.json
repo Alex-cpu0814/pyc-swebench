@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/bcdev/jpy/issues/52"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/bcdev/jpy/issues/52",
+      "snapshot_sha256": "88277f6553fac2a51e0589ddcd370fc9bed4e5279d6ab108ae810922745137b8",
+      "created_at": "2015-07-10T13:10:42Z",
+      "updated_at": "2015-09-06T10:49:50Z",
+      "retrieved_at_utc": null
+    }
+  ],
+  "statement_sha256": "257fab59bfc9eade86bbefa45aa5d60f7ebe6e2dde39faf54904ac81527c1c1a",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

@@ -1,0 +1,60 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/scipy/scipy/issues/3203",
+    "https://github.com/scipy/scipy/issues/4922",
+    "https://github.com/scipy/scipy/issues/5223",
+    "https://github.com/scipy/scipy/issues/6713",
+    "https://github.com/scipy/scipy/issues/7324",
+    "https://github.com/scipy/scipy/issues/10620"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/scipy/scipy/issues/3203",
+      "snapshot_sha256": "5b91db68c2f3ea8ad8e6501ce7e3a9484a8fae38f20a7be136620f700308485e",
+      "created_at": "2014-01-10T15:43:32Z",
+      "updated_at": "2020-11-29T12:44:56Z",
+      "retrieved_at_utc": "2026-11-03T10:26:37.8303690Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/4922",
+      "snapshot_sha256": "b1b88b58c3091c0e45244721ae7cd0bc30f91f8caa2d9c5daa398adb7d713c7c",
+      "created_at": "2015-05-29T17:20:14Z",
+      "updated_at": "2020-11-29T12:45:48Z",
+      "retrieved_at_utc": "2026-11-03T10:26:42.6361709Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/5223",
+      "snapshot_sha256": "bc3a84ff7027a775de1e24220d5066c20fdb3b52a764180048f17e08364476c4",
+      "created_at": "2015-09-04T13:02:47Z",
+      "updated_at": "2020-11-29T12:45:44Z",
+      "retrieved_at_utc": "2026-11-03T10:26:44.1770989Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/6713",
+      "snapshot_sha256": "fa2171e42db1daa38d9baa35fd4fc7dc90dae7b5f20f488f923855d35a594bb7",
+      "created_at": "2016-10-22T22:20:02Z",
+      "updated_at": "2020-11-29T12:45:41Z",
+      "retrieved_at_utc": "2026-11-03T10:26:45.7283849Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/7324",
+      "snapshot_sha256": "19d61894c6c9ea96fe274b4e0f0a74b7ae16fb84ae4d3be772b45075dd8248c4",
+      "created_at": "2017-04-20T15:25:25Z",
+      "updated_at": "2020-11-29T12:45:38Z",
+      "retrieved_at_utc": "2026-11-03T10:26:47.0374136Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/10620",
+      "snapshot_sha256": "7c0262b9b4753e00f5d8ee79ea4cbe10e20b7913e8db5dd3bed62a4904cfec7a",
+      "created_at": "2019-08-08T23:28:44Z",
+      "updated_at": "2020-11-29T12:45:35Z",
+      "retrieved_at_utc": "2026-11-03T10:26:32.9627859Z"
+    }
+  ],
+  "statement_sha256": "e591e67d758062960a46ee3f43767559baf0dec6069a4b30c59865e3a400f075",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/pygobject/pycairo/issues/41"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/pygobject/pycairo/issues/41",
+      "snapshot_sha256": "72b965dcb440b497e55577c8399d668a1daba03646f8077ff89676245d52793f",
+      "created_at": "2017-05-31T14:33:57Z",
+      "updated_at": "2017-06-01T12:37:55Z",
+      "retrieved_at_utc": null
+    }
+  ],
+  "statement_sha256": "6033d9504da0bb1a48776ae00f0c41fb3fef98b0e1fa4e8da45715c6c0f10d58",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

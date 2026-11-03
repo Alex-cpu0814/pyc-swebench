@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/spglib/spglib/issues/194"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/spglib/spglib/issues/194",
+      "snapshot_sha256": "afdbdb3729ed8aa04320a3b0b45d510e97c538af35354bdee69caa1eb024370a",
+      "created_at": "2022-10-28T07:06:33Z",
+      "updated_at": "2022-11-03T23:25:04Z",
+      "retrieved_at_utc": "2026-11-03T10:20:10.9737084Z"
+    }
+  ],
+  "statement_sha256": "ca79fbaa74d6eefb2b29ab936f3f57fd6b3826c7fcb4fca49c16577304473587",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

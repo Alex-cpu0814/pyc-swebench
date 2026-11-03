@@ -2,7 +2,7 @@
   "instance_id": "python-pillow__Pillow-5613",
   "repo": "python-pillow/Pillow",
   "base_commit": "f0679aff4d43dbd595b98501dc7a8420550bf4e8",
-  "problem_statement": "PSD layer counts may be encoded as negative signed 16-bit big-endian values. Reading the count as unsigned misinterprets valid files. A valid negative-layer-count PSD should open with the correct two-frame count and animation flag while normal PSD pixel decoding and layer seeking remain correct.",
+  "problem_statement": "Pillow fails/hangs on PSD hidden background layer\nDepending on file content, Pillow:\r\n\r\n- fails with \"cannot identify image file\";\r\n- fails with \"Truncated File Read\";\r\n- just hangs inside the `PsdImagePlugin._layerinfo` function because it thinks there are 65534 layers.\r\n\r\nSee attachment: [pillow-psd-fail.zip](https://github.com/python-pillow/Pillow/files/6815914/pillow-psd-fail.zip)\r\n\r\nGIMP works fine with these files.\n",
   "hints_text": "",
   "created_at": "2021-07-15",
   "version": "8.4.0.dev0",

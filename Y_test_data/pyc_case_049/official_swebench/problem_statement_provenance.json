@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/CheetahTemplate3/cheetah3/issues/26"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/CheetahTemplate3/cheetah3/issues/26",
+      "snapshot_sha256": "e82fba35573d7465874b4a9ba193f1e5eb788c83c8e8f3b26e9b553658fd4008",
+      "created_at": "2020-09-23T22:57:50Z",
+      "updated_at": "2020-09-29T19:34:28Z",
+      "retrieved_at_utc": "2026-11-03T10:19:57.1082229Z"
+    }
+  ],
+  "statement_sha256": "3cae78120d9d4598d8e65e4ea1738c6d3152700f12ba531a7405e64a0849e55c",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

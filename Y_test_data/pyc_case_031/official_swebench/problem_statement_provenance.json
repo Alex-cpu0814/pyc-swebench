@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/numpy/numpy/issues/1523"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/numpy/numpy/issues/1523",
+      "snapshot_sha256": "31e5294f9d52e7131be7cd962ae1e4dbacbd2a490822953d48b1b50dfa4be606",
+      "created_at": "2012-10-19T20:39:28Z",
+      "updated_at": "2012-10-19T20:39:29Z",
+      "retrieved_at_utc": "2026-11-03T10:33:58.1864366Z"
+    }
+  ],
+  "statement_sha256": "bf4e4de5188465a7f9c69981494cb53dc41527eb1a7baac57d98ad35b1d57ffb",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

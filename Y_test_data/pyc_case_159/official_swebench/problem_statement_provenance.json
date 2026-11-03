@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/astrofrog/fast-histogram/issues/51"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/astrofrog/fast-histogram/issues/51",
+      "snapshot_sha256": "ced1a267d9beea675545df29223729d8a028940184da79a7b9c64db82f3c738b",
+      "created_at": "2020-05-23T12:17:27Z",
+      "updated_at": "2020-05-24T20:37:13Z",
+      "retrieved_at_utc": "2026-11-03T10:20:01.4822184Z"
+    }
+  ],
+  "statement_sha256": "4db99cb09cf8c8cc18389981d04673f8b1a11885a7aaa86a3484c9afb6507160",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

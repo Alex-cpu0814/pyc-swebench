@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/scipy/scipy/issues/8217"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/scipy/scipy/issues/8217",
+      "snapshot_sha256": "3bfdd0e7236d8aeb144c1b7e95b257147cd38d8c64f562d5f36762e967e7f093",
+      "created_at": "2017-12-14T13:04:42Z",
+      "updated_at": "2018-05-14T21:01:40Z",
+      "retrieved_at_utc": "2026-11-03T10:26:51.2716987Z"
+    }
+  ],
+  "statement_sha256": "88122d0c03e8f314c8eb3731dd97edff58057c4343221ef1f102e36d26d388b0",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

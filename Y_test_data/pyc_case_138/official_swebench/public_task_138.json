@@ -2,7 +2,7 @@
   "instance_id": "pygobject__pycairo-42eb8a30",
   "repo": "pygobject/pycairo",
   "base_commit": "afee8cfba448e8c6c100afc6015d31c6aa37e172",
-  "problem_statement": "Expose RasterSourcePattern and its original acquire/release callback bridge so the official raster-source method executes, while unchanged pattern comparison, extend and filter behavior stays correct.",
+  "problem_statement": "Add RasterSourcePattern\nWe can track the lifetime of the callbacks set there through set_user_data.\r\nWe can ignore the callback data imo. It's not per callback which rules out passing *args through  and python closures should work fine.\n",
   "hints_text": "",
   "created_at": "2017-07-10",
   "version": "1.14.1",

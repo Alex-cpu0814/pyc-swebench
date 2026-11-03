@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/scipy/scipy/issues/3733"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/scipy/scipy/issues/3733",
+      "snapshot_sha256": "e9480dbf5dd26ee2c9304fc0b8a2e40809bf9f9c9f693032fb47de7bd5023e78",
+      "created_at": "2014-06-15T14:24:57Z",
+      "updated_at": "2014-12-01T17:39:14Z",
+      "retrieved_at_utc": "2026-11-03T10:26:39.3560553Z"
+    }
+  ],
+  "statement_sha256": "62c45d12082da3404c39772ebc54bd3fccc231237b87a4ca2aa77c72deed0748",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

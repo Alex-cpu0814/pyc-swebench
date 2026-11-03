@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/scipy/scipy/issues/14273"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/scipy/scipy/issues/14273",
+      "snapshot_sha256": "09fa0cacc65c6ecd6e8cf8e75f66eae520c9915e7a8245645436f32a938d0d38",
+      "created_at": "2021-06-22T03:29:21Z",
+      "updated_at": "2021-07-15T05:57:45Z",
+      "retrieved_at_utc": "2026-11-03T10:26:36.1527626Z"
+    }
+  ],
+  "statement_sha256": "73ddc7e01da61880a1f431abb5e7afca10477c0ede03aca2aaeab900e16befd1",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

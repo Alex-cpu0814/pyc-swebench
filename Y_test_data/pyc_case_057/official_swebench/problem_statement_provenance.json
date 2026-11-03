@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/python-pillow/Pillow/issues/5612"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/python-pillow/Pillow/issues/5612",
+      "snapshot_sha256": "4a8f0dc9ae2a5f556f9bbbaf0d6eaa7a4e31288fa3f3c01f09485aecd02213ef",
+      "created_at": "2021-07-14T12:22:01Z",
+      "updated_at": "2026-10-10T03:24:36Z",
+      "retrieved_at_utc": "2026-11-03T10:26:27.6298613Z"
+    }
+  ],
+  "statement_sha256": "7b3290a68eeea64a6ee61570c0f8e60a7d184d831d78f75960c2727f5f4a3742",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

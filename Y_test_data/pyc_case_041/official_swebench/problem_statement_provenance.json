@@ -1,0 +1,28 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/scipy/scipy/issues/3847",
+    "https://github.com/scipy/scipy/issues/7395"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/scipy/scipy/issues/3847",
+      "snapshot_sha256": "7ffeba6c88a1620b4a10e37adb807e16a643b771b8bff81c18b4e0b156449af2",
+      "created_at": "2014-07-31T11:37:49Z",
+      "updated_at": "2020-07-18T18:27:32Z",
+      "retrieved_at_utc": "2026-11-03T10:26:41.1081387Z"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/issues/7395",
+      "snapshot_sha256": "79a78f5d4dbf0db1a3bac00abe582b1d73acc005ae329309aa3d922288b42922",
+      "created_at": "2017-05-10T20:50:14Z",
+      "updated_at": "2020-07-18T18:27:22Z",
+      "retrieved_at_utc": "2026-11-03T10:26:48.4844720Z"
+    }
+  ],
+  "statement_sha256": "8cc06b5ca60ba1b5d4a6be25505529df32d6c91ffd9ba9c19d61823bbd9a24ab",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

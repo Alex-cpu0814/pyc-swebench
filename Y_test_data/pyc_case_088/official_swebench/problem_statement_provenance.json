@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/pygame/pygame/issues/180"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/pygame/pygame/issues/180",
+      "snapshot_sha256": "007ff98b8709cb67ca02c7ecf352e8cd7c87884abcc6c557d153471665c65f1f",
+      "created_at": "2013-10-21T08:02:15Z",
+      "updated_at": "2017-03-26T16:54:40Z",
+      "retrieved_at_utc": null
+    }
+  ],
+  "statement_sha256": "4199e06fc8fcf9e7355d26c9085557f30f58047b82a373884c9d3edeefde4c5f",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}

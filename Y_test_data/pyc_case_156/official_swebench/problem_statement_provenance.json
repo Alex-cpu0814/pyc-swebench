@@ -1,0 +1,20 @@
+{
+  "description_version": "source_issue_snapshot_20261103",
+  "source_issue_urls": [
+    "https://github.com/ghaering/pysqlite/issues/33"
+  ],
+  "source_snapshots": [
+    {
+      "url": "https://github.com/ghaering/pysqlite/issues/33",
+      "snapshot_sha256": "f148f7d66f136ecccec3104dd52994727cbd415533cdc0f575acec7377a62bde",
+      "created_at": "2013-10-14T14:31:11Z",
+      "updated_at": "2015-08-01T22:23:52Z",
+      "retrieved_at_utc": null
+    }
+  ],
+  "statement_sha256": "12f3d90b6f215cd37a2fa48dd3ec5a742bb8d92c1670d87983678ea1ad642318",
+  "construction": "Issue title + newline + raw body + newline; no appended PR text, comments, gold or test analysis",
+  "historical_body_revision_verified": false,
+  "problem_test_alignment_fully_verified": false,
+  "previous_model_scores_apply_to_previous_description": true
+}
